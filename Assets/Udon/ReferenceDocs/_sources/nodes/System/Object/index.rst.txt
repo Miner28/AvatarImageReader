@@ -1,0 +1,100 @@
+====================================================================================================================================================
+Object
+====================================================================================================================================================
+
+The Object module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__ctor____SystemObject()
+
+outputs: unnamed (``Object``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.Object.-ctor?view=netframework-4.8#System_Object__ctor_>`_
+
+op_Equality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean(System.Object System.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+Object Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__Equals__SystemObject__SystemBoolean(System.Object instanceSystem.Object obj)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+Object GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__GetHashCode__SystemInt32(System.Object instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.Object.GetHashCode?view=netframework-4.8>`_
+
+Object GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__GetType__SystemType(System.Object instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.Object?view=netframework-4.8>`_
+
+op_Inequality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean(System.Object System.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+Object ReferenceEquals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__ReferenceEquals__SystemObject_SystemObject__SystemBoolean(System.Object objASystem.Object objB)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.Object.ReferenceEquals?view=netframework-4.8>`_
+
+Object ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemObject.__ToString__SystemString(System.Object instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.Object.ToString?view=netframework-4.8>`_
+
+Object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_SystemObject(System.Object ObjectSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+

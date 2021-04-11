@@ -1,0 +1,401 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Special &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../index.html"/>
+        <link rel="next" title="Types" href="../Types/index.html"/>
+        <link rel="prev" title="Events" href="../Events/index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Events/index.html">Events</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Special</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#block">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#branch">Branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment">Comment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#null">Null</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#this">This</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-event">Custom Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for">For</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-variable">Get Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-variable">Set Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subgraph">SubGraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#while">While</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Special</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/nodes/Special/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Types/index.html" class="btn btn-neutral float-right" title="Types" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Events/index.html" class="btn btn-neutral" title="Events" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="special">
+<h1>Special<a class="headerlink" href="#special" title="Permalink to this headline">¶</a></h1>
+<p>The Special module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="block">
+<h2>Block<a class="headerlink" href="#block" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Block">
+<code class="sig-name descname">Block</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Block" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Splits flow into multiple sections. One flow input, multiple flow output. Executes all right-side flow slots from top to bottom.</p>
+</div>
+<div class="section" id="branch">
+<h2>Branch<a class="headerlink" href="#branch" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Branch">
+<code class="sig-name descname">Branch</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#Branch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: True, False</p>
+<p>Branches execution based on a conditional evaluation. If Bool is True, True flow path is executed. If Bool is False, False flow path is executed.</p>
+</div>
+<div class="section" id="comment">
+<h2>Comment<a class="headerlink" href="#comment" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Comment">
+<code class="sig-name descname">Comment</code><span class="sig-paren">(</span><em class="sig-param">System.String comment</em><span class="sig-paren">)</span><a class="headerlink" href="#Comment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="null">
+<h2>Null<a class="headerlink" href="#null" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_Null">
+<code class="sig-name descname">Const_Null</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Const_Null" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">null</span></code>)</p>
+<p>flow: none</p>
+<p>Provides a “null” value for null checking purposes.</p>
+</div>
+<div class="section" id="this">
+<h2>This<a class="headerlink" href="#this" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_This">
+<code class="sig-name descname">Const_This</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.GameObject</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_This" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/GameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="custom-event">
+<h2>Custom Event<a class="headerlink" href="#custom-event" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_Custom">
+<code class="sig-name descname">Event_Custom</code><span class="sig-paren">(</span><em class="sig-param">System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#Event_Custom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Receives a custom event. Custom event name must be typed, cannot be provided via node input.</p>
+</div>
+<div class="section" id="for">
+<h2>For<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="For">
+<code class="sig-name descname">For</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 startSystem.Int32 endSystem.Int32 step</em><span class="sig-paren">)</span><a class="headerlink" href="#For" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: index (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: Body, Exit</p>
+<p>Executes flow by using a counter. A counter is initialized with the value of start. The Body flow is executed, and then the counter is incremented by the step value. This continues until the counter’s value is greater than end. Once that has occured, flow continues along on the Exit flow.</p>
+</div>
+<div class="section" id="get-variable">
+<h2>Get Variable<a class="headerlink" href="#get-variable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Get_Variable">
+<code class="sig-name descname">Get_Variable</code><span class="sig-paren">(</span><em class="sig-param">System.String name</em><span class="sig-paren">)</span><a class="headerlink" href="#Get_Variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p>Gets the Udon variable named name and provides it as output.</p>
+</div>
+<div class="section" id="set-variable">
+<h2>Set Variable<a class="headerlink" href="#set-variable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Set_Variable">
+<code class="sig-name descname">Set_Variable</code><span class="sig-paren">(</span><em class="sig-param">System.String nameSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#Set_Variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Sets the Udon variable named name to value when flow is executed.</p>
+</div>
+<div class="section" id="subgraph">
+<h2>SubGraph<a class="headerlink" href="#subgraph" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SubGraph">
+<code class="sig-name descname">SubGraph</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ScriptableObject asset</em><span class="sig-paren">)</span><a class="headerlink" href="#SubGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p>Not available at this time. Allows creation of “subgraphs”, which are essentially nested nodes within a Udon Node Graph.</p>
+</div>
+<div class="section" id="while">
+<h2>While<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="While">
+<code class="sig-name descname">While</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#While" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: Body, Exit</p>
+<p>Executes the flow of Body while Bool is true. If Bool is false, executes Exit flow.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Types/index.html" class="btn btn-neutral float-right" title="Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Events/index.html" class="btn btn-neutral" title="Events" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

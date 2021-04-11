@@ -1,0 +1,1794 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Physics2D &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="PhysicsMaterial2D" href="../PhysicsMaterial2D/index.html"/>
+        <link rel="prev" title="PhysicMaterial" href="../PhysicMaterial/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Physics2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-boxcast">Physics2D BoxCast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-boxcastall">Physics2D BoxCastAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-boxcastnonalloc">Physics2D BoxCastNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-capsulecast">Physics2D CapsuleCast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-capsulecastall">Physics2D CapsuleCastAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-capsulecastnonalloc">Physics2D CapsuleCastNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-circlecast">Physics2D CircleCast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-circlecastall">Physics2D CircleCastAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-circlecastnonalloc">Physics2D CircleCastNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-distance">Physics2D Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-equals">Physics2D Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-alllayers">Physics2D get_AllLayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-alwaysshowcolliders">Physics2D get_alwaysShowColliders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-angularsleeptolerance">Physics2D get_angularSleepTolerance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-baumgartescale">Physics2D get_baumgarteScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-baumgartetoiscale">Physics2D get_baumgarteTOIScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-callbacksondisable">Physics2D get_callbacksOnDisable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-collideraabbcolor">Physics2D get_colliderAABBColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-colliderasleepcolor">Physics2D get_colliderAsleepColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-colliderawakecolor">Physics2D get_colliderAwakeColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-collidercontactcolor">Physics2D get_colliderContactColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-contactarrowscale">Physics2D get_contactArrowScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-defaultphysicsscene">Physics2D get_defaultPhysicsScene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-defaultraycastlayers">Physics2D get_DefaultRaycastLayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-gravity">Physics2D get_gravity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-ignoreraycastlayer">Physics2D get_IgnoreRaycastLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-joboptions">Physics2D get_jobOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-linearsleeptolerance">Physics2D get_linearSleepTolerance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-maxangularcorrection">Physics2D get_maxAngularCorrection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-maxlinearcorrection">Physics2D get_maxLinearCorrection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-maxrotationspeed">Physics2D get_maxRotationSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-maxtranslationspeed">Physics2D get_maxTranslationSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-positioniterations">Physics2D get_positionIterations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-queriesstartincolliders">Physics2D get_queriesStartInColliders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-reusecollisioncallbacks">Physics2D get_reuseCollisionCallbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-showcollideraabb">Physics2D get_showColliderAABB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-showcollidercontacts">Physics2D get_showColliderContacts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-showcollidersleep">Physics2D get_showColliderSleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-timetosleep">Physics2D get_timeToSleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-velocityiterations">Physics2D get_velocityIterations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-get-velocitythreshold">Physics2D get_velocityThreshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getcontacts">Physics2D GetContacts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-gethashcode">Physics2D GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getignorecollision">Physics2D GetIgnoreCollision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getignorelayercollision">Physics2D GetIgnoreLayerCollision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getlayercollisionmask">Physics2D GetLayerCollisionMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getrayintersection">Physics2D GetRayIntersection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getrayintersectionall">Physics2D GetRayIntersectionAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-getrayintersectionnonalloc">Physics2D GetRayIntersectionNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-gettype">Physics2D GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-ignorecollision">Physics2D IgnoreCollision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-istouching">Physics2D IsTouching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-istouchinglayers">Physics2D IsTouchingLayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-linecast">Physics2D Linecast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-linecastall">Physics2D LinecastAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-linecastnonalloc">Physics2D LinecastNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlaparea">Physics2D OverlapArea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapareaall">Physics2D OverlapAreaAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapareanonalloc">Physics2D OverlapAreaNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapbox">Physics2D OverlapBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapboxall">Physics2D OverlapBoxAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapboxnonalloc">Physics2D OverlapBoxNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcapsule">Physics2D OverlapCapsule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcapsuleall">Physics2D OverlapCapsuleAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcapsulenonalloc">Physics2D OverlapCapsuleNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcircle">Physics2D OverlapCircle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcircleall">Physics2D OverlapCircleAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcirclenonalloc">Physics2D OverlapCircleNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlapcollider">Physics2D OverlapCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlappoint">Physics2D OverlapPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlappointall">Physics2D OverlapPointAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-overlappointnonalloc">Physics2D OverlapPointNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-raycast">Physics2D Raycast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-raycastall">Physics2D RaycastAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-raycastnonalloc">Physics2D RaycastNonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-alwaysshowcolliders">Physics2D set_alwaysShowColliders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-angularsleeptolerance">Physics2D set_angularSleepTolerance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-baumgartescale">Physics2D set_baumgarteScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-baumgartetoiscale">Physics2D set_baumgarteTOIScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-callbacksondisable">Physics2D set_callbacksOnDisable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-collideraabbcolor">Physics2D set_colliderAABBColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-colliderasleepcolor">Physics2D set_colliderAsleepColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-colliderawakecolor">Physics2D set_colliderAwakeColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-collidercontactcolor">Physics2D set_colliderContactColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-contactarrowscale">Physics2D set_contactArrowScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-gravity">Physics2D set_gravity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-joboptions">Physics2D set_jobOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-linearsleeptolerance">Physics2D set_linearSleepTolerance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-maxangularcorrection">Physics2D set_maxAngularCorrection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-maxlinearcorrection">Physics2D set_maxLinearCorrection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-maxrotationspeed">Physics2D set_maxRotationSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-maxtranslationspeed">Physics2D set_maxTranslationSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-positioniterations">Physics2D set_positionIterations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-queriesstartincolliders">Physics2D set_queriesStartInColliders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-reusecollisioncallbacks">Physics2D set_reuseCollisionCallbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-showcollideraabb">Physics2D set_showColliderAABB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-showcollidercontacts">Physics2D set_showColliderContacts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-showcollidersleep">Physics2D set_showColliderSleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-timetosleep">Physics2D set_timeToSleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-velocityiterations">Physics2D set_velocityIterations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-set-velocitythreshold">Physics2D set_velocityThreshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-setlayercollisionmask">Physics2D SetLayerCollisionMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-simulate">Physics2D Simulate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-synctransforms">Physics2D SyncTransforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics2d-tostring">Physics2D ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id104">Physics2D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>Physics2D</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/Physics2D/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../PhysicsMaterial2D/index.html" class="btn btn-neutral float-right" title="PhysicsMaterial2D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../PhysicMaterial/index.html" class="btn btn-neutral" title="PhysicMaterial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="physics2d">
+<h1>Physics2D<a class="headerlink" href="#physics2d" title="Permalink to this headline">¶</a></h1>
+<p>The Physics2D module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="physics2d-boxcast">
+<h2>Physics2D BoxCast<a class="headerlink" href="#physics2d-boxcast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__BoxCast__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__BoxCast__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 sizeSystem.Single angleUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__BoxCast__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.BoxCast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-boxcastall">
+<h2>Physics2D BoxCastAll<a class="headerlink" href="#physics2d-boxcastall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__BoxCastAll__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__BoxCastAll__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 sizeSystem.Single angleUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__BoxCastAll__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.BoxCastAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-boxcastnonalloc">
+<h2>Physics2D BoxCastNonAlloc<a class="headerlink" href="#physics2d-boxcastnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__BoxCastNonAlloc__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__BoxCastNonAlloc__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 sizeSystem.Single angleUnityEngine.Vector2 directionUnityEngine.RaycastHit2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__BoxCastNonAlloc__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.BoxCastNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-capsulecast">
+<h2>Physics2D CapsuleCast<a class="headerlink" href="#physics2d-capsulecast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__CapsuleCast__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__CapsuleCast__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 sizeUnityEngine.CapsuleDirection2D capsuleDirectionSystem.Single angleUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__CapsuleCast__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.CapsuleCast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-capsulecastall">
+<h2>Physics2D CapsuleCastAll<a class="headerlink" href="#physics2d-capsulecastall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__CapsuleCastAll__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__CapsuleCastAll__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 sizeUnityEngine.CapsuleDirection2D capsuleDirectionSystem.Single angleUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__CapsuleCastAll__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.CapsuleCastAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-capsulecastnonalloc">
+<h2>Physics2D CapsuleCastNonAlloc<a class="headerlink" href="#physics2d-capsulecastnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__CapsuleCastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__CapsuleCastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 sizeUnityEngine.CapsuleDirection2D capsuleDirectionSystem.Single angleUnityEngine.Vector2 directionUnityEngine.RaycastHit2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__CapsuleCastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.CapsuleCastNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-circlecast">
+<h2>Physics2D CircleCast<a class="headerlink" href="#physics2d-circlecast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__CircleCast__UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__CircleCast__UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originSystem.Single radiusUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__CircleCast__UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.CircleCast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-circlecastall">
+<h2>Physics2D CircleCastAll<a class="headerlink" href="#physics2d-circlecastall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__CircleCastAll__UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__CircleCastAll__UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originSystem.Single radiusUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__CircleCastAll__UnityEngineVector2_SystemSingle_UnityEngineVector2__UnityEngineRaycastHit2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.CircleCastAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-circlecastnonalloc">
+<h2>Physics2D CircleCastNonAlloc<a class="headerlink" href="#physics2d-circlecastnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__CircleCastNonAlloc__UnityEngineVector2_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__CircleCastNonAlloc__UnityEngineVector2_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originSystem.Single radiusUnityEngine.Vector2 directionUnityEngine.RaycastHit2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__CircleCastNonAlloc__UnityEngineVector2_SystemSingle_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.CircleCastNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-distance">
+<h2>Physics2D Distance<a class="headerlink" href="#physics2d-distance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__Distance__UnityEngineCollider2D_UnityEngineCollider2D__UnityEngineColliderDistance2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__Distance__UnityEngineCollider2D_UnityEngineCollider2D__UnityEngineColliderDistance2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D colliderAUnityEngine.Collider2D colliderB</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__Distance__UnityEngineCollider2D_UnityEngineCollider2D__UnityEngineColliderDistance2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ColliderDistance2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.Distance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-equals">
+<h2>Physics2D Equals<a class="headerlink" href="#physics2d-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Physics2D instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-alllayers">
+<h2>Physics2D get_AllLayers<a class="headerlink" href="#physics2d-get-alllayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_AllLayers__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_AllLayers__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_AllLayers__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-AllLayers.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-alwaysshowcolliders">
+<h2>Physics2D get_alwaysShowColliders<a class="headerlink" href="#physics2d-get-alwaysshowcolliders" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_alwaysShowColliders__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_alwaysShowColliders__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_alwaysShowColliders__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-alwaysShowColliders.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-angularsleeptolerance">
+<h2>Physics2D get_angularSleepTolerance<a class="headerlink" href="#physics2d-get-angularsleeptolerance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_angularSleepTolerance__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_angularSleepTolerance__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_angularSleepTolerance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-angularSleepTolerance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-baumgartescale">
+<h2>Physics2D get_baumgarteScale<a class="headerlink" href="#physics2d-get-baumgartescale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_baumgarteScale__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_baumgarteScale__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_baumgarteScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-baumgarteScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-baumgartetoiscale">
+<h2>Physics2D get_baumgarteTOIScale<a class="headerlink" href="#physics2d-get-baumgartetoiscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_baumgarteTOIScale__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_baumgarteTOIScale__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_baumgarteTOIScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-baumgarteTOIScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-callbacksondisable">
+<h2>Physics2D get_callbacksOnDisable<a class="headerlink" href="#physics2d-get-callbacksondisable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_callbacksOnDisable__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_callbacksOnDisable__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_callbacksOnDisable__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-callbacksOnDisable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-collideraabbcolor">
+<h2>Physics2D get_colliderAABBColor<a class="headerlink" href="#physics2d-get-collideraabbcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_colliderAABBColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_colliderAABBColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_colliderAABBColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderAABBColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-colliderasleepcolor">
+<h2>Physics2D get_colliderAsleepColor<a class="headerlink" href="#physics2d-get-colliderasleepcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_colliderAsleepColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_colliderAsleepColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_colliderAsleepColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderAsleepColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-colliderawakecolor">
+<h2>Physics2D get_colliderAwakeColor<a class="headerlink" href="#physics2d-get-colliderawakecolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_colliderAwakeColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_colliderAwakeColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_colliderAwakeColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderAwakeColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-collidercontactcolor">
+<h2>Physics2D get_colliderContactColor<a class="headerlink" href="#physics2d-get-collidercontactcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_colliderContactColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_colliderContactColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_colliderContactColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderContactColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-contactarrowscale">
+<h2>Physics2D get_contactArrowScale<a class="headerlink" href="#physics2d-get-contactarrowscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_contactArrowScale__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_contactArrowScale__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_contactArrowScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-contactArrowScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-defaultphysicsscene">
+<h2>Physics2D get_defaultPhysicsScene<a class="headerlink" href="#physics2d-get-defaultphysicsscene" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_defaultPhysicsScene__UnityEnginePhysicsScene2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_defaultPhysicsScene__UnityEnginePhysicsScene2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_defaultPhysicsScene__UnityEnginePhysicsScene2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PhysicsScene2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-defaultPhysicsScene.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-defaultraycastlayers">
+<h2>Physics2D get_DefaultRaycastLayers<a class="headerlink" href="#physics2d-get-defaultraycastlayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_DefaultRaycastLayers__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_DefaultRaycastLayers__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_DefaultRaycastLayers__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-DefaultRaycastLayers.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-gravity">
+<h2>Physics2D get_gravity<a class="headerlink" href="#physics2d-get-gravity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_gravity__UnityEngineVector2">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_gravity__UnityEngineVector2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_gravity__UnityEngineVector2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-gravity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-ignoreraycastlayer">
+<h2>Physics2D get_IgnoreRaycastLayer<a class="headerlink" href="#physics2d-get-ignoreraycastlayer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_IgnoreRaycastLayer__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_IgnoreRaycastLayer__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_IgnoreRaycastLayer__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-IgnoreRaycastLayer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-joboptions">
+<h2>Physics2D get_jobOptions<a class="headerlink" href="#physics2d-get-joboptions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_jobOptions__UnityEnginePhysicsJobOptions2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_jobOptions__UnityEnginePhysicsJobOptions2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_jobOptions__UnityEnginePhysicsJobOptions2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PhysicsJobOptions2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-jobOptions.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-linearsleeptolerance">
+<h2>Physics2D get_linearSleepTolerance<a class="headerlink" href="#physics2d-get-linearsleeptolerance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_linearSleepTolerance__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_linearSleepTolerance__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_linearSleepTolerance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-linearSleepTolerance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-maxangularcorrection">
+<h2>Physics2D get_maxAngularCorrection<a class="headerlink" href="#physics2d-get-maxangularcorrection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_maxAngularCorrection__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_maxAngularCorrection__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_maxAngularCorrection__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxAngularCorrection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-maxlinearcorrection">
+<h2>Physics2D get_maxLinearCorrection<a class="headerlink" href="#physics2d-get-maxlinearcorrection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_maxLinearCorrection__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_maxLinearCorrection__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_maxLinearCorrection__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxLinearCorrection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-maxrotationspeed">
+<h2>Physics2D get_maxRotationSpeed<a class="headerlink" href="#physics2d-get-maxrotationspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_maxRotationSpeed__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_maxRotationSpeed__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_maxRotationSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxRotationSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-maxtranslationspeed">
+<h2>Physics2D get_maxTranslationSpeed<a class="headerlink" href="#physics2d-get-maxtranslationspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_maxTranslationSpeed__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_maxTranslationSpeed__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_maxTranslationSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxTranslationSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-positioniterations">
+<h2>Physics2D get_positionIterations<a class="headerlink" href="#physics2d-get-positioniterations" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_positionIterations__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_positionIterations__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_positionIterations__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-positionIterations.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-queriesstartincolliders">
+<h2>Physics2D get_queriesStartInColliders<a class="headerlink" href="#physics2d-get-queriesstartincolliders" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_queriesStartInColliders__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_queriesStartInColliders__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_queriesStartInColliders__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-queriesStartInColliders.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-reusecollisioncallbacks">
+<h2>Physics2D get_reuseCollisionCallbacks<a class="headerlink" href="#physics2d-get-reusecollisioncallbacks" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_reuseCollisionCallbacks__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_reuseCollisionCallbacks__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_reuseCollisionCallbacks__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-reuseCollisionCallbacks.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-showcollideraabb">
+<h2>Physics2D get_showColliderAABB<a class="headerlink" href="#physics2d-get-showcollideraabb" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_showColliderAABB__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_showColliderAABB__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_showColliderAABB__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-showColliderAABB.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-showcollidercontacts">
+<h2>Physics2D get_showColliderContacts<a class="headerlink" href="#physics2d-get-showcollidercontacts" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_showColliderContacts__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_showColliderContacts__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_showColliderContacts__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-showColliderContacts.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-showcollidersleep">
+<h2>Physics2D get_showColliderSleep<a class="headerlink" href="#physics2d-get-showcollidersleep" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_showColliderSleep__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_showColliderSleep__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_showColliderSleep__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-showColliderSleep.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-timetosleep">
+<h2>Physics2D get_timeToSleep<a class="headerlink" href="#physics2d-get-timetosleep" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_timeToSleep__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_timeToSleep__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_timeToSleep__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-timeToSleep.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-velocityiterations">
+<h2>Physics2D get_velocityIterations<a class="headerlink" href="#physics2d-get-velocityiterations" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_velocityIterations__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_velocityIterations__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_velocityIterations__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-velocityIterations.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-get-velocitythreshold">
+<h2>Physics2D get_velocityThreshold<a class="headerlink" href="#physics2d-get-velocitythreshold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__get_velocityThreshold__SystemSingle">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__get_velocityThreshold__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__get_velocityThreshold__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-velocityThreshold.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getcontacts">
+<h2>Physics2D GetContacts<a class="headerlink" href="#physics2d-getcontacts" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetContacts__UnityEngineCollider2D_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetContacts__UnityEngineCollider2D_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D colliderUnityEngine.Collider2D[] colliders</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetContacts__UnityEngineCollider2D_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetContacts.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-gethashcode">
+<h2>Physics2D GetHashCode<a class="headerlink" href="#physics2d-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Physics2D instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getignorecollision">
+<h2>Physics2D GetIgnoreCollision<a class="headerlink" href="#physics2d-getignorecollision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetIgnoreCollision__UnityEngineCollider2D_UnityEngineCollider2D__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetIgnoreCollision__UnityEngineCollider2D_UnityEngineCollider2D__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D collider1UnityEngine.Collider2D collider2</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetIgnoreCollision__UnityEngineCollider2D_UnityEngineCollider2D__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetIgnoreCollision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getignorelayercollision">
+<h2>Physics2D GetIgnoreLayerCollision<a class="headerlink" href="#physics2d-getignorelayercollision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetIgnoreLayerCollision__SystemInt32_SystemInt32__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetIgnoreLayerCollision__SystemInt32_SystemInt32__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 layer1System.Int32 layer2</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetIgnoreLayerCollision__SystemInt32_SystemInt32__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetIgnoreLayerCollision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getlayercollisionmask">
+<h2>Physics2D GetLayerCollisionMask<a class="headerlink" href="#physics2d-getlayercollisionmask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetLayerCollisionMask__SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetLayerCollisionMask__SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 layer</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetLayerCollisionMask__SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetLayerCollisionMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getrayintersection">
+<h2>Physics2D GetRayIntersection<a class="headerlink" href="#physics2d-getrayintersection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetRayIntersection__UnityEngineRay__UnityEngineRaycastHit2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetRayIntersection__UnityEngineRay__UnityEngineRaycastHit2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Ray ray</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetRayIntersection__UnityEngineRay__UnityEngineRaycastHit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetRayIntersection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getrayintersectionall">
+<h2>Physics2D GetRayIntersectionAll<a class="headerlink" href="#physics2d-getrayintersectionall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetRayIntersectionAll__UnityEngineRay__UnityEngineRaycastHit2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetRayIntersectionAll__UnityEngineRay__UnityEngineRaycastHit2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Ray ray</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetRayIntersectionAll__UnityEngineRay__UnityEngineRaycastHit2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetRayIntersectionAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-getrayintersectionnonalloc">
+<h2>Physics2D GetRayIntersectionNonAlloc<a class="headerlink" href="#physics2d-getrayintersectionnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetRayIntersectionNonAlloc__UnityEngineRay_UnityEngineRaycastHit2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetRayIntersectionNonAlloc__UnityEngineRay_UnityEngineRaycastHit2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Ray rayUnityEngine.RaycastHit2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetRayIntersectionNonAlloc__UnityEngineRay_UnityEngineRaycastHit2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.GetRayIntersectionNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-gettype">
+<h2>Physics2D GetType<a class="headerlink" href="#physics2d-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Physics2D instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-ignorecollision">
+<h2>Physics2D IgnoreCollision<a class="headerlink" href="#physics2d-ignorecollision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__IgnoreCollision__UnityEngineCollider2D_UnityEngineCollider2D__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__IgnoreCollision__UnityEngineCollider2D_UnityEngineCollider2D__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D collider1UnityEngine.Collider2D collider2</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__IgnoreCollision__UnityEngineCollider2D_UnityEngineCollider2D__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.IgnoreCollision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-istouching">
+<h2>Physics2D IsTouching<a class="headerlink" href="#physics2d-istouching" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__IsTouching__UnityEngineCollider2D_UnityEngineContactFilter2D__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__IsTouching__UnityEngineCollider2D_UnityEngineContactFilter2D__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D colliderUnityEngine.ContactFilter2D contactFilter</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__IsTouching__UnityEngineCollider2D_UnityEngineContactFilter2D__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.IsTouching.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-istouchinglayers">
+<h2>Physics2D IsTouchingLayers<a class="headerlink" href="#physics2d-istouchinglayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__IsTouchingLayers__UnityEngineCollider2D__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__IsTouchingLayers__UnityEngineCollider2D__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D collider</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__IsTouchingLayers__UnityEngineCollider2D__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.IsTouchingLayers.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-linecast">
+<h2>Physics2D Linecast<a class="headerlink" href="#physics2d-linecast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__Linecast__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__Linecast__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 startUnityEngine.Vector2 end</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__Linecast__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.Linecast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-linecastall">
+<h2>Physics2D LinecastAll<a class="headerlink" href="#physics2d-linecastall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__LinecastAll__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__LinecastAll__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 startUnityEngine.Vector2 end</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__LinecastAll__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.LinecastAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-linecastnonalloc">
+<h2>Physics2D LinecastNonAlloc<a class="headerlink" href="#physics2d-linecastnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__LinecastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__LinecastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 startUnityEngine.Vector2 endUnityEngine.RaycastHit2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__LinecastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.LinecastNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlaparea">
+<h2>Physics2D OverlapArea<a class="headerlink" href="#physics2d-overlaparea" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapArea__UnityEngineVector2_UnityEngineVector2__UnityEngineCollider2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapArea__UnityEngineVector2_UnityEngineVector2__UnityEngineCollider2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointAUnityEngine.Vector2 pointB</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapArea__UnityEngineVector2_UnityEngineVector2__UnityEngineCollider2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapArea.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapareaall">
+<h2>Physics2D OverlapAreaAll<a class="headerlink" href="#physics2d-overlapareaall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapAreaAll__UnityEngineVector2_UnityEngineVector2__UnityEngineCollider2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapAreaAll__UnityEngineVector2_UnityEngineVector2__UnityEngineCollider2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointAUnityEngine.Vector2 pointB</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapAreaAll__UnityEngineVector2_UnityEngineVector2__UnityEngineCollider2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapAreaAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapareanonalloc">
+<h2>Physics2D OverlapAreaNonAlloc<a class="headerlink" href="#physics2d-overlapareanonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapAreaNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapAreaNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointAUnityEngine.Vector2 pointBUnityEngine.Collider2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapAreaNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapAreaNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapbox">
+<h2>Physics2D OverlapBox<a class="headerlink" href="#physics2d-overlapbox" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapBox__UnityEngineVector2_UnityEngineVector2_SystemSingle__UnityEngineCollider2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapBox__UnityEngineVector2_UnityEngineVector2_SystemSingle__UnityEngineCollider2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Vector2 sizeSystem.Single angle</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapBox__UnityEngineVector2_UnityEngineVector2_SystemSingle__UnityEngineCollider2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapBox.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapboxall">
+<h2>Physics2D OverlapBoxAll<a class="headerlink" href="#physics2d-overlapboxall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapBoxAll__UnityEngineVector2_UnityEngineVector2_SystemSingle__UnityEngineCollider2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapBoxAll__UnityEngineVector2_UnityEngineVector2_SystemSingle__UnityEngineCollider2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Vector2 sizeSystem.Single angle</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapBoxAll__UnityEngineVector2_UnityEngineVector2_SystemSingle__UnityEngineCollider2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapBoxAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapboxnonalloc">
+<h2>Physics2D OverlapBoxNonAlloc<a class="headerlink" href="#physics2d-overlapboxnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapBoxNonAlloc__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapBoxNonAlloc__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Vector2 sizeSystem.Single angleUnityEngine.Collider2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapBoxNonAlloc__UnityEngineVector2_UnityEngineVector2_SystemSingle_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapBoxNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcapsule">
+<h2>Physics2D OverlapCapsule<a class="headerlink" href="#physics2d-overlapcapsule" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCapsule__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle__UnityEngineCollider2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCapsule__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle__UnityEngineCollider2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Vector2 sizeUnityEngine.CapsuleDirection2D directionSystem.Single angle</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCapsule__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle__UnityEngineCollider2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCapsule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcapsuleall">
+<h2>Physics2D OverlapCapsuleAll<a class="headerlink" href="#physics2d-overlapcapsuleall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCapsuleAll__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle__UnityEngineCollider2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCapsuleAll__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle__UnityEngineCollider2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Vector2 sizeUnityEngine.CapsuleDirection2D directionSystem.Single angle</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCapsuleAll__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle__UnityEngineCollider2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCapsuleAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcapsulenonalloc">
+<h2>Physics2D OverlapCapsuleNonAlloc<a class="headerlink" href="#physics2d-overlapcapsulenonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCapsuleNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCapsuleNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Vector2 sizeUnityEngine.CapsuleDirection2D directionSystem.Single angleUnityEngine.Collider2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCapsuleNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineCapsuleDirection2D_SystemSingle_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCapsuleNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcircle">
+<h2>Physics2D OverlapCircle<a class="headerlink" href="#physics2d-overlapcircle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCircle__UnityEngineVector2_SystemSingle__UnityEngineCollider2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCircle__UnityEngineVector2_SystemSingle__UnityEngineCollider2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointSystem.Single radius</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCircle__UnityEngineVector2_SystemSingle__UnityEngineCollider2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCircle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcircleall">
+<h2>Physics2D OverlapCircleAll<a class="headerlink" href="#physics2d-overlapcircleall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCircleAll__UnityEngineVector2_SystemSingle__UnityEngineCollider2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCircleAll__UnityEngineVector2_SystemSingle__UnityEngineCollider2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointSystem.Single radius</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCircleAll__UnityEngineVector2_SystemSingle__UnityEngineCollider2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCircleAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcirclenonalloc">
+<h2>Physics2D OverlapCircleNonAlloc<a class="headerlink" href="#physics2d-overlapcirclenonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCircleNonAlloc__UnityEngineVector2_SystemSingle_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCircleNonAlloc__UnityEngineVector2_SystemSingle_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointSystem.Single radiusUnityEngine.Collider2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCircleNonAlloc__UnityEngineVector2_SystemSingle_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCircleNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlapcollider">
+<h2>Physics2D OverlapCollider<a class="headerlink" href="#physics2d-overlapcollider" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapCollider__UnityEngineCollider2D_UnityEngineContactFilter2D_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapCollider__UnityEngineCollider2D_UnityEngineContactFilter2D_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Collider2D colliderUnityEngine.ContactFilter2D contactFilterUnityEngine.Collider2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapCollider__UnityEngineCollider2D_UnityEngineContactFilter2D_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapCollider.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlappoint">
+<h2>Physics2D OverlapPoint<a class="headerlink" href="#physics2d-overlappoint" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapPoint__UnityEngineVector2__UnityEngineCollider2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapPoint__UnityEngineVector2__UnityEngineCollider2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 point</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapPoint__UnityEngineVector2__UnityEngineCollider2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapPoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlappointall">
+<h2>Physics2D OverlapPointAll<a class="headerlink" href="#physics2d-overlappointall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapPointAll__UnityEngineVector2__UnityEngineCollider2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapPointAll__UnityEngineVector2__UnityEngineCollider2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 point</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapPointAll__UnityEngineVector2__UnityEngineCollider2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Collider2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapPointAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-overlappointnonalloc">
+<h2>Physics2D OverlapPointNonAlloc<a class="headerlink" href="#physics2d-overlappointnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__OverlapPointNonAlloc__UnityEngineVector2_UnityEngineCollider2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__OverlapPointNonAlloc__UnityEngineVector2_UnityEngineCollider2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 pointUnityEngine.Collider2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__OverlapPointNonAlloc__UnityEngineVector2_UnityEngineCollider2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.OverlapPointNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-raycast">
+<h2>Physics2D Raycast<a class="headerlink" href="#physics2d-raycast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__Raycast__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2D">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__Raycast__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__Raycast__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.Raycast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-raycastall">
+<h2>Physics2D RaycastAll<a class="headerlink" href="#physics2d-raycastall" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__RaycastAll__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2DArray">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__RaycastAll__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2DArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 direction</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__RaycastAll__UnityEngineVector2_UnityEngineVector2__UnityEngineRaycastHit2DArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RaycastHit2D[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.RaycastAll.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-raycastnonalloc">
+<h2>Physics2D RaycastNonAlloc<a class="headerlink" href="#physics2d-raycastnonalloc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__RaycastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__RaycastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 originUnityEngine.Vector2 directionUnityEngine.RaycastHit2D[] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__RaycastNonAlloc__UnityEngineVector2_UnityEngineVector2_UnityEngineRaycastHit2DArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.RaycastNonAlloc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-alwaysshowcolliders">
+<h2>Physics2D set_alwaysShowColliders<a class="headerlink" href="#physics2d-set-alwaysshowcolliders" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_alwaysShowColliders__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_alwaysShowColliders__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_alwaysShowColliders__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-alwaysShowColliders.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-angularsleeptolerance">
+<h2>Physics2D set_angularSleepTolerance<a class="headerlink" href="#physics2d-set-angularsleeptolerance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_angularSleepTolerance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_angularSleepTolerance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_angularSleepTolerance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-angularSleepTolerance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-baumgartescale">
+<h2>Physics2D set_baumgarteScale<a class="headerlink" href="#physics2d-set-baumgartescale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_baumgarteScale__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_baumgarteScale__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_baumgarteScale__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-baumgarteScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-baumgartetoiscale">
+<h2>Physics2D set_baumgarteTOIScale<a class="headerlink" href="#physics2d-set-baumgartetoiscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_baumgarteTOIScale__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_baumgarteTOIScale__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_baumgarteTOIScale__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-baumgarteTOIScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-callbacksondisable">
+<h2>Physics2D set_callbacksOnDisable<a class="headerlink" href="#physics2d-set-callbacksondisable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_callbacksOnDisable__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_callbacksOnDisable__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_callbacksOnDisable__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-callbacksOnDisable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-collideraabbcolor">
+<h2>Physics2D set_colliderAABBColor<a class="headerlink" href="#physics2d-set-collideraabbcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_colliderAABBColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_colliderAABBColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_colliderAABBColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderAABBColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-colliderasleepcolor">
+<h2>Physics2D set_colliderAsleepColor<a class="headerlink" href="#physics2d-set-colliderasleepcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_colliderAsleepColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_colliderAsleepColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_colliderAsleepColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderAsleepColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-colliderawakecolor">
+<h2>Physics2D set_colliderAwakeColor<a class="headerlink" href="#physics2d-set-colliderawakecolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_colliderAwakeColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_colliderAwakeColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_colliderAwakeColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderAwakeColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-collidercontactcolor">
+<h2>Physics2D set_colliderContactColor<a class="headerlink" href="#physics2d-set-collidercontactcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_colliderContactColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_colliderContactColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_colliderContactColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-colliderContactColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-contactarrowscale">
+<h2>Physics2D set_contactArrowScale<a class="headerlink" href="#physics2d-set-contactarrowscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_contactArrowScale__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_contactArrowScale__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_contactArrowScale__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-contactArrowScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-gravity">
+<h2>Physics2D set_gravity<a class="headerlink" href="#physics2d-set-gravity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_gravity__UnityEngineVector2__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_gravity__UnityEngineVector2__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector2 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_gravity__UnityEngineVector2__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-gravity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-joboptions">
+<h2>Physics2D set_jobOptions<a class="headerlink" href="#physics2d-set-joboptions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_jobOptions__UnityEnginePhysicsJobOptions2D__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_jobOptions__UnityEnginePhysicsJobOptions2D__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.PhysicsJobOptions2D value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_jobOptions__UnityEnginePhysicsJobOptions2D__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-jobOptions.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-linearsleeptolerance">
+<h2>Physics2D set_linearSleepTolerance<a class="headerlink" href="#physics2d-set-linearsleeptolerance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_linearSleepTolerance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_linearSleepTolerance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_linearSleepTolerance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-linearSleepTolerance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-maxangularcorrection">
+<h2>Physics2D set_maxAngularCorrection<a class="headerlink" href="#physics2d-set-maxangularcorrection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_maxAngularCorrection__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_maxAngularCorrection__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_maxAngularCorrection__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxAngularCorrection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-maxlinearcorrection">
+<h2>Physics2D set_maxLinearCorrection<a class="headerlink" href="#physics2d-set-maxlinearcorrection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_maxLinearCorrection__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_maxLinearCorrection__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_maxLinearCorrection__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxLinearCorrection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-maxrotationspeed">
+<h2>Physics2D set_maxRotationSpeed<a class="headerlink" href="#physics2d-set-maxrotationspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_maxRotationSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_maxRotationSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_maxRotationSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxRotationSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-maxtranslationspeed">
+<h2>Physics2D set_maxTranslationSpeed<a class="headerlink" href="#physics2d-set-maxtranslationspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_maxTranslationSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_maxTranslationSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_maxTranslationSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-maxTranslationSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-positioniterations">
+<h2>Physics2D set_positionIterations<a class="headerlink" href="#physics2d-set-positioniterations" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_positionIterations__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_positionIterations__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_positionIterations__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-positionIterations.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-queriesstartincolliders">
+<h2>Physics2D set_queriesStartInColliders<a class="headerlink" href="#physics2d-set-queriesstartincolliders" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_queriesStartInColliders__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_queriesStartInColliders__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_queriesStartInColliders__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-queriesStartInColliders.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-reusecollisioncallbacks">
+<h2>Physics2D set_reuseCollisionCallbacks<a class="headerlink" href="#physics2d-set-reusecollisioncallbacks" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_reuseCollisionCallbacks__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_reuseCollisionCallbacks__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_reuseCollisionCallbacks__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-reuseCollisionCallbacks.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-showcollideraabb">
+<h2>Physics2D set_showColliderAABB<a class="headerlink" href="#physics2d-set-showcollideraabb" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_showColliderAABB__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_showColliderAABB__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_showColliderAABB__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-showColliderAABB.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-showcollidercontacts">
+<h2>Physics2D set_showColliderContacts<a class="headerlink" href="#physics2d-set-showcollidercontacts" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_showColliderContacts__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_showColliderContacts__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_showColliderContacts__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-showColliderContacts.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-showcollidersleep">
+<h2>Physics2D set_showColliderSleep<a class="headerlink" href="#physics2d-set-showcollidersleep" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_showColliderSleep__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_showColliderSleep__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_showColliderSleep__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-showColliderSleep.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-timetosleep">
+<h2>Physics2D set_timeToSleep<a class="headerlink" href="#physics2d-set-timetosleep" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_timeToSleep__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_timeToSleep__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_timeToSleep__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-timeToSleep.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-velocityiterations">
+<h2>Physics2D set_velocityIterations<a class="headerlink" href="#physics2d-set-velocityiterations" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_velocityIterations__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_velocityIterations__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_velocityIterations__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-velocityIterations.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-set-velocitythreshold">
+<h2>Physics2D set_velocityThreshold<a class="headerlink" href="#physics2d-set-velocitythreshold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__set_velocityThreshold__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__set_velocityThreshold__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__set_velocityThreshold__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D-velocityThreshold.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-setlayercollisionmask">
+<h2>Physics2D SetLayerCollisionMask<a class="headerlink" href="#physics2d-setlayercollisionmask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__SetLayerCollisionMask__SystemInt32_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__SetLayerCollisionMask__SystemInt32_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 layerSystem.Int32 layerMask</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__SetLayerCollisionMask__SystemInt32_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.SetLayerCollisionMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-simulate">
+<h2>Physics2D Simulate<a class="headerlink" href="#physics2d-simulate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__Simulate__SystemSingle__SystemBoolean">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__Simulate__SystemSingle__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Single step</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__Simulate__SystemSingle__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.Simulate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-synctransforms">
+<h2>Physics2D SyncTransforms<a class="headerlink" href="#physics2d-synctransforms" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__SyncTransforms__SystemVoid">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__SyncTransforms__SystemVoid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__SyncTransforms__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.SyncTransforms.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="physics2d-tostring">
+<h2>Physics2D ToString<a class="headerlink" href="#physics2d-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEnginePhysics2D.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEnginePhysics2D.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Physics2D instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEnginePhysics2D.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id104">
+<h2>Physics2D<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEnginePhysics2D">
+<code class="sig-name descname">Variable_UnityEnginePhysics2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Physics2D Physics2DSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEnginePhysics2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Physics2D.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../PhysicsMaterial2D/index.html" class="btn btn-neutral float-right" title="PhysicsMaterial2D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../PhysicMaterial/index.html" class="btn btn-neutral" title="PhysicMaterial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

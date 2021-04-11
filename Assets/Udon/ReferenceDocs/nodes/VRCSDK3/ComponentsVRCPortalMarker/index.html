@@ -1,0 +1,779 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ComponentsVRCPortalMarker &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="ComponentsVRCStation" href="../ComponentsVRCStation/index.html"/>
+        <link rel="prev" title="ComponentsVRCPickup" href="../ComponentsVRCPickup/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsTrackingData/index.html">ComponentsTrackingData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCAvatarPedestal/index.html">ComponentsVRCAvatarPedestal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPickup/index.html">ComponentsVRCPickup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ComponentsVRCPortalMarker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker">VRCPortalMarker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-equals">VRCPortalMarker Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-customportalname">VRCPortalMarker get_customPortalName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-effectprefabname">VRCPortalMarker get_effectPrefabName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-enabled">VRCPortalMarker get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-gameobject">VRCPortalMarker get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-name">VRCPortalMarker get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-offset">VRCPortalMarker get_offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-roomid">VRCPortalMarker get_roomId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-roomname">VRCPortalMarker get_roomName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-searchterm">VRCPortalMarker get_searchTerm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-sortheading">VRCPortalMarker get_sortHeading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-sortorder">VRCPortalMarker get_sortOrder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-transform">VRCPortalMarker get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-updateflag">VRCPortalMarker get_updateFlag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-usedefaultpresentation">VRCPortalMarker get_useDefaultPresentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-get-world">VRCPortalMarker get_world</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getcomponent">VRCPortalMarker GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getcomponentinchildren">VRCPortalMarker GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getcomponentinparent">VRCPortalMarker GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getcomponents">VRCPortalMarker GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getcomponentsinchildren">VRCPortalMarker GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getcomponentsinparent">VRCPortalMarker GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-gethashcode">VRCPortalMarker GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-getinstanceid">VRCPortalMarker GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-gettype">VRCPortalMarker GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-refreshportal">VRCPortalMarker RefreshPortal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-customportalname">VRCPortalMarker set_customPortalName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-effectprefabname">VRCPortalMarker set_effectPrefabName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-enabled">VRCPortalMarker set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-name">VRCPortalMarker set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-offset">VRCPortalMarker set_offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-roomid">VRCPortalMarker set_roomId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-roomname">VRCPortalMarker set_roomName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-searchterm">VRCPortalMarker set_searchTerm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-sortheading">VRCPortalMarker set_sortHeading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-sortorder">VRCPortalMarker set_sortOrder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-updateflag">VRCPortalMarker set_updateFlag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-usedefaultpresentation">VRCPortalMarker set_useDefaultPresentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-set-world">VRCPortalMarker set_world</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcportalmarker-tostring">VRCPortalMarker ToString</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCStation/index.html">ComponentsVRCStation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseInputManager/index.html">VRCSDKBaseInputManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseVRCPlayerApi/index.html">VRCSDKBaseVRCPlayerApi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>ComponentsVRCPortalMarker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/ComponentsVRCPortalMarker/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ComponentsVRCStation/index.html" class="btn btn-neutral float-right" title="ComponentsVRCStation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCPickup/index.html" class="btn btn-neutral" title="ComponentsVRCPickup" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="componentsvrcportalmarker">
+<h1>ComponentsVRCPortalMarker<a class="headerlink" href="#componentsvrcportalmarker" title="Permalink to this headline">¶</a></h1>
+<p>The ComponentsVRCPortalMarker module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="vrcportalmarker">
+<h2>VRCPortalMarker<a class="headerlink" href="#vrcportalmarker" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDK3ComponentsVRCPortalMarker">
+<code class="sig-name descname">Variable_VRCSDK3ComponentsVRCPortalMarker</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker VRCPortalMarkerSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDK3ComponentsVRCPortalMarker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-equals">
+<h2>VRCPortalMarker Equals<a class="headerlink" href="#vrcportalmarker-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-customportalname">
+<h2>VRCPortalMarker get_customPortalName<a class="headerlink" href="#vrcportalmarker-get-customportalname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_customPortalName__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_customPortalName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_customPortalName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-effectprefabname">
+<h2>VRCPortalMarker get_effectPrefabName<a class="headerlink" href="#vrcportalmarker-get-effectprefabname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_effectPrefabName__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_effectPrefabName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_effectPrefabName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-enabled">
+<h2>VRCPortalMarker get_enabled<a class="headerlink" href="#vrcportalmarker-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-gameobject">
+<h2>VRCPortalMarker get_gameObject<a class="headerlink" href="#vrcportalmarker-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-name">
+<h2>VRCPortalMarker get_name<a class="headerlink" href="#vrcportalmarker-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_name__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-offset">
+<h2>VRCPortalMarker get_offset<a class="headerlink" href="#vrcportalmarker-get-offset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_offset__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_offset__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_offset__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-roomid">
+<h2>VRCPortalMarker get_roomId<a class="headerlink" href="#vrcportalmarker-get-roomid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_roomId__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_roomId__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_roomId__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-roomname">
+<h2>VRCPortalMarker get_roomName<a class="headerlink" href="#vrcportalmarker-get-roomname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_roomName__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_roomName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_roomName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-searchterm">
+<h2>VRCPortalMarker get_searchTerm<a class="headerlink" href="#vrcportalmarker-get-searchterm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_searchTerm__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_searchTerm__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_searchTerm__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-sortheading">
+<h2>VRCPortalMarker get_sortHeading<a class="headerlink" href="#vrcportalmarker-get-sortheading" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_sortHeading__VRCSDKBaseVRC_PortalMarkerSortHeading">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_sortHeading__VRCSDKBaseVRC_PortalMarkerSortHeading</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_sortHeading__VRCSDKBaseVRC_PortalMarkerSortHeading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SortHeading</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-sortorder">
+<h2>VRCPortalMarker get_sortOrder<a class="headerlink" href="#vrcportalmarker-get-sortorder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_sortOrder__VRCSDKBaseVRC_PortalMarkerSortOrder">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_sortOrder__VRCSDKBaseVRC_PortalMarkerSortOrder</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_sortOrder__VRCSDKBaseVRC_PortalMarkerSortOrder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SortOrder</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-transform">
+<h2>VRCPortalMarker get_transform<a class="headerlink" href="#vrcportalmarker-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-updateflag">
+<h2>VRCPortalMarker get_updateFlag<a class="headerlink" href="#vrcportalmarker-get-updateflag" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_updateFlag__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_updateFlag__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_updateFlag__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-usedefaultpresentation">
+<h2>VRCPortalMarker get_useDefaultPresentation<a class="headerlink" href="#vrcportalmarker-get-usedefaultpresentation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_useDefaultPresentation__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_useDefaultPresentation__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_useDefaultPresentation__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-get-world">
+<h2>VRCPortalMarker get_world<a class="headerlink" href="#vrcportalmarker-get-world" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__get_world__VRCSDKBaseVRC_PortalMarkerVRChatWorld">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__get_world__VRCSDKBaseVRC_PortalMarkerVRChatWorld</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__get_world__VRCSDKBaseVRC_PortalMarkerVRChatWorld" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRChatWorld</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-getcomponent">
+<h2>VRCPortalMarker GetComponent<a class="headerlink" href="#vrcportalmarker-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-getcomponentinchildren">
+<h2>VRCPortalMarker GetComponentInChildren<a class="headerlink" href="#vrcportalmarker-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-getcomponentinparent">
+<h2>VRCPortalMarker GetComponentInParent<a class="headerlink" href="#vrcportalmarker-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-getcomponents">
+<h2>VRCPortalMarker GetComponents<a class="headerlink" href="#vrcportalmarker-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-getcomponentsinchildren">
+<h2>VRCPortalMarker GetComponentsInChildren<a class="headerlink" href="#vrcportalmarker-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-getcomponentsinparent">
+<h2>VRCPortalMarker GetComponentsInParent<a class="headerlink" href="#vrcportalmarker-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-gethashcode">
+<h2>VRCPortalMarker GetHashCode<a class="headerlink" href="#vrcportalmarker-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-getinstanceid">
+<h2>VRCPortalMarker GetInstanceID<a class="headerlink" href="#vrcportalmarker-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-gettype">
+<h2>VRCPortalMarker GetType<a class="headerlink" href="#vrcportalmarker-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcportalmarker-refreshportal">
+<h2>VRCPortalMarker RefreshPortal<a class="headerlink" href="#vrcportalmarker-refreshportal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__RefreshPortal__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__RefreshPortal__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__RefreshPortal__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-customportalname">
+<h2>VRCPortalMarker set_customPortalName<a class="headerlink" href="#vrcportalmarker-set-customportalname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_customPortalName__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_customPortalName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_customPortalName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-effectprefabname">
+<h2>VRCPortalMarker set_effectPrefabName<a class="headerlink" href="#vrcportalmarker-set-effectprefabname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_effectPrefabName__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_effectPrefabName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_effectPrefabName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-enabled">
+<h2>VRCPortalMarker set_enabled<a class="headerlink" href="#vrcportalmarker-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-name">
+<h2>VRCPortalMarker set_name<a class="headerlink" href="#vrcportalmarker-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-offset">
+<h2>VRCPortalMarker set_offset<a class="headerlink" href="#vrcportalmarker-set-offset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_offset__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_offset__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.Int32</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_offset__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-roomid">
+<h2>VRCPortalMarker set_roomId<a class="headerlink" href="#vrcportalmarker-set-roomid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_roomId__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_roomId__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_roomId__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-roomname">
+<h2>VRCPortalMarker set_roomName<a class="headerlink" href="#vrcportalmarker-set-roomname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_roomName__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_roomName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_roomName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-searchterm">
+<h2>VRCPortalMarker set_searchTerm<a class="headerlink" href="#vrcportalmarker-set-searchterm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_searchTerm__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_searchTerm__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_searchTerm__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-sortheading">
+<h2>VRCPortalMarker set_sortHeading<a class="headerlink" href="#vrcportalmarker-set-sortheading" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_sortHeading__VRCSDKBaseVRC_PortalMarkerSortHeading">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_sortHeading__VRCSDKBaseVRC_PortalMarkerSortHeading</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker VRC.SDKBase.VRC_PortalMarker+SortHeading</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_sortHeading__VRCSDKBaseVRC_PortalMarkerSortHeading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-sortorder">
+<h2>VRCPortalMarker set_sortOrder<a class="headerlink" href="#vrcportalmarker-set-sortorder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_sortOrder__VRCSDKBaseVRC_PortalMarkerSortOrder">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_sortOrder__VRCSDKBaseVRC_PortalMarkerSortOrder</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker VRC.SDKBase.VRC_PortalMarker+SortOrder</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_sortOrder__VRCSDKBaseVRC_PortalMarkerSortOrder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-updateflag">
+<h2>VRCPortalMarker set_updateFlag<a class="headerlink" href="#vrcportalmarker-set-updateflag" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_updateFlag__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_updateFlag__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_updateFlag__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-usedefaultpresentation">
+<h2>VRCPortalMarker set_useDefaultPresentation<a class="headerlink" href="#vrcportalmarker-set-usedefaultpresentation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_useDefaultPresentation__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_useDefaultPresentation__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_useDefaultPresentation__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-set-world">
+<h2>VRCPortalMarker set_world<a class="headerlink" href="#vrcportalmarker-set-world" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__set_world__VRCSDKBaseVRC_PortalMarkerVRChatWorld">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__set_world__VRCSDKBaseVRC_PortalMarkerVRChatWorld</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker VRC.SDKBase.VRC_PortalMarker+VRChatWorld</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__set_world__VRCSDKBaseVRC_PortalMarkerVRChatWorld" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcportalmarker-tostring">
+<h2>VRCPortalMarker ToString<a class="headerlink" href="#vrcportalmarker-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPortalMarker.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPortalMarker.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPortalMarker instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPortalMarker.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ComponentsVRCStation/index.html" class="btn btn-neutral float-right" title="ComponentsVRCStation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCPickup/index.html" class="btn btn-neutral" title="ComponentsVRCPickup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

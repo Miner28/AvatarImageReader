@@ -1,0 +1,595 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Int64 &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="Object" href="../Object/index.html"/>
+        <link rel="prev" title="Int" href="../Int/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Int64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#long">long</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-addition">op_Addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-compareto">long CompareTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-division">op_Division</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-equals">long Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-get-maxvalue">long get_MaxValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-get-minvalue">long get_MinValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-gethashcode">long GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-gettype">long GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthan">op_GreaterThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthanorequal">op_GreaterThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-leftshift">op_LeftShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthan">op_LessThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthanorequal">op_LessThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicaland">op_LogicalAnd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicalor">op_LogicalOr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicalxor">op_LogicalXor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-multiplication">op_Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-parse">long Parse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-rightshift">op_RightShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-subtraction">op_Subtraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-tostring">long ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-tryparse">long TryParse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-unaryminus">op_UnaryMinus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">long</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>Int64</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/Int64/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Object/index.html" class="btn btn-neutral float-right" title="Object" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Int/index.html" class="btn btn-neutral" title="Int" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="int64">
+<h1>Int64<a class="headerlink" href="#int64" title="Permalink to this headline">¶</a></h1>
+<p>The Int64 module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="long">
+<h2>long<a class="headerlink" href="#long" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_SystemInt64">
+<code class="sig-name descname">Const_SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-addition">
+<h2>op_Addition<a class="headerlink" href="#op-addition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_Addition__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_Addition__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_Addition__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="long-compareto">
+<h2>long CompareTo<a class="headerlink" href="#long-compareto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__CompareTo__SystemObject__SystemInt32">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__CompareTo__SystemObject__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 instanceSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__CompareTo__SystemObject__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.CompareTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-division">
+<h2>op_Division<a class="headerlink" href="#op-division" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_Division__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_Division__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_Division__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_Equality__SystemInt64_SystemInt64__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="long-equals">
+<h2>long Equals<a class="headerlink" href="#long-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="long-get-maxvalue">
+<h2>long get_MaxValue<a class="headerlink" href="#long-get-maxvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__get_MaxValue__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__get_MaxValue__SystemInt64</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__get_MaxValue__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.MaxValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="long-get-minvalue">
+<h2>long get_MinValue<a class="headerlink" href="#long-get-minvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__get_MinValue__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__get_MinValue__SystemInt64</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__get_MinValue__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.MinValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="long-gethashcode">
+<h2>long GetHashCode<a class="headerlink" href="#long-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="long-gettype">
+<h2>long GetType<a class="headerlink" href="#long-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-greaterthan">
+<h2>op_GreaterThan<a class="headerlink" href="#op-greaterthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_GreaterThan__SystemInt64_SystemInt64__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_GreaterThan__SystemInt64_SystemInt64__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_GreaterThan__SystemInt64_SystemInt64__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-greaterthanorequal">
+<h2>op_GreaterThanOrEqual<a class="headerlink" href="#op-greaterthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_GreaterThanOrEqual__SystemInt64_SystemInt64__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_GreaterThanOrEqual__SystemInt64_SystemInt64__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_GreaterThanOrEqual__SystemInt64_SystemInt64__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_Inequality__SystemInt64_SystemInt64__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_Inequality__SystemInt64_SystemInt64__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_Inequality__SystemInt64_SystemInt64__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-leftshift">
+<h2>op_LeftShift<a class="headerlink" href="#op-leftshift" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_LeftShift__SystemInt64_SystemInt32__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_LeftShift__SystemInt64_SystemInt32__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int32</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_LeftShift__SystemInt64_SystemInt32__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthan">
+<h2>op_LessThan<a class="headerlink" href="#op-lessthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_LessThan__SystemInt64_SystemInt64__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_LessThan__SystemInt64_SystemInt64__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_LessThan__SystemInt64_SystemInt64__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthanorequal">
+<h2>op_LessThanOrEqual<a class="headerlink" href="#op-lessthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_LessThanOrEqual__SystemInt64_SystemInt64__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_LessThanOrEqual__SystemInt64_SystemInt64__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_LessThanOrEqual__SystemInt64_SystemInt64__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicaland">
+<h2>op_LogicalAnd<a class="headerlink" href="#op-logicaland" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_LogicalAnd__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_LogicalAnd__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_LogicalAnd__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicalor">
+<h2>op_LogicalOr<a class="headerlink" href="#op-logicalor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_LogicalOr__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_LogicalOr__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_LogicalOr__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicalxor">
+<h2>op_LogicalXor<a class="headerlink" href="#op-logicalxor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_LogicalXor__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_LogicalXor__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_LogicalXor__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-multiplication">
+<h2>op_Multiplication<a class="headerlink" href="#op-multiplication" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_Multiplication__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_Multiplication__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_Multiplication__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="long-parse">
+<h2>long Parse<a class="headerlink" href="#long-parse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__Parse__SystemString__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__Parse__SystemString__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__Parse__SystemString__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.Parse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-rightshift">
+<h2>op_RightShift<a class="headerlink" href="#op-rightshift" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_RightShift__SystemInt64_SystemInt32__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_RightShift__SystemInt64_SystemInt32__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int32</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_RightShift__SystemInt64_SystemInt32__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-subtraction">
+<h2>op_Subtraction<a class="headerlink" href="#op-subtraction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_Subtraction__SystemInt64_SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_Subtraction__SystemInt64_SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_Subtraction__SystemInt64_SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="long-tostring">
+<h2>long ToString<a class="headerlink" href="#long-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="long-tryparse">
+<h2>long TryParse<a class="headerlink" href="#long-tryparse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemInt64Ref__SystemBoolean">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemInt64Ref__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String sSystem.Globalization.NumberStyles styleSystem.IFormatProvider provider</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemInt64Ref__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: result (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Int64.TryParse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-unaryminus">
+<h2>op_UnaryMinus<a class="headerlink" href="#op-unaryminus" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemInt64.__op_UnaryMinus__SystemInt64__SystemInt64">
+<code class="sig-prename descclassname">SystemInt64.</code><code class="sig-name descname">__op_UnaryMinus__SystemInt64__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemInt64.__op_UnaryMinus__SystemInt64__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="id10">
+<h2>long<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemInt64">
+<code class="sig-name descname">Variable_SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 Int64System.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Object/index.html" class="btn btn-neutral float-right" title="Object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Int/index.html" class="btn btn-neutral" title="Int" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

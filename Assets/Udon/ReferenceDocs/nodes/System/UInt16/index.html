@@ -1,0 +1,595 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UInt16 &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="Uint" href="../Uint/index.html"/>
+        <link rel="prev" title="Type" href="../Type/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">UInt16</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ushort">ushort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-addition">op_Addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-compareto">ushort CompareTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-division">op_Division</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-equals">ushort Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-get-maxvalue">ushort get_MaxValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-get-minvalue">ushort get_MinValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-gethashcode">ushort GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-gettype">ushort GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthan">op_GreaterThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthanorequal">op_GreaterThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-leftshift">op_LeftShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthan">op_LessThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthanorequal">op_LessThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicaland">op_LogicalAnd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicalor">op_LogicalOr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicalxor">op_LogicalXor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-multiplication">op_Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-parse">ushort Parse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-rightshift">op_RightShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-subtraction">op_Subtraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-tostring">ushort ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ushort-tryparse">ushort TryParse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-unaryminus">op_UnaryMinus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">ushort</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>UInt16</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/UInt16/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Uint/index.html" class="btn btn-neutral float-right" title="Uint" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Type/index.html" class="btn btn-neutral" title="Type" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uint16">
+<h1>UInt16<a class="headerlink" href="#uint16" title="Permalink to this headline">¶</a></h1>
+<p>The UInt16 module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ushort">
+<h2>ushort<a class="headerlink" href="#ushort" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_SystemUInt16">
+<code class="sig-name descname">Const_SystemUInt16</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_SystemUInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-addition">
+<h2>op_Addition<a class="headerlink" href="#op-addition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_Addition__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_Addition__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_Addition__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="ushort-compareto">
+<h2>ushort CompareTo<a class="headerlink" href="#ushort-compareto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__CompareTo__SystemObject__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__CompareTo__SystemObject__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 instanceSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__CompareTo__SystemObject__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.CompareTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-division">
+<h2>op_Division<a class="headerlink" href="#op-division" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_Division__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_Division__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_Division__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_Equality__SystemUInt16_SystemUInt16__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_Equality__SystemUInt16_SystemUInt16__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_Equality__SystemUInt16_SystemUInt16__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="ushort-equals">
+<h2>ushort Equals<a class="headerlink" href="#ushort-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ushort-get-maxvalue">
+<h2>ushort get_MaxValue<a class="headerlink" href="#ushort-get-maxvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__get_MaxValue__SystemUInt16">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__get_MaxValue__SystemUInt16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__get_MaxValue__SystemUInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.MaxValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ushort-get-minvalue">
+<h2>ushort get_MinValue<a class="headerlink" href="#ushort-get-minvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__get_MinValue__SystemUInt16">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__get_MinValue__SystemUInt16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__get_MinValue__SystemUInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.MinValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ushort-gethashcode">
+<h2>ushort GetHashCode<a class="headerlink" href="#ushort-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ushort-gettype">
+<h2>ushort GetType<a class="headerlink" href="#ushort-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-greaterthan">
+<h2>op_GreaterThan<a class="headerlink" href="#op-greaterthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_GreaterThan__SystemUInt16_SystemUInt16__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_GreaterThan__SystemUInt16_SystemUInt16__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_GreaterThan__SystemUInt16_SystemUInt16__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-greaterthanorequal">
+<h2>op_GreaterThanOrEqual<a class="headerlink" href="#op-greaterthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_GreaterThanOrEqual__SystemUInt16_SystemUInt16__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_GreaterThanOrEqual__SystemUInt16_SystemUInt16__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_GreaterThanOrEqual__SystemUInt16_SystemUInt16__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_Inequality__SystemUInt16_SystemUInt16__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_Inequality__SystemUInt16_SystemUInt16__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_Inequality__SystemUInt16_SystemUInt16__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-leftshift">
+<h2>op_LeftShift<a class="headerlink" href="#op-leftshift" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_LeftShift__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_LeftShift__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_LeftShift__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthan">
+<h2>op_LessThan<a class="headerlink" href="#op-lessthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_LessThan__SystemUInt16_SystemUInt16__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_LessThan__SystemUInt16_SystemUInt16__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_LessThan__SystemUInt16_SystemUInt16__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthanorequal">
+<h2>op_LessThanOrEqual<a class="headerlink" href="#op-lessthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_LessThanOrEqual__SystemUInt16_SystemUInt16__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_LessThanOrEqual__SystemUInt16_SystemUInt16__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_LessThanOrEqual__SystemUInt16_SystemUInt16__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicaland">
+<h2>op_LogicalAnd<a class="headerlink" href="#op-logicaland" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_LogicalAnd__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_LogicalAnd__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_LogicalAnd__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicalor">
+<h2>op_LogicalOr<a class="headerlink" href="#op-logicalor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_LogicalOr__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_LogicalOr__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_LogicalOr__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicalxor">
+<h2>op_LogicalXor<a class="headerlink" href="#op-logicalxor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_LogicalXor__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_LogicalXor__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_LogicalXor__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-multiplication">
+<h2>op_Multiplication<a class="headerlink" href="#op-multiplication" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_Multiplication__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_Multiplication__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_Multiplication__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="ushort-parse">
+<h2>ushort Parse<a class="headerlink" href="#ushort-parse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__Parse__SystemString__SystemUInt16">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__Parse__SystemString__SystemUInt16</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__Parse__SystemString__SystemUInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.Parse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-rightshift">
+<h2>op_RightShift<a class="headerlink" href="#op-rightshift" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_RightShift__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_RightShift__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_RightShift__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-subtraction">
+<h2>op_Subtraction<a class="headerlink" href="#op-subtraction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_Subtraction__SystemUInt16_SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_Subtraction__SystemUInt16_SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_Subtraction__SystemUInt16_SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="ushort-tostring">
+<h2>ushort ToString<a class="headerlink" href="#ushort-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ushort-tryparse">
+<h2>ushort TryParse<a class="headerlink" href="#ushort-tryparse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemUInt16Ref__SystemBoolean">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemUInt16Ref__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String sSystem.Globalization.NumberStyles styleSystem.IFormatProvider provider</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemUInt16Ref__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: result (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.UInt16.TryParse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-unaryminus">
+<h2>op_UnaryMinus<a class="headerlink" href="#op-unaryminus" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemUInt16.__op_UnaryMinus__SystemUInt16__SystemInt32">
+<code class="sig-prename descclassname">SystemUInt16.</code><code class="sig-name descname">__op_UnaryMinus__SystemUInt16__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemUInt16.__op_UnaryMinus__SystemUInt16__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="id10">
+<h2>ushort<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemUInt16">
+<code class="sig-name descname">Variable_SystemUInt16</code><span class="sig-paren">(</span><em class="sig-param">System.UInt16 UInt16System.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemUInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Uint/index.html" class="btn btn-neutral float-right" title="Uint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Type/index.html" class="btn btn-neutral" title="Type" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

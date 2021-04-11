@@ -1,0 +1,551 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Convert &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="DateTime" href="../DateTime/index.html"/>
+        <link rel="prev" title="Char" href="../Char/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Convert</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convert-equals">Convert Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-frombase64chararray">Convert FromBase64CharArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-frombase64string">Convert FromBase64String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-gethashcode">Convert GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-gettype">Convert GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tobase64chararray">Convert ToBase64CharArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tobase64string">Convert ToBase64String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-toboolean">Convert ToBoolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tobyte">Convert ToByte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tochar">Convert ToChar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-todatetime">Convert ToDateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-todecimal">Convert ToDecimal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-todouble">Convert ToDouble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tosingle">Convert ToSingle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-toint32">Convert ToInt32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-toint16">Convert ToInt16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-toint64">Convert ToInt64</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tosbyte">Convert ToSByte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-tostring">Convert ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-touint32">Convert ToUInt32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-touint16">Convert ToUInt16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-touint64">Convert ToUInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>Convert</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/Convert/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../DateTime/index.html" class="btn btn-neutral float-right" title="DateTime" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Char/index.html" class="btn btn-neutral" title="Char" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="convert">
+<h1>Convert<a class="headerlink" href="#convert" title="Permalink to this headline">¶</a></h1>
+<p>The Convert module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="convert-equals">
+<h2>Convert Equals<a class="headerlink" href="#convert-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Convert instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-frombase64chararray">
+<h2>Convert FromBase64CharArray<a class="headerlink" href="#convert-frombase64chararray" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__FromBase64CharArray__SystemCharArray_SystemInt32_SystemInt32__SystemByteArray">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__FromBase64CharArray__SystemCharArray_SystemInt32_SystemInt32__SystemByteArray</code><span class="sig-paren">(</span><em class="sig-param">System.Char[] inArraySystem.Int32 offsetSystem.Int32 length</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__FromBase64CharArray__SystemCharArray_SystemInt32_SystemInt32__SystemByteArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Byte[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.FromBase64CharArray?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-frombase64string">
+<h2>Convert FromBase64String<a class="headerlink" href="#convert-frombase64string" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__FromBase64String__SystemString__SystemByteArray">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__FromBase64String__SystemString__SystemByteArray</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__FromBase64String__SystemString__SystemByteArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Byte[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.FromBase64String?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-gethashcode">
+<h2>Convert GetHashCode<a class="headerlink" href="#convert-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Convert instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-gettype">
+<h2>Convert GetType<a class="headerlink" href="#convert-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.Convert instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tobase64chararray">
+<h2>Convert ToBase64CharArray<a class="headerlink" href="#convert-tobase64chararray" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToBase64CharArray__SystemByteArray_SystemInt32_SystemInt32_SystemCharArray_SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToBase64CharArray__SystemByteArray_SystemInt32_SystemInt32_SystemCharArray_SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Byte[] inArraySystem.Int32 offsetInSystem.Int32 lengthSystem.Char[] outArraySystem.Int32 offsetOut</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToBase64CharArray__SystemByteArray_SystemInt32_SystemInt32_SystemCharArray_SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToBase64CharArray?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tobase64string">
+<h2>Convert ToBase64String<a class="headerlink" href="#convert-tobase64string" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToBase64String__SystemByteArray__SystemString">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToBase64String__SystemByteArray__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Byte[] inArray</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToBase64String__SystemByteArray__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToBase64String?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-toboolean">
+<h2>Convert ToBoolean<a class="headerlink" href="#convert-toboolean" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToBoolean__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToBoolean__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToBoolean__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToBoolean?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tobyte">
+<h2>Convert ToByte<a class="headerlink" href="#convert-tobyte" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToByte__SystemObject__SystemByte">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToByte__SystemObject__SystemByte</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToByte__SystemObject__SystemByte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Byte</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToByte?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tochar">
+<h2>Convert ToChar<a class="headerlink" href="#convert-tochar" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToChar__SystemObject__SystemChar">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToChar__SystemObject__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToChar__SystemObject__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToChar?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-todatetime">
+<h2>Convert ToDateTime<a class="headerlink" href="#convert-todatetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToDateTime__SystemDateTime__SystemDateTime">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToDateTime__SystemDateTime__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToDateTime__SystemDateTime__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToDateTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-todecimal">
+<h2>Convert ToDecimal<a class="headerlink" href="#convert-todecimal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToDecimal__SystemObject__SystemDecimal">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToDecimal__SystemObject__SystemDecimal</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToDecimal__SystemObject__SystemDecimal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Decimal</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToDecimal?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-todouble">
+<h2>Convert ToDouble<a class="headerlink" href="#convert-todouble" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToDouble__SystemObject__SystemDouble">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToDouble__SystemObject__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToDouble__SystemObject__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToDouble?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tosingle">
+<h2>Convert ToSingle<a class="headerlink" href="#convert-tosingle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToSingle__SystemObject__SystemSingle">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToSingle__SystemObject__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToSingle__SystemObject__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToSingle?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-toint32">
+<h2>Convert ToInt32<a class="headerlink" href="#convert-toint32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToInt32__SystemObject__SystemInt32">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToInt32__SystemObject__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToInt32__SystemObject__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToInt32?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-toint16">
+<h2>Convert ToInt16<a class="headerlink" href="#convert-toint16" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToInt16__SystemObject__SystemInt16">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToInt16__SystemObject__SystemInt16</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToInt16__SystemObject__SystemInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int16</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToInt16?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-toint64">
+<h2>Convert ToInt64<a class="headerlink" href="#convert-toint64" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToInt64__SystemObject__SystemInt64">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToInt64__SystemObject__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToInt64__SystemObject__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToInt64?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tosbyte">
+<h2>Convert ToSByte<a class="headerlink" href="#convert-tosbyte" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToSByte__SystemObject__SystemSByte">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToSByte__SystemObject__SystemSByte</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToSByte__SystemObject__SystemSByte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SByte</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToSByte?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-tostring">
+<h2>Convert ToString<a class="headerlink" href="#convert-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Convert instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-touint32">
+<h2>Convert ToUInt32<a class="headerlink" href="#convert-touint32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToUInt32__SystemObject__SystemUInt32">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToUInt32__SystemObject__SystemUInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToUInt32__SystemObject__SystemUInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToUInt32?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-touint16">
+<h2>Convert ToUInt16<a class="headerlink" href="#convert-touint16" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToUInt16__SystemObject__SystemUInt16">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToUInt16__SystemObject__SystemUInt16</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToUInt16__SystemObject__SystemUInt16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToUInt16?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="convert-touint64">
+<h2>Convert ToUInt64<a class="headerlink" href="#convert-touint64" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemConvert.__ToUInt64__SystemObject__SystemUInt64">
+<code class="sig-prename descclassname">SystemConvert.</code><code class="sig-name descname">__ToUInt64__SystemObject__SystemUInt64</code><span class="sig-paren">(</span><em class="sig-param">System.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemConvert.__ToUInt64__SystemObject__SystemUInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Convert.ToUInt64?view=netframework-4.8">C# Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../DateTime/index.html" class="btn btn-neutral float-right" title="DateTime" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Char/index.html" class="btn btn-neutral" title="Char" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1273 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ParticleSystem &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="ParticleSystemBurst" href="../ParticleSystemBurst/index.html"/>
+        <link rel="prev" title="Object" href="../Object/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ParticleSystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-clear">ParticleSystem Clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-emit">ParticleSystem Emit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-equals">ParticleSystem Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-collision">ParticleSystem get_collision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-colorbyspeed">ParticleSystem get_colorBySpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-coloroverlifetime">ParticleSystem get_colorOverLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-customdata">ParticleSystem get_customData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-emission">ParticleSystem get_emission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-externalforces">ParticleSystem get_externalForces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-forceoverlifetime">ParticleSystem get_forceOverLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-gameobject">ParticleSystem get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-inheritvelocity">ParticleSystem get_inheritVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-isemitting">ParticleSystem get_isEmitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-ispaused">ParticleSystem get_isPaused</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-isplaying">ParticleSystem get_isPlaying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-isstopped">ParticleSystem get_isStopped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-lights">ParticleSystem get_lights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-limitvelocityoverlifetime">ParticleSystem get_limitVelocityOverLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-main">ParticleSystem get_main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-name">ParticleSystem get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-noise">ParticleSystem get_noise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-particlecount">ParticleSystem get_particleCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-proceduralsimulationsupported">ParticleSystem get_proceduralSimulationSupported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-randomseed">ParticleSystem get_randomSeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-rotationbyspeed">ParticleSystem get_rotationBySpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-rotationoverlifetime">ParticleSystem get_rotationOverLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-shape">ParticleSystem get_shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-sizebyspeed">ParticleSystem get_sizeBySpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-sizeoverlifetime">ParticleSystem get_sizeOverLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-subemitters">ParticleSystem get_subEmitters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-texturesheetanimation">ParticleSystem get_textureSheetAnimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-time">ParticleSystem get_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-trails">ParticleSystem get_trails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-transform">ParticleSystem get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-trigger">ParticleSystem get_trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-useautorandomseed">ParticleSystem get_useAutoRandomSeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-get-velocityoverlifetime">ParticleSystem get_velocityOverLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcomponent">ParticleSystem GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcomponentinchildren">ParticleSystem GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcomponentinparent">ParticleSystem GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcomponents">ParticleSystem GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcomponentsinchildren">ParticleSystem GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcomponentsinparent">ParticleSystem GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getcustomparticledata">ParticleSystem GetCustomParticleData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-gethashcode">ParticleSystem GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getinstanceid">ParticleSystem GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-getparticles">ParticleSystem GetParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-gettype">ParticleSystem GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-isalive">ParticleSystem IsAlive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-pause">ParticleSystem Pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-play">ParticleSystem Play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-set-name">ParticleSystem set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-set-randomseed">ParticleSystem set_randomSeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-set-time">ParticleSystem set_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-set-useautorandomseed">ParticleSystem set_useAutoRandomSeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-setcustomparticledata">ParticleSystem SetCustomParticleData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-setparticles">ParticleSystem SetParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-simulate">ParticleSystem Simulate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-stop">ParticleSystem Stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-tostring">ParticleSystem ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#particlesystem-triggersubemitter">ParticleSystem TriggerSubEmitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id60">ParticleSystem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>ParticleSystem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/ParticleSystem/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ParticleSystemBurst/index.html" class="btn btn-neutral float-right" title="ParticleSystemBurst" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Object/index.html" class="btn btn-neutral" title="Object" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particlesystem">
+<h1>ParticleSystem<a class="headerlink" href="#particlesystem" title="Permalink to this headline">¶</a></h1>
+<p>The ParticleSystem module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="particlesystem-clear">
+<h2>ParticleSystem Clear<a class="headerlink" href="#particlesystem-clear" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Clear__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Clear__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Clear__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.Clear.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-emit">
+<h2>ParticleSystem Emit<a class="headerlink" href="#particlesystem-emit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Emit__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Emit__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Int32 count</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Emit__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.Emit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="particlesystem-equals">
+<h2>ParticleSystem Equals<a class="headerlink" href="#particlesystem-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-collision">
+<h2>ParticleSystem get_collision<a class="headerlink" href="#particlesystem-get-collision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_collision__UnityEngineParticleSystemCollisionModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_collision__UnityEngineParticleSystemCollisionModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_collision__UnityEngineParticleSystemCollisionModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">CollisionModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-collision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-colorbyspeed">
+<h2>ParticleSystem get_colorBySpeed<a class="headerlink" href="#particlesystem-get-colorbyspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_colorBySpeed__UnityEngineParticleSystemColorBySpeedModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_colorBySpeed__UnityEngineParticleSystemColorBySpeedModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_colorBySpeed__UnityEngineParticleSystemColorBySpeedModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ColorBySpeedModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-colorBySpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-coloroverlifetime">
+<h2>ParticleSystem get_colorOverLifetime<a class="headerlink" href="#particlesystem-get-coloroverlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_colorOverLifetime__UnityEngineParticleSystemColorOverLifetimeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_colorOverLifetime__UnityEngineParticleSystemColorOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_colorOverLifetime__UnityEngineParticleSystemColorOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ColorOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-colorOverLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-customdata">
+<h2>ParticleSystem get_customData<a class="headerlink" href="#particlesystem-get-customdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_customData__UnityEngineParticleSystemCustomDataModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_customData__UnityEngineParticleSystemCustomDataModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_customData__UnityEngineParticleSystemCustomDataModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">CustomDataModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-customData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-emission">
+<h2>ParticleSystem get_emission<a class="headerlink" href="#particlesystem-get-emission" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_emission__UnityEngineParticleSystemEmissionModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_emission__UnityEngineParticleSystemEmissionModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_emission__UnityEngineParticleSystemEmissionModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">EmissionModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-emission.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-externalforces">
+<h2>ParticleSystem get_externalForces<a class="headerlink" href="#particlesystem-get-externalforces" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_externalForces__UnityEngineParticleSystemExternalForcesModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_externalForces__UnityEngineParticleSystemExternalForcesModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_externalForces__UnityEngineParticleSystemExternalForcesModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ExternalForcesModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-externalForces.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-forceoverlifetime">
+<h2>ParticleSystem get_forceOverLifetime<a class="headerlink" href="#particlesystem-get-forceoverlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_forceOverLifetime__UnityEngineParticleSystemForceOverLifetimeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_forceOverLifetime__UnityEngineParticleSystemForceOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_forceOverLifetime__UnityEngineParticleSystemForceOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ForceOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-forceOverLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-gameobject">
+<h2>ParticleSystem get_gameObject<a class="headerlink" href="#particlesystem-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-inheritvelocity">
+<h2>ParticleSystem get_inheritVelocity<a class="headerlink" href="#particlesystem-get-inheritvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_inheritVelocity__UnityEngineParticleSystemInheritVelocityModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_inheritVelocity__UnityEngineParticleSystemInheritVelocityModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_inheritVelocity__UnityEngineParticleSystemInheritVelocityModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">InheritVelocityModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-inheritVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-isemitting">
+<h2>ParticleSystem get_isEmitting<a class="headerlink" href="#particlesystem-get-isemitting" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_isEmitting__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_isEmitting__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_isEmitting__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-isEmitting.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-ispaused">
+<h2>ParticleSystem get_isPaused<a class="headerlink" href="#particlesystem-get-ispaused" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_isPaused__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_isPaused__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_isPaused__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-isPaused.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-isplaying">
+<h2>ParticleSystem get_isPlaying<a class="headerlink" href="#particlesystem-get-isplaying" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_isPlaying__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_isPlaying__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_isPlaying__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-isPlaying.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-isstopped">
+<h2>ParticleSystem get_isStopped<a class="headerlink" href="#particlesystem-get-isstopped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_isStopped__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_isStopped__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_isStopped__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-isStopped.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-lights">
+<h2>ParticleSystem get_lights<a class="headerlink" href="#particlesystem-get-lights" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_lights__UnityEngineParticleSystemLightsModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_lights__UnityEngineParticleSystemLightsModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_lights__UnityEngineParticleSystemLightsModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightsModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-lights.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-limitvelocityoverlifetime">
+<h2>ParticleSystem get_limitVelocityOverLifetime<a class="headerlink" href="#particlesystem-get-limitvelocityoverlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_limitVelocityOverLifetime__UnityEngineParticleSystemLimitVelocityOverLifetimeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_limitVelocityOverLifetime__UnityEngineParticleSystemLimitVelocityOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_limitVelocityOverLifetime__UnityEngineParticleSystemLimitVelocityOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LimitVelocityOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-limitVelocityOverLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-main">
+<h2>ParticleSystem get_main<a class="headerlink" href="#particlesystem-get-main" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_main__UnityEngineParticleSystemMainModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_main__UnityEngineParticleSystemMainModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_main__UnityEngineParticleSystemMainModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MainModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-main.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-name">
+<h2>ParticleSystem get_name<a class="headerlink" href="#particlesystem-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-noise">
+<h2>ParticleSystem get_noise<a class="headerlink" href="#particlesystem-get-noise" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_noise__UnityEngineParticleSystemNoiseModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_noise__UnityEngineParticleSystemNoiseModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_noise__UnityEngineParticleSystemNoiseModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">NoiseModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-noise.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-particlecount">
+<h2>ParticleSystem get_particleCount<a class="headerlink" href="#particlesystem-get-particlecount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_particleCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_particleCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_particleCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-particleCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-proceduralsimulationsupported">
+<h2>ParticleSystem get_proceduralSimulationSupported<a class="headerlink" href="#particlesystem-get-proceduralsimulationsupported" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_proceduralSimulationSupported__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_proceduralSimulationSupported__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_proceduralSimulationSupported__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-proceduralSimulationSupported.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-randomseed">
+<h2>ParticleSystem get_randomSeed<a class="headerlink" href="#particlesystem-get-randomseed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_randomSeed__SystemUInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_randomSeed__SystemUInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_randomSeed__SystemUInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-randomSeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-rotationbyspeed">
+<h2>ParticleSystem get_rotationBySpeed<a class="headerlink" href="#particlesystem-get-rotationbyspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_rotationBySpeed__UnityEngineParticleSystemRotationBySpeedModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_rotationBySpeed__UnityEngineParticleSystemRotationBySpeedModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_rotationBySpeed__UnityEngineParticleSystemRotationBySpeedModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RotationBySpeedModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-rotationBySpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-rotationoverlifetime">
+<h2>ParticleSystem get_rotationOverLifetime<a class="headerlink" href="#particlesystem-get-rotationoverlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_rotationOverLifetime__UnityEngineParticleSystemRotationOverLifetimeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_rotationOverLifetime__UnityEngineParticleSystemRotationOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_rotationOverLifetime__UnityEngineParticleSystemRotationOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RotationOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-rotationOverLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-shape">
+<h2>ParticleSystem get_shape<a class="headerlink" href="#particlesystem-get-shape" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_shape__UnityEngineParticleSystemShapeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_shape__UnityEngineParticleSystemShapeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_shape__UnityEngineParticleSystemShapeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ShapeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-shape.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-sizebyspeed">
+<h2>ParticleSystem get_sizeBySpeed<a class="headerlink" href="#particlesystem-get-sizebyspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_sizeBySpeed__UnityEngineParticleSystemSizeBySpeedModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_sizeBySpeed__UnityEngineParticleSystemSizeBySpeedModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_sizeBySpeed__UnityEngineParticleSystemSizeBySpeedModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SizeBySpeedModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-sizeBySpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-sizeoverlifetime">
+<h2>ParticleSystem get_sizeOverLifetime<a class="headerlink" href="#particlesystem-get-sizeoverlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_sizeOverLifetime__UnityEngineParticleSystemSizeOverLifetimeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_sizeOverLifetime__UnityEngineParticleSystemSizeOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_sizeOverLifetime__UnityEngineParticleSystemSizeOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SizeOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-sizeOverLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-subemitters">
+<h2>ParticleSystem get_subEmitters<a class="headerlink" href="#particlesystem-get-subemitters" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_subEmitters__UnityEngineParticleSystemSubEmittersModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_subEmitters__UnityEngineParticleSystemSubEmittersModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_subEmitters__UnityEngineParticleSystemSubEmittersModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SubEmittersModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-subEmitters.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-texturesheetanimation">
+<h2>ParticleSystem get_textureSheetAnimation<a class="headerlink" href="#particlesystem-get-texturesheetanimation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_textureSheetAnimation__UnityEngineParticleSystemTextureSheetAnimationModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_textureSheetAnimation__UnityEngineParticleSystemTextureSheetAnimationModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_textureSheetAnimation__UnityEngineParticleSystemTextureSheetAnimationModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TextureSheetAnimationModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-textureSheetAnimation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-time">
+<h2>ParticleSystem get_time<a class="headerlink" href="#particlesystem-get-time" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_time__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_time__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_time__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-time.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-trails">
+<h2>ParticleSystem get_trails<a class="headerlink" href="#particlesystem-get-trails" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_trails__UnityEngineParticleSystemTrailModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_trails__UnityEngineParticleSystemTrailModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_trails__UnityEngineParticleSystemTrailModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TrailModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-trails.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-transform">
+<h2>ParticleSystem get_transform<a class="headerlink" href="#particlesystem-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-trigger">
+<h2>ParticleSystem get_trigger<a class="headerlink" href="#particlesystem-get-trigger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_trigger__UnityEngineParticleSystemTriggerModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_trigger__UnityEngineParticleSystemTriggerModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_trigger__UnityEngineParticleSystemTriggerModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TriggerModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-trigger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-useautorandomseed">
+<h2>ParticleSystem get_useAutoRandomSeed<a class="headerlink" href="#particlesystem-get-useautorandomseed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_useAutoRandomSeed__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_useAutoRandomSeed__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_useAutoRandomSeed__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-useAutoRandomSeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-get-velocityoverlifetime">
+<h2>ParticleSystem get_velocityOverLifetime<a class="headerlink" href="#particlesystem-get-velocityoverlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__get_velocityOverLifetime__UnityEngineParticleSystemVelocityOverLifetimeModule">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__get_velocityOverLifetime__UnityEngineParticleSystemVelocityOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__get_velocityOverLifetime__UnityEngineParticleSystemVelocityOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VelocityOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-velocityOverLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcomponent">
+<h2>ParticleSystem GetComponent<a class="headerlink" href="#particlesystem-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcomponentinchildren">
+<h2>ParticleSystem GetComponentInChildren<a class="headerlink" href="#particlesystem-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcomponentinparent">
+<h2>ParticleSystem GetComponentInParent<a class="headerlink" href="#particlesystem-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcomponents">
+<h2>ParticleSystem GetComponents<a class="headerlink" href="#particlesystem-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcomponentsinchildren">
+<h2>ParticleSystem GetComponentsInChildren<a class="headerlink" href="#particlesystem-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcomponentsinparent">
+<h2>ParticleSystem GetComponentsInParent<a class="headerlink" href="#particlesystem-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getcustomparticledata">
+<h2>ParticleSystem GetCustomParticleData<a class="headerlink" href="#particlesystem-getcustomparticledata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetCustomParticleData__SystemCollectionsGenericListUnityEngineVector4_UnityEngineParticleSystemCustomData__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetCustomParticleData__SystemCollectionsGenericListUnityEngineVector4_UnityEngineParticleSystemCustomData__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Collections.Generic.List`1[UnityEngine.Vector4] customDataUnityEngine.ParticleSystemCustomData streamIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetCustomParticleData__SystemCollectionsGenericListUnityEngineVector4_UnityEngineParticleSystemCustomData__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetCustomParticleData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-gethashcode">
+<h2>ParticleSystem GetHashCode<a class="headerlink" href="#particlesystem-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getinstanceid">
+<h2>ParticleSystem GetInstanceID<a class="headerlink" href="#particlesystem-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-getparticles">
+<h2>ParticleSystem GetParticles<a class="headerlink" href="#particlesystem-getparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetParticles__UnityEngineParticleSystemParticleArray_SystemInt32_SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetParticles__UnityEngineParticleSystemParticleArray_SystemInt32_SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Int32 sizeSystem.Int32 offset</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetParticles__UnityEngineParticleSystemParticleArray_SystemInt32_SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: particles (<code class="docutils literal notranslate"><span class="pre">Particle[]</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.GetParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-gettype">
+<h2>ParticleSystem GetType<a class="headerlink" href="#particlesystem-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="particlesystem-isalive">
+<h2>ParticleSystem IsAlive<a class="headerlink" href="#particlesystem-isalive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__IsAlive__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__IsAlive__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__IsAlive__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.IsAlive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-pause">
+<h2>ParticleSystem Pause<a class="headerlink" href="#particlesystem-pause" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Pause__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Pause__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Pause__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.Pause.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-play">
+<h2>ParticleSystem Play<a class="headerlink" href="#particlesystem-play" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Play__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Play__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Play__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.Play.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-set-name">
+<h2>ParticleSystem set_name<a class="headerlink" href="#particlesystem-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-set-randomseed">
+<h2>ParticleSystem set_randomSeed<a class="headerlink" href="#particlesystem-set-randomseed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__set_randomSeed__SystemUInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__set_randomSeed__SystemUInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.UInt32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__set_randomSeed__SystemUInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-randomSeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-set-time">
+<h2>ParticleSystem set_time<a class="headerlink" href="#particlesystem-set-time" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__set_time__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__set_time__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__set_time__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-time.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-set-useautorandomseed">
+<h2>ParticleSystem set_useAutoRandomSeed<a class="headerlink" href="#particlesystem-set-useautorandomseed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__set_useAutoRandomSeed__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__set_useAutoRandomSeed__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__set_useAutoRandomSeed__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem-useAutoRandomSeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-setcustomparticledata">
+<h2>ParticleSystem SetCustomParticleData<a class="headerlink" href="#particlesystem-setcustomparticledata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__SetCustomParticleData__SystemCollectionsGenericListUnityEngineVector4_UnityEngineParticleSystemCustomData__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__SetCustomParticleData__SystemCollectionsGenericListUnityEngineVector4_UnityEngineParticleSystemCustomData__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Collections.Generic.List`1[UnityEngine.Vector4] customDataUnityEngine.ParticleSystemCustomData streamIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__SetCustomParticleData__SystemCollectionsGenericListUnityEngineVector4_UnityEngineParticleSystemCustomData__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.SetCustomParticleData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-setparticles">
+<h2>ParticleSystem SetParticles<a class="headerlink" href="#particlesystem-setparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__SetParticles__UnityEngineParticleSystemParticleArray_SystemInt32_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__SetParticles__UnityEngineParticleSystemParticleArray_SystemInt32_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Int32 sizeSystem.Int32 offset</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__SetParticles__UnityEngineParticleSystemParticleArray_SystemInt32_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: particles (<code class="docutils literal notranslate"><span class="pre">Particle[]</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.SetParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-simulate">
+<h2>ParticleSystem Simulate<a class="headerlink" href="#particlesystem-simulate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Simulate__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Simulate__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Single t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Simulate__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.Simulate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-stop">
+<h2>ParticleSystem Stop<a class="headerlink" href="#particlesystem-stop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__Stop__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__Stop__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__Stop__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.Stop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-tostring">
+<h2>ParticleSystem ToString<a class="headerlink" href="#particlesystem-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="particlesystem-triggersubemitter">
+<h2>ParticleSystem TriggerSubEmitter<a class="headerlink" href="#particlesystem-triggersubemitter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystem.__TriggerSubEmitter__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystem.</code><code class="sig-name descname">__TriggerSubEmitter__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem instanceSystem.Int32 subEmitterIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystem.__TriggerSubEmitter__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.TriggerSubEmitter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id60">
+<h2>ParticleSystem<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineParticleSystem">
+<code class="sig-name descname">Variable_UnityEngineParticleSystem</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem ParticleSystemSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineParticleSystem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ParticleSystem.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ParticleSystemBurst/index.html" class="btn btn-neutral float-right" title="ParticleSystemBurst" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Object/index.html" class="btn btn-neutral" title="Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

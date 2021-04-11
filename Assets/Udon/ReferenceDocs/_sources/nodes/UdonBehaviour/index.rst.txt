@@ -1,0 +1,66 @@
+====================================================================================================================================================
+UdonBehaviour
+====================================================================================================================================================
+
+The UdonBehaviour module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+UdonBehaviour GetProgramVariable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject(VRC.Udon.Common.Interfaces.IUdonEventReceiver instanceSystem.String name)
+
+outputs: unnamed (``Object``)
+
+flow: none
+
+
+
+UdonBehaviour SendCustomEvent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid(VRC.Udon.Common.Interfaces.IUdonEventReceiver instanceSystem.String eventName)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+UdonBehaviour SendCustomNetworkEvent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid(VRC.Udon.Common.Interfaces.IUdonEventReceiver instanceVRC.Udon.Common.Interfaces.NetworkEventTarget targetSystem.String eventName)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+UdonBehaviour SetProgramVariable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid(VRC.Udon.Common.Interfaces.IUdonEventReceiver instanceSystem.String nameSystem.Object value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+UdonBehaviour
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_VRCUdonCommonInterfacesIUdonEventReceiver(VRC.Udon.Common.Interfaces.IUdonEventReceiver IUdonEventReceiverSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+

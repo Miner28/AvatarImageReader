@@ -1,0 +1,1589 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mesh &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="MeshCollider" href="../MeshCollider/index.html"/>
+        <link rel="prev" title="Matrix4x4" href="../Matrix4x4/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mesh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-addblendshapeframe">Mesh AddBlendShapeFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-clear">Mesh Clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-clearblendshapes">Mesh ClearBlendShapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-combinemeshes">Mesh CombineMeshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-equals">Mesh Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-bindposes">Mesh get_bindposes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-blendshapecount">Mesh get_blendShapeCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-boneweights">Mesh get_boneWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-bounds">Mesh get_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-colors">Mesh get_colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-colors32">Mesh get_colors32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-indexformat">Mesh get_indexFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-isreadable">Mesh get_isReadable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-name">Mesh get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-normals">Mesh get_normals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-submeshcount">Mesh get_subMeshCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-tangents">Mesh get_tangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-triangles">Mesh get_triangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv">Mesh get_uv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv2">Mesh get_uv2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv3">Mesh get_uv3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv4">Mesh get_uv4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv5">Mesh get_uv5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv6">Mesh get_uv6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv7">Mesh get_uv7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-uv8">Mesh get_uv8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-vertexbuffercount">Mesh get_vertexBufferCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-vertexcount">Mesh get_vertexCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-get-vertices">Mesh get_vertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getbasevertex">Mesh GetBaseVertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getbindposes">Mesh GetBindposes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getblendshapeframecount">Mesh GetBlendShapeFrameCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getblendshapeframevertices">Mesh GetBlendShapeFrameVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getblendshapeframeweight">Mesh GetBlendShapeFrameWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getblendshapeindex">Mesh GetBlendShapeIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getblendshapename">Mesh GetBlendShapeName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getboneweights">Mesh GetBoneWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getcolors">Mesh GetColors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-gethashcode">Mesh GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getindexcount">Mesh GetIndexCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getindexstart">Mesh GetIndexStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getindices">Mesh GetIndices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getinstanceid">Mesh GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getnormals">Mesh GetNormals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-gettangents">Mesh GetTangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-gettopology">Mesh GetTopology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-gettriangles">Mesh GetTriangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-gettype">Mesh GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getuvdistributionmetric">Mesh GetUVDistributionMetric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getuvs">Mesh GetUVs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-getvertices">Mesh GetVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-markdynamic">Mesh MarkDynamic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-recalculatebounds">Mesh RecalculateBounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-recalculatenormals">Mesh RecalculateNormals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-recalculatetangents">Mesh RecalculateTangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-bindposes">Mesh set_bindposes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-boneweights">Mesh set_boneWeights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-bounds">Mesh set_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-colors">Mesh set_colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-colors32">Mesh set_colors32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-indexformat">Mesh set_indexFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-name">Mesh set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-normals">Mesh set_normals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-submeshcount">Mesh set_subMeshCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-tangents">Mesh set_tangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-triangles">Mesh set_triangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv">Mesh set_uv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv2">Mesh set_uv2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv3">Mesh set_uv3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv4">Mesh set_uv4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv5">Mesh set_uv5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv6">Mesh set_uv6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv7">Mesh set_uv7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-uv8">Mesh set_uv8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-set-vertices">Mesh set_vertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-setcolors">Mesh SetColors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-setindices">Mesh SetIndices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-setnormals">Mesh SetNormals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-settangents">Mesh SetTangents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-settriangles">Mesh SetTriangles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-setuvs">Mesh SetUVs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-setvertices">Mesh SetVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-tostring">Mesh ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-uploadmeshdata">Mesh UploadMeshData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id83">Mesh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>Mesh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/Mesh/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../MeshCollider/index.html" class="btn btn-neutral float-right" title="MeshCollider" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Matrix4x4/index.html" class="btn btn-neutral" title="Matrix4x4" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mesh">
+<h1>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h1>
+<p>The Mesh module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="mesh-addblendshapeframe">
+<h2>Mesh AddBlendShapeFrame<a class="headerlink" href="#mesh-addblendshapeframe" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__AddBlendShapeFrame__SystemString_SystemSingle_UnityEngineVector3Array_UnityEngineVector3Array_UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__AddBlendShapeFrame__SystemString_SystemSingle_UnityEngineVector3Array_UnityEngineVector3Array_UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.String shapeNameSystem.Single frameWeightUnityEngine.Vector3[] deltaVerticesUnityEngine.Vector3[] deltaNormalsUnityEngine.Vector3[] deltaTangents</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__AddBlendShapeFrame__SystemString_SystemSingle_UnityEngineVector3Array_UnityEngineVector3Array_UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.AddBlendShapeFrame.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-clear">
+<h2>Mesh Clear<a class="headerlink" href="#mesh-clear" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__Clear__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__Clear__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__Clear__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.Clear.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-clearblendshapes">
+<h2>Mesh ClearBlendShapes<a class="headerlink" href="#mesh-clearblendshapes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__ClearBlendShapes__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__ClearBlendShapes__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__ClearBlendShapes__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.ClearBlendShapes.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-combinemeshes">
+<h2>Mesh CombineMeshes<a class="headerlink" href="#mesh-combinemeshes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__CombineMeshes__UnityEngineCombineInstanceArray__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__CombineMeshes__UnityEngineCombineInstanceArray__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.CombineInstance[] combine</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__CombineMeshes__UnityEngineCombineInstanceArray__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.CombineMeshes.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__ctor____UnityEngineMesh">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__ctor____UnityEngineMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__ctor____UnityEngineMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Mesh</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="mesh-equals">
+<h2>Mesh Equals<a class="headerlink" href="#mesh-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-bindposes">
+<h2>Mesh get_bindposes<a class="headerlink" href="#mesh-get-bindposes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_bindposes__UnityEngineMatrix4x4Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_bindposes__UnityEngineMatrix4x4Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_bindposes__UnityEngineMatrix4x4Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-bindposes.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-blendshapecount">
+<h2>Mesh get_blendShapeCount<a class="headerlink" href="#mesh-get-blendshapecount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_blendShapeCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_blendShapeCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_blendShapeCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-blendShapeCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-boneweights">
+<h2>Mesh get_boneWeights<a class="headerlink" href="#mesh-get-boneweights" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_boneWeights__UnityEngineBoneWeightArray">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_boneWeights__UnityEngineBoneWeightArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_boneWeights__UnityEngineBoneWeightArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">BoneWeight[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-boneWeights.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-bounds">
+<h2>Mesh get_bounds<a class="headerlink" href="#mesh-get-bounds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_bounds__UnityEngineBounds">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_bounds__UnityEngineBounds</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_bounds__UnityEngineBounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Bounds</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-bounds.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-colors">
+<h2>Mesh get_colors<a class="headerlink" href="#mesh-get-colors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_colors__UnityEngineColorArray">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_colors__UnityEngineColorArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_colors__UnityEngineColorArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-colors.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-colors32">
+<h2>Mesh get_colors32<a class="headerlink" href="#mesh-get-colors32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_colors32__UnityEngineColor32Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_colors32__UnityEngineColor32Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_colors32__UnityEngineColor32Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color32[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-colors32.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-indexformat">
+<h2>Mesh get_indexFormat<a class="headerlink" href="#mesh-get-indexformat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_indexFormat__UnityEngineRenderingIndexFormat">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_indexFormat__UnityEngineRenderingIndexFormat</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_indexFormat__UnityEngineRenderingIndexFormat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">IndexFormat</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-indexFormat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-isreadable">
+<h2>Mesh get_isReadable<a class="headerlink" href="#mesh-get-isreadable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_isReadable__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_isReadable__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_isReadable__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-isReadable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-name">
+<h2>Mesh get_name<a class="headerlink" href="#mesh-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-normals">
+<h2>Mesh get_normals<a class="headerlink" href="#mesh-get-normals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_normals__UnityEngineVector3Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_normals__UnityEngineVector3Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_normals__UnityEngineVector3Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-normals.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-submeshcount">
+<h2>Mesh get_subMeshCount<a class="headerlink" href="#mesh-get-submeshcount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_subMeshCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_subMeshCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_subMeshCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-subMeshCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-tangents">
+<h2>Mesh get_tangents<a class="headerlink" href="#mesh-get-tangents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_tangents__UnityEngineVector4Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_tangents__UnityEngineVector4Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_tangents__UnityEngineVector4Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector4[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-tangents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-triangles">
+<h2>Mesh get_triangles<a class="headerlink" href="#mesh-get-triangles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_triangles__SystemInt32Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_triangles__SystemInt32Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_triangles__SystemInt32Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-triangles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv">
+<h2>Mesh get_uv<a class="headerlink" href="#mesh-get-uv" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv2">
+<h2>Mesh get_uv2<a class="headerlink" href="#mesh-get-uv2" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv2__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv2__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv2__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv2.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv3">
+<h2>Mesh get_uv3<a class="headerlink" href="#mesh-get-uv3" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv3__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv3__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv3__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv3.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv4">
+<h2>Mesh get_uv4<a class="headerlink" href="#mesh-get-uv4" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv4__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv4__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv4__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv4.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv5">
+<h2>Mesh get_uv5<a class="headerlink" href="#mesh-get-uv5" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv5__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv5__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv5__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv5.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv6">
+<h2>Mesh get_uv6<a class="headerlink" href="#mesh-get-uv6" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv6__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv6__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv6__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv6.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv7">
+<h2>Mesh get_uv7<a class="headerlink" href="#mesh-get-uv7" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv7__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv7__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv7__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv7.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-uv8">
+<h2>Mesh get_uv8<a class="headerlink" href="#mesh-get-uv8" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_uv8__UnityEngineVector2Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_uv8__UnityEngineVector2Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_uv8__UnityEngineVector2Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv8.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-vertexbuffercount">
+<h2>Mesh get_vertexBufferCount<a class="headerlink" href="#mesh-get-vertexbuffercount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_vertexBufferCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_vertexBufferCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_vertexBufferCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-vertexBufferCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-vertexcount">
+<h2>Mesh get_vertexCount<a class="headerlink" href="#mesh-get-vertexcount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_vertexCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_vertexCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_vertexCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-vertexCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-get-vertices">
+<h2>Mesh get_vertices<a class="headerlink" href="#mesh-get-vertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__get_vertices__UnityEngineVector3Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__get_vertices__UnityEngineVector3Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__get_vertices__UnityEngineVector3Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-vertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getbasevertex">
+<h2>Mesh GetBaseVertex<a class="headerlink" href="#mesh-getbasevertex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBaseVertex__SystemInt32__SystemUInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBaseVertex__SystemInt32__SystemUInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBaseVertex__SystemInt32__SystemUInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBaseVertex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getbindposes">
+<h2>Mesh GetBindposes<a class="headerlink" href="#mesh-getbindposes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBindposes__SystemCollectionsGenericListUnityEngineMatrix4x4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBindposes__SystemCollectionsGenericListUnityEngineMatrix4x4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Matrix4x4] bindposes</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBindposes__SystemCollectionsGenericListUnityEngineMatrix4x4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBindposes.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getblendshapeframecount">
+<h2>Mesh GetBlendShapeFrameCount<a class="headerlink" href="#mesh-getblendshapeframecount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBlendShapeFrameCount__SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBlendShapeFrameCount__SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 shapeIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBlendShapeFrameCount__SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBlendShapeFrameCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getblendshapeframevertices">
+<h2>Mesh GetBlendShapeFrameVertices<a class="headerlink" href="#mesh-getblendshapeframevertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBlendShapeFrameVertices__SystemInt32_SystemInt32_UnityEngineVector3Array_UnityEngineVector3Array_UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBlendShapeFrameVertices__SystemInt32_SystemInt32_UnityEngineVector3Array_UnityEngineVector3Array_UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 shapeIndexSystem.Int32 frameIndexUnityEngine.Vector3[] deltaVerticesUnityEngine.Vector3[] deltaNormalsUnityEngine.Vector3[] deltaTangents</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBlendShapeFrameVertices__SystemInt32_SystemInt32_UnityEngineVector3Array_UnityEngineVector3Array_UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBlendShapeFrameVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getblendshapeframeweight">
+<h2>Mesh GetBlendShapeFrameWeight<a class="headerlink" href="#mesh-getblendshapeframeweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBlendShapeFrameWeight__SystemInt32_SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBlendShapeFrameWeight__SystemInt32_SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 shapeIndexSystem.Int32 frameIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBlendShapeFrameWeight__SystemInt32_SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBlendShapeFrameWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getblendshapeindex">
+<h2>Mesh GetBlendShapeIndex<a class="headerlink" href="#mesh-getblendshapeindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBlendShapeIndex__SystemString__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBlendShapeIndex__SystemString__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.String blendShapeName</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBlendShapeIndex__SystemString__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBlendShapeIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getblendshapename">
+<h2>Mesh GetBlendShapeName<a class="headerlink" href="#mesh-getblendshapename" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBlendShapeName__SystemInt32__SystemString">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBlendShapeName__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 shapeIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBlendShapeName__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBlendShapeName.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getboneweights">
+<h2>Mesh GetBoneWeights<a class="headerlink" href="#mesh-getboneweights" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetBoneWeights__SystemCollectionsGenericListUnityEngineBoneWeight__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetBoneWeights__SystemCollectionsGenericListUnityEngineBoneWeight__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.BoneWeight] boneWeights</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetBoneWeights__SystemCollectionsGenericListUnityEngineBoneWeight__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetBoneWeights.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getcolors">
+<h2>Mesh GetColors<a class="headerlink" href="#mesh-getcolors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetColors__SystemCollectionsGenericListUnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetColors__SystemCollectionsGenericListUnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Color] colors</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetColors__SystemCollectionsGenericListUnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetColors.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-gethashcode">
+<h2>Mesh GetHashCode<a class="headerlink" href="#mesh-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getindexcount">
+<h2>Mesh GetIndexCount<a class="headerlink" href="#mesh-getindexcount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetIndexCount__SystemInt32__SystemUInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetIndexCount__SystemInt32__SystemUInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetIndexCount__SystemInt32__SystemUInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetIndexCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getindexstart">
+<h2>Mesh GetIndexStart<a class="headerlink" href="#mesh-getindexstart" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetIndexStart__SystemInt32__SystemUInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetIndexStart__SystemInt32__SystemUInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetIndexStart__SystemInt32__SystemUInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetIndexStart.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getindices">
+<h2>Mesh GetIndices<a class="headerlink" href="#mesh-getindices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetIndices__SystemCollectionsGenericListSystemInt32_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetIndices__SystemCollectionsGenericListSystemInt32_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[System.Int32] indicesSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetIndices__SystemCollectionsGenericListSystemInt32_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetIndices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getinstanceid">
+<h2>Mesh GetInstanceID<a class="headerlink" href="#mesh-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getnormals">
+<h2>Mesh GetNormals<a class="headerlink" href="#mesh-getnormals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetNormals__SystemCollectionsGenericListUnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetNormals__SystemCollectionsGenericListUnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Vector3] normals</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetNormals__SystemCollectionsGenericListUnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetNormals.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-gettangents">
+<h2>Mesh GetTangents<a class="headerlink" href="#mesh-gettangents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetTangents__SystemCollectionsGenericListUnityEngineVector4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetTangents__SystemCollectionsGenericListUnityEngineVector4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Vector4] tangents</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetTangents__SystemCollectionsGenericListUnityEngineVector4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetTangents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-gettopology">
+<h2>Mesh GetTopology<a class="headerlink" href="#mesh-gettopology" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetTopology__SystemInt32__UnityEngineMeshTopology">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetTopology__SystemInt32__UnityEngineMeshTopology</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetTopology__SystemInt32__UnityEngineMeshTopology" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MeshTopology</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetTopology.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-gettriangles">
+<h2>Mesh GetTriangles<a class="headerlink" href="#mesh-gettriangles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetTriangles__SystemInt32__SystemInt32Array">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetTriangles__SystemInt32__SystemInt32Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetTriangles__SystemInt32__SystemInt32Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetTriangles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-gettype">
+<h2>Mesh GetType<a class="headerlink" href="#mesh-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getuvdistributionmetric">
+<h2>Mesh GetUVDistributionMetric<a class="headerlink" href="#mesh-getuvdistributionmetric" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetUVDistributionMetric__SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetUVDistributionMetric__SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 uvSetIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetUVDistributionMetric__SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetUVDistributionMetric.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getuvs">
+<h2>Mesh GetUVs<a class="headerlink" href="#mesh-getuvs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetUVs__SystemInt32_SystemCollectionsGenericListUnityEngineVector2__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetUVs__SystemInt32_SystemCollectionsGenericListUnityEngineVector2__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 channelSystem.Collections.Generic.List`1[UnityEngine.Vector2] uvs</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetUVs__SystemInt32_SystemCollectionsGenericListUnityEngineVector2__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetUVs.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-getvertices">
+<h2>Mesh GetVertices<a class="headerlink" href="#mesh-getvertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__GetVertices__SystemCollectionsGenericListUnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__GetVertices__SystemCollectionsGenericListUnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Vector3] vertices</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__GetVertices__SystemCollectionsGenericListUnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.GetVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="mesh-markdynamic">
+<h2>Mesh MarkDynamic<a class="headerlink" href="#mesh-markdynamic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__MarkDynamic__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__MarkDynamic__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__MarkDynamic__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.MarkDynamic.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-recalculatebounds">
+<h2>Mesh RecalculateBounds<a class="headerlink" href="#mesh-recalculatebounds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__RecalculateBounds__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__RecalculateBounds__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__RecalculateBounds__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.RecalculateBounds.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-recalculatenormals">
+<h2>Mesh RecalculateNormals<a class="headerlink" href="#mesh-recalculatenormals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__RecalculateNormals__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__RecalculateNormals__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__RecalculateNormals__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.RecalculateNormals.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-recalculatetangents">
+<h2>Mesh RecalculateTangents<a class="headerlink" href="#mesh-recalculatetangents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__RecalculateTangents__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__RecalculateTangents__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__RecalculateTangents__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.RecalculateTangents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-bindposes">
+<h2>Mesh set_bindposes<a class="headerlink" href="#mesh-set-bindposes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_bindposes__UnityEngineMatrix4x4Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_bindposes__UnityEngineMatrix4x4Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Matrix4x4[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_bindposes__UnityEngineMatrix4x4Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-bindposes.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-boneweights">
+<h2>Mesh set_boneWeights<a class="headerlink" href="#mesh-set-boneweights" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_boneWeights__UnityEngineBoneWeightArray__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_boneWeights__UnityEngineBoneWeightArray__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.BoneWeight[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_boneWeights__UnityEngineBoneWeightArray__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-boneWeights.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-bounds">
+<h2>Mesh set_bounds<a class="headerlink" href="#mesh-set-bounds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_bounds__UnityEngineBounds__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_bounds__UnityEngineBounds__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Bounds value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_bounds__UnityEngineBounds__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-bounds.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-colors">
+<h2>Mesh set_colors<a class="headerlink" href="#mesh-set-colors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_colors__UnityEngineColorArray__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_colors__UnityEngineColorArray__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Color[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_colors__UnityEngineColorArray__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-colors.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-colors32">
+<h2>Mesh set_colors32<a class="headerlink" href="#mesh-set-colors32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_colors32__UnityEngineColor32Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_colors32__UnityEngineColor32Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Color32[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_colors32__UnityEngineColor32Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-colors32.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-indexformat">
+<h2>Mesh set_indexFormat<a class="headerlink" href="#mesh-set-indexformat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_indexFormat__UnityEngineRenderingIndexFormat__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_indexFormat__UnityEngineRenderingIndexFormat__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Rendering.IndexFormat value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_indexFormat__UnityEngineRenderingIndexFormat__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-indexFormat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-name">
+<h2>Mesh set_name<a class="headerlink" href="#mesh-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-normals">
+<h2>Mesh set_normals<a class="headerlink" href="#mesh-set-normals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_normals__UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_normals__UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector3[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_normals__UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-normals.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-submeshcount">
+<h2>Mesh set_subMeshCount<a class="headerlink" href="#mesh-set-submeshcount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_subMeshCount__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_subMeshCount__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_subMeshCount__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-subMeshCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-tangents">
+<h2>Mesh set_tangents<a class="headerlink" href="#mesh-set-tangents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_tangents__UnityEngineVector4Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_tangents__UnityEngineVector4Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector4[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_tangents__UnityEngineVector4Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-tangents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-triangles">
+<h2>Mesh set_triangles<a class="headerlink" href="#mesh-set-triangles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_triangles__SystemInt32Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_triangles__SystemInt32Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_triangles__SystemInt32Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-triangles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv">
+<h2>Mesh set_uv<a class="headerlink" href="#mesh-set-uv" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv2">
+<h2>Mesh set_uv2<a class="headerlink" href="#mesh-set-uv2" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv2__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv2__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv2__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv2.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv3">
+<h2>Mesh set_uv3<a class="headerlink" href="#mesh-set-uv3" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv3__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv3__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv3__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv3.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv4">
+<h2>Mesh set_uv4<a class="headerlink" href="#mesh-set-uv4" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv4__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv4__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv4__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv4.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv5">
+<h2>Mesh set_uv5<a class="headerlink" href="#mesh-set-uv5" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv5__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv5__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv5__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv5.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv6">
+<h2>Mesh set_uv6<a class="headerlink" href="#mesh-set-uv6" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv6__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv6__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv6__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv6.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv7">
+<h2>Mesh set_uv7<a class="headerlink" href="#mesh-set-uv7" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv7__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv7__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv7__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv7.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-uv8">
+<h2>Mesh set_uv8<a class="headerlink" href="#mesh-set-uv8" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_uv8__UnityEngineVector2Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_uv8__UnityEngineVector2Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector2[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_uv8__UnityEngineVector2Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-uv8.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-set-vertices">
+<h2>Mesh set_vertices<a class="headerlink" href="#mesh-set-vertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__set_vertices__UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__set_vertices__UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceUnityEngine.Vector3[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__set_vertices__UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh-vertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-setcolors">
+<h2>Mesh SetColors<a class="headerlink" href="#mesh-setcolors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetColors__SystemCollectionsGenericListUnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetColors__SystemCollectionsGenericListUnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Color] inColors</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetColors__SystemCollectionsGenericListUnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetColors.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-setindices">
+<h2>Mesh SetIndices<a class="headerlink" href="#mesh-setindices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetIndices__SystemInt32Array_UnityEngineMeshTopology_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetIndices__SystemInt32Array_UnityEngineMeshTopology_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32[] indicesUnityEngine.MeshTopology topologySystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetIndices__SystemInt32Array_UnityEngineMeshTopology_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetIndices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-setnormals">
+<h2>Mesh SetNormals<a class="headerlink" href="#mesh-setnormals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetNormals__SystemCollectionsGenericListUnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetNormals__SystemCollectionsGenericListUnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Vector3] inNormals</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetNormals__SystemCollectionsGenericListUnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetNormals.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-settangents">
+<h2>Mesh SetTangents<a class="headerlink" href="#mesh-settangents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetTangents__SystemCollectionsGenericListUnityEngineVector4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetTangents__SystemCollectionsGenericListUnityEngineVector4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Vector4] inTangents</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetTangents__SystemCollectionsGenericListUnityEngineVector4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetTangents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-settriangles">
+<h2>Mesh SetTriangles<a class="headerlink" href="#mesh-settriangles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetTriangles__SystemInt32Array_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetTriangles__SystemInt32Array_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32[] trianglesSystem.Int32 submesh</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetTriangles__SystemInt32Array_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetTriangles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-setuvs">
+<h2>Mesh SetUVs<a class="headerlink" href="#mesh-setuvs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetUVs__SystemInt32_SystemCollectionsGenericListUnityEngineVector2__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetUVs__SystemInt32_SystemCollectionsGenericListUnityEngineVector2__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Int32 channelSystem.Collections.Generic.List`1[UnityEngine.Vector2] uvs</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetUVs__SystemInt32_SystemCollectionsGenericListUnityEngineVector2__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetUVs.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-setvertices">
+<h2>Mesh SetVertices<a class="headerlink" href="#mesh-setvertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__SetVertices__SystemCollectionsGenericListUnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__SetVertices__SystemCollectionsGenericListUnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Collections.Generic.List`1[UnityEngine.Vector3] inVertices</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__SetVertices__SystemCollectionsGenericListUnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.SetVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-tostring">
+<h2>Mesh ToString<a class="headerlink" href="#mesh-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mesh-uploadmeshdata">
+<h2>Mesh UploadMeshData<a class="headerlink" href="#mesh-uploadmeshdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMesh.__UploadMeshData__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMesh.</code><code class="sig-name descname">__UploadMeshData__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh instanceSystem.Boolean markNoLongerReadable</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMesh.__UploadMeshData__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.UploadMeshData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id83">
+<h2>Mesh<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineMesh">
+<code class="sig-name descname">Variable_UnityEngineMesh</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Mesh MeshSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Mesh.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MeshCollider/index.html" class="btn btn-neutral float-right" title="MeshCollider" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Matrix4x4/index.html" class="btn btn-neutral" title="Matrix4x4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

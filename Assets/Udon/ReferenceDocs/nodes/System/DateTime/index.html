@@ -1,0 +1,1096 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DateTime &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="Double" href="../Double/index.html"/>
+        <link rel="prev" title="Convert" href="../Convert/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DateTime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">DateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-add">DateTime Add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-adddays">DateTime AddDays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addhours">DateTime AddHours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-addition">op_Addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addmilliseconds">DateTime AddMilliseconds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addminutes">DateTime AddMinutes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addmonths">DateTime AddMonths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addseconds">DateTime AddSeconds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addticks">DateTime AddTicks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-addyears">DateTime AddYears</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-compare">DateTime Compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-compareto">DateTime CompareTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-daysinmonth">DateTime DaysInMonth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-equals">DateTime Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-frombinary">DateTime FromBinary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-fromfiletime">DateTime FromFileTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-fromfiletimeutc">DateTime FromFileTimeUtc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-fromoadate">DateTime FromOADate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-date">DateTime get_Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-day">DateTime get_Day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-dayofweek">DateTime get_DayOfWeek</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-dayofyear">DateTime get_DayOfYear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-hour">DateTime get_Hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-kind">DateTime get_Kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-maxvalue">DateTime get_MaxValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-millisecond">DateTime get_Millisecond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-minute">DateTime get_Minute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-minvalue">DateTime get_MinValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-month">DateTime get_Month</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-now">DateTime get_Now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-second">DateTime get_Second</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-ticks">DateTime get_Ticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-timeofday">DateTime get_TimeOfDay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-today">DateTime get_Today</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-utcnow">DateTime get_UtcNow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-get-year">DateTime get_Year</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-getdatetimeformats">DateTime GetDateTimeFormats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-gethashcode">DateTime GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-gettype">DateTime GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthan">op_GreaterThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthanorequal">op_GreaterThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-isdaylightsavingtime">DateTime IsDaylightSavingTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-isleapyear">DateTime IsLeapYear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthan">op_LessThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthanorequal">op_LessThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-parse">DateTime Parse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-parseexact">DateTime ParseExact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-specifykind">DateTime SpecifyKind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-subtract">DateTime Subtract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-subtraction">op_Subtraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tobinary">DateTime ToBinary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tofiletime">DateTime ToFileTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tofiletimeutc">DateTime ToFileTimeUtc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tolocaltime">DateTime ToLocalTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tolongdatestring">DateTime ToLongDateString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tolongtimestring">DateTime ToLongTimeString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tooadate">DateTime ToOADate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-toshortdatestring">DateTime ToShortDateString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-toshorttimestring">DateTime ToShortTimeString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tostring">DateTime ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-touniversaltime">DateTime ToUniversalTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tryparse">DateTime TryParse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime-tryparseexact">DateTime TryParseExact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id60">DateTime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>DateTime</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/DateTime/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Double/index.html" class="btn btn-neutral float-right" title="Double" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Convert/index.html" class="btn btn-neutral" title="Convert" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datetime">
+<h1>DateTime<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h1>
+<p>The DateTime module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="id1">
+<h2>DateTime<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_SystemDateTime">
+<code class="sig-name descname">Const_SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-add">
+<h2>DateTime Add<a class="headerlink" href="#datetime-add" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__Add__SystemTimeSpan__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__Add__SystemTimeSpan__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.TimeSpan value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__Add__SystemTimeSpan__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Add?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-adddays">
+<h2>DateTime AddDays<a class="headerlink" href="#datetime-adddays" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddDays__SystemDouble__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddDays__SystemDouble__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Double value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddDays__SystemDouble__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddDays?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-addhours">
+<h2>DateTime AddHours<a class="headerlink" href="#datetime-addhours" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddHours__SystemDouble__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddHours__SystemDouble__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Double value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddHours__SystemDouble__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddHours?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-addition">
+<h2>op_Addition<a class="headerlink" href="#op-addition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_Addition__SystemDateTime_SystemTimeSpan__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_Addition__SystemDateTime_SystemTimeSpan__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.TimeSpan</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_Addition__SystemDateTime_SystemTimeSpan__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="datetime-addmilliseconds">
+<h2>DateTime AddMilliseconds<a class="headerlink" href="#datetime-addmilliseconds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddMilliseconds__SystemDouble__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddMilliseconds__SystemDouble__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Double value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddMilliseconds__SystemDouble__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddMilliseconds?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-addminutes">
+<h2>DateTime AddMinutes<a class="headerlink" href="#datetime-addminutes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddMinutes__SystemDouble__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddMinutes__SystemDouble__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Double value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddMinutes__SystemDouble__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddMinutes?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-addmonths">
+<h2>DateTime AddMonths<a class="headerlink" href="#datetime-addmonths" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddMonths__SystemInt32__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddMonths__SystemInt32__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Int32 months</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddMonths__SystemInt32__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddMonths?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-addseconds">
+<h2>DateTime AddSeconds<a class="headerlink" href="#datetime-addseconds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddSeconds__SystemDouble__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddSeconds__SystemDouble__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Double value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddSeconds__SystemDouble__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddSeconds?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-addticks">
+<h2>DateTime AddTicks<a class="headerlink" href="#datetime-addticks" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddTicks__SystemInt64__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddTicks__SystemInt64__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Int64 value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddTicks__SystemInt64__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddTicks?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-addyears">
+<h2>DateTime AddYears<a class="headerlink" href="#datetime-addyears" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__AddYears__SystemInt32__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__AddYears__SystemInt32__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__AddYears__SystemInt32__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.AddYears?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-compare">
+<h2>DateTime Compare<a class="headerlink" href="#datetime-compare" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__Compare__SystemDateTime_SystemDateTime__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__Compare__SystemDateTime_SystemDateTime__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime t1System.DateTime t2</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__Compare__SystemDateTime_SystemDateTime__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Compare?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-compareto">
+<h2>DateTime CompareTo<a class="headerlink" href="#datetime-compareto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__CompareTo__SystemObject__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__CompareTo__SystemObject__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__CompareTo__SystemObject__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.CompareTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ctor__SystemInt64__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ctor__SystemInt64__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.Int64</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ctor__SystemInt64__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.-ctor?view=netframework-4.8#System_DateTime__ctor_System_Int64_">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-daysinmonth">
+<h2>DateTime DaysInMonth<a class="headerlink" href="#datetime-daysinmonth" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__DaysInMonth__SystemInt32_SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__DaysInMonth__SystemInt32_SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 yearSystem.Int32 month</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__DaysInMonth__SystemInt32_SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.DaysInMonth?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_Equality__SystemDateTime_SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_Equality__SystemDateTime_SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_Equality__SystemDateTime_SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="datetime-equals">
+<h2>DateTime Equals<a class="headerlink" href="#datetime-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-frombinary">
+<h2>DateTime FromBinary<a class="headerlink" href="#datetime-frombinary" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__FromBinary__SystemInt64__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__FromBinary__SystemInt64__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 dateData</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__FromBinary__SystemInt64__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.FromBinary?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-fromfiletime">
+<h2>DateTime FromFileTime<a class="headerlink" href="#datetime-fromfiletime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__FromFileTime__SystemInt64__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__FromFileTime__SystemInt64__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 fileTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__FromFileTime__SystemInt64__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.FromFileTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-fromfiletimeutc">
+<h2>DateTime FromFileTimeUtc<a class="headerlink" href="#datetime-fromfiletimeutc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__FromFileTimeUtc__SystemInt64__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__FromFileTimeUtc__SystemInt64__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.Int64 fileTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__FromFileTimeUtc__SystemInt64__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.FromFileTimeUtc?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-fromoadate">
+<h2>DateTime FromOADate<a class="headerlink" href="#datetime-fromoadate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__FromOADate__SystemDouble__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__FromOADate__SystemDouble__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.Double d</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__FromOADate__SystemDouble__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.FromOADate?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-date">
+<h2>DateTime get_Date<a class="headerlink" href="#datetime-get-date" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Date__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Date__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Date__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Date?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-day">
+<h2>DateTime get_Day<a class="headerlink" href="#datetime-get-day" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Day__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Day__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Day__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Day?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-dayofweek">
+<h2>DateTime get_DayOfWeek<a class="headerlink" href="#datetime-get-dayofweek" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_DayOfWeek__SystemDayOfWeek">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_DayOfWeek__SystemDayOfWeek</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_DayOfWeek__SystemDayOfWeek" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DayOfWeek</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.DayOfWeek?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-dayofyear">
+<h2>DateTime get_DayOfYear<a class="headerlink" href="#datetime-get-dayofyear" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_DayOfYear__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_DayOfYear__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_DayOfYear__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.DayOfYear?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-hour">
+<h2>DateTime get_Hour<a class="headerlink" href="#datetime-get-hour" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Hour__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Hour__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Hour__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Hour?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-kind">
+<h2>DateTime get_Kind<a class="headerlink" href="#datetime-get-kind" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Kind__SystemDateTimeKind">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Kind__SystemDateTimeKind</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Kind__SystemDateTimeKind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTimeKind</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Kind?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-maxvalue">
+<h2>DateTime get_MaxValue<a class="headerlink" href="#datetime-get-maxvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_MaxValue__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_MaxValue__SystemDateTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_MaxValue__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.MaxValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-millisecond">
+<h2>DateTime get_Millisecond<a class="headerlink" href="#datetime-get-millisecond" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Millisecond__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Millisecond__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Millisecond__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Millisecond?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-minute">
+<h2>DateTime get_Minute<a class="headerlink" href="#datetime-get-minute" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Minute__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Minute__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Minute__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Minute?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-minvalue">
+<h2>DateTime get_MinValue<a class="headerlink" href="#datetime-get-minvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_MinValue__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_MinValue__SystemDateTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_MinValue__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.MinValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-month">
+<h2>DateTime get_Month<a class="headerlink" href="#datetime-get-month" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Month__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Month__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Month__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Month?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-now">
+<h2>DateTime get_Now<a class="headerlink" href="#datetime-get-now" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Now__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Now__SystemDateTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Now__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Now?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-second">
+<h2>DateTime get_Second<a class="headerlink" href="#datetime-get-second" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Second__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Second__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Second__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Second?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-ticks">
+<h2>DateTime get_Ticks<a class="headerlink" href="#datetime-get-ticks" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Ticks__SystemInt64">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Ticks__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Ticks__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Ticks?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-timeofday">
+<h2>DateTime get_TimeOfDay<a class="headerlink" href="#datetime-get-timeofday" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_TimeOfDay__SystemTimeSpan">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_TimeOfDay__SystemTimeSpan</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_TimeOfDay__SystemTimeSpan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeSpan</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.TimeOfDay?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-today">
+<h2>DateTime get_Today<a class="headerlink" href="#datetime-get-today" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Today__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Today__SystemDateTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Today__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Today?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-utcnow">
+<h2>DateTime get_UtcNow<a class="headerlink" href="#datetime-get-utcnow" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_UtcNow__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_UtcNow__SystemDateTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_UtcNow__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.UtcNow?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-get-year">
+<h2>DateTime get_Year<a class="headerlink" href="#datetime-get-year" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__get_Year__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__get_Year__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__get_Year__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Year?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-getdatetimeformats">
+<h2>DateTime GetDateTimeFormats<a class="headerlink" href="#datetime-getdatetimeformats" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__GetDateTimeFormats__SystemStringArray">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__GetDateTimeFormats__SystemStringArray</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__GetDateTimeFormats__SystemStringArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.GetDateTimeFormats?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-gethashcode">
+<h2>DateTime GetHashCode<a class="headerlink" href="#datetime-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-gettype">
+<h2>DateTime GetType<a class="headerlink" href="#datetime-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-greaterthan">
+<h2>op_GreaterThan<a class="headerlink" href="#op-greaterthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_GreaterThan__SystemDateTime_SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_GreaterThan__SystemDateTime_SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_GreaterThan__SystemDateTime_SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-greaterthanorequal">
+<h2>op_GreaterThanOrEqual<a class="headerlink" href="#op-greaterthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_GreaterThanOrEqual__SystemDateTime_SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_GreaterThanOrEqual__SystemDateTime_SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_GreaterThanOrEqual__SystemDateTime_SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_Inequality__SystemDateTime_SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_Inequality__SystemDateTime_SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_Inequality__SystemDateTime_SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="datetime-isdaylightsavingtime">
+<h2>DateTime IsDaylightSavingTime<a class="headerlink" href="#datetime-isdaylightsavingtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__IsDaylightSavingTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__IsDaylightSavingTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__IsDaylightSavingTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.IsDaylightSavingTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-isleapyear">
+<h2>DateTime IsLeapYear<a class="headerlink" href="#datetime-isleapyear" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__IsLeapYear__SystemInt32__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__IsLeapYear__SystemInt32__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 year</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__IsLeapYear__SystemInt32__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.IsLeapYear?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-lessthan">
+<h2>op_LessThan<a class="headerlink" href="#op-lessthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_LessThan__SystemDateTime_SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_LessThan__SystemDateTime_SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_LessThan__SystemDateTime_SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthanorequal">
+<h2>op_LessThanOrEqual<a class="headerlink" href="#op-lessthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_LessThanOrEqual__SystemDateTime_SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_LessThanOrEqual__SystemDateTime_SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.DateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_LessThanOrEqual__SystemDateTime_SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="datetime-parse">
+<h2>DateTime Parse<a class="headerlink" href="#datetime-parse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__Parse__SystemString__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__Parse__SystemString__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__Parse__SystemString__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Parse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-parseexact">
+<h2>DateTime ParseExact<a class="headerlink" href="#datetime-parseexact" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ParseExact__SystemString_SystemString_SystemIFormatProvider__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ParseExact__SystemString_SystemString_SystemIFormatProvider__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.String sSystem.String formatSystem.IFormatProvider provider</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ParseExact__SystemString_SystemString_SystemIFormatProvider__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ParseExact?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-specifykind">
+<h2>DateTime SpecifyKind<a class="headerlink" href="#datetime-specifykind" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__SpecifyKind__SystemDateTime_SystemDateTimeKind__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__SpecifyKind__SystemDateTime_SystemDateTimeKind__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime valueSystem.DateTimeKind kind</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__SpecifyKind__SystemDateTime_SystemDateTimeKind__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.SpecifyKind?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-subtract">
+<h2>DateTime Subtract<a class="headerlink" href="#datetime-subtract" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__Subtract__SystemDateTime__SystemTimeSpan">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__Subtract__SystemDateTime__SystemTimeSpan</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instanceSystem.DateTime value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__Subtract__SystemDateTime__SystemTimeSpan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeSpan</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.Subtract?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-subtraction">
+<h2>op_Subtraction<a class="headerlink" href="#op-subtraction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__op_Subtraction__SystemDateTime_SystemTimeSpan__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__op_Subtraction__SystemDateTime_SystemTimeSpan__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime System.TimeSpan</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__op_Subtraction__SystemDateTime_SystemTimeSpan__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="datetime-tobinary">
+<h2>DateTime ToBinary<a class="headerlink" href="#datetime-tobinary" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToBinary__SystemInt64">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToBinary__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToBinary__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToBinary?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tofiletime">
+<h2>DateTime ToFileTime<a class="headerlink" href="#datetime-tofiletime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToFileTime__SystemInt64">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToFileTime__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToFileTime__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToFileTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tofiletimeutc">
+<h2>DateTime ToFileTimeUtc<a class="headerlink" href="#datetime-tofiletimeutc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToFileTimeUtc__SystemInt64">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToFileTimeUtc__SystemInt64</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToFileTimeUtc__SystemInt64" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int64</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToFileTimeUtc?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tolocaltime">
+<h2>DateTime ToLocalTime<a class="headerlink" href="#datetime-tolocaltime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToLocalTime__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToLocalTime__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToLocalTime__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToLocalTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tolongdatestring">
+<h2>DateTime ToLongDateString<a class="headerlink" href="#datetime-tolongdatestring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToLongDateString__SystemString">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToLongDateString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToLongDateString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToLongDateString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tolongtimestring">
+<h2>DateTime ToLongTimeString<a class="headerlink" href="#datetime-tolongtimestring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToLongTimeString__SystemString">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToLongTimeString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToLongTimeString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToLongTimeString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tooadate">
+<h2>DateTime ToOADate<a class="headerlink" href="#datetime-tooadate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToOADate__SystemDouble">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToOADate__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToOADate__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToOADate?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-toshortdatestring">
+<h2>DateTime ToShortDateString<a class="headerlink" href="#datetime-toshortdatestring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToShortDateString__SystemString">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToShortDateString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToShortDateString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToShortDateString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-toshorttimestring">
+<h2>DateTime ToShortTimeString<a class="headerlink" href="#datetime-toshorttimestring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToShortTimeString__SystemString">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToShortTimeString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToShortTimeString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToShortTimeString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tostring">
+<h2>DateTime ToString<a class="headerlink" href="#datetime-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-touniversaltime">
+<h2>DateTime ToUniversalTime<a class="headerlink" href="#datetime-touniversaltime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__ToUniversalTime__SystemDateTime">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__ToUniversalTime__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__ToUniversalTime__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.ToUniversalTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tryparse">
+<h2>DateTime TryParse<a class="headerlink" href="#datetime-tryparse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__TryParse__SystemString_SystemIFormatProvider_SystemGlobalizationDateTimeStyles_SystemDateTimeRef__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__TryParse__SystemString_SystemIFormatProvider_SystemGlobalizationDateTimeStyles_SystemDateTimeRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String sSystem.IFormatProvider providerSystem.Globalization.DateTimeStyles styles</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__TryParse__SystemString_SystemIFormatProvider_SystemGlobalizationDateTimeStyles_SystemDateTimeRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: result (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.TryParse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="datetime-tryparseexact">
+<h2>DateTime TryParseExact<a class="headerlink" href="#datetime-tryparseexact" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDateTime.__TryParseExact__SystemString_SystemString_SystemIFormatProvider_SystemGlobalizationDateTimeStyles_SystemDateTimeRef__SystemBoolean">
+<code class="sig-prename descclassname">SystemDateTime.</code><code class="sig-name descname">__TryParseExact__SystemString_SystemString_SystemIFormatProvider_SystemGlobalizationDateTimeStyles_SystemDateTimeRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String sSystem.String formatSystem.IFormatProvider providerSystem.Globalization.DateTimeStyles style</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDateTime.__TryParseExact__SystemString_SystemString_SystemIFormatProvider_SystemGlobalizationDateTimeStyles_SystemDateTimeRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: result (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.DateTime.TryParseExact?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="id60">
+<h2>DateTime<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemDateTime">
+<code class="sig-name descname">Variable_SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime DateTimeSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Double/index.html" class="btn btn-neutral float-right" title="Double" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Convert/index.html" class="btn btn-neutral" title="Convert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

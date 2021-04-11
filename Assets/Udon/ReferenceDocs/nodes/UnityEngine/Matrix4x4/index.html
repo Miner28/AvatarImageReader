@@ -1,0 +1,1384 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Matrix4x4 &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="Mesh" href="../Mesh/index.html"/>
+        <link rel="prev" title="Mathf" href="../Mathf/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matrix4x4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Matrix4x4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-determinant">Matrix4x4 Determinant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-equals">Matrix4x4 Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-frustum">Matrix4x4 Frustum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-decomposeprojection">Matrix4x4 get_decomposeProjection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-determinant">Matrix4x4 get_determinant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-identity">Matrix4x4 get_identity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-inverse">Matrix4x4 get_inverse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-isidentity">Matrix4x4 get_isIdentity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-item">Matrix4x4 get_Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-lossyscale">Matrix4x4 get_lossyScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m00">Matrix4x4 get_m00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m01">Matrix4x4 get_m01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m02">Matrix4x4 get_m02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m03">Matrix4x4 get_m03</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m10">Matrix4x4 get_m10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m11">Matrix4x4 get_m11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m12">Matrix4x4 get_m12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m13">Matrix4x4 get_m13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m20">Matrix4x4 get_m20</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m21">Matrix4x4 get_m21</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m22">Matrix4x4 get_m22</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m23">Matrix4x4 get_m23</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m30">Matrix4x4 get_m30</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m31">Matrix4x4 get_m31</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m32">Matrix4x4 get_m32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-m33">Matrix4x4 get_m33</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-rotation">Matrix4x4 get_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-transpose">Matrix4x4 get_transpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-get-zero">Matrix4x4 get_zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-getcolumn">Matrix4x4 GetColumn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-gethashcode">Matrix4x4 GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-getrow">Matrix4x4 GetRow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-gettype">Matrix4x4 GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-inverse">Matrix4x4 Inverse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-lookat">Matrix4x4 LookAt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-multiply">op_Multiply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-multiplypoint">Matrix4x4 MultiplyPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-multiplypoint3x4">Matrix4x4 MultiplyPoint3x4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-multiplyvector">Matrix4x4 MultiplyVector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-ortho">Matrix4x4 Ortho</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-perspective">Matrix4x4 Perspective</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-rotate">Matrix4x4 Rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-scale">Matrix4x4 Scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-item">Matrix4x4 set_Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m00">Matrix4x4 set_m00</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m01">Matrix4x4 set_m01</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m02">Matrix4x4 set_m02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m03">Matrix4x4 set_m03</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m10">Matrix4x4 set_m10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m11">Matrix4x4 set_m11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m12">Matrix4x4 set_m12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m13">Matrix4x4 set_m13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m20">Matrix4x4 set_m20</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m21">Matrix4x4 set_m21</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m22">Matrix4x4 set_m22</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m23">Matrix4x4 set_m23</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m30">Matrix4x4 set_m30</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m31">Matrix4x4 set_m31</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m32">Matrix4x4 set_m32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-set-m33">Matrix4x4 set_m33</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-setcolumn">Matrix4x4 SetColumn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-setrow">Matrix4x4 SetRow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-settrs">Matrix4x4 SetTRS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-tostring">Matrix4x4 ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-transformplane">Matrix4x4 TransformPlane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-translate">Matrix4x4 Translate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-transpose">Matrix4x4 Transpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-trs">Matrix4x4 TRS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix4x4-validtrs">Matrix4x4 ValidTRS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id69">Matrix4x4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>Matrix4x4</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/Matrix4x4/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Mesh/index.html" class="btn btn-neutral float-right" title="Mesh" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Mathf/index.html" class="btn btn-neutral" title="Mathf" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="matrix4x4">
+<h1>Matrix4x4<a class="headerlink" href="#matrix4x4" title="Permalink to this headline">¶</a></h1>
+<p>The Matrix4x4 module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="id1">
+<h2>Matrix4x4<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_UnityEngineMatrix4x4">
+<code class="sig-name descname">Const_UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__ctor__UnityEngineVector4_UnityEngineVector4_UnityEngineVector4_UnityEngineVector4__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__ctor__UnityEngineVector4_UnityEngineVector4_UnityEngineVector4_UnityEngineVector4__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector4 UnityEngine.Vector4 UnityEngine.Vector4 UnityEngine.Vector4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__ctor__UnityEngineVector4_UnityEngineVector4_UnityEngineVector4_UnityEngineVector4__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="matrix4x4-determinant">
+<h2>Matrix4x4 Determinant<a class="headerlink" href="#matrix4x4-determinant" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Determinant__UnityEngineMatrix4x4__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Determinant__UnityEngineMatrix4x4__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 m</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Determinant__UnityEngineMatrix4x4__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Determinant.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__op_Equality__UnityEngineMatrix4x4_UnityEngineMatrix4x4__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__op_Equality__UnityEngineMatrix4x4_UnityEngineMatrix4x4__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__op_Equality__UnityEngineMatrix4x4_UnityEngineMatrix4x4__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="matrix4x4-equals">
+<h2>Matrix4x4 Equals<a class="headerlink" href="#matrix4x4-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-frustum">
+<h2>Matrix4x4 Frustum<a class="headerlink" href="#matrix4x4-frustum" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Frustum__UnityEngineFrustumPlanes__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Frustum__UnityEngineFrustumPlanes__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.FrustumPlanes fp</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Frustum__UnityEngineFrustumPlanes__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Frustum.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-decomposeprojection">
+<h2>Matrix4x4 get_decomposeProjection<a class="headerlink" href="#matrix4x4-get-decomposeprojection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_decomposeProjection__UnityEngineFrustumPlanes">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_decomposeProjection__UnityEngineFrustumPlanes</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_decomposeProjection__UnityEngineFrustumPlanes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">FrustumPlanes</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-decomposeProjection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-determinant">
+<h2>Matrix4x4 get_determinant<a class="headerlink" href="#matrix4x4-get-determinant" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_determinant__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_determinant__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_determinant__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-determinant.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-identity">
+<h2>Matrix4x4 get_identity<a class="headerlink" href="#matrix4x4-get-identity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_identity__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_identity__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_identity__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-identity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-inverse">
+<h2>Matrix4x4 get_inverse<a class="headerlink" href="#matrix4x4-get-inverse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_inverse__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_inverse__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_inverse__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-inverse.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-isidentity">
+<h2>Matrix4x4 get_isIdentity<a class="headerlink" href="#matrix4x4-get-isidentity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_isIdentity__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_isIdentity__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_isIdentity__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-isIdentity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-item">
+<h2>Matrix4x4 get_Item<a class="headerlink" href="#matrix4x4-get-item" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_Item__SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_Item__SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_Item__SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-Item.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-lossyscale">
+<h2>Matrix4x4 get_lossyScale<a class="headerlink" href="#matrix4x4-get-lossyscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_lossyScale__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_lossyScale__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_lossyScale__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-lossyScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m00">
+<h2>Matrix4x4 get_m00<a class="headerlink" href="#matrix4x4-get-m00" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m00__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m00__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m00__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m00.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m01">
+<h2>Matrix4x4 get_m01<a class="headerlink" href="#matrix4x4-get-m01" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m01__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m01__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m01__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m01.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m02">
+<h2>Matrix4x4 get_m02<a class="headerlink" href="#matrix4x4-get-m02" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m02__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m02__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m02__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m02.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m03">
+<h2>Matrix4x4 get_m03<a class="headerlink" href="#matrix4x4-get-m03" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m03__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m03__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m03__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m03.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m10">
+<h2>Matrix4x4 get_m10<a class="headerlink" href="#matrix4x4-get-m10" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m10__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m10__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m10__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m10.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m11">
+<h2>Matrix4x4 get_m11<a class="headerlink" href="#matrix4x4-get-m11" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m11__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m11__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m11__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m11.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m12">
+<h2>Matrix4x4 get_m12<a class="headerlink" href="#matrix4x4-get-m12" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m12__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m12__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m12__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m12.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m13">
+<h2>Matrix4x4 get_m13<a class="headerlink" href="#matrix4x4-get-m13" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m13__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m13__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m13__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m13.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m20">
+<h2>Matrix4x4 get_m20<a class="headerlink" href="#matrix4x4-get-m20" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m20__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m20__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m20__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m20.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m21">
+<h2>Matrix4x4 get_m21<a class="headerlink" href="#matrix4x4-get-m21" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m21__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m21__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m21__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m21.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m22">
+<h2>Matrix4x4 get_m22<a class="headerlink" href="#matrix4x4-get-m22" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m22__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m22__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m22__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m22.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m23">
+<h2>Matrix4x4 get_m23<a class="headerlink" href="#matrix4x4-get-m23" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m23__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m23__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m23__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m23.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m30">
+<h2>Matrix4x4 get_m30<a class="headerlink" href="#matrix4x4-get-m30" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m30__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m30__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m30__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m30.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m31">
+<h2>Matrix4x4 get_m31<a class="headerlink" href="#matrix4x4-get-m31" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m31__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m31__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m31__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m31.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m32">
+<h2>Matrix4x4 get_m32<a class="headerlink" href="#matrix4x4-get-m32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m32.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-m33">
+<h2>Matrix4x4 get_m33<a class="headerlink" href="#matrix4x4-get-m33" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_m33__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_m33__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_m33__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m33.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-rotation">
+<h2>Matrix4x4 get_rotation<a class="headerlink" href="#matrix4x4-get-rotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_rotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_rotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_rotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-rotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-transpose">
+<h2>Matrix4x4 get_transpose<a class="headerlink" href="#matrix4x4-get-transpose" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_transpose__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_transpose__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_transpose__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-transpose.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-get-zero">
+<h2>Matrix4x4 get_zero<a class="headerlink" href="#matrix4x4-get-zero" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__get_zero__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__get_zero__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__get_zero__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-zero.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-getcolumn">
+<h2>Matrix4x4 GetColumn<a class="headerlink" href="#matrix4x4-getcolumn" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__GetColumn__SystemInt32__UnityEngineVector4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__GetColumn__SystemInt32__UnityEngineVector4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__GetColumn__SystemInt32__UnityEngineVector4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.GetColumn.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-gethashcode">
+<h2>Matrix4x4 GetHashCode<a class="headerlink" href="#matrix4x4-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-getrow">
+<h2>Matrix4x4 GetRow<a class="headerlink" href="#matrix4x4-getrow" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__GetRow__SystemInt32__UnityEngineVector4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__GetRow__SystemInt32__UnityEngineVector4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__GetRow__SystemInt32__UnityEngineVector4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.GetRow.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-gettype">
+<h2>Matrix4x4 GetType<a class="headerlink" href="#matrix4x4-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__op_Inequality__UnityEngineMatrix4x4_UnityEngineMatrix4x4__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__op_Inequality__UnityEngineMatrix4x4_UnityEngineMatrix4x4__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__op_Inequality__UnityEngineMatrix4x4_UnityEngineMatrix4x4__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="matrix4x4-inverse">
+<h2>Matrix4x4 Inverse<a class="headerlink" href="#matrix4x4-inverse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Inverse__UnityEngineMatrix4x4__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Inverse__UnityEngineMatrix4x4__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 m</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Inverse__UnityEngineMatrix4x4__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Inverse.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-lookat">
+<h2>Matrix4x4 LookAt<a class="headerlink" href="#matrix4x4-lookat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__LookAt__UnityEngineVector3_UnityEngineVector3_UnityEngineVector3__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__LookAt__UnityEngineVector3_UnityEngineVector3_UnityEngineVector3__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 fromUnityEngine.Vector3 toUnityEngine.Vector3 up</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__LookAt__UnityEngineVector3_UnityEngineVector3_UnityEngineVector3__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.LookAt.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-multiply">
+<h2>op_Multiply<a class="headerlink" href="#op-multiply" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__op_Multiply__UnityEngineMatrix4x4_UnityEngineMatrix4x4__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__op_Multiply__UnityEngineMatrix4x4_UnityEngineMatrix4x4__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 UnityEngine.Matrix4x4</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__op_Multiply__UnityEngineMatrix4x4_UnityEngineMatrix4x4__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="matrix4x4-multiplypoint">
+<h2>Matrix4x4 MultiplyPoint<a class="headerlink" href="#matrix4x4-multiplypoint" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__MultiplyPoint__UnityEngineVector3__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__MultiplyPoint__UnityEngineVector3__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceUnityEngine.Vector3 point</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__MultiplyPoint__UnityEngineVector3__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.MultiplyPoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-multiplypoint3x4">
+<h2>Matrix4x4 MultiplyPoint3x4<a class="headerlink" href="#matrix4x4-multiplypoint3x4" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__MultiplyPoint3x4__UnityEngineVector3__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__MultiplyPoint3x4__UnityEngineVector3__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceUnityEngine.Vector3 point</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__MultiplyPoint3x4__UnityEngineVector3__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.MultiplyPoint3x4.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-multiplyvector">
+<h2>Matrix4x4 MultiplyVector<a class="headerlink" href="#matrix4x4-multiplyvector" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__MultiplyVector__UnityEngineVector3__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__MultiplyVector__UnityEngineVector3__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceUnityEngine.Vector3 vector</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__MultiplyVector__UnityEngineVector3__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.MultiplyVector.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-ortho">
+<h2>Matrix4x4 Ortho<a class="headerlink" href="#matrix4x4-ortho" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Ortho__SystemSingle_SystemSingle_SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Ortho__SystemSingle_SystemSingle_SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">System.Single leftSystem.Single rightSystem.Single bottomSystem.Single topSystem.Single zNearSystem.Single zFar</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Ortho__SystemSingle_SystemSingle_SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Ortho.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-perspective">
+<h2>Matrix4x4 Perspective<a class="headerlink" href="#matrix4x4-perspective" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Perspective__SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Perspective__SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">System.Single fovSystem.Single aspectSystem.Single zNearSystem.Single zFar</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Perspective__SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Perspective.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-rotate">
+<h2>Matrix4x4 Rotate<a class="headerlink" href="#matrix4x4-rotate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Rotate__UnityEngineQuaternion__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Rotate__UnityEngineQuaternion__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion q</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Rotate__UnityEngineQuaternion__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Rotate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-scale">
+<h2>Matrix4x4 Scale<a class="headerlink" href="#matrix4x4-scale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Scale__UnityEngineVector3__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Scale__UnityEngineVector3__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 vector</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Scale__UnityEngineVector3__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Scale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-item">
+<h2>Matrix4x4 set_Item<a class="headerlink" href="#matrix4x4-set-item" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_Item__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_Item__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Int32 indexSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_Item__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-Item.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m00">
+<h2>Matrix4x4 set_m00<a class="headerlink" href="#matrix4x4-set-m00" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m00__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m00__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m00__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m00.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m01">
+<h2>Matrix4x4 set_m01<a class="headerlink" href="#matrix4x4-set-m01" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m01__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m01__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m01__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m01.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m02">
+<h2>Matrix4x4 set_m02<a class="headerlink" href="#matrix4x4-set-m02" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m02__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m02__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m02__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m02.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m03">
+<h2>Matrix4x4 set_m03<a class="headerlink" href="#matrix4x4-set-m03" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m03__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m03__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m03__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m03.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m10">
+<h2>Matrix4x4 set_m10<a class="headerlink" href="#matrix4x4-set-m10" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m10__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m10__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m10__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m10.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m11">
+<h2>Matrix4x4 set_m11<a class="headerlink" href="#matrix4x4-set-m11" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m11__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m11__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m11__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m11.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m12">
+<h2>Matrix4x4 set_m12<a class="headerlink" href="#matrix4x4-set-m12" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m12__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m12__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m12__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m12.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m13">
+<h2>Matrix4x4 set_m13<a class="headerlink" href="#matrix4x4-set-m13" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m13__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m13__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m13__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m13.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m20">
+<h2>Matrix4x4 set_m20<a class="headerlink" href="#matrix4x4-set-m20" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m20__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m20__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m20__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m20.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m21">
+<h2>Matrix4x4 set_m21<a class="headerlink" href="#matrix4x4-set-m21" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m21__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m21__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m21__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m21.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m22">
+<h2>Matrix4x4 set_m22<a class="headerlink" href="#matrix4x4-set-m22" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m22__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m22__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m22__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m22.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m23">
+<h2>Matrix4x4 set_m23<a class="headerlink" href="#matrix4x4-set-m23" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m23__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m23__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m23__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m23.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m30">
+<h2>Matrix4x4 set_m30<a class="headerlink" href="#matrix4x4-set-m30" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m30__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m30__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m30__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m30.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m31">
+<h2>Matrix4x4 set_m31<a class="headerlink" href="#matrix4x4-set-m31" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m31__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m31__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m31__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m31.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m32">
+<h2>Matrix4x4 set_m32<a class="headerlink" href="#matrix4x4-set-m32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m32.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-set-m33">
+<h2>Matrix4x4 set_m33<a class="headerlink" href="#matrix4x4-set-m33" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__set_m33__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__set_m33__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__set_m33__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4-m33.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-setcolumn">
+<h2>Matrix4x4 SetColumn<a class="headerlink" href="#matrix4x4-setcolumn" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__SetColumn__SystemInt32_UnityEngineVector4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__SetColumn__SystemInt32_UnityEngineVector4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Int32 indexUnityEngine.Vector4 column</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__SetColumn__SystemInt32_UnityEngineVector4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.SetColumn.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-setrow">
+<h2>Matrix4x4 SetRow<a class="headerlink" href="#matrix4x4-setrow" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__SetRow__SystemInt32_UnityEngineVector4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__SetRow__SystemInt32_UnityEngineVector4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceSystem.Int32 indexUnityEngine.Vector4 row</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__SetRow__SystemInt32_UnityEngineVector4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.SetRow.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-settrs">
+<h2>Matrix4x4 SetTRS<a class="headerlink" href="#matrix4x4-settrs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__SetTRS__UnityEngineVector3_UnityEngineQuaternion_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__SetTRS__UnityEngineVector3_UnityEngineQuaternion_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceUnityEngine.Vector3 posUnityEngine.Quaternion qUnityEngine.Vector3 s</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__SetTRS__UnityEngineVector3_UnityEngineQuaternion_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.SetTRS.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-tostring">
+<h2>Matrix4x4 ToString<a class="headerlink" href="#matrix4x4-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-transformplane">
+<h2>Matrix4x4 TransformPlane<a class="headerlink" href="#matrix4x4-transformplane" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__TransformPlane__UnityEnginePlane__UnityEnginePlane">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__TransformPlane__UnityEnginePlane__UnityEnginePlane</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instanceUnityEngine.Plane plane</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__TransformPlane__UnityEnginePlane__UnityEnginePlane" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Plane</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.TransformPlane.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-translate">
+<h2>Matrix4x4 Translate<a class="headerlink" href="#matrix4x4-translate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Translate__UnityEngineVector3__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Translate__UnityEngineVector3__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 vector</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Translate__UnityEngineVector3__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Translate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-transpose">
+<h2>Matrix4x4 Transpose<a class="headerlink" href="#matrix4x4-transpose" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__Transpose__UnityEngineMatrix4x4__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__Transpose__UnityEngineMatrix4x4__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 m</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__Transpose__UnityEngineMatrix4x4__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.Transpose.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-trs">
+<h2>Matrix4x4 TRS<a class="headerlink" href="#matrix4x4-trs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__TRS__UnityEngineVector3_UnityEngineQuaternion_UnityEngineVector3__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__TRS__UnityEngineVector3_UnityEngineQuaternion_UnityEngineVector3__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 posUnityEngine.Quaternion qUnityEngine.Vector3 s</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__TRS__UnityEngineVector3_UnityEngineQuaternion_UnityEngineVector3__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.TRS.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="matrix4x4-validtrs">
+<h2>Matrix4x4 ValidTRS<a class="headerlink" href="#matrix4x4-validtrs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineMatrix4x4.__ValidTRS__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineMatrix4x4.</code><code class="sig-name descname">__ValidTRS__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineMatrix4x4.__ValidTRS__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.ValidTRS.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id69">
+<h2>Matrix4x4<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineMatrix4x4">
+<code class="sig-name descname">Variable_UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Matrix4x4 Matrix4x4System.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Matrix4x4.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Mesh/index.html" class="btn btn-neutral float-right" title="Mesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Mathf/index.html" class="btn btn-neutral" title="Mathf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

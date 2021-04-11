@@ -1,0 +1,128 @@
+====================================================================================================================================================
+ComponentsTrackingData
+====================================================================================================================================================
+
+The ComponentsTrackingData module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+TrackingData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Const_VRCSDKBaseVRCPlayerApiTrackingData(VRC.SDKBase.VRCPlayerApi+TrackingData TrackingData)
+
+outputs: unnamed (``TrackingData``)
+
+flow: none
+
+
+
+TrackingData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_VRCSDKBaseVRCPlayerApiTrackingData(VRC.SDKBase.VRCPlayerApi+TrackingData TrackingDataSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__ctor__UnityEngineVector3_UnityEngineQuaternion__VRCSDKBaseVRCPlayerApiTrackingData(UnityEngine.Vector3 UnityEngine.Quaternion )
+
+outputs: unnamed (``TrackingData``)
+
+flow: none
+
+
+
+TrackingData Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__Equals__SystemObject__SystemBoolean(VRC.SDKBase.VRCPlayerApi+TrackingData instanceSystem.Object obj)
+
+outputs: unnamed (``Boolean``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+TrackingData get_position
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__get_position__UnityEngineVector3(VRC.SDKBase.VRCPlayerApi+TrackingData )
+
+outputs: unnamed (``Vector3``)
+
+flow: none
+
+
+
+TrackingData get_rotation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__get_rotation__UnityEngineQuaternion(VRC.SDKBase.VRCPlayerApi+TrackingData )
+
+outputs: unnamed (``Quaternion``)
+
+flow: none
+
+
+
+TrackingData GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__GetHashCode__SystemInt32(VRC.SDKBase.VRCPlayerApi+TrackingData instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+
+
+TrackingData GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__GetType__SystemType(VRC.SDKBase.VRCPlayerApi+TrackingData instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+
+
+TrackingData set_position
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__set_position__UnityEngineVector3(VRC.SDKBase.VRCPlayerApi+TrackingData UnityEngine.Vector3 )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+TrackingData set_rotation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__set_rotation__UnityEngineQuaternion(VRC.SDKBase.VRCPlayerApi+TrackingData UnityEngine.Quaternion )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+TrackingData ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApiTrackingData.__ToString__SystemString(VRC.SDKBase.VRCPlayerApi+TrackingData instance)
+
+outputs: unnamed (``String``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+

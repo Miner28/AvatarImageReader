@@ -1,0 +1,364 @@
+====================================================================================================================================================
+AnimationState
+====================================================================================================================================================
+
+The AnimationState module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+AnimationState AddMixingTransform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__AddMixingTransform__UnityEngineTransform__SystemVoid(UnityEngine.AnimationState instanceUnityEngine.Transform mix)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState.AddMixingTransform.html>`_
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__ctor____UnityEngineAnimationState()
+
+outputs: unnamed (``AnimationState``)
+
+flow: none
+
+
+
+op_Equality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__op_Equality__UnityEngineTrackedReference_UnityEngineTrackedReference__SystemBoolean(UnityEngine.TrackedReference UnityEngine.TrackedReference )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+AnimationState Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__Equals__SystemObject__SystemBoolean(UnityEngine.AnimationState instanceSystem.Object o)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+AnimationState get_blendMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_blendMode__UnityEngineAnimationBlendMode(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``AnimationBlendMode``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-blendMode.html>`_
+
+AnimationState get_clip
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_clip__UnityEngineAnimationClip(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``AnimationClip``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-clip.html>`_
+
+AnimationState get_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_enabled__SystemBoolean(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-enabled.html>`_
+
+AnimationState get_layer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_layer__SystemInt32(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-layer.html>`_
+
+AnimationState get_length
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_length__SystemSingle(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-length.html>`_
+
+AnimationState get_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_name__SystemString(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-name.html>`_
+
+AnimationState get_normalizedSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_normalizedSpeed__SystemSingle(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-normalizedSpeed.html>`_
+
+AnimationState get_normalizedTime
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_normalizedTime__SystemSingle(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-normalizedTime.html>`_
+
+AnimationState get_speed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_speed__SystemSingle(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-speed.html>`_
+
+AnimationState get_time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_time__SystemSingle(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-time.html>`_
+
+AnimationState get_weight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_weight__SystemSingle(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-weight.html>`_
+
+AnimationState get_wrapMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__get_wrapMode__UnityEngineWrapMode(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``WrapMode``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-wrapMode.html>`_
+
+AnimationState GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__GetHashCode__SystemInt32(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState.GetHashCode.html>`_
+
+AnimationState GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__GetType__SystemType(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState.html>`_
+
+op_Implicit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__op_Implicit__UnityEngineTrackedReference__SystemBoolean(UnityEngine.TrackedReference )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+op_Inequality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__op_Inequality__UnityEngineTrackedReference_UnityEngineTrackedReference__SystemBoolean(UnityEngine.TrackedReference UnityEngine.TrackedReference )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+AnimationState RemoveMixingTransform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__RemoveMixingTransform__UnityEngineTransform__SystemVoid(UnityEngine.AnimationState instanceUnityEngine.Transform mix)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState.RemoveMixingTransform.html>`_
+
+AnimationState set_blendMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_blendMode__UnityEngineAnimationBlendMode__SystemVoid(UnityEngine.AnimationState instanceUnityEngine.AnimationBlendMode value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-blendMode.html>`_
+
+AnimationState set_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_enabled__SystemBoolean__SystemVoid(UnityEngine.AnimationState instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-enabled.html>`_
+
+AnimationState set_layer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_layer__SystemInt32__SystemVoid(UnityEngine.AnimationState instanceSystem.Int32 value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-layer.html>`_
+
+AnimationState set_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_name__SystemString__SystemVoid(UnityEngine.AnimationState instanceSystem.String value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-name.html>`_
+
+AnimationState set_normalizedSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_normalizedSpeed__SystemSingle__SystemVoid(UnityEngine.AnimationState instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-normalizedSpeed.html>`_
+
+AnimationState set_normalizedTime
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_normalizedTime__SystemSingle__SystemVoid(UnityEngine.AnimationState instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-normalizedTime.html>`_
+
+AnimationState set_speed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_speed__SystemSingle__SystemVoid(UnityEngine.AnimationState instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-speed.html>`_
+
+AnimationState set_time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_time__SystemSingle__SystemVoid(UnityEngine.AnimationState instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-time.html>`_
+
+AnimationState set_weight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_weight__SystemSingle__SystemVoid(UnityEngine.AnimationState instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-weight.html>`_
+
+AnimationState set_wrapMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__set_wrapMode__UnityEngineWrapMode__SystemVoid(UnityEngine.AnimationState instanceUnityEngine.WrapMode value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState-wrapMode.html>`_
+
+AnimationState ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineAnimationState.__ToString__SystemString(UnityEngine.AnimationState instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState.ToString.html>`_
+
+AnimationState
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_UnityEngineAnimationState(UnityEngine.AnimationState AnimationStateSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AnimationState.html>`_

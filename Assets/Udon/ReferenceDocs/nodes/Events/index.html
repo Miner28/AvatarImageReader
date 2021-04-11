@@ -1,0 +1,1018 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../index.html"/>
+        <link rel="next" title="Special" href="../Special/index.html"/>
+        <link rel="prev" title="Welcome to Udon’s documentation!" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fixedupdate">FixedUpdate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interact">Interact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lateupdate">LateUpdate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onanimatorik">OnAnimatorIK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onanimatormove">OnAnimatorMove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncollisionenter">OnCollisionEnter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncollisionenter2d">OnCollisionEnter2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncollisionexit">OnCollisionExit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncollisionexit2d">OnCollisionExit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncollisionstay">OnCollisionStay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncollisionstay2d">OnCollisionStay2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oncontrollercolliderhit">OnControllerColliderHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ondeserialization">OnDeserialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ondestroy">OnDestroy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ondisable">OnDisable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ondrop">OnDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onenable">OnEnable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onjointbreak">OnJointBreak</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onjointbreak2d">OnJointBreak2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmousedown">OnMouseDown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmousedrag">OnMouseDrag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmouseenter">OnMouseEnter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmouseexit">OnMouseExit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmouseover">OnMouseOver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmouseup">OnMouseUp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onmouseupasbutton">OnMouseUpAsButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onownershiptransferred">OnOwnershipTransferred</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onparticlecollision">OnParticleCollision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onparticletrigger">OnParticleTrigger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onpickup">OnPickup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onpickupusedown">OnPickupUseDown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onpickupuseup">OnPickupUseUp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onplayerjoined">OnPlayerJoined</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onplayerleft">OnPlayerLeft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onpostrender">OnPostRender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onprecull">OnPreCull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onprerender">OnPreRender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onpreserialization">OnPreSerialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onrenderimage">OnRenderImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onrenderobject">OnRenderObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onspawn">OnSpawn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onstationentered">OnStationEntered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onstationexited">OnStationExited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontransformchildrenchanged">OnTransformChildrenChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontransformparentchanged">OnTransformParentChanged</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontriggerenter">OnTriggerEnter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontriggerenter2d">OnTriggerEnter2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontriggerexit">OnTriggerExit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontriggerexit2d">OnTriggerExit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontriggerstay">OnTriggerStay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ontriggerstay2d">OnTriggerStay2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onvideoend">OnVideoEnd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onvideopause">OnVideoPause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onvideoplay">OnVideoPlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onvideostart">OnVideoStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onwillrenderobject">OnWillRenderObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start">Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update">Update</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Events</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/nodes/Events/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Special/index.html" class="btn btn-neutral float-right" title="Special" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../index.html" class="btn btn-neutral" title="Welcome to Udon’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="events">
+<h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<p>The Events module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="fixedupdate">
+<h2>FixedUpdate<a class="headerlink" href="#fixedupdate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_FixedUpdate">
+<code class="sig-name descname">Event_FixedUpdate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_FixedUpdate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.FixedUpdate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="interact">
+<h2>Interact<a class="headerlink" href="#interact" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_Interact">
+<code class="sig-name descname">Event_Interact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_Interact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when a VRChat player interacts with this object.</p>
+</div>
+<div class="section" id="lateupdate">
+<h2>LateUpdate<a class="headerlink" href="#lateupdate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_LateUpdate">
+<code class="sig-name descname">Event_LateUpdate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_LateUpdate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.LateUpdate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onanimatorik">
+<h2>OnAnimatorIK<a class="headerlink" href="#onanimatorik" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnAnimatorIK">
+<code class="sig-name descname">Event_OnAnimatorIK</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnAnimatorIK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: layerIndex (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnAnimatorIK.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onanimatormove">
+<h2>OnAnimatorMove<a class="headerlink" href="#onanimatormove" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnAnimatorMove">
+<code class="sig-name descname">Event_OnAnimatorMove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnAnimatorMove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnAnimatorMove.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncollisionenter">
+<h2>OnCollisionEnter<a class="headerlink" href="#oncollisionenter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnCollisionEnter">
+<code class="sig-name descname">Event_OnCollisionEnter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnCollisionEnter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collision</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnCollisionEnter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncollisionenter2d">
+<h2>OnCollisionEnter2D<a class="headerlink" href="#oncollisionenter2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnCollisionEnter2D">
+<code class="sig-name descname">Event_OnCollisionEnter2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnCollisionEnter2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collision2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncollisionexit">
+<h2>OnCollisionExit<a class="headerlink" href="#oncollisionexit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnCollisionExit">
+<code class="sig-name descname">Event_OnCollisionExit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnCollisionExit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collision</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnCollisionExit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncollisionexit2d">
+<h2>OnCollisionExit2D<a class="headerlink" href="#oncollisionexit2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnCollisionExit2D">
+<code class="sig-name descname">Event_OnCollisionExit2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnCollisionExit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collision2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnCollisionExit2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncollisionstay">
+<h2>OnCollisionStay<a class="headerlink" href="#oncollisionstay" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnCollisionStay">
+<code class="sig-name descname">Event_OnCollisionStay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnCollisionStay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collision</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnCollisionStay.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncollisionstay2d">
+<h2>OnCollisionStay2D<a class="headerlink" href="#oncollisionstay2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnCollisionStay2D">
+<code class="sig-name descname">Event_OnCollisionStay2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnCollisionStay2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collision2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnCollisionStay2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="oncontrollercolliderhit">
+<h2>OnControllerColliderHit<a class="headerlink" href="#oncontrollercolliderhit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnControllerColliderHit">
+<code class="sig-name descname">Event_OnControllerColliderHit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnControllerColliderHit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: hit (<code class="docutils literal notranslate"><span class="pre">ControllerColliderHit</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnControllerColliderHit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ondeserialization">
+<h2>OnDeserialization<a class="headerlink" href="#ondeserialization" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnDeserialization">
+<code class="sig-name descname">Event_OnDeserialization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnDeserialization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnDeserialization.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ondestroy">
+<h2>OnDestroy<a class="headerlink" href="#ondestroy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnDestroy">
+<code class="sig-name descname">Event_OnDestroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnDestroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnDestroy.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ondisable">
+<h2>OnDisable<a class="headerlink" href="#ondisable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnDisable">
+<code class="sig-name descname">Event_OnDisable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnDisable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnDisable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ondrop">
+<h2>OnDrop<a class="headerlink" href="#ondrop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnDrop">
+<code class="sig-name descname">Event_OnDrop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnDrop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when a VRChat player drops this object after being held.</p>
+</div>
+<div class="section" id="onenable">
+<h2>OnEnable<a class="headerlink" href="#onenable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnEnable">
+<code class="sig-name descname">Event_OnEnable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnEnable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnEnable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onjointbreak">
+<h2>OnJointBreak<a class="headerlink" href="#onjointbreak" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnJointBreak">
+<code class="sig-name descname">Event_OnJointBreak</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnJointBreak" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: breakForce (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnJointBreak.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onjointbreak2d">
+<h2>OnJointBreak2D<a class="headerlink" href="#onjointbreak2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnJointBreak2D">
+<code class="sig-name descname">Event_OnJointBreak2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnJointBreak2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: brokenJoint (<code class="docutils literal notranslate"><span class="pre">Joint2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnJointBreak2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmousedown">
+<h2>OnMouseDown<a class="headerlink" href="#onmousedown" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseDown">
+<code class="sig-name descname">Event_OnMouseDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseDown.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmousedrag">
+<h2>OnMouseDrag<a class="headerlink" href="#onmousedrag" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseDrag">
+<code class="sig-name descname">Event_OnMouseDrag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseDrag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseDrag.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmouseenter">
+<h2>OnMouseEnter<a class="headerlink" href="#onmouseenter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseEnter">
+<code class="sig-name descname">Event_OnMouseEnter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseEnter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseEnter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmouseexit">
+<h2>OnMouseExit<a class="headerlink" href="#onmouseexit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseExit">
+<code class="sig-name descname">Event_OnMouseExit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseExit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseExit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmouseover">
+<h2>OnMouseOver<a class="headerlink" href="#onmouseover" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseOver">
+<code class="sig-name descname">Event_OnMouseOver</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseOver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseOver.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmouseup">
+<h2>OnMouseUp<a class="headerlink" href="#onmouseup" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseUp">
+<code class="sig-name descname">Event_OnMouseUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseUp.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onmouseupasbutton">
+<h2>OnMouseUpAsButton<a class="headerlink" href="#onmouseupasbutton" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnMouseUpAsButton">
+<code class="sig-name descname">Event_OnMouseUpAsButton</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnMouseUpAsButton" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnMouseUpAsButton.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onownershiptransferred">
+<h2>OnOwnershipTransferred<a class="headerlink" href="#onownershiptransferred" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnOwnershipTransferred">
+<code class="sig-name descname">Event_OnOwnershipTransferred</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnOwnershipTransferred" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when the ownership of this object is transferred via some mechanic.</p>
+</div>
+<div class="section" id="onparticlecollision">
+<h2>OnParticleCollision<a class="headerlink" href="#onparticlecollision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnParticleCollision">
+<code class="sig-name descname">Event_OnParticleCollision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnParticleCollision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnParticleCollision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onparticletrigger">
+<h2>OnParticleTrigger<a class="headerlink" href="#onparticletrigger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnParticleTrigger">
+<code class="sig-name descname">Event_OnParticleTrigger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnParticleTrigger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnParticleTrigger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onpickup">
+<h2>OnPickup<a class="headerlink" href="#onpickup" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPickup">
+<code class="sig-name descname">Event_OnPickup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPickup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when this object is picked up by a VRChat player.</p>
+</div>
+<div class="section" id="onpickupusedown">
+<h2>OnPickupUseDown<a class="headerlink" href="#onpickupusedown" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPickupUseDown">
+<code class="sig-name descname">Event_OnPickupUseDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPickupUseDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when this object is held and the Use button is pressed. Fires on button down.</p>
+</div>
+<div class="section" id="onpickupuseup">
+<h2>OnPickupUseUp<a class="headerlink" href="#onpickupuseup" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPickupUseUp">
+<code class="sig-name descname">Event_OnPickupUseUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPickupUseUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when this object is held and the Use button is pressed. Fires on button up.</p>
+</div>
+<div class="section" id="onplayerjoined">
+<h2>OnPlayerJoined<a class="headerlink" href="#onplayerjoined" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPlayerJoined">
+<code class="sig-name descname">Event_OnPlayerJoined</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPlayerJoined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: player (<code class="docutils literal notranslate"><span class="pre">VRCPlayerApi</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when a VRChat player joins the instance. Outputs the player that joined.</p>
+</div>
+<div class="section" id="onplayerleft">
+<h2>OnPlayerLeft<a class="headerlink" href="#onplayerleft" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPlayerLeft">
+<code class="sig-name descname">Event_OnPlayerLeft</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPlayerLeft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: player (<code class="docutils literal notranslate"><span class="pre">VRCPlayerApi</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when a VRChat player leaves the instance. Outputs the player that left.</p>
+</div>
+<div class="section" id="onpostrender">
+<h2>OnPostRender<a class="headerlink" href="#onpostrender" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPostRender">
+<code class="sig-name descname">Event_OnPostRender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPostRender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnPostRender.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onprecull">
+<h2>OnPreCull<a class="headerlink" href="#onprecull" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPreCull">
+<code class="sig-name descname">Event_OnPreCull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPreCull" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnPreCull.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onprerender">
+<h2>OnPreRender<a class="headerlink" href="#onprerender" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPreRender">
+<code class="sig-name descname">Event_OnPreRender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPreRender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnPreRender.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onpreserialization">
+<h2>OnPreSerialization<a class="headerlink" href="#onpreserialization" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnPreSerialization">
+<code class="sig-name descname">Event_OnPreSerialization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnPreSerialization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnPreSerialization.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onrenderimage">
+<h2>OnRenderImage<a class="headerlink" href="#onrenderimage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnRenderImage">
+<code class="sig-name descname">Event_OnRenderImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnRenderImage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: src (<code class="docutils literal notranslate"><span class="pre">RenderTexture</span></code>), dest (<code class="docutils literal notranslate"><span class="pre">RenderTexture</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnRenderImage.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onrenderobject">
+<h2>OnRenderObject<a class="headerlink" href="#onrenderobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnRenderObject">
+<code class="sig-name descname">Event_OnRenderObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnRenderObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnRenderObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onspawn">
+<h2>OnSpawn<a class="headerlink" href="#onspawn" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnSpawn">
+<code class="sig-name descname">Event_OnSpawn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnSpawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when this object spawns for the local player. Unbuffered, so late joiners do not get this event. Only fires when the object is spawned via network instantiation. Will not fire if the object is present in the base scene.</p>
+</div>
+<div class="section" id="onstationentered">
+<h2>OnStationEntered<a class="headerlink" href="#onstationentered" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnStationEntered">
+<code class="sig-name descname">Event_OnStationEntered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnStationEntered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when a VRChat player enters the station on this object.</p>
+</div>
+<div class="section" id="onstationexited">
+<h2>OnStationExited<a class="headerlink" href="#onstationexited" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnStationExited">
+<code class="sig-name descname">Event_OnStationExited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnStationExited" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when a VRChat player exits the station on this object.</p>
+</div>
+<div class="section" id="ontransformchildrenchanged">
+<h2>OnTransformChildrenChanged<a class="headerlink" href="#ontransformchildrenchanged" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTransformChildrenChanged">
+<code class="sig-name descname">Event_OnTransformChildrenChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTransformChildrenChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTransformChildrenChanged.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontransformparentchanged">
+<h2>OnTransformParentChanged<a class="headerlink" href="#ontransformparentchanged" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTransformParentChanged">
+<code class="sig-name descname">Event_OnTransformParentChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTransformParentChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTransformParentChanged.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontriggerenter">
+<h2>OnTriggerEnter<a class="headerlink" href="#ontriggerenter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTriggerEnter">
+<code class="sig-name descname">Event_OnTriggerEnter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTriggerEnter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collider</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTriggerEnter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontriggerenter2d">
+<h2>OnTriggerEnter2D<a class="headerlink" href="#ontriggerenter2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTriggerEnter2D">
+<code class="sig-name descname">Event_OnTriggerEnter2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTriggerEnter2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTriggerEnter2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontriggerexit">
+<h2>OnTriggerExit<a class="headerlink" href="#ontriggerexit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTriggerExit">
+<code class="sig-name descname">Event_OnTriggerExit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTriggerExit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collider</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTriggerExit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontriggerexit2d">
+<h2>OnTriggerExit2D<a class="headerlink" href="#ontriggerexit2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTriggerExit2D">
+<code class="sig-name descname">Event_OnTriggerExit2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTriggerExit2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTriggerExit2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontriggerstay">
+<h2>OnTriggerStay<a class="headerlink" href="#ontriggerstay" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTriggerStay">
+<code class="sig-name descname">Event_OnTriggerStay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTriggerStay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collider</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTriggerStay.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ontriggerstay2d">
+<h2>OnTriggerStay2D<a class="headerlink" href="#ontriggerstay2d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnTriggerStay2D">
+<code class="sig-name descname">Event_OnTriggerStay2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnTriggerStay2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: other (<code class="docutils literal notranslate"><span class="pre">Collider2D</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnTriggerStay2D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="onvideoend">
+<h2>OnVideoEnd<a class="headerlink" href="#onvideoend" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnVideoEnd">
+<code class="sig-name descname">Event_OnVideoEnd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnVideoEnd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when the video player on this object is finished playing, either via the end of the video or via player interaction.</p>
+</div>
+<div class="section" id="onvideopause">
+<h2>OnVideoPause<a class="headerlink" href="#onvideopause" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnVideoPause">
+<code class="sig-name descname">Event_OnVideoPause</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnVideoPause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when the video player on this object is paused.</p>
+</div>
+<div class="section" id="onvideoplay">
+<h2>OnVideoPlay<a class="headerlink" href="#onvideoplay" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnVideoPlay">
+<code class="sig-name descname">Event_OnVideoPlay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnVideoPlay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when the video player on this object starts playback, either via the start of a new video in a queue, unpausing, or via player interaction.</p>
+</div>
+<div class="section" id="onvideostart">
+<h2>OnVideoStart<a class="headerlink" href="#onvideostart" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnVideoStart">
+<code class="sig-name descname">Event_OnVideoStart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnVideoStart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p>Fired when the video player on this object starts playback from a stopped state.</p>
+</div>
+<div class="section" id="onwillrenderobject">
+<h2>OnWillRenderObject<a class="headerlink" href="#onwillrenderobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_OnWillRenderObject">
+<code class="sig-name descname">Event_OnWillRenderObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_OnWillRenderObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.OnWillRenderObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="start">
+<h2>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_Start">
+<code class="sig-name descname">Event_Start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_Start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.Start.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="update">
+<h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Event_Update">
+<code class="sig-name descname">Event_Update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Event_Update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MonoBehaviour.Update.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Special/index.html" class="btn btn-neutral float-right" title="Special" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../index.html" class="btn btn-neutral" title="Welcome to Udon’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

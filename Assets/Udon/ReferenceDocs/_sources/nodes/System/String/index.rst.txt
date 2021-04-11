@@ -1,0 +1,522 @@
+====================================================================================================================================================
+String
+====================================================================================================================================================
+
+The String module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+String
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Const_SystemString(System.String String)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String?view=netframework-4.8>`_
+
+op_Addition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__op_Addition__SystemString_SystemString__SystemString(System.String System.String )
+
+outputs: unnamed (``String``)
+
+flow: none
+
+
+
+String Clone
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Clone__SystemObject(System.String instance)
+
+outputs: unnamed (``Object``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Clone?view=netframework-4.8>`_
+
+String Compare
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Compare__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32(System.String strASystem.Int32 indexASystem.String strBSystem.Int32 indexBSystem.Int32 length)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Compare?view=netframework-4.8>`_
+
+String CompareOrdinal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__CompareOrdinal__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32(System.String strASystem.Int32 indexASystem.String strBSystem.Int32 indexBSystem.Int32 length)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.CompareOrdinal?view=netframework-4.8>`_
+
+String CompareTo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__CompareTo__SystemString__SystemInt32(System.String instanceSystem.String strB)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.CompareTo?view=netframework-4.8>`_
+
+String Concat
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Concat__SystemObject__SystemString(System.Object arg0)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Concat?view=netframework-4.8>`_
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ctor__SystemChar*__SystemString(System.Char* )
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.-ctor?view=netframework-4.8#System_String__ctor_System_Char*_>`_
+
+String Contains
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Contains__SystemString__SystemBoolean(System.String instanceSystem.String value)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Contains?view=netframework-4.8>`_
+
+String Copy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Copy__SystemString__SystemString(System.String str)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Copy?view=netframework-4.8>`_
+
+String CopyTo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__CopyTo__SystemInt32_SystemCharArray_SystemInt32_SystemInt32__SystemVoid(System.String instanceSystem.Int32 sourceIndexSystem.Char[] destinationSystem.Int32 destinationIndexSystem.Int32 count)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.CopyTo?view=netframework-4.8>`_
+
+String EndsWith
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__EndsWith__SystemString__SystemBoolean(System.String instanceSystem.String value)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.EndsWith?view=netframework-4.8>`_
+
+op_Equality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__op_Equality__SystemString_SystemString__SystemBoolean(System.String System.String )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+String Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Equals__SystemString_SystemString__SystemBoolean(System.String aSystem.String b)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Equals?view=netframework-4.8>`_
+
+String Format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Format__SystemString_SystemObject__SystemString(System.String formatSystem.Object arg0)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Format?view=netframework-4.8>`_
+
+String get_Chars
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__get_Chars__SystemInt32__SystemChar(System.String instanceSystem.Int32 index)
+
+outputs: unnamed (``Char``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Chars?view=netframework-4.8>`_
+
+String get_Empty
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__get_Empty__SystemString()
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Empty?view=netframework-4.8>`_
+
+String get_Length
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__get_Length__SystemInt32(System.String instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Length?view=netframework-4.8>`_
+
+String GetEnumerator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__GetEnumerator__SystemCharEnumerator(System.String instance)
+
+outputs: unnamed (``CharEnumerator``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.GetEnumerator?view=netframework-4.8>`_
+
+String GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__GetHashCode__SystemInt32(System.String instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.GetHashCode?view=netframework-4.8>`_
+
+String GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__GetType__SystemType(System.String instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String?view=netframework-4.8>`_
+
+String IndexOf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__IndexOf__SystemChar__SystemInt32(System.String instanceSystem.Char value)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.IndexOf?view=netframework-4.8>`_
+
+String IndexOfAny
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__IndexOfAny__SystemCharArray__SystemInt32(System.String instanceSystem.Char[] anyOf)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.IndexOfAny?view=netframework-4.8>`_
+
+op_Inequality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean(System.String System.String )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+String Insert
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Insert__SystemInt32_SystemString__SystemString(System.String instanceSystem.Int32 startIndexSystem.String value)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Insert?view=netframework-4.8>`_
+
+String Intern
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Intern__SystemString__SystemString(System.String str)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Intern?view=netframework-4.8>`_
+
+String IsInterned
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__IsInterned__SystemString__SystemString(System.String str)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.IsInterned?view=netframework-4.8>`_
+
+String IsNormalized
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__IsNormalized__SystemBoolean(System.String instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.IsNormalized?view=netframework-4.8>`_
+
+String IsNullOrEmpty
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__IsNullOrEmpty__SystemString__SystemBoolean(System.String value)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.IsNullOrEmpty?view=netframework-4.8>`_
+
+String IsNullOrWhiteSpace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__IsNullOrWhiteSpace__SystemString__SystemBoolean(System.String value)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.IsNullOrWhiteSpace?view=netframework-4.8>`_
+
+String Join
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Join__SystemString_SystemStringArray__SystemString(System.String separatorSystem.String[] value)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Join?view=netframework-4.8>`_
+
+String LastIndexOf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__LastIndexOf__SystemChar__SystemInt32(System.String instanceSystem.Char value)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.LastIndexOf?view=netframework-4.8>`_
+
+String LastIndexOfAny
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__LastIndexOfAny__SystemCharArray__SystemInt32(System.String instanceSystem.Char[] anyOf)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.LastIndexOfAny?view=netframework-4.8>`_
+
+String Normalize
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Normalize__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Normalize?view=netframework-4.8>`_
+
+String PadLeft
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__PadLeft__SystemInt32__SystemString(System.String instanceSystem.Int32 totalWidth)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.PadLeft?view=netframework-4.8>`_
+
+String PadRight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__PadRight__SystemInt32__SystemString(System.String instanceSystem.Int32 totalWidth)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.PadRight?view=netframework-4.8>`_
+
+String Remove
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Remove__SystemInt32__SystemString(System.String instanceSystem.Int32 startIndex)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Remove?view=netframework-4.8>`_
+
+String Replace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Replace__SystemChar_SystemChar__SystemString(System.String instanceSystem.Char oldCharSystem.Char newChar)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Replace?view=netframework-4.8>`_
+
+String Split
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Split__SystemCharArray__SystemStringArray(System.String instanceSystem.Char[] separator)
+
+outputs: unnamed (``String[]``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Split?view=netframework-4.8>`_
+
+String StartsWith
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__StartsWith__SystemString__SystemBoolean(System.String instanceSystem.String value)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.StartsWith?view=netframework-4.8>`_
+
+String Substring
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Substring__SystemInt32__SystemString(System.String instanceSystem.Int32 startIndex)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Substring?view=netframework-4.8>`_
+
+String ToCharArray
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ToCharArray__SystemCharArray(System.String instance)
+
+outputs: unnamed (``Char[]``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.ToCharArray?view=netframework-4.8>`_
+
+String ToLower
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ToLower__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.ToLower?view=netframework-4.8>`_
+
+String ToLowerInvariant
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ToLowerInvariant__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.ToLowerInvariant?view=netframework-4.8>`_
+
+String ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ToString__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.ToString?view=netframework-4.8>`_
+
+String ToUpper
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ToUpper__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.ToUpper?view=netframework-4.8>`_
+
+String ToUpperInvariant
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__ToUpperInvariant__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.ToUpperInvariant?view=netframework-4.8>`_
+
+String Trim
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__Trim__SystemString(System.String instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.Trim?view=netframework-4.8>`_
+
+String TrimEnd
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__TrimEnd__SystemCharArray__SystemString(System.String instanceSystem.Char[] trimChars)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.TrimEnd?view=netframework-4.8>`_
+
+String TrimStart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: SystemString.__TrimStart__SystemCharArray__SystemString(System.String instanceSystem.Char[] trimChars)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.String.TrimStart?view=netframework-4.8>`_
+
+String
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_SystemString(System.String StringSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+

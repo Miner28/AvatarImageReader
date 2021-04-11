@@ -1,0 +1,584 @@
+====================================================================================================================================================
+EdgeCollider2D
+====================================================================================================================================================
+
+The EdgeCollider2D module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+EdgeCollider2D Cast
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__Cast__UnityEngineVector2_UnityEngineContactFilter2D_UnityEngineRaycastHit2DArray__SystemInt32(UnityEngine.EdgeCollider2D instanceUnityEngine.Vector2 directionUnityEngine.ContactFilter2D contactFilterUnityEngine.RaycastHit2D[] results)
+
+outputs: unnamed (``Int32``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.Cast.html>`_
+
+EdgeCollider2D Distance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__Distance__UnityEngineCollider2D__UnityEngineColliderDistance2D(UnityEngine.EdgeCollider2D instanceUnityEngine.Collider2D collider)
+
+outputs: unnamed (``ColliderDistance2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.Distance.html>`_
+
+op_Equality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean(UnityEngine.Object UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+EdgeCollider2D Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__Equals__SystemObject__SystemBoolean(UnityEngine.EdgeCollider2D instanceSystem.Object other)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+EdgeCollider2D get_attachedRigidbody
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_attachedRigidbody__UnityEngineRigidbody2D(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Rigidbody2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-attachedRigidbody.html>`_
+
+EdgeCollider2D get_bounciness
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_bounciness__SystemSingle(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-bounciness.html>`_
+
+EdgeCollider2D get_bounds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_bounds__UnityEngineBounds(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Bounds``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-bounds.html>`_
+
+EdgeCollider2D get_composite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_composite__UnityEngineCompositeCollider2D(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``CompositeCollider2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-composite.html>`_
+
+EdgeCollider2D get_density
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_density__SystemSingle(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-density.html>`_
+
+EdgeCollider2D get_edgeCount
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_edgeCount__SystemInt32(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-edgeCount.html>`_
+
+EdgeCollider2D get_edgeRadius
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_edgeRadius__SystemSingle(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-edgeRadius.html>`_
+
+EdgeCollider2D get_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_enabled__SystemBoolean(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-enabled.html>`_
+
+EdgeCollider2D get_friction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_friction__SystemSingle(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-friction.html>`_
+
+EdgeCollider2D get_gameObject
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_gameObject__UnityEngineGameObject(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``GameObject``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-gameObject.html>`_
+
+EdgeCollider2D get_isTrigger
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_isTrigger__SystemBoolean(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-isTrigger.html>`_
+
+EdgeCollider2D get_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_name__SystemString(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-name.html>`_
+
+EdgeCollider2D get_offset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_offset__UnityEngineVector2(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Vector2``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-offset.html>`_
+
+EdgeCollider2D get_pointCount
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_pointCount__SystemInt32(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-pointCount.html>`_
+
+EdgeCollider2D get_points
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_points__UnityEngineVector2Array(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Vector2[]``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-points.html>`_
+
+EdgeCollider2D get_shapeCount
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_shapeCount__SystemInt32(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-shapeCount.html>`_
+
+EdgeCollider2D get_sharedMaterial
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_sharedMaterial__UnityEnginePhysicsMaterial2D(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``PhysicsMaterial2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-sharedMaterial.html>`_
+
+EdgeCollider2D get_transform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_transform__UnityEngineTransform(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Transform``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-transform.html>`_
+
+EdgeCollider2D get_usedByComposite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_usedByComposite__SystemBoolean(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-usedByComposite.html>`_
+
+EdgeCollider2D get_usedByEffector
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__get_usedByEffector__SystemBoolean(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-usedByEffector.html>`_
+
+EdgeCollider2D GetComponent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetComponent__SystemType__UnityEngineComponent(UnityEngine.EdgeCollider2D instanceSystem.Type type)
+
+outputs: unnamed (``Component``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.html>`_
+
+EdgeCollider2D GetComponentInChildren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetComponentInChildren__SystemBoolean__T(UnityEngine.EdgeCollider2D instanceSystem.Boolean includeInactiveSystem.Type type)
+
+outputs: T (``Object``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetComponentInChildren.html>`_
+
+EdgeCollider2D GetComponentInParent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetComponentInParent__SystemType__UnityEngineComponent(UnityEngine.EdgeCollider2D instanceSystem.Type t)
+
+outputs: unnamed (``Component``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.html>`_
+
+EdgeCollider2D GetComponents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetComponents__ListT__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetComponents.html>`_
+
+EdgeCollider2D GetComponentsInChildren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetComponentsInChildren.html>`_
+
+EdgeCollider2D GetComponentsInParent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetComponentsInParent.html>`_
+
+EdgeCollider2D GetContacts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetContacts__UnityEngineCollider2DArray__SystemInt32(UnityEngine.EdgeCollider2D instanceUnityEngine.Collider2D[] colliders)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetContacts.html>`_
+
+EdgeCollider2D GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetHashCode__SystemInt32(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetHashCode.html>`_
+
+EdgeCollider2D GetInstanceID
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetInstanceID__SystemInt32(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.GetInstanceID.html>`_
+
+EdgeCollider2D GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__GetType__SystemType(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.html>`_
+
+op_Implicit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__op_Implicit__UnityEngineObject__SystemBoolean(UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+op_Inequality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean(UnityEngine.Object UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+EdgeCollider2D IsTouching
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__IsTouching__UnityEngineCollider2D__SystemBoolean(UnityEngine.EdgeCollider2D instanceUnityEngine.Collider2D collider)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.IsTouching.html>`_
+
+EdgeCollider2D IsTouchingLayers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__IsTouchingLayers__SystemBoolean(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.IsTouchingLayers.html>`_
+
+EdgeCollider2D OverlapCollider
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__OverlapCollider__UnityEngineContactFilter2D_UnityEngineCollider2DArray__SystemInt32(UnityEngine.EdgeCollider2D instanceUnityEngine.ContactFilter2D contactFilterUnityEngine.Collider2D[] results)
+
+outputs: unnamed (``Int32``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.OverlapCollider.html>`_
+
+EdgeCollider2D OverlapPoint
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__OverlapPoint__UnityEngineVector2__SystemBoolean(UnityEngine.EdgeCollider2D instanceUnityEngine.Vector2 point)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.OverlapPoint.html>`_
+
+EdgeCollider2D Raycast
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__Raycast__UnityEngineVector2_UnityEngineContactFilter2D_UnityEngineRaycastHit2DArray__SystemInt32(UnityEngine.EdgeCollider2D instanceUnityEngine.Vector2 directionUnityEngine.ContactFilter2D contactFilterUnityEngine.RaycastHit2D[] results)
+
+outputs: unnamed (``Int32``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.Raycast.html>`_
+
+EdgeCollider2D Reset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__Reset__SystemVoid(UnityEngine.EdgeCollider2D instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.Reset.html>`_
+
+EdgeCollider2D set_density
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_density__SystemSingle__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-density.html>`_
+
+EdgeCollider2D set_edgeRadius
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_edgeRadius__SystemSingle__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-edgeRadius.html>`_
+
+EdgeCollider2D set_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_enabled__SystemBoolean__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-enabled.html>`_
+
+EdgeCollider2D set_isTrigger
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_isTrigger__SystemBoolean__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-isTrigger.html>`_
+
+EdgeCollider2D set_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_name__SystemString__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.String value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-name.html>`_
+
+EdgeCollider2D set_offset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_offset__UnityEngineVector2__SystemVoid(UnityEngine.EdgeCollider2D instanceUnityEngine.Vector2 value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-offset.html>`_
+
+EdgeCollider2D set_points
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_points__UnityEngineVector2Array__SystemVoid(UnityEngine.EdgeCollider2D instanceUnityEngine.Vector2[] value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-points.html>`_
+
+EdgeCollider2D set_sharedMaterial
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_sharedMaterial__UnityEnginePhysicsMaterial2D__SystemVoid(UnityEngine.EdgeCollider2D instanceUnityEngine.PhysicsMaterial2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-sharedMaterial.html>`_
+
+EdgeCollider2D set_usedByComposite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_usedByComposite__SystemBoolean__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-usedByComposite.html>`_
+
+EdgeCollider2D set_usedByEffector
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__set_usedByEffector__SystemBoolean__SystemVoid(UnityEngine.EdgeCollider2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D-usedByEffector.html>`_
+
+EdgeCollider2D ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineEdgeCollider2D.__ToString__SystemString(UnityEngine.EdgeCollider2D instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.ToString.html>`_
+
+EdgeCollider2D
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_UnityEngineEdgeCollider2D(UnityEngine.EdgeCollider2D EdgeCollider2DSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/EdgeCollider2D.html>`_

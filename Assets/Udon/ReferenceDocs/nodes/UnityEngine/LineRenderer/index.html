@@ -1,0 +1,1872 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LineRenderer &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="MatchTargetWeightMask" href="../MatchTargetWeightMask/index.html"/>
+        <link rel="prev" title="Light" href="../Light/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LineRenderer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-bakemesh">LineRenderer BakeMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-equals">LineRenderer Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-alignment">LineRenderer get_alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-allowocclusionwhendynamic">LineRenderer get_allowOcclusionWhenDynamic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-bounds">LineRenderer get_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-colorgradient">LineRenderer get_colorGradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-enabled">LineRenderer get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-endcolor">LineRenderer get_endColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-endwidth">LineRenderer get_endWidth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-gameobject">LineRenderer get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-generatelightingdata">LineRenderer get_generateLightingData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-ispartofstaticbatch">LineRenderer get_isPartOfStaticBatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-isvisible">LineRenderer get_isVisible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-lightmapindex">LineRenderer get_lightmapIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-lightmapscaleoffset">LineRenderer get_lightmapScaleOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-lightprobeproxyvolumeoverride">LineRenderer get_lightProbeProxyVolumeOverride</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-lightprobeusage">LineRenderer get_lightProbeUsage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-localtoworldmatrix">LineRenderer get_localToWorldMatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-loop">LineRenderer get_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-material">LineRenderer get_material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-materials">LineRenderer get_materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-motionvectorgenerationmode">LineRenderer get_motionVectorGenerationMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-name">LineRenderer get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-numcapvertices">LineRenderer get_numCapVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-numcornervertices">LineRenderer get_numCornerVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-positioncount">LineRenderer get_positionCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-probeanchor">LineRenderer get_probeAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-realtimelightmapindex">LineRenderer get_realtimeLightmapIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-realtimelightmapscaleoffset">LineRenderer get_realtimeLightmapScaleOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-receiveshadows">LineRenderer get_receiveShadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-reflectionprobeusage">LineRenderer get_reflectionProbeUsage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-rendererpriority">LineRenderer get_rendererPriority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-renderinglayermask">LineRenderer get_renderingLayerMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-shadowbias">LineRenderer get_shadowBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-shadowcastingmode">LineRenderer get_shadowCastingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-sharedmaterial">LineRenderer get_sharedMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-sharedmaterials">LineRenderer get_sharedMaterials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-sortinglayerid">LineRenderer get_sortingLayerID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-sortinglayername">LineRenderer get_sortingLayerName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-sortingorder">LineRenderer get_sortingOrder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-startcolor">LineRenderer get_startColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-startwidth">LineRenderer get_startWidth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-texturemode">LineRenderer get_textureMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-transform">LineRenderer get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-useworldspace">LineRenderer get_useWorldSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-widthcurve">LineRenderer get_widthCurve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-widthmultiplier">LineRenderer get_widthMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-get-worldtolocalmatrix">LineRenderer get_worldToLocalMatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getclosestreflectionprobes">LineRenderer GetClosestReflectionProbes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getcomponent">LineRenderer GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getcomponentinchildren">LineRenderer GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getcomponentinparent">LineRenderer GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getcomponents">LineRenderer GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getcomponentsinchildren">LineRenderer GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getcomponentsinparent">LineRenderer GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-gethashcode">LineRenderer GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getinstanceid">LineRenderer GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getmaterials">LineRenderer GetMaterials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getposition">LineRenderer GetPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getpositions">LineRenderer GetPositions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getpropertyblock">LineRenderer GetPropertyBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-getsharedmaterials">LineRenderer GetSharedMaterials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-gettype">LineRenderer GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-haspropertyblock">LineRenderer HasPropertyBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-alignment">LineRenderer set_alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-allowocclusionwhendynamic">LineRenderer set_allowOcclusionWhenDynamic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-colorgradient">LineRenderer set_colorGradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-enabled">LineRenderer set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-endcolor">LineRenderer set_endColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-endwidth">LineRenderer set_endWidth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-generatelightingdata">LineRenderer set_generateLightingData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-lightmapindex">LineRenderer set_lightmapIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-lightmapscaleoffset">LineRenderer set_lightmapScaleOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-lightprobeproxyvolumeoverride">LineRenderer set_lightProbeProxyVolumeOverride</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-lightprobeusage">LineRenderer set_lightProbeUsage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-loop">LineRenderer set_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-material">LineRenderer set_material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-materials">LineRenderer set_materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-motionvectorgenerationmode">LineRenderer set_motionVectorGenerationMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-name">LineRenderer set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-numcapvertices">LineRenderer set_numCapVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-numcornervertices">LineRenderer set_numCornerVertices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-positioncount">LineRenderer set_positionCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-probeanchor">LineRenderer set_probeAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-realtimelightmapindex">LineRenderer set_realtimeLightmapIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-realtimelightmapscaleoffset">LineRenderer set_realtimeLightmapScaleOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-receiveshadows">LineRenderer set_receiveShadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-reflectionprobeusage">LineRenderer set_reflectionProbeUsage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-rendererpriority">LineRenderer set_rendererPriority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-renderinglayermask">LineRenderer set_renderingLayerMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-shadowbias">LineRenderer set_shadowBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-shadowcastingmode">LineRenderer set_shadowCastingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-sharedmaterial">LineRenderer set_sharedMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-sharedmaterials">LineRenderer set_sharedMaterials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-sortinglayerid">LineRenderer set_sortingLayerID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-sortinglayername">LineRenderer set_sortingLayerName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-sortingorder">LineRenderer set_sortingOrder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-startcolor">LineRenderer set_startColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-startwidth">LineRenderer set_startWidth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-texturemode">LineRenderer set_textureMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-useworldspace">LineRenderer set_useWorldSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-widthcurve">LineRenderer set_widthCurve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-set-widthmultiplier">LineRenderer set_widthMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-setposition">LineRenderer SetPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-setpositions">LineRenderer SetPositions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-setpropertyblock">LineRenderer SetPropertyBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-simplify">LineRenderer Simplify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linerenderer-tostring">LineRenderer ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id107">LineRenderer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>LineRenderer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/LineRenderer/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../MatchTargetWeightMask/index.html" class="btn btn-neutral float-right" title="MatchTargetWeightMask" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Light/index.html" class="btn btn-neutral" title="Light" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linerenderer">
+<h1>LineRenderer<a class="headerlink" href="#linerenderer" title="Permalink to this headline">¶</a></h1>
+<p>The LineRenderer module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="linerenderer-bakemesh">
+<h2>LineRenderer BakeMesh<a class="headerlink" href="#linerenderer-bakemesh" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__BakeMesh__UnityEngineMesh_UnityEngineCamera_SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__BakeMesh__UnityEngineMesh_UnityEngineCamera_SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Mesh meshUnityEngine.Camera cameraSystem.Boolean useTransform</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__BakeMesh__UnityEngineMesh_UnityEngineCamera_SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.BakeMesh.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="linerenderer-equals">
+<h2>LineRenderer Equals<a class="headerlink" href="#linerenderer-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-alignment">
+<h2>LineRenderer get_alignment<a class="headerlink" href="#linerenderer-get-alignment" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_alignment__UnityEngineLineAlignment">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_alignment__UnityEngineLineAlignment</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_alignment__UnityEngineLineAlignment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LineAlignment</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-alignment.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-allowocclusionwhendynamic">
+<h2>LineRenderer get_allowOcclusionWhenDynamic<a class="headerlink" href="#linerenderer-get-allowocclusionwhendynamic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_allowOcclusionWhenDynamic__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_allowOcclusionWhenDynamic__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_allowOcclusionWhenDynamic__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-allowOcclusionWhenDynamic.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-bounds">
+<h2>LineRenderer get_bounds<a class="headerlink" href="#linerenderer-get-bounds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_bounds__UnityEngineBounds">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_bounds__UnityEngineBounds</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_bounds__UnityEngineBounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Bounds</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-bounds.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-colorgradient">
+<h2>LineRenderer get_colorGradient<a class="headerlink" href="#linerenderer-get-colorgradient" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_colorGradient__UnityEngineGradient">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_colorGradient__UnityEngineGradient</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_colorGradient__UnityEngineGradient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Gradient</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-colorGradient.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-enabled">
+<h2>LineRenderer get_enabled<a class="headerlink" href="#linerenderer-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-endcolor">
+<h2>LineRenderer get_endColor<a class="headerlink" href="#linerenderer-get-endcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_endColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_endColor__UnityEngineColor</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_endColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-endColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-endwidth">
+<h2>LineRenderer get_endWidth<a class="headerlink" href="#linerenderer-get-endwidth" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_endWidth__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_endWidth__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_endWidth__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-endWidth.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-gameobject">
+<h2>LineRenderer get_gameObject<a class="headerlink" href="#linerenderer-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-generatelightingdata">
+<h2>LineRenderer get_generateLightingData<a class="headerlink" href="#linerenderer-get-generatelightingdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_generateLightingData__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_generateLightingData__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_generateLightingData__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-generateLightingData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-ispartofstaticbatch">
+<h2>LineRenderer get_isPartOfStaticBatch<a class="headerlink" href="#linerenderer-get-ispartofstaticbatch" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_isPartOfStaticBatch__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_isPartOfStaticBatch__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_isPartOfStaticBatch__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-isPartOfStaticBatch.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-isvisible">
+<h2>LineRenderer get_isVisible<a class="headerlink" href="#linerenderer-get-isvisible" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_isVisible__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_isVisible__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_isVisible__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-isVisible.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-lightmapindex">
+<h2>LineRenderer get_lightmapIndex<a class="headerlink" href="#linerenderer-get-lightmapindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_lightmapIndex__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_lightmapIndex__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_lightmapIndex__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightmapIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-lightmapscaleoffset">
+<h2>LineRenderer get_lightmapScaleOffset<a class="headerlink" href="#linerenderer-get-lightmapscaleoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_lightmapScaleOffset__UnityEngineVector4">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_lightmapScaleOffset__UnityEngineVector4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_lightmapScaleOffset__UnityEngineVector4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightmapScaleOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-lightprobeproxyvolumeoverride">
+<h2>LineRenderer get_lightProbeProxyVolumeOverride<a class="headerlink" href="#linerenderer-get-lightprobeproxyvolumeoverride" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_lightProbeProxyVolumeOverride__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_lightProbeProxyVolumeOverride__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_lightProbeProxyVolumeOverride__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightProbeProxyVolumeOverride.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-lightprobeusage">
+<h2>LineRenderer get_lightProbeUsage<a class="headerlink" href="#linerenderer-get-lightprobeusage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_lightProbeUsage__UnityEngineRenderingLightProbeUsage">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_lightProbeUsage__UnityEngineRenderingLightProbeUsage</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_lightProbeUsage__UnityEngineRenderingLightProbeUsage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightProbeUsage</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightProbeUsage.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-localtoworldmatrix">
+<h2>LineRenderer get_localToWorldMatrix<a class="headerlink" href="#linerenderer-get-localtoworldmatrix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_localToWorldMatrix__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_localToWorldMatrix__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_localToWorldMatrix__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-localToWorldMatrix.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-loop">
+<h2>LineRenderer get_loop<a class="headerlink" href="#linerenderer-get-loop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_loop__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_loop__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_loop__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-loop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-material">
+<h2>LineRenderer get_material<a class="headerlink" href="#linerenderer-get-material" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_material__UnityEngineMaterial">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_material__UnityEngineMaterial</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_material__UnityEngineMaterial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Material</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-material.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-materials">
+<h2>LineRenderer get_materials<a class="headerlink" href="#linerenderer-get-materials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_materials__UnityEngineMaterialArray">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_materials__UnityEngineMaterialArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_materials__UnityEngineMaterialArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Material[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-materials.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-motionvectorgenerationmode">
+<h2>LineRenderer get_motionVectorGenerationMode<a class="headerlink" href="#linerenderer-get-motionvectorgenerationmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_motionVectorGenerationMode__UnityEngineMotionVectorGenerationMode">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_motionVectorGenerationMode__UnityEngineMotionVectorGenerationMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_motionVectorGenerationMode__UnityEngineMotionVectorGenerationMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MotionVectorGenerationMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-motionVectorGenerationMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-name">
+<h2>LineRenderer get_name<a class="headerlink" href="#linerenderer-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-numcapvertices">
+<h2>LineRenderer get_numCapVertices<a class="headerlink" href="#linerenderer-get-numcapvertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_numCapVertices__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_numCapVertices__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_numCapVertices__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-numCapVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-numcornervertices">
+<h2>LineRenderer get_numCornerVertices<a class="headerlink" href="#linerenderer-get-numcornervertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_numCornerVertices__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_numCornerVertices__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_numCornerVertices__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-numCornerVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-positioncount">
+<h2>LineRenderer get_positionCount<a class="headerlink" href="#linerenderer-get-positioncount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_positionCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_positionCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_positionCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-positionCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-probeanchor">
+<h2>LineRenderer get_probeAnchor<a class="headerlink" href="#linerenderer-get-probeanchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_probeAnchor__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_probeAnchor__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_probeAnchor__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-probeAnchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-realtimelightmapindex">
+<h2>LineRenderer get_realtimeLightmapIndex<a class="headerlink" href="#linerenderer-get-realtimelightmapindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_realtimeLightmapIndex__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_realtimeLightmapIndex__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_realtimeLightmapIndex__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-realtimeLightmapIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-realtimelightmapscaleoffset">
+<h2>LineRenderer get_realtimeLightmapScaleOffset<a class="headerlink" href="#linerenderer-get-realtimelightmapscaleoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_realtimeLightmapScaleOffset__UnityEngineVector4">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_realtimeLightmapScaleOffset__UnityEngineVector4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_realtimeLightmapScaleOffset__UnityEngineVector4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-realtimeLightmapScaleOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-receiveshadows">
+<h2>LineRenderer get_receiveShadows<a class="headerlink" href="#linerenderer-get-receiveshadows" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_receiveShadows__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_receiveShadows__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_receiveShadows__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-receiveShadows.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-reflectionprobeusage">
+<h2>LineRenderer get_reflectionProbeUsage<a class="headerlink" href="#linerenderer-get-reflectionprobeusage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_reflectionProbeUsage__UnityEngineRenderingReflectionProbeUsage">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_reflectionProbeUsage__UnityEngineRenderingReflectionProbeUsage</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_reflectionProbeUsage__UnityEngineRenderingReflectionProbeUsage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ReflectionProbeUsage</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-reflectionProbeUsage.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-rendererpriority">
+<h2>LineRenderer get_rendererPriority<a class="headerlink" href="#linerenderer-get-rendererpriority" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_rendererPriority__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_rendererPriority__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_rendererPriority__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-rendererPriority.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-renderinglayermask">
+<h2>LineRenderer get_renderingLayerMask<a class="headerlink" href="#linerenderer-get-renderinglayermask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_renderingLayerMask__SystemUInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_renderingLayerMask__SystemUInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_renderingLayerMask__SystemUInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UInt32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-renderingLayerMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-shadowbias">
+<h2>LineRenderer get_shadowBias<a class="headerlink" href="#linerenderer-get-shadowbias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_shadowBias__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_shadowBias__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_shadowBias__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-shadowBias.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-shadowcastingmode">
+<h2>LineRenderer get_shadowCastingMode<a class="headerlink" href="#linerenderer-get-shadowcastingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_shadowCastingMode__UnityEngineRenderingShadowCastingMode">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_shadowCastingMode__UnityEngineRenderingShadowCastingMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_shadowCastingMode__UnityEngineRenderingShadowCastingMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ShadowCastingMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-shadowCastingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-sharedmaterial">
+<h2>LineRenderer get_sharedMaterial<a class="headerlink" href="#linerenderer-get-sharedmaterial" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_sharedMaterial__UnityEngineMaterial">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_sharedMaterial__UnityEngineMaterial</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_sharedMaterial__UnityEngineMaterial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Material</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sharedMaterial.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-sharedmaterials">
+<h2>LineRenderer get_sharedMaterials<a class="headerlink" href="#linerenderer-get-sharedmaterials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_sharedMaterials__UnityEngineMaterialArray">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_sharedMaterials__UnityEngineMaterialArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_sharedMaterials__UnityEngineMaterialArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Material[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sharedMaterials.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-sortinglayerid">
+<h2>LineRenderer get_sortingLayerID<a class="headerlink" href="#linerenderer-get-sortinglayerid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_sortingLayerID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_sortingLayerID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_sortingLayerID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sortingLayerID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-sortinglayername">
+<h2>LineRenderer get_sortingLayerName<a class="headerlink" href="#linerenderer-get-sortinglayername" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_sortingLayerName__SystemString">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_sortingLayerName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_sortingLayerName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sortingLayerName.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-sortingorder">
+<h2>LineRenderer get_sortingOrder<a class="headerlink" href="#linerenderer-get-sortingorder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_sortingOrder__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_sortingOrder__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_sortingOrder__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sortingOrder.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-startcolor">
+<h2>LineRenderer get_startColor<a class="headerlink" href="#linerenderer-get-startcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_startColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_startColor__UnityEngineColor</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_startColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-startColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-startwidth">
+<h2>LineRenderer get_startWidth<a class="headerlink" href="#linerenderer-get-startwidth" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_startWidth__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_startWidth__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_startWidth__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-startWidth.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-texturemode">
+<h2>LineRenderer get_textureMode<a class="headerlink" href="#linerenderer-get-texturemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_textureMode__UnityEngineLineTextureMode">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_textureMode__UnityEngineLineTextureMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_textureMode__UnityEngineLineTextureMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LineTextureMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-textureMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-transform">
+<h2>LineRenderer get_transform<a class="headerlink" href="#linerenderer-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-useworldspace">
+<h2>LineRenderer get_useWorldSpace<a class="headerlink" href="#linerenderer-get-useworldspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_useWorldSpace__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_useWorldSpace__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_useWorldSpace__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-useWorldSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-widthcurve">
+<h2>LineRenderer get_widthCurve<a class="headerlink" href="#linerenderer-get-widthcurve" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_widthCurve__UnityEngineAnimationCurve">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_widthCurve__UnityEngineAnimationCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_widthCurve__UnityEngineAnimationCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimationCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-widthCurve.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-widthmultiplier">
+<h2>LineRenderer get_widthMultiplier<a class="headerlink" href="#linerenderer-get-widthmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_widthMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_widthMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_widthMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-widthMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-get-worldtolocalmatrix">
+<h2>LineRenderer get_worldToLocalMatrix<a class="headerlink" href="#linerenderer-get-worldtolocalmatrix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__get_worldToLocalMatrix__UnityEngineMatrix4x4">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__get_worldToLocalMatrix__UnityEngineMatrix4x4</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__get_worldToLocalMatrix__UnityEngineMatrix4x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Matrix4x4</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-worldToLocalMatrix.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getclosestreflectionprobes">
+<h2>LineRenderer GetClosestReflectionProbes<a class="headerlink" href="#linerenderer-getclosestreflectionprobes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetClosestReflectionProbes__SystemCollectionsGenericListUnityEngineRenderingReflectionProbeBlendInfo__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetClosestReflectionProbes__SystemCollectionsGenericListUnityEngineRenderingReflectionProbeBlendInfo__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Collections.Generic.List`1[UnityEngine.Rendering.ReflectionProbeBlendInfo] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetClosestReflectionProbes__SystemCollectionsGenericListUnityEngineRenderingReflectionProbeBlendInfo__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetClosestReflectionProbes.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getcomponent">
+<h2>LineRenderer GetComponent<a class="headerlink" href="#linerenderer-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getcomponentinchildren">
+<h2>LineRenderer GetComponentInChildren<a class="headerlink" href="#linerenderer-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getcomponentinparent">
+<h2>LineRenderer GetComponentInParent<a class="headerlink" href="#linerenderer-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getcomponents">
+<h2>LineRenderer GetComponents<a class="headerlink" href="#linerenderer-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getcomponentsinchildren">
+<h2>LineRenderer GetComponentsInChildren<a class="headerlink" href="#linerenderer-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getcomponentsinparent">
+<h2>LineRenderer GetComponentsInParent<a class="headerlink" href="#linerenderer-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-gethashcode">
+<h2>LineRenderer GetHashCode<a class="headerlink" href="#linerenderer-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getinstanceid">
+<h2>LineRenderer GetInstanceID<a class="headerlink" href="#linerenderer-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getmaterials">
+<h2>LineRenderer GetMaterials<a class="headerlink" href="#linerenderer-getmaterials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetMaterials__SystemCollectionsGenericListUnityEngineMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetMaterials__SystemCollectionsGenericListUnityEngineMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Collections.Generic.List`1[UnityEngine.Material] m</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetMaterials__SystemCollectionsGenericListUnityEngineMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetMaterials.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getposition">
+<h2>LineRenderer GetPosition<a class="headerlink" href="#linerenderer-getposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetPosition__SystemInt32__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetPosition__SystemInt32__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetPosition__SystemInt32__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getpositions">
+<h2>LineRenderer GetPositions<a class="headerlink" href="#linerenderer-getpositions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetPositions__UnityEngineVector3Array__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetPositions__UnityEngineVector3Array__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetPositions__UnityEngineVector3Array__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: positions (<code class="docutils literal notranslate"><span class="pre">Vector3[]</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetPositions.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getpropertyblock">
+<h2>LineRenderer GetPropertyBlock<a class="headerlink" href="#linerenderer-getpropertyblock" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.MaterialPropertyBlock properties</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetPropertyBlock.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-getsharedmaterials">
+<h2>LineRenderer GetSharedMaterials<a class="headerlink" href="#linerenderer-getsharedmaterials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetSharedMaterials__SystemCollectionsGenericListUnityEngineMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetSharedMaterials__SystemCollectionsGenericListUnityEngineMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Collections.Generic.List`1[UnityEngine.Material] m</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetSharedMaterials__SystemCollectionsGenericListUnityEngineMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.GetSharedMaterials.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-gettype">
+<h2>LineRenderer GetType<a class="headerlink" href="#linerenderer-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-haspropertyblock">
+<h2>LineRenderer HasPropertyBlock<a class="headerlink" href="#linerenderer-haspropertyblock" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__HasPropertyBlock__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__HasPropertyBlock__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__HasPropertyBlock__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.HasPropertyBlock.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="linerenderer-set-alignment">
+<h2>LineRenderer set_alignment<a class="headerlink" href="#linerenderer-set-alignment" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_alignment__UnityEngineLineAlignment__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_alignment__UnityEngineLineAlignment__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.LineAlignment value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_alignment__UnityEngineLineAlignment__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-alignment.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-allowocclusionwhendynamic">
+<h2>LineRenderer set_allowOcclusionWhenDynamic<a class="headerlink" href="#linerenderer-set-allowocclusionwhendynamic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_allowOcclusionWhenDynamic__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_allowOcclusionWhenDynamic__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_allowOcclusionWhenDynamic__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-allowOcclusionWhenDynamic.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-colorgradient">
+<h2>LineRenderer set_colorGradient<a class="headerlink" href="#linerenderer-set-colorgradient" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_colorGradient__UnityEngineGradient__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_colorGradient__UnityEngineGradient__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Gradient value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_colorGradient__UnityEngineGradient__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-colorGradient.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-enabled">
+<h2>LineRenderer set_enabled<a class="headerlink" href="#linerenderer-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-endcolor">
+<h2>LineRenderer set_endColor<a class="headerlink" href="#linerenderer-set-endcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_endColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_endColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_endColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-endColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-endwidth">
+<h2>LineRenderer set_endWidth<a class="headerlink" href="#linerenderer-set-endwidth" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_endWidth__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_endWidth__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_endWidth__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-endWidth.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-generatelightingdata">
+<h2>LineRenderer set_generateLightingData<a class="headerlink" href="#linerenderer-set-generatelightingdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_generateLightingData__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_generateLightingData__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_generateLightingData__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-generateLightingData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-lightmapindex">
+<h2>LineRenderer set_lightmapIndex<a class="headerlink" href="#linerenderer-set-lightmapindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_lightmapIndex__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_lightmapIndex__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_lightmapIndex__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightmapIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-lightmapscaleoffset">
+<h2>LineRenderer set_lightmapScaleOffset<a class="headerlink" href="#linerenderer-set-lightmapscaleoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_lightmapScaleOffset__UnityEngineVector4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_lightmapScaleOffset__UnityEngineVector4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Vector4 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_lightmapScaleOffset__UnityEngineVector4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightmapScaleOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-lightprobeproxyvolumeoverride">
+<h2>LineRenderer set_lightProbeProxyVolumeOverride<a class="headerlink" href="#linerenderer-set-lightprobeproxyvolumeoverride" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_lightProbeProxyVolumeOverride__UnityEngineGameObject__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_lightProbeProxyVolumeOverride__UnityEngineGameObject__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.GameObject value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_lightProbeProxyVolumeOverride__UnityEngineGameObject__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightProbeProxyVolumeOverride.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-lightprobeusage">
+<h2>LineRenderer set_lightProbeUsage<a class="headerlink" href="#linerenderer-set-lightprobeusage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_lightProbeUsage__UnityEngineRenderingLightProbeUsage__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_lightProbeUsage__UnityEngineRenderingLightProbeUsage__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Rendering.LightProbeUsage value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_lightProbeUsage__UnityEngineRenderingLightProbeUsage__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-lightProbeUsage.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-loop">
+<h2>LineRenderer set_loop<a class="headerlink" href="#linerenderer-set-loop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_loop__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_loop__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_loop__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-loop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-material">
+<h2>LineRenderer set_material<a class="headerlink" href="#linerenderer-set-material" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_material__UnityEngineMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_material__UnityEngineMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Material value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_material__UnityEngineMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-material.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-materials">
+<h2>LineRenderer set_materials<a class="headerlink" href="#linerenderer-set-materials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_materials__UnityEngineMaterialArray__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_materials__UnityEngineMaterialArray__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Material[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_materials__UnityEngineMaterialArray__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-materials.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-motionvectorgenerationmode">
+<h2>LineRenderer set_motionVectorGenerationMode<a class="headerlink" href="#linerenderer-set-motionvectorgenerationmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_motionVectorGenerationMode__UnityEngineMotionVectorGenerationMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_motionVectorGenerationMode__UnityEngineMotionVectorGenerationMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.MotionVectorGenerationMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_motionVectorGenerationMode__UnityEngineMotionVectorGenerationMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-motionVectorGenerationMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-name">
+<h2>LineRenderer set_name<a class="headerlink" href="#linerenderer-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-numcapvertices">
+<h2>LineRenderer set_numCapVertices<a class="headerlink" href="#linerenderer-set-numcapvertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_numCapVertices__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_numCapVertices__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_numCapVertices__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-numCapVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-numcornervertices">
+<h2>LineRenderer set_numCornerVertices<a class="headerlink" href="#linerenderer-set-numcornervertices" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_numCornerVertices__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_numCornerVertices__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_numCornerVertices__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-numCornerVertices.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-positioncount">
+<h2>LineRenderer set_positionCount<a class="headerlink" href="#linerenderer-set-positioncount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_positionCount__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_positionCount__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_positionCount__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-positionCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-probeanchor">
+<h2>LineRenderer set_probeAnchor<a class="headerlink" href="#linerenderer-set-probeanchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_probeAnchor__UnityEngineTransform__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_probeAnchor__UnityEngineTransform__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Transform value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_probeAnchor__UnityEngineTransform__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-probeAnchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-realtimelightmapindex">
+<h2>LineRenderer set_realtimeLightmapIndex<a class="headerlink" href="#linerenderer-set-realtimelightmapindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_realtimeLightmapIndex__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_realtimeLightmapIndex__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_realtimeLightmapIndex__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-realtimeLightmapIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-realtimelightmapscaleoffset">
+<h2>LineRenderer set_realtimeLightmapScaleOffset<a class="headerlink" href="#linerenderer-set-realtimelightmapscaleoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_realtimeLightmapScaleOffset__UnityEngineVector4__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_realtimeLightmapScaleOffset__UnityEngineVector4__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Vector4 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_realtimeLightmapScaleOffset__UnityEngineVector4__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-realtimeLightmapScaleOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-receiveshadows">
+<h2>LineRenderer set_receiveShadows<a class="headerlink" href="#linerenderer-set-receiveshadows" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_receiveShadows__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_receiveShadows__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_receiveShadows__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-receiveShadows.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-reflectionprobeusage">
+<h2>LineRenderer set_reflectionProbeUsage<a class="headerlink" href="#linerenderer-set-reflectionprobeusage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_reflectionProbeUsage__UnityEngineRenderingReflectionProbeUsage__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_reflectionProbeUsage__UnityEngineRenderingReflectionProbeUsage__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Rendering.ReflectionProbeUsage value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_reflectionProbeUsage__UnityEngineRenderingReflectionProbeUsage__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-reflectionProbeUsage.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-rendererpriority">
+<h2>LineRenderer set_rendererPriority<a class="headerlink" href="#linerenderer-set-rendererpriority" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_rendererPriority__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_rendererPriority__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_rendererPriority__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-rendererPriority.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-renderinglayermask">
+<h2>LineRenderer set_renderingLayerMask<a class="headerlink" href="#linerenderer-set-renderinglayermask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_renderingLayerMask__SystemUInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_renderingLayerMask__SystemUInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.UInt32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_renderingLayerMask__SystemUInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-renderingLayerMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-shadowbias">
+<h2>LineRenderer set_shadowBias<a class="headerlink" href="#linerenderer-set-shadowbias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_shadowBias__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_shadowBias__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_shadowBias__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-shadowBias.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-shadowcastingmode">
+<h2>LineRenderer set_shadowCastingMode<a class="headerlink" href="#linerenderer-set-shadowcastingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_shadowCastingMode__UnityEngineRenderingShadowCastingMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_shadowCastingMode__UnityEngineRenderingShadowCastingMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Rendering.ShadowCastingMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_shadowCastingMode__UnityEngineRenderingShadowCastingMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-shadowCastingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-sharedmaterial">
+<h2>LineRenderer set_sharedMaterial<a class="headerlink" href="#linerenderer-set-sharedmaterial" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_sharedMaterial__UnityEngineMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_sharedMaterial__UnityEngineMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Material value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_sharedMaterial__UnityEngineMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sharedMaterial.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-sharedmaterials">
+<h2>LineRenderer set_sharedMaterials<a class="headerlink" href="#linerenderer-set-sharedmaterials" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_sharedMaterials__UnityEngineMaterialArray__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_sharedMaterials__UnityEngineMaterialArray__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Material[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_sharedMaterials__UnityEngineMaterialArray__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sharedMaterials.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-sortinglayerid">
+<h2>LineRenderer set_sortingLayerID<a class="headerlink" href="#linerenderer-set-sortinglayerid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_sortingLayerID__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_sortingLayerID__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_sortingLayerID__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sortingLayerID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-sortinglayername">
+<h2>LineRenderer set_sortingLayerName<a class="headerlink" href="#linerenderer-set-sortinglayername" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_sortingLayerName__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_sortingLayerName__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_sortingLayerName__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sortingLayerName.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-sortingorder">
+<h2>LineRenderer set_sortingOrder<a class="headerlink" href="#linerenderer-set-sortingorder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_sortingOrder__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_sortingOrder__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_sortingOrder__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-sortingOrder.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-startcolor">
+<h2>LineRenderer set_startColor<a class="headerlink" href="#linerenderer-set-startcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_startColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_startColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_startColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-startColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-startwidth">
+<h2>LineRenderer set_startWidth<a class="headerlink" href="#linerenderer-set-startwidth" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_startWidth__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_startWidth__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_startWidth__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-startWidth.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-texturemode">
+<h2>LineRenderer set_textureMode<a class="headerlink" href="#linerenderer-set-texturemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_textureMode__UnityEngineLineTextureMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_textureMode__UnityEngineLineTextureMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.LineTextureMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_textureMode__UnityEngineLineTextureMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-textureMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-useworldspace">
+<h2>LineRenderer set_useWorldSpace<a class="headerlink" href="#linerenderer-set-useworldspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_useWorldSpace__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_useWorldSpace__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_useWorldSpace__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-useWorldSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-widthcurve">
+<h2>LineRenderer set_widthCurve<a class="headerlink" href="#linerenderer-set-widthcurve" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_widthCurve__UnityEngineAnimationCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_widthCurve__UnityEngineAnimationCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.AnimationCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_widthCurve__UnityEngineAnimationCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-widthCurve.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-set-widthmultiplier">
+<h2>LineRenderer set_widthMultiplier<a class="headerlink" href="#linerenderer-set-widthmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__set_widthMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__set_widthMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__set_widthMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer-widthMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-setposition">
+<h2>LineRenderer SetPosition<a class="headerlink" href="#linerenderer-setposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__SetPosition__SystemInt32_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__SetPosition__SystemInt32_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Int32 indexUnityEngine.Vector3 position</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__SetPosition__SystemInt32_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.SetPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-setpositions">
+<h2>LineRenderer SetPositions<a class="headerlink" href="#linerenderer-setpositions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__SetPositions__UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__SetPositions__UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.Vector3[] positions</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__SetPositions__UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.SetPositions.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-setpropertyblock">
+<h2>LineRenderer SetPropertyBlock<a class="headerlink" href="#linerenderer-setpropertyblock" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__SetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__SetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceUnityEngine.MaterialPropertyBlock properties</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__SetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.SetPropertyBlock.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-simplify">
+<h2>LineRenderer Simplify<a class="headerlink" href="#linerenderer-simplify" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__Simplify__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__Simplify__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instanceSystem.Single tolerance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__Simplify__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.Simplify.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="linerenderer-tostring">
+<h2>LineRenderer ToString<a class="headerlink" href="#linerenderer-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLineRenderer.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineLineRenderer.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLineRenderer.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id107">
+<h2>LineRenderer<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineLineRenderer">
+<code class="sig-name descname">Variable_UnityEngineLineRenderer</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LineRenderer LineRendererSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineLineRenderer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/LineRenderer.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MatchTargetWeightMask/index.html" class="btn btn-neutral float-right" title="MatchTargetWeightMask" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Light/index.html" class="btn btn-neutral" title="Light" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

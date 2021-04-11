@@ -1,0 +1,616 @@
+====================================================================================================================================================
+SliderJoint2D
+====================================================================================================================================================
+
+The SliderJoint2D module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+op_Equality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean(UnityEngine.Object UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+SliderJoint2D Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__Equals__SystemObject__SystemBoolean(UnityEngine.SliderJoint2D instanceSystem.Object other)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+SliderJoint2D get_anchor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_anchor__UnityEngineVector2(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Vector2``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-anchor.html>`_
+
+SliderJoint2D get_angle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_angle__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-angle.html>`_
+
+SliderJoint2D get_attachedRigidbody
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_attachedRigidbody__UnityEngineRigidbody2D(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Rigidbody2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-attachedRigidbody.html>`_
+
+SliderJoint2D get_autoConfigureAngle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_autoConfigureAngle__SystemBoolean(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-autoConfigureAngle.html>`_
+
+SliderJoint2D get_autoConfigureConnectedAnchor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_autoConfigureConnectedAnchor__SystemBoolean(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-autoConfigureConnectedAnchor.html>`_
+
+SliderJoint2D get_breakForce
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_breakForce__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-breakForce.html>`_
+
+SliderJoint2D get_breakTorque
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_breakTorque__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-breakTorque.html>`_
+
+SliderJoint2D get_connectedAnchor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_connectedAnchor__UnityEngineVector2(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Vector2``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-connectedAnchor.html>`_
+
+SliderJoint2D get_connectedBody
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_connectedBody__UnityEngineRigidbody2D(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Rigidbody2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-connectedBody.html>`_
+
+SliderJoint2D get_enableCollision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_enableCollision__SystemBoolean(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-enableCollision.html>`_
+
+SliderJoint2D get_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_enabled__SystemBoolean(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-enabled.html>`_
+
+SliderJoint2D get_gameObject
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_gameObject__UnityEngineGameObject(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``GameObject``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-gameObject.html>`_
+
+SliderJoint2D get_jointSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_jointSpeed__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-jointSpeed.html>`_
+
+SliderJoint2D get_jointTranslation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_jointTranslation__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-jointTranslation.html>`_
+
+SliderJoint2D get_limits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_limits__UnityEngineJointTranslationLimits2D(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``JointTranslationLimits2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-limits.html>`_
+
+SliderJoint2D get_limitState
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_limitState__UnityEngineJointLimitState2D(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``JointLimitState2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-limitState.html>`_
+
+SliderJoint2D get_motor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_motor__UnityEngineJointMotor2D(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``JointMotor2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-motor.html>`_
+
+SliderJoint2D get_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_name__SystemString(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-name.html>`_
+
+SliderJoint2D get_reactionForce
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_reactionForce__UnityEngineVector2(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Vector2``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-reactionForce.html>`_
+
+SliderJoint2D get_reactionTorque
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_reactionTorque__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-reactionTorque.html>`_
+
+SliderJoint2D get_referenceAngle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_referenceAngle__SystemSingle(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-referenceAngle.html>`_
+
+SliderJoint2D get_transform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_transform__UnityEngineTransform(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Transform``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-transform.html>`_
+
+SliderJoint2D get_useLimits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_useLimits__SystemBoolean(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-useLimits.html>`_
+
+SliderJoint2D get_useMotor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__get_useMotor__SystemBoolean(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-useMotor.html>`_
+
+SliderJoint2D GetComponent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetComponent__SystemType__UnityEngineComponent(UnityEngine.SliderJoint2D instanceSystem.Type type)
+
+outputs: unnamed (``Component``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.html>`_
+
+SliderJoint2D GetComponentInChildren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetComponentInChildren__SystemBoolean__T(UnityEngine.SliderJoint2D instanceSystem.Boolean includeInactiveSystem.Type type)
+
+outputs: T (``Object``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetComponentInChildren.html>`_
+
+SliderJoint2D GetComponentInParent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetComponentInParent__SystemType__UnityEngineComponent(UnityEngine.SliderJoint2D instanceSystem.Type t)
+
+outputs: unnamed (``Component``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.html>`_
+
+SliderJoint2D GetComponents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetComponents__ListT__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetComponents.html>`_
+
+SliderJoint2D GetComponentsInChildren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetComponentsInChildren.html>`_
+
+SliderJoint2D GetComponentsInParent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetComponentsInParent.html>`_
+
+SliderJoint2D GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetHashCode__SystemInt32(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetHashCode.html>`_
+
+SliderJoint2D GetInstanceID
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetInstanceID__SystemInt32(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetInstanceID.html>`_
+
+SliderJoint2D GetMotorForce
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetMotorForce__SystemSingle__SystemSingle(UnityEngine.SliderJoint2D instanceSystem.Single timeStep)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetMotorForce.html>`_
+
+SliderJoint2D GetReactionForce
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetReactionForce__SystemSingle__UnityEngineVector2(UnityEngine.SliderJoint2D instanceSystem.Single timeStep)
+
+outputs: unnamed (``Vector2``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetReactionForce.html>`_
+
+SliderJoint2D GetReactionTorque
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetReactionTorque__SystemSingle__SystemSingle(UnityEngine.SliderJoint2D instanceSystem.Single timeStep)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.GetReactionTorque.html>`_
+
+SliderJoint2D GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__GetType__SystemType(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.html>`_
+
+op_Implicit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__op_Implicit__UnityEngineObject__SystemBoolean(UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+op_Inequality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean(UnityEngine.Object UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+SliderJoint2D set_anchor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_anchor__UnityEngineVector2__SystemVoid(UnityEngine.SliderJoint2D instanceUnityEngine.Vector2 value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-anchor.html>`_
+
+SliderJoint2D set_angle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_angle__SystemSingle__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-angle.html>`_
+
+SliderJoint2D set_autoConfigureAngle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_autoConfigureAngle__SystemBoolean__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-autoConfigureAngle.html>`_
+
+SliderJoint2D set_autoConfigureConnectedAnchor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_autoConfigureConnectedAnchor__SystemBoolean__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-autoConfigureConnectedAnchor.html>`_
+
+SliderJoint2D set_breakForce
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_breakForce__SystemSingle__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-breakForce.html>`_
+
+SliderJoint2D set_breakTorque
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_breakTorque__SystemSingle__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-breakTorque.html>`_
+
+SliderJoint2D set_connectedAnchor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_connectedAnchor__UnityEngineVector2__SystemVoid(UnityEngine.SliderJoint2D instanceUnityEngine.Vector2 value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-connectedAnchor.html>`_
+
+SliderJoint2D set_connectedBody
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_connectedBody__UnityEngineRigidbody2D__SystemVoid(UnityEngine.SliderJoint2D instanceUnityEngine.Rigidbody2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-connectedBody.html>`_
+
+SliderJoint2D set_enableCollision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_enableCollision__SystemBoolean__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-enableCollision.html>`_
+
+SliderJoint2D set_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_enabled__SystemBoolean__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-enabled.html>`_
+
+SliderJoint2D set_limits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_limits__UnityEngineJointTranslationLimits2D__SystemVoid(UnityEngine.SliderJoint2D instanceUnityEngine.JointTranslationLimits2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-limits.html>`_
+
+SliderJoint2D set_motor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_motor__UnityEngineJointMotor2D__SystemVoid(UnityEngine.SliderJoint2D instanceUnityEngine.JointMotor2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-motor.html>`_
+
+SliderJoint2D set_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_name__SystemString__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.String value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-name.html>`_
+
+SliderJoint2D set_useLimits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_useLimits__SystemBoolean__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-useLimits.html>`_
+
+SliderJoint2D set_useMotor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__set_useMotor__SystemBoolean__SystemVoid(UnityEngine.SliderJoint2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D-useMotor.html>`_
+
+SliderJoint2D ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineSliderJoint2D.__ToString__SystemString(UnityEngine.SliderJoint2D instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.ToString.html>`_
+
+SliderJoint2D
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_UnityEngineSliderJoint2D(UnityEngine.SliderJoint2D SliderJoint2DSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/SliderJoint2D.html>`_

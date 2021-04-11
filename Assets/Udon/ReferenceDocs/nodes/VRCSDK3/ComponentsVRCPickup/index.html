@@ -1,0 +1,928 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ComponentsVRCPickup &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="ComponentsVRCPortalMarker" href="../ComponentsVRCPortalMarker/index.html"/>
+        <link rel="prev" title="ComponentsVRCMirrorReflection" href="../ComponentsVRCMirrorReflection/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsTrackingData/index.html">ComponentsTrackingData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCAvatarPedestal/index.html">ComponentsVRCAvatarPedestal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ComponentsVRCPickup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup">VRCPickup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-drop">VRCPickup Drop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-equals">VRCPickup Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-generatehapticevent">VRCPickup GenerateHapticEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-allowmanipulationwhenequipped">VRCPickup get_allowManipulationWhenEquipped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-autohold">VRCPickup get_AutoHold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-currenthand">VRCPickup get_currentHand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-currentlocalplayer">VRCPickup get_currentLocalPlayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-currentlyheldby">VRCPickup get_currentlyHeldBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-currentplayer">VRCPickup get_currentPlayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-disallowtheft">VRCPickup get_DisallowTheft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-enabled">VRCPickup get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-exactgrip">VRCPickup get_ExactGrip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-exactgun">VRCPickup get_ExactGun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-gameobject">VRCPickup get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-interactiontext">VRCPickup get_InteractionText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-isheld">VRCPickup get_IsHeld</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-momentumtransfermethod">VRCPickup get_MomentumTransferMethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-name">VRCPickup get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-orientation">VRCPickup get_orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-pickupable">VRCPickup get_pickupable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-proximity">VRCPickup get_proximity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-throwvelocityboostminspeed">VRCPickup get_ThrowVelocityBoostMinSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-throwvelocityboostscale">VRCPickup get_ThrowVelocityBoostScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-transform">VRCPickup get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-get-usetext">VRCPickup get_UseText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getcomponent">VRCPickup GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getcomponentinchildren">VRCPickup GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getcomponentinparent">VRCPickup GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getcomponents">VRCPickup GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getcomponentsinchildren">VRCPickup GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getcomponentsinparent">VRCPickup GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-gethashcode">VRCPickup GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-getinstanceid">VRCPickup GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-gettype">VRCPickup GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-playhaptics">VRCPickup PlayHaptics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-allowmanipulationwhenequipped">VRCPickup set_allowManipulationWhenEquipped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-autohold">VRCPickup set_AutoHold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-currentlocalplayer">VRCPickup set_currentLocalPlayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-currentlyheldby">VRCPickup set_currentlyHeldBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-disallowtheft">VRCPickup set_DisallowTheft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-enabled">VRCPickup set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-exactgrip">VRCPickup set_ExactGrip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-exactgun">VRCPickup set_ExactGun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-interactiontext">VRCPickup set_InteractionText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-momentumtransfermethod">VRCPickup set_MomentumTransferMethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-name">VRCPickup set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-orientation">VRCPickup set_orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-pickupable">VRCPickup set_pickupable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-proximity">VRCPickup set_proximity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-throwvelocityboostminspeed">VRCPickup set_ThrowVelocityBoostMinSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-throwvelocityboostscale">VRCPickup set_ThrowVelocityBoostScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-set-usetext">VRCPickup set_UseText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcpickup-tostring">VRCPickup ToString</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPortalMarker/index.html">ComponentsVRCPortalMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCStation/index.html">ComponentsVRCStation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseInputManager/index.html">VRCSDKBaseInputManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseVRCPlayerApi/index.html">VRCSDKBaseVRCPlayerApi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>ComponentsVRCPickup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/ComponentsVRCPickup/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ComponentsVRCPortalMarker/index.html" class="btn btn-neutral float-right" title="ComponentsVRCPortalMarker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCMirrorReflection/index.html" class="btn btn-neutral" title="ComponentsVRCMirrorReflection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="componentsvrcpickup">
+<h1>ComponentsVRCPickup<a class="headerlink" href="#componentsvrcpickup" title="Permalink to this headline">¶</a></h1>
+<p>The ComponentsVRCPickup module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="vrcpickup">
+<h2>VRCPickup<a class="headerlink" href="#vrcpickup" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDK3ComponentsVRCPickup">
+<code class="sig-name descname">Variable_VRCSDK3ComponentsVRCPickup</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup VRCPickupSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDK3ComponentsVRCPickup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-drop">
+<h2>VRCPickup Drop<a class="headerlink" href="#vrcpickup-drop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__Drop__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__Drop__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__Drop__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-equals">
+<h2>VRCPickup Equals<a class="headerlink" href="#vrcpickup-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-generatehapticevent">
+<h2>VRCPickup GenerateHapticEvent<a class="headerlink" href="#vrcpickup-generatehapticevent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GenerateHapticEvent__SystemSingle_SystemSingle_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GenerateHapticEvent__SystemSingle_SystemSingle_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Single durationSystem.Single amplitudeSystem.Single frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GenerateHapticEvent__SystemSingle_SystemSingle_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-get-allowmanipulationwhenequipped">
+<h2>VRCPickup get_allowManipulationWhenEquipped<a class="headerlink" href="#vrcpickup-get-allowmanipulationwhenequipped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_allowManipulationWhenEquipped__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_allowManipulationWhenEquipped__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_allowManipulationWhenEquipped__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-autohold">
+<h2>VRCPickup get_AutoHold<a class="headerlink" href="#vrcpickup-get-autohold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_AutoHold__VRCSDKBaseVRC_PickupAutoHoldMode">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_AutoHold__VRCSDKBaseVRC_PickupAutoHoldMode</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_AutoHold__VRCSDKBaseVRC_PickupAutoHoldMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AutoHoldMode</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-currenthand">
+<h2>VRCPickup get_currentHand<a class="headerlink" href="#vrcpickup-get-currenthand" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_currentHand__VRCSDKBaseVRC_PickupPickupHand">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_currentHand__VRCSDKBaseVRC_PickupPickupHand</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_currentHand__VRCSDKBaseVRC_PickupPickupHand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PickupHand</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-currentlocalplayer">
+<h2>VRCPickup get_currentLocalPlayer<a class="headerlink" href="#vrcpickup-get-currentlocalplayer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_currentLocalPlayer__VRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_currentLocalPlayer__VRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_currentLocalPlayer__VRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRCPlayerApi</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-currentlyheldby">
+<h2>VRCPickup get_currentlyHeldBy<a class="headerlink" href="#vrcpickup-get-currentlyheldby" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_currentlyHeldBy__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_currentlyHeldBy__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_currentlyHeldBy__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-currentplayer">
+<h2>VRCPickup get_currentPlayer<a class="headerlink" href="#vrcpickup-get-currentplayer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_currentPlayer__VRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_currentPlayer__VRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_currentPlayer__VRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRCPlayerApi</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-disallowtheft">
+<h2>VRCPickup get_DisallowTheft<a class="headerlink" href="#vrcpickup-get-disallowtheft" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_DisallowTheft__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_DisallowTheft__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_DisallowTheft__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-enabled">
+<h2>VRCPickup get_enabled<a class="headerlink" href="#vrcpickup-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-exactgrip">
+<h2>VRCPickup get_ExactGrip<a class="headerlink" href="#vrcpickup-get-exactgrip" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_ExactGrip__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_ExactGrip__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_ExactGrip__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-exactgun">
+<h2>VRCPickup get_ExactGun<a class="headerlink" href="#vrcpickup-get-exactgun" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_ExactGun__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_ExactGun__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_ExactGun__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-gameobject">
+<h2>VRCPickup get_gameObject<a class="headerlink" href="#vrcpickup-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-interactiontext">
+<h2>VRCPickup get_InteractionText<a class="headerlink" href="#vrcpickup-get-interactiontext" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_InteractionText__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-isheld">
+<h2>VRCPickup get_IsHeld<a class="headerlink" href="#vrcpickup-get-isheld" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_IsHeld__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_IsHeld__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_IsHeld__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-momentumtransfermethod">
+<h2>VRCPickup get_MomentumTransferMethod<a class="headerlink" href="#vrcpickup-get-momentumtransfermethod" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_MomentumTransferMethod__UnityEngineForceMode">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_MomentumTransferMethod__UnityEngineForceMode</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_MomentumTransferMethod__UnityEngineForceMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ForceMode</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-name">
+<h2>VRCPickup get_name<a class="headerlink" href="#vrcpickup-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_name__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-orientation">
+<h2>VRCPickup get_orientation<a class="headerlink" href="#vrcpickup-get-orientation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_orientation__VRCSDKBaseVRC_PickupPickupOrientation">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_orientation__VRCSDKBaseVRC_PickupPickupOrientation</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_orientation__VRCSDKBaseVRC_PickupPickupOrientation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PickupOrientation</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-pickupable">
+<h2>VRCPickup get_pickupable<a class="headerlink" href="#vrcpickup-get-pickupable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_pickupable__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_pickupable__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_pickupable__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-proximity">
+<h2>VRCPickup get_proximity<a class="headerlink" href="#vrcpickup-get-proximity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_proximity__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_proximity__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_proximity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-throwvelocityboostminspeed">
+<h2>VRCPickup get_ThrowVelocityBoostMinSpeed<a class="headerlink" href="#vrcpickup-get-throwvelocityboostminspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_ThrowVelocityBoostMinSpeed__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_ThrowVelocityBoostMinSpeed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_ThrowVelocityBoostMinSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-throwvelocityboostscale">
+<h2>VRCPickup get_ThrowVelocityBoostScale<a class="headerlink" href="#vrcpickup-get-throwvelocityboostscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_ThrowVelocityBoostScale__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_ThrowVelocityBoostScale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_ThrowVelocityBoostScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-transform">
+<h2>VRCPickup get_transform<a class="headerlink" href="#vrcpickup-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-get-usetext">
+<h2>VRCPickup get_UseText<a class="headerlink" href="#vrcpickup-get-usetext" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__get_UseText__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-getcomponent">
+<h2>VRCPickup GetComponent<a class="headerlink" href="#vrcpickup-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-getcomponentinchildren">
+<h2>VRCPickup GetComponentInChildren<a class="headerlink" href="#vrcpickup-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-getcomponentinparent">
+<h2>VRCPickup GetComponentInParent<a class="headerlink" href="#vrcpickup-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-getcomponents">
+<h2>VRCPickup GetComponents<a class="headerlink" href="#vrcpickup-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-getcomponentsinchildren">
+<h2>VRCPickup GetComponentsInChildren<a class="headerlink" href="#vrcpickup-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-getcomponentsinparent">
+<h2>VRCPickup GetComponentsInParent<a class="headerlink" href="#vrcpickup-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-gethashcode">
+<h2>VRCPickup GetHashCode<a class="headerlink" href="#vrcpickup-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-getinstanceid">
+<h2>VRCPickup GetInstanceID<a class="headerlink" href="#vrcpickup-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-gettype">
+<h2>VRCPickup GetType<a class="headerlink" href="#vrcpickup-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcpickup-playhaptics">
+<h2>VRCPickup PlayHaptics<a class="headerlink" href="#vrcpickup-playhaptics" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__PlayHaptics__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__PlayHaptics__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__PlayHaptics__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-allowmanipulationwhenequipped">
+<h2>VRCPickup set_allowManipulationWhenEquipped<a class="headerlink" href="#vrcpickup-set-allowmanipulationwhenequipped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_allowManipulationWhenEquipped__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_allowManipulationWhenEquipped__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_allowManipulationWhenEquipped__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-autohold">
+<h2>VRCPickup set_AutoHold<a class="headerlink" href="#vrcpickup-set-autohold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_AutoHold__VRCSDKBaseVRC_PickupAutoHoldMode">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_AutoHold__VRCSDKBaseVRC_PickupAutoHoldMode</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup VRC.SDKBase.VRC_Pickup+AutoHoldMode</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_AutoHold__VRCSDKBaseVRC_PickupAutoHoldMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-currentlocalplayer">
+<h2>VRCPickup set_currentLocalPlayer<a class="headerlink" href="#vrcpickup-set-currentlocalplayer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_currentLocalPlayer__VRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_currentLocalPlayer__VRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup VRC.SDKBase.VRCPlayerApi</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_currentLocalPlayer__VRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-currentlyheldby">
+<h2>VRCPickup set_currentlyHeldBy<a class="headerlink" href="#vrcpickup-set-currentlyheldby" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_currentlyHeldBy__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_currentlyHeldBy__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup UnityEngine.Component</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_currentlyHeldBy__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-disallowtheft">
+<h2>VRCPickup set_DisallowTheft<a class="headerlink" href="#vrcpickup-set-disallowtheft" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_DisallowTheft__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_DisallowTheft__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_DisallowTheft__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-enabled">
+<h2>VRCPickup set_enabled<a class="headerlink" href="#vrcpickup-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-exactgrip">
+<h2>VRCPickup set_ExactGrip<a class="headerlink" href="#vrcpickup-set-exactgrip" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_ExactGrip__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_ExactGrip__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup UnityEngine.Transform</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_ExactGrip__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-exactgun">
+<h2>VRCPickup set_ExactGun<a class="headerlink" href="#vrcpickup-set-exactgun" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_ExactGun__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_ExactGun__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup UnityEngine.Transform</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_ExactGun__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-interactiontext">
+<h2>VRCPickup set_InteractionText<a class="headerlink" href="#vrcpickup-set-interactiontext" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_InteractionText__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_InteractionText__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_InteractionText__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-momentumtransfermethod">
+<h2>VRCPickup set_MomentumTransferMethod<a class="headerlink" href="#vrcpickup-set-momentumtransfermethod" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_MomentumTransferMethod__UnityEngineForceMode">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_MomentumTransferMethod__UnityEngineForceMode</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup UnityEngine.ForceMode</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_MomentumTransferMethod__UnityEngineForceMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-name">
+<h2>VRCPickup set_name<a class="headerlink" href="#vrcpickup-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-orientation">
+<h2>VRCPickup set_orientation<a class="headerlink" href="#vrcpickup-set-orientation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_orientation__VRCSDKBaseVRC_PickupPickupOrientation">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_orientation__VRCSDKBaseVRC_PickupPickupOrientation</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup VRC.SDKBase.VRC_Pickup+PickupOrientation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_orientation__VRCSDKBaseVRC_PickupPickupOrientation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-pickupable">
+<h2>VRCPickup set_pickupable<a class="headerlink" href="#vrcpickup-set-pickupable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_pickupable__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_pickupable__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_pickupable__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-proximity">
+<h2>VRCPickup set_proximity<a class="headerlink" href="#vrcpickup-set-proximity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_proximity__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_proximity__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_proximity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-throwvelocityboostminspeed">
+<h2>VRCPickup set_ThrowVelocityBoostMinSpeed<a class="headerlink" href="#vrcpickup-set-throwvelocityboostminspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_ThrowVelocityBoostMinSpeed__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_ThrowVelocityBoostMinSpeed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_ThrowVelocityBoostMinSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-throwvelocityboostscale">
+<h2>VRCPickup set_ThrowVelocityBoostScale<a class="headerlink" href="#vrcpickup-set-throwvelocityboostscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_ThrowVelocityBoostScale__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_ThrowVelocityBoostScale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_ThrowVelocityBoostScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-set-usetext">
+<h2>VRCPickup set_UseText<a class="headerlink" href="#vrcpickup-set-usetext" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__set_UseText__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__set_UseText__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__set_UseText__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcpickup-tostring">
+<h2>VRCPickup ToString<a class="headerlink" href="#vrcpickup-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCPickup.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCPickup.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCPickup instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCPickup.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ComponentsVRCPortalMarker/index.html" class="btn btn-neutral float-right" title="ComponentsVRCPortalMarker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCMirrorReflection/index.html" class="btn btn-neutral" title="ComponentsVRCMirrorReflection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+====================================================================================================================================================
+Collision2D
+====================================================================================================================================================
+
+The Collision2D module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__ctor____UnityEngineCollision2D()
+
+outputs: unnamed (``Collision2D``)
+
+flow: none
+
+
+
+Collision2D Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__Equals__SystemObject__SystemBoolean(UnityEngine.Collision2D instanceSystem.Object obj)
+
+outputs: unnamed (``Boolean``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+Collision2D get_collider
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_collider__UnityEngineCollider2D(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Collider2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-collider.html>`_
+
+Collision2D get_contactCount
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_contactCount__SystemInt32(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-contactCount.html>`_
+
+Collision2D get_contacts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_contacts__UnityEngineContactPoint2DArray(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``ContactPoint2D[]``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-contacts.html>`_
+
+Collision2D get_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_enabled__SystemBoolean(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-enabled.html>`_
+
+Collision2D get_gameObject
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_gameObject__UnityEngineGameObject(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``GameObject``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-gameObject.html>`_
+
+Collision2D get_otherCollider
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_otherCollider__UnityEngineCollider2D(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Collider2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-otherCollider.html>`_
+
+Collision2D get_otherRigidbody
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_otherRigidbody__UnityEngineRigidbody2D(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Rigidbody2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-otherRigidbody.html>`_
+
+Collision2D get_relativeVelocity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_relativeVelocity__UnityEngineVector2(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Vector2``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-relativeVelocity.html>`_
+
+Collision2D get_rigidbody
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_rigidbody__UnityEngineRigidbody2D(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Rigidbody2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-rigidbody.html>`_
+
+Collision2D get_transform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__get_transform__UnityEngineTransform(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Transform``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D-transform.html>`_
+
+Collision2D GetContact
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__GetContact__SystemInt32__UnityEngineContactPoint2D(UnityEngine.Collision2D instanceSystem.Int32 index)
+
+outputs: unnamed (``ContactPoint2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D.GetContact.html>`_
+
+Collision2D GetContacts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__GetContacts__UnityEngineContactPoint2DArray__SystemInt32(UnityEngine.Collision2D instanceUnityEngine.ContactPoint2D[] contacts)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D.GetContacts.html>`_
+
+Collision2D GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__GetHashCode__SystemInt32(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D.GetHashCode.html>`_
+
+Collision2D GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__GetType__SystemType(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D.html>`_
+
+Collision2D ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineCollision2D.__ToString__SystemString(UnityEngine.Collision2D instance)
+
+outputs: unnamed (``String``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D.ToString.html>`_
+
+Collision2D
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_UnityEngineCollision2D(UnityEngine.Collision2D Collision2DSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Collision2D.html>`_

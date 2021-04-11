@@ -1,0 +1,450 @@
+====================================================================================================================================================
+PointEffector2D
+====================================================================================================================================================
+
+The PointEffector2D module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+op_Equality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean(UnityEngine.Object UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+PointEffector2D Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__Equals__SystemObject__SystemBoolean(UnityEngine.PointEffector2D instanceSystem.Object other)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+PointEffector2D get_angularDrag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_angularDrag__SystemSingle(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-angularDrag.html>`_
+
+PointEffector2D get_colliderMask
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_colliderMask__SystemInt32(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-colliderMask.html>`_
+
+PointEffector2D get_distanceScale
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_distanceScale__SystemSingle(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-distanceScale.html>`_
+
+PointEffector2D get_drag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_drag__SystemSingle(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-drag.html>`_
+
+PointEffector2D get_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_enabled__SystemBoolean(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-enabled.html>`_
+
+PointEffector2D get_forceMagnitude
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_forceMagnitude__SystemSingle(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceMagnitude.html>`_
+
+PointEffector2D get_forceMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_forceMode__UnityEngineEffectorForceMode2D(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``EffectorForceMode2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceMode.html>`_
+
+PointEffector2D get_forceSource
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_forceSource__UnityEngineEffectorSelection2D(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``EffectorSelection2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceSource.html>`_
+
+PointEffector2D get_forceTarget
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_forceTarget__UnityEngineEffectorSelection2D(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``EffectorSelection2D``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceTarget.html>`_
+
+PointEffector2D get_forceVariation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_forceVariation__SystemSingle(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceVariation.html>`_
+
+PointEffector2D get_gameObject
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_gameObject__UnityEngineGameObject(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``GameObject``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-gameObject.html>`_
+
+PointEffector2D get_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_name__SystemString(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-name.html>`_
+
+PointEffector2D get_transform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_transform__UnityEngineTransform(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Transform``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-transform.html>`_
+
+PointEffector2D get_useColliderMask
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__get_useColliderMask__SystemBoolean(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-useColliderMask.html>`_
+
+PointEffector2D GetComponent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetComponent__SystemType__UnityEngineComponent(UnityEngine.PointEffector2D instanceSystem.Type type)
+
+outputs: unnamed (``Component``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.html>`_
+
+PointEffector2D GetComponentInChildren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetComponentInChildren__SystemBoolean__T(UnityEngine.PointEffector2D instanceSystem.Boolean includeInactiveSystem.Type type)
+
+outputs: T (``Object``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.GetComponentInChildren.html>`_
+
+PointEffector2D GetComponentInParent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetComponentInParent__SystemType__UnityEngineComponent(UnityEngine.PointEffector2D instanceSystem.Type t)
+
+outputs: unnamed (``Component``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.html>`_
+
+PointEffector2D GetComponents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetComponents__ListT__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.GetComponents.html>`_
+
+PointEffector2D GetComponentsInChildren
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.GetComponentsInChildren.html>`_
+
+PointEffector2D GetComponentsInParent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.GetComponentsInParent.html>`_
+
+PointEffector2D GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetHashCode__SystemInt32(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.GetHashCode.html>`_
+
+PointEffector2D GetInstanceID
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetInstanceID__SystemInt32(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.GetInstanceID.html>`_
+
+PointEffector2D GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__GetType__SystemType(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.html>`_
+
+op_Implicit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__op_Implicit__UnityEngineObject__SystemBoolean(UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+op_Inequality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean(UnityEngine.Object UnityEngine.Object )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+PointEffector2D set_angularDrag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_angularDrag__SystemSingle__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-angularDrag.html>`_
+
+PointEffector2D set_colliderMask
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_colliderMask__SystemInt32__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Int32 value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-colliderMask.html>`_
+
+PointEffector2D set_distanceScale
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_distanceScale__SystemSingle__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-distanceScale.html>`_
+
+PointEffector2D set_drag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_drag__SystemSingle__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-drag.html>`_
+
+PointEffector2D set_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_enabled__SystemBoolean__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-enabled.html>`_
+
+PointEffector2D set_forceMagnitude
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_forceMagnitude__SystemSingle__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceMagnitude.html>`_
+
+PointEffector2D set_forceMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_forceMode__UnityEngineEffectorForceMode2D__SystemVoid(UnityEngine.PointEffector2D instanceUnityEngine.EffectorForceMode2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceMode.html>`_
+
+PointEffector2D set_forceSource
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_forceSource__UnityEngineEffectorSelection2D__SystemVoid(UnityEngine.PointEffector2D instanceUnityEngine.EffectorSelection2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceSource.html>`_
+
+PointEffector2D set_forceTarget
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_forceTarget__UnityEngineEffectorSelection2D__SystemVoid(UnityEngine.PointEffector2D instanceUnityEngine.EffectorSelection2D value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceTarget.html>`_
+
+PointEffector2D set_forceVariation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_forceVariation__SystemSingle__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-forceVariation.html>`_
+
+PointEffector2D set_name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_name__SystemString__SystemVoid(UnityEngine.PointEffector2D instanceSystem.String value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-name.html>`_
+
+PointEffector2D set_useColliderMask
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__set_useColliderMask__SystemBoolean__SystemVoid(UnityEngine.PointEffector2D instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D-useColliderMask.html>`_
+
+PointEffector2D ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEnginePointEffector2D.__ToString__SystemString(UnityEngine.PointEffector2D instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.ToString.html>`_
+
+PointEffector2D
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_UnityEnginePointEffector2D(UnityEngine.PointEffector2D PointEffector2DSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/PointEffector2D.html>`_

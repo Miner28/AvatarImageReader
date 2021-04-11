@@ -1,0 +1,722 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ComponentsVRCStation &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="VRCSDKBaseInputManager" href="../VRCSDKBaseInputManager/index.html"/>
+        <link rel="prev" title="ComponentsVRCPortalMarker" href="../ComponentsVRCPortalMarker/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsTrackingData/index.html">ComponentsTrackingData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCAvatarPedestal/index.html">ComponentsVRCAvatarPedestal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPickup/index.html">ComponentsVRCPickup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPortalMarker/index.html">ComponentsVRCPortalMarker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ComponentsVRCStation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation">VRCStation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-equals">VRCStation Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-exitstation">VRCStation ExitStation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-animatorcontroller">VRCStation get_animatorController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-canusestationfromstation">VRCStation get_canUseStationFromStation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-controlsobject">VRCStation get_controlsObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-disablestationexit">VRCStation get_disableStationExit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-enabled">VRCStation get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-gameobject">VRCStation get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-name">VRCStation get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-playermobility">VRCStation get_PlayerMobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-seated">VRCStation get_seated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-stationenterplayerlocation">VRCStation get_stationEnterPlayerLocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-stationexitplayerlocation">VRCStation get_stationExitPlayerLocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-get-transform">VRCStation get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getcomponent">VRCStation GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getcomponentinchildren">VRCStation GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getcomponentinparent">VRCStation GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getcomponents">VRCStation GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getcomponentsinchildren">VRCStation GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getcomponentsinparent">VRCStation GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-gethashcode">VRCStation GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-getinstanceid">VRCStation GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-gettype">VRCStation GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-animatorcontroller">VRCStation set_animatorController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-canusestationfromstation">VRCStation set_canUseStationFromStation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-controlsobject">VRCStation set_controlsObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-disablestationexit">VRCStation set_disableStationExit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-enabled">VRCStation set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-name">VRCStation set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-playermobility">VRCStation set_PlayerMobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-seated">VRCStation set_seated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-stationenterplayerlocation">VRCStation set_stationEnterPlayerLocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-set-stationexitplayerlocation">VRCStation set_stationExitPlayerLocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-tostring">VRCStation ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcstation-usestation">VRCStation UseStation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseInputManager/index.html">VRCSDKBaseInputManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseVRCPlayerApi/index.html">VRCSDKBaseVRCPlayerApi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>ComponentsVRCStation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/ComponentsVRCStation/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../VRCSDKBaseInputManager/index.html" class="btn btn-neutral float-right" title="VRCSDKBaseInputManager" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCPortalMarker/index.html" class="btn btn-neutral" title="ComponentsVRCPortalMarker" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="componentsvrcstation">
+<h1>ComponentsVRCStation<a class="headerlink" href="#componentsvrcstation" title="Permalink to this headline">¶</a></h1>
+<p>The ComponentsVRCStation module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="vrcstation">
+<h2>VRCStation<a class="headerlink" href="#vrcstation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDK3ComponentsVRCStation">
+<code class="sig-name descname">Variable_VRCSDK3ComponentsVRCStation</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation VRCStationSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDK3ComponentsVRCStation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-equals">
+<h2>VRCStation Equals<a class="headerlink" href="#vrcstation-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-exitstation">
+<h2>VRCStation ExitStation<a class="headerlink" href="#vrcstation-exitstation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__ExitStation__VRCSDKBaseVRCPlayerApi__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__ExitStation__VRCSDKBaseVRCPlayerApi__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceVRC.SDKBase.VRCPlayerApi player</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__ExitStation__VRCSDKBaseVRCPlayerApi__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-get-animatorcontroller">
+<h2>VRCStation get_animatorController<a class="headerlink" href="#vrcstation-get-animatorcontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_animatorController__UnityEngineRuntimeAnimatorController">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_animatorController__UnityEngineRuntimeAnimatorController</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_animatorController__UnityEngineRuntimeAnimatorController" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RuntimeAnimatorController</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-canusestationfromstation">
+<h2>VRCStation get_canUseStationFromStation<a class="headerlink" href="#vrcstation-get-canusestationfromstation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_canUseStationFromStation__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_canUseStationFromStation__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_canUseStationFromStation__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-controlsobject">
+<h2>VRCStation get_controlsObject<a class="headerlink" href="#vrcstation-get-controlsobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_controlsObject__VRCSDKBaseVRC_ObjectApi">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_controlsObject__VRCSDKBaseVRC_ObjectApi</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_controlsObject__VRCSDKBaseVRC_ObjectApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRC_ObjectApi</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-disablestationexit">
+<h2>VRCStation get_disableStationExit<a class="headerlink" href="#vrcstation-get-disablestationexit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_disableStationExit__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_disableStationExit__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_disableStationExit__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-enabled">
+<h2>VRCStation get_enabled<a class="headerlink" href="#vrcstation-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-gameobject">
+<h2>VRCStation get_gameObject<a class="headerlink" href="#vrcstation-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-name">
+<h2>VRCStation get_name<a class="headerlink" href="#vrcstation-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_name__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-playermobility">
+<h2>VRCStation get_PlayerMobility<a class="headerlink" href="#vrcstation-get-playermobility" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_PlayerMobility__VRCSDKBaseVRCStationMobility">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_PlayerMobility__VRCSDKBaseVRCStationMobility</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_PlayerMobility__VRCSDKBaseVRCStationMobility" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Mobility</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-seated">
+<h2>VRCStation get_seated<a class="headerlink" href="#vrcstation-get-seated" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_seated__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_seated__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_seated__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-stationenterplayerlocation">
+<h2>VRCStation get_stationEnterPlayerLocation<a class="headerlink" href="#vrcstation-get-stationenterplayerlocation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_stationEnterPlayerLocation__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_stationEnterPlayerLocation__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_stationEnterPlayerLocation__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-stationexitplayerlocation">
+<h2>VRCStation get_stationExitPlayerLocation<a class="headerlink" href="#vrcstation-get-stationexitplayerlocation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_stationExitPlayerLocation__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_stationExitPlayerLocation__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_stationExitPlayerLocation__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-get-transform">
+<h2>VRCStation get_transform<a class="headerlink" href="#vrcstation-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-getcomponent">
+<h2>VRCStation GetComponent<a class="headerlink" href="#vrcstation-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-getcomponentinchildren">
+<h2>VRCStation GetComponentInChildren<a class="headerlink" href="#vrcstation-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-getcomponentinparent">
+<h2>VRCStation GetComponentInParent<a class="headerlink" href="#vrcstation-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-getcomponents">
+<h2>VRCStation GetComponents<a class="headerlink" href="#vrcstation-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-getcomponentsinchildren">
+<h2>VRCStation GetComponentsInChildren<a class="headerlink" href="#vrcstation-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-getcomponentsinparent">
+<h2>VRCStation GetComponentsInParent<a class="headerlink" href="#vrcstation-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-gethashcode">
+<h2>VRCStation GetHashCode<a class="headerlink" href="#vrcstation-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-getinstanceid">
+<h2>VRCStation GetInstanceID<a class="headerlink" href="#vrcstation-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-gettype">
+<h2>VRCStation GetType<a class="headerlink" href="#vrcstation-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-set-animatorcontroller">
+<h2>VRCStation set_animatorController<a class="headerlink" href="#vrcstation-set-animatorcontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_animatorController__UnityEngineRuntimeAnimatorController">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_animatorController__UnityEngineRuntimeAnimatorController</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation UnityEngine.RuntimeAnimatorController</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_animatorController__UnityEngineRuntimeAnimatorController" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-canusestationfromstation">
+<h2>VRCStation set_canUseStationFromStation<a class="headerlink" href="#vrcstation-set-canusestationfromstation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_canUseStationFromStation__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_canUseStationFromStation__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_canUseStationFromStation__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-controlsobject">
+<h2>VRCStation set_controlsObject<a class="headerlink" href="#vrcstation-set-controlsobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_controlsObject__VRCSDKBaseVRC_ObjectApi">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_controlsObject__VRCSDKBaseVRC_ObjectApi</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation VRC.SDKBase.VRC_ObjectApi</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_controlsObject__VRCSDKBaseVRC_ObjectApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-disablestationexit">
+<h2>VRCStation set_disableStationExit<a class="headerlink" href="#vrcstation-set-disablestationexit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_disableStationExit__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_disableStationExit__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_disableStationExit__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-enabled">
+<h2>VRCStation set_enabled<a class="headerlink" href="#vrcstation-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-name">
+<h2>VRCStation set_name<a class="headerlink" href="#vrcstation-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-playermobility">
+<h2>VRCStation set_PlayerMobility<a class="headerlink" href="#vrcstation-set-playermobility" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_PlayerMobility__VRCSDKBaseVRCStationMobility">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_PlayerMobility__VRCSDKBaseVRCStationMobility</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation VRC.SDKBase.VRCStation+Mobility</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_PlayerMobility__VRCSDKBaseVRCStationMobility" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-seated">
+<h2>VRCStation set_seated<a class="headerlink" href="#vrcstation-set-seated" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_seated__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_seated__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_seated__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-stationenterplayerlocation">
+<h2>VRCStation set_stationEnterPlayerLocation<a class="headerlink" href="#vrcstation-set-stationenterplayerlocation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_stationEnterPlayerLocation__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_stationEnterPlayerLocation__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation UnityEngine.Transform</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_stationEnterPlayerLocation__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-set-stationexitplayerlocation">
+<h2>VRCStation set_stationExitPlayerLocation<a class="headerlink" href="#vrcstation-set-stationexitplayerlocation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__set_stationExitPlayerLocation__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__set_stationExitPlayerLocation__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation UnityEngine.Transform</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__set_stationExitPlayerLocation__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcstation-tostring">
+<h2>VRCStation ToString<a class="headerlink" href="#vrcstation-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcstation-usestation">
+<h2>VRCStation UseStation<a class="headerlink" href="#vrcstation-usestation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCStation.__UseStation__VRCSDKBaseVRCPlayerApi__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCStation.</code><code class="sig-name descname">__UseStation__VRCSDKBaseVRCPlayerApi__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCStation instanceVRC.SDKBase.VRCPlayerApi player</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCStation.__UseStation__VRCSDKBaseVRCPlayerApi__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../VRCSDKBaseInputManager/index.html" class="btn btn-neutral float-right" title="VRCSDKBaseInputManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCPortalMarker/index.html" class="btn btn-neutral" title="ComponentsVRCPortalMarker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

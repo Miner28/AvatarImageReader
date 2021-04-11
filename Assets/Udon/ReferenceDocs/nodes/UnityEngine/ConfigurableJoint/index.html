@@ -1,0 +1,1783 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ConfigurableJoint &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="ConstantForce2D" href="../ConstantForce2D/index.html"/>
+        <link rel="prev" title="CompositeCollider2D" href="../CompositeCollider2D/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ConfigurableJoint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-equals">ConfigurableJoint Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-anchor">ConfigurableJoint get_anchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularxdrive">ConfigurableJoint get_angularXDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularxlimitspring">ConfigurableJoint get_angularXLimitSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularxmotion">ConfigurableJoint get_angularXMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularylimit">ConfigurableJoint get_angularYLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularymotion">ConfigurableJoint get_angularYMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularyzdrive">ConfigurableJoint get_angularYZDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularyzlimitspring">ConfigurableJoint get_angularYZLimitSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularzlimit">ConfigurableJoint get_angularZLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-angularzmotion">ConfigurableJoint get_angularZMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-autoconfigureconnectedanchor">ConfigurableJoint get_autoConfigureConnectedAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-axis">ConfigurableJoint get_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-breakforce">ConfigurableJoint get_breakForce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-breaktorque">ConfigurableJoint get_breakTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-configuredinworldspace">ConfigurableJoint get_configuredInWorldSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-connectedanchor">ConfigurableJoint get_connectedAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-connectedbody">ConfigurableJoint get_connectedBody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-connectedmassscale">ConfigurableJoint get_connectedMassScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-currentforce">ConfigurableJoint get_currentForce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-currenttorque">ConfigurableJoint get_currentTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-enablecollision">ConfigurableJoint get_enableCollision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-enablepreprocessing">ConfigurableJoint get_enablePreprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-gameobject">ConfigurableJoint get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-highangularxlimit">ConfigurableJoint get_highAngularXLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-linearlimit">ConfigurableJoint get_linearLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-linearlimitspring">ConfigurableJoint get_linearLimitSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-lowangularxlimit">ConfigurableJoint get_lowAngularXLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-massscale">ConfigurableJoint get_massScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-name">ConfigurableJoint get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-projectionangle">ConfigurableJoint get_projectionAngle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-projectiondistance">ConfigurableJoint get_projectionDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-projectionmode">ConfigurableJoint get_projectionMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-rotationdrivemode">ConfigurableJoint get_rotationDriveMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-secondaryaxis">ConfigurableJoint get_secondaryAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-slerpdrive">ConfigurableJoint get_slerpDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-swapbodies">ConfigurableJoint get_swapBodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-targetangularvelocity">ConfigurableJoint get_targetAngularVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-targetposition">ConfigurableJoint get_targetPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-targetrotation">ConfigurableJoint get_targetRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-targetvelocity">ConfigurableJoint get_targetVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-transform">ConfigurableJoint get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-xdrive">ConfigurableJoint get_xDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-xmotion">ConfigurableJoint get_xMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-ydrive">ConfigurableJoint get_yDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-ymotion">ConfigurableJoint get_yMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-zdrive">ConfigurableJoint get_zDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-get-zmotion">ConfigurableJoint get_zMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getcomponent">ConfigurableJoint GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getcomponentinchildren">ConfigurableJoint GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getcomponentinparent">ConfigurableJoint GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getcomponents">ConfigurableJoint GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getcomponentsinchildren">ConfigurableJoint GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getcomponentsinparent">ConfigurableJoint GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-gethashcode">ConfigurableJoint GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-getinstanceid">ConfigurableJoint GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-gettype">ConfigurableJoint GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-anchor">ConfigurableJoint set_anchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularxdrive">ConfigurableJoint set_angularXDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularxlimitspring">ConfigurableJoint set_angularXLimitSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularxmotion">ConfigurableJoint set_angularXMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularylimit">ConfigurableJoint set_angularYLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularymotion">ConfigurableJoint set_angularYMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularyzdrive">ConfigurableJoint set_angularYZDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularyzlimitspring">ConfigurableJoint set_angularYZLimitSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularzlimit">ConfigurableJoint set_angularZLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-angularzmotion">ConfigurableJoint set_angularZMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-autoconfigureconnectedanchor">ConfigurableJoint set_autoConfigureConnectedAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-axis">ConfigurableJoint set_axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-breakforce">ConfigurableJoint set_breakForce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-breaktorque">ConfigurableJoint set_breakTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-configuredinworldspace">ConfigurableJoint set_configuredInWorldSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-connectedanchor">ConfigurableJoint set_connectedAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-connectedbody">ConfigurableJoint set_connectedBody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-connectedmassscale">ConfigurableJoint set_connectedMassScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-enablecollision">ConfigurableJoint set_enableCollision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-enablepreprocessing">ConfigurableJoint set_enablePreprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-highangularxlimit">ConfigurableJoint set_highAngularXLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-linearlimit">ConfigurableJoint set_linearLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-linearlimitspring">ConfigurableJoint set_linearLimitSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-lowangularxlimit">ConfigurableJoint set_lowAngularXLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-massscale">ConfigurableJoint set_massScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-name">ConfigurableJoint set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-projectionangle">ConfigurableJoint set_projectionAngle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-projectiondistance">ConfigurableJoint set_projectionDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-projectionmode">ConfigurableJoint set_projectionMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-rotationdrivemode">ConfigurableJoint set_rotationDriveMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-secondaryaxis">ConfigurableJoint set_secondaryAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-slerpdrive">ConfigurableJoint set_slerpDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-swapbodies">ConfigurableJoint set_swapBodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-targetangularvelocity">ConfigurableJoint set_targetAngularVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-targetposition">ConfigurableJoint set_targetPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-targetrotation">ConfigurableJoint set_targetRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-targetvelocity">ConfigurableJoint set_targetVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-xdrive">ConfigurableJoint set_xDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-xmotion">ConfigurableJoint set_xMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-ydrive">ConfigurableJoint set_yDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-ymotion">ConfigurableJoint set_yMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-zdrive">ConfigurableJoint set_zDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-set-zmotion">ConfigurableJoint set_zMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurablejoint-tostring">ConfigurableJoint ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id100">ConfigurableJoint</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>ConfigurableJoint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/ConfigurableJoint/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ConstantForce2D/index.html" class="btn btn-neutral float-right" title="ConstantForce2D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../CompositeCollider2D/index.html" class="btn btn-neutral" title="CompositeCollider2D" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configurablejoint">
+<h1>ConfigurableJoint<a class="headerlink" href="#configurablejoint" title="Permalink to this headline">¶</a></h1>
+<p>The ConfigurableJoint module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="configurablejoint-equals">
+<h2>ConfigurableJoint Equals<a class="headerlink" href="#configurablejoint-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-anchor">
+<h2>ConfigurableJoint get_anchor<a class="headerlink" href="#configurablejoint-get-anchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_anchor__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_anchor__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_anchor__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-anchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularxdrive">
+<h2>ConfigurableJoint get_angularXDrive<a class="headerlink" href="#configurablejoint-get-angularxdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularXDrive__UnityEngineJointDrive">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularXDrive__UnityEngineJointDrive</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularXDrive__UnityEngineJointDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointDrive</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularXDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularxlimitspring">
+<h2>ConfigurableJoint get_angularXLimitSpring<a class="headerlink" href="#configurablejoint-get-angularxlimitspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularXLimitSpring__UnityEngineSoftJointLimitSpring">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularXLimitSpring__UnityEngineSoftJointLimitSpring</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularXLimitSpring__UnityEngineSoftJointLimitSpring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimitSpring</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularXLimitSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularxmotion">
+<h2>ConfigurableJoint get_angularXMotion<a class="headerlink" href="#configurablejoint-get-angularxmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularXMotion__UnityEngineConfigurableJointMotion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularXMotion__UnityEngineConfigurableJointMotion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularXMotion__UnityEngineConfigurableJointMotion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConfigurableJointMotion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularXMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularylimit">
+<h2>ConfigurableJoint get_angularYLimit<a class="headerlink" href="#configurablejoint-get-angularylimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularYLimit__UnityEngineSoftJointLimit">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularYLimit__UnityEngineSoftJointLimit</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularYLimit__UnityEngineSoftJointLimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimit</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularymotion">
+<h2>ConfigurableJoint get_angularYMotion<a class="headerlink" href="#configurablejoint-get-angularymotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularYMotion__UnityEngineConfigurableJointMotion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularYMotion__UnityEngineConfigurableJointMotion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularYMotion__UnityEngineConfigurableJointMotion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConfigurableJointMotion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularyzdrive">
+<h2>ConfigurableJoint get_angularYZDrive<a class="headerlink" href="#configurablejoint-get-angularyzdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularYZDrive__UnityEngineJointDrive">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularYZDrive__UnityEngineJointDrive</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularYZDrive__UnityEngineJointDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointDrive</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYZDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularyzlimitspring">
+<h2>ConfigurableJoint get_angularYZLimitSpring<a class="headerlink" href="#configurablejoint-get-angularyzlimitspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularYZLimitSpring__UnityEngineSoftJointLimitSpring">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularYZLimitSpring__UnityEngineSoftJointLimitSpring</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularYZLimitSpring__UnityEngineSoftJointLimitSpring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimitSpring</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYZLimitSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularzlimit">
+<h2>ConfigurableJoint get_angularZLimit<a class="headerlink" href="#configurablejoint-get-angularzlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularZLimit__UnityEngineSoftJointLimit">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularZLimit__UnityEngineSoftJointLimit</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularZLimit__UnityEngineSoftJointLimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimit</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularZLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-angularzmotion">
+<h2>ConfigurableJoint get_angularZMotion<a class="headerlink" href="#configurablejoint-get-angularzmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_angularZMotion__UnityEngineConfigurableJointMotion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_angularZMotion__UnityEngineConfigurableJointMotion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_angularZMotion__UnityEngineConfigurableJointMotion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConfigurableJointMotion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularZMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-autoconfigureconnectedanchor">
+<h2>ConfigurableJoint get_autoConfigureConnectedAnchor<a class="headerlink" href="#configurablejoint-get-autoconfigureconnectedanchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_autoConfigureConnectedAnchor__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_autoConfigureConnectedAnchor__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_autoConfigureConnectedAnchor__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-autoConfigureConnectedAnchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-axis">
+<h2>ConfigurableJoint get_axis<a class="headerlink" href="#configurablejoint-get-axis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_axis__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_axis__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_axis__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-axis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-breakforce">
+<h2>ConfigurableJoint get_breakForce<a class="headerlink" href="#configurablejoint-get-breakforce" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_breakForce__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_breakForce__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_breakForce__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-breakForce.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-breaktorque">
+<h2>ConfigurableJoint get_breakTorque<a class="headerlink" href="#configurablejoint-get-breaktorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_breakTorque__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_breakTorque__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_breakTorque__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-breakTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-configuredinworldspace">
+<h2>ConfigurableJoint get_configuredInWorldSpace<a class="headerlink" href="#configurablejoint-get-configuredinworldspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_configuredInWorldSpace__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_configuredInWorldSpace__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_configuredInWorldSpace__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-configuredInWorldSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-connectedanchor">
+<h2>ConfigurableJoint get_connectedAnchor<a class="headerlink" href="#configurablejoint-get-connectedanchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_connectedAnchor__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_connectedAnchor__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_connectedAnchor__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-connectedAnchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-connectedbody">
+<h2>ConfigurableJoint get_connectedBody<a class="headerlink" href="#configurablejoint-get-connectedbody" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_connectedBody__UnityEngineRigidbody">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_connectedBody__UnityEngineRigidbody</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_connectedBody__UnityEngineRigidbody" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Rigidbody</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-connectedBody.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-connectedmassscale">
+<h2>ConfigurableJoint get_connectedMassScale<a class="headerlink" href="#configurablejoint-get-connectedmassscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_connectedMassScale__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_connectedMassScale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_connectedMassScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-connectedMassScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-currentforce">
+<h2>ConfigurableJoint get_currentForce<a class="headerlink" href="#configurablejoint-get-currentforce" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_currentForce__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_currentForce__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_currentForce__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-currentForce.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-currenttorque">
+<h2>ConfigurableJoint get_currentTorque<a class="headerlink" href="#configurablejoint-get-currenttorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_currentTorque__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_currentTorque__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_currentTorque__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-currentTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-enablecollision">
+<h2>ConfigurableJoint get_enableCollision<a class="headerlink" href="#configurablejoint-get-enablecollision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_enableCollision__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_enableCollision__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_enableCollision__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-enableCollision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-enablepreprocessing">
+<h2>ConfigurableJoint get_enablePreprocessing<a class="headerlink" href="#configurablejoint-get-enablepreprocessing" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_enablePreprocessing__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_enablePreprocessing__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_enablePreprocessing__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-enablePreprocessing.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-gameobject">
+<h2>ConfigurableJoint get_gameObject<a class="headerlink" href="#configurablejoint-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-highangularxlimit">
+<h2>ConfigurableJoint get_highAngularXLimit<a class="headerlink" href="#configurablejoint-get-highangularxlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_highAngularXLimit__UnityEngineSoftJointLimit">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_highAngularXLimit__UnityEngineSoftJointLimit</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_highAngularXLimit__UnityEngineSoftJointLimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimit</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-highAngularXLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-linearlimit">
+<h2>ConfigurableJoint get_linearLimit<a class="headerlink" href="#configurablejoint-get-linearlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_linearLimit__UnityEngineSoftJointLimit">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_linearLimit__UnityEngineSoftJointLimit</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_linearLimit__UnityEngineSoftJointLimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimit</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-linearLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-linearlimitspring">
+<h2>ConfigurableJoint get_linearLimitSpring<a class="headerlink" href="#configurablejoint-get-linearlimitspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_linearLimitSpring__UnityEngineSoftJointLimitSpring">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_linearLimitSpring__UnityEngineSoftJointLimitSpring</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_linearLimitSpring__UnityEngineSoftJointLimitSpring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimitSpring</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-linearLimitSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-lowangularxlimit">
+<h2>ConfigurableJoint get_lowAngularXLimit<a class="headerlink" href="#configurablejoint-get-lowangularxlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_lowAngularXLimit__UnityEngineSoftJointLimit">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_lowAngularXLimit__UnityEngineSoftJointLimit</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_lowAngularXLimit__UnityEngineSoftJointLimit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SoftJointLimit</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-lowAngularXLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-massscale">
+<h2>ConfigurableJoint get_massScale<a class="headerlink" href="#configurablejoint-get-massscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_massScale__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_massScale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_massScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-massScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-name">
+<h2>ConfigurableJoint get_name<a class="headerlink" href="#configurablejoint-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-projectionangle">
+<h2>ConfigurableJoint get_projectionAngle<a class="headerlink" href="#configurablejoint-get-projectionangle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_projectionAngle__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_projectionAngle__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_projectionAngle__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-projectionAngle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-projectiondistance">
+<h2>ConfigurableJoint get_projectionDistance<a class="headerlink" href="#configurablejoint-get-projectiondistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_projectionDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_projectionDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_projectionDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-projectionDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-projectionmode">
+<h2>ConfigurableJoint get_projectionMode<a class="headerlink" href="#configurablejoint-get-projectionmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_projectionMode__UnityEngineJointProjectionMode">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_projectionMode__UnityEngineJointProjectionMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_projectionMode__UnityEngineJointProjectionMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointProjectionMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-projectionMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-rotationdrivemode">
+<h2>ConfigurableJoint get_rotationDriveMode<a class="headerlink" href="#configurablejoint-get-rotationdrivemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_rotationDriveMode__UnityEngineRotationDriveMode">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_rotationDriveMode__UnityEngineRotationDriveMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_rotationDriveMode__UnityEngineRotationDriveMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RotationDriveMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-rotationDriveMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-secondaryaxis">
+<h2>ConfigurableJoint get_secondaryAxis<a class="headerlink" href="#configurablejoint-get-secondaryaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_secondaryAxis__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_secondaryAxis__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_secondaryAxis__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-secondaryAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-slerpdrive">
+<h2>ConfigurableJoint get_slerpDrive<a class="headerlink" href="#configurablejoint-get-slerpdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_slerpDrive__UnityEngineJointDrive">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_slerpDrive__UnityEngineJointDrive</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_slerpDrive__UnityEngineJointDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointDrive</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-slerpDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-swapbodies">
+<h2>ConfigurableJoint get_swapBodies<a class="headerlink" href="#configurablejoint-get-swapbodies" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_swapBodies__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_swapBodies__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_swapBodies__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-swapBodies.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-targetangularvelocity">
+<h2>ConfigurableJoint get_targetAngularVelocity<a class="headerlink" href="#configurablejoint-get-targetangularvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_targetAngularVelocity__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_targetAngularVelocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_targetAngularVelocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetAngularVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-targetposition">
+<h2>ConfigurableJoint get_targetPosition<a class="headerlink" href="#configurablejoint-get-targetposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_targetPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_targetPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_targetPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-targetrotation">
+<h2>ConfigurableJoint get_targetRotation<a class="headerlink" href="#configurablejoint-get-targetrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_targetRotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_targetRotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_targetRotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-targetvelocity">
+<h2>ConfigurableJoint get_targetVelocity<a class="headerlink" href="#configurablejoint-get-targetvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_targetVelocity__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_targetVelocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_targetVelocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-transform">
+<h2>ConfigurableJoint get_transform<a class="headerlink" href="#configurablejoint-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-xdrive">
+<h2>ConfigurableJoint get_xDrive<a class="headerlink" href="#configurablejoint-get-xdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_xDrive__UnityEngineJointDrive">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_xDrive__UnityEngineJointDrive</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_xDrive__UnityEngineJointDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointDrive</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-xDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-xmotion">
+<h2>ConfigurableJoint get_xMotion<a class="headerlink" href="#configurablejoint-get-xmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_xMotion__UnityEngineConfigurableJointMotion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_xMotion__UnityEngineConfigurableJointMotion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_xMotion__UnityEngineConfigurableJointMotion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConfigurableJointMotion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-xMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-ydrive">
+<h2>ConfigurableJoint get_yDrive<a class="headerlink" href="#configurablejoint-get-ydrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_yDrive__UnityEngineJointDrive">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_yDrive__UnityEngineJointDrive</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_yDrive__UnityEngineJointDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointDrive</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-yDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-ymotion">
+<h2>ConfigurableJoint get_yMotion<a class="headerlink" href="#configurablejoint-get-ymotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_yMotion__UnityEngineConfigurableJointMotion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_yMotion__UnityEngineConfigurableJointMotion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_yMotion__UnityEngineConfigurableJointMotion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConfigurableJointMotion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-yMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-zdrive">
+<h2>ConfigurableJoint get_zDrive<a class="headerlink" href="#configurablejoint-get-zdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_zDrive__UnityEngineJointDrive">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_zDrive__UnityEngineJointDrive</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_zDrive__UnityEngineJointDrive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointDrive</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-zDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-get-zmotion">
+<h2>ConfigurableJoint get_zMotion<a class="headerlink" href="#configurablejoint-get-zmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__get_zMotion__UnityEngineConfigurableJointMotion">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__get_zMotion__UnityEngineConfigurableJointMotion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__get_zMotion__UnityEngineConfigurableJointMotion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConfigurableJointMotion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-zMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getcomponent">
+<h2>ConfigurableJoint GetComponent<a class="headerlink" href="#configurablejoint-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getcomponentinchildren">
+<h2>ConfigurableJoint GetComponentInChildren<a class="headerlink" href="#configurablejoint-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getcomponentinparent">
+<h2>ConfigurableJoint GetComponentInParent<a class="headerlink" href="#configurablejoint-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getcomponents">
+<h2>ConfigurableJoint GetComponents<a class="headerlink" href="#configurablejoint-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getcomponentsinchildren">
+<h2>ConfigurableJoint GetComponentsInChildren<a class="headerlink" href="#configurablejoint-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getcomponentsinparent">
+<h2>ConfigurableJoint GetComponentsInParent<a class="headerlink" href="#configurablejoint-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-gethashcode">
+<h2>ConfigurableJoint GetHashCode<a class="headerlink" href="#configurablejoint-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-getinstanceid">
+<h2>ConfigurableJoint GetInstanceID<a class="headerlink" href="#configurablejoint-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-gettype">
+<h2>ConfigurableJoint GetType<a class="headerlink" href="#configurablejoint-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="configurablejoint-set-anchor">
+<h2>ConfigurableJoint set_anchor<a class="headerlink" href="#configurablejoint-set-anchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_anchor__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_anchor__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_anchor__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-anchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularxdrive">
+<h2>ConfigurableJoint set_angularXDrive<a class="headerlink" href="#configurablejoint-set-angularxdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularXDrive__UnityEngineJointDrive__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularXDrive__UnityEngineJointDrive__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointDrive value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularXDrive__UnityEngineJointDrive__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularXDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularxlimitspring">
+<h2>ConfigurableJoint set_angularXLimitSpring<a class="headerlink" href="#configurablejoint-set-angularxlimitspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularXLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularXLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimitSpring value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularXLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularXLimitSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularxmotion">
+<h2>ConfigurableJoint set_angularXMotion<a class="headerlink" href="#configurablejoint-set-angularxmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularXMotion__UnityEngineConfigurableJointMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularXMotion__UnityEngineConfigurableJointMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.ConfigurableJointMotion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularXMotion__UnityEngineConfigurableJointMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularXMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularylimit">
+<h2>ConfigurableJoint set_angularYLimit<a class="headerlink" href="#configurablejoint-set-angularylimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularYLimit__UnityEngineSoftJointLimit__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularYLimit__UnityEngineSoftJointLimit__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimit value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularYLimit__UnityEngineSoftJointLimit__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularymotion">
+<h2>ConfigurableJoint set_angularYMotion<a class="headerlink" href="#configurablejoint-set-angularymotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularYMotion__UnityEngineConfigurableJointMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularYMotion__UnityEngineConfigurableJointMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.ConfigurableJointMotion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularYMotion__UnityEngineConfigurableJointMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularyzdrive">
+<h2>ConfigurableJoint set_angularYZDrive<a class="headerlink" href="#configurablejoint-set-angularyzdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularYZDrive__UnityEngineJointDrive__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularYZDrive__UnityEngineJointDrive__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointDrive value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularYZDrive__UnityEngineJointDrive__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYZDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularyzlimitspring">
+<h2>ConfigurableJoint set_angularYZLimitSpring<a class="headerlink" href="#configurablejoint-set-angularyzlimitspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularYZLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularYZLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimitSpring value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularYZLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularYZLimitSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularzlimit">
+<h2>ConfigurableJoint set_angularZLimit<a class="headerlink" href="#configurablejoint-set-angularzlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularZLimit__UnityEngineSoftJointLimit__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularZLimit__UnityEngineSoftJointLimit__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimit value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularZLimit__UnityEngineSoftJointLimit__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularZLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-angularzmotion">
+<h2>ConfigurableJoint set_angularZMotion<a class="headerlink" href="#configurablejoint-set-angularzmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_angularZMotion__UnityEngineConfigurableJointMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_angularZMotion__UnityEngineConfigurableJointMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.ConfigurableJointMotion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_angularZMotion__UnityEngineConfigurableJointMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-angularZMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-autoconfigureconnectedanchor">
+<h2>ConfigurableJoint set_autoConfigureConnectedAnchor<a class="headerlink" href="#configurablejoint-set-autoconfigureconnectedanchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_autoConfigureConnectedAnchor__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_autoConfigureConnectedAnchor__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_autoConfigureConnectedAnchor__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-autoConfigureConnectedAnchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-axis">
+<h2>ConfigurableJoint set_axis<a class="headerlink" href="#configurablejoint-set-axis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_axis__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_axis__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_axis__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-axis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-breakforce">
+<h2>ConfigurableJoint set_breakForce<a class="headerlink" href="#configurablejoint-set-breakforce" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_breakForce__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_breakForce__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_breakForce__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-breakForce.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-breaktorque">
+<h2>ConfigurableJoint set_breakTorque<a class="headerlink" href="#configurablejoint-set-breaktorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_breakTorque__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_breakTorque__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_breakTorque__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-breakTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-configuredinworldspace">
+<h2>ConfigurableJoint set_configuredInWorldSpace<a class="headerlink" href="#configurablejoint-set-configuredinworldspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_configuredInWorldSpace__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_configuredInWorldSpace__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_configuredInWorldSpace__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-configuredInWorldSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-connectedanchor">
+<h2>ConfigurableJoint set_connectedAnchor<a class="headerlink" href="#configurablejoint-set-connectedanchor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_connectedAnchor__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_connectedAnchor__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_connectedAnchor__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-connectedAnchor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-connectedbody">
+<h2>ConfigurableJoint set_connectedBody<a class="headerlink" href="#configurablejoint-set-connectedbody" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_connectedBody__UnityEngineRigidbody__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_connectedBody__UnityEngineRigidbody__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Rigidbody value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_connectedBody__UnityEngineRigidbody__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-connectedBody.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-connectedmassscale">
+<h2>ConfigurableJoint set_connectedMassScale<a class="headerlink" href="#configurablejoint-set-connectedmassscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_connectedMassScale__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_connectedMassScale__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_connectedMassScale__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-connectedMassScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-enablecollision">
+<h2>ConfigurableJoint set_enableCollision<a class="headerlink" href="#configurablejoint-set-enablecollision" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_enableCollision__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_enableCollision__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_enableCollision__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-enableCollision.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-enablepreprocessing">
+<h2>ConfigurableJoint set_enablePreprocessing<a class="headerlink" href="#configurablejoint-set-enablepreprocessing" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_enablePreprocessing__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_enablePreprocessing__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_enablePreprocessing__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-enablePreprocessing.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-highangularxlimit">
+<h2>ConfigurableJoint set_highAngularXLimit<a class="headerlink" href="#configurablejoint-set-highangularxlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_highAngularXLimit__UnityEngineSoftJointLimit__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_highAngularXLimit__UnityEngineSoftJointLimit__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimit value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_highAngularXLimit__UnityEngineSoftJointLimit__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-highAngularXLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-linearlimit">
+<h2>ConfigurableJoint set_linearLimit<a class="headerlink" href="#configurablejoint-set-linearlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_linearLimit__UnityEngineSoftJointLimit__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_linearLimit__UnityEngineSoftJointLimit__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimit value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_linearLimit__UnityEngineSoftJointLimit__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-linearLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-linearlimitspring">
+<h2>ConfigurableJoint set_linearLimitSpring<a class="headerlink" href="#configurablejoint-set-linearlimitspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_linearLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_linearLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimitSpring value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_linearLimitSpring__UnityEngineSoftJointLimitSpring__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-linearLimitSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-lowangularxlimit">
+<h2>ConfigurableJoint set_lowAngularXLimit<a class="headerlink" href="#configurablejoint-set-lowangularxlimit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_lowAngularXLimit__UnityEngineSoftJointLimit__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_lowAngularXLimit__UnityEngineSoftJointLimit__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.SoftJointLimit value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_lowAngularXLimit__UnityEngineSoftJointLimit__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-lowAngularXLimit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-massscale">
+<h2>ConfigurableJoint set_massScale<a class="headerlink" href="#configurablejoint-set-massscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_massScale__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_massScale__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_massScale__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-massScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-name">
+<h2>ConfigurableJoint set_name<a class="headerlink" href="#configurablejoint-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-projectionangle">
+<h2>ConfigurableJoint set_projectionAngle<a class="headerlink" href="#configurablejoint-set-projectionangle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_projectionAngle__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_projectionAngle__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_projectionAngle__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-projectionAngle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-projectiondistance">
+<h2>ConfigurableJoint set_projectionDistance<a class="headerlink" href="#configurablejoint-set-projectiondistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_projectionDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_projectionDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_projectionDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-projectionDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-projectionmode">
+<h2>ConfigurableJoint set_projectionMode<a class="headerlink" href="#configurablejoint-set-projectionmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_projectionMode__UnityEngineJointProjectionMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_projectionMode__UnityEngineJointProjectionMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointProjectionMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_projectionMode__UnityEngineJointProjectionMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-projectionMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-rotationdrivemode">
+<h2>ConfigurableJoint set_rotationDriveMode<a class="headerlink" href="#configurablejoint-set-rotationdrivemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_rotationDriveMode__UnityEngineRotationDriveMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_rotationDriveMode__UnityEngineRotationDriveMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.RotationDriveMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_rotationDriveMode__UnityEngineRotationDriveMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-rotationDriveMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-secondaryaxis">
+<h2>ConfigurableJoint set_secondaryAxis<a class="headerlink" href="#configurablejoint-set-secondaryaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_secondaryAxis__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_secondaryAxis__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_secondaryAxis__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-secondaryAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-slerpdrive">
+<h2>ConfigurableJoint set_slerpDrive<a class="headerlink" href="#configurablejoint-set-slerpdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_slerpDrive__UnityEngineJointDrive__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_slerpDrive__UnityEngineJointDrive__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointDrive value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_slerpDrive__UnityEngineJointDrive__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-slerpDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-swapbodies">
+<h2>ConfigurableJoint set_swapBodies<a class="headerlink" href="#configurablejoint-set-swapbodies" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_swapBodies__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_swapBodies__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_swapBodies__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-swapBodies.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-targetangularvelocity">
+<h2>ConfigurableJoint set_targetAngularVelocity<a class="headerlink" href="#configurablejoint-set-targetangularvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_targetAngularVelocity__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_targetAngularVelocity__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_targetAngularVelocity__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetAngularVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-targetposition">
+<h2>ConfigurableJoint set_targetPosition<a class="headerlink" href="#configurablejoint-set-targetposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_targetPosition__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_targetPosition__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_targetPosition__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-targetrotation">
+<h2>ConfigurableJoint set_targetRotation<a class="headerlink" href="#configurablejoint-set-targetrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_targetRotation__UnityEngineQuaternion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_targetRotation__UnityEngineQuaternion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Quaternion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_targetRotation__UnityEngineQuaternion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-targetvelocity">
+<h2>ConfigurableJoint set_targetVelocity<a class="headerlink" href="#configurablejoint-set-targetvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_targetVelocity__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_targetVelocity__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_targetVelocity__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-targetVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-xdrive">
+<h2>ConfigurableJoint set_xDrive<a class="headerlink" href="#configurablejoint-set-xdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_xDrive__UnityEngineJointDrive__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_xDrive__UnityEngineJointDrive__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointDrive value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_xDrive__UnityEngineJointDrive__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-xDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-xmotion">
+<h2>ConfigurableJoint set_xMotion<a class="headerlink" href="#configurablejoint-set-xmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_xMotion__UnityEngineConfigurableJointMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_xMotion__UnityEngineConfigurableJointMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.ConfigurableJointMotion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_xMotion__UnityEngineConfigurableJointMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-xMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-ydrive">
+<h2>ConfigurableJoint set_yDrive<a class="headerlink" href="#configurablejoint-set-ydrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_yDrive__UnityEngineJointDrive__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_yDrive__UnityEngineJointDrive__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointDrive value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_yDrive__UnityEngineJointDrive__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-yDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-ymotion">
+<h2>ConfigurableJoint set_yMotion<a class="headerlink" href="#configurablejoint-set-ymotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_yMotion__UnityEngineConfigurableJointMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_yMotion__UnityEngineConfigurableJointMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.ConfigurableJointMotion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_yMotion__UnityEngineConfigurableJointMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-yMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-zdrive">
+<h2>ConfigurableJoint set_zDrive<a class="headerlink" href="#configurablejoint-set-zdrive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_zDrive__UnityEngineJointDrive__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_zDrive__UnityEngineJointDrive__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.JointDrive value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_zDrive__UnityEngineJointDrive__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-zDrive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-set-zmotion">
+<h2>ConfigurableJoint set_zMotion<a class="headerlink" href="#configurablejoint-set-zmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__set_zMotion__UnityEngineConfigurableJointMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__set_zMotion__UnityEngineConfigurableJointMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instanceUnityEngine.ConfigurableJointMotion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__set_zMotion__UnityEngineConfigurableJointMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint-zMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="configurablejoint-tostring">
+<h2>ConfigurableJoint ToString<a class="headerlink" href="#configurablejoint-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineConfigurableJoint.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineConfigurableJoint.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineConfigurableJoint.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id100">
+<h2>ConfigurableJoint<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineConfigurableJoint">
+<code class="sig-name descname">Variable_UnityEngineConfigurableJoint</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ConfigurableJoint ConfigurableJointSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineConfigurableJoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ConfigurableJoint.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ConstantForce2D/index.html" class="btn btn-neutral float-right" title="ConstantForce2D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../CompositeCollider2D/index.html" class="btn btn-neutral" title="CompositeCollider2D" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

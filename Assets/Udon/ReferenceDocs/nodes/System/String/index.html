@@ -1,0 +1,896 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>String &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="TimeZoneInfo" href="../TimeZoneInfo/index.html"/>
+        <link rel="prev" title="Float" href="../Float/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">String</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-addition">op_Addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-clone">String Clone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-compare">String Compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-compareordinal">String CompareOrdinal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-compareto">String CompareTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-concat">String Concat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-contains">String Contains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-copy">String Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-copyto">String CopyTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-endswith">String EndsWith</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-equals">String Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-format">String Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-get-chars">String get_Chars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-get-empty">String get_Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-get-length">String get_Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-getenumerator">String GetEnumerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-gethashcode">String GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-gettype">String GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-indexof">String IndexOf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-indexofany">String IndexOfAny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-insert">String Insert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-intern">String Intern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-isinterned">String IsInterned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-isnormalized">String IsNormalized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-isnullorempty">String IsNullOrEmpty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-isnullorwhitespace">String IsNullOrWhiteSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-join">String Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-lastindexof">String LastIndexOf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-lastindexofany">String LastIndexOfAny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-normalize">String Normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-padleft">String PadLeft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-padright">String PadRight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-remove">String Remove</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-replace">String Replace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-split">String Split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-startswith">String StartsWith</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-substring">String Substring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-tochararray">String ToCharArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-tolower">String ToLower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-tolowerinvariant">String ToLowerInvariant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-tostring">String ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-toupper">String ToUpper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-toupperinvariant">String ToUpperInvariant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-trim">String Trim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-trimend">String TrimEnd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-trimstart">String TrimStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>String</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/String/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../TimeZoneInfo/index.html" class="btn btn-neutral float-right" title="TimeZoneInfo" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Float/index.html" class="btn btn-neutral" title="Float" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="string">
+<h1>String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h1>
+<p>The String module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="id1">
+<h2>String<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_SystemString">
+<code class="sig-name descname">Const_SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String String</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-addition">
+<h2>op_Addition<a class="headerlink" href="#op-addition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__op_Addition__SystemString_SystemString__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__op_Addition__SystemString_SystemString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__op_Addition__SystemString_SystemString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="string-clone">
+<h2>String Clone<a class="headerlink" href="#string-clone" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Clone__SystemObject">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Clone__SystemObject</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Clone__SystemObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Clone?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-compare">
+<h2>String Compare<a class="headerlink" href="#string-compare" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Compare__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Compare__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String strASystem.Int32 indexASystem.String strBSystem.Int32 indexBSystem.Int32 length</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Compare__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Compare?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-compareordinal">
+<h2>String CompareOrdinal<a class="headerlink" href="#string-compareordinal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__CompareOrdinal__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__CompareOrdinal__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String strASystem.Int32 indexASystem.String strBSystem.Int32 indexBSystem.Int32 length</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__CompareOrdinal__SystemString_SystemInt32_SystemString_SystemInt32_SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.CompareOrdinal?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-compareto">
+<h2>String CompareTo<a class="headerlink" href="#string-compareto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__CompareTo__SystemString__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__CompareTo__SystemString__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.String strB</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__CompareTo__SystemString__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.CompareTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-concat">
+<h2>String Concat<a class="headerlink" href="#string-concat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Concat__SystemObject__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Concat__SystemObject__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Object arg0</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Concat__SystemObject__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Concat?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="sig-name descname">SystemString.__ctor__SystemChar*__SystemString(System.Char* )</code></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.-ctor?view=netframework-4.8#System_String__ctor_System_Char*_">C# Documentation</a></p>
+</div>
+<div class="section" id="string-contains">
+<h2>String Contains<a class="headerlink" href="#string-contains" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Contains__SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Contains__SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Contains__SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Contains?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-copy">
+<h2>String Copy<a class="headerlink" href="#string-copy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Copy__SystemString__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Copy__SystemString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String str</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Copy__SystemString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Copy?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-copyto">
+<h2>String CopyTo<a class="headerlink" href="#string-copyto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__CopyTo__SystemInt32_SystemCharArray_SystemInt32_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__CopyTo__SystemInt32_SystemCharArray_SystemInt32_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 sourceIndexSystem.Char[] destinationSystem.Int32 destinationIndexSystem.Int32 count</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__CopyTo__SystemInt32_SystemCharArray_SystemInt32_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.CopyTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-endswith">
+<h2>String EndsWith<a class="headerlink" href="#string-endswith" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__EndsWith__SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__EndsWith__SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__EndsWith__SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.EndsWith?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__op_Equality__SystemString_SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__op_Equality__SystemString_SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__op_Equality__SystemString_SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="string-equals">
+<h2>String Equals<a class="headerlink" href="#string-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Equals__SystemString_SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Equals__SystemString_SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String aSystem.String b</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Equals__SystemString_SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-format">
+<h2>String Format<a class="headerlink" href="#string-format" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Format__SystemString_SystemObject__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Format__SystemString_SystemObject__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String formatSystem.Object arg0</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Format__SystemString_SystemObject__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Format?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-get-chars">
+<h2>String get_Chars<a class="headerlink" href="#string-get-chars" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__get_Chars__SystemInt32__SystemChar">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__get_Chars__SystemInt32__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__get_Chars__SystemInt32__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Chars?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-get-empty">
+<h2>String get_Empty<a class="headerlink" href="#string-get-empty" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__get_Empty__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__get_Empty__SystemString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__get_Empty__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Empty?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-get-length">
+<h2>String get_Length<a class="headerlink" href="#string-get-length" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__get_Length__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__get_Length__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__get_Length__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Length?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-getenumerator">
+<h2>String GetEnumerator<a class="headerlink" href="#string-getenumerator" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__GetEnumerator__SystemCharEnumerator">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__GetEnumerator__SystemCharEnumerator</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__GetEnumerator__SystemCharEnumerator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">CharEnumerator</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.GetEnumerator?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-gethashcode">
+<h2>String GetHashCode<a class="headerlink" href="#string-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-gettype">
+<h2>String GetType<a class="headerlink" href="#string-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-indexof">
+<h2>String IndexOf<a class="headerlink" href="#string-indexof" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__IndexOf__SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__IndexOf__SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__IndexOf__SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.IndexOf?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-indexofany">
+<h2>String IndexOfAny<a class="headerlink" href="#string-indexofany" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__IndexOfAny__SystemCharArray__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__IndexOfAny__SystemCharArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char[] anyOf</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__IndexOfAny__SystemCharArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.IndexOfAny?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__op_Inequality__SystemString_SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="string-insert">
+<h2>String Insert<a class="headerlink" href="#string-insert" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Insert__SystemInt32_SystemString__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Insert__SystemInt32_SystemString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 startIndexSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Insert__SystemInt32_SystemString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Insert?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-intern">
+<h2>String Intern<a class="headerlink" href="#string-intern" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Intern__SystemString__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Intern__SystemString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String str</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Intern__SystemString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Intern?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-isinterned">
+<h2>String IsInterned<a class="headerlink" href="#string-isinterned" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__IsInterned__SystemString__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__IsInterned__SystemString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String str</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__IsInterned__SystemString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.IsInterned?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-isnormalized">
+<h2>String IsNormalized<a class="headerlink" href="#string-isnormalized" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__IsNormalized__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__IsNormalized__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__IsNormalized__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.IsNormalized?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-isnullorempty">
+<h2>String IsNullOrEmpty<a class="headerlink" href="#string-isnullorempty" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__IsNullOrEmpty__SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__IsNullOrEmpty__SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__IsNullOrEmpty__SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.IsNullOrEmpty?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-isnullorwhitespace">
+<h2>String IsNullOrWhiteSpace<a class="headerlink" href="#string-isnullorwhitespace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__IsNullOrWhiteSpace__SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__IsNullOrWhiteSpace__SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__IsNullOrWhiteSpace__SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.IsNullOrWhiteSpace?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-join">
+<h2>String Join<a class="headerlink" href="#string-join" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Join__SystemString_SystemStringArray__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Join__SystemString_SystemStringArray__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String separatorSystem.String[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Join__SystemString_SystemStringArray__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Join?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-lastindexof">
+<h2>String LastIndexOf<a class="headerlink" href="#string-lastindexof" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__LastIndexOf__SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__LastIndexOf__SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__LastIndexOf__SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.LastIndexOf?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-lastindexofany">
+<h2>String LastIndexOfAny<a class="headerlink" href="#string-lastindexofany" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__LastIndexOfAny__SystemCharArray__SystemInt32">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__LastIndexOfAny__SystemCharArray__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char[] anyOf</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__LastIndexOfAny__SystemCharArray__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.LastIndexOfAny?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-normalize">
+<h2>String Normalize<a class="headerlink" href="#string-normalize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Normalize__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Normalize__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Normalize__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Normalize?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-padleft">
+<h2>String PadLeft<a class="headerlink" href="#string-padleft" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__PadLeft__SystemInt32__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__PadLeft__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 totalWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__PadLeft__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.PadLeft?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-padright">
+<h2>String PadRight<a class="headerlink" href="#string-padright" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__PadRight__SystemInt32__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__PadRight__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 totalWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__PadRight__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.PadRight?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-remove">
+<h2>String Remove<a class="headerlink" href="#string-remove" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Remove__SystemInt32__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Remove__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 startIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Remove__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Remove?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-replace">
+<h2>String Replace<a class="headerlink" href="#string-replace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Replace__SystemChar_SystemChar__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Replace__SystemChar_SystemChar__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char oldCharSystem.Char newChar</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Replace__SystemChar_SystemChar__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Replace?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-split">
+<h2>String Split<a class="headerlink" href="#string-split" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Split__SystemCharArray__SystemStringArray">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Split__SystemCharArray__SystemStringArray</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char[] separator</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Split__SystemCharArray__SystemStringArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Split?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-startswith">
+<h2>String StartsWith<a class="headerlink" href="#string-startswith" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__StartsWith__SystemString__SystemBoolean">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__StartsWith__SystemString__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__StartsWith__SystemString__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.StartsWith?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-substring">
+<h2>String Substring<a class="headerlink" href="#string-substring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Substring__SystemInt32__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Substring__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Int32 startIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Substring__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Substring?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-tochararray">
+<h2>String ToCharArray<a class="headerlink" href="#string-tochararray" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__ToCharArray__SystemCharArray">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__ToCharArray__SystemCharArray</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__ToCharArray__SystemCharArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.ToCharArray?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-tolower">
+<h2>String ToLower<a class="headerlink" href="#string-tolower" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__ToLower__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__ToLower__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__ToLower__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.ToLower?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-tolowerinvariant">
+<h2>String ToLowerInvariant<a class="headerlink" href="#string-tolowerinvariant" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__ToLowerInvariant__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__ToLowerInvariant__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__ToLowerInvariant__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.ToLowerInvariant?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-tostring">
+<h2>String ToString<a class="headerlink" href="#string-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-toupper">
+<h2>String ToUpper<a class="headerlink" href="#string-toupper" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__ToUpper__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__ToUpper__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__ToUpper__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.ToUpper?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-toupperinvariant">
+<h2>String ToUpperInvariant<a class="headerlink" href="#string-toupperinvariant" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__ToUpperInvariant__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__ToUpperInvariant__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__ToUpperInvariant__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.ToUpperInvariant?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-trim">
+<h2>String Trim<a class="headerlink" href="#string-trim" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__Trim__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__Trim__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__Trim__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.Trim?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-trimend">
+<h2>String TrimEnd<a class="headerlink" href="#string-trimend" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__TrimEnd__SystemCharArray__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__TrimEnd__SystemCharArray__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char[] trimChars</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__TrimEnd__SystemCharArray__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.TrimEnd?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="string-trimstart">
+<h2>String TrimStart<a class="headerlink" href="#string-trimstart" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemString.__TrimStart__SystemCharArray__SystemString">
+<code class="sig-prename descclassname">SystemString.</code><code class="sig-name descname">__TrimStart__SystemCharArray__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String instanceSystem.Char[] trimChars</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemString.__TrimStart__SystemCharArray__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.String.TrimStart?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="id48">
+<h2>String<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemString">
+<code class="sig-name descname">Variable_SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.String StringSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../TimeZoneInfo/index.html" class="btn btn-neutral float-right" title="TimeZoneInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Float/index.html" class="btn btn-neutral" title="Float" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

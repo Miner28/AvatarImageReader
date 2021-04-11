@@ -1,0 +1,1098 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AnimationsParentConstraint &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="AnimationsPositionConstraint" href="../AnimationsPositionConstraint/index.html"/>
+        <link rel="prev" title="AnimationsLookAtConstraint" href="../AnimationsLookAtConstraint/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AnimationsParentConstraint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-addsource">ParentConstraint AddSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-equals">ParentConstraint Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-constraintactive">ParentConstraint get_constraintActive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-enabled">ParentConstraint get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-gameobject">ParentConstraint get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-locked">ParentConstraint get_locked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-name">ParentConstraint get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-rotationatrest">ParentConstraint get_rotationAtRest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-rotationaxis">ParentConstraint get_rotationAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-rotationoffsets">ParentConstraint get_rotationOffsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-sourcecount">ParentConstraint get_sourceCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-transform">ParentConstraint get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-translationatrest">ParentConstraint get_translationAtRest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-translationaxis">ParentConstraint get_translationAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-translationoffsets">ParentConstraint get_translationOffsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-get-weight">ParentConstraint get_weight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getcomponent">ParentConstraint GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getcomponentinchildren">ParentConstraint GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getcomponentinparent">ParentConstraint GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getcomponents">ParentConstraint GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getcomponentsinchildren">ParentConstraint GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getcomponentsinparent">ParentConstraint GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-gethashcode">ParentConstraint GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getinstanceid">ParentConstraint GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getrotationoffset">ParentConstraint GetRotationOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getsource">ParentConstraint GetSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-getsources">ParentConstraint GetSources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-gettranslationoffset">ParentConstraint GetTranslationOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-gettype">ParentConstraint GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-removesource">ParentConstraint RemoveSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-constraintactive">ParentConstraint set_constraintActive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-enabled">ParentConstraint set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-locked">ParentConstraint set_locked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-name">ParentConstraint set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-rotationatrest">ParentConstraint set_rotationAtRest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-rotationaxis">ParentConstraint set_rotationAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-rotationoffsets">ParentConstraint set_rotationOffsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-translationatrest">ParentConstraint set_translationAtRest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-translationaxis">ParentConstraint set_translationAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-translationoffsets">ParentConstraint set_translationOffsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-set-weight">ParentConstraint set_weight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-setrotationoffset">ParentConstraint SetRotationOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-setsource">ParentConstraint SetSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-setsources">ParentConstraint SetSources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-settranslationoffset">ParentConstraint SetTranslationOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint-tostring">ParentConstraint ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parentconstraint">ParentConstraint</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>AnimationsParentConstraint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/AnimationsParentConstraint/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../AnimationsPositionConstraint/index.html" class="btn btn-neutral float-right" title="AnimationsPositionConstraint" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AnimationsLookAtConstraint/index.html" class="btn btn-neutral" title="AnimationsLookAtConstraint" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="animationsparentconstraint">
+<h1>AnimationsParentConstraint<a class="headerlink" href="#animationsparentconstraint" title="Permalink to this headline">¶</a></h1>
+<p>The AnimationsParentConstraint module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="parentconstraint-addsource">
+<h2>ParentConstraint AddSource<a class="headerlink" href="#parentconstraint-addsource" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__AddSource__UnityEngineAnimationsConstraintSource__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__AddSource__UnityEngineAnimationsConstraintSource__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Animations.ConstraintSource source</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__AddSource__UnityEngineAnimationsConstraintSource__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.AddSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="parentconstraint-equals">
+<h2>ParentConstraint Equals<a class="headerlink" href="#parentconstraint-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-constraintactive">
+<h2>ParentConstraint get_constraintActive<a class="headerlink" href="#parentconstraint-get-constraintactive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_constraintActive__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_constraintActive__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_constraintActive__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-constraintActive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-enabled">
+<h2>ParentConstraint get_enabled<a class="headerlink" href="#parentconstraint-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-gameobject">
+<h2>ParentConstraint get_gameObject<a class="headerlink" href="#parentconstraint-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-locked">
+<h2>ParentConstraint get_locked<a class="headerlink" href="#parentconstraint-get-locked" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_locked__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_locked__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_locked__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-locked.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-name">
+<h2>ParentConstraint get_name<a class="headerlink" href="#parentconstraint-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-rotationatrest">
+<h2>ParentConstraint get_rotationAtRest<a class="headerlink" href="#parentconstraint-get-rotationatrest" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_rotationAtRest__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_rotationAtRest__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_rotationAtRest__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-rotationAtRest.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-rotationaxis">
+<h2>ParentConstraint get_rotationAxis<a class="headerlink" href="#parentconstraint-get-rotationaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_rotationAxis__UnityEngineAnimationsAxis">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_rotationAxis__UnityEngineAnimationsAxis</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_rotationAxis__UnityEngineAnimationsAxis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Axis</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-rotationAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-rotationoffsets">
+<h2>ParentConstraint get_rotationOffsets<a class="headerlink" href="#parentconstraint-get-rotationoffsets" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_rotationOffsets__UnityEngineVector3Array">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_rotationOffsets__UnityEngineVector3Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_rotationOffsets__UnityEngineVector3Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-rotationOffsets.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-sourcecount">
+<h2>ParentConstraint get_sourceCount<a class="headerlink" href="#parentconstraint-get-sourcecount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_sourceCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_sourceCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_sourceCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-sourceCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-transform">
+<h2>ParentConstraint get_transform<a class="headerlink" href="#parentconstraint-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-translationatrest">
+<h2>ParentConstraint get_translationAtRest<a class="headerlink" href="#parentconstraint-get-translationatrest" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_translationAtRest__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_translationAtRest__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_translationAtRest__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-translationAtRest.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-translationaxis">
+<h2>ParentConstraint get_translationAxis<a class="headerlink" href="#parentconstraint-get-translationaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_translationAxis__UnityEngineAnimationsAxis">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_translationAxis__UnityEngineAnimationsAxis</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_translationAxis__UnityEngineAnimationsAxis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Axis</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-translationAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-translationoffsets">
+<h2>ParentConstraint get_translationOffsets<a class="headerlink" href="#parentconstraint-get-translationoffsets" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_translationOffsets__UnityEngineVector3Array">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_translationOffsets__UnityEngineVector3Array</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_translationOffsets__UnityEngineVector3Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-translationOffsets.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-get-weight">
+<h2>ParentConstraint get_weight<a class="headerlink" href="#parentconstraint-get-weight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__get_weight__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__get_weight__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__get_weight__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-weight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getcomponent">
+<h2>ParentConstraint GetComponent<a class="headerlink" href="#parentconstraint-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getcomponentinchildren">
+<h2>ParentConstraint GetComponentInChildren<a class="headerlink" href="#parentconstraint-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getcomponentinparent">
+<h2>ParentConstraint GetComponentInParent<a class="headerlink" href="#parentconstraint-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getcomponents">
+<h2>ParentConstraint GetComponents<a class="headerlink" href="#parentconstraint-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getcomponentsinchildren">
+<h2>ParentConstraint GetComponentsInChildren<a class="headerlink" href="#parentconstraint-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getcomponentsinparent">
+<h2>ParentConstraint GetComponentsInParent<a class="headerlink" href="#parentconstraint-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-gethashcode">
+<h2>ParentConstraint GetHashCode<a class="headerlink" href="#parentconstraint-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getinstanceid">
+<h2>ParentConstraint GetInstanceID<a class="headerlink" href="#parentconstraint-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getrotationoffset">
+<h2>ParentConstraint GetRotationOffset<a class="headerlink" href="#parentconstraint-getrotationoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetRotationOffset__SystemInt32__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetRotationOffset__SystemInt32__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetRotationOffset__SystemInt32__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetRotationOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getsource">
+<h2>ParentConstraint GetSource<a class="headerlink" href="#parentconstraint-getsource" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetSource__SystemInt32__UnityEngineAnimationsConstraintSource">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetSource__SystemInt32__UnityEngineAnimationsConstraintSource</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetSource__SystemInt32__UnityEngineAnimationsConstraintSource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ConstraintSource</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-getsources">
+<h2>ParentConstraint GetSources<a class="headerlink" href="#parentconstraint-getsources" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetSources__SystemCollectionsGenericListUnityEngineAnimationsConstraintSource__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetSources__SystemCollectionsGenericListUnityEngineAnimationsConstraintSource__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Collections.Generic.List`1[UnityEngine.Animations.ConstraintSource] sources</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetSources__SystemCollectionsGenericListUnityEngineAnimationsConstraintSource__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetSources.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-gettranslationoffset">
+<h2>ParentConstraint GetTranslationOffset<a class="headerlink" href="#parentconstraint-gettranslationoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetTranslationOffset__SystemInt32__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetTranslationOffset__SystemInt32__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetTranslationOffset__SystemInt32__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.GetTranslationOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-gettype">
+<h2>ParentConstraint GetType<a class="headerlink" href="#parentconstraint-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="parentconstraint-removesource">
+<h2>ParentConstraint RemoveSource<a class="headerlink" href="#parentconstraint-removesource" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__RemoveSource__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__RemoveSource__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__RemoveSource__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.RemoveSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-constraintactive">
+<h2>ParentConstraint set_constraintActive<a class="headerlink" href="#parentconstraint-set-constraintactive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_constraintActive__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_constraintActive__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_constraintActive__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-constraintActive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-enabled">
+<h2>ParentConstraint set_enabled<a class="headerlink" href="#parentconstraint-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-locked">
+<h2>ParentConstraint set_locked<a class="headerlink" href="#parentconstraint-set-locked" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_locked__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_locked__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_locked__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-locked.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-name">
+<h2>ParentConstraint set_name<a class="headerlink" href="#parentconstraint-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-rotationatrest">
+<h2>ParentConstraint set_rotationAtRest<a class="headerlink" href="#parentconstraint-set-rotationatrest" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_rotationAtRest__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_rotationAtRest__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_rotationAtRest__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-rotationAtRest.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-rotationaxis">
+<h2>ParentConstraint set_rotationAxis<a class="headerlink" href="#parentconstraint-set-rotationaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_rotationAxis__UnityEngineAnimationsAxis__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_rotationAxis__UnityEngineAnimationsAxis__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Animations.Axis value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_rotationAxis__UnityEngineAnimationsAxis__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-rotationAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-rotationoffsets">
+<h2>ParentConstraint set_rotationOffsets<a class="headerlink" href="#parentconstraint-set-rotationoffsets" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_rotationOffsets__UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_rotationOffsets__UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Vector3[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_rotationOffsets__UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-rotationOffsets.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-translationatrest">
+<h2>ParentConstraint set_translationAtRest<a class="headerlink" href="#parentconstraint-set-translationatrest" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_translationAtRest__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_translationAtRest__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_translationAtRest__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-translationAtRest.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-translationaxis">
+<h2>ParentConstraint set_translationAxis<a class="headerlink" href="#parentconstraint-set-translationaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_translationAxis__UnityEngineAnimationsAxis__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_translationAxis__UnityEngineAnimationsAxis__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Animations.Axis value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_translationAxis__UnityEngineAnimationsAxis__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-translationAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-translationoffsets">
+<h2>ParentConstraint set_translationOffsets<a class="headerlink" href="#parentconstraint-set-translationoffsets" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_translationOffsets__UnityEngineVector3Array__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_translationOffsets__UnityEngineVector3Array__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceUnityEngine.Vector3[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_translationOffsets__UnityEngineVector3Array__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-translationOffsets.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-set-weight">
+<h2>ParentConstraint set_weight<a class="headerlink" href="#parentconstraint-set-weight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__set_weight__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__set_weight__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__set_weight__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint-weight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-setrotationoffset">
+<h2>ParentConstraint SetRotationOffset<a class="headerlink" href="#parentconstraint-setrotationoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__SetRotationOffset__SystemInt32_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__SetRotationOffset__SystemInt32_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 indexUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__SetRotationOffset__SystemInt32_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.SetRotationOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-setsource">
+<h2>ParentConstraint SetSource<a class="headerlink" href="#parentconstraint-setsource" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__SetSource__SystemInt32_UnityEngineAnimationsConstraintSource__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__SetSource__SystemInt32_UnityEngineAnimationsConstraintSource__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 indexUnityEngine.Animations.ConstraintSource source</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__SetSource__SystemInt32_UnityEngineAnimationsConstraintSource__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.SetSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-setsources">
+<h2>ParentConstraint SetSources<a class="headerlink" href="#parentconstraint-setsources" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__SetSources__SystemCollectionsGenericListUnityEngineAnimationsConstraintSource__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__SetSources__SystemCollectionsGenericListUnityEngineAnimationsConstraintSource__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Collections.Generic.List`1[UnityEngine.Animations.ConstraintSource] sources</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__SetSources__SystemCollectionsGenericListUnityEngineAnimationsConstraintSource__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.SetSources.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-settranslationoffset">
+<h2>ParentConstraint SetTranslationOffset<a class="headerlink" href="#parentconstraint-settranslationoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__SetTranslationOffset__SystemInt32_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__SetTranslationOffset__SystemInt32_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instanceSystem.Int32 indexUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__SetTranslationOffset__SystemInt32_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.SetTranslationOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint-tostring">
+<h2>ParentConstraint ToString<a class="headerlink" href="#parentconstraint-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimationsParentConstraint.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineAnimationsParentConstraint.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimationsParentConstraint.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="parentconstraint">
+<h2>ParentConstraint<a class="headerlink" href="#parentconstraint" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineAnimationsParentConstraint">
+<code class="sig-name descname">Variable_UnityEngineAnimationsParentConstraint</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animations.ParentConstraint ParentConstraintSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineAnimationsParentConstraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animations.ParentConstraint.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../AnimationsPositionConstraint/index.html" class="btn btn-neutral float-right" title="AnimationsPositionConstraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AnimationsLookAtConstraint/index.html" class="btn btn-neutral" title="AnimationsLookAtConstraint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

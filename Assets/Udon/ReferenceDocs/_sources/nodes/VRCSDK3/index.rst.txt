@@ -1,0 +1,19 @@
+====================================================================================================================================================
+VRCSDK3
+====================================================================================================================================================
+
+The VRCSDK3 module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+   ComponentsTrackingData/index
+   ComponentsVRCAvatarPedestal/index
+   ComponentsVRCMirrorReflection/index
+   ComponentsVRCPickup/index
+   ComponentsVRCPortalMarker/index
+   ComponentsVRCStation/index
+   VRCSDKBaseInputManager/index
+   VRCSDKBaseNetworking/index
+   VRCSDKBaseVRCPlayerApi/index

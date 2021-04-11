@@ -1,0 +1,401 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VRCSDKBaseInputManager &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="VRCSDKBaseNetworking" href="../VRCSDKBaseNetworking/index.html"/>
+        <link rel="prev" title="ComponentsVRCStation" href="../ComponentsVRCStation/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsTrackingData/index.html">ComponentsTrackingData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCAvatarPedestal/index.html">ComponentsVRCAvatarPedestal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPickup/index.html">ComponentsVRCPickup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPortalMarker/index.html">ComponentsVRCPortalMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCStation/index.html">ComponentsVRCStation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VRCSDKBaseInputManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager">InputManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-enableobjecthighlight">InputManager EnableObjectHighlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-equals">InputManager Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-get-enableobjecthighlight">InputManager get__EnableObjectHighlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-gethashcode">InputManager GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-getlastusedinputmethod">InputManager GetLastUsedInputMethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-gettype">InputManager GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-isusinghandcontroller">InputManager IsUsingHandController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-set-isusinghandcontroller">InputManager set__IsUsingHandController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputmanager-tostring">InputManager ToString</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseVRCPlayerApi/index.html">VRCSDKBaseVRCPlayerApi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>VRCSDKBaseInputManager</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/VRCSDKBaseInputManager/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../VRCSDKBaseNetworking/index.html" class="btn btn-neutral float-right" title="VRCSDKBaseNetworking" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCStation/index.html" class="btn btn-neutral" title="ComponentsVRCStation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vrcsdkbaseinputmanager">
+<h1>VRCSDKBaseInputManager<a class="headerlink" href="#vrcsdkbaseinputmanager" title="Permalink to this headline">¶</a></h1>
+<p>The VRCSDKBaseInputManager module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="inputmanager">
+<h2>InputManager<a class="headerlink" href="#inputmanager" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDKBaseInputManager">
+<code class="sig-name descname">Variable_VRCSDKBaseInputManager</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.InputManager InputManagerSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDKBaseInputManager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__ctor____VRCSDKBaseInputManager">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__ctor____VRCSDKBaseInputManager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__ctor____VRCSDKBaseInputManager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">InputManager</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-enableobjecthighlight">
+<h2>InputManager EnableObjectHighlight<a class="headerlink" href="#inputmanager-enableobjecthighlight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__EnableObjectHighlight__UnityEngineGameObject_SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__EnableObjectHighlight__UnityEngineGameObject_SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.GameObject objSystem.Boolean enable</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__EnableObjectHighlight__UnityEngineGameObject_SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="inputmanager-equals">
+<h2>InputManager Equals<a class="headerlink" href="#inputmanager-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.InputManager instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-get-enableobjecthighlight">
+<h2>InputManager get__EnableObjectHighlight<a class="headerlink" href="#inputmanager-get-enableobjecthighlight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__get__EnableObjectHighlight__SystemActionUnityEngineRendererSystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__get__EnableObjectHighlight__SystemActionUnityEngineRendererSystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__get__EnableObjectHighlight__SystemActionUnityEngineRendererSystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Action`2</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-gethashcode">
+<h2>InputManager GetHashCode<a class="headerlink" href="#inputmanager-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.InputManager instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-getlastusedinputmethod">
+<h2>InputManager GetLastUsedInputMethod<a class="headerlink" href="#inputmanager-getlastusedinputmethod" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__GetLastUsedInputMethod__VRCSDKBaseVRCInputMethod">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__GetLastUsedInputMethod__VRCSDKBaseVRCInputMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__GetLastUsedInputMethod__VRCSDKBaseVRCInputMethod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRCInputMethod</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-gettype">
+<h2>InputManager GetType<a class="headerlink" href="#inputmanager-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.InputManager instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-isusinghandcontroller">
+<h2>InputManager IsUsingHandController<a class="headerlink" href="#inputmanager-isusinghandcontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__IsUsingHandController__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__IsUsingHandController__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__IsUsingHandController__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="inputmanager-set-isusinghandcontroller">
+<h2>InputManager set__IsUsingHandController<a class="headerlink" href="#inputmanager-set-isusinghandcontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__set__IsUsingHandController__SystemFuncSystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__set__IsUsingHandController__SystemFuncSystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Func`1[System.Boolean] </em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__set__IsUsingHandController__SystemFuncSystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="inputmanager-tostring">
+<h2>InputManager ToString<a class="headerlink" href="#inputmanager-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseInputManager.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDKBaseInputManager.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.InputManager instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseInputManager.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../VRCSDKBaseNetworking/index.html" class="btn btn-neutral float-right" title="VRCSDKBaseNetworking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsVRCStation/index.html" class="btn btn-neutral" title="ComponentsVRCStation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

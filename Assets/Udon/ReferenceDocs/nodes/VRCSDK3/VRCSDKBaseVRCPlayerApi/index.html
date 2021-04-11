@@ -1,0 +1,970 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VRCSDKBaseVRCPlayerApi &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="System" href="../../System/index.html"/>
+        <link rel="prev" title="VRCSDKBaseNetworking" href="../VRCSDKBaseNetworking/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsTrackingData/index.html">ComponentsTrackingData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCAvatarPedestal/index.html">ComponentsVRCAvatarPedestal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPickup/index.html">ComponentsVRCPickup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPortalMarker/index.html">ComponentsVRCPortalMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCStation/index.html">ComponentsVRCStation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseInputManager/index.html">VRCSDKBaseInputManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VRCSDKBaseVRCPlayerApi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi">VRCPlayerApi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-addtolist">VRCPlayerApi AddToList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-clearplayertags">VRCPlayerApi ClearPlayerTags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-clearsilence">VRCPlayerApi ClearSilence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatgetcurrenthitpoints">VRCPlayerApi CombatGetCurrentHitpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatgetdestructible">VRCPlayerApi CombatGetDestructible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatsetcurrenthitpoints">VRCPlayerApi CombatSetCurrentHitpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatsetdamagegraphic">VRCPlayerApi CombatSetDamageGraphic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatsetmaxhitpoints">VRCPlayerApi CombatSetMaxHitpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatsetrespawn">VRCPlayerApi CombatSetRespawn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-combatsetup">VRCPlayerApi CombatSetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-enablepickups">VRCPlayerApi EnablePickups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-equals">VRCPlayerApi Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-allplayers">VRCPlayerApi get_AllPlayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-displayname">VRCPlayerApi get_displayName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-islocal">VRCPlayerApi get_isLocal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-ismaster">VRCPlayerApi get_isMaster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-playerid">VRCPlayerApi get_playerId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-splayers">VRCPlayerApi get_sPlayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-get-clearinvisible">VRCPlayerApi get__ClearInvisible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getboneposition">VRCPlayerApi GetBonePosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getbonerotation">VRCPlayerApi GetBoneRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getgravitystrength">VRCPlayerApi GetGravityStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-gethashcode">VRCPlayerApi GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getjumpimpulse">VRCPlayerApi GetJumpImpulse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getplayerbyid">VRCPlayerApi GetPlayerById</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getplayerid">VRCPlayerApi GetPlayerId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getplayerswithtag">VRCPlayerApi GetPlayersWithTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getplayertag">VRCPlayerApi GetPlayerTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getposition">VRCPlayerApi GetPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getrotation">VRCPlayerApi GetRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getrunspeed">VRCPlayerApi GetRunSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-gettrackingdata">VRCPlayerApi GetTrackingData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-gettype">VRCPlayerApi GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getvelocity">VRCPlayerApi GetVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-getwalkspeed">VRCPlayerApi GetWalkSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-immobilize">VRCPlayerApi Immobilize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-isowner">VRCPlayerApi IsOwner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-isplayergrounded">VRCPlayerApi IsPlayerGrounded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-isuserinvr">VRCPlayerApi IsUserInVR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-popanimations">VRCPlayerApi PopAnimations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-pushanimations">VRCPlayerApi PushAnimations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-removefromlist">VRCPlayerApi RemoveFromList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-set-displayname">VRCPlayerApi set_displayName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-set-islocal">VRCPlayerApi set_isLocal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-set-splayers">VRCPlayerApi set_sPlayers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-set-ismasterdelegate">VRCPlayerApi set__isMasterDelegate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setgravitystrength">VRCPlayerApi SetGravityStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setjumpimpulse">VRCPlayerApi SetJumpImpulse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setplayertag">VRCPlayerApi SetPlayerTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setrunspeed">VRCPlayerApi SetRunSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setsilencedtotagged">VRCPlayerApi SetSilencedToTagged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setsilencedtountagged">VRCPlayerApi SetSilencedToUntagged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setvelocity">VRCPlayerApi SetVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-setwalkspeed">VRCPlayerApi SetWalkSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-teleportto">VRCPlayerApi TeleportTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-tostring">VRCPlayerApi ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-useattachedstation">VRCPlayerApi UseAttachedStation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcplayerapi-uselegacylocomotion">VRCPlayerApi UseLegacyLocomotion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>VRCSDKBaseVRCPlayerApi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/VRCSDKBaseVRCPlayerApi/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../../System/index.html" class="btn btn-neutral float-right" title="System" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../VRCSDKBaseNetworking/index.html" class="btn btn-neutral" title="VRCSDKBaseNetworking" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vrcsdkbasevrcplayerapi">
+<h1>VRCSDKBaseVRCPlayerApi<a class="headerlink" href="#vrcsdkbasevrcplayerapi" title="Permalink to this headline">¶</a></h1>
+<p>The VRCSDKBaseVRCPlayerApi module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="vrcplayerapi">
+<h2>VRCPlayerApi<a class="headerlink" href="#vrcplayerapi" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDKBaseVRCPlayerApi">
+<code class="sig-name descname">Variable_VRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi VRCPlayerApiSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p>Contains a variable representing a VRChat Player API object. Used to access properties of players.</p>
+</div>
+<div class="section" id="vrcplayerapi-addtolist">
+<h2>VRCPlayerApi AddToList<a class="headerlink" href="#vrcplayerapi-addtolist" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__AddToList__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__AddToList__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__AddToList__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-clearplayertags">
+<h2>VRCPlayerApi ClearPlayerTags<a class="headerlink" href="#vrcplayerapi-clearplayertags" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__ClearPlayerTags__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__ClearPlayerTags__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__ClearPlayerTags__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-clearsilence">
+<h2>VRCPlayerApi ClearSilence<a class="headerlink" href="#vrcplayerapi-clearsilence" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__ClearSilence__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__ClearSilence__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__ClearSilence__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatgetcurrenthitpoints">
+<h2>VRCPlayerApi CombatGetCurrentHitpoints<a class="headerlink" href="#vrcplayerapi-combatgetcurrenthitpoints" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatGetCurrentHitpoints__SystemSingle">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatGetCurrentHitpoints__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatGetCurrentHitpoints__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatgetdestructible">
+<h2>VRCPlayerApi CombatGetDestructible<a class="headerlink" href="#vrcplayerapi-combatgetdestructible" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatGetDestructible__VRCSDKBaseIVRC_Destructible">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatGetDestructible__VRCSDKBaseIVRC_Destructible</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatGetDestructible__VRCSDKBaseIVRC_Destructible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">IVRC_Destructible</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatsetcurrenthitpoints">
+<h2>VRCPlayerApi CombatSetCurrentHitpoints<a class="headerlink" href="#vrcplayerapi-combatsetcurrenthitpoints" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatSetCurrentHitpoints__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatSetCurrentHitpoints__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Single hp</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatSetCurrentHitpoints__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatsetdamagegraphic">
+<h2>VRCPlayerApi CombatSetDamageGraphic<a class="headerlink" href="#vrcplayerapi-combatsetdamagegraphic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatSetDamageGraphic__UnityEngineGameObject__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatSetDamageGraphic__UnityEngineGameObject__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.GameObject prefab</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatSetDamageGraphic__UnityEngineGameObject__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatsetmaxhitpoints">
+<h2>VRCPlayerApi CombatSetMaxHitpoints<a class="headerlink" href="#vrcplayerapi-combatsetmaxhitpoints" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatSetMaxHitpoints__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatSetMaxHitpoints__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Single maxHp</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatSetMaxHitpoints__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatsetrespawn">
+<h2>VRCPlayerApi CombatSetRespawn<a class="headerlink" href="#vrcplayerapi-combatsetrespawn" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatSetRespawn__SystemBoolean_SystemSingle_UnityEngineTransform__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatSetRespawn__SystemBoolean_SystemSingle_UnityEngineTransform__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Boolean respawnOnDeathSystem.Single respawnTimerUnityEngine.Transform respawnLocation</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatSetRespawn__SystemBoolean_SystemSingle_UnityEngineTransform__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-combatsetup">
+<h2>VRCPlayerApi CombatSetup<a class="headerlink" href="#vrcplayerapi-combatsetup" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__CombatSetup__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__CombatSetup__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__CombatSetup__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__ctor____VRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__ctor____VRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__ctor____VRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRCPlayerApi</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-enablepickups">
+<h2>VRCPlayerApi EnablePickups<a class="headerlink" href="#vrcplayerapi-enablepickups" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__EnablePickups__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__EnablePickups__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Boolean enable</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__EnablePickups__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-equals">
+<h2>VRCPlayerApi Equals<a class="headerlink" href="#vrcplayerapi-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-allplayers">
+<h2>VRCPlayerApi get_AllPlayers<a class="headerlink" href="#vrcplayerapi-get-allplayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get_AllPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get_AllPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get_AllPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">List`1</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-displayname">
+<h2>VRCPlayerApi get_displayName<a class="headerlink" href="#vrcplayerapi-get-displayname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get_displayName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-islocal">
+<h2>VRCPlayerApi get_isLocal<a class="headerlink" href="#vrcplayerapi-get-islocal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get_isLocal__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get_isLocal__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get_isLocal__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-ismaster">
+<h2>VRCPlayerApi get_isMaster<a class="headerlink" href="#vrcplayerapi-get-ismaster" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get_isMaster__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-playerid">
+<h2>VRCPlayerApi get_playerId<a class="headerlink" href="#vrcplayerapi-get-playerid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get_playerId__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-splayers">
+<h2>VRCPlayerApi get_sPlayers<a class="headerlink" href="#vrcplayerapi-get-splayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">List`1</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-get-clearinvisible">
+<h2>VRCPlayerApi get__ClearInvisible<a class="headerlink" href="#vrcplayerapi-get-clearinvisible" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__get__ClearInvisible__SystemActionVRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__get__ClearInvisible__SystemActionVRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__get__ClearInvisible__SystemActionVRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Action`1</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getboneposition">
+<h2>VRCPlayerApi GetBonePosition<a class="headerlink" href="#vrcplayerapi-getboneposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetBonePosition__UnityEngineHumanBodyBones__UnityEngineVector3">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetBonePosition__UnityEngineHumanBodyBones__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.HumanBodyBones tt</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetBonePosition__UnityEngineHumanBodyBones__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getbonerotation">
+<h2>VRCPlayerApi GetBoneRotation<a class="headerlink" href="#vrcplayerapi-getbonerotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetBoneRotation__UnityEngineHumanBodyBones__UnityEngineQuaternion">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetBoneRotation__UnityEngineHumanBodyBones__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.HumanBodyBones tt</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetBoneRotation__UnityEngineHumanBodyBones__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getgravitystrength">
+<h2>VRCPlayerApi GetGravityStrength<a class="headerlink" href="#vrcplayerapi-getgravitystrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetGravityStrength__SystemSingle">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetGravityStrength__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetGravityStrength__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-gethashcode">
+<h2>VRCPlayerApi GetHashCode<a class="headerlink" href="#vrcplayerapi-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getjumpimpulse">
+<h2>VRCPlayerApi GetJumpImpulse<a class="headerlink" href="#vrcplayerapi-getjumpimpulse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetJumpImpulse__SystemSingle">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetJumpImpulse__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetJumpImpulse__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getplayerbyid">
+<h2>VRCPlayerApi GetPlayerById<a class="headerlink" href="#vrcplayerapi-getplayerbyid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetPlayerById__SystemInt32__VRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetPlayerById__SystemInt32__VRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 playerId</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetPlayerById__SystemInt32__VRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VRCPlayerApi</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getplayerid">
+<h2>VRCPlayerApi GetPlayerId<a class="headerlink" href="#vrcplayerapi-getplayerid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetPlayerId__VRCSDKBaseVRCPlayerApi__SystemInt32">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetPlayerId__VRCSDKBaseVRCPlayerApi__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi player</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetPlayerId__VRCSDKBaseVRCPlayerApi__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getplayerswithtag">
+<h2>VRCPlayerApi GetPlayersWithTag<a class="headerlink" href="#vrcplayerapi-getplayerswithtag" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetPlayersWithTag__SystemString_SystemString__SystemCollectionsGenericListSystemInt32">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetPlayersWithTag__SystemString_SystemString__SystemCollectionsGenericListSystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.String tagNameSystem.String tagValue</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetPlayersWithTag__SystemString_SystemString__SystemCollectionsGenericListSystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">List`1</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getplayertag">
+<h2>VRCPlayerApi GetPlayerTag<a class="headerlink" href="#vrcplayerapi-getplayertag" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetPlayerTag__SystemString__SystemString">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetPlayerTag__SystemString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.String tagName</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetPlayerTag__SystemString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getposition">
+<h2>VRCPlayerApi GetPosition<a class="headerlink" href="#vrcplayerapi-getposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getrotation">
+<h2>VRCPlayerApi GetRotation<a class="headerlink" href="#vrcplayerapi-getrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetRotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetRotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetRotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getrunspeed">
+<h2>VRCPlayerApi GetRunSpeed<a class="headerlink" href="#vrcplayerapi-getrunspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetRunSpeed__SystemSingle">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetRunSpeed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetRunSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-gettrackingdata">
+<h2>VRCPlayerApi GetTrackingData<a class="headerlink" href="#vrcplayerapi-gettrackingdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetTrackingData__VRCSDKBaseVRCPlayerApiTrackingDataType__VRCSDKBaseVRCPlayerApiTrackingData">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetTrackingData__VRCSDKBaseVRCPlayerApiTrackingDataType__VRCSDKBaseVRCPlayerApiTrackingData</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceVRC.SDKBase.VRCPlayerApi+TrackingDataType tt</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetTrackingData__VRCSDKBaseVRCPlayerApiTrackingDataType__VRCSDKBaseVRCPlayerApiTrackingData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TrackingData</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-gettype">
+<h2>VRCPlayerApi GetType<a class="headerlink" href="#vrcplayerapi-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getvelocity">
+<h2>VRCPlayerApi GetVelocity<a class="headerlink" href="#vrcplayerapi-getvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetVelocity__UnityEngineVector3">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetVelocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetVelocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-getwalkspeed">
+<h2>VRCPlayerApi GetWalkSpeed<a class="headerlink" href="#vrcplayerapi-getwalkspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__GetWalkSpeed__SystemSingle">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__GetWalkSpeed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__GetWalkSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-immobilize">
+<h2>VRCPlayerApi Immobilize<a class="headerlink" href="#vrcplayerapi-immobilize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__Immobilize__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__Immobilize__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Boolean immobile</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__Immobilize__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-isowner">
+<h2>VRCPlayerApi IsOwner<a class="headerlink" href="#vrcplayerapi-isowner" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__IsOwner__UnityEngineGameObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__IsOwner__UnityEngineGameObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.GameObject obj</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__IsOwner__UnityEngineGameObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-isplayergrounded">
+<h2>VRCPlayerApi IsPlayerGrounded<a class="headerlink" href="#vrcplayerapi-isplayergrounded" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__IsPlayerGrounded__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__IsPlayerGrounded__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__IsPlayerGrounded__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-isuserinvr">
+<h2>VRCPlayerApi IsUserInVR<a class="headerlink" href="#vrcplayerapi-isuserinvr" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__IsUserInVR__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__IsUserInVR__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__IsUserInVR__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-popanimations">
+<h2>VRCPlayerApi PopAnimations<a class="headerlink" href="#vrcplayerapi-popanimations" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__PopAnimations__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__PopAnimations__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__PopAnimations__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-pushanimations">
+<h2>VRCPlayerApi PushAnimations<a class="headerlink" href="#vrcplayerapi-pushanimations" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__PushAnimations__UnityEngineRuntimeAnimatorController__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__PushAnimations__UnityEngineRuntimeAnimatorController__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.RuntimeAnimatorController animations</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__PushAnimations__UnityEngineRuntimeAnimatorController__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-removefromlist">
+<h2>VRCPlayerApi RemoveFromList<a class="headerlink" href="#vrcplayerapi-removefromlist" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__RemoveFromList__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__RemoveFromList__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__RemoveFromList__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-set-displayname">
+<h2>VRCPlayerApi set_displayName<a class="headerlink" href="#vrcplayerapi-set-displayname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__set_displayName__SystemString">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__set_displayName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__set_displayName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-set-islocal">
+<h2>VRCPlayerApi set_isLocal<a class="headerlink" href="#vrcplayerapi-set-islocal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__set_isLocal__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__set_isLocal__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__set_isLocal__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-set-splayers">
+<h2>VRCPlayerApi set_sPlayers<a class="headerlink" href="#vrcplayerapi-set-splayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__set_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__set_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi</code><span class="sig-paren">(</span><em class="sig-param">System.Collections.Generic.List`1[VRC.SDKBase.VRCPlayerApi] </em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__set_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-set-ismasterdelegate">
+<h2>VRCPlayerApi set__isMasterDelegate<a class="headerlink" href="#vrcplayerapi-set-ismasterdelegate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__set__isMasterDelegate__SystemFuncVRCSDKBaseVRCPlayerApiSystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__set__isMasterDelegate__SystemFuncVRCSDKBaseVRCPlayerApiSystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Func`2[VRC.SDKBase.VRCPlayerApi,System.Boolean] </em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__set__isMasterDelegate__SystemFuncVRCSDKBaseVRCPlayerApiSystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setgravitystrength">
+<h2>VRCPlayerApi SetGravityStrength<a class="headerlink" href="#vrcplayerapi-setgravitystrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetGravityStrength__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetGravityStrength__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Single strength</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetGravityStrength__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setjumpimpulse">
+<h2>VRCPlayerApi SetJumpImpulse<a class="headerlink" href="#vrcplayerapi-setjumpimpulse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetJumpImpulse__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetJumpImpulse__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Single impulse</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetJumpImpulse__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setplayertag">
+<h2>VRCPlayerApi SetPlayerTag<a class="headerlink" href="#vrcplayerapi-setplayertag" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetPlayerTag__SystemString_SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetPlayerTag__SystemString_SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.String tagNameSystem.String tagValue</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetPlayerTag__SystemString_SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setrunspeed">
+<h2>VRCPlayerApi SetRunSpeed<a class="headerlink" href="#vrcplayerapi-setrunspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetRunSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetRunSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Single speed</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetRunSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setsilencedtotagged">
+<h2>VRCPlayerApi SetSilencedToTagged<a class="headerlink" href="#vrcplayerapi-setsilencedtotagged" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetSilencedToTagged__SystemInt32_SystemString_SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetSilencedToTagged__SystemInt32_SystemString_SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Int32 levelSystem.String tagNameSystem.String tagValue</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetSilencedToTagged__SystemInt32_SystemString_SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setsilencedtountagged">
+<h2>VRCPlayerApi SetSilencedToUntagged<a class="headerlink" href="#vrcplayerapi-setsilencedtountagged" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetSilencedToUntagged__SystemInt32_SystemString_SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetSilencedToUntagged__SystemInt32_SystemString_SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Int32 levelSystem.String tagNameSystem.String tagValue</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetSilencedToUntagged__SystemInt32_SystemString_SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setvelocity">
+<h2>VRCPlayerApi SetVelocity<a class="headerlink" href="#vrcplayerapi-setvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetVelocity__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetVelocity__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.Vector3 velocity</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetVelocity__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-setwalkspeed">
+<h2>VRCPlayerApi SetWalkSpeed<a class="headerlink" href="#vrcplayerapi-setwalkspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__SetWalkSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__SetWalkSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceSystem.Single speed</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__SetWalkSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-teleportto">
+<h2>VRCPlayerApi TeleportTo<a class="headerlink" href="#vrcplayerapi-teleportto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__TeleportTo__UnityEngineVector3_UnityEngineQuaternion__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__TeleportTo__UnityEngineVector3_UnityEngineQuaternion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instanceUnityEngine.Vector3 teleportPosUnityEngine.Quaternion teleportRot</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__TeleportTo__UnityEngineVector3_UnityEngineQuaternion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-tostring">
+<h2>VRCPlayerApi ToString<a class="headerlink" href="#vrcplayerapi-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcplayerapi-useattachedstation">
+<h2>VRCPlayerApi UseAttachedStation<a class="headerlink" href="#vrcplayerapi-useattachedstation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__UseAttachedStation__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__UseAttachedStation__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__UseAttachedStation__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcplayerapi-uselegacylocomotion">
+<h2>VRCPlayerApi UseLegacyLocomotion<a class="headerlink" href="#vrcplayerapi-uselegacylocomotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApi.__UseLegacyLocomotion__SystemVoid">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApi.</code><code class="sig-name descname">__UseLegacyLocomotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApi.__UseLegacyLocomotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../System/index.html" class="btn btn-neutral float-right" title="System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../VRCSDKBaseNetworking/index.html" class="btn btn-neutral" title="VRCSDKBaseNetworking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1608 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AINavMeshAgent &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="AINavMeshData" href="../AINavMeshData/index.html"/>
+        <link rel="prev" title="UnityEngine" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AINavMeshAgent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-activatecurrentoffmeshlink">NavMeshAgent ActivateCurrentOffMeshLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-calculatepath">NavMeshAgent CalculatePath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-completeoffmeshlink">NavMeshAgent CompleteOffMeshLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-equals">NavMeshAgent Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-findclosestedge">NavMeshAgent FindClosestEdge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-acceleration">NavMeshAgent get_acceleration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-agenttypeid">NavMeshAgent get_agentTypeID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-angularspeed">NavMeshAgent get_angularSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-areamask">NavMeshAgent get_areaMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-autobraking">NavMeshAgent get_autoBraking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-autorepath">NavMeshAgent get_autoRepath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-autotraverseoffmeshlink">NavMeshAgent get_autoTraverseOffMeshLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-avoidancepriority">NavMeshAgent get_avoidancePriority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-baseoffset">NavMeshAgent get_baseOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-currentoffmeshlinkdata">NavMeshAgent get_currentOffMeshLinkData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-desiredvelocity">NavMeshAgent get_desiredVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-destination">NavMeshAgent get_destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-enabled">NavMeshAgent get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-gameobject">NavMeshAgent get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-haspath">NavMeshAgent get_hasPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-height">NavMeshAgent get_height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-isonnavmesh">NavMeshAgent get_isOnNavMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-isonoffmeshlink">NavMeshAgent get_isOnOffMeshLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-ispathstale">NavMeshAgent get_isPathStale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-isstopped">NavMeshAgent get_isStopped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-name">NavMeshAgent get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-navmeshowner">NavMeshAgent get_navMeshOwner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-nextoffmeshlinkdata">NavMeshAgent get_nextOffMeshLinkData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-nextposition">NavMeshAgent get_nextPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-obstacleavoidancetype">NavMeshAgent get_obstacleAvoidanceType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-path">NavMeshAgent get_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-pathendposition">NavMeshAgent get_pathEndPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-pathpending">NavMeshAgent get_pathPending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-pathstatus">NavMeshAgent get_pathStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-radius">NavMeshAgent get_radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-remainingdistance">NavMeshAgent get_remainingDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-speed">NavMeshAgent get_speed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-steeringtarget">NavMeshAgent get_steeringTarget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-stoppingdistance">NavMeshAgent get_stoppingDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-transform">NavMeshAgent get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-updateposition">NavMeshAgent get_updatePosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-updaterotation">NavMeshAgent get_updateRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-updateupaxis">NavMeshAgent get_updateUpAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-get-velocity">NavMeshAgent get_velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getareacost">NavMeshAgent GetAreaCost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getcomponent">NavMeshAgent GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getcomponentinchildren">NavMeshAgent GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getcomponentinparent">NavMeshAgent GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getcomponents">NavMeshAgent GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getcomponentsinchildren">NavMeshAgent GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getcomponentsinparent">NavMeshAgent GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-gethashcode">NavMeshAgent GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-getinstanceid">NavMeshAgent GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-gettype">NavMeshAgent GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-move">NavMeshAgent Move</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-raycast">NavMeshAgent Raycast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-resetpath">NavMeshAgent ResetPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-samplepathposition">NavMeshAgent SamplePathPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-acceleration">NavMeshAgent set_acceleration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-agenttypeid">NavMeshAgent set_agentTypeID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-angularspeed">NavMeshAgent set_angularSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-areamask">NavMeshAgent set_areaMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-autobraking">NavMeshAgent set_autoBraking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-autorepath">NavMeshAgent set_autoRepath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-autotraverseoffmeshlink">NavMeshAgent set_autoTraverseOffMeshLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-avoidancepriority">NavMeshAgent set_avoidancePriority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-baseoffset">NavMeshAgent set_baseOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-destination">NavMeshAgent set_destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-enabled">NavMeshAgent set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-height">NavMeshAgent set_height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-isstopped">NavMeshAgent set_isStopped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-name">NavMeshAgent set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-nextposition">NavMeshAgent set_nextPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-obstacleavoidancetype">NavMeshAgent set_obstacleAvoidanceType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-path">NavMeshAgent set_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-radius">NavMeshAgent set_radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-speed">NavMeshAgent set_speed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-stoppingdistance">NavMeshAgent set_stoppingDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-updateposition">NavMeshAgent set_updatePosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-updaterotation">NavMeshAgent set_updateRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-updateupaxis">NavMeshAgent set_updateUpAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-set-velocity">NavMeshAgent set_velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-setareacost">NavMeshAgent SetAreaCost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-setdestination">NavMeshAgent SetDestination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-setpath">NavMeshAgent SetPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-tostring">NavMeshAgent ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent-warp">NavMeshAgent Warp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navmeshagent">NavMeshAgent</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>AINavMeshAgent</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/AINavMeshAgent/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../AINavMeshData/index.html" class="btn btn-neutral float-right" title="AINavMeshData" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="UnityEngine" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ainavmeshagent">
+<h1>AINavMeshAgent<a class="headerlink" href="#ainavmeshagent" title="Permalink to this headline">¶</a></h1>
+<p>The AINavMeshAgent module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="navmeshagent-activatecurrentoffmeshlink">
+<h2>NavMeshAgent ActivateCurrentOffMeshLink<a class="headerlink" href="#navmeshagent-activatecurrentoffmeshlink" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__ActivateCurrentOffMeshLink__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__ActivateCurrentOffMeshLink__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean activated</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__ActivateCurrentOffMeshLink__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.ActivateCurrentOffMeshLink.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-calculatepath">
+<h2>NavMeshAgent CalculatePath<a class="headerlink" href="#navmeshagent-calculatepath" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__CalculatePath__UnityEngineVector3_UnityEngineAINavMeshPath__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__CalculatePath__UnityEngineVector3_UnityEngineAINavMeshPath__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 targetPositionUnityEngine.AI.NavMeshPath path</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__CalculatePath__UnityEngineVector3_UnityEngineAINavMeshPath__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.CalculatePath.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-completeoffmeshlink">
+<h2>NavMeshAgent CompleteOffMeshLink<a class="headerlink" href="#navmeshagent-completeoffmeshlink" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__CompleteOffMeshLink__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__CompleteOffMeshLink__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__CompleteOffMeshLink__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.CompleteOffMeshLink.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="navmeshagent-equals">
+<h2>NavMeshAgent Equals<a class="headerlink" href="#navmeshagent-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-findclosestedge">
+<h2>NavMeshAgent FindClosestEdge<a class="headerlink" href="#navmeshagent-findclosestedge" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__FindClosestEdge__UnityEngineAINavMeshHitRef__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__FindClosestEdge__UnityEngineAINavMeshHitRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__FindClosestEdge__UnityEngineAINavMeshHitRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: hit (<code class="docutils literal notranslate"><span class="pre">NavMeshHit</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.FindClosestEdge.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-acceleration">
+<h2>NavMeshAgent get_acceleration<a class="headerlink" href="#navmeshagent-get-acceleration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_acceleration__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_acceleration__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_acceleration__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-acceleration.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-agenttypeid">
+<h2>NavMeshAgent get_agentTypeID<a class="headerlink" href="#navmeshagent-get-agenttypeid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_agentTypeID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_agentTypeID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_agentTypeID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-agentTypeID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-angularspeed">
+<h2>NavMeshAgent get_angularSpeed<a class="headerlink" href="#navmeshagent-get-angularspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_angularSpeed__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_angularSpeed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_angularSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-angularSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-areamask">
+<h2>NavMeshAgent get_areaMask<a class="headerlink" href="#navmeshagent-get-areamask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_areaMask__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_areaMask__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_areaMask__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-areaMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-autobraking">
+<h2>NavMeshAgent get_autoBraking<a class="headerlink" href="#navmeshagent-get-autobraking" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_autoBraking__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_autoBraking__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_autoBraking__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-autoBraking.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-autorepath">
+<h2>NavMeshAgent get_autoRepath<a class="headerlink" href="#navmeshagent-get-autorepath" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_autoRepath__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_autoRepath__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_autoRepath__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-autoRepath.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-autotraverseoffmeshlink">
+<h2>NavMeshAgent get_autoTraverseOffMeshLink<a class="headerlink" href="#navmeshagent-get-autotraverseoffmeshlink" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_autoTraverseOffMeshLink__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_autoTraverseOffMeshLink__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_autoTraverseOffMeshLink__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-autoTraverseOffMeshLink.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-avoidancepriority">
+<h2>NavMeshAgent get_avoidancePriority<a class="headerlink" href="#navmeshagent-get-avoidancepriority" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_avoidancePriority__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_avoidancePriority__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_avoidancePriority__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-avoidancePriority.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-baseoffset">
+<h2>NavMeshAgent get_baseOffset<a class="headerlink" href="#navmeshagent-get-baseoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_baseOffset__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_baseOffset__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_baseOffset__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-baseOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-currentoffmeshlinkdata">
+<h2>NavMeshAgent get_currentOffMeshLinkData<a class="headerlink" href="#navmeshagent-get-currentoffmeshlinkdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_currentOffMeshLinkData__UnityEngineAIOffMeshLinkData">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_currentOffMeshLinkData__UnityEngineAIOffMeshLinkData</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_currentOffMeshLinkData__UnityEngineAIOffMeshLinkData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">OffMeshLinkData</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-currentOffMeshLinkData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-desiredvelocity">
+<h2>NavMeshAgent get_desiredVelocity<a class="headerlink" href="#navmeshagent-get-desiredvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_desiredVelocity__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_desiredVelocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_desiredVelocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-desiredVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-destination">
+<h2>NavMeshAgent get_destination<a class="headerlink" href="#navmeshagent-get-destination" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_destination__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_destination__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_destination__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-destination.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-enabled">
+<h2>NavMeshAgent get_enabled<a class="headerlink" href="#navmeshagent-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-gameobject">
+<h2>NavMeshAgent get_gameObject<a class="headerlink" href="#navmeshagent-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-haspath">
+<h2>NavMeshAgent get_hasPath<a class="headerlink" href="#navmeshagent-get-haspath" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_hasPath__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_hasPath__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_hasPath__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-hasPath.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-height">
+<h2>NavMeshAgent get_height<a class="headerlink" href="#navmeshagent-get-height" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_height__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_height__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_height__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-height.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-isonnavmesh">
+<h2>NavMeshAgent get_isOnNavMesh<a class="headerlink" href="#navmeshagent-get-isonnavmesh" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_isOnNavMesh__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_isOnNavMesh__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_isOnNavMesh__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-isOnNavMesh.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-isonoffmeshlink">
+<h2>NavMeshAgent get_isOnOffMeshLink<a class="headerlink" href="#navmeshagent-get-isonoffmeshlink" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_isOnOffMeshLink__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_isOnOffMeshLink__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_isOnOffMeshLink__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-isOnOffMeshLink.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-ispathstale">
+<h2>NavMeshAgent get_isPathStale<a class="headerlink" href="#navmeshagent-get-ispathstale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_isPathStale__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_isPathStale__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_isPathStale__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-isPathStale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-isstopped">
+<h2>NavMeshAgent get_isStopped<a class="headerlink" href="#navmeshagent-get-isstopped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_isStopped__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_isStopped__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_isStopped__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-isStopped.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-name">
+<h2>NavMeshAgent get_name<a class="headerlink" href="#navmeshagent-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-navmeshowner">
+<h2>NavMeshAgent get_navMeshOwner<a class="headerlink" href="#navmeshagent-get-navmeshowner" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_navMeshOwner__UnityEngineObject">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_navMeshOwner__UnityEngineObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_navMeshOwner__UnityEngineObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-navMeshOwner.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-nextoffmeshlinkdata">
+<h2>NavMeshAgent get_nextOffMeshLinkData<a class="headerlink" href="#navmeshagent-get-nextoffmeshlinkdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_nextOffMeshLinkData__UnityEngineAIOffMeshLinkData">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_nextOffMeshLinkData__UnityEngineAIOffMeshLinkData</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_nextOffMeshLinkData__UnityEngineAIOffMeshLinkData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">OffMeshLinkData</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-nextOffMeshLinkData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-nextposition">
+<h2>NavMeshAgent get_nextPosition<a class="headerlink" href="#navmeshagent-get-nextposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_nextPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_nextPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_nextPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-nextPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-obstacleavoidancetype">
+<h2>NavMeshAgent get_obstacleAvoidanceType<a class="headerlink" href="#navmeshagent-get-obstacleavoidancetype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_obstacleAvoidanceType__UnityEngineAIObstacleAvoidanceType">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_obstacleAvoidanceType__UnityEngineAIObstacleAvoidanceType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_obstacleAvoidanceType__UnityEngineAIObstacleAvoidanceType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ObstacleAvoidanceType</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-obstacleAvoidanceType.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-path">
+<h2>NavMeshAgent get_path<a class="headerlink" href="#navmeshagent-get-path" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_path__UnityEngineAINavMeshPath">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_path__UnityEngineAINavMeshPath</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_path__UnityEngineAINavMeshPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">NavMeshPath</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-path.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-pathendposition">
+<h2>NavMeshAgent get_pathEndPosition<a class="headerlink" href="#navmeshagent-get-pathendposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_pathEndPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_pathEndPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_pathEndPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-pathEndPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-pathpending">
+<h2>NavMeshAgent get_pathPending<a class="headerlink" href="#navmeshagent-get-pathpending" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_pathPending__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_pathPending__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_pathPending__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-pathPending.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-pathstatus">
+<h2>NavMeshAgent get_pathStatus<a class="headerlink" href="#navmeshagent-get-pathstatus" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_pathStatus__UnityEngineAINavMeshPathStatus">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_pathStatus__UnityEngineAINavMeshPathStatus</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_pathStatus__UnityEngineAINavMeshPathStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">NavMeshPathStatus</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-pathStatus.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-radius">
+<h2>NavMeshAgent get_radius<a class="headerlink" href="#navmeshagent-get-radius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_radius__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_radius__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_radius__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-radius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-remainingdistance">
+<h2>NavMeshAgent get_remainingDistance<a class="headerlink" href="#navmeshagent-get-remainingdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_remainingDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_remainingDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_remainingDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-remainingDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-speed">
+<h2>NavMeshAgent get_speed<a class="headerlink" href="#navmeshagent-get-speed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_speed__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_speed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_speed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-speed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-steeringtarget">
+<h2>NavMeshAgent get_steeringTarget<a class="headerlink" href="#navmeshagent-get-steeringtarget" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_steeringTarget__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_steeringTarget__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_steeringTarget__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-steeringTarget.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-stoppingdistance">
+<h2>NavMeshAgent get_stoppingDistance<a class="headerlink" href="#navmeshagent-get-stoppingdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_stoppingDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_stoppingDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_stoppingDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-stoppingDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-transform">
+<h2>NavMeshAgent get_transform<a class="headerlink" href="#navmeshagent-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-updateposition">
+<h2>NavMeshAgent get_updatePosition<a class="headerlink" href="#navmeshagent-get-updateposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_updatePosition__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_updatePosition__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_updatePosition__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-updatePosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-updaterotation">
+<h2>NavMeshAgent get_updateRotation<a class="headerlink" href="#navmeshagent-get-updaterotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_updateRotation__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_updateRotation__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_updateRotation__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-updateRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-updateupaxis">
+<h2>NavMeshAgent get_updateUpAxis<a class="headerlink" href="#navmeshagent-get-updateupaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_updateUpAxis__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_updateUpAxis__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_updateUpAxis__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-updateUpAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-get-velocity">
+<h2>NavMeshAgent get_velocity<a class="headerlink" href="#navmeshagent-get-velocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__get_velocity__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__get_velocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__get_velocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-velocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getareacost">
+<h2>NavMeshAgent GetAreaCost<a class="headerlink" href="#navmeshagent-getareacost" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetAreaCost__SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetAreaCost__SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Int32 areaIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetAreaCost__SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetAreaCost.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getcomponent">
+<h2>NavMeshAgent GetComponent<a class="headerlink" href="#navmeshagent-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getcomponentinchildren">
+<h2>NavMeshAgent GetComponentInChildren<a class="headerlink" href="#navmeshagent-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getcomponentinparent">
+<h2>NavMeshAgent GetComponentInParent<a class="headerlink" href="#navmeshagent-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getcomponents">
+<h2>NavMeshAgent GetComponents<a class="headerlink" href="#navmeshagent-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getcomponentsinchildren">
+<h2>NavMeshAgent GetComponentsInChildren<a class="headerlink" href="#navmeshagent-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getcomponentsinparent">
+<h2>NavMeshAgent GetComponentsInParent<a class="headerlink" href="#navmeshagent-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-gethashcode">
+<h2>NavMeshAgent GetHashCode<a class="headerlink" href="#navmeshagent-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-getinstanceid">
+<h2>NavMeshAgent GetInstanceID<a class="headerlink" href="#navmeshagent-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-gettype">
+<h2>NavMeshAgent GetType<a class="headerlink" href="#navmeshagent-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="navmeshagent-move">
+<h2>NavMeshAgent Move<a class="headerlink" href="#navmeshagent-move" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__Move__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__Move__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 offset</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__Move__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.Move.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-raycast">
+<h2>NavMeshAgent Raycast<a class="headerlink" href="#navmeshagent-raycast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__Raycast__UnityEngineVector3_UnityEngineAINavMeshHitRef__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__Raycast__UnityEngineVector3_UnityEngineAINavMeshHitRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 targetPosition</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__Raycast__UnityEngineVector3_UnityEngineAINavMeshHitRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: hit (<code class="docutils literal notranslate"><span class="pre">NavMeshHit</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.Raycast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-resetpath">
+<h2>NavMeshAgent ResetPath<a class="headerlink" href="#navmeshagent-resetpath" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__ResetPath__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__ResetPath__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__ResetPath__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.ResetPath.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-samplepathposition">
+<h2>NavMeshAgent SamplePathPosition<a class="headerlink" href="#navmeshagent-samplepathposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__SamplePathPosition__SystemInt32_SystemSingle_UnityEngineAINavMeshHitRef__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__SamplePathPosition__SystemInt32_SystemSingle_UnityEngineAINavMeshHitRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Int32 areaMaskSystem.Single maxDistance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__SamplePathPosition__SystemInt32_SystemSingle_UnityEngineAINavMeshHitRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: hit (<code class="docutils literal notranslate"><span class="pre">NavMeshHit</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.SamplePathPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-acceleration">
+<h2>NavMeshAgent set_acceleration<a class="headerlink" href="#navmeshagent-set-acceleration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_acceleration__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_acceleration__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_acceleration__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-acceleration.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-agenttypeid">
+<h2>NavMeshAgent set_agentTypeID<a class="headerlink" href="#navmeshagent-set-agenttypeid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_agentTypeID__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_agentTypeID__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_agentTypeID__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-agentTypeID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-angularspeed">
+<h2>NavMeshAgent set_angularSpeed<a class="headerlink" href="#navmeshagent-set-angularspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_angularSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_angularSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_angularSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-angularSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-areamask">
+<h2>NavMeshAgent set_areaMask<a class="headerlink" href="#navmeshagent-set-areamask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_areaMask__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_areaMask__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_areaMask__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-areaMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-autobraking">
+<h2>NavMeshAgent set_autoBraking<a class="headerlink" href="#navmeshagent-set-autobraking" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_autoBraking__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_autoBraking__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_autoBraking__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-autoBraking.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-autorepath">
+<h2>NavMeshAgent set_autoRepath<a class="headerlink" href="#navmeshagent-set-autorepath" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_autoRepath__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_autoRepath__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_autoRepath__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-autoRepath.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-autotraverseoffmeshlink">
+<h2>NavMeshAgent set_autoTraverseOffMeshLink<a class="headerlink" href="#navmeshagent-set-autotraverseoffmeshlink" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_autoTraverseOffMeshLink__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_autoTraverseOffMeshLink__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_autoTraverseOffMeshLink__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-autoTraverseOffMeshLink.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-avoidancepriority">
+<h2>NavMeshAgent set_avoidancePriority<a class="headerlink" href="#navmeshagent-set-avoidancepriority" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_avoidancePriority__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_avoidancePriority__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_avoidancePriority__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-avoidancePriority.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-baseoffset">
+<h2>NavMeshAgent set_baseOffset<a class="headerlink" href="#navmeshagent-set-baseoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_baseOffset__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_baseOffset__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_baseOffset__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-baseOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-destination">
+<h2>NavMeshAgent set_destination<a class="headerlink" href="#navmeshagent-set-destination" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_destination__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_destination__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_destination__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-destination.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-enabled">
+<h2>NavMeshAgent set_enabled<a class="headerlink" href="#navmeshagent-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-height">
+<h2>NavMeshAgent set_height<a class="headerlink" href="#navmeshagent-set-height" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_height__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_height__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_height__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-height.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-isstopped">
+<h2>NavMeshAgent set_isStopped<a class="headerlink" href="#navmeshagent-set-isstopped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_isStopped__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_isStopped__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_isStopped__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-isStopped.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-name">
+<h2>NavMeshAgent set_name<a class="headerlink" href="#navmeshagent-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-nextposition">
+<h2>NavMeshAgent set_nextPosition<a class="headerlink" href="#navmeshagent-set-nextposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_nextPosition__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_nextPosition__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_nextPosition__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-nextPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-obstacleavoidancetype">
+<h2>NavMeshAgent set_obstacleAvoidanceType<a class="headerlink" href="#navmeshagent-set-obstacleavoidancetype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_obstacleAvoidanceType__UnityEngineAIObstacleAvoidanceType__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_obstacleAvoidanceType__UnityEngineAIObstacleAvoidanceType__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.AI.ObstacleAvoidanceType value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_obstacleAvoidanceType__UnityEngineAIObstacleAvoidanceType__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-obstacleAvoidanceType.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-path">
+<h2>NavMeshAgent set_path<a class="headerlink" href="#navmeshagent-set-path" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_path__UnityEngineAINavMeshPath__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_path__UnityEngineAINavMeshPath__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.AI.NavMeshPath value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_path__UnityEngineAINavMeshPath__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-path.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-radius">
+<h2>NavMeshAgent set_radius<a class="headerlink" href="#navmeshagent-set-radius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_radius__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_radius__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_radius__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-radius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-speed">
+<h2>NavMeshAgent set_speed<a class="headerlink" href="#navmeshagent-set-speed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_speed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_speed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_speed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-speed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-stoppingdistance">
+<h2>NavMeshAgent set_stoppingDistance<a class="headerlink" href="#navmeshagent-set-stoppingdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_stoppingDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_stoppingDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_stoppingDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-stoppingDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-updateposition">
+<h2>NavMeshAgent set_updatePosition<a class="headerlink" href="#navmeshagent-set-updateposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_updatePosition__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_updatePosition__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_updatePosition__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-updatePosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-updaterotation">
+<h2>NavMeshAgent set_updateRotation<a class="headerlink" href="#navmeshagent-set-updaterotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_updateRotation__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_updateRotation__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_updateRotation__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-updateRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-updateupaxis">
+<h2>NavMeshAgent set_updateUpAxis<a class="headerlink" href="#navmeshagent-set-updateupaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_updateUpAxis__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_updateUpAxis__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_updateUpAxis__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-updateUpAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-set-velocity">
+<h2>NavMeshAgent set_velocity<a class="headerlink" href="#navmeshagent-set-velocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__set_velocity__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__set_velocity__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__set_velocity__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent-velocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-setareacost">
+<h2>NavMeshAgent SetAreaCost<a class="headerlink" href="#navmeshagent-setareacost" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__SetAreaCost__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__SetAreaCost__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceSystem.Int32 areaIndexSystem.Single areaCost</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__SetAreaCost__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.SetAreaCost.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-setdestination">
+<h2>NavMeshAgent SetDestination<a class="headerlink" href="#navmeshagent-setdestination" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__SetDestination__UnityEngineVector3__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__SetDestination__UnityEngineVector3__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 target</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__SetDestination__UnityEngineVector3__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.SetDestination.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-setpath">
+<h2>NavMeshAgent SetPath<a class="headerlink" href="#navmeshagent-setpath" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__SetPath__UnityEngineAINavMeshPath__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__SetPath__UnityEngineAINavMeshPath__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.AI.NavMeshPath path</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__SetPath__UnityEngineAINavMeshPath__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.SetPath.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-tostring">
+<h2>NavMeshAgent ToString<a class="headerlink" href="#navmeshagent-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent-warp">
+<h2>NavMeshAgent Warp<a class="headerlink" href="#navmeshagent-warp" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAINavMeshAgent.__Warp__UnityEngineVector3__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAINavMeshAgent.</code><code class="sig-name descname">__Warp__UnityEngineVector3__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent instanceUnityEngine.Vector3 newPosition</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAINavMeshAgent.__Warp__UnityEngineVector3__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.Warp.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="navmeshagent">
+<h2>NavMeshAgent<a class="headerlink" href="#navmeshagent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineAINavMeshAgent">
+<code class="sig-name descname">Variable_UnityEngineAINavMeshAgent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AI.NavMeshAgent NavMeshAgentSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineAINavMeshAgent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AI.NavMeshAgent.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../AINavMeshData/index.html" class="btn btn-neutral float-right" title="AINavMeshData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="UnityEngine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

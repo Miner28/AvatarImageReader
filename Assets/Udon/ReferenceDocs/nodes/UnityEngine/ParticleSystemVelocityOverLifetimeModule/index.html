@@ -1,0 +1,1154 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ParticleSystemVelocityOverLifetimeModule &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="PhysicMaterial" href="../PhysicMaterial/index.html"/>
+        <link rel="prev" title="ParticleSystemTriggerModule" href="../ParticleSystemTriggerModule/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ParticleSystemVelocityOverLifetimeModule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule">VelocityOverLifetimeModule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-equals">VelocityOverLifetimeModule Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-enabled">VelocityOverLifetimeModule get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaloffsetx">VelocityOverLifetimeModule get_orbitalOffsetX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaloffsetxmultiplier">VelocityOverLifetimeModule get_orbitalOffsetXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaloffsety">VelocityOverLifetimeModule get_orbitalOffsetY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaloffsetymultiplier">VelocityOverLifetimeModule get_orbitalOffsetYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaloffsetz">VelocityOverLifetimeModule get_orbitalOffsetZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaloffsetzmultiplier">VelocityOverLifetimeModule get_orbitalOffsetZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitalx">VelocityOverLifetimeModule get_orbitalX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitalxmultiplier">VelocityOverLifetimeModule get_orbitalXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitaly">VelocityOverLifetimeModule get_orbitalY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitalymultiplier">VelocityOverLifetimeModule get_orbitalYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitalz">VelocityOverLifetimeModule get_orbitalZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-orbitalzmultiplier">VelocityOverLifetimeModule get_orbitalZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-radial">VelocityOverLifetimeModule get_radial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-radialmultiplier">VelocityOverLifetimeModule get_radialMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-space">VelocityOverLifetimeModule get_space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-speedmodifier">VelocityOverLifetimeModule get_speedModifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-speedmodifiermultiplier">VelocityOverLifetimeModule get_speedModifierMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-x">VelocityOverLifetimeModule get_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-xmultiplier">VelocityOverLifetimeModule get_xMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-y">VelocityOverLifetimeModule get_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-ymultiplier">VelocityOverLifetimeModule get_yMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-z">VelocityOverLifetimeModule get_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-get-zmultiplier">VelocityOverLifetimeModule get_zMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-gethashcode">VelocityOverLifetimeModule GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-gettype">VelocityOverLifetimeModule GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-enabled">VelocityOverLifetimeModule set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaloffsetx">VelocityOverLifetimeModule set_orbitalOffsetX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaloffsetxmultiplier">VelocityOverLifetimeModule set_orbitalOffsetXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaloffsety">VelocityOverLifetimeModule set_orbitalOffsetY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaloffsetymultiplier">VelocityOverLifetimeModule set_orbitalOffsetYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaloffsetz">VelocityOverLifetimeModule set_orbitalOffsetZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaloffsetzmultiplier">VelocityOverLifetimeModule set_orbitalOffsetZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitalx">VelocityOverLifetimeModule set_orbitalX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitalxmultiplier">VelocityOverLifetimeModule set_orbitalXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitaly">VelocityOverLifetimeModule set_orbitalY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitalymultiplier">VelocityOverLifetimeModule set_orbitalYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitalz">VelocityOverLifetimeModule set_orbitalZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-orbitalzmultiplier">VelocityOverLifetimeModule set_orbitalZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-radial">VelocityOverLifetimeModule set_radial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-radialmultiplier">VelocityOverLifetimeModule set_radialMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-space">VelocityOverLifetimeModule set_space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-speedmodifier">VelocityOverLifetimeModule set_speedModifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-speedmodifiermultiplier">VelocityOverLifetimeModule set_speedModifierMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-x">VelocityOverLifetimeModule set_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-xmultiplier">VelocityOverLifetimeModule set_xMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-y">VelocityOverLifetimeModule set_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-ymultiplier">VelocityOverLifetimeModule set_yMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-z">VelocityOverLifetimeModule set_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-set-zmultiplier">VelocityOverLifetimeModule set_zMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#velocityoverlifetimemodule-tostring">VelocityOverLifetimeModule ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id52">VelocityOverLifetimeModule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>ParticleSystemVelocityOverLifetimeModule</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/ParticleSystemVelocityOverLifetimeModule/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../PhysicMaterial/index.html" class="btn btn-neutral float-right" title="PhysicMaterial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ParticleSystemTriggerModule/index.html" class="btn btn-neutral" title="ParticleSystemTriggerModule" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particlesystemvelocityoverlifetimemodule">
+<h1>ParticleSystemVelocityOverLifetimeModule<a class="headerlink" href="#particlesystemvelocityoverlifetimemodule" title="Permalink to this headline">¶</a></h1>
+<p>The ParticleSystemVelocityOverLifetimeModule module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="velocityoverlifetimemodule">
+<h2>VelocityOverLifetimeModule<a class="headerlink" href="#velocityoverlifetimemodule" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_UnityEngineParticleSystemVelocityOverLifetimeModule">
+<code class="sig-name descname">Const_UnityEngineParticleSystemVelocityOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule VelocityOverLifetimeModule</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_UnityEngineParticleSystemVelocityOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">VelocityOverLifetimeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-equals">
+<h2>VelocityOverLifetimeModule Equals<a class="headerlink" href="#velocityoverlifetimemodule-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-enabled">
+<h2>VelocityOverLifetimeModule get_enabled<a class="headerlink" href="#velocityoverlifetimemodule-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaloffsetx">
+<h2>VelocityOverLifetimeModule get_orbitalOffsetX<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaloffsetx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetX__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalOffsetX__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetX__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaloffsetxmultiplier">
+<h2>VelocityOverLifetimeModule get_orbitalOffsetXMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaloffsetxmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetXMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalOffsetXMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetXMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaloffsety">
+<h2>VelocityOverLifetimeModule get_orbitalOffsetY<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaloffsety" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetY__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalOffsetY__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetY__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaloffsetymultiplier">
+<h2>VelocityOverLifetimeModule get_orbitalOffsetYMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaloffsetymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetYMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalOffsetYMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetYMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaloffsetz">
+<h2>VelocityOverLifetimeModule get_orbitalOffsetZ<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaloffsetz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetZ__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalOffsetZ__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetZ__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaloffsetzmultiplier">
+<h2>VelocityOverLifetimeModule get_orbitalOffsetZMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaloffsetzmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetZMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalOffsetZMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalOffsetZMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitalx">
+<h2>VelocityOverLifetimeModule get_orbitalX<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitalx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalX__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalX__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalX__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitalxmultiplier">
+<h2>VelocityOverLifetimeModule get_orbitalXMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitalxmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalXMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalXMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalXMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitaly">
+<h2>VelocityOverLifetimeModule get_orbitalY<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitaly" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalY__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalY__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalY__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitalymultiplier">
+<h2>VelocityOverLifetimeModule get_orbitalYMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitalymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalYMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalYMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalYMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitalz">
+<h2>VelocityOverLifetimeModule get_orbitalZ<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitalz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalZ__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalZ__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalZ__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-orbitalzmultiplier">
+<h2>VelocityOverLifetimeModule get_orbitalZMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-orbitalzmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalZMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_orbitalZMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_orbitalZMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-radial">
+<h2>VelocityOverLifetimeModule get_radial<a class="headerlink" href="#velocityoverlifetimemodule-get-radial" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_radial__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_radial__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_radial__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-radial.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-radialmultiplier">
+<h2>VelocityOverLifetimeModule get_radialMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-radialmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_radialMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_radialMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_radialMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-radialMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-space">
+<h2>VelocityOverLifetimeModule get_space<a class="headerlink" href="#velocityoverlifetimemodule-get-space" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_space__UnityEngineParticleSystemSimulationSpace">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_space__UnityEngineParticleSystemSimulationSpace</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_space__UnityEngineParticleSystemSimulationSpace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemSimulationSpace</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-space.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-speedmodifier">
+<h2>VelocityOverLifetimeModule get_speedModifier<a class="headerlink" href="#velocityoverlifetimemodule-get-speedmodifier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_speedModifier__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_speedModifier__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_speedModifier__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-speedModifier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-speedmodifiermultiplier">
+<h2>VelocityOverLifetimeModule get_speedModifierMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-speedmodifiermultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_speedModifierMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_speedModifierMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_speedModifierMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-speedModifierMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-x">
+<h2>VelocityOverLifetimeModule get_x<a class="headerlink" href="#velocityoverlifetimemodule-get-x" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_x__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_x__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_x__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-x.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-xmultiplier">
+<h2>VelocityOverLifetimeModule get_xMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-xmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_xMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_xMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_xMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-xMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-y">
+<h2>VelocityOverLifetimeModule get_y<a class="headerlink" href="#velocityoverlifetimemodule-get-y" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_y__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_y__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_y__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-y.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-ymultiplier">
+<h2>VelocityOverLifetimeModule get_yMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-ymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_yMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_yMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_yMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-yMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-z">
+<h2>VelocityOverLifetimeModule get_z<a class="headerlink" href="#velocityoverlifetimemodule-get-z" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_z__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_z__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_z__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-z.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-get-zmultiplier">
+<h2>VelocityOverLifetimeModule get_zMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-get-zmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__get_zMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__get_zMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__get_zMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-zMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-gethashcode">
+<h2>VelocityOverLifetimeModule GetHashCode<a class="headerlink" href="#velocityoverlifetimemodule-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-gettype">
+<h2>VelocityOverLifetimeModule GetType<a class="headerlink" href="#velocityoverlifetimemodule-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-enabled">
+<h2>VelocityOverLifetimeModule set_enabled<a class="headerlink" href="#velocityoverlifetimemodule-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaloffsetx">
+<h2>VelocityOverLifetimeModule set_orbitalOffsetX<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaloffsetx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetX__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalOffsetX__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetX__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaloffsetxmultiplier">
+<h2>VelocityOverLifetimeModule set_orbitalOffsetXMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaloffsetxmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetXMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalOffsetXMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetXMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaloffsety">
+<h2>VelocityOverLifetimeModule set_orbitalOffsetY<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaloffsety" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetY__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalOffsetY__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetY__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaloffsetymultiplier">
+<h2>VelocityOverLifetimeModule set_orbitalOffsetYMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaloffsetymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetYMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalOffsetYMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetYMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaloffsetz">
+<h2>VelocityOverLifetimeModule set_orbitalOffsetZ<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaloffsetz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalOffsetZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaloffsetzmultiplier">
+<h2>VelocityOverLifetimeModule set_orbitalOffsetZMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaloffsetzmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetZMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalOffsetZMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalOffsetZMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalOffsetZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitalx">
+<h2>VelocityOverLifetimeModule set_orbitalX<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitalx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalX__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalX__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalX__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitalxmultiplier">
+<h2>VelocityOverLifetimeModule set_orbitalXMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitalxmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalXMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalXMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalXMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitaly">
+<h2>VelocityOverLifetimeModule set_orbitalY<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitaly" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalY__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalY__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalY__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitalymultiplier">
+<h2>VelocityOverLifetimeModule set_orbitalYMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitalymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalYMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalYMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalYMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitalz">
+<h2>VelocityOverLifetimeModule set_orbitalZ<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitalz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-orbitalzmultiplier">
+<h2>VelocityOverLifetimeModule set_orbitalZMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-orbitalzmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalZMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_orbitalZMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_orbitalZMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-orbitalZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-radial">
+<h2>VelocityOverLifetimeModule set_radial<a class="headerlink" href="#velocityoverlifetimemodule-set-radial" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_radial__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_radial__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_radial__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-radial.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-radialmultiplier">
+<h2>VelocityOverLifetimeModule set_radialMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-radialmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_radialMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_radialMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_radialMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-radialMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-space">
+<h2>VelocityOverLifetimeModule set_space<a class="headerlink" href="#velocityoverlifetimemodule-set-space" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_space__UnityEngineParticleSystemSimulationSpace__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_space__UnityEngineParticleSystemSimulationSpace__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystemSimulationSpace value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_space__UnityEngineParticleSystemSimulationSpace__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-space.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-speedmodifier">
+<h2>VelocityOverLifetimeModule set_speedModifier<a class="headerlink" href="#velocityoverlifetimemodule-set-speedmodifier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_speedModifier__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_speedModifier__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_speedModifier__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-speedModifier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-speedmodifiermultiplier">
+<h2>VelocityOverLifetimeModule set_speedModifierMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-speedmodifiermultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_speedModifierMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_speedModifierMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_speedModifierMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-speedModifierMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-x">
+<h2>VelocityOverLifetimeModule set_x<a class="headerlink" href="#velocityoverlifetimemodule-set-x" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_x__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_x__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_x__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-x.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-xmultiplier">
+<h2>VelocityOverLifetimeModule set_xMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-xmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_xMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_xMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_xMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-xMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-y">
+<h2>VelocityOverLifetimeModule set_y<a class="headerlink" href="#velocityoverlifetimemodule-set-y" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_y__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_y__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_y__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-y.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-ymultiplier">
+<h2>VelocityOverLifetimeModule set_yMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-ymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_yMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_yMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_yMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-yMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-z">
+<h2>VelocityOverLifetimeModule set_z<a class="headerlink" href="#velocityoverlifetimemodule-set-z" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_z__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_z__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_z__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-z.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-set-zmultiplier">
+<h2>VelocityOverLifetimeModule set_zMultiplier<a class="headerlink" href="#velocityoverlifetimemodule-set-zmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__set_zMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__set_zMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__set_zMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule-zMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="velocityoverlifetimemodule-tostring">
+<h2>VelocityOverLifetimeModule ToString<a class="headerlink" href="#velocityoverlifetimemodule-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemVelocityOverLifetimeModule.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineParticleSystemVelocityOverLifetimeModule.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemVelocityOverLifetimeModule.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id52">
+<h2>VelocityOverLifetimeModule<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineParticleSystemVelocityOverLifetimeModule">
+<code class="sig-name descname">Variable_UnityEngineParticleSystemVelocityOverLifetimeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+VelocityOverLifetimeModule VelocityOverLifetimeModuleSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineParticleSystemVelocityOverLifetimeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/VelocityOverLifetimeModule.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../PhysicMaterial/index.html" class="btn btn-neutral float-right" title="PhysicMaterial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ParticleSystemTriggerModule/index.html" class="btn btn-neutral" title="ParticleSystemTriggerModule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

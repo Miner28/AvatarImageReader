@@ -1,0 +1,672 @@
+====================================================================================================================================================
+VRCSDKBaseVRCPlayerApi
+====================================================================================================================================================
+
+The VRCSDKBaseVRCPlayerApi module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+VRCPlayerApi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_VRCSDKBaseVRCPlayerApi(VRC.SDKBase.VRCPlayerApi VRCPlayerApiSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+Contains a variable representing a VRChat Player API object. Used to access properties of players.
+
+VRCPlayerApi AddToList
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__AddToList__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi ClearPlayerTags
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__ClearPlayerTags__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi ClearSilence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__ClearSilence__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatGetCurrentHitpoints
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatGetCurrentHitpoints__SystemSingle(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Single``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatGetDestructible
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatGetDestructible__VRCSDKBaseIVRC_Destructible(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``IVRC_Destructible``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatSetCurrentHitpoints
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatSetCurrentHitpoints__SystemSingle__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Single hp)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatSetDamageGraphic
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatSetDamageGraphic__UnityEngineGameObject__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.GameObject prefab)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatSetMaxHitpoints
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatSetMaxHitpoints__SystemSingle__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Single maxHp)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatSetRespawn
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatSetRespawn__SystemBoolean_SystemSingle_UnityEngineTransform__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Boolean respawnOnDeathSystem.Single respawnTimerUnityEngine.Transform respawnLocation)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi CombatSetup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__CombatSetup__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__ctor____VRCSDKBaseVRCPlayerApi()
+
+outputs: unnamed (``VRCPlayerApi``)
+
+flow: none
+
+
+
+VRCPlayerApi EnablePickups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__EnablePickups__SystemBoolean__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Boolean enable)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__Equals__SystemObject__SystemBoolean(VRC.SDKBase.VRCPlayerApi instanceSystem.Object obj)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+VRCPlayerApi get_AllPlayers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get_AllPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi()
+
+outputs: unnamed (``List`1``)
+
+flow: none
+
+
+
+VRCPlayerApi get_displayName
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString(VRC.SDKBase.VRCPlayerApi )
+
+outputs: unnamed (``String``)
+
+flow: none
+
+
+
+VRCPlayerApi get_isLocal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get_isLocal__SystemBoolean(VRC.SDKBase.VRCPlayerApi )
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+VRCPlayerApi get_isMaster
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+VRCPlayerApi get_playerId
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get_playerId__SystemInt32(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+
+
+VRCPlayerApi get_sPlayers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi()
+
+outputs: unnamed (``List`1``)
+
+flow: none
+
+
+
+VRCPlayerApi get__ClearInvisible
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__get__ClearInvisible__SystemActionVRCSDKBaseVRCPlayerApi()
+
+outputs: unnamed (``Action`1``)
+
+flow: none
+
+
+
+VRCPlayerApi GetBonePosition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetBonePosition__UnityEngineHumanBodyBones__UnityEngineVector3(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.HumanBodyBones tt)
+
+outputs: unnamed (``Vector3``)
+
+flow: none
+
+
+
+VRCPlayerApi GetBoneRotation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetBoneRotation__UnityEngineHumanBodyBones__UnityEngineQuaternion(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.HumanBodyBones tt)
+
+outputs: unnamed (``Quaternion``)
+
+flow: none
+
+
+
+VRCPlayerApi GetGravityStrength
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetGravityStrength__SystemSingle(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+
+
+VRCPlayerApi GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetHashCode__SystemInt32(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+
+
+VRCPlayerApi GetJumpImpulse
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetJumpImpulse__SystemSingle(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+
+
+VRCPlayerApi GetPlayerById
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetPlayerById__SystemInt32__VRCSDKBaseVRCPlayerApi(System.Int32 playerId)
+
+outputs: unnamed (``VRCPlayerApi``)
+
+flow: none
+
+
+
+VRCPlayerApi GetPlayerId
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetPlayerId__VRCSDKBaseVRCPlayerApi__SystemInt32(VRC.SDKBase.VRCPlayerApi player)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+
+
+VRCPlayerApi GetPlayersWithTag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetPlayersWithTag__SystemString_SystemString__SystemCollectionsGenericListSystemInt32(VRC.SDKBase.VRCPlayerApi instanceSystem.String tagNameSystem.String tagValue)
+
+outputs: unnamed (``List`1``)
+
+flow: none
+
+
+
+VRCPlayerApi GetPlayerTag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetPlayerTag__SystemString__SystemString(VRC.SDKBase.VRCPlayerApi instanceSystem.String tagName)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+
+
+VRCPlayerApi GetPosition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetPosition__UnityEngineVector3(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Vector3``)
+
+flow: none
+
+
+
+VRCPlayerApi GetRotation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetRotation__UnityEngineQuaternion(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Quaternion``)
+
+flow: none
+
+
+
+VRCPlayerApi GetRunSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetRunSpeed__SystemSingle(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+
+
+VRCPlayerApi GetTrackingData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetTrackingData__VRCSDKBaseVRCPlayerApiTrackingDataType__VRCSDKBaseVRCPlayerApiTrackingData(VRC.SDKBase.VRCPlayerApi instanceVRC.SDKBase.VRCPlayerApi+TrackingDataType tt)
+
+outputs: unnamed (``TrackingData``)
+
+flow: none
+
+
+
+VRCPlayerApi GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetType__SystemType(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+
+
+VRCPlayerApi GetVelocity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetVelocity__UnityEngineVector3(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Vector3``)
+
+flow: none
+
+
+
+VRCPlayerApi GetWalkSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__GetWalkSpeed__SystemSingle(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+
+
+VRCPlayerApi Immobilize
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__Immobilize__SystemBoolean__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Boolean immobile)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi IsOwner
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__IsOwner__UnityEngineGameObject__SystemBoolean(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.GameObject obj)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+VRCPlayerApi IsPlayerGrounded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__IsPlayerGrounded__SystemBoolean(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+VRCPlayerApi IsUserInVR
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__IsUserInVR__SystemBoolean(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``Boolean``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi PopAnimations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__PopAnimations__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi PushAnimations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__PushAnimations__UnityEngineRuntimeAnimatorController__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.RuntimeAnimatorController animations)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi RemoveFromList
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__RemoveFromList__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi set_displayName
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__set_displayName__SystemString(VRC.SDKBase.VRCPlayerApi System.String )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi set_isLocal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__set_isLocal__SystemBoolean(VRC.SDKBase.VRCPlayerApi System.Boolean )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi set_sPlayers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__set_sPlayers__SystemCollectionsGenericListVRCSDKBaseVRCPlayerApi(System.Collections.Generic.List`1[VRC.SDKBase.VRCPlayerApi] )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi set__isMasterDelegate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__set__isMasterDelegate__SystemFuncVRCSDKBaseVRCPlayerApiSystemBoolean(System.Func`2[VRC.SDKBase.VRCPlayerApi,System.Boolean] )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetGravityStrength
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetGravityStrength__SystemSingle__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Single strength)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetJumpImpulse
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetJumpImpulse__SystemSingle__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Single impulse)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetPlayerTag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetPlayerTag__SystemString_SystemString__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.String tagNameSystem.String tagValue)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetRunSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetRunSpeed__SystemSingle__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Single speed)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetSilencedToTagged
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetSilencedToTagged__SystemInt32_SystemString_SystemString__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Int32 levelSystem.String tagNameSystem.String tagValue)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetSilencedToUntagged
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetSilencedToUntagged__SystemInt32_SystemString_SystemString__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Int32 levelSystem.String tagNameSystem.String tagValue)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetVelocity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetVelocity__UnityEngineVector3__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.Vector3 velocity)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi SetWalkSpeed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__SetWalkSpeed__SystemSingle__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceSystem.Single speed)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi TeleportTo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__TeleportTo__UnityEngineVector3_UnityEngineQuaternion__SystemVoid(VRC.SDKBase.VRCPlayerApi instanceUnityEngine.Vector3 teleportPosUnityEngine.Quaternion teleportRot)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__ToString__SystemString(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+
+
+VRCPlayerApi UseAttachedStation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__UseAttachedStation__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+VRCPlayerApi UseLegacyLocomotion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseVRCPlayerApi.__UseLegacyLocomotion__SystemVoid(VRC.SDKBase.VRCPlayerApi instance)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+

@@ -1,0 +1,630 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ComponentsVRCAvatarPedestal &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="ComponentsVRCMirrorReflection" href="../ComponentsVRCMirrorReflection/index.html"/>
+        <link rel="prev" title="ComponentsTrackingData" href="../ComponentsTrackingData/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsTrackingData/index.html">ComponentsTrackingData</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ComponentsVRCAvatarPedestal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal">VRCAvatarPedestal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-equals">VRCAvatarPedestal Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-blueprintid">VRCAvatarPedestal get_blueprintId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-changeavatarsonuse">VRCAvatarPedestal get_ChangeAvatarsOnUse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-enabled">VRCAvatarPedestal get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-gameobject">VRCAvatarPedestal get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-name">VRCAvatarPedestal get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-placement">VRCAvatarPedestal get_Placement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-scale">VRCAvatarPedestal get_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-get-transform">VRCAvatarPedestal get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getcomponent">VRCAvatarPedestal GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getcomponentinchildren">VRCAvatarPedestal GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getcomponentinparent">VRCAvatarPedestal GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getcomponents">VRCAvatarPedestal GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getcomponentsinchildren">VRCAvatarPedestal GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getcomponentsinparent">VRCAvatarPedestal GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-gethashcode">VRCAvatarPedestal GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-getinstanceid">VRCAvatarPedestal GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-gettype">VRCAvatarPedestal GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-set-blueprintid">VRCAvatarPedestal set_blueprintId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-set-changeavatarsonuse">VRCAvatarPedestal set_ChangeAvatarsOnUse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-set-enabled">VRCAvatarPedestal set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-set-name">VRCAvatarPedestal set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-set-placement">VRCAvatarPedestal set_Placement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-set-scale">VRCAvatarPedestal set_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-setavataruse">VRCAvatarPedestal SetAvatarUse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-switchavatar">VRCAvatarPedestal SwitchAvatar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vrcavatarpedestal-tostring">VRCAvatarPedestal ToString</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPickup/index.html">ComponentsVRCPickup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPortalMarker/index.html">ComponentsVRCPortalMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCStation/index.html">ComponentsVRCStation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseInputManager/index.html">VRCSDKBaseInputManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseVRCPlayerApi/index.html">VRCSDKBaseVRCPlayerApi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>ComponentsVRCAvatarPedestal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/ComponentsVRCAvatarPedestal/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ComponentsVRCMirrorReflection/index.html" class="btn btn-neutral float-right" title="ComponentsVRCMirrorReflection" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsTrackingData/index.html" class="btn btn-neutral" title="ComponentsTrackingData" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="componentsvrcavatarpedestal">
+<h1>ComponentsVRCAvatarPedestal<a class="headerlink" href="#componentsvrcavatarpedestal" title="Permalink to this headline">¶</a></h1>
+<p>The ComponentsVRCAvatarPedestal module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="vrcavatarpedestal">
+<h2>VRCAvatarPedestal<a class="headerlink" href="#vrcavatarpedestal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDK3ComponentsVRCAvatarPedestal">
+<code class="sig-name descname">Variable_VRCSDK3ComponentsVRCAvatarPedestal</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal VRCAvatarPedestalSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDK3ComponentsVRCAvatarPedestal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-equals">
+<h2>VRCAvatarPedestal Equals<a class="headerlink" href="#vrcavatarpedestal-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-blueprintid">
+<h2>VRCAvatarPedestal get_blueprintId<a class="headerlink" href="#vrcavatarpedestal-get-blueprintid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_blueprintId__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_blueprintId__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_blueprintId__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-changeavatarsonuse">
+<h2>VRCAvatarPedestal get_ChangeAvatarsOnUse<a class="headerlink" href="#vrcavatarpedestal-get-changeavatarsonuse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_ChangeAvatarsOnUse__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_ChangeAvatarsOnUse__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_ChangeAvatarsOnUse__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-enabled">
+<h2>VRCAvatarPedestal get_enabled<a class="headerlink" href="#vrcavatarpedestal-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-gameobject">
+<h2>VRCAvatarPedestal get_gameObject<a class="headerlink" href="#vrcavatarpedestal-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-name">
+<h2>VRCAvatarPedestal get_name<a class="headerlink" href="#vrcavatarpedestal-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_name__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-placement">
+<h2>VRCAvatarPedestal get_Placement<a class="headerlink" href="#vrcavatarpedestal-get-placement" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_Placement__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_Placement__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_Placement__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-scale">
+<h2>VRCAvatarPedestal get_scale<a class="headerlink" href="#vrcavatarpedestal-get-scale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_scale__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_scale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_scale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-get-transform">
+<h2>VRCAvatarPedestal get_transform<a class="headerlink" href="#vrcavatarpedestal-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getcomponent">
+<h2>VRCAvatarPedestal GetComponent<a class="headerlink" href="#vrcavatarpedestal-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getcomponentinchildren">
+<h2>VRCAvatarPedestal GetComponentInChildren<a class="headerlink" href="#vrcavatarpedestal-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getcomponentinparent">
+<h2>VRCAvatarPedestal GetComponentInParent<a class="headerlink" href="#vrcavatarpedestal-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getcomponents">
+<h2>VRCAvatarPedestal GetComponents<a class="headerlink" href="#vrcavatarpedestal-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getcomponentsinchildren">
+<h2>VRCAvatarPedestal GetComponentsInChildren<a class="headerlink" href="#vrcavatarpedestal-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getcomponentsinparent">
+<h2>VRCAvatarPedestal GetComponentsInParent<a class="headerlink" href="#vrcavatarpedestal-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-gethashcode">
+<h2>VRCAvatarPedestal GetHashCode<a class="headerlink" href="#vrcavatarpedestal-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-getinstanceid">
+<h2>VRCAvatarPedestal GetInstanceID<a class="headerlink" href="#vrcavatarpedestal-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-gettype">
+<h2>VRCAvatarPedestal GetType<a class="headerlink" href="#vrcavatarpedestal-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="vrcavatarpedestal-set-blueprintid">
+<h2>VRCAvatarPedestal set_blueprintId<a class="headerlink" href="#vrcavatarpedestal-set-blueprintid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__set_blueprintId__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__set_blueprintId__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal System.String</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__set_blueprintId__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-set-changeavatarsonuse">
+<h2>VRCAvatarPedestal set_ChangeAvatarsOnUse<a class="headerlink" href="#vrcavatarpedestal-set-changeavatarsonuse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__set_ChangeAvatarsOnUse__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__set_ChangeAvatarsOnUse__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal System.Boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__set_ChangeAvatarsOnUse__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-set-enabled">
+<h2>VRCAvatarPedestal set_enabled<a class="headerlink" href="#vrcavatarpedestal-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-set-name">
+<h2>VRCAvatarPedestal set_name<a class="headerlink" href="#vrcavatarpedestal-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-set-placement">
+<h2>VRCAvatarPedestal set_Placement<a class="headerlink" href="#vrcavatarpedestal-set-placement" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__set_Placement__UnityEngineTransform">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__set_Placement__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal UnityEngine.Transform</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__set_Placement__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-set-scale">
+<h2>VRCAvatarPedestal set_scale<a class="headerlink" href="#vrcavatarpedestal-set-scale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__set_scale__SystemSingle">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__set_scale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__set_scale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-setavataruse">
+<h2>VRCAvatarPedestal SetAvatarUse<a class="headerlink" href="#vrcavatarpedestal-setavataruse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__SetAvatarUse__VRCSDKBaseVRCPlayerApi__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__SetAvatarUse__VRCSDKBaseVRCPlayerApi__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceVRC.SDKBase.VRCPlayerApi instigator</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__SetAvatarUse__VRCSDKBaseVRCPlayerApi__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-switchavatar">
+<h2>VRCAvatarPedestal SwitchAvatar<a class="headerlink" href="#vrcavatarpedestal-switchavatar" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__SwitchAvatar__SystemString__SystemVoid">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__SwitchAvatar__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instanceSystem.String id</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__SwitchAvatar__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="vrcavatarpedestal-tostring">
+<h2>VRCAvatarPedestal ToString<a class="headerlink" href="#vrcavatarpedestal-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDK3ComponentsVRCAvatarPedestal.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDK3ComponentsVRCAvatarPedestal.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDK3.Components.VRCAvatarPedestal instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDK3ComponentsVRCAvatarPedestal.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ComponentsVRCMirrorReflection/index.html" class="btn btn-neutral float-right" title="ComponentsVRCMirrorReflection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ComponentsTrackingData/index.html" class="btn btn-neutral" title="ComponentsTrackingData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

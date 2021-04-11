@@ -1,0 +1,250 @@
+====================================================================================================================================================
+ParticleSystemRotationOverLifetimeModule
+====================================================================================================================================================
+
+The ParticleSystemRotationOverLifetimeModule module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+RotationOverLifetimeModule
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Const_UnityEngineParticleSystemRotationOverLifetimeModule(UnityEngine.ParticleSystem+RotationOverLifetimeModule RotationOverLifetimeModule)
+
+outputs: unnamed (``RotationOverLifetimeModule``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule.html>`_
+
+RotationOverLifetimeModule Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__Equals__SystemObject__SystemBoolean(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceSystem.Object obj)
+
+outputs: unnamed (``Boolean``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`C# Documentation <https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8>`_
+
+RotationOverLifetimeModule get_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_enabled__SystemBoolean(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-enabled.html>`_
+
+RotationOverLifetimeModule get_separateAxes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_separateAxes__SystemBoolean(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-separateAxes.html>`_
+
+RotationOverLifetimeModule get_x
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_x__UnityEngineParticleSystemMinMaxCurve(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``MinMaxCurve``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-x.html>`_
+
+RotationOverLifetimeModule get_xMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_xMultiplier__SystemSingle(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-xMultiplier.html>`_
+
+RotationOverLifetimeModule get_y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_y__UnityEngineParticleSystemMinMaxCurve(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``MinMaxCurve``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-y.html>`_
+
+RotationOverLifetimeModule get_yMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_yMultiplier__SystemSingle(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-yMultiplier.html>`_
+
+RotationOverLifetimeModule get_z
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_z__UnityEngineParticleSystemMinMaxCurve(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``MinMaxCurve``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-z.html>`_
+
+RotationOverLifetimeModule get_zMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__get_zMultiplier__SystemSingle(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Single``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-zMultiplier.html>`_
+
+RotationOverLifetimeModule GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__GetHashCode__SystemInt32(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule.GetHashCode.html>`_
+
+RotationOverLifetimeModule GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__GetType__SystemType(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule.html>`_
+
+RotationOverLifetimeModule set_enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_enabled__SystemBoolean__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-enabled.html>`_
+
+RotationOverLifetimeModule set_separateAxes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_separateAxes__SystemBoolean__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceSystem.Boolean value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-separateAxes.html>`_
+
+RotationOverLifetimeModule set_x
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_x__UnityEngineParticleSystemMinMaxCurve__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-x.html>`_
+
+RotationOverLifetimeModule set_xMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_xMultiplier__SystemSingle__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-xMultiplier.html>`_
+
+RotationOverLifetimeModule set_y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_y__UnityEngineParticleSystemMinMaxCurve__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-y.html>`_
+
+RotationOverLifetimeModule set_yMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_yMultiplier__SystemSingle__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-yMultiplier.html>`_
+
+RotationOverLifetimeModule set_z
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_z__UnityEngineParticleSystemMinMaxCurve__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-z.html>`_
+
+RotationOverLifetimeModule set_zMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__set_zMultiplier__SystemSingle__SystemVoid(UnityEngine.ParticleSystem+RotationOverLifetimeModule instanceSystem.Single value)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule-zMultiplier.html>`_
+
+RotationOverLifetimeModule ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: UnityEngineParticleSystemRotationOverLifetimeModule.__ToString__SystemString(UnityEngine.ParticleSystem+RotationOverLifetimeModule instance)
+
+outputs: unnamed (``String``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule.ToString.html>`_
+
+RotationOverLifetimeModule
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_UnityEngineParticleSystemRotationOverLifetimeModule(UnityEngine.ParticleSystem+RotationOverLifetimeModule RotationOverLifetimeModuleSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RotationOverLifetimeModule.html>`_

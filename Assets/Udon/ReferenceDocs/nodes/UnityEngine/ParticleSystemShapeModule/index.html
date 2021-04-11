@@ -1,0 +1,1679 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ParticleSystemShapeModule &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="ParticleSystemSizeBySpeedModule" href="../ParticleSystemSizeBySpeedModule/index.html"/>
+        <link rel="prev" title="ParticleSystemRotationOverLifetimeModule" href="../ParticleSystemRotationOverLifetimeModule/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ParticleSystemShapeModule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule">ShapeModule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-equals">ShapeModule Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-aligntodirection">ShapeModule get_alignToDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-angle">ShapeModule get_angle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-arc">ShapeModule get_arc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-arcmode">ShapeModule get_arcMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-arcspeed">ShapeModule get_arcSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-arcspeedmultiplier">ShapeModule get_arcSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-arcspread">ShapeModule get_arcSpread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-boxthickness">ShapeModule get_boxThickness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-donutradius">ShapeModule get_donutRadius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-enabled">ShapeModule get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-length">ShapeModule get_length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-mesh">ShapeModule get_mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshmaterialindex">ShapeModule get_meshMaterialIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshrenderer">ShapeModule get_meshRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshshapetype">ShapeModule get_meshShapeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshspawnmode">ShapeModule get_meshSpawnMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshspawnspeed">ShapeModule get_meshSpawnSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshspawnspeedmultiplier">ShapeModule get_meshSpawnSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-meshspawnspread">ShapeModule get_meshSpawnSpread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-normaloffset">ShapeModule get_normalOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-position">ShapeModule get_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-radius">ShapeModule get_radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-radiusmode">ShapeModule get_radiusMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-radiusspeed">ShapeModule get_radiusSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-radiusspeedmultiplier">ShapeModule get_radiusSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-radiusspread">ShapeModule get_radiusSpread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-radiusthickness">ShapeModule get_radiusThickness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-randomdirectionamount">ShapeModule get_randomDirectionAmount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-randompositionamount">ShapeModule get_randomPositionAmount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-rotation">ShapeModule get_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-scale">ShapeModule get_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-shapetype">ShapeModule get_shapeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-skinnedmeshrenderer">ShapeModule get_skinnedMeshRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-sphericaldirectionamount">ShapeModule get_sphericalDirectionAmount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-sprite">ShapeModule get_sprite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-spriterenderer">ShapeModule get_spriteRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-texture">ShapeModule get_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-texturealphaaffectsparticles">ShapeModule get_textureAlphaAffectsParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-texturebilinearfiltering">ShapeModule get_textureBilinearFiltering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-textureclipchannel">ShapeModule get_textureClipChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-textureclipthreshold">ShapeModule get_textureClipThreshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-texturecoloraffectsparticles">ShapeModule get_textureColorAffectsParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-textureuvchannel">ShapeModule get_textureUVChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-usemeshcolors">ShapeModule get_useMeshColors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-get-usemeshmaterialindex">ShapeModule get_useMeshMaterialIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-gethashcode">ShapeModule GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-gettype">ShapeModule GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-aligntodirection">ShapeModule set_alignToDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-angle">ShapeModule set_angle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-arc">ShapeModule set_arc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-arcmode">ShapeModule set_arcMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-arcspeed">ShapeModule set_arcSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-arcspeedmultiplier">ShapeModule set_arcSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-arcspread">ShapeModule set_arcSpread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-boxthickness">ShapeModule set_boxThickness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-donutradius">ShapeModule set_donutRadius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-enabled">ShapeModule set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-length">ShapeModule set_length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-mesh">ShapeModule set_mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshmaterialindex">ShapeModule set_meshMaterialIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshrenderer">ShapeModule set_meshRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshshapetype">ShapeModule set_meshShapeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshspawnmode">ShapeModule set_meshSpawnMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshspawnspeed">ShapeModule set_meshSpawnSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshspawnspeedmultiplier">ShapeModule set_meshSpawnSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-meshspawnspread">ShapeModule set_meshSpawnSpread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-normaloffset">ShapeModule set_normalOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-position">ShapeModule set_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-radius">ShapeModule set_radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-radiusmode">ShapeModule set_radiusMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-radiusspeed">ShapeModule set_radiusSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-radiusspeedmultiplier">ShapeModule set_radiusSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-radiusspread">ShapeModule set_radiusSpread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-radiusthickness">ShapeModule set_radiusThickness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-randomdirectionamount">ShapeModule set_randomDirectionAmount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-randompositionamount">ShapeModule set_randomPositionAmount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-rotation">ShapeModule set_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-scale">ShapeModule set_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-shapetype">ShapeModule set_shapeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-skinnedmeshrenderer">ShapeModule set_skinnedMeshRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-sphericaldirectionamount">ShapeModule set_sphericalDirectionAmount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-sprite">ShapeModule set_sprite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-spriterenderer">ShapeModule set_spriteRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-texture">ShapeModule set_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-texturealphaaffectsparticles">ShapeModule set_textureAlphaAffectsParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-texturebilinearfiltering">ShapeModule set_textureBilinearFiltering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-textureclipchannel">ShapeModule set_textureClipChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-textureclipthreshold">ShapeModule set_textureClipThreshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-texturecoloraffectsparticles">ShapeModule set_textureColorAffectsParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-textureuvchannel">ShapeModule set_textureUVChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-usemeshcolors">ShapeModule set_useMeshColors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-set-usemeshmaterialindex">ShapeModule set_useMeshMaterialIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapemodule-tostring">ShapeModule ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id94">ShapeModule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>ParticleSystemShapeModule</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/ParticleSystemShapeModule/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ParticleSystemSizeBySpeedModule/index.html" class="btn btn-neutral float-right" title="ParticleSystemSizeBySpeedModule" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ParticleSystemRotationOverLifetimeModule/index.html" class="btn btn-neutral" title="ParticleSystemRotationOverLifetimeModule" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particlesystemshapemodule">
+<h1>ParticleSystemShapeModule<a class="headerlink" href="#particlesystemshapemodule" title="Permalink to this headline">¶</a></h1>
+<p>The ParticleSystemShapeModule module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="shapemodule">
+<h2>ShapeModule<a class="headerlink" href="#shapemodule" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_UnityEngineParticleSystemShapeModule">
+<code class="sig-name descname">Const_UnityEngineParticleSystemShapeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule ShapeModule</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_UnityEngineParticleSystemShapeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ShapeModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-equals">
+<h2>ShapeModule Equals<a class="headerlink" href="#shapemodule-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-aligntodirection">
+<h2>ShapeModule get_alignToDirection<a class="headerlink" href="#shapemodule-get-aligntodirection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_alignToDirection__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_alignToDirection__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_alignToDirection__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-alignToDirection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-angle">
+<h2>ShapeModule get_angle<a class="headerlink" href="#shapemodule-get-angle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_angle__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_angle__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_angle__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-angle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-arc">
+<h2>ShapeModule get_arc<a class="headerlink" href="#shapemodule-get-arc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_arc__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_arc__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_arc__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-arcmode">
+<h2>ShapeModule get_arcMode<a class="headerlink" href="#shapemodule-get-arcmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_arcMode__UnityEngineParticleSystemShapeMultiModeValue">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_arcMode__UnityEngineParticleSystemShapeMultiModeValue</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_arcMode__UnityEngineParticleSystemShapeMultiModeValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemShapeMultiModeValue</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-arcspeed">
+<h2>ShapeModule get_arcSpeed<a class="headerlink" href="#shapemodule-get-arcspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_arcSpeed__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_arcSpeed__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_arcSpeed__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-arcspeedmultiplier">
+<h2>ShapeModule get_arcSpeedMultiplier<a class="headerlink" href="#shapemodule-get-arcspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_arcSpeedMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_arcSpeedMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_arcSpeedMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-arcspread">
+<h2>ShapeModule get_arcSpread<a class="headerlink" href="#shapemodule-get-arcspread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_arcSpread__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_arcSpread__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_arcSpread__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcSpread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-boxthickness">
+<h2>ShapeModule get_boxThickness<a class="headerlink" href="#shapemodule-get-boxthickness" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_boxThickness__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_boxThickness__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_boxThickness__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-boxThickness.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-donutradius">
+<h2>ShapeModule get_donutRadius<a class="headerlink" href="#shapemodule-get-donutradius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_donutRadius__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_donutRadius__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_donutRadius__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-donutRadius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-enabled">
+<h2>ShapeModule get_enabled<a class="headerlink" href="#shapemodule-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-length">
+<h2>ShapeModule get_length<a class="headerlink" href="#shapemodule-get-length" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_length__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_length__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_length__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-length.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-mesh">
+<h2>ShapeModule get_mesh<a class="headerlink" href="#shapemodule-get-mesh" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_mesh__UnityEngineMesh">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_mesh__UnityEngineMesh</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_mesh__UnityEngineMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Mesh</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-mesh.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshmaterialindex">
+<h2>ShapeModule get_meshMaterialIndex<a class="headerlink" href="#shapemodule-get-meshmaterialindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshMaterialIndex__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshMaterialIndex__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshMaterialIndex__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshMaterialIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshrenderer">
+<h2>ShapeModule get_meshRenderer<a class="headerlink" href="#shapemodule-get-meshrenderer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshRenderer__UnityEngineMeshRenderer">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshRenderer__UnityEngineMeshRenderer</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshRenderer__UnityEngineMeshRenderer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MeshRenderer</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshshapetype">
+<h2>ShapeModule get_meshShapeType<a class="headerlink" href="#shapemodule-get-meshshapetype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshShapeType__UnityEngineParticleSystemMeshShapeType">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshShapeType__UnityEngineParticleSystemMeshShapeType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshShapeType__UnityEngineParticleSystemMeshShapeType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemMeshShapeType</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshShapeType.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshspawnmode">
+<h2>ShapeModule get_meshSpawnMode<a class="headerlink" href="#shapemodule-get-meshspawnmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshSpawnMode__UnityEngineParticleSystemShapeMultiModeValue">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshSpawnMode__UnityEngineParticleSystemShapeMultiModeValue</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshSpawnMode__UnityEngineParticleSystemShapeMultiModeValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemShapeMultiModeValue</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshspawnspeed">
+<h2>ShapeModule get_meshSpawnSpeed<a class="headerlink" href="#shapemodule-get-meshspawnspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshSpawnSpeed__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshSpawnSpeed__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshSpawnSpeed__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshspawnspeedmultiplier">
+<h2>ShapeModule get_meshSpawnSpeedMultiplier<a class="headerlink" href="#shapemodule-get-meshspawnspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshSpawnSpeedMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshSpawnSpeedMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshSpawnSpeedMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-meshspawnspread">
+<h2>ShapeModule get_meshSpawnSpread<a class="headerlink" href="#shapemodule-get-meshspawnspread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_meshSpawnSpread__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_meshSpawnSpread__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_meshSpawnSpread__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnSpread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-normaloffset">
+<h2>ShapeModule get_normalOffset<a class="headerlink" href="#shapemodule-get-normaloffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_normalOffset__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_normalOffset__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_normalOffset__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-normalOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-position">
+<h2>ShapeModule get_position<a class="headerlink" href="#shapemodule-get-position" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_position__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_position__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_position__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-position.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-radius">
+<h2>ShapeModule get_radius<a class="headerlink" href="#shapemodule-get-radius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_radius__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_radius__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_radius__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-radiusmode">
+<h2>ShapeModule get_radiusMode<a class="headerlink" href="#shapemodule-get-radiusmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_radiusMode__UnityEngineParticleSystemShapeMultiModeValue">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_radiusMode__UnityEngineParticleSystemShapeMultiModeValue</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_radiusMode__UnityEngineParticleSystemShapeMultiModeValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemShapeMultiModeValue</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-radiusspeed">
+<h2>ShapeModule get_radiusSpeed<a class="headerlink" href="#shapemodule-get-radiusspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_radiusSpeed__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_radiusSpeed__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_radiusSpeed__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-radiusspeedmultiplier">
+<h2>ShapeModule get_radiusSpeedMultiplier<a class="headerlink" href="#shapemodule-get-radiusspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_radiusSpeedMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_radiusSpeedMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_radiusSpeedMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-radiusspread">
+<h2>ShapeModule get_radiusSpread<a class="headerlink" href="#shapemodule-get-radiusspread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_radiusSpread__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_radiusSpread__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_radiusSpread__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusSpread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-radiusthickness">
+<h2>ShapeModule get_radiusThickness<a class="headerlink" href="#shapemodule-get-radiusthickness" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_radiusThickness__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_radiusThickness__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_radiusThickness__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusThickness.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-randomdirectionamount">
+<h2>ShapeModule get_randomDirectionAmount<a class="headerlink" href="#shapemodule-get-randomdirectionamount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_randomDirectionAmount__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_randomDirectionAmount__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_randomDirectionAmount__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-randomDirectionAmount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-randompositionamount">
+<h2>ShapeModule get_randomPositionAmount<a class="headerlink" href="#shapemodule-get-randompositionamount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_randomPositionAmount__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_randomPositionAmount__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_randomPositionAmount__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-randomPositionAmount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-rotation">
+<h2>ShapeModule get_rotation<a class="headerlink" href="#shapemodule-get-rotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_rotation__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_rotation__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_rotation__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-rotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-scale">
+<h2>ShapeModule get_scale<a class="headerlink" href="#shapemodule-get-scale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_scale__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_scale__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_scale__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-scale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-shapetype">
+<h2>ShapeModule get_shapeType<a class="headerlink" href="#shapemodule-get-shapetype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_shapeType__UnityEngineParticleSystemShapeType">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_shapeType__UnityEngineParticleSystemShapeType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_shapeType__UnityEngineParticleSystemShapeType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemShapeType</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-shapeType.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-skinnedmeshrenderer">
+<h2>ShapeModule get_skinnedMeshRenderer<a class="headerlink" href="#shapemodule-get-skinnedmeshrenderer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_skinnedMeshRenderer__UnityEngineSkinnedMeshRenderer">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_skinnedMeshRenderer__UnityEngineSkinnedMeshRenderer</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_skinnedMeshRenderer__UnityEngineSkinnedMeshRenderer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SkinnedMeshRenderer</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-skinnedMeshRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-sphericaldirectionamount">
+<h2>ShapeModule get_sphericalDirectionAmount<a class="headerlink" href="#shapemodule-get-sphericaldirectionamount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_sphericalDirectionAmount__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_sphericalDirectionAmount__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_sphericalDirectionAmount__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-sphericalDirectionAmount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-sprite">
+<h2>ShapeModule get_sprite<a class="headerlink" href="#shapemodule-get-sprite" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_sprite__UnityEngineSprite">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_sprite__UnityEngineSprite</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_sprite__UnityEngineSprite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-sprite.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-spriterenderer">
+<h2>ShapeModule get_spriteRenderer<a class="headerlink" href="#shapemodule-get-spriterenderer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_spriteRenderer__UnityEngineSpriteRenderer">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_spriteRenderer__UnityEngineSpriteRenderer</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_spriteRenderer__UnityEngineSpriteRenderer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SpriteRenderer</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-spriteRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-texture">
+<h2>ShapeModule get_texture<a class="headerlink" href="#shapemodule-get-texture" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_texture__UnityEngineTexture2D">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_texture__UnityEngineTexture2D</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_texture__UnityEngineTexture2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Texture2D</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-texture.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-texturealphaaffectsparticles">
+<h2>ShapeModule get_textureAlphaAffectsParticles<a class="headerlink" href="#shapemodule-get-texturealphaaffectsparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_textureAlphaAffectsParticles__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_textureAlphaAffectsParticles__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_textureAlphaAffectsParticles__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureAlphaAffectsParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-texturebilinearfiltering">
+<h2>ShapeModule get_textureBilinearFiltering<a class="headerlink" href="#shapemodule-get-texturebilinearfiltering" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_textureBilinearFiltering__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_textureBilinearFiltering__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_textureBilinearFiltering__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureBilinearFiltering.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-textureclipchannel">
+<h2>ShapeModule get_textureClipChannel<a class="headerlink" href="#shapemodule-get-textureclipchannel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_textureClipChannel__UnityEngineParticleSystemShapeTextureChannel">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_textureClipChannel__UnityEngineParticleSystemShapeTextureChannel</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_textureClipChannel__UnityEngineParticleSystemShapeTextureChannel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemShapeTextureChannel</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureClipChannel.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-textureclipthreshold">
+<h2>ShapeModule get_textureClipThreshold<a class="headerlink" href="#shapemodule-get-textureclipthreshold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_textureClipThreshold__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_textureClipThreshold__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_textureClipThreshold__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureClipThreshold.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-texturecoloraffectsparticles">
+<h2>ShapeModule get_textureColorAffectsParticles<a class="headerlink" href="#shapemodule-get-texturecoloraffectsparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_textureColorAffectsParticles__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_textureColorAffectsParticles__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_textureColorAffectsParticles__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureColorAffectsParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-textureuvchannel">
+<h2>ShapeModule get_textureUVChannel<a class="headerlink" href="#shapemodule-get-textureuvchannel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_textureUVChannel__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_textureUVChannel__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_textureUVChannel__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureUVChannel.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-usemeshcolors">
+<h2>ShapeModule get_useMeshColors<a class="headerlink" href="#shapemodule-get-usemeshcolors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_useMeshColors__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_useMeshColors__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_useMeshColors__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-useMeshColors.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-get-usemeshmaterialindex">
+<h2>ShapeModule get_useMeshMaterialIndex<a class="headerlink" href="#shapemodule-get-usemeshmaterialindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__get_useMeshMaterialIndex__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__get_useMeshMaterialIndex__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__get_useMeshMaterialIndex__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-useMeshMaterialIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-gethashcode">
+<h2>ShapeModule GetHashCode<a class="headerlink" href="#shapemodule-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-gettype">
+<h2>ShapeModule GetType<a class="headerlink" href="#shapemodule-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-aligntodirection">
+<h2>ShapeModule set_alignToDirection<a class="headerlink" href="#shapemodule-set-aligntodirection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_alignToDirection__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_alignToDirection__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_alignToDirection__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-alignToDirection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-angle">
+<h2>ShapeModule set_angle<a class="headerlink" href="#shapemodule-set-angle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_angle__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_angle__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_angle__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-angle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-arc">
+<h2>ShapeModule set_arc<a class="headerlink" href="#shapemodule-set-arc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_arc__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_arc__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_arc__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arc.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-arcmode">
+<h2>ShapeModule set_arcMode<a class="headerlink" href="#shapemodule-set-arcmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_arcMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_arcMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystemShapeMultiModeValue value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_arcMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-arcspeed">
+<h2>ShapeModule set_arcSpeed<a class="headerlink" href="#shapemodule-set-arcspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_arcSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_arcSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_arcSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-arcspeedmultiplier">
+<h2>ShapeModule set_arcSpeedMultiplier<a class="headerlink" href="#shapemodule-set-arcspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_arcSpeedMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_arcSpeedMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_arcSpeedMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-arcspread">
+<h2>ShapeModule set_arcSpread<a class="headerlink" href="#shapemodule-set-arcspread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_arcSpread__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_arcSpread__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_arcSpread__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-arcSpread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-boxthickness">
+<h2>ShapeModule set_boxThickness<a class="headerlink" href="#shapemodule-set-boxthickness" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_boxThickness__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_boxThickness__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_boxThickness__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-boxThickness.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-donutradius">
+<h2>ShapeModule set_donutRadius<a class="headerlink" href="#shapemodule-set-donutradius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_donutRadius__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_donutRadius__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_donutRadius__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-donutRadius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-enabled">
+<h2>ShapeModule set_enabled<a class="headerlink" href="#shapemodule-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-length">
+<h2>ShapeModule set_length<a class="headerlink" href="#shapemodule-set-length" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_length__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_length__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_length__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-length.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-mesh">
+<h2>ShapeModule set_mesh<a class="headerlink" href="#shapemodule-set-mesh" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_mesh__UnityEngineMesh__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_mesh__UnityEngineMesh__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Mesh value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_mesh__UnityEngineMesh__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-mesh.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshmaterialindex">
+<h2>ShapeModule set_meshMaterialIndex<a class="headerlink" href="#shapemodule-set-meshmaterialindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshMaterialIndex__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshMaterialIndex__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshMaterialIndex__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshMaterialIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshrenderer">
+<h2>ShapeModule set_meshRenderer<a class="headerlink" href="#shapemodule-set-meshrenderer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshRenderer__UnityEngineMeshRenderer__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshRenderer__UnityEngineMeshRenderer__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.MeshRenderer value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshRenderer__UnityEngineMeshRenderer__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshshapetype">
+<h2>ShapeModule set_meshShapeType<a class="headerlink" href="#shapemodule-set-meshshapetype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshShapeType__UnityEngineParticleSystemMeshShapeType__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshShapeType__UnityEngineParticleSystemMeshShapeType__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystemMeshShapeType value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshShapeType__UnityEngineParticleSystemMeshShapeType__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshShapeType.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshspawnmode">
+<h2>ShapeModule set_meshSpawnMode<a class="headerlink" href="#shapemodule-set-meshspawnmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshSpawnMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshSpawnMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystemShapeMultiModeValue value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshSpawnMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshspawnspeed">
+<h2>ShapeModule set_meshSpawnSpeed<a class="headerlink" href="#shapemodule-set-meshspawnspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshSpawnSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshSpawnSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshSpawnSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshspawnspeedmultiplier">
+<h2>ShapeModule set_meshSpawnSpeedMultiplier<a class="headerlink" href="#shapemodule-set-meshspawnspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshSpawnSpeedMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshSpawnSpeedMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshSpawnSpeedMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-meshspawnspread">
+<h2>ShapeModule set_meshSpawnSpread<a class="headerlink" href="#shapemodule-set-meshspawnspread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_meshSpawnSpread__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_meshSpawnSpread__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_meshSpawnSpread__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-meshSpawnSpread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-normaloffset">
+<h2>ShapeModule set_normalOffset<a class="headerlink" href="#shapemodule-set-normaloffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_normalOffset__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_normalOffset__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_normalOffset__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-normalOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-position">
+<h2>ShapeModule set_position<a class="headerlink" href="#shapemodule-set-position" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_position__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_position__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_position__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-position.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-radius">
+<h2>ShapeModule set_radius<a class="headerlink" href="#shapemodule-set-radius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_radius__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_radius__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_radius__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-radiusmode">
+<h2>ShapeModule set_radiusMode<a class="headerlink" href="#shapemodule-set-radiusmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_radiusMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_radiusMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystemShapeMultiModeValue value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_radiusMode__UnityEngineParticleSystemShapeMultiModeValue__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-radiusspeed">
+<h2>ShapeModule set_radiusSpeed<a class="headerlink" href="#shapemodule-set-radiusspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_radiusSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_radiusSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_radiusSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-radiusspeedmultiplier">
+<h2>ShapeModule set_radiusSpeedMultiplier<a class="headerlink" href="#shapemodule-set-radiusspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_radiusSpeedMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_radiusSpeedMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_radiusSpeedMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-radiusspread">
+<h2>ShapeModule set_radiusSpread<a class="headerlink" href="#shapemodule-set-radiusspread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_radiusSpread__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_radiusSpread__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_radiusSpread__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusSpread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-radiusthickness">
+<h2>ShapeModule set_radiusThickness<a class="headerlink" href="#shapemodule-set-radiusthickness" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_radiusThickness__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_radiusThickness__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_radiusThickness__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-radiusThickness.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-randomdirectionamount">
+<h2>ShapeModule set_randomDirectionAmount<a class="headerlink" href="#shapemodule-set-randomdirectionamount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_randomDirectionAmount__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_randomDirectionAmount__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_randomDirectionAmount__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-randomDirectionAmount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-randompositionamount">
+<h2>ShapeModule set_randomPositionAmount<a class="headerlink" href="#shapemodule-set-randompositionamount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_randomPositionAmount__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_randomPositionAmount__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_randomPositionAmount__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-randomPositionAmount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-rotation">
+<h2>ShapeModule set_rotation<a class="headerlink" href="#shapemodule-set-rotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_rotation__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_rotation__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_rotation__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-rotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-scale">
+<h2>ShapeModule set_scale<a class="headerlink" href="#shapemodule-set-scale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_scale__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_scale__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_scale__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-scale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-shapetype">
+<h2>ShapeModule set_shapeType<a class="headerlink" href="#shapemodule-set-shapetype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_shapeType__UnityEngineParticleSystemShapeType__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_shapeType__UnityEngineParticleSystemShapeType__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystemShapeType value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_shapeType__UnityEngineParticleSystemShapeType__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-shapeType.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-skinnedmeshrenderer">
+<h2>ShapeModule set_skinnedMeshRenderer<a class="headerlink" href="#shapemodule-set-skinnedmeshrenderer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_skinnedMeshRenderer__UnityEngineSkinnedMeshRenderer__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_skinnedMeshRenderer__UnityEngineSkinnedMeshRenderer__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.SkinnedMeshRenderer value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_skinnedMeshRenderer__UnityEngineSkinnedMeshRenderer__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-skinnedMeshRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-sphericaldirectionamount">
+<h2>ShapeModule set_sphericalDirectionAmount<a class="headerlink" href="#shapemodule-set-sphericaldirectionamount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_sphericalDirectionAmount__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_sphericalDirectionAmount__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_sphericalDirectionAmount__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-sphericalDirectionAmount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-sprite">
+<h2>ShapeModule set_sprite<a class="headerlink" href="#shapemodule-set-sprite" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_sprite__UnityEngineSprite__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_sprite__UnityEngineSprite__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Sprite value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_sprite__UnityEngineSprite__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-sprite.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-spriterenderer">
+<h2>ShapeModule set_spriteRenderer<a class="headerlink" href="#shapemodule-set-spriterenderer" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_spriteRenderer__UnityEngineSpriteRenderer__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_spriteRenderer__UnityEngineSpriteRenderer__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.SpriteRenderer value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_spriteRenderer__UnityEngineSpriteRenderer__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-spriteRenderer.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-texture">
+<h2>ShapeModule set_texture<a class="headerlink" href="#shapemodule-set-texture" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_texture__UnityEngineTexture2D__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_texture__UnityEngineTexture2D__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.Texture2D value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_texture__UnityEngineTexture2D__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-texture.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-texturealphaaffectsparticles">
+<h2>ShapeModule set_textureAlphaAffectsParticles<a class="headerlink" href="#shapemodule-set-texturealphaaffectsparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_textureAlphaAffectsParticles__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_textureAlphaAffectsParticles__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_textureAlphaAffectsParticles__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureAlphaAffectsParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-texturebilinearfiltering">
+<h2>ShapeModule set_textureBilinearFiltering<a class="headerlink" href="#shapemodule-set-texturebilinearfiltering" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_textureBilinearFiltering__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_textureBilinearFiltering__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_textureBilinearFiltering__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureBilinearFiltering.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-textureclipchannel">
+<h2>ShapeModule set_textureClipChannel<a class="headerlink" href="#shapemodule-set-textureclipchannel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_textureClipChannel__UnityEngineParticleSystemShapeTextureChannel__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_textureClipChannel__UnityEngineParticleSystemShapeTextureChannel__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceUnityEngine.ParticleSystemShapeTextureChannel value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_textureClipChannel__UnityEngineParticleSystemShapeTextureChannel__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureClipChannel.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-textureclipthreshold">
+<h2>ShapeModule set_textureClipThreshold<a class="headerlink" href="#shapemodule-set-textureclipthreshold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_textureClipThreshold__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_textureClipThreshold__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_textureClipThreshold__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureClipThreshold.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-texturecoloraffectsparticles">
+<h2>ShapeModule set_textureColorAffectsParticles<a class="headerlink" href="#shapemodule-set-texturecoloraffectsparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_textureColorAffectsParticles__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_textureColorAffectsParticles__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_textureColorAffectsParticles__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureColorAffectsParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-textureuvchannel">
+<h2>ShapeModule set_textureUVChannel<a class="headerlink" href="#shapemodule-set-textureuvchannel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_textureUVChannel__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_textureUVChannel__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_textureUVChannel__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-textureUVChannel.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-usemeshcolors">
+<h2>ShapeModule set_useMeshColors<a class="headerlink" href="#shapemodule-set-usemeshcolors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_useMeshColors__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_useMeshColors__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_useMeshColors__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-useMeshColors.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-set-usemeshmaterialindex">
+<h2>ShapeModule set_useMeshMaterialIndex<a class="headerlink" href="#shapemodule-set-usemeshmaterialindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__set_useMeshMaterialIndex__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__set_useMeshMaterialIndex__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__set_useMeshMaterialIndex__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule-useMeshMaterialIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="shapemodule-tostring">
+<h2>ShapeModule ToString<a class="headerlink" href="#shapemodule-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemShapeModule.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineParticleSystemShapeModule.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemShapeModule.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id94">
+<h2>ShapeModule<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineParticleSystemShapeModule">
+<code class="sig-name descname">Variable_UnityEngineParticleSystemShapeModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+ShapeModule ShapeModuleSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineParticleSystemShapeModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/ShapeModule.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ParticleSystemSizeBySpeedModule/index.html" class="btn btn-neutral float-right" title="ParticleSystemSizeBySpeedModule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ParticleSystemRotationOverLifetimeModule/index.html" class="btn btn-neutral" title="ParticleSystemRotationOverLifetimeModule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

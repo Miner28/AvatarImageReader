@@ -1,0 +1,1210 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RenderSettings &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="Rigidbody2D" href="../Rigidbody2D/index.html"/>
+        <link rel="prev" title="RendererExtensions" href="../RendererExtensions/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RenderSettings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-equals">RenderSettings Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientequatorcolor">RenderSettings get_ambientEquatorColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientgroundcolor">RenderSettings get_ambientGroundColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientintensity">RenderSettings get_ambientIntensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientlight">RenderSettings get_ambientLight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientmode">RenderSettings get_ambientMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientprobe">RenderSettings get_ambientProbe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-ambientskycolor">RenderSettings get_ambientSkyColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-customreflection">RenderSettings get_customReflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-defaultreflectionmode">RenderSettings get_defaultReflectionMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-defaultreflectionresolution">RenderSettings get_defaultReflectionResolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-flarefadespeed">RenderSettings get_flareFadeSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-flarestrength">RenderSettings get_flareStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-fog">RenderSettings get_fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-fogcolor">RenderSettings get_fogColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-fogdensity">RenderSettings get_fogDensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-fogenddistance">RenderSettings get_fogEndDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-fogmode">RenderSettings get_fogMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-fogstartdistance">RenderSettings get_fogStartDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-halostrength">RenderSettings get_haloStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-name">RenderSettings get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-reflectionbounces">RenderSettings get_reflectionBounces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-reflectionintensity">RenderSettings get_reflectionIntensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-skybox">RenderSettings get_skybox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-subtractiveshadowcolor">RenderSettings get_subtractiveShadowColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-get-sun">RenderSettings get_sun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-gethashcode">RenderSettings GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-getinstanceid">RenderSettings GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-gettype">RenderSettings GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientequatorcolor">RenderSettings set_ambientEquatorColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientgroundcolor">RenderSettings set_ambientGroundColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientintensity">RenderSettings set_ambientIntensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientlight">RenderSettings set_ambientLight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientmode">RenderSettings set_ambientMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientprobe">RenderSettings set_ambientProbe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-ambientskycolor">RenderSettings set_ambientSkyColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-customreflection">RenderSettings set_customReflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-defaultreflectionmode">RenderSettings set_defaultReflectionMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-defaultreflectionresolution">RenderSettings set_defaultReflectionResolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-flarefadespeed">RenderSettings set_flareFadeSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-flarestrength">RenderSettings set_flareStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-fog">RenderSettings set_fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-fogcolor">RenderSettings set_fogColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-fogdensity">RenderSettings set_fogDensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-fogenddistance">RenderSettings set_fogEndDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-fogmode">RenderSettings set_fogMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-fogstartdistance">RenderSettings set_fogStartDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-halostrength">RenderSettings set_haloStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-name">RenderSettings set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-reflectionbounces">RenderSettings set_reflectionBounces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-reflectionintensity">RenderSettings set_reflectionIntensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-skybox">RenderSettings set_skybox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-subtractiveshadowcolor">RenderSettings set_subtractiveShadowColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-set-sun">RenderSettings set_sun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendersettings-tostring">RenderSettings ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id54">RenderSettings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>RenderSettings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/RenderSettings/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Rigidbody2D/index.html" class="btn btn-neutral float-right" title="Rigidbody2D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../RendererExtensions/index.html" class="btn btn-neutral" title="RendererExtensions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rendersettings">
+<h1>RenderSettings<a class="headerlink" href="#rendersettings" title="Permalink to this headline">¶</a></h1>
+<p>The RenderSettings module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="rendersettings-equals">
+<h2>RenderSettings Equals<a class="headerlink" href="#rendersettings-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientequatorcolor">
+<h2>RenderSettings get_ambientEquatorColor<a class="headerlink" href="#rendersettings-get-ambientequatorcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientEquatorColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientEquatorColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientEquatorColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientEquatorColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientgroundcolor">
+<h2>RenderSettings get_ambientGroundColor<a class="headerlink" href="#rendersettings-get-ambientgroundcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientGroundColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientGroundColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientGroundColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientGroundColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientintensity">
+<h2>RenderSettings get_ambientIntensity<a class="headerlink" href="#rendersettings-get-ambientintensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientIntensity__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientIntensity__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientIntensity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientIntensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientlight">
+<h2>RenderSettings get_ambientLight<a class="headerlink" href="#rendersettings-get-ambientlight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientLight__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientLight__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientLight__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientLight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientmode">
+<h2>RenderSettings get_ambientMode<a class="headerlink" href="#rendersettings-get-ambientmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientMode__UnityEngineRenderingAmbientMode">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientMode__UnityEngineRenderingAmbientMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientMode__UnityEngineRenderingAmbientMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AmbientMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientprobe">
+<h2>RenderSettings get_ambientProbe<a class="headerlink" href="#rendersettings-get-ambientprobe" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientProbe__UnityEngineRenderingSphericalHarmonicsL2">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientProbe__UnityEngineRenderingSphericalHarmonicsL2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientProbe__UnityEngineRenderingSphericalHarmonicsL2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">SphericalHarmonicsL2</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientProbe.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-ambientskycolor">
+<h2>RenderSettings get_ambientSkyColor<a class="headerlink" href="#rendersettings-get-ambientskycolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_ambientSkyColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_ambientSkyColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_ambientSkyColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientSkyColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-customreflection">
+<h2>RenderSettings get_customReflection<a class="headerlink" href="#rendersettings-get-customreflection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_customReflection__UnityEngineCubemap">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_customReflection__UnityEngineCubemap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_customReflection__UnityEngineCubemap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Cubemap</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-customReflection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-defaultreflectionmode">
+<h2>RenderSettings get_defaultReflectionMode<a class="headerlink" href="#rendersettings-get-defaultreflectionmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_defaultReflectionMode__UnityEngineRenderingDefaultReflectionMode">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_defaultReflectionMode__UnityEngineRenderingDefaultReflectionMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_defaultReflectionMode__UnityEngineRenderingDefaultReflectionMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DefaultReflectionMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-defaultReflectionMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-defaultreflectionresolution">
+<h2>RenderSettings get_defaultReflectionResolution<a class="headerlink" href="#rendersettings-get-defaultreflectionresolution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_defaultReflectionResolution__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_defaultReflectionResolution__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_defaultReflectionResolution__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-defaultReflectionResolution.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-flarefadespeed">
+<h2>RenderSettings get_flareFadeSpeed<a class="headerlink" href="#rendersettings-get-flarefadespeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_flareFadeSpeed__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_flareFadeSpeed__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_flareFadeSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-flareFadeSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-flarestrength">
+<h2>RenderSettings get_flareStrength<a class="headerlink" href="#rendersettings-get-flarestrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_flareStrength__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_flareStrength__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_flareStrength__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-flareStrength.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-fog">
+<h2>RenderSettings get_fog<a class="headerlink" href="#rendersettings-get-fog" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_fog__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_fog__SystemBoolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_fog__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fog.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-fogcolor">
+<h2>RenderSettings get_fogColor<a class="headerlink" href="#rendersettings-get-fogcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_fogColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_fogColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_fogColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-fogdensity">
+<h2>RenderSettings get_fogDensity<a class="headerlink" href="#rendersettings-get-fogdensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_fogDensity__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_fogDensity__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_fogDensity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogDensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-fogenddistance">
+<h2>RenderSettings get_fogEndDistance<a class="headerlink" href="#rendersettings-get-fogenddistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_fogEndDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_fogEndDistance__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_fogEndDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogEndDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-fogmode">
+<h2>RenderSettings get_fogMode<a class="headerlink" href="#rendersettings-get-fogmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_fogMode__UnityEngineFogMode">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_fogMode__UnityEngineFogMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_fogMode__UnityEngineFogMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">FogMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-fogstartdistance">
+<h2>RenderSettings get_fogStartDistance<a class="headerlink" href="#rendersettings-get-fogstartdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_fogStartDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_fogStartDistance__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_fogStartDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogStartDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-halostrength">
+<h2>RenderSettings get_haloStrength<a class="headerlink" href="#rendersettings-get-halostrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_haloStrength__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_haloStrength__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_haloStrength__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-haloStrength.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-name">
+<h2>RenderSettings get_name<a class="headerlink" href="#rendersettings-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-reflectionbounces">
+<h2>RenderSettings get_reflectionBounces<a class="headerlink" href="#rendersettings-get-reflectionbounces" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_reflectionBounces__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_reflectionBounces__SystemInt32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_reflectionBounces__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-reflectionBounces.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-reflectionintensity">
+<h2>RenderSettings get_reflectionIntensity<a class="headerlink" href="#rendersettings-get-reflectionintensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_reflectionIntensity__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_reflectionIntensity__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_reflectionIntensity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-reflectionIntensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-skybox">
+<h2>RenderSettings get_skybox<a class="headerlink" href="#rendersettings-get-skybox" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_skybox__UnityEngineMaterial">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_skybox__UnityEngineMaterial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_skybox__UnityEngineMaterial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Material</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-skybox.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-subtractiveshadowcolor">
+<h2>RenderSettings get_subtractiveShadowColor<a class="headerlink" href="#rendersettings-get-subtractiveshadowcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_subtractiveShadowColor__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_subtractiveShadowColor__UnityEngineColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_subtractiveShadowColor__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-subtractiveShadowColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-get-sun">
+<h2>RenderSettings get_sun<a class="headerlink" href="#rendersettings-get-sun" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__get_sun__UnityEngineLight">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__get_sun__UnityEngineLight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__get_sun__UnityEngineLight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Light</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-sun.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-gethashcode">
+<h2>RenderSettings GetHashCode<a class="headerlink" href="#rendersettings-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-getinstanceid">
+<h2>RenderSettings GetInstanceID<a class="headerlink" href="#rendersettings-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-gettype">
+<h2>RenderSettings GetType<a class="headerlink" href="#rendersettings-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="rendersettings-set-ambientequatorcolor">
+<h2>RenderSettings set_ambientEquatorColor<a class="headerlink" href="#rendersettings-set-ambientequatorcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientEquatorColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientEquatorColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientEquatorColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientEquatorColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-ambientgroundcolor">
+<h2>RenderSettings set_ambientGroundColor<a class="headerlink" href="#rendersettings-set-ambientgroundcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientGroundColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientGroundColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientGroundColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientGroundColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-ambientintensity">
+<h2>RenderSettings set_ambientIntensity<a class="headerlink" href="#rendersettings-set-ambientintensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientIntensity__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientIntensity__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientIntensity__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientIntensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-ambientlight">
+<h2>RenderSettings set_ambientLight<a class="headerlink" href="#rendersettings-set-ambientlight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientLight__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientLight__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientLight__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientLight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-ambientmode">
+<h2>RenderSettings set_ambientMode<a class="headerlink" href="#rendersettings-set-ambientmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientMode__UnityEngineRenderingAmbientMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientMode__UnityEngineRenderingAmbientMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Rendering.AmbientMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientMode__UnityEngineRenderingAmbientMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-ambientprobe">
+<h2>RenderSettings set_ambientProbe<a class="headerlink" href="#rendersettings-set-ambientprobe" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientProbe__UnityEngineRenderingSphericalHarmonicsL2__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientProbe__UnityEngineRenderingSphericalHarmonicsL2__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Rendering.SphericalHarmonicsL2 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientProbe__UnityEngineRenderingSphericalHarmonicsL2__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientProbe.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-ambientskycolor">
+<h2>RenderSettings set_ambientSkyColor<a class="headerlink" href="#rendersettings-set-ambientskycolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_ambientSkyColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_ambientSkyColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_ambientSkyColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-ambientSkyColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-customreflection">
+<h2>RenderSettings set_customReflection<a class="headerlink" href="#rendersettings-set-customreflection" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_customReflection__UnityEngineCubemap__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_customReflection__UnityEngineCubemap__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Cubemap value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_customReflection__UnityEngineCubemap__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-customReflection.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-defaultreflectionmode">
+<h2>RenderSettings set_defaultReflectionMode<a class="headerlink" href="#rendersettings-set-defaultreflectionmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_defaultReflectionMode__UnityEngineRenderingDefaultReflectionMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_defaultReflectionMode__UnityEngineRenderingDefaultReflectionMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Rendering.DefaultReflectionMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_defaultReflectionMode__UnityEngineRenderingDefaultReflectionMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-defaultReflectionMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-defaultreflectionresolution">
+<h2>RenderSettings set_defaultReflectionResolution<a class="headerlink" href="#rendersettings-set-defaultreflectionresolution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_defaultReflectionResolution__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_defaultReflectionResolution__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_defaultReflectionResolution__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-defaultReflectionResolution.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-flarefadespeed">
+<h2>RenderSettings set_flareFadeSpeed<a class="headerlink" href="#rendersettings-set-flarefadespeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_flareFadeSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_flareFadeSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_flareFadeSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-flareFadeSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-flarestrength">
+<h2>RenderSettings set_flareStrength<a class="headerlink" href="#rendersettings-set-flarestrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_flareStrength__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_flareStrength__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_flareStrength__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-flareStrength.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-fog">
+<h2>RenderSettings set_fog<a class="headerlink" href="#rendersettings-set-fog" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_fog__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_fog__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_fog__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fog.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-fogcolor">
+<h2>RenderSettings set_fogColor<a class="headerlink" href="#rendersettings-set-fogcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_fogColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_fogColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_fogColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-fogdensity">
+<h2>RenderSettings set_fogDensity<a class="headerlink" href="#rendersettings-set-fogdensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_fogDensity__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_fogDensity__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_fogDensity__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogDensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-fogenddistance">
+<h2>RenderSettings set_fogEndDistance<a class="headerlink" href="#rendersettings-set-fogenddistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_fogEndDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_fogEndDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_fogEndDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogEndDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-fogmode">
+<h2>RenderSettings set_fogMode<a class="headerlink" href="#rendersettings-set-fogmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_fogMode__UnityEngineFogMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_fogMode__UnityEngineFogMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.FogMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_fogMode__UnityEngineFogMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-fogstartdistance">
+<h2>RenderSettings set_fogStartDistance<a class="headerlink" href="#rendersettings-set-fogstartdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_fogStartDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_fogStartDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_fogStartDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-fogStartDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-halostrength">
+<h2>RenderSettings set_haloStrength<a class="headerlink" href="#rendersettings-set-halostrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_haloStrength__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_haloStrength__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_haloStrength__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-haloStrength.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-name">
+<h2>RenderSettings set_name<a class="headerlink" href="#rendersettings-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-reflectionbounces">
+<h2>RenderSettings set_reflectionBounces<a class="headerlink" href="#rendersettings-set-reflectionbounces" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_reflectionBounces__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_reflectionBounces__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_reflectionBounces__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-reflectionBounces.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-reflectionintensity">
+<h2>RenderSettings set_reflectionIntensity<a class="headerlink" href="#rendersettings-set-reflectionintensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_reflectionIntensity__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_reflectionIntensity__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">System.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_reflectionIntensity__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-reflectionIntensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-skybox">
+<h2>RenderSettings set_skybox<a class="headerlink" href="#rendersettings-set-skybox" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_skybox__UnityEngineMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_skybox__UnityEngineMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Material value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_skybox__UnityEngineMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-skybox.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-subtractiveshadowcolor">
+<h2>RenderSettings set_subtractiveShadowColor<a class="headerlink" href="#rendersettings-set-subtractiveshadowcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_subtractiveShadowColor__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_subtractiveShadowColor__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_subtractiveShadowColor__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-subtractiveShadowColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-set-sun">
+<h2>RenderSettings set_sun<a class="headerlink" href="#rendersettings-set-sun" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__set_sun__UnityEngineLight__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__set_sun__UnityEngineLight__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__set_sun__UnityEngineLight__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings-sun.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="rendersettings-tostring">
+<h2>RenderSettings ToString<a class="headerlink" href="#rendersettings-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineRenderSettings.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineRenderSettings.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineRenderSettings.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id54">
+<h2>RenderSettings<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineRenderSettings">
+<code class="sig-name descname">Variable_UnityEngineRenderSettings</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.RenderSettings RenderSettingsSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineRenderSettings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/RenderSettings.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Rigidbody2D/index.html" class="btn btn-neutral float-right" title="Rigidbody2D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../RendererExtensions/index.html" class="btn btn-neutral" title="RendererExtensions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

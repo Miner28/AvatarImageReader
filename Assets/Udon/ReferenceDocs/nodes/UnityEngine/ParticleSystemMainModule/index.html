@@ -1,0 +1,1629 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ParticleSystemMainModule &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="ParticleSystemMinMaxCurve" href="../ParticleSystemMinMaxCurve/index.html"/>
+        <link rel="prev" title="ParticleSystemLimitVelocityOverLifetimeModule" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ParticleSystemMainModule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule">MainModule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-equals">MainModule Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-cullingmode">MainModule get_cullingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-customsimulationspace">MainModule get_customSimulationSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-duration">MainModule get_duration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-emittervelocitymode">MainModule get_emitterVelocityMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-fliprotation">MainModule get_flipRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-gravitymodifier">MainModule get_gravityModifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-gravitymodifiermultiplier">MainModule get_gravityModifierMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-loop">MainModule get_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-maxparticles">MainModule get_maxParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-playonawake">MainModule get_playOnAwake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-prewarm">MainModule get_prewarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-ringbufferlooprange">MainModule get_ringBufferLoopRange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-ringbuffermode">MainModule get_ringBufferMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-scalingmode">MainModule get_scalingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-simulationspace">MainModule get_simulationSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-simulationspeed">MainModule get_simulationSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startcolor">MainModule get_startColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startdelay">MainModule get_startDelay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startdelaymultiplier">MainModule get_startDelayMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startlifetime">MainModule get_startLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startlifetimemultiplier">MainModule get_startLifetimeMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotation">MainModule get_startRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotation3d">MainModule get_startRotation3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationmultiplier">MainModule get_startRotationMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationx">MainModule get_startRotationX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationxmultiplier">MainModule get_startRotationXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationy">MainModule get_startRotationY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationymultiplier">MainModule get_startRotationYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationz">MainModule get_startRotationZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startrotationzmultiplier">MainModule get_startRotationZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsize">MainModule get_startSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsize3d">MainModule get_startSize3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizemultiplier">MainModule get_startSizeMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizex">MainModule get_startSizeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizexmultiplier">MainModule get_startSizeXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizey">MainModule get_startSizeY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizeymultiplier">MainModule get_startSizeYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizez">MainModule get_startSizeZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startsizezmultiplier">MainModule get_startSizeZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startspeed">MainModule get_startSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-startspeedmultiplier">MainModule get_startSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-stopaction">MainModule get_stopAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-get-useunscaledtime">MainModule get_useUnscaledTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-gethashcode">MainModule GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-gettype">MainModule GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-cullingmode">MainModule set_cullingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-customsimulationspace">MainModule set_customSimulationSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-duration">MainModule set_duration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-emittervelocitymode">MainModule set_emitterVelocityMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-fliprotation">MainModule set_flipRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-gravitymodifier">MainModule set_gravityModifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-gravitymodifiermultiplier">MainModule set_gravityModifierMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-loop">MainModule set_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-maxparticles">MainModule set_maxParticles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-playonawake">MainModule set_playOnAwake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-prewarm">MainModule set_prewarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-ringbufferlooprange">MainModule set_ringBufferLoopRange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-ringbuffermode">MainModule set_ringBufferMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-scalingmode">MainModule set_scalingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-simulationspace">MainModule set_simulationSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-simulationspeed">MainModule set_simulationSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startcolor">MainModule set_startColor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startdelay">MainModule set_startDelay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startdelaymultiplier">MainModule set_startDelayMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startlifetime">MainModule set_startLifetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startlifetimemultiplier">MainModule set_startLifetimeMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotation">MainModule set_startRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotation3d">MainModule set_startRotation3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationmultiplier">MainModule set_startRotationMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationx">MainModule set_startRotationX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationxmultiplier">MainModule set_startRotationXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationy">MainModule set_startRotationY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationymultiplier">MainModule set_startRotationYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationz">MainModule set_startRotationZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startrotationzmultiplier">MainModule set_startRotationZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsize">MainModule set_startSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsize3d">MainModule set_startSize3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizemultiplier">MainModule set_startSizeMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizex">MainModule set_startSizeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizexmultiplier">MainModule set_startSizeXMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizey">MainModule set_startSizeY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizeymultiplier">MainModule set_startSizeYMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizez">MainModule set_startSizeZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startsizezmultiplier">MainModule set_startSizeZMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startspeed">MainModule set_startSpeed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-startspeedmultiplier">MainModule set_startSpeedMultiplier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-stopaction">MainModule set_stopAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-set-useunscaledtime">MainModule set_useUnscaledTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mainmodule-tostring">MainModule ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id90">MainModule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>ParticleSystemMainModule</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/ParticleSystemMainModule/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ParticleSystemMinMaxCurve/index.html" class="btn btn-neutral float-right" title="ParticleSystemMinMaxCurve" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html" class="btn btn-neutral" title="ParticleSystemLimitVelocityOverLifetimeModule" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particlesystemmainmodule">
+<h1>ParticleSystemMainModule<a class="headerlink" href="#particlesystemmainmodule" title="Permalink to this headline">¶</a></h1>
+<p>The ParticleSystemMainModule module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="mainmodule">
+<h2>MainModule<a class="headerlink" href="#mainmodule" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_UnityEngineParticleSystemMainModule">
+<code class="sig-name descname">Const_UnityEngineParticleSystemMainModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule MainModule</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_UnityEngineParticleSystemMainModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MainModule</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-equals">
+<h2>MainModule Equals<a class="headerlink" href="#mainmodule-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-cullingmode">
+<h2>MainModule get_cullingMode<a class="headerlink" href="#mainmodule-get-cullingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_cullingMode__UnityEngineParticleSystemCullingMode">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_cullingMode__UnityEngineParticleSystemCullingMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_cullingMode__UnityEngineParticleSystemCullingMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemCullingMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-cullingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-customsimulationspace">
+<h2>MainModule get_customSimulationSpace<a class="headerlink" href="#mainmodule-get-customsimulationspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_customSimulationSpace__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_customSimulationSpace__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_customSimulationSpace__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-customSimulationSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-duration">
+<h2>MainModule get_duration<a class="headerlink" href="#mainmodule-get-duration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_duration__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_duration__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_duration__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-duration.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-emittervelocitymode">
+<h2>MainModule get_emitterVelocityMode<a class="headerlink" href="#mainmodule-get-emittervelocitymode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_emitterVelocityMode__UnityEngineParticleSystemEmitterVelocityMode">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_emitterVelocityMode__UnityEngineParticleSystemEmitterVelocityMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_emitterVelocityMode__UnityEngineParticleSystemEmitterVelocityMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemEmitterVelocityMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-emitterVelocityMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-fliprotation">
+<h2>MainModule get_flipRotation<a class="headerlink" href="#mainmodule-get-fliprotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_flipRotation__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_flipRotation__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_flipRotation__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-flipRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-gravitymodifier">
+<h2>MainModule get_gravityModifier<a class="headerlink" href="#mainmodule-get-gravitymodifier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_gravityModifier__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_gravityModifier__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_gravityModifier__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-gravityModifier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-gravitymodifiermultiplier">
+<h2>MainModule get_gravityModifierMultiplier<a class="headerlink" href="#mainmodule-get-gravitymodifiermultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_gravityModifierMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_gravityModifierMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_gravityModifierMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-gravityModifierMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-loop">
+<h2>MainModule get_loop<a class="headerlink" href="#mainmodule-get-loop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_loop__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_loop__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_loop__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-loop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-maxparticles">
+<h2>MainModule get_maxParticles<a class="headerlink" href="#mainmodule-get-maxparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_maxParticles__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_maxParticles__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_maxParticles__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-maxParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-playonawake">
+<h2>MainModule get_playOnAwake<a class="headerlink" href="#mainmodule-get-playonawake" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_playOnAwake__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_playOnAwake__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_playOnAwake__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-playOnAwake.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-prewarm">
+<h2>MainModule get_prewarm<a class="headerlink" href="#mainmodule-get-prewarm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_prewarm__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_prewarm__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_prewarm__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-prewarm.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-ringbufferlooprange">
+<h2>MainModule get_ringBufferLoopRange<a class="headerlink" href="#mainmodule-get-ringbufferlooprange" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_ringBufferLoopRange__UnityEngineVector2">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_ringBufferLoopRange__UnityEngineVector2</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_ringBufferLoopRange__UnityEngineVector2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector2</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-ringBufferLoopRange.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-ringbuffermode">
+<h2>MainModule get_ringBufferMode<a class="headerlink" href="#mainmodule-get-ringbuffermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_ringBufferMode__UnityEngineParticleSystemRingBufferMode">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_ringBufferMode__UnityEngineParticleSystemRingBufferMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_ringBufferMode__UnityEngineParticleSystemRingBufferMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemRingBufferMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-ringBufferMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-scalingmode">
+<h2>MainModule get_scalingMode<a class="headerlink" href="#mainmodule-get-scalingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_scalingMode__UnityEngineParticleSystemScalingMode">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_scalingMode__UnityEngineParticleSystemScalingMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_scalingMode__UnityEngineParticleSystemScalingMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemScalingMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-scalingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-simulationspace">
+<h2>MainModule get_simulationSpace<a class="headerlink" href="#mainmodule-get-simulationspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_simulationSpace__UnityEngineParticleSystemSimulationSpace">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_simulationSpace__UnityEngineParticleSystemSimulationSpace</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_simulationSpace__UnityEngineParticleSystemSimulationSpace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemSimulationSpace</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-simulationSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-simulationspeed">
+<h2>MainModule get_simulationSpeed<a class="headerlink" href="#mainmodule-get-simulationspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_simulationSpeed__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_simulationSpeed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_simulationSpeed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-simulationSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startcolor">
+<h2>MainModule get_startColor<a class="headerlink" href="#mainmodule-get-startcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startColor__UnityEngineParticleSystemMinMaxGradient">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startColor__UnityEngineParticleSystemMinMaxGradient</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startColor__UnityEngineParticleSystemMinMaxGradient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxGradient</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startdelay">
+<h2>MainModule get_startDelay<a class="headerlink" href="#mainmodule-get-startdelay" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startDelay__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startDelay__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startDelay__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startDelay.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startdelaymultiplier">
+<h2>MainModule get_startDelayMultiplier<a class="headerlink" href="#mainmodule-get-startdelaymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startDelayMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startDelayMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startDelayMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startDelayMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startlifetime">
+<h2>MainModule get_startLifetime<a class="headerlink" href="#mainmodule-get-startlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startLifetime__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startLifetime__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startLifetime__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startlifetimemultiplier">
+<h2>MainModule get_startLifetimeMultiplier<a class="headerlink" href="#mainmodule-get-startlifetimemultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startLifetimeMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startLifetimeMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startLifetimeMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startLifetimeMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotation">
+<h2>MainModule get_startRotation<a class="headerlink" href="#mainmodule-get-startrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotation__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotation__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotation__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotation3d">
+<h2>MainModule get_startRotation3D<a class="headerlink" href="#mainmodule-get-startrotation3d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotation3D__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotation3D__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotation3D__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotation3D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationmultiplier">
+<h2>MainModule get_startRotationMultiplier<a class="headerlink" href="#mainmodule-get-startrotationmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationx">
+<h2>MainModule get_startRotationX<a class="headerlink" href="#mainmodule-get-startrotationx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationX__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationX__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationX__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationxmultiplier">
+<h2>MainModule get_startRotationXMultiplier<a class="headerlink" href="#mainmodule-get-startrotationxmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationXMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationXMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationXMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationy">
+<h2>MainModule get_startRotationY<a class="headerlink" href="#mainmodule-get-startrotationy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationY__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationY__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationY__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationymultiplier">
+<h2>MainModule get_startRotationYMultiplier<a class="headerlink" href="#mainmodule-get-startrotationymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationYMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationYMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationYMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationz">
+<h2>MainModule get_startRotationZ<a class="headerlink" href="#mainmodule-get-startrotationz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationZ__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationZ__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationZ__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startrotationzmultiplier">
+<h2>MainModule get_startRotationZMultiplier<a class="headerlink" href="#mainmodule-get-startrotationzmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startRotationZMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startRotationZMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startRotationZMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsize">
+<h2>MainModule get_startSize<a class="headerlink" href="#mainmodule-get-startsize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSize__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSize__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSize__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsize3d">
+<h2>MainModule get_startSize3D<a class="headerlink" href="#mainmodule-get-startsize3d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSize3D__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSize3D__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSize3D__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSize3D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizemultiplier">
+<h2>MainModule get_startSizeMultiplier<a class="headerlink" href="#mainmodule-get-startsizemultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizex">
+<h2>MainModule get_startSizeX<a class="headerlink" href="#mainmodule-get-startsizex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeX__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeX__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeX__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizexmultiplier">
+<h2>MainModule get_startSizeXMultiplier<a class="headerlink" href="#mainmodule-get-startsizexmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeXMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeXMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeXMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizey">
+<h2>MainModule get_startSizeY<a class="headerlink" href="#mainmodule-get-startsizey" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeY__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeY__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeY__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizeymultiplier">
+<h2>MainModule get_startSizeYMultiplier<a class="headerlink" href="#mainmodule-get-startsizeymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeYMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeYMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeYMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizez">
+<h2>MainModule get_startSizeZ<a class="headerlink" href="#mainmodule-get-startsizez" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeZ__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeZ__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeZ__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startsizezmultiplier">
+<h2>MainModule get_startSizeZMultiplier<a class="headerlink" href="#mainmodule-get-startsizezmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSizeZMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSizeZMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSizeZMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startspeed">
+<h2>MainModule get_startSpeed<a class="headerlink" href="#mainmodule-get-startspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSpeed__UnityEngineParticleSystemMinMaxCurve">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSpeed__UnityEngineParticleSystemMinMaxCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSpeed__UnityEngineParticleSystemMinMaxCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">MinMaxCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-startspeedmultiplier">
+<h2>MainModule get_startSpeedMultiplier<a class="headerlink" href="#mainmodule-get-startspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_startSpeedMultiplier__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_startSpeedMultiplier__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_startSpeedMultiplier__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-stopaction">
+<h2>MainModule get_stopAction<a class="headerlink" href="#mainmodule-get-stopaction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_stopAction__UnityEngineParticleSystemStopAction">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_stopAction__UnityEngineParticleSystemStopAction</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_stopAction__UnityEngineParticleSystemStopAction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ParticleSystemStopAction</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-stopAction.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-get-useunscaledtime">
+<h2>MainModule get_useUnscaledTime<a class="headerlink" href="#mainmodule-get-useunscaledtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__get_useUnscaledTime__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__get_useUnscaledTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__get_useUnscaledTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-useUnscaledTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-gethashcode">
+<h2>MainModule GetHashCode<a class="headerlink" href="#mainmodule-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-gettype">
+<h2>MainModule GetType<a class="headerlink" href="#mainmodule-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-cullingmode">
+<h2>MainModule set_cullingMode<a class="headerlink" href="#mainmodule-set-cullingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_cullingMode__UnityEngineParticleSystemCullingMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_cullingMode__UnityEngineParticleSystemCullingMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystemCullingMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_cullingMode__UnityEngineParticleSystemCullingMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-cullingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-customsimulationspace">
+<h2>MainModule set_customSimulationSpace<a class="headerlink" href="#mainmodule-set-customsimulationspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_customSimulationSpace__UnityEngineTransform__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_customSimulationSpace__UnityEngineTransform__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.Transform value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_customSimulationSpace__UnityEngineTransform__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-customSimulationSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-duration">
+<h2>MainModule set_duration<a class="headerlink" href="#mainmodule-set-duration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_duration__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_duration__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_duration__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-duration.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-emittervelocitymode">
+<h2>MainModule set_emitterVelocityMode<a class="headerlink" href="#mainmodule-set-emittervelocitymode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_emitterVelocityMode__UnityEngineParticleSystemEmitterVelocityMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_emitterVelocityMode__UnityEngineParticleSystemEmitterVelocityMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystemEmitterVelocityMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_emitterVelocityMode__UnityEngineParticleSystemEmitterVelocityMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-emitterVelocityMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-fliprotation">
+<h2>MainModule set_flipRotation<a class="headerlink" href="#mainmodule-set-fliprotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_flipRotation__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_flipRotation__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_flipRotation__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-flipRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-gravitymodifier">
+<h2>MainModule set_gravityModifier<a class="headerlink" href="#mainmodule-set-gravitymodifier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_gravityModifier__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_gravityModifier__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_gravityModifier__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-gravityModifier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-gravitymodifiermultiplier">
+<h2>MainModule set_gravityModifierMultiplier<a class="headerlink" href="#mainmodule-set-gravitymodifiermultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_gravityModifierMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_gravityModifierMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_gravityModifierMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-gravityModifierMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-loop">
+<h2>MainModule set_loop<a class="headerlink" href="#mainmodule-set-loop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_loop__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_loop__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_loop__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-loop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-maxparticles">
+<h2>MainModule set_maxParticles<a class="headerlink" href="#mainmodule-set-maxparticles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_maxParticles__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_maxParticles__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_maxParticles__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-maxParticles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-playonawake">
+<h2>MainModule set_playOnAwake<a class="headerlink" href="#mainmodule-set-playonawake" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_playOnAwake__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_playOnAwake__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_playOnAwake__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-playOnAwake.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-prewarm">
+<h2>MainModule set_prewarm<a class="headerlink" href="#mainmodule-set-prewarm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_prewarm__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_prewarm__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_prewarm__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-prewarm.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-ringbufferlooprange">
+<h2>MainModule set_ringBufferLoopRange<a class="headerlink" href="#mainmodule-set-ringbufferlooprange" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_ringBufferLoopRange__UnityEngineVector2__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_ringBufferLoopRange__UnityEngineVector2__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.Vector2 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_ringBufferLoopRange__UnityEngineVector2__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-ringBufferLoopRange.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-ringbuffermode">
+<h2>MainModule set_ringBufferMode<a class="headerlink" href="#mainmodule-set-ringbuffermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_ringBufferMode__UnityEngineParticleSystemRingBufferMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_ringBufferMode__UnityEngineParticleSystemRingBufferMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystemRingBufferMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_ringBufferMode__UnityEngineParticleSystemRingBufferMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-ringBufferMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-scalingmode">
+<h2>MainModule set_scalingMode<a class="headerlink" href="#mainmodule-set-scalingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_scalingMode__UnityEngineParticleSystemScalingMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_scalingMode__UnityEngineParticleSystemScalingMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystemScalingMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_scalingMode__UnityEngineParticleSystemScalingMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-scalingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-simulationspace">
+<h2>MainModule set_simulationSpace<a class="headerlink" href="#mainmodule-set-simulationspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_simulationSpace__UnityEngineParticleSystemSimulationSpace__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_simulationSpace__UnityEngineParticleSystemSimulationSpace__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystemSimulationSpace value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_simulationSpace__UnityEngineParticleSystemSimulationSpace__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-simulationSpace.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-simulationspeed">
+<h2>MainModule set_simulationSpeed<a class="headerlink" href="#mainmodule-set-simulationspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_simulationSpeed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_simulationSpeed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_simulationSpeed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-simulationSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startcolor">
+<h2>MainModule set_startColor<a class="headerlink" href="#mainmodule-set-startcolor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startColor__UnityEngineParticleSystemMinMaxGradient__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startColor__UnityEngineParticleSystemMinMaxGradient__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxGradient value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startColor__UnityEngineParticleSystemMinMaxGradient__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startColor.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startdelay">
+<h2>MainModule set_startDelay<a class="headerlink" href="#mainmodule-set-startdelay" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startDelay__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startDelay__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startDelay__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startDelay.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startdelaymultiplier">
+<h2>MainModule set_startDelayMultiplier<a class="headerlink" href="#mainmodule-set-startdelaymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startDelayMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startDelayMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startDelayMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startDelayMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startlifetime">
+<h2>MainModule set_startLifetime<a class="headerlink" href="#mainmodule-set-startlifetime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startLifetime__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startLifetime__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startLifetime__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startLifetime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startlifetimemultiplier">
+<h2>MainModule set_startLifetimeMultiplier<a class="headerlink" href="#mainmodule-set-startlifetimemultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startLifetimeMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startLifetimeMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startLifetimeMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startLifetimeMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotation">
+<h2>MainModule set_startRotation<a class="headerlink" href="#mainmodule-set-startrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotation__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotation__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotation__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotation3d">
+<h2>MainModule set_startRotation3D<a class="headerlink" href="#mainmodule-set-startrotation3d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotation3D__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotation3D__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotation3D__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotation3D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationmultiplier">
+<h2>MainModule set_startRotationMultiplier<a class="headerlink" href="#mainmodule-set-startrotationmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationx">
+<h2>MainModule set_startRotationX<a class="headerlink" href="#mainmodule-set-startrotationx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationX__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationX__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationX__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationxmultiplier">
+<h2>MainModule set_startRotationXMultiplier<a class="headerlink" href="#mainmodule-set-startrotationxmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationXMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationXMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationXMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationy">
+<h2>MainModule set_startRotationY<a class="headerlink" href="#mainmodule-set-startrotationy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationY__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationY__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationY__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationymultiplier">
+<h2>MainModule set_startRotationYMultiplier<a class="headerlink" href="#mainmodule-set-startrotationymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationYMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationYMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationYMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationz">
+<h2>MainModule set_startRotationZ<a class="headerlink" href="#mainmodule-set-startrotationz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startrotationzmultiplier">
+<h2>MainModule set_startRotationZMultiplier<a class="headerlink" href="#mainmodule-set-startrotationzmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startRotationZMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startRotationZMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startRotationZMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startRotationZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsize">
+<h2>MainModule set_startSize<a class="headerlink" href="#mainmodule-set-startsize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSize__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSize__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSize__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsize3d">
+<h2>MainModule set_startSize3D<a class="headerlink" href="#mainmodule-set-startsize3d" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSize3D__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSize3D__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSize3D__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSize3D.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizemultiplier">
+<h2>MainModule set_startSizeMultiplier<a class="headerlink" href="#mainmodule-set-startsizemultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizex">
+<h2>MainModule set_startSizeX<a class="headerlink" href="#mainmodule-set-startsizex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeX__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeX__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeX__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeX.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizexmultiplier">
+<h2>MainModule set_startSizeXMultiplier<a class="headerlink" href="#mainmodule-set-startsizexmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeXMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeXMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeXMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeXMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizey">
+<h2>MainModule set_startSizeY<a class="headerlink" href="#mainmodule-set-startsizey" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeY__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeY__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeY__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeY.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizeymultiplier">
+<h2>MainModule set_startSizeYMultiplier<a class="headerlink" href="#mainmodule-set-startsizeymultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeYMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeYMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeYMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeYMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizez">
+<h2>MainModule set_startSizeZ<a class="headerlink" href="#mainmodule-set-startsizez" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeZ__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeZ.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startsizezmultiplier">
+<h2>MainModule set_startSizeZMultiplier<a class="headerlink" href="#mainmodule-set-startsizezmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSizeZMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSizeZMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSizeZMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSizeZMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startspeed">
+<h2>MainModule set_startSpeed<a class="headerlink" href="#mainmodule-set-startspeed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystem+MinMaxCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSpeed__UnityEngineParticleSystemMinMaxCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSpeed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-startspeedmultiplier">
+<h2>MainModule set_startSpeedMultiplier<a class="headerlink" href="#mainmodule-set-startspeedmultiplier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_startSpeedMultiplier__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_startSpeedMultiplier__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_startSpeedMultiplier__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-startSpeedMultiplier.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-stopaction">
+<h2>MainModule set_stopAction<a class="headerlink" href="#mainmodule-set-stopaction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_stopAction__UnityEngineParticleSystemStopAction__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_stopAction__UnityEngineParticleSystemStopAction__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceUnityEngine.ParticleSystemStopAction value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_stopAction__UnityEngineParticleSystemStopAction__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-stopAction.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-set-useunscaledtime">
+<h2>MainModule set_useUnscaledTime<a class="headerlink" href="#mainmodule-set-useunscaledtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__set_useUnscaledTime__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__set_useUnscaledTime__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__set_useUnscaledTime__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule-useUnscaledTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="mainmodule-tostring">
+<h2>MainModule ToString<a class="headerlink" href="#mainmodule-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineParticleSystemMainModule.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineParticleSystemMainModule.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineParticleSystemMainModule.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id90">
+<h2>MainModule<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineParticleSystemMainModule">
+<code class="sig-name descname">Variable_UnityEngineParticleSystemMainModule</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.ParticleSystem+MainModule MainModuleSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineParticleSystemMainModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/MainModule.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ParticleSystemMinMaxCurve/index.html" class="btn btn-neutral float-right" title="ParticleSystemMinMaxCurve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html" class="btn btn-neutral" title="ParticleSystemLimitVelocityOverLifetimeModule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

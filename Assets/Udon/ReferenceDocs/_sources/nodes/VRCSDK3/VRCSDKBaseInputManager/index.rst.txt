@@ -1,0 +1,124 @@
+====================================================================================================================================================
+VRCSDKBaseInputManager
+====================================================================================================================================================
+
+The VRCSDKBaseInputManager module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+InputManager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: Variable_VRCSDKBaseInputManager(VRC.SDKBase.InputManager InputManagerSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode)
+
+outputs: none
+
+flow: none
+
+
+
+ctor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__ctor____VRCSDKBaseInputManager()
+
+outputs: unnamed (``InputManager``)
+
+flow: none
+
+
+
+InputManager EnableObjectHighlight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__EnableObjectHighlight__UnityEngineGameObject_SystemBoolean__SystemVoid(UnityEngine.GameObject objSystem.Boolean enable)
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+InputManager Equals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__Equals__SystemObject__SystemBoolean(VRC.SDKBase.InputManager instanceSystem.Object obj)
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+InputManager get__EnableObjectHighlight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__get__EnableObjectHighlight__SystemActionUnityEngineRendererSystemBoolean()
+
+outputs: unnamed (``Action`2``)
+
+flow: none
+
+
+
+InputManager GetHashCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__GetHashCode__SystemInt32(VRC.SDKBase.InputManager instance)
+
+outputs: unnamed (``Int32``)
+
+flow: none
+
+
+
+InputManager GetLastUsedInputMethod
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__GetLastUsedInputMethod__VRCSDKBaseVRCInputMethod()
+
+outputs: unnamed (``VRCInputMethod``)
+
+flow: none
+
+
+
+InputManager GetType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__GetType__SystemType(VRC.SDKBase.InputManager instance)
+
+outputs: unnamed (``Type``)
+
+flow: none
+
+
+
+InputManager IsUsingHandController
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__IsUsingHandController__SystemBoolean()
+
+outputs: unnamed (``Boolean``)
+
+flow: none
+
+
+
+InputManager set__IsUsingHandController
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__set__IsUsingHandController__SystemFuncSystemBoolean(System.Func`1[System.Boolean] )
+
+outputs: none
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+
+
+InputManager ToString
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCSDKBaseInputManager.__ToString__SystemString(VRC.SDKBase.InputManager instance)
+
+outputs: unnamed (``String``)
+
+flow: none
+
+

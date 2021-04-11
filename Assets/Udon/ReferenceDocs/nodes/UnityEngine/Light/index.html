@@ -1,0 +1,1309 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Light &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="LineRenderer" href="../LineRenderer/index.html"/>
+        <link rel="prev" title="LayerMask" href="../LayerMask/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Light</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-equals">Light Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-bakingoutput">Light get_bakingOutput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-bounceintensity">Light get_bounceIntensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-color">Light get_color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-colortemperature">Light get_colorTemperature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-cookie">Light get_cookie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-cookiesize">Light get_cookieSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-cullingmask">Light get_cullingMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-enabled">Light get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-flare">Light get_flare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-gameobject">Light get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-intensity">Light get_intensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-layershadowculldistances">Light get_layerShadowCullDistances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-lightshadowcastermode">Light get_lightShadowCasterMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-name">Light get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-range">Light get_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-rendermode">Light get_renderMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadowbias">Light get_shadowBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadowcustomresolution">Light get_shadowCustomResolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadownearplane">Light get_shadowNearPlane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadownormalbias">Light get_shadowNormalBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadowresolution">Light get_shadowResolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadows">Light get_shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-shadowstrength">Light get_shadowStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-spotangle">Light get_spotAngle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-transform">Light get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-get-type">Light get_type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getcomponent">Light GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getcomponentinchildren">Light GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getcomponentinparent">Light GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getcomponents">Light GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getcomponentsinchildren">Light GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getcomponentsinparent">Light GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-gethashcode">Light GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getinstanceid">Light GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-getlights">Light GetLights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-gettype">Light GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-reset">Light Reset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-bakingoutput">Light set_bakingOutput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-bounceintensity">Light set_bounceIntensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-color">Light set_color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-colortemperature">Light set_colorTemperature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-cookie">Light set_cookie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-cookiesize">Light set_cookieSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-cullingmask">Light set_cullingMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-enabled">Light set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-flare">Light set_flare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-intensity">Light set_intensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-layershadowculldistances">Light set_layerShadowCullDistances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-lightshadowcastermode">Light set_lightShadowCasterMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-name">Light set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-range">Light set_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-rendermode">Light set_renderMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadowbias">Light set_shadowBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadowcustomresolution">Light set_shadowCustomResolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadownearplane">Light set_shadowNearPlane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadownormalbias">Light set_shadowNormalBias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadowresolution">Light set_shadowResolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadows">Light set_shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-shadowstrength">Light set_shadowStrength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-spotangle">Light set_spotAngle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-set-type">Light set_type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-tostring">Light ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id62">Light</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>Light</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/Light/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../LineRenderer/index.html" class="btn btn-neutral float-right" title="LineRenderer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../LayerMask/index.html" class="btn btn-neutral" title="LayerMask" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="light">
+<h1>Light<a class="headerlink" href="#light" title="Permalink to this headline">¶</a></h1>
+<p>The Light module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="light-equals">
+<h2>Light Equals<a class="headerlink" href="#light-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="light-get-bakingoutput">
+<h2>Light get_bakingOutput<a class="headerlink" href="#light-get-bakingoutput" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_bakingOutput__UnityEngineLightBakingOutput">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_bakingOutput__UnityEngineLightBakingOutput</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_bakingOutput__UnityEngineLightBakingOutput" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightBakingOutput</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-bakingOutput.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-bounceintensity">
+<h2>Light get_bounceIntensity<a class="headerlink" href="#light-get-bounceintensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_bounceIntensity__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_bounceIntensity__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_bounceIntensity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-bounceIntensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-color">
+<h2>Light get_color<a class="headerlink" href="#light-get-color" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_color__UnityEngineColor">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_color__UnityEngineColor</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_color__UnityEngineColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Color</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-color.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-colortemperature">
+<h2>Light get_colorTemperature<a class="headerlink" href="#light-get-colortemperature" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_colorTemperature__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_colorTemperature__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_colorTemperature__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-colorTemperature.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-cookie">
+<h2>Light get_cookie<a class="headerlink" href="#light-get-cookie" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_cookie__UnityEngineTexture">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_cookie__UnityEngineTexture</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_cookie__UnityEngineTexture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Texture</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-cookie.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-cookiesize">
+<h2>Light get_cookieSize<a class="headerlink" href="#light-get-cookiesize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_cookieSize__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_cookieSize__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_cookieSize__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-cookieSize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-cullingmask">
+<h2>Light get_cullingMask<a class="headerlink" href="#light-get-cullingmask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_cullingMask__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_cullingMask__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_cullingMask__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-cullingMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-enabled">
+<h2>Light get_enabled<a class="headerlink" href="#light-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-flare">
+<h2>Light get_flare<a class="headerlink" href="#light-get-flare" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_flare__UnityEngineFlare">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_flare__UnityEngineFlare</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_flare__UnityEngineFlare" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Flare</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-flare.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-gameobject">
+<h2>Light get_gameObject<a class="headerlink" href="#light-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-intensity">
+<h2>Light get_intensity<a class="headerlink" href="#light-get-intensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_intensity__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_intensity__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_intensity__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-intensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-layershadowculldistances">
+<h2>Light get_layerShadowCullDistances<a class="headerlink" href="#light-get-layershadowculldistances" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_layerShadowCullDistances__SystemSingleArray">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_layerShadowCullDistances__SystemSingleArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_layerShadowCullDistances__SystemSingleArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-layerShadowCullDistances.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-lightshadowcastermode">
+<h2>Light get_lightShadowCasterMode<a class="headerlink" href="#light-get-lightshadowcastermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_lightShadowCasterMode__UnityEngineLightShadowCasterMode">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_lightShadowCasterMode__UnityEngineLightShadowCasterMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_lightShadowCasterMode__UnityEngineLightShadowCasterMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightShadowCasterMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-lightShadowCasterMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-name">
+<h2>Light get_name<a class="headerlink" href="#light-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-range">
+<h2>Light get_range<a class="headerlink" href="#light-get-range" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_range__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_range__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_range__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-range.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-rendermode">
+<h2>Light get_renderMode<a class="headerlink" href="#light-get-rendermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_renderMode__UnityEngineLightRenderMode">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_renderMode__UnityEngineLightRenderMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_renderMode__UnityEngineLightRenderMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightRenderMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-renderMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadowbias">
+<h2>Light get_shadowBias<a class="headerlink" href="#light-get-shadowbias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadowBias__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadowBias__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadowBias__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowBias.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadowcustomresolution">
+<h2>Light get_shadowCustomResolution<a class="headerlink" href="#light-get-shadowcustomresolution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadowCustomResolution__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadowCustomResolution__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadowCustomResolution__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowCustomResolution.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadownearplane">
+<h2>Light get_shadowNearPlane<a class="headerlink" href="#light-get-shadownearplane" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadowNearPlane__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadowNearPlane__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadowNearPlane__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowNearPlane.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadownormalbias">
+<h2>Light get_shadowNormalBias<a class="headerlink" href="#light-get-shadownormalbias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadowNormalBias__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadowNormalBias__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadowNormalBias__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowNormalBias.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadowresolution">
+<h2>Light get_shadowResolution<a class="headerlink" href="#light-get-shadowresolution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadowResolution__UnityEngineRenderingLightShadowResolution">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadowResolution__UnityEngineRenderingLightShadowResolution</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadowResolution__UnityEngineRenderingLightShadowResolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightShadowResolution</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowResolution.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadows">
+<h2>Light get_shadows<a class="headerlink" href="#light-get-shadows" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadows__UnityEngineLightShadows">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadows__UnityEngineLightShadows</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadows__UnityEngineLightShadows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightShadows</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadows.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-shadowstrength">
+<h2>Light get_shadowStrength<a class="headerlink" href="#light-get-shadowstrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_shadowStrength__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_shadowStrength__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_shadowStrength__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowStrength.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-spotangle">
+<h2>Light get_spotAngle<a class="headerlink" href="#light-get-spotangle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_spotAngle__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_spotAngle__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_spotAngle__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-spotAngle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-transform">
+<h2>Light get_transform<a class="headerlink" href="#light-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-get-type">
+<h2>Light get_type<a class="headerlink" href="#light-get-type" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__get_type__UnityEngineLightType">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__get_type__UnityEngineLightType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__get_type__UnityEngineLightType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">LightType</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-type.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getcomponent">
+<h2>Light GetComponent<a class="headerlink" href="#light-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getcomponentinchildren">
+<h2>Light GetComponentInChildren<a class="headerlink" href="#light-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getcomponentinparent">
+<h2>Light GetComponentInParent<a class="headerlink" href="#light-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getcomponents">
+<h2>Light GetComponents<a class="headerlink" href="#light-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getcomponentsinchildren">
+<h2>Light GetComponentsInChildren<a class="headerlink" href="#light-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getcomponentsinparent">
+<h2>Light GetComponentsInParent<a class="headerlink" href="#light-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-gethashcode">
+<h2>Light GetHashCode<a class="headerlink" href="#light-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getinstanceid">
+<h2>Light GetInstanceID<a class="headerlink" href="#light-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-getlights">
+<h2>Light GetLights<a class="headerlink" href="#light-getlights" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetLights__UnityEngineLightType_SystemInt32__UnityEngineLightArray">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetLights__UnityEngineLightType_SystemInt32__UnityEngineLightArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.LightType typeSystem.Int32 layer</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetLights__UnityEngineLightType_SystemInt32__UnityEngineLightArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Light[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-gettype">
+<h2>Light GetType<a class="headerlink" href="#light-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="light-reset">
+<h2>Light Reset<a class="headerlink" href="#light-reset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__Reset__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__Reset__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__Reset__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.Reset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-bakingoutput">
+<h2>Light set_bakingOutput<a class="headerlink" href="#light-set-bakingoutput" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_bakingOutput__UnityEngineLightBakingOutput__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_bakingOutput__UnityEngineLightBakingOutput__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.LightBakingOutput value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_bakingOutput__UnityEngineLightBakingOutput__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-bakingOutput.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-bounceintensity">
+<h2>Light set_bounceIntensity<a class="headerlink" href="#light-set-bounceintensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_bounceIntensity__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_bounceIntensity__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_bounceIntensity__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-bounceIntensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-color">
+<h2>Light set_color<a class="headerlink" href="#light-set-color" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_color__UnityEngineColor__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_color__UnityEngineColor__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.Color value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_color__UnityEngineColor__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-color.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-colortemperature">
+<h2>Light set_colorTemperature<a class="headerlink" href="#light-set-colortemperature" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_colorTemperature__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_colorTemperature__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_colorTemperature__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-colorTemperature.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-cookie">
+<h2>Light set_cookie<a class="headerlink" href="#light-set-cookie" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_cookie__UnityEngineTexture__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_cookie__UnityEngineTexture__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.Texture value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_cookie__UnityEngineTexture__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-cookie.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-cookiesize">
+<h2>Light set_cookieSize<a class="headerlink" href="#light-set-cookiesize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_cookieSize__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_cookieSize__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_cookieSize__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-cookieSize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-cullingmask">
+<h2>Light set_cullingMask<a class="headerlink" href="#light-set-cullingmask" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_cullingMask__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_cullingMask__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_cullingMask__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-cullingMask.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-enabled">
+<h2>Light set_enabled<a class="headerlink" href="#light-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-flare">
+<h2>Light set_flare<a class="headerlink" href="#light-set-flare" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_flare__UnityEngineFlare__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_flare__UnityEngineFlare__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.Flare value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_flare__UnityEngineFlare__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-flare.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-intensity">
+<h2>Light set_intensity<a class="headerlink" href="#light-set-intensity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_intensity__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_intensity__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_intensity__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-intensity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-layershadowculldistances">
+<h2>Light set_layerShadowCullDistances<a class="headerlink" href="#light-set-layershadowculldistances" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_layerShadowCullDistances__SystemSingleArray__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_layerShadowCullDistances__SystemSingleArray__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single[] value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_layerShadowCullDistances__SystemSingleArray__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-layerShadowCullDistances.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-lightshadowcastermode">
+<h2>Light set_lightShadowCasterMode<a class="headerlink" href="#light-set-lightshadowcastermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_lightShadowCasterMode__UnityEngineLightShadowCasterMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_lightShadowCasterMode__UnityEngineLightShadowCasterMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.LightShadowCasterMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_lightShadowCasterMode__UnityEngineLightShadowCasterMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-lightShadowCasterMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-name">
+<h2>Light set_name<a class="headerlink" href="#light-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-range">
+<h2>Light set_range<a class="headerlink" href="#light-set-range" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_range__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_range__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_range__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-range.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-rendermode">
+<h2>Light set_renderMode<a class="headerlink" href="#light-set-rendermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_renderMode__UnityEngineLightRenderMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_renderMode__UnityEngineLightRenderMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.LightRenderMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_renderMode__UnityEngineLightRenderMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-renderMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadowbias">
+<h2>Light set_shadowBias<a class="headerlink" href="#light-set-shadowbias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadowBias__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadowBias__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadowBias__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowBias.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadowcustomresolution">
+<h2>Light set_shadowCustomResolution<a class="headerlink" href="#light-set-shadowcustomresolution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadowCustomResolution__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadowCustomResolution__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadowCustomResolution__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowCustomResolution.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadownearplane">
+<h2>Light set_shadowNearPlane<a class="headerlink" href="#light-set-shadownearplane" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadowNearPlane__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadowNearPlane__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadowNearPlane__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowNearPlane.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadownormalbias">
+<h2>Light set_shadowNormalBias<a class="headerlink" href="#light-set-shadownormalbias" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadowNormalBias__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadowNormalBias__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadowNormalBias__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowNormalBias.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadowresolution">
+<h2>Light set_shadowResolution<a class="headerlink" href="#light-set-shadowresolution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadowResolution__UnityEngineRenderingLightShadowResolution__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadowResolution__UnityEngineRenderingLightShadowResolution__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.Rendering.LightShadowResolution value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadowResolution__UnityEngineRenderingLightShadowResolution__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowResolution.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadows">
+<h2>Light set_shadows<a class="headerlink" href="#light-set-shadows" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadows__UnityEngineLightShadows__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadows__UnityEngineLightShadows__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.LightShadows value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadows__UnityEngineLightShadows__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadows.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-shadowstrength">
+<h2>Light set_shadowStrength<a class="headerlink" href="#light-set-shadowstrength" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_shadowStrength__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_shadowStrength__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_shadowStrength__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-shadowStrength.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-spotangle">
+<h2>Light set_spotAngle<a class="headerlink" href="#light-set-spotangle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_spotAngle__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_spotAngle__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_spotAngle__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-spotAngle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-set-type">
+<h2>Light set_type<a class="headerlink" href="#light-set-type" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__set_type__UnityEngineLightType__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__set_type__UnityEngineLightType__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instanceUnityEngine.LightType value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__set_type__UnityEngineLightType__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light-type.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="light-tostring">
+<h2>Light ToString<a class="headerlink" href="#light-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineLight.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineLight.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineLight.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id62">
+<h2>Light<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineLight">
+<code class="sig-name descname">Variable_UnityEngineLight</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Light LightSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineLight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Light.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../LineRenderer/index.html" class="btn btn-neutral float-right" title="LineRenderer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../LayerMask/index.html" class="btn btn-neutral" title="LayerMask" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

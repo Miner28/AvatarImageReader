@@ -1,0 +1,647 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TimeZoneInfo &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="Type" href="../Type/index.html"/>
+        <link rel="prev" title="String" href="../String/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TimeZoneInfo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-clearcacheddata">TimeZoneInfo ClearCachedData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-converttime">TimeZoneInfo ConvertTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-converttimebysystemtimezoneid">TimeZoneInfo ConvertTimeBySystemTimeZoneId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-converttimefromutc">TimeZoneInfo ConvertTimeFromUtc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-converttimetoutc">TimeZoneInfo ConvertTimeToUtc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-createcustomtimezone">TimeZoneInfo CreateCustomTimeZone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-equals">TimeZoneInfo Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-findsystemtimezonebyid">TimeZoneInfo FindSystemTimeZoneById</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-fromserializedstring">TimeZoneInfo FromSerializedString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-baseutcoffset">TimeZoneInfo get_BaseUtcOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-daylightname">TimeZoneInfo get_DaylightName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-displayname">TimeZoneInfo get_DisplayName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-id">TimeZoneInfo get_Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-local">TimeZoneInfo get_Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-standardname">TimeZoneInfo get_StandardName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-supportsdaylightsavingtime">TimeZoneInfo get_SupportsDaylightSavingTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-get-utc">TimeZoneInfo get_Utc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-getadjustmentrules">TimeZoneInfo GetAdjustmentRules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-getambiguoustimeoffsets">TimeZoneInfo GetAmbiguousTimeOffsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-gethashcode">TimeZoneInfo GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-getsystemtimezones">TimeZoneInfo GetSystemTimeZones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-gettype">TimeZoneInfo GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-getutcoffset">TimeZoneInfo GetUtcOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-hassamerules">TimeZoneInfo HasSameRules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-isambiguoustime">TimeZoneInfo IsAmbiguousTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-isdaylightsavingtime">TimeZoneInfo IsDaylightSavingTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-isinvalidtime">TimeZoneInfo IsInvalidTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-toserializedstring">TimeZoneInfo ToSerializedString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezoneinfo-tostring">TimeZoneInfo ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">TimeZoneInfo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>TimeZoneInfo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/TimeZoneInfo/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Type/index.html" class="btn btn-neutral float-right" title="Type" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../String/index.html" class="btn btn-neutral" title="String" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="timezoneinfo">
+<h1>TimeZoneInfo<a class="headerlink" href="#timezoneinfo" title="Permalink to this headline">¶</a></h1>
+<p>The TimeZoneInfo module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="timezoneinfo-clearcacheddata">
+<h2>TimeZoneInfo ClearCachedData<a class="headerlink" href="#timezoneinfo-clearcacheddata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ClearCachedData__SystemVoid">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ClearCachedData__SystemVoid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ClearCachedData__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ClearCachedData?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-converttime">
+<h2>TimeZoneInfo ConvertTime<a class="headerlink" href="#timezoneinfo-converttime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ConvertTime__SystemDateTime_SystemTimeZoneInfo__SystemDateTime">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ConvertTime__SystemDateTime_SystemTimeZoneInfo__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime dateTimeSystem.TimeZoneInfo destinationTimeZone</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ConvertTime__SystemDateTime_SystemTimeZoneInfo__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ConvertTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-converttimebysystemtimezoneid">
+<h2>TimeZoneInfo ConvertTimeBySystemTimeZoneId<a class="headerlink" href="#timezoneinfo-converttimebysystemtimezoneid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ConvertTimeBySystemTimeZoneId__SystemDateTime_SystemString__SystemDateTime">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ConvertTimeBySystemTimeZoneId__SystemDateTime_SystemString__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime dateTimeSystem.String destinationTimeZoneId</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ConvertTimeBySystemTimeZoneId__SystemDateTime_SystemString__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ConvertTimeBySystemTimeZoneId?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-converttimefromutc">
+<h2>TimeZoneInfo ConvertTimeFromUtc<a class="headerlink" href="#timezoneinfo-converttimefromutc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ConvertTimeFromUtc__SystemDateTime_SystemTimeZoneInfo__SystemDateTime">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ConvertTimeFromUtc__SystemDateTime_SystemTimeZoneInfo__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime dateTimeSystem.TimeZoneInfo destinationTimeZone</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ConvertTimeFromUtc__SystemDateTime_SystemTimeZoneInfo__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ConvertTimeFromUtc?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-converttimetoutc">
+<h2>TimeZoneInfo ConvertTimeToUtc<a class="headerlink" href="#timezoneinfo-converttimetoutc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ConvertTimeToUtc__SystemDateTime__SystemDateTime">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ConvertTimeToUtc__SystemDateTime__SystemDateTime</code><span class="sig-paren">(</span><em class="sig-param">System.DateTime dateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ConvertTimeToUtc__SystemDateTime__SystemDateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ConvertTimeToUtc?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-createcustomtimezone">
+<h2>TimeZoneInfo CreateCustomTimeZone<a class="headerlink" href="#timezoneinfo-createcustomtimezone" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__CreateCustomTimeZone__SystemString_SystemTimeSpan_SystemString_SystemString__SystemTimeZoneInfo">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__CreateCustomTimeZone__SystemString_SystemTimeSpan_SystemString_SystemString__SystemTimeZoneInfo</code><span class="sig-paren">(</span><em class="sig-param">System.String idSystem.TimeSpan baseUtcOffsetSystem.String displayNameSystem.String standardDisplayName</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__CreateCustomTimeZone__SystemString_SystemTimeSpan_SystemString_SystemString__SystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeZoneInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.CreateCustomTimeZone?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-equals">
+<h2>TimeZoneInfo Equals<a class="headerlink" href="#timezoneinfo-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-findsystemtimezonebyid">
+<h2>TimeZoneInfo FindSystemTimeZoneById<a class="headerlink" href="#timezoneinfo-findsystemtimezonebyid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__FindSystemTimeZoneById__SystemString__SystemTimeZoneInfo">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__FindSystemTimeZoneById__SystemString__SystemTimeZoneInfo</code><span class="sig-paren">(</span><em class="sig-param">System.String id</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__FindSystemTimeZoneById__SystemString__SystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeZoneInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.FindSystemTimeZoneById?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-fromserializedstring">
+<h2>TimeZoneInfo FromSerializedString<a class="headerlink" href="#timezoneinfo-fromserializedstring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__FromSerializedString__SystemString__SystemTimeZoneInfo">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__FromSerializedString__SystemString__SystemTimeZoneInfo</code><span class="sig-paren">(</span><em class="sig-param">System.String source</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__FromSerializedString__SystemString__SystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeZoneInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.FromSerializedString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-baseutcoffset">
+<h2>TimeZoneInfo get_BaseUtcOffset<a class="headerlink" href="#timezoneinfo-get-baseutcoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_BaseUtcOffset__SystemTimeSpan">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_BaseUtcOffset__SystemTimeSpan</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_BaseUtcOffset__SystemTimeSpan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeSpan</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.BaseUtcOffset?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-daylightname">
+<h2>TimeZoneInfo get_DaylightName<a class="headerlink" href="#timezoneinfo-get-daylightname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_DaylightName__SystemString">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_DaylightName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_DaylightName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.DaylightName?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-displayname">
+<h2>TimeZoneInfo get_DisplayName<a class="headerlink" href="#timezoneinfo-get-displayname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_DisplayName__SystemString">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_DisplayName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_DisplayName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.DisplayName?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-id">
+<h2>TimeZoneInfo get_Id<a class="headerlink" href="#timezoneinfo-get-id" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_Id__SystemString">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_Id__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_Id__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.Id?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-local">
+<h2>TimeZoneInfo get_Local<a class="headerlink" href="#timezoneinfo-get-local" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_Local__SystemTimeZoneInfo">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_Local__SystemTimeZoneInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_Local__SystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeZoneInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.Local?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-standardname">
+<h2>TimeZoneInfo get_StandardName<a class="headerlink" href="#timezoneinfo-get-standardname" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_StandardName__SystemString">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_StandardName__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_StandardName__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.StandardName?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-supportsdaylightsavingtime">
+<h2>TimeZoneInfo get_SupportsDaylightSavingTime<a class="headerlink" href="#timezoneinfo-get-supportsdaylightsavingtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_SupportsDaylightSavingTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_SupportsDaylightSavingTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_SupportsDaylightSavingTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.SupportsDaylightSavingTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-get-utc">
+<h2>TimeZoneInfo get_Utc<a class="headerlink" href="#timezoneinfo-get-utc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__get_Utc__SystemTimeZoneInfo">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__get_Utc__SystemTimeZoneInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__get_Utc__SystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeZoneInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.Utc?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-getadjustmentrules">
+<h2>TimeZoneInfo GetAdjustmentRules<a class="headerlink" href="#timezoneinfo-getadjustmentrules" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__GetAdjustmentRules__SystemTimeZoneInfoAdjustmentRuleArray">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__GetAdjustmentRules__SystemTimeZoneInfoAdjustmentRuleArray</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__GetAdjustmentRules__SystemTimeZoneInfoAdjustmentRuleArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AdjustmentRule[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.GetAdjustmentRules?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-getambiguoustimeoffsets">
+<h2>TimeZoneInfo GetAmbiguousTimeOffsets<a class="headerlink" href="#timezoneinfo-getambiguoustimeoffsets" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__GetAmbiguousTimeOffsets__SystemDateTime__SystemTimeSpanArray">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__GetAmbiguousTimeOffsets__SystemDateTime__SystemTimeSpanArray</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.DateTime dateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__GetAmbiguousTimeOffsets__SystemDateTime__SystemTimeSpanArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeSpan[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.GetAmbiguousTimeOffsets?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-gethashcode">
+<h2>TimeZoneInfo GetHashCode<a class="headerlink" href="#timezoneinfo-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-getsystemtimezones">
+<h2>TimeZoneInfo GetSystemTimeZones<a class="headerlink" href="#timezoneinfo-getsystemtimezones" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__GetSystemTimeZones__SystemCollectionsObjectModelReadOnlyCollectionSystemTimeZoneInfo">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__GetSystemTimeZones__SystemCollectionsObjectModelReadOnlyCollectionSystemTimeZoneInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__GetSystemTimeZones__SystemCollectionsObjectModelReadOnlyCollectionSystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">ReadOnlyCollection`1</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.GetSystemTimeZones?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-gettype">
+<h2>TimeZoneInfo GetType<a class="headerlink" href="#timezoneinfo-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-getutcoffset">
+<h2>TimeZoneInfo GetUtcOffset<a class="headerlink" href="#timezoneinfo-getutcoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__GetUtcOffset__SystemDateTime__SystemTimeSpan">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__GetUtcOffset__SystemDateTime__SystemTimeSpan</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.DateTime dateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__GetUtcOffset__SystemDateTime__SystemTimeSpan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TimeSpan</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.GetUtcOffset?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-hassamerules">
+<h2>TimeZoneInfo HasSameRules<a class="headerlink" href="#timezoneinfo-hassamerules" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__HasSameRules__SystemTimeZoneInfo__SystemBoolean">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__HasSameRules__SystemTimeZoneInfo__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.TimeZoneInfo other</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__HasSameRules__SystemTimeZoneInfo__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.HasSameRules?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-isambiguoustime">
+<h2>TimeZoneInfo IsAmbiguousTime<a class="headerlink" href="#timezoneinfo-isambiguoustime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__IsAmbiguousTime__SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__IsAmbiguousTime__SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.DateTime dateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__IsAmbiguousTime__SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.IsAmbiguousTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-isdaylightsavingtime">
+<h2>TimeZoneInfo IsDaylightSavingTime<a class="headerlink" href="#timezoneinfo-isdaylightsavingtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__IsDaylightSavingTime__SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__IsDaylightSavingTime__SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.DateTime dateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__IsDaylightSavingTime__SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.IsDaylightSavingTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-isinvalidtime">
+<h2>TimeZoneInfo IsInvalidTime<a class="headerlink" href="#timezoneinfo-isinvalidtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__IsInvalidTime__SystemDateTime__SystemBoolean">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__IsInvalidTime__SystemDateTime__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instanceSystem.DateTime dateTime</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__IsInvalidTime__SystemDateTime__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.IsInvalidTime?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-toserializedstring">
+<h2>TimeZoneInfo ToSerializedString<a class="headerlink" href="#timezoneinfo-toserializedstring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ToSerializedString__SystemString">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ToSerializedString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ToSerializedString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ToSerializedString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="timezoneinfo-tostring">
+<h2>TimeZoneInfo ToString<a class="headerlink" href="#timezoneinfo-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemTimeZoneInfo.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemTimeZoneInfo.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemTimeZoneInfo.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.TimeZoneInfo.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="id29">
+<h2>TimeZoneInfo<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemTimeZoneInfo">
+<code class="sig-name descname">Variable_SystemTimeZoneInfo</code><span class="sig-paren">(</span><em class="sig-param">System.TimeZoneInfo TimeZoneInfoSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemTimeZoneInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Type/index.html" class="btn btn-neutral float-right" title="Type" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../String/index.html" class="btn btn-neutral" title="String" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

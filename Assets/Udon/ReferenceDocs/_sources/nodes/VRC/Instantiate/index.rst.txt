@@ -1,0 +1,22 @@
+====================================================================================================================================================
+Instantiate
+====================================================================================================================================================
+
+The Instantiate module.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Nodes:
+
+
+VRChat Instantiate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. py:function:: VRCInstantiate.__Instantiate__UnityEngineGameObject__UnityEngineGameObject(UnityEngine.GameObject original)
+
+outputs: clone (``GameObject``)
+
+flow inputs: unnamed
+
+flow outputs: unnamed
+
+`Unity Documentation <https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Object.Instantiate.html>`_

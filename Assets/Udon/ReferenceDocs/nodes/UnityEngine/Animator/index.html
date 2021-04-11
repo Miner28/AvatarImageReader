@@ -1,0 +1,2137 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Animator &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="AnimatorClipInfo" href="../AnimatorClipInfo/index.html"/>
+        <link rel="prev" title="AnimationState" href="../AnimationState/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Animator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#animator-applybuiltinrootmotion">Animator ApplyBuiltinRootMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-crossfade">Animator CrossFade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-crossfadeinfixedtime">Animator CrossFadeInFixedTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-equals">Animator Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-angularvelocity">Animator get_angularVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-applyrootmotion">Animator get_applyRootMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-avatar">Animator get_avatar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-bodyposition">Animator get_bodyPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-bodyrotation">Animator get_bodyRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-cullingmode">Animator get_cullingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-deltaposition">Animator get_deltaPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-deltarotation">Animator get_deltaRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-enabled">Animator get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-feetpivotactive">Animator get_feetPivotActive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-gameobject">Animator get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-gravityweight">Animator get_gravityWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-hasboundplayables">Animator get_hasBoundPlayables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-hasrootmotion">Animator get_hasRootMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-hastransformhierarchy">Animator get_hasTransformHierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-humanscale">Animator get_humanScale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-ishuman">Animator get_isHuman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-isinitialized">Animator get_isInitialized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-ismatchingtarget">Animator get_isMatchingTarget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-isoptimizable">Animator get_isOptimizable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-keepanimatorcontrollerstateondisable">Animator get_keepAnimatorControllerStateOnDisable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-layercount">Animator get_layerCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-layersaffectmasscenter">Animator get_layersAffectMassCenter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-leftfeetbottomheight">Animator get_leftFeetBottomHeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-logwarnings">Animator get_logWarnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-name">Animator get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-parametercount">Animator get_parameterCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-parameters">Animator get_parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-pivotposition">Animator get_pivotPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-pivotweight">Animator get_pivotWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-playablegraph">Animator get_playableGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-playbacktime">Animator get_playbackTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-recordermode">Animator get_recorderMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-recorderstarttime">Animator get_recorderStartTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-recorderstoptime">Animator get_recorderStopTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-rightfeetbottomheight">Animator get_rightFeetBottomHeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-rootposition">Animator get_rootPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-rootrotation">Animator get_rootRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-runtimeanimatorcontroller">Animator get_runtimeAnimatorController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-speed">Animator get_speed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-stabilizefeet">Animator get_stabilizeFeet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-targetposition">Animator get_targetPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-targetrotation">Animator get_targetRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-transform">Animator get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-updatemode">Animator get_updateMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-get-velocity">Animator get_velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getanimatortransitioninfo">Animator GetAnimatorTransitionInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getbool">Animator GetBool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcomponent">Animator GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcomponentinchildren">Animator GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcomponentinparent">Animator GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcomponents">Animator GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcomponentsinchildren">Animator GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcomponentsinparent">Animator GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcurrentanimatorclipinfo">Animator GetCurrentAnimatorClipInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcurrentanimatorclipinfocount">Animator GetCurrentAnimatorClipInfoCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getcurrentanimatorstateinfo">Animator GetCurrentAnimatorStateInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getfloat">Animator GetFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-gethashcode">Animator GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getikhintposition">Animator GetIKHintPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getikhintpositionweight">Animator GetIKHintPositionWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getikposition">Animator GetIKPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getikpositionweight">Animator GetIKPositionWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getikrotation">Animator GetIKRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getikrotationweight">Animator GetIKRotationWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getinstanceid">Animator GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getinteger">Animator GetInteger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getlayerindex">Animator GetLayerIndex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getlayername">Animator GetLayerName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getlayerweight">Animator GetLayerWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getnextanimatorclipinfo">Animator GetNextAnimatorClipInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getnextanimatorclipinfocount">Animator GetNextAnimatorClipInfoCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getnextanimatorstateinfo">Animator GetNextAnimatorStateInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-getparameter">Animator GetParameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-gettype">Animator GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-hasstate">Animator HasState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-interruptmatchtarget">Animator InterruptMatchTarget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-isintransition">Animator IsInTransition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-isparametercontrolledbycurve">Animator IsParameterControlledByCurve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-matchtarget">Animator MatchTarget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-play">Animator Play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-playinfixedtime">Animator PlayInFixedTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-rebind">Animator Rebind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-resettrigger">Animator ResetTrigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-applyrootmotion">Animator set_applyRootMotion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-avatar">Animator set_avatar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-bodyposition">Animator set_bodyPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-bodyrotation">Animator set_bodyRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-cullingmode">Animator set_cullingMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-enabled">Animator set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-feetpivotactive">Animator set_feetPivotActive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-keepanimatorcontrollerstateondisable">Animator set_keepAnimatorControllerStateOnDisable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-layersaffectmasscenter">Animator set_layersAffectMassCenter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-logwarnings">Animator set_logWarnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-name">Animator set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-playbacktime">Animator set_playbackTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-recorderstarttime">Animator set_recorderStartTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-recorderstoptime">Animator set_recorderStopTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-rootposition">Animator set_rootPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-rootrotation">Animator set_rootRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-runtimeanimatorcontroller">Animator set_runtimeAnimatorController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-speed">Animator set_speed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-stabilizefeet">Animator set_stabilizeFeet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-set-updatemode">Animator set_updateMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setbonelocalrotation">Animator SetBoneLocalRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setbool">Animator SetBool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setfloat">Animator SetFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setikhintposition">Animator SetIKHintPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setikhintpositionweight">Animator SetIKHintPositionWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setikposition">Animator SetIKPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setikpositionweight">Animator SetIKPositionWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setikrotation">Animator SetIKRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setikrotationweight">Animator SetIKRotationWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setinteger">Animator SetInteger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setlayerweight">Animator SetLayerWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setlookatposition">Animator SetLookAtPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-setlookatweight">Animator SetLookAtWeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-settarget">Animator SetTarget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-settrigger">Animator SetTrigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-startplayback">Animator StartPlayback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-startrecording">Animator StartRecording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-stopplayback">Animator StopPlayback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-stoprecording">Animator StopRecording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-stringtohash">Animator StringToHash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-tostring">Animator ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animator-writedefaultvalues">Animator WriteDefaultValues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id129">Animator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>Animator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/Animator/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../AnimatorClipInfo/index.html" class="btn btn-neutral float-right" title="AnimatorClipInfo" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AnimationState/index.html" class="btn btn-neutral" title="AnimationState" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="animator">
+<h1>Animator<a class="headerlink" href="#animator" title="Permalink to this headline">¶</a></h1>
+<p>The Animator module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="animator-applybuiltinrootmotion">
+<h2>Animator ApplyBuiltinRootMotion<a class="headerlink" href="#animator-applybuiltinrootmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__ApplyBuiltinRootMotion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__ApplyBuiltinRootMotion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__ApplyBuiltinRootMotion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.ApplyBuiltinRootMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-crossfade">
+<h2>Animator CrossFade<a class="headerlink" href="#animator-crossfade" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__CrossFade__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__CrossFade__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 stateHashNameSystem.Single normalizedTransitionDuration</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__CrossFade__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.CrossFade.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-crossfadeinfixedtime">
+<h2>Animator CrossFadeInFixedTime<a class="headerlink" href="#animator-crossfadeinfixedtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__CrossFadeInFixedTime__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__CrossFadeInFixedTime__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 stateHashNameSystem.Single fixedTransitionDuration</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__CrossFadeInFixedTime__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.CrossFadeInFixedTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="animator-equals">
+<h2>Animator Equals<a class="headerlink" href="#animator-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="animator-get-angularvelocity">
+<h2>Animator get_angularVelocity<a class="headerlink" href="#animator-get-angularvelocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_angularVelocity__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_angularVelocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_angularVelocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-angularVelocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-applyrootmotion">
+<h2>Animator get_applyRootMotion<a class="headerlink" href="#animator-get-applyrootmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_applyRootMotion__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_applyRootMotion__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_applyRootMotion__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-applyRootMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-avatar">
+<h2>Animator get_avatar<a class="headerlink" href="#animator-get-avatar" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_avatar__UnityEngineAvatar">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_avatar__UnityEngineAvatar</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_avatar__UnityEngineAvatar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Avatar</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-avatar.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-bodyposition">
+<h2>Animator get_bodyPosition<a class="headerlink" href="#animator-get-bodyposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_bodyPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_bodyPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_bodyPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-bodyPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-bodyrotation">
+<h2>Animator get_bodyRotation<a class="headerlink" href="#animator-get-bodyrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_bodyRotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_bodyRotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_bodyRotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-bodyRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-cullingmode">
+<h2>Animator get_cullingMode<a class="headerlink" href="#animator-get-cullingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_cullingMode__UnityEngineAnimatorCullingMode">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_cullingMode__UnityEngineAnimatorCullingMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_cullingMode__UnityEngineAnimatorCullingMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorCullingMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-cullingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-deltaposition">
+<h2>Animator get_deltaPosition<a class="headerlink" href="#animator-get-deltaposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_deltaPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_deltaPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_deltaPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-deltaPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-deltarotation">
+<h2>Animator get_deltaRotation<a class="headerlink" href="#animator-get-deltarotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_deltaRotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_deltaRotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_deltaRotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-deltaRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-enabled">
+<h2>Animator get_enabled<a class="headerlink" href="#animator-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-feetpivotactive">
+<h2>Animator get_feetPivotActive<a class="headerlink" href="#animator-get-feetpivotactive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_feetPivotActive__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_feetPivotActive__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_feetPivotActive__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-feetPivotActive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-gameobject">
+<h2>Animator get_gameObject<a class="headerlink" href="#animator-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-gravityweight">
+<h2>Animator get_gravityWeight<a class="headerlink" href="#animator-get-gravityweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_gravityWeight__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_gravityWeight__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_gravityWeight__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-gravityWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-hasboundplayables">
+<h2>Animator get_hasBoundPlayables<a class="headerlink" href="#animator-get-hasboundplayables" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_hasBoundPlayables__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_hasBoundPlayables__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_hasBoundPlayables__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-hasBoundPlayables.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-hasrootmotion">
+<h2>Animator get_hasRootMotion<a class="headerlink" href="#animator-get-hasrootmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_hasRootMotion__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_hasRootMotion__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_hasRootMotion__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-hasRootMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-hastransformhierarchy">
+<h2>Animator get_hasTransformHierarchy<a class="headerlink" href="#animator-get-hastransformhierarchy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_hasTransformHierarchy__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_hasTransformHierarchy__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_hasTransformHierarchy__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-hasTransformHierarchy.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-humanscale">
+<h2>Animator get_humanScale<a class="headerlink" href="#animator-get-humanscale" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_humanScale__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_humanScale__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_humanScale__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-humanScale.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-ishuman">
+<h2>Animator get_isHuman<a class="headerlink" href="#animator-get-ishuman" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_isHuman__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_isHuman__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_isHuman__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-isHuman.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-isinitialized">
+<h2>Animator get_isInitialized<a class="headerlink" href="#animator-get-isinitialized" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_isInitialized__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_isInitialized__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_isInitialized__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-isInitialized.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-ismatchingtarget">
+<h2>Animator get_isMatchingTarget<a class="headerlink" href="#animator-get-ismatchingtarget" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_isMatchingTarget__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_isMatchingTarget__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_isMatchingTarget__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-isMatchingTarget.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-isoptimizable">
+<h2>Animator get_isOptimizable<a class="headerlink" href="#animator-get-isoptimizable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_isOptimizable__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_isOptimizable__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_isOptimizable__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-isOptimizable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-keepanimatorcontrollerstateondisable">
+<h2>Animator get_keepAnimatorControllerStateOnDisable<a class="headerlink" href="#animator-get-keepanimatorcontrollerstateondisable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_keepAnimatorControllerStateOnDisable__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_keepAnimatorControllerStateOnDisable__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_keepAnimatorControllerStateOnDisable__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-keepAnimatorControllerStateOnDisable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-layercount">
+<h2>Animator get_layerCount<a class="headerlink" href="#animator-get-layercount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_layerCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_layerCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_layerCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-layerCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-layersaffectmasscenter">
+<h2>Animator get_layersAffectMassCenter<a class="headerlink" href="#animator-get-layersaffectmasscenter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_layersAffectMassCenter__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_layersAffectMassCenter__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_layersAffectMassCenter__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-layersAffectMassCenter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-leftfeetbottomheight">
+<h2>Animator get_leftFeetBottomHeight<a class="headerlink" href="#animator-get-leftfeetbottomheight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_leftFeetBottomHeight__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_leftFeetBottomHeight__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_leftFeetBottomHeight__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-leftFeetBottomHeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-logwarnings">
+<h2>Animator get_logWarnings<a class="headerlink" href="#animator-get-logwarnings" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_logWarnings__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_logWarnings__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_logWarnings__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-logWarnings.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-name">
+<h2>Animator get_name<a class="headerlink" href="#animator-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-parametercount">
+<h2>Animator get_parameterCount<a class="headerlink" href="#animator-get-parametercount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_parameterCount__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_parameterCount__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_parameterCount__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-parameterCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-parameters">
+<h2>Animator get_parameters<a class="headerlink" href="#animator-get-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_parameters__UnityEngineAnimatorControllerParameterArray">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_parameters__UnityEngineAnimatorControllerParameterArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_parameters__UnityEngineAnimatorControllerParameterArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorControllerParameter[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-parameters.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-pivotposition">
+<h2>Animator get_pivotPosition<a class="headerlink" href="#animator-get-pivotposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_pivotPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_pivotPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_pivotPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-pivotPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-pivotweight">
+<h2>Animator get_pivotWeight<a class="headerlink" href="#animator-get-pivotweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_pivotWeight__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_pivotWeight__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_pivotWeight__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-pivotWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-playablegraph">
+<h2>Animator get_playableGraph<a class="headerlink" href="#animator-get-playablegraph" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_playableGraph__UnityEnginePlayablesPlayableGraph">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_playableGraph__UnityEnginePlayablesPlayableGraph</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_playableGraph__UnityEnginePlayablesPlayableGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PlayableGraph</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-playableGraph.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-playbacktime">
+<h2>Animator get_playbackTime<a class="headerlink" href="#animator-get-playbacktime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_playbackTime__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_playbackTime__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_playbackTime__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-playbackTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-recordermode">
+<h2>Animator get_recorderMode<a class="headerlink" href="#animator-get-recordermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_recorderMode__UnityEngineAnimatorRecorderMode">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_recorderMode__UnityEngineAnimatorRecorderMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_recorderMode__UnityEngineAnimatorRecorderMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorRecorderMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-recorderMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-recorderstarttime">
+<h2>Animator get_recorderStartTime<a class="headerlink" href="#animator-get-recorderstarttime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_recorderStartTime__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_recorderStartTime__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_recorderStartTime__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-recorderStartTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-recorderstoptime">
+<h2>Animator get_recorderStopTime<a class="headerlink" href="#animator-get-recorderstoptime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_recorderStopTime__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_recorderStopTime__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_recorderStopTime__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-recorderStopTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-rightfeetbottomheight">
+<h2>Animator get_rightFeetBottomHeight<a class="headerlink" href="#animator-get-rightfeetbottomheight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_rightFeetBottomHeight__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_rightFeetBottomHeight__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_rightFeetBottomHeight__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-rightFeetBottomHeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-rootposition">
+<h2>Animator get_rootPosition<a class="headerlink" href="#animator-get-rootposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_rootPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_rootPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_rootPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-rootPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-rootrotation">
+<h2>Animator get_rootRotation<a class="headerlink" href="#animator-get-rootrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_rootRotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_rootRotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_rootRotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-rootRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-runtimeanimatorcontroller">
+<h2>Animator get_runtimeAnimatorController<a class="headerlink" href="#animator-get-runtimeanimatorcontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_runtimeAnimatorController__UnityEngineRuntimeAnimatorController">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_runtimeAnimatorController__UnityEngineRuntimeAnimatorController</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_runtimeAnimatorController__UnityEngineRuntimeAnimatorController" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">RuntimeAnimatorController</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-runtimeAnimatorController.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-speed">
+<h2>Animator get_speed<a class="headerlink" href="#animator-get-speed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_speed__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_speed__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_speed__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-speed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-stabilizefeet">
+<h2>Animator get_stabilizeFeet<a class="headerlink" href="#animator-get-stabilizefeet" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_stabilizeFeet__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_stabilizeFeet__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_stabilizeFeet__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-stabilizeFeet.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-targetposition">
+<h2>Animator get_targetPosition<a class="headerlink" href="#animator-get-targetposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_targetPosition__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_targetPosition__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_targetPosition__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-targetPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-targetrotation">
+<h2>Animator get_targetRotation<a class="headerlink" href="#animator-get-targetrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_targetRotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_targetRotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_targetRotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-targetRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-transform">
+<h2>Animator get_transform<a class="headerlink" href="#animator-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-updatemode">
+<h2>Animator get_updateMode<a class="headerlink" href="#animator-get-updatemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_updateMode__UnityEngineAnimatorUpdateMode">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_updateMode__UnityEngineAnimatorUpdateMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_updateMode__UnityEngineAnimatorUpdateMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorUpdateMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-updateMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-get-velocity">
+<h2>Animator get_velocity<a class="headerlink" href="#animator-get-velocity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__get_velocity__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__get_velocity__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__get_velocity__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-velocity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getanimatortransitioninfo">
+<h2>Animator GetAnimatorTransitionInfo<a class="headerlink" href="#animator-getanimatortransitioninfo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetAnimatorTransitionInfo__SystemInt32__UnityEngineAnimatorTransitionInfo">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetAnimatorTransitionInfo__SystemInt32__UnityEngineAnimatorTransitionInfo</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetAnimatorTransitionInfo__SystemInt32__UnityEngineAnimatorTransitionInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorTransitionInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetAnimatorTransitionInfo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getbool">
+<h2>Animator GetBool<a class="headerlink" href="#animator-getbool" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetBool__SystemInt32__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetBool__SystemInt32__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 id</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetBool__SystemInt32__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetBool.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcomponent">
+<h2>Animator GetComponent<a class="headerlink" href="#animator-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcomponentinchildren">
+<h2>Animator GetComponentInChildren<a class="headerlink" href="#animator-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcomponentinparent">
+<h2>Animator GetComponentInParent<a class="headerlink" href="#animator-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcomponents">
+<h2>Animator GetComponents<a class="headerlink" href="#animator-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcomponentsinchildren">
+<h2>Animator GetComponentsInChildren<a class="headerlink" href="#animator-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcomponentsinparent">
+<h2>Animator GetComponentsInParent<a class="headerlink" href="#animator-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcurrentanimatorclipinfo">
+<h2>Animator GetCurrentAnimatorClipInfo<a class="headerlink" href="#animator-getcurrentanimatorclipinfo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetCurrentAnimatorClipInfo__SystemInt32__UnityEngineAnimatorClipInfoArray">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetCurrentAnimatorClipInfo__SystemInt32__UnityEngineAnimatorClipInfoArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetCurrentAnimatorClipInfo__SystemInt32__UnityEngineAnimatorClipInfoArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorClipInfo[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetCurrentAnimatorClipInfo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcurrentanimatorclipinfocount">
+<h2>Animator GetCurrentAnimatorClipInfoCount<a class="headerlink" href="#animator-getcurrentanimatorclipinfocount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetCurrentAnimatorClipInfoCount__SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetCurrentAnimatorClipInfoCount__SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetCurrentAnimatorClipInfoCount__SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetCurrentAnimatorClipInfoCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getcurrentanimatorstateinfo">
+<h2>Animator GetCurrentAnimatorStateInfo<a class="headerlink" href="#animator-getcurrentanimatorstateinfo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetCurrentAnimatorStateInfo__SystemInt32__UnityEngineAnimatorStateInfo">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetCurrentAnimatorStateInfo__SystemInt32__UnityEngineAnimatorStateInfo</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetCurrentAnimatorStateInfo__SystemInt32__UnityEngineAnimatorStateInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorStateInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetCurrentAnimatorStateInfo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getfloat">
+<h2>Animator GetFloat<a class="headerlink" href="#animator-getfloat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetFloat__SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetFloat__SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 id</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetFloat__SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetFloat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-gethashcode">
+<h2>Animator GetHashCode<a class="headerlink" href="#animator-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getikhintposition">
+<h2>Animator GetIKHintPosition<a class="headerlink" href="#animator-getikhintposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetIKHintPosition__UnityEngineAvatarIKHint__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetIKHintPosition__UnityEngineAvatarIKHint__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKHint hint</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetIKHintPosition__UnityEngineAvatarIKHint__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetIKHintPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getikhintpositionweight">
+<h2>Animator GetIKHintPositionWeight<a class="headerlink" href="#animator-getikhintpositionweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetIKHintPositionWeight__UnityEngineAvatarIKHint__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetIKHintPositionWeight__UnityEngineAvatarIKHint__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKHint hint</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetIKHintPositionWeight__UnityEngineAvatarIKHint__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetIKHintPositionWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getikposition">
+<h2>Animator GetIKPosition<a class="headerlink" href="#animator-getikposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetIKPosition__UnityEngineAvatarIKGoal__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetIKPosition__UnityEngineAvatarIKGoal__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goal</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetIKPosition__UnityEngineAvatarIKGoal__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetIKPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getikpositionweight">
+<h2>Animator GetIKPositionWeight<a class="headerlink" href="#animator-getikpositionweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetIKPositionWeight__UnityEngineAvatarIKGoal__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetIKPositionWeight__UnityEngineAvatarIKGoal__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goal</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetIKPositionWeight__UnityEngineAvatarIKGoal__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetIKPositionWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getikrotation">
+<h2>Animator GetIKRotation<a class="headerlink" href="#animator-getikrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetIKRotation__UnityEngineAvatarIKGoal__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetIKRotation__UnityEngineAvatarIKGoal__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goal</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetIKRotation__UnityEngineAvatarIKGoal__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetIKRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getikrotationweight">
+<h2>Animator GetIKRotationWeight<a class="headerlink" href="#animator-getikrotationweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetIKRotationWeight__UnityEngineAvatarIKGoal__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetIKRotationWeight__UnityEngineAvatarIKGoal__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goal</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetIKRotationWeight__UnityEngineAvatarIKGoal__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetIKRotationWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getinstanceid">
+<h2>Animator GetInstanceID<a class="headerlink" href="#animator-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getinteger">
+<h2>Animator GetInteger<a class="headerlink" href="#animator-getinteger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetInteger__SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetInteger__SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 id</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetInteger__SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetInteger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getlayerindex">
+<h2>Animator GetLayerIndex<a class="headerlink" href="#animator-getlayerindex" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetLayerIndex__SystemString__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetLayerIndex__SystemString__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.String layerName</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetLayerIndex__SystemString__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetLayerIndex.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getlayername">
+<h2>Animator GetLayerName<a class="headerlink" href="#animator-getlayername" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetLayerName__SystemInt32__SystemString">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetLayerName__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetLayerName__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetLayerName.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getlayerweight">
+<h2>Animator GetLayerWeight<a class="headerlink" href="#animator-getlayerweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetLayerWeight__SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetLayerWeight__SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetLayerWeight__SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetLayerWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getnextanimatorclipinfo">
+<h2>Animator GetNextAnimatorClipInfo<a class="headerlink" href="#animator-getnextanimatorclipinfo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetNextAnimatorClipInfo__SystemInt32__UnityEngineAnimatorClipInfoArray">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetNextAnimatorClipInfo__SystemInt32__UnityEngineAnimatorClipInfoArray</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetNextAnimatorClipInfo__SystemInt32__UnityEngineAnimatorClipInfoArray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorClipInfo[]</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetNextAnimatorClipInfo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getnextanimatorclipinfocount">
+<h2>Animator GetNextAnimatorClipInfoCount<a class="headerlink" href="#animator-getnextanimatorclipinfocount" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetNextAnimatorClipInfoCount__SystemInt32__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetNextAnimatorClipInfoCount__SystemInt32__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetNextAnimatorClipInfoCount__SystemInt32__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetNextAnimatorClipInfoCount.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getnextanimatorstateinfo">
+<h2>Animator GetNextAnimatorStateInfo<a class="headerlink" href="#animator-getnextanimatorstateinfo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetNextAnimatorStateInfo__SystemInt32__UnityEngineAnimatorStateInfo">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetNextAnimatorStateInfo__SystemInt32__UnityEngineAnimatorStateInfo</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetNextAnimatorStateInfo__SystemInt32__UnityEngineAnimatorStateInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorStateInfo</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetNextAnimatorStateInfo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-getparameter">
+<h2>Animator GetParameter<a class="headerlink" href="#animator-getparameter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetParameter__SystemInt32__UnityEngineAnimatorControllerParameter">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetParameter__SystemInt32__UnityEngineAnimatorControllerParameter</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetParameter__SystemInt32__UnityEngineAnimatorControllerParameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimatorControllerParameter</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.GetParameter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-gettype">
+<h2>Animator GetType<a class="headerlink" href="#animator-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-hasstate">
+<h2>Animator HasState<a class="headerlink" href="#animator-hasstate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__HasState__SystemInt32_SystemInt32__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__HasState__SystemInt32_SystemInt32__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndexSystem.Int32 stateID</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__HasState__SystemInt32_SystemInt32__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.HasState.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="animator-interruptmatchtarget">
+<h2>Animator InterruptMatchTarget<a class="headerlink" href="#animator-interruptmatchtarget" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__InterruptMatchTarget__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__InterruptMatchTarget__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__InterruptMatchTarget__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.InterruptMatchTarget.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-isintransition">
+<h2>Animator IsInTransition<a class="headerlink" href="#animator-isintransition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__IsInTransition__SystemInt32__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__IsInTransition__SystemInt32__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__IsInTransition__SystemInt32__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.IsInTransition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-isparametercontrolledbycurve">
+<h2>Animator IsParameterControlledByCurve<a class="headerlink" href="#animator-isparametercontrolledbycurve" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__IsParameterControlledByCurve__SystemInt32__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__IsParameterControlledByCurve__SystemInt32__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 id</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__IsParameterControlledByCurve__SystemInt32__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.IsParameterControlledByCurve.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-matchtarget">
+<h2>Animator MatchTarget<a class="headerlink" href="#animator-matchtarget" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__MatchTarget__UnityEngineVector3_UnityEngineQuaternion_UnityEngineAvatarTarget_UnityEngineMatchTargetWeightMask_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__MatchTarget__UnityEngineVector3_UnityEngineQuaternion_UnityEngineAvatarTarget_UnityEngineMatchTargetWeightMask_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Vector3 matchPositionUnityEngine.Quaternion matchRotationUnityEngine.AvatarTarget targetBodyPartUnityEngine.MatchTargetWeightMask weightMaskSystem.Single startNormalizedTime</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__MatchTarget__UnityEngineVector3_UnityEngineQuaternion_UnityEngineAvatarTarget_UnityEngineMatchTargetWeightMask_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.MatchTarget.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-play">
+<h2>Animator Play<a class="headerlink" href="#animator-play" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__Play__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__Play__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.String stateName</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__Play__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.Play.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-playinfixedtime">
+<h2>Animator PlayInFixedTime<a class="headerlink" href="#animator-playinfixedtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__PlayInFixedTime__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__PlayInFixedTime__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.String stateName</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__PlayInFixedTime__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.PlayInFixedTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-rebind">
+<h2>Animator Rebind<a class="headerlink" href="#animator-rebind" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__Rebind__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__Rebind__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__Rebind__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.Rebind.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-resettrigger">
+<h2>Animator ResetTrigger<a class="headerlink" href="#animator-resettrigger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__ResetTrigger__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__ResetTrigger__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 id</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__ResetTrigger__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.ResetTrigger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-applyrootmotion">
+<h2>Animator set_applyRootMotion<a class="headerlink" href="#animator-set-applyrootmotion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_applyRootMotion__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_applyRootMotion__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_applyRootMotion__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-applyRootMotion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-avatar">
+<h2>Animator set_avatar<a class="headerlink" href="#animator-set-avatar" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_avatar__UnityEngineAvatar__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_avatar__UnityEngineAvatar__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Avatar value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_avatar__UnityEngineAvatar__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-avatar.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-bodyposition">
+<h2>Animator set_bodyPosition<a class="headerlink" href="#animator-set-bodyposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_bodyPosition__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_bodyPosition__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_bodyPosition__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-bodyPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-bodyrotation">
+<h2>Animator set_bodyRotation<a class="headerlink" href="#animator-set-bodyrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_bodyRotation__UnityEngineQuaternion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_bodyRotation__UnityEngineQuaternion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Quaternion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_bodyRotation__UnityEngineQuaternion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-bodyRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-cullingmode">
+<h2>Animator set_cullingMode<a class="headerlink" href="#animator-set-cullingmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_cullingMode__UnityEngineAnimatorCullingMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_cullingMode__UnityEngineAnimatorCullingMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AnimatorCullingMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_cullingMode__UnityEngineAnimatorCullingMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-cullingMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-enabled">
+<h2>Animator set_enabled<a class="headerlink" href="#animator-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-feetpivotactive">
+<h2>Animator set_feetPivotActive<a class="headerlink" href="#animator-set-feetpivotactive" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_feetPivotActive__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_feetPivotActive__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_feetPivotActive__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-feetPivotActive.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-keepanimatorcontrollerstateondisable">
+<h2>Animator set_keepAnimatorControllerStateOnDisable<a class="headerlink" href="#animator-set-keepanimatorcontrollerstateondisable" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_keepAnimatorControllerStateOnDisable__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_keepAnimatorControllerStateOnDisable__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_keepAnimatorControllerStateOnDisable__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-keepAnimatorControllerStateOnDisable.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-layersaffectmasscenter">
+<h2>Animator set_layersAffectMassCenter<a class="headerlink" href="#animator-set-layersaffectmasscenter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_layersAffectMassCenter__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_layersAffectMassCenter__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_layersAffectMassCenter__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-layersAffectMassCenter.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-logwarnings">
+<h2>Animator set_logWarnings<a class="headerlink" href="#animator-set-logwarnings" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_logWarnings__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_logWarnings__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_logWarnings__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-logWarnings.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-name">
+<h2>Animator set_name<a class="headerlink" href="#animator-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-playbacktime">
+<h2>Animator set_playbackTime<a class="headerlink" href="#animator-set-playbacktime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_playbackTime__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_playbackTime__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_playbackTime__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-playbackTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-recorderstarttime">
+<h2>Animator set_recorderStartTime<a class="headerlink" href="#animator-set-recorderstarttime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_recorderStartTime__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_recorderStartTime__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_recorderStartTime__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-recorderStartTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-recorderstoptime">
+<h2>Animator set_recorderStopTime<a class="headerlink" href="#animator-set-recorderstoptime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_recorderStopTime__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_recorderStopTime__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_recorderStopTime__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-recorderStopTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-rootposition">
+<h2>Animator set_rootPosition<a class="headerlink" href="#animator-set-rootposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_rootPosition__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_rootPosition__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_rootPosition__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-rootPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-rootrotation">
+<h2>Animator set_rootRotation<a class="headerlink" href="#animator-set-rootrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_rootRotation__UnityEngineQuaternion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_rootRotation__UnityEngineQuaternion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Quaternion value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_rootRotation__UnityEngineQuaternion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-rootRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-runtimeanimatorcontroller">
+<h2>Animator set_runtimeAnimatorController<a class="headerlink" href="#animator-set-runtimeanimatorcontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_runtimeAnimatorController__UnityEngineRuntimeAnimatorController__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_runtimeAnimatorController__UnityEngineRuntimeAnimatorController__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.RuntimeAnimatorController value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_runtimeAnimatorController__UnityEngineRuntimeAnimatorController__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-runtimeAnimatorController.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-speed">
+<h2>Animator set_speed<a class="headerlink" href="#animator-set-speed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_speed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_speed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_speed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-speed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-stabilizefeet">
+<h2>Animator set_stabilizeFeet<a class="headerlink" href="#animator-set-stabilizefeet" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_stabilizeFeet__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_stabilizeFeet__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_stabilizeFeet__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-stabilizeFeet.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-set-updatemode">
+<h2>Animator set_updateMode<a class="headerlink" href="#animator-set-updatemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__set_updateMode__UnityEngineAnimatorUpdateMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__set_updateMode__UnityEngineAnimatorUpdateMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AnimatorUpdateMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__set_updateMode__UnityEngineAnimatorUpdateMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator-updateMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setbonelocalrotation">
+<h2>Animator SetBoneLocalRotation<a class="headerlink" href="#animator-setbonelocalrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetBoneLocalRotation__UnityEngineHumanBodyBones_UnityEngineQuaternion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetBoneLocalRotation__UnityEngineHumanBodyBones_UnityEngineQuaternion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.HumanBodyBones humanBoneIdUnityEngine.Quaternion rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetBoneLocalRotation__UnityEngineHumanBodyBones_UnityEngineQuaternion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetBoneLocalRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setbool">
+<h2>Animator SetBool<a class="headerlink" href="#animator-setbool" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetBool__SystemInt32_SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetBool__SystemInt32_SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 idSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetBool__SystemInt32_SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetBool.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setfloat">
+<h2>Animator SetFloat<a class="headerlink" href="#animator-setfloat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetFloat__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetFloat__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 idSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetFloat__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetFloat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setikhintposition">
+<h2>Animator SetIKHintPosition<a class="headerlink" href="#animator-setikhintposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetIKHintPosition__UnityEngineAvatarIKHint_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetIKHintPosition__UnityEngineAvatarIKHint_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKHint hintUnityEngine.Vector3 hintPosition</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetIKHintPosition__UnityEngineAvatarIKHint_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetIKHintPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setikhintpositionweight">
+<h2>Animator SetIKHintPositionWeight<a class="headerlink" href="#animator-setikhintpositionweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetIKHintPositionWeight__UnityEngineAvatarIKHint_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetIKHintPositionWeight__UnityEngineAvatarIKHint_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKHint hintSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetIKHintPositionWeight__UnityEngineAvatarIKHint_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetIKHintPositionWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setikposition">
+<h2>Animator SetIKPosition<a class="headerlink" href="#animator-setikposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetIKPosition__UnityEngineAvatarIKGoal_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetIKPosition__UnityEngineAvatarIKGoal_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goalUnityEngine.Vector3 goalPosition</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetIKPosition__UnityEngineAvatarIKGoal_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetIKPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setikpositionweight">
+<h2>Animator SetIKPositionWeight<a class="headerlink" href="#animator-setikpositionweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetIKPositionWeight__UnityEngineAvatarIKGoal_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetIKPositionWeight__UnityEngineAvatarIKGoal_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goalSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetIKPositionWeight__UnityEngineAvatarIKGoal_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetIKPositionWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setikrotation">
+<h2>Animator SetIKRotation<a class="headerlink" href="#animator-setikrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetIKRotation__UnityEngineAvatarIKGoal_UnityEngineQuaternion__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetIKRotation__UnityEngineAvatarIKGoal_UnityEngineQuaternion__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goalUnityEngine.Quaternion goalRotation</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetIKRotation__UnityEngineAvatarIKGoal_UnityEngineQuaternion__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetIKRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setikrotationweight">
+<h2>Animator SetIKRotationWeight<a class="headerlink" href="#animator-setikrotationweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetIKRotationWeight__UnityEngineAvatarIKGoal_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetIKRotationWeight__UnityEngineAvatarIKGoal_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarIKGoal goalSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetIKRotationWeight__UnityEngineAvatarIKGoal_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetIKRotationWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setinteger">
+<h2>Animator SetInteger<a class="headerlink" href="#animator-setinteger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetInteger__SystemInt32_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetInteger__SystemInt32_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 idSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetInteger__SystemInt32_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetInteger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setlayerweight">
+<h2>Animator SetLayerWeight<a class="headerlink" href="#animator-setlayerweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetLayerWeight__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetLayerWeight__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 layerIndexSystem.Single weight</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetLayerWeight__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetLayerWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setlookatposition">
+<h2>Animator SetLookAtPosition<a class="headerlink" href="#animator-setlookatposition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetLookAtPosition__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetLookAtPosition__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.Vector3 lookAtPosition</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetLookAtPosition__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetLookAtPosition.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-setlookatweight">
+<h2>Animator SetLookAtWeight<a class="headerlink" href="#animator-setlookatweight" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetLookAtWeight__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetLookAtWeight__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Single weight</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetLookAtWeight__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetLookAtWeight.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-settarget">
+<h2>Animator SetTarget<a class="headerlink" href="#animator-settarget" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetTarget__UnityEngineAvatarTarget_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetTarget__UnityEngineAvatarTarget_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceUnityEngine.AvatarTarget targetIndexSystem.Single targetNormalizedTime</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetTarget__UnityEngineAvatarTarget_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetTarget.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-settrigger">
+<h2>Animator SetTrigger<a class="headerlink" href="#animator-settrigger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__SetTrigger__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__SetTrigger__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 id</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__SetTrigger__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.SetTrigger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-startplayback">
+<h2>Animator StartPlayback<a class="headerlink" href="#animator-startplayback" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__StartPlayback__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__StartPlayback__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__StartPlayback__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.StartPlayback.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-startrecording">
+<h2>Animator StartRecording<a class="headerlink" href="#animator-startrecording" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__StartRecording__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__StartRecording__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instanceSystem.Int32 frameCount</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__StartRecording__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.StartRecording.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-stopplayback">
+<h2>Animator StopPlayback<a class="headerlink" href="#animator-stopplayback" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__StopPlayback__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__StopPlayback__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__StopPlayback__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.StopPlayback.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-stoprecording">
+<h2>Animator StopRecording<a class="headerlink" href="#animator-stoprecording" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__StopRecording__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__StopRecording__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__StopRecording__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.StopRecording.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-stringtohash">
+<h2>Animator StringToHash<a class="headerlink" href="#animator-stringtohash" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__StringToHash__SystemString__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__StringToHash__SystemString__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.String name</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__StringToHash__SystemString__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.StringToHash.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-tostring">
+<h2>Animator ToString<a class="headerlink" href="#animator-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="animator-writedefaultvalues">
+<h2>Animator WriteDefaultValues<a class="headerlink" href="#animator-writedefaultvalues" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAnimator.__WriteDefaultValues__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAnimator.</code><code class="sig-name descname">__WriteDefaultValues__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAnimator.__WriteDefaultValues__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.WriteDefaultValues.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id129">
+<h2>Animator<a class="headerlink" href="#id129" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineAnimator">
+<code class="sig-name descname">Variable_UnityEngineAnimator</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Animator AnimatorSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineAnimator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Animator.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../AnimatorClipInfo/index.html" class="btn btn-neutral float-right" title="AnimatorClipInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AnimationState/index.html" class="btn btn-neutral" title="AnimationState" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

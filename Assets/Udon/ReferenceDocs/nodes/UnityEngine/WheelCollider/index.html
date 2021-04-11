@@ -1,0 +1,1269 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WheelCollider &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="WheelJoint2D" href="../WheelJoint2D/index.html"/>
+        <link rel="prev" title="Vector4" href="../Vector4/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">WheelCollider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">WheelCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-closestpoint">WheelCollider ClosestPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-closestpointonbounds">WheelCollider ClosestPointOnBounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-configurevehiclesubsteps">WheelCollider ConfigureVehicleSubsteps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-equals">WheelCollider Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-attachedrigidbody">WheelCollider get_attachedRigidbody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-bounds">WheelCollider get_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-braketorque">WheelCollider get_brakeTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-center">WheelCollider get_center</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-contactoffset">WheelCollider get_contactOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-enabled">WheelCollider get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-forceapppointdistance">WheelCollider get_forceAppPointDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-forwardfriction">WheelCollider get_forwardFriction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-gameobject">WheelCollider get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-isgrounded">WheelCollider get_isGrounded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-istrigger">WheelCollider get_isTrigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-mass">WheelCollider get_mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-material">WheelCollider get_material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-motortorque">WheelCollider get_motorTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-name">WheelCollider get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-radius">WheelCollider get_radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-rpm">WheelCollider get_rpm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-sharedmaterial">WheelCollider get_sharedMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-sidewaysfriction">WheelCollider get_sidewaysFriction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-sprungmass">WheelCollider get_sprungMass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-steerangle">WheelCollider get_steerAngle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-suspensiondistance">WheelCollider get_suspensionDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-suspensionspring">WheelCollider get_suspensionSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-transform">WheelCollider get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-get-wheeldampingrate">WheelCollider get_wheelDampingRate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getcomponent">WheelCollider GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getcomponentinchildren">WheelCollider GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getcomponentinparent">WheelCollider GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getcomponents">WheelCollider GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getcomponentsinchildren">WheelCollider GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getcomponentsinparent">WheelCollider GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getgroundhit">WheelCollider GetGroundHit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-gethashcode">WheelCollider GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getinstanceid">WheelCollider GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-gettype">WheelCollider GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-getworldpose">WheelCollider GetWorldPose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-raycast">WheelCollider Raycast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-braketorque">WheelCollider set_brakeTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-center">WheelCollider set_center</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-contactoffset">WheelCollider set_contactOffset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-enabled">WheelCollider set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-forceapppointdistance">WheelCollider set_forceAppPointDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-forwardfriction">WheelCollider set_forwardFriction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-istrigger">WheelCollider set_isTrigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-mass">WheelCollider set_mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-material">WheelCollider set_material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-motortorque">WheelCollider set_motorTorque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-name">WheelCollider set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-radius">WheelCollider set_radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-sharedmaterial">WheelCollider set_sharedMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-sidewaysfriction">WheelCollider set_sidewaysFriction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-steerangle">WheelCollider set_steerAngle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-suspensiondistance">WheelCollider set_suspensionDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-suspensionspring">WheelCollider set_suspensionSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-set-wheeldampingrate">WheelCollider set_wheelDampingRate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheelcollider-tostring">WheelCollider ToString</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>WheelCollider</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/WheelCollider/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../WheelJoint2D/index.html" class="btn btn-neutral float-right" title="WheelJoint2D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Vector4/index.html" class="btn btn-neutral" title="Vector4" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wheelcollider">
+<h1>WheelCollider<a class="headerlink" href="#wheelcollider" title="Permalink to this headline">¶</a></h1>
+<p>The WheelCollider module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="id1">
+<h2>WheelCollider<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineWheelCollider">
+<code class="sig-name descname">Variable_UnityEngineWheelCollider</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider WheelColliderSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineWheelCollider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-closestpoint">
+<h2>WheelCollider ClosestPoint<a class="headerlink" href="#wheelcollider-closestpoint" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__ClosestPoint__UnityEngineVector3__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__ClosestPoint__UnityEngineVector3__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.Vector3 position</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__ClosestPoint__UnityEngineVector3__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.ClosestPoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-closestpointonbounds">
+<h2>WheelCollider ClosestPointOnBounds<a class="headerlink" href="#wheelcollider-closestpointonbounds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__ClosestPointOnBounds__UnityEngineVector3__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__ClosestPointOnBounds__UnityEngineVector3__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.Vector3 position</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__ClosestPointOnBounds__UnityEngineVector3__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.ClosestPointOnBounds.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-configurevehiclesubsteps">
+<h2>WheelCollider ConfigureVehicleSubsteps<a class="headerlink" href="#wheelcollider-configurevehiclesubsteps" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__ConfigureVehicleSubsteps__SystemSingle_SystemInt32_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__ConfigureVehicleSubsteps__SystemSingle_SystemInt32_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single speedThresholdSystem.Int32 stepsBelowThresholdSystem.Int32 stepsAboveThreshold</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__ConfigureVehicleSubsteps__SystemSingle_SystemInt32_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.ConfigureVehicleSubsteps.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="wheelcollider-equals">
+<h2>WheelCollider Equals<a class="headerlink" href="#wheelcollider-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-attachedrigidbody">
+<h2>WheelCollider get_attachedRigidbody<a class="headerlink" href="#wheelcollider-get-attachedrigidbody" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_attachedRigidbody__UnityEngineRigidbody">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_attachedRigidbody__UnityEngineRigidbody</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_attachedRigidbody__UnityEngineRigidbody" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Rigidbody</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-attachedRigidbody.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-bounds">
+<h2>WheelCollider get_bounds<a class="headerlink" href="#wheelcollider-get-bounds" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_bounds__UnityEngineBounds">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_bounds__UnityEngineBounds</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_bounds__UnityEngineBounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Bounds</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-bounds.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-braketorque">
+<h2>WheelCollider get_brakeTorque<a class="headerlink" href="#wheelcollider-get-braketorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_brakeTorque__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_brakeTorque__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_brakeTorque__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-brakeTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-center">
+<h2>WheelCollider get_center<a class="headerlink" href="#wheelcollider-get-center" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_center__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_center__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_center__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-center.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-contactoffset">
+<h2>WheelCollider get_contactOffset<a class="headerlink" href="#wheelcollider-get-contactoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_contactOffset__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_contactOffset__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_contactOffset__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-contactOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-enabled">
+<h2>WheelCollider get_enabled<a class="headerlink" href="#wheelcollider-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-forceapppointdistance">
+<h2>WheelCollider get_forceAppPointDistance<a class="headerlink" href="#wheelcollider-get-forceapppointdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_forceAppPointDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_forceAppPointDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_forceAppPointDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-forceAppPointDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-forwardfriction">
+<h2>WheelCollider get_forwardFriction<a class="headerlink" href="#wheelcollider-get-forwardfriction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_forwardFriction__UnityEngineWheelFrictionCurve">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_forwardFriction__UnityEngineWheelFrictionCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_forwardFriction__UnityEngineWheelFrictionCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">WheelFrictionCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-forwardFriction.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-gameobject">
+<h2>WheelCollider get_gameObject<a class="headerlink" href="#wheelcollider-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-isgrounded">
+<h2>WheelCollider get_isGrounded<a class="headerlink" href="#wheelcollider-get-isgrounded" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_isGrounded__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_isGrounded__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_isGrounded__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-isGrounded.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-istrigger">
+<h2>WheelCollider get_isTrigger<a class="headerlink" href="#wheelcollider-get-istrigger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_isTrigger__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_isTrigger__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_isTrigger__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-isTrigger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-mass">
+<h2>WheelCollider get_mass<a class="headerlink" href="#wheelcollider-get-mass" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_mass__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_mass__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_mass__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-mass.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-material">
+<h2>WheelCollider get_material<a class="headerlink" href="#wheelcollider-get-material" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_material__UnityEnginePhysicMaterial">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_material__UnityEnginePhysicMaterial</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_material__UnityEnginePhysicMaterial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PhysicMaterial</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-material.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-motortorque">
+<h2>WheelCollider get_motorTorque<a class="headerlink" href="#wheelcollider-get-motortorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_motorTorque__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_motorTorque__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_motorTorque__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-motorTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-name">
+<h2>WheelCollider get_name<a class="headerlink" href="#wheelcollider-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-radius">
+<h2>WheelCollider get_radius<a class="headerlink" href="#wheelcollider-get-radius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_radius__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_radius__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_radius__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-radius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-rpm">
+<h2>WheelCollider get_rpm<a class="headerlink" href="#wheelcollider-get-rpm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_rpm__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_rpm__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_rpm__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-rpm.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-sharedmaterial">
+<h2>WheelCollider get_sharedMaterial<a class="headerlink" href="#wheelcollider-get-sharedmaterial" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_sharedMaterial__UnityEnginePhysicMaterial">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_sharedMaterial__UnityEnginePhysicMaterial</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_sharedMaterial__UnityEnginePhysicMaterial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">PhysicMaterial</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-sharedMaterial.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-sidewaysfriction">
+<h2>WheelCollider get_sidewaysFriction<a class="headerlink" href="#wheelcollider-get-sidewaysfriction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_sidewaysFriction__UnityEngineWheelFrictionCurve">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_sidewaysFriction__UnityEngineWheelFrictionCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_sidewaysFriction__UnityEngineWheelFrictionCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">WheelFrictionCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-sidewaysFriction.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-sprungmass">
+<h2>WheelCollider get_sprungMass<a class="headerlink" href="#wheelcollider-get-sprungmass" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_sprungMass__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_sprungMass__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_sprungMass__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-sprungMass.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-steerangle">
+<h2>WheelCollider get_steerAngle<a class="headerlink" href="#wheelcollider-get-steerangle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_steerAngle__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_steerAngle__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_steerAngle__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-steerAngle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-suspensiondistance">
+<h2>WheelCollider get_suspensionDistance<a class="headerlink" href="#wheelcollider-get-suspensiondistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_suspensionDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_suspensionDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_suspensionDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-suspensionDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-suspensionspring">
+<h2>WheelCollider get_suspensionSpring<a class="headerlink" href="#wheelcollider-get-suspensionspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_suspensionSpring__UnityEngineJointSpring">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_suspensionSpring__UnityEngineJointSpring</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_suspensionSpring__UnityEngineJointSpring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">JointSpring</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-suspensionSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-transform">
+<h2>WheelCollider get_transform<a class="headerlink" href="#wheelcollider-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-get-wheeldampingrate">
+<h2>WheelCollider get_wheelDampingRate<a class="headerlink" href="#wheelcollider-get-wheeldampingrate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__get_wheelDampingRate__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__get_wheelDampingRate__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__get_wheelDampingRate__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-wheelDampingRate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getcomponent">
+<h2>WheelCollider GetComponent<a class="headerlink" href="#wheelcollider-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getcomponentinchildren">
+<h2>WheelCollider GetComponentInChildren<a class="headerlink" href="#wheelcollider-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getcomponentinparent">
+<h2>WheelCollider GetComponentInParent<a class="headerlink" href="#wheelcollider-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getcomponents">
+<h2>WheelCollider GetComponents<a class="headerlink" href="#wheelcollider-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getcomponentsinchildren">
+<h2>WheelCollider GetComponentsInChildren<a class="headerlink" href="#wheelcollider-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getcomponentsinparent">
+<h2>WheelCollider GetComponentsInParent<a class="headerlink" href="#wheelcollider-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getgroundhit">
+<h2>WheelCollider GetGroundHit<a class="headerlink" href="#wheelcollider-getgroundhit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetGroundHit__UnityEngineWheelHitRef__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetGroundHit__UnityEngineWheelHitRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetGroundHit__UnityEngineWheelHitRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: hit (<code class="docutils literal notranslate"><span class="pre">WheelHit</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetGroundHit.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-gethashcode">
+<h2>WheelCollider GetHashCode<a class="headerlink" href="#wheelcollider-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getinstanceid">
+<h2>WheelCollider GetInstanceID<a class="headerlink" href="#wheelcollider-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-gettype">
+<h2>WheelCollider GetType<a class="headerlink" href="#wheelcollider-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-getworldpose">
+<h2>WheelCollider GetWorldPose<a class="headerlink" href="#wheelcollider-getworldpose" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__GetWorldPose__UnityEngineVector3Ref_UnityEngineQuaternionRef__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__GetWorldPose__UnityEngineVector3Ref_UnityEngineQuaternionRef__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__GetWorldPose__UnityEngineVector3Ref_UnityEngineQuaternionRef__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: pos (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>), quat (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.GetWorldPose.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="wheelcollider-raycast">
+<h2>WheelCollider Raycast<a class="headerlink" href="#wheelcollider-raycast" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__Raycast__UnityEngineRay_UnityEngineRaycastHitRef_SystemSingle__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__Raycast__UnityEngineRay_UnityEngineRaycastHitRef_SystemSingle__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.Ray raySystem.Single maxDistance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__Raycast__UnityEngineRay_UnityEngineRaycastHitRef_SystemSingle__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: hitInfo (<code class="docutils literal notranslate"><span class="pre">RaycastHit</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.Raycast.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-braketorque">
+<h2>WheelCollider set_brakeTorque<a class="headerlink" href="#wheelcollider-set-braketorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_brakeTorque__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_brakeTorque__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_brakeTorque__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-brakeTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-center">
+<h2>WheelCollider set_center<a class="headerlink" href="#wheelcollider-set-center" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_center__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_center__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_center__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-center.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-contactoffset">
+<h2>WheelCollider set_contactOffset<a class="headerlink" href="#wheelcollider-set-contactoffset" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_contactOffset__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_contactOffset__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_contactOffset__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-contactOffset.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-enabled">
+<h2>WheelCollider set_enabled<a class="headerlink" href="#wheelcollider-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-forceapppointdistance">
+<h2>WheelCollider set_forceAppPointDistance<a class="headerlink" href="#wheelcollider-set-forceapppointdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_forceAppPointDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_forceAppPointDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_forceAppPointDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-forceAppPointDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-forwardfriction">
+<h2>WheelCollider set_forwardFriction<a class="headerlink" href="#wheelcollider-set-forwardfriction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_forwardFriction__UnityEngineWheelFrictionCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_forwardFriction__UnityEngineWheelFrictionCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.WheelFrictionCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_forwardFriction__UnityEngineWheelFrictionCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-forwardFriction.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-istrigger">
+<h2>WheelCollider set_isTrigger<a class="headerlink" href="#wheelcollider-set-istrigger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_isTrigger__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_isTrigger__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_isTrigger__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-isTrigger.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-mass">
+<h2>WheelCollider set_mass<a class="headerlink" href="#wheelcollider-set-mass" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_mass__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_mass__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_mass__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-mass.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-material">
+<h2>WheelCollider set_material<a class="headerlink" href="#wheelcollider-set-material" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_material__UnityEnginePhysicMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_material__UnityEnginePhysicMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.PhysicMaterial value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_material__UnityEnginePhysicMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-material.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-motortorque">
+<h2>WheelCollider set_motorTorque<a class="headerlink" href="#wheelcollider-set-motortorque" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_motorTorque__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_motorTorque__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_motorTorque__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-motorTorque.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-name">
+<h2>WheelCollider set_name<a class="headerlink" href="#wheelcollider-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-radius">
+<h2>WheelCollider set_radius<a class="headerlink" href="#wheelcollider-set-radius" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_radius__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_radius__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_radius__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-radius.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-sharedmaterial">
+<h2>WheelCollider set_sharedMaterial<a class="headerlink" href="#wheelcollider-set-sharedmaterial" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_sharedMaterial__UnityEnginePhysicMaterial__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_sharedMaterial__UnityEnginePhysicMaterial__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.PhysicMaterial value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_sharedMaterial__UnityEnginePhysicMaterial__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-sharedMaterial.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-sidewaysfriction">
+<h2>WheelCollider set_sidewaysFriction<a class="headerlink" href="#wheelcollider-set-sidewaysfriction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_sidewaysFriction__UnityEngineWheelFrictionCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_sidewaysFriction__UnityEngineWheelFrictionCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.WheelFrictionCurve value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_sidewaysFriction__UnityEngineWheelFrictionCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-sidewaysFriction.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-steerangle">
+<h2>WheelCollider set_steerAngle<a class="headerlink" href="#wheelcollider-set-steerangle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_steerAngle__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_steerAngle__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_steerAngle__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-steerAngle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-suspensiondistance">
+<h2>WheelCollider set_suspensionDistance<a class="headerlink" href="#wheelcollider-set-suspensiondistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_suspensionDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_suspensionDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_suspensionDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-suspensionDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-suspensionspring">
+<h2>WheelCollider set_suspensionSpring<a class="headerlink" href="#wheelcollider-set-suspensionspring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_suspensionSpring__UnityEngineJointSpring__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_suspensionSpring__UnityEngineJointSpring__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceUnityEngine.JointSpring value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_suspensionSpring__UnityEngineJointSpring__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-suspensionSpring.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-set-wheeldampingrate">
+<h2>WheelCollider set_wheelDampingRate<a class="headerlink" href="#wheelcollider-set-wheeldampingrate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__set_wheelDampingRate__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__set_wheelDampingRate__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__set_wheelDampingRate__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider-wheelDampingRate.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="wheelcollider-tostring">
+<h2>WheelCollider ToString<a class="headerlink" href="#wheelcollider-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineWheelCollider.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineWheelCollider.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.WheelCollider instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineWheelCollider.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/WheelCollider.ToString.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../WheelJoint2D/index.html" class="btn btn-neutral float-right" title="WheelJoint2D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Vector4/index.html" class="btn btn-neutral" title="Vector4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,647 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Double &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="Int16" href="../Int16/index.html"/>
+        <link rel="prev" title="DateTime" href="../DateTime/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Char/index.html">Char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Double</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">double</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-addition">op_Addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-compareto">double CompareTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-division">op_Division</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-equals">double Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-get-epsilon">double get_Epsilon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-get-maxvalue">double get_MaxValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-get-minvalue">double get_MinValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-get-nan">double get_NaN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-get-negativeinfinity">double get_NegativeInfinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-get-positiveinfinity">double get_PositiveInfinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-gethashcode">double GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-gettype">double GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthan">op_GreaterThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthanorequal">op_GreaterThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-isinfinity">double IsInfinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-isnan">double IsNaN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-isnegativeinfinity">double IsNegativeInfinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-ispositiveinfinity">double IsPositiveInfinity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthan">op_LessThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthanorequal">op_LessThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-multiplication">op_Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-parse">double Parse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-remainder">op_Remainder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-subtraction">op_Subtraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-tostring">double ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#double-tryparse">double TryParse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-unaryminus">op_UnaryMinus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">double</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>Double</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/Double/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Int16/index.html" class="btn btn-neutral float-right" title="Int16" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../DateTime/index.html" class="btn btn-neutral" title="DateTime" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="double">
+<h1>Double<a class="headerlink" href="#double" title="Permalink to this headline">¶</a></h1>
+<p>The Double module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="id1">
+<h2>double<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_SystemDouble">
+<code class="sig-name descname">Const_SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double Double</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-addition">
+<h2>op_Addition<a class="headerlink" href="#op-addition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Addition__SystemDouble_SystemDouble__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Addition__SystemDouble_SystemDouble__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Addition__SystemDouble_SystemDouble__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="double-compareto">
+<h2>double CompareTo<a class="headerlink" href="#double-compareto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__CompareTo__SystemObject__SystemInt32">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__CompareTo__SystemObject__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Double instanceSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__CompareTo__SystemObject__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.CompareTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-division">
+<h2>op_Division<a class="headerlink" href="#op-division" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Division__SystemDouble_SystemDouble__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Division__SystemDouble_SystemDouble__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Division__SystemDouble_SystemDouble__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Equality__SystemDouble_SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Equality__SystemDouble_SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Equality__SystemDouble_SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="double-equals">
+<h2>double Equals<a class="headerlink" href="#double-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-get-epsilon">
+<h2>double get_Epsilon<a class="headerlink" href="#double-get-epsilon" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__get_Epsilon__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__get_Epsilon__SystemDouble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__get_Epsilon__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.Epsilon?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-get-maxvalue">
+<h2>double get_MaxValue<a class="headerlink" href="#double-get-maxvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__get_MaxValue__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__get_MaxValue__SystemDouble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__get_MaxValue__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.MaxValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-get-minvalue">
+<h2>double get_MinValue<a class="headerlink" href="#double-get-minvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__get_MinValue__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__get_MinValue__SystemDouble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__get_MinValue__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.MinValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-get-nan">
+<h2>double get_NaN<a class="headerlink" href="#double-get-nan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__get_NaN__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__get_NaN__SystemDouble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__get_NaN__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.NaN?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-get-negativeinfinity">
+<h2>double get_NegativeInfinity<a class="headerlink" href="#double-get-negativeinfinity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__get_NegativeInfinity__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__get_NegativeInfinity__SystemDouble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__get_NegativeInfinity__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.NegativeInfinity?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-get-positiveinfinity">
+<h2>double get_PositiveInfinity<a class="headerlink" href="#double-get-positiveinfinity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__get_PositiveInfinity__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__get_PositiveInfinity__SystemDouble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__get_PositiveInfinity__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.PositiveInfinity?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-gethashcode">
+<h2>double GetHashCode<a class="headerlink" href="#double-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Double instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-gettype">
+<h2>double GetType<a class="headerlink" href="#double-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.Double instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-greaterthan">
+<h2>op_GreaterThan<a class="headerlink" href="#op-greaterthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_GreaterThan__SystemDouble_SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_GreaterThan__SystemDouble_SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_GreaterThan__SystemDouble_SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-greaterthanorequal">
+<h2>op_GreaterThanOrEqual<a class="headerlink" href="#op-greaterthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_GreaterThanOrEqual__SystemDouble_SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_GreaterThanOrEqual__SystemDouble_SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_GreaterThanOrEqual__SystemDouble_SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Inequality__SystemDouble_SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Inequality__SystemDouble_SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Inequality__SystemDouble_SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="double-isinfinity">
+<h2>double IsInfinity<a class="headerlink" href="#double-isinfinity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__IsInfinity__SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__IsInfinity__SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double d</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__IsInfinity__SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.IsInfinity?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-isnan">
+<h2>double IsNaN<a class="headerlink" href="#double-isnan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__IsNaN__SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__IsNaN__SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double d</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__IsNaN__SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.IsNaN?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-isnegativeinfinity">
+<h2>double IsNegativeInfinity<a class="headerlink" href="#double-isnegativeinfinity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__IsNegativeInfinity__SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__IsNegativeInfinity__SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double d</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__IsNegativeInfinity__SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.IsNegativeInfinity?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-ispositiveinfinity">
+<h2>double IsPositiveInfinity<a class="headerlink" href="#double-ispositiveinfinity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__IsPositiveInfinity__SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__IsPositiveInfinity__SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double d</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__IsPositiveInfinity__SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.IsPositiveInfinity?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-lessthan">
+<h2>op_LessThan<a class="headerlink" href="#op-lessthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_LessThan__SystemDouble_SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_LessThan__SystemDouble_SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_LessThan__SystemDouble_SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthanorequal">
+<h2>op_LessThanOrEqual<a class="headerlink" href="#op-lessthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_LessThanOrEqual__SystemDouble_SystemDouble__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_LessThanOrEqual__SystemDouble_SystemDouble__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_LessThanOrEqual__SystemDouble_SystemDouble__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-multiplication">
+<h2>op_Multiplication<a class="headerlink" href="#op-multiplication" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Multiplication__SystemDouble_SystemDouble__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Multiplication__SystemDouble_SystemDouble__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Multiplication__SystemDouble_SystemDouble__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="double-parse">
+<h2>double Parse<a class="headerlink" href="#double-parse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__Parse__SystemString__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__Parse__SystemString__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__Parse__SystemString__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.Parse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-remainder">
+<h2>op_Remainder<a class="headerlink" href="#op-remainder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Remainder__SystemDouble_SystemDouble__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Remainder__SystemDouble_SystemDouble__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Remainder__SystemDouble_SystemDouble__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-subtraction">
+<h2>op_Subtraction<a class="headerlink" href="#op-subtraction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_Subtraction__SystemDouble_SystemDouble__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_Subtraction__SystemDouble_SystemDouble__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_Subtraction__SystemDouble_SystemDouble__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="double-tostring">
+<h2>double ToString<a class="headerlink" href="#double-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__ToString__SystemString">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Double instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="double-tryparse">
+<h2>double TryParse<a class="headerlink" href="#double-tryparse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemDoubleRef__SystemBoolean">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemDoubleRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String sSystem.Globalization.NumberStyles styleSystem.IFormatProvider provider</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__TryParse__SystemString_SystemGlobalizationNumberStyles_SystemIFormatProvider_SystemDoubleRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: result (<code class="docutils literal notranslate"><span class="pre">Double</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Double.TryParse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-unaryminus">
+<h2>op_UnaryMinus<a class="headerlink" href="#op-unaryminus" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemDouble.__op_UnaryMinus__SystemDouble__SystemDouble">
+<code class="sig-prename descclassname">SystemDouble.</code><code class="sig-name descname">__op_UnaryMinus__SystemDouble__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemDouble.__op_UnaryMinus__SystemDouble__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="id19">
+<h2>double<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemDouble">
+<code class="sig-name descname">Variable_SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Double DoubleSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Int16/index.html" class="btn btn-neutral float-right" title="Int16" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../DateTime/index.html" class="btn btn-neutral" title="DateTime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

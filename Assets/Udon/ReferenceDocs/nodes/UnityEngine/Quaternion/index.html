@@ -1,0 +1,991 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quaternion &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="Random" href="../Random/index.html"/>
+        <link rel="prev" title="QualitySettings" href="../QualitySettings/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioSource/index.html">AudioSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quaternion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-angle">Quaternion Angle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-angleaxis">Quaternion AngleAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-dot">Quaternion Dot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-equals">Quaternion Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-euler">Quaternion Euler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-fromtorotation">Quaternion FromToRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-eulerangles">Quaternion get_eulerAngles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-identity">Quaternion get_identity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-item">Quaternion get_Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-kepsilon">Quaternion get_kEpsilon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-normalized">Quaternion get_normalized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-w">Quaternion get_w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-x">Quaternion get_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-y">Quaternion get_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-get-z">Quaternion get_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-gethashcode">Quaternion GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-gettype">Quaternion GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-inverse">Quaternion Inverse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-lerp">Quaternion Lerp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-lerpunclamped">Quaternion LerpUnclamped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-lookrotation">Quaternion LookRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-multiply">op_Multiply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-normalize">Quaternion Normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-rotatetowards">Quaternion RotateTowards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set-eulerangles">Quaternion set_eulerAngles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set-item">Quaternion set_Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set-w">Quaternion set_w</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set-x">Quaternion set_x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set-y">Quaternion set_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set-z">Quaternion set_z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-set">Quaternion Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-setfromtorotation">Quaternion SetFromToRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-setlookrotation">Quaternion SetLookRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-slerp">Quaternion Slerp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-slerpunclamped">Quaternion SlerpUnclamped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-toangleaxis">Quaternion ToAngleAxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quaternion-tostring">Quaternion ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Quaternion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>Quaternion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/Quaternion/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Random/index.html" class="btn btn-neutral float-right" title="Random" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../QualitySettings/index.html" class="btn btn-neutral" title="QualitySettings" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quaternion">
+<h1>Quaternion<a class="headerlink" href="#quaternion" title="Permalink to this headline">¶</a></h1>
+<p>The Quaternion module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="id1">
+<h2>Quaternion<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_UnityEngineQuaternion">
+<code class="sig-name descname">Const_UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-angle">
+<h2>Quaternion Angle<a class="headerlink" href="#quaternion-angle" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Angle__UnityEngineQuaternion_UnityEngineQuaternion__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Angle__UnityEngineQuaternion_UnityEngineQuaternion__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion aUnityEngine.Quaternion b</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Angle__UnityEngineQuaternion_UnityEngineQuaternion__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Angle.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-angleaxis">
+<h2>Quaternion AngleAxis<a class="headerlink" href="#quaternion-angleaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__AngleAxis__SystemSingle_UnityEngineVector3__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__AngleAxis__SystemSingle_UnityEngineVector3__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">System.Single angleUnityEngine.Vector3 axis</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__AngleAxis__SystemSingle_UnityEngineVector3__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.AngleAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__ctor__SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__ctor__SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">System.Single System.Single System.Single System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__ctor__SystemSingle_SystemSingle_SystemSingle_SystemSingle__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="quaternion-dot">
+<h2>Quaternion Dot<a class="headerlink" href="#quaternion-dot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Dot__UnityEngineQuaternion_UnityEngineQuaternion__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Dot__UnityEngineQuaternion_UnityEngineQuaternion__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion aUnityEngine.Quaternion b</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Dot__UnityEngineQuaternion_UnityEngineQuaternion__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Dot.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__op_Equality__UnityEngineQuaternion_UnityEngineQuaternion__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__op_Equality__UnityEngineQuaternion_UnityEngineQuaternion__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__op_Equality__UnityEngineQuaternion_UnityEngineQuaternion__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="quaternion-equals">
+<h2>Quaternion Equals<a class="headerlink" href="#quaternion-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="quaternion-euler">
+<h2>Quaternion Euler<a class="headerlink" href="#quaternion-euler" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Euler__UnityEngineVector3__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Euler__UnityEngineVector3__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 euler</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Euler__UnityEngineVector3__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Euler.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-fromtorotation">
+<h2>Quaternion FromToRotation<a class="headerlink" href="#quaternion-fromtorotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__FromToRotation__UnityEngineVector3_UnityEngineVector3__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__FromToRotation__UnityEngineVector3_UnityEngineVector3__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 fromDirectionUnityEngine.Vector3 toDirection</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__FromToRotation__UnityEngineVector3_UnityEngineVector3__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.FromToRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-eulerangles">
+<h2>Quaternion get_eulerAngles<a class="headerlink" href="#quaternion-get-eulerangles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_eulerAngles__UnityEngineVector3">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_eulerAngles__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_eulerAngles__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-eulerAngles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-identity">
+<h2>Quaternion get_identity<a class="headerlink" href="#quaternion-get-identity" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_identity__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_identity__UnityEngineQuaternion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_identity__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-identity.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-item">
+<h2>Quaternion get_Item<a class="headerlink" href="#quaternion-get-item" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_Item__SystemInt32__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_Item__SystemInt32__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_Item__SystemInt32__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-Item.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-kepsilon">
+<h2>Quaternion get_kEpsilon<a class="headerlink" href="#quaternion-get-kepsilon" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_kEpsilon__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_kEpsilon__SystemSingle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_kEpsilon__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-kEpsilon.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-normalized">
+<h2>Quaternion get_normalized<a class="headerlink" href="#quaternion-get-normalized" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_normalized__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_normalized__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_normalized__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-normalized.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-w">
+<h2>Quaternion get_w<a class="headerlink" href="#quaternion-get-w" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_w__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_w__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_w__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-w.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-x">
+<h2>Quaternion get_x<a class="headerlink" href="#quaternion-get-x" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_x__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_x__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_x__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-x.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-y">
+<h2>Quaternion get_y<a class="headerlink" href="#quaternion-get-y" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_y__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_y__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_y__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-y.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-get-z">
+<h2>Quaternion get_z<a class="headerlink" href="#quaternion-get-z" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__get_z__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__get_z__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__get_z__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-z.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-gethashcode">
+<h2>Quaternion GetHashCode<a class="headerlink" href="#quaternion-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-gettype">
+<h2>Quaternion GetType<a class="headerlink" href="#quaternion-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__op_Inequality__UnityEngineQuaternion_UnityEngineQuaternion__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__op_Inequality__UnityEngineQuaternion_UnityEngineQuaternion__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__op_Inequality__UnityEngineQuaternion_UnityEngineQuaternion__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="quaternion-inverse">
+<h2>Quaternion Inverse<a class="headerlink" href="#quaternion-inverse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Inverse__UnityEngineQuaternion__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Inverse__UnityEngineQuaternion__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Inverse__UnityEngineQuaternion__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Inverse.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-lerp">
+<h2>Quaternion Lerp<a class="headerlink" href="#quaternion-lerp" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Lerp__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Lerp__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion aUnityEngine.Quaternion bSystem.Single t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Lerp__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Lerp.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-lerpunclamped">
+<h2>Quaternion LerpUnclamped<a class="headerlink" href="#quaternion-lerpunclamped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__LerpUnclamped__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__LerpUnclamped__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion aUnityEngine.Quaternion bSystem.Single t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__LerpUnclamped__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.LerpUnclamped.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-lookrotation">
+<h2>Quaternion LookRotation<a class="headerlink" href="#quaternion-lookrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__LookRotation__UnityEngineVector3__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__LookRotation__UnityEngineVector3__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 forward</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__LookRotation__UnityEngineVector3__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.LookRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-multiply">
+<h2>op_Multiply<a class="headerlink" href="#op-multiply" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__op_Multiply__UnityEngineQuaternion_UnityEngineQuaternion__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__op_Multiply__UnityEngineQuaternion_UnityEngineQuaternion__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__op_Multiply__UnityEngineQuaternion_UnityEngineQuaternion__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="quaternion-normalize">
+<h2>Quaternion Normalize<a class="headerlink" href="#quaternion-normalize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Normalize__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Normalize__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Normalize__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Normalize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-rotatetowards">
+<h2>Quaternion RotateTowards<a class="headerlink" href="#quaternion-rotatetowards" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__RotateTowards__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__RotateTowards__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion fromUnityEngine.Quaternion toSystem.Single maxDegreesDelta</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__RotateTowards__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.RotateTowards.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set-eulerangles">
+<h2>Quaternion set_eulerAngles<a class="headerlink" href="#quaternion-set-eulerangles" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__set_eulerAngles__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__set_eulerAngles__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceUnityEngine.Vector3 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__set_eulerAngles__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-eulerAngles.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set-item">
+<h2>Quaternion set_Item<a class="headerlink" href="#quaternion-set-item" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__set_Item__SystemInt32_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__set_Item__SystemInt32_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceSystem.Int32 indexSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__set_Item__SystemInt32_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-Item.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set-w">
+<h2>Quaternion set_w<a class="headerlink" href="#quaternion-set-w" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__set_w__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__set_w__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__set_w__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-w.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set-x">
+<h2>Quaternion set_x<a class="headerlink" href="#quaternion-set-x" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__set_x__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__set_x__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__set_x__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-x.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set-y">
+<h2>Quaternion set_y<a class="headerlink" href="#quaternion-set-y" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__set_y__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__set_y__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__set_y__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-y.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set-z">
+<h2>Quaternion set_z<a class="headerlink" href="#quaternion-set-z" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__set_z__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__set_z__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion System.Single</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__set_z__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion-z.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-set">
+<h2>Quaternion Set<a class="headerlink" href="#quaternion-set" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Set__SystemSingle_SystemSingle_SystemSingle_SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Set__SystemSingle_SystemSingle_SystemSingle_SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceSystem.Single newXSystem.Single newYSystem.Single newZSystem.Single newW</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Set__SystemSingle_SystemSingle_SystemSingle_SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Set.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-setfromtorotation">
+<h2>Quaternion SetFromToRotation<a class="headerlink" href="#quaternion-setfromtorotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__SetFromToRotation__UnityEngineVector3_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__SetFromToRotation__UnityEngineVector3_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceUnityEngine.Vector3 fromDirectionUnityEngine.Vector3 toDirection</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__SetFromToRotation__UnityEngineVector3_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.SetFromToRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-setlookrotation">
+<h2>Quaternion SetLookRotation<a class="headerlink" href="#quaternion-setlookrotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__SetLookRotation__UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__SetLookRotation__UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instanceUnityEngine.Vector3 view</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__SetLookRotation__UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.SetLookRotation.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-slerp">
+<h2>Quaternion Slerp<a class="headerlink" href="#quaternion-slerp" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__Slerp__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__Slerp__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion aUnityEngine.Quaternion bSystem.Single t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__Slerp__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.Slerp.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-slerpunclamped">
+<h2>Quaternion SlerpUnclamped<a class="headerlink" href="#quaternion-slerpunclamped" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__SlerpUnclamped__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__SlerpUnclamped__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion aUnityEngine.Quaternion bSystem.Single t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__SlerpUnclamped__UnityEngineQuaternion_UnityEngineQuaternion_SystemSingle__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.SlerpUnclamped.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-toangleaxis">
+<h2>Quaternion ToAngleAxis<a class="headerlink" href="#quaternion-toangleaxis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__ToAngleAxis__SystemSingleRef_UnityEngineVector3Ref__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__ToAngleAxis__SystemSingleRef_UnityEngineVector3Ref__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__ToAngleAxis__SystemSingleRef_UnityEngineVector3Ref__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: angle (<code class="docutils literal notranslate"><span class="pre">Single</span></code>), axis (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.ToAngleAxis.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="quaternion-tostring">
+<h2>Quaternion ToString<a class="headerlink" href="#quaternion-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineQuaternion.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineQuaternion.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineQuaternion.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id37">
+<h2>Quaternion<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineQuaternion">
+<code class="sig-name descname">Variable_UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Quaternion QuaternionSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Quaternion.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Random/index.html" class="btn btn-neutral float-right" title="Random" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../QualitySettings/index.html" class="btn btn-neutral" title="QualitySettings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

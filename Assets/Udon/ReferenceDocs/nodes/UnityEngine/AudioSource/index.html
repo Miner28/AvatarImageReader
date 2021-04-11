@@ -1,0 +1,1514 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AudioSource &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="UnityEngine" href="../index.html"/>
+        <link rel="next" title="Avatar" href="../Avatar/index.html"/>
+        <link rel="prev" title="AudioReverbZone" href="../AudioReverbZone/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">UnityEngine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshAgent/index.html">AINavMeshAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshData/index.html">AINavMeshData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMesh/index.html">AINavMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshObstacle/index.html">AINavMeshObstacle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AINavMeshPath/index.html">AINavMeshPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AIOffMeshLink/index.html">AIOffMeshLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationClip/index.html">AnimationClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsAimConstraint/index.html">AnimationsAimConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsConstraintSource/index.html">AnimationsConstraintSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsLookAtConstraint/index.html">AnimationsLookAtConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsParentConstraint/index.html">AnimationsParentConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsPositionConstraint/index.html">AnimationsPositionConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsRotationConstraint/index.html">AnimationsRotationConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationsScaleConstraint/index.html">AnimationsScaleConstraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimationState/index.html">AnimationState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Animator/index.html">Animator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorClipInfo/index.html">AnimatorClipInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorControllerParameter/index.html">AnimatorControllerParameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorOverrideController/index.html">AnimatorOverrideController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorStateInfo/index.html">AnimatorStateInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorTransitionInfo/index.html">AnimatorTransitionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AnimatorUtility/index.html">AnimatorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AreaEffector2D/index.html">AreaEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioChorusFilter/index.html">AudioChorusFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioClip/index.html">AudioClip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioDistortionFilter/index.html">AudioDistortionFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioEchoFilter/index.html">AudioEchoFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioHighPassFilter/index.html">AudioHighPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioLowPassFilter/index.html">AudioLowPassFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbFilter/index.html">AudioReverbFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AudioReverbZone/index.html">AudioReverbZone</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AudioSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-equals">AudioSource Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-bypassreverbzones">AudioSource get_bypassReverbZones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-clip">AudioSource get_clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-dopplerlevel">AudioSource get_dopplerLevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-enabled">AudioSource get_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-gameobject">AudioSource get_gameObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-isplaying">AudioSource get_isPlaying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-isvirtual">AudioSource get_isVirtual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-loop">AudioSource get_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-maxdistance">AudioSource get_maxDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-mindistance">AudioSource get_minDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-mute">AudioSource get_mute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-name">AudioSource get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-panstereo">AudioSource get_panStereo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-pitch">AudioSource get_pitch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-playonawake">AudioSource get_playOnAwake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-priority">AudioSource get_priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-reverbzonemix">AudioSource get_reverbZoneMix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-rolloffmode">AudioSource get_rolloffMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-spatialblend">AudioSource get_spatialBlend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-spatialize">AudioSource get_spatialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-spatializeposteffects">AudioSource get_spatializePostEffects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-spread">AudioSource get_spread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-time">AudioSource get_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-timesamples">AudioSource get_timeSamples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-transform">AudioSource get_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-velocityupdatemode">AudioSource get_velocityUpdateMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-get-volume">AudioSource get_volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getambisonicdecoderfloat">AudioSource GetAmbisonicDecoderFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcomponent">AudioSource GetComponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcomponentinchildren">AudioSource GetComponentInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcomponentinparent">AudioSource GetComponentInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcomponents">AudioSource GetComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcomponentsinchildren">AudioSource GetComponentsInChildren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcomponentsinparent">AudioSource GetComponentsInParent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getcustomcurve">AudioSource GetCustomCurve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-gethashcode">AudioSource GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getinstanceid">AudioSource GetInstanceID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getoutputdata">AudioSource GetOutputData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getspatializerfloat">AudioSource GetSpatializerFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-getspectrumdata">AudioSource GetSpectrumData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-gettype">AudioSource GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-implicit">op_Implicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-pause">AudioSource Pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-play">AudioSource Play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-playclipatpoint">AudioSource PlayClipAtPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-playdelayed">AudioSource PlayDelayed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-playoneshot">AudioSource PlayOneShot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-playscheduled">AudioSource PlayScheduled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-bypassreverbzones">AudioSource set_bypassReverbZones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-clip">AudioSource set_clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-dopplerlevel">AudioSource set_dopplerLevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-enabled">AudioSource set_enabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-loop">AudioSource set_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-maxdistance">AudioSource set_maxDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-mindistance">AudioSource set_minDistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-mute">AudioSource set_mute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-name">AudioSource set_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-panstereo">AudioSource set_panStereo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-pitch">AudioSource set_pitch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-playonawake">AudioSource set_playOnAwake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-priority">AudioSource set_priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-reverbzonemix">AudioSource set_reverbZoneMix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-rolloffmode">AudioSource set_rolloffMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-spatialblend">AudioSource set_spatialBlend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-spatialize">AudioSource set_spatialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-spatializeposteffects">AudioSource set_spatializePostEffects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-spread">AudioSource set_spread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-time">AudioSource set_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-timesamples">AudioSource set_timeSamples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-velocityupdatemode">AudioSource set_velocityUpdateMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-set-volume">AudioSource set_volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-setambisonicdecoderfloat">AudioSource SetAmbisonicDecoderFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-setcustomcurve">AudioSource SetCustomCurve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-setscheduledendtime">AudioSource SetScheduledEndTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-setscheduledstarttime">AudioSource SetScheduledStartTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-setspatializerfloat">AudioSource SetSpatializerFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-stop">AudioSource Stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-tostring">AudioSource ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audiosource-unpause">AudioSource UnPause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id78">AudioSource</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Avatar/index.html">Avatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarBuilder/index.html">AvatarBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AvatarMask/index.html">AvatarMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BillboardRenderer/index.html">BillboardRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Bounds/index.html">Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider2D/index.html">BoxCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BoxCollider/index.html">BoxCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Canvas/index.html">Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CanvasRenderer/index.html">CanvasRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider2D/index.html">CapsuleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CapsuleCollider/index.html">CapsuleCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CircleCollider2D/index.html">CircleCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider2D/index.html">Collider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collider/index.html">Collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision2D/index.html">Collision2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Color/index.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Component/index.html">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CompositeCollider2D/index.html">CompositeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConfigurableJoint/index.html">ConfigurableJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce2D/index.html">ConstantForce2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConstantForce/index.html">ConstantForce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint2D/index.html">ContactPoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContactPoint/index.html">ContactPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Debug/index.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DistanceJoint2D/index.html">DistanceJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EdgeCollider2D/index.html">EdgeCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Effector2D/index.html">Effector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExperimentalAnimationsMuscleHandle/index.html">ExperimentalAnimationsMuscleHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint2D/index.html">FixedJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FixedJoint/index.html">FixedJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FrictionJoint2D/index.html">FrictionJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GameObject/index.html">GameObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gizmos/index.html">Gizmos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint2D/index.html">HingeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HingeJoint/index.html">HingeJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanBone/index.html">HumanBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanDescription/index.html">HumanDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanLimit/index.html">HumanLimit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPose/index.html">HumanPose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanPoseHandler/index.html">HumanPoseHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HumanTrait/index.html">HumanTrait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint2D/index.html">Joint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joint/index.html">Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LayerMask/index.html">LayerMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Light/index.html">Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LineRenderer/index.html">LineRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatchTargetWeightMask/index.html">MatchTargetWeightMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Material/index.html">Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MaterialPropertyBlock/index.html">MaterialPropertyBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mathf/index.html">Mathf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matrix4x4/index.html">Matrix4x4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Mesh/index.html">Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshCollider/index.html">MeshCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshFilter/index.html">MeshFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MeshRenderer/index.html">MeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motion/index.html">Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystem/index.html">ParticleSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemBurst/index.html">ParticleSystemBurst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCollisionModule/index.html">ParticleSystemCollisionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorBySpeedModule/index.html">ParticleSystemColorBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemColorOverLifetimeModule/index.html">ParticleSystemColorOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemCustomDataModule/index.html">ParticleSystemCustomDataModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmissionModule/index.html">ParticleSystemEmissionModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemEmitParams/index.html">ParticleSystemEmitParams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemExternalForcesModule/index.html">ParticleSystemExternalForcesModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemForceOverLifetimeModule/index.html">ParticleSystemForceOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemInheritVelocityModule/index.html">ParticleSystemInheritVelocityModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLightsModule/index.html">ParticleSystemLightsModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemLimitVelocityOverLifetimeModule/index.html">ParticleSystemLimitVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMainModule/index.html">ParticleSystemMainModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxCurve/index.html">ParticleSystemMinMaxCurve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemMinMaxGradient/index.html">ParticleSystemMinMaxGradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemNoiseModule/index.html">ParticleSystemNoiseModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemParticle/index.html">ParticleSystemParticle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationBySpeedModule/index.html">ParticleSystemRotationBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemRotationOverLifetimeModule/index.html">ParticleSystemRotationOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemShapeModule/index.html">ParticleSystemShapeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeBySpeedModule/index.html">ParticleSystemSizeBySpeedModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSizeOverLifetimeModule/index.html">ParticleSystemSizeOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemSubEmittersModule/index.html">ParticleSystemSubEmittersModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTextureSheetAnimationModule/index.html">ParticleSystemTextureSheetAnimationModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTrailModule/index.html">ParticleSystemTrailModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemTriggerModule/index.html">ParticleSystemTriggerModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ParticleSystemVelocityOverLifetimeModule/index.html">ParticleSystemVelocityOverLifetimeModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicMaterial/index.html">PhysicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics2D/index.html">Physics2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PhysicsMaterial2D/index.html">PhysicsMaterial2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PlatformEffector2D/index.html">PlatformEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PointEffector2D/index.html">PointEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PolygonCollider2D/index.html">PolygonCollider2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QualitySettings/index.html">QualitySettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quaternion/index.html">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Random/index.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ray/index.html">Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit2D/index.html">RaycastHit2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RaycastHit/index.html">RaycastHit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RectTransform/index.html">RectTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RelativeJoint2D/index.html">RelativeJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Renderer/index.html">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RendererExtensions/index.html">RendererExtensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RenderSettings/index.html">RenderSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody2D/index.html">Rigidbody2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rigidbody/index.html">Rigidbody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RuntimeAnimatorController/index.html">RuntimeAnimatorController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkeletonBone/index.html">SkeletonBone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SkinnedMeshRenderer/index.html">SkinnedMeshRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SliderJoint2D/index.html">SliderJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SphereCollider/index.html">SphereCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpringJoint/index.html">SpringJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SpriteRenderer/index.html">SpriteRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SurfaceEffector2D/index.html">SurfaceEffector2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TargetJoint2D/index.html">TargetJoint2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TextAsset/index.html">TextAsset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Time/index.html">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TrailRenderer/index.html">TrailRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Transform/index.html">Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAnimationTriggers/index.html">UIAnimationTriggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIAspectRatioFitter/index.html">UIAspectRatioFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIBaseMeshEffect/index.html">UIBaseMeshEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButton/index.html">UIButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIButtonButtonClickedEvent/index.html">UIButtonButtonClickedEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UICanvasScaler/index.html">UICanvasScaler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIClipping/index.html">UIClipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIColorBlock/index.html">UIColorBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIContentSizeFitter/index.html">UIContentSizeFitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControls/index.html">UIDefaultControls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDefaultControlsResources/index.html">UIDefaultControlsResources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdown/index.html">UIDropdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownDropdownEvent/index.html">UIDropdownDropdownEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionData/index.html">UIDropdownOptionData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIDropdownOptionDataList/index.html">UIDropdownOptionDataList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIFontData/index.html">UIFontData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphic/index.html">UIGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGraphicRaycaster/index.html">UIGraphicRaycaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIGridLayoutGroup/index.html">UIGridLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalLayoutGroup/index.html">UIHorizontalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIHorizontalOrVerticalLayoutGroup/index.html">UIHorizontalOrVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIImage/index.html">UIImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputField/index.html">UIInputField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldOnChangeEvent/index.html">UIInputFieldOnChangeEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIInputFieldSubmitEvent/index.html">UIInputFieldSubmitEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutElement/index.html">UILayoutElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutGroup/index.html">UILayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutRebuilder/index.html">UILayoutRebuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UILayoutUtility/index.html">UILayoutUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskableGraphic/index.html">UIMaskableGraphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMask/index.html">UIMask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIMaskUtilities/index.html">UIMaskUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UINavigation/index.html">UINavigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIOutline/index.html">UIOutline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIPositionAsUV1/index.html">UIPositionAsUV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRawImage/index.html">UIRawImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIRectMask2D/index.html">UIRectMask2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbar/index.html">UIScrollbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollbarScrollEvent/index.html">UIScrollbarScrollEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRect/index.html">UIScrollRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIScrollRectScrollRectEvent/index.html">UIScrollRectScrollRectEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISelectable/index.html">UISelectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIShadow/index.html">UIShadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISlider/index.html">UISlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISliderSliderEvent/index.html">UISliderSliderEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UISpriteState/index.html">UISpriteState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIText/index.html">UIText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggle/index.html">UIToggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleGroup/index.html">UIToggleGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIToggleToggleEvent/index.html">UIToggleToggleEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVertexHelper/index.html">UIVertexHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UIVerticalLayoutGroup/index.html">UIVerticalLayoutGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector2/index.html">Vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector3/index.html">Vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vector4/index.html">Vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelCollider/index.html">WheelCollider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../WheelJoint2D/index.html">WheelJoint2D</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">UnityEngine</a> &raquo;</li>
+        
+      <li>AudioSource</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/UnityEngine/AudioSource/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Avatar/index.html" class="btn btn-neutral float-right" title="Avatar" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AudioReverbZone/index.html" class="btn btn-neutral" title="AudioReverbZone" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="audiosource">
+<h1>AudioSource<a class="headerlink" href="#audiosource" title="Permalink to this headline">¶</a></h1>
+<p>The AudioSource module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="audiosource-equals">
+<h2>AudioSource Equals<a class="headerlink" href="#audiosource-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Object other</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-bypassreverbzones">
+<h2>AudioSource get_bypassReverbZones<a class="headerlink" href="#audiosource-get-bypassreverbzones" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_bypassReverbZones__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_bypassReverbZones__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_bypassReverbZones__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-bypassReverbZones.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-clip">
+<h2>AudioSource get_clip<a class="headerlink" href="#audiosource-get-clip" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_clip__UnityEngineAudioClip">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_clip__UnityEngineAudioClip</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_clip__UnityEngineAudioClip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AudioClip</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-clip.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-dopplerlevel">
+<h2>AudioSource get_dopplerLevel<a class="headerlink" href="#audiosource-get-dopplerlevel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_dopplerLevel__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_dopplerLevel__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_dopplerLevel__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-dopplerLevel.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-enabled">
+<h2>AudioSource get_enabled<a class="headerlink" href="#audiosource-get-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_enabled__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_enabled__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_enabled__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-gameobject">
+<h2>AudioSource get_gameObject<a class="headerlink" href="#audiosource-get-gameobject" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_gameObject__UnityEngineGameObject">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_gameObject__UnityEngineGameObject</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_gameObject__UnityEngineGameObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">GameObject</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-gameObject.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-isplaying">
+<h2>AudioSource get_isPlaying<a class="headerlink" href="#audiosource-get-isplaying" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_isPlaying__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_isPlaying__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_isPlaying__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-isPlaying.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-isvirtual">
+<h2>AudioSource get_isVirtual<a class="headerlink" href="#audiosource-get-isvirtual" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_isVirtual__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_isVirtual__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_isVirtual__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-isVirtual.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-loop">
+<h2>AudioSource get_loop<a class="headerlink" href="#audiosource-get-loop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_loop__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_loop__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_loop__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-loop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-maxdistance">
+<h2>AudioSource get_maxDistance<a class="headerlink" href="#audiosource-get-maxdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_maxDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_maxDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_maxDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-maxDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-mindistance">
+<h2>AudioSource get_minDistance<a class="headerlink" href="#audiosource-get-mindistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_minDistance__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_minDistance__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_minDistance__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-minDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-mute">
+<h2>AudioSource get_mute<a class="headerlink" href="#audiosource-get-mute" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_mute__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_mute__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_mute__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-mute.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-name">
+<h2>AudioSource get_name<a class="headerlink" href="#audiosource-get-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_name__SystemString">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_name__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_name__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-panstereo">
+<h2>AudioSource get_panStereo<a class="headerlink" href="#audiosource-get-panstereo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_panStereo__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_panStereo__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_panStereo__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-panStereo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-pitch">
+<h2>AudioSource get_pitch<a class="headerlink" href="#audiosource-get-pitch" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_pitch__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_pitch__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_pitch__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-pitch.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-playonawake">
+<h2>AudioSource get_playOnAwake<a class="headerlink" href="#audiosource-get-playonawake" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_playOnAwake__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_playOnAwake__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_playOnAwake__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-playOnAwake.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-priority">
+<h2>AudioSource get_priority<a class="headerlink" href="#audiosource-get-priority" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_priority__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_priority__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_priority__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-priority.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-reverbzonemix">
+<h2>AudioSource get_reverbZoneMix<a class="headerlink" href="#audiosource-get-reverbzonemix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_reverbZoneMix__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_reverbZoneMix__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_reverbZoneMix__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-reverbZoneMix.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-rolloffmode">
+<h2>AudioSource get_rolloffMode<a class="headerlink" href="#audiosource-get-rolloffmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_rolloffMode__UnityEngineAudioRolloffMode">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_rolloffMode__UnityEngineAudioRolloffMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_rolloffMode__UnityEngineAudioRolloffMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AudioRolloffMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-rolloffMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-spatialblend">
+<h2>AudioSource get_spatialBlend<a class="headerlink" href="#audiosource-get-spatialblend" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_spatialBlend__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_spatialBlend__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_spatialBlend__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spatialBlend.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-spatialize">
+<h2>AudioSource get_spatialize<a class="headerlink" href="#audiosource-get-spatialize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_spatialize__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_spatialize__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_spatialize__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spatialize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-spatializeposteffects">
+<h2>AudioSource get_spatializePostEffects<a class="headerlink" href="#audiosource-get-spatializeposteffects" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_spatializePostEffects__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_spatializePostEffects__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_spatializePostEffects__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spatializePostEffects.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-spread">
+<h2>AudioSource get_spread<a class="headerlink" href="#audiosource-get-spread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_spread__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_spread__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_spread__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-time">
+<h2>AudioSource get_time<a class="headerlink" href="#audiosource-get-time" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_time__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_time__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_time__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-time.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-timesamples">
+<h2>AudioSource get_timeSamples<a class="headerlink" href="#audiosource-get-timesamples" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_timeSamples__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_timeSamples__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_timeSamples__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-timeSamples.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-transform">
+<h2>AudioSource get_transform<a class="headerlink" href="#audiosource-get-transform" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_transform__UnityEngineTransform">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_transform__UnityEngineTransform</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_transform__UnityEngineTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Transform</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-transform.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-velocityupdatemode">
+<h2>AudioSource get_velocityUpdateMode<a class="headerlink" href="#audiosource-get-velocityupdatemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_velocityUpdateMode__UnityEngineAudioVelocityUpdateMode">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_velocityUpdateMode__UnityEngineAudioVelocityUpdateMode</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_velocityUpdateMode__UnityEngineAudioVelocityUpdateMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AudioVelocityUpdateMode</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-velocityUpdateMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-get-volume">
+<h2>AudioSource get_volume<a class="headerlink" href="#audiosource-get-volume" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__get_volume__SystemSingle">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__get_volume__SystemSingle</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__get_volume__SystemSingle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Single</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-volume.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getambisonicdecoderfloat">
+<h2>AudioSource GetAmbisonicDecoderFloat<a class="headerlink" href="#audiosource-getambisonicdecoderfloat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetAmbisonicDecoderFloat__SystemInt32_SystemSingleRef__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetAmbisonicDecoderFloat__SystemInt32_SystemSingleRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetAmbisonicDecoderFloat__SystemInt32_SystemSingleRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: value (<code class="docutils literal notranslate"><span class="pre">Single</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetAmbisonicDecoderFloat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcomponent">
+<h2>AudioSource GetComponent<a class="headerlink" href="#audiosource-getcomponent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetComponent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetComponent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetComponent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcomponentinchildren">
+<h2>AudioSource GetComponentInChildren<a class="headerlink" href="#audiosource-getcomponentinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetComponentInChildren__SystemBoolean__T">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetComponentInChildren__SystemBoolean__T</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean includeInactiveSystem.Type type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetComponentInChildren__SystemBoolean__T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: T (<code class="docutils literal notranslate"><span class="pre">Object</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetComponentInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcomponentinparent">
+<h2>AudioSource GetComponentInParent<a class="headerlink" href="#audiosource-getcomponentinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetComponentInParent__SystemType__UnityEngineComponent">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetComponentInParent__SystemType__UnityEngineComponent</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Type t</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetComponentInParent__SystemType__UnityEngineComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Component</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcomponents">
+<h2>AudioSource GetComponents<a class="headerlink" href="#audiosource-getcomponents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetComponents__ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetComponents__ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetComponents__ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetComponents.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcomponentsinchildren">
+<h2>AudioSource GetComponentsInChildren<a class="headerlink" href="#audiosource-getcomponentsinchildren" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] result</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetComponentsInChildren__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetComponentsInChildren.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcomponentsinparent">
+<h2>AudioSource GetComponentsInParent<a class="headerlink" href="#audiosource-getcomponentsinparent" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetComponentsInParent__SystemBoolean_ListT__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean includeInactiveSystem.Collections.Generic.List`1[UnityEngine.Object] results</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetComponentsInParent__SystemBoolean_ListT__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetComponentsInParent.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getcustomcurve">
+<h2>AudioSource GetCustomCurve<a class="headerlink" href="#audiosource-getcustomcurve" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetCustomCurve__UnityEngineAudioSourceCurveType__UnityEngineAnimationCurve">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetCustomCurve__UnityEngineAudioSourceCurveType__UnityEngineAnimationCurve</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceUnityEngine.AudioSourceCurveType type</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetCustomCurve__UnityEngineAudioSourceCurveType__UnityEngineAnimationCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">AnimationCurve</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-gethashcode">
+<h2>AudioSource GetHashCode<a class="headerlink" href="#audiosource-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetHashCode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getinstanceid">
+<h2>AudioSource GetInstanceID<a class="headerlink" href="#audiosource-getinstanceid" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetInstanceID__SystemInt32">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetInstanceID__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetInstanceID__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetInstanceID.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getoutputdata">
+<h2>AudioSource GetOutputData<a class="headerlink" href="#audiosource-getoutputdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetOutputData__SystemSingleArray_SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetOutputData__SystemSingleArray_SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single[] samplesSystem.Int32 channel</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetOutputData__SystemSingleArray_SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetOutputData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getspatializerfloat">
+<h2>AudioSource GetSpatializerFloat<a class="headerlink" href="#audiosource-getspatializerfloat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetSpatializerFloat__SystemInt32_SystemSingleRef__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetSpatializerFloat__SystemInt32_SystemSingleRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Int32 index</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetSpatializerFloat__SystemInt32_SystemSingleRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: value (<code class="docutils literal notranslate"><span class="pre">Single</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetSpatializerFloat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-getspectrumdata">
+<h2>AudioSource GetSpectrumData<a class="headerlink" href="#audiosource-getspectrumdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetSpectrumData__SystemSingleArray_SystemInt32_UnityEngineFFTWindow__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetSpectrumData__SystemSingleArray_SystemInt32_UnityEngineFFTWindow__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single[] samplesSystem.Int32 channelUnityEngine.FFTWindow window</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetSpectrumData__SystemSingleArray_SystemInt32_UnityEngineFFTWindow__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.GetSpectrumData.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-gettype">
+<h2>AudioSource GetType<a class="headerlink" href="#audiosource-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__GetType__SystemType">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="op-implicit">
+<h2>op_Implicit<a class="headerlink" href="#op-implicit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__op_Implicit__UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__op_Implicit__UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__op_Implicit__UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Object UnityEngine.Object</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="audiosource-pause">
+<h2>AudioSource Pause<a class="headerlink" href="#audiosource-pause" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__Pause__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__Pause__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__Pause__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.Pause.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-play">
+<h2>AudioSource Play<a class="headerlink" href="#audiosource-play" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__Play__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__Play__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__Play__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.Play.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-playclipatpoint">
+<h2>AudioSource PlayClipAtPoint<a class="headerlink" href="#audiosource-playclipatpoint" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__PlayClipAtPoint__UnityEngineAudioClip_UnityEngineVector3__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__PlayClipAtPoint__UnityEngineAudioClip_UnityEngineVector3__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioClip clipUnityEngine.Vector3 position</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__PlayClipAtPoint__UnityEngineAudioClip_UnityEngineVector3__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.PlayClipAtPoint.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-playdelayed">
+<h2>AudioSource PlayDelayed<a class="headerlink" href="#audiosource-playdelayed" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__PlayDelayed__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__PlayDelayed__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single delay</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__PlayDelayed__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.PlayDelayed.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-playoneshot">
+<h2>AudioSource PlayOneShot<a class="headerlink" href="#audiosource-playoneshot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__PlayOneShot__UnityEngineAudioClip__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__PlayOneShot__UnityEngineAudioClip__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceUnityEngine.AudioClip clip</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__PlayOneShot__UnityEngineAudioClip__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.PlayOneShot.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-playscheduled">
+<h2>AudioSource PlayScheduled<a class="headerlink" href="#audiosource-playscheduled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__PlayScheduled__SystemDouble__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__PlayScheduled__SystemDouble__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Double time</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__PlayScheduled__SystemDouble__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.PlayScheduled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-bypassreverbzones">
+<h2>AudioSource set_bypassReverbZones<a class="headerlink" href="#audiosource-set-bypassreverbzones" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_bypassReverbZones__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_bypassReverbZones__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_bypassReverbZones__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-bypassReverbZones.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-clip">
+<h2>AudioSource set_clip<a class="headerlink" href="#audiosource-set-clip" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_clip__UnityEngineAudioClip__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_clip__UnityEngineAudioClip__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceUnityEngine.AudioClip value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_clip__UnityEngineAudioClip__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-clip.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-dopplerlevel">
+<h2>AudioSource set_dopplerLevel<a class="headerlink" href="#audiosource-set-dopplerlevel" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_dopplerLevel__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_dopplerLevel__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_dopplerLevel__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-dopplerLevel.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-enabled">
+<h2>AudioSource set_enabled<a class="headerlink" href="#audiosource-set-enabled" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_enabled__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_enabled__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_enabled__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-enabled.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-loop">
+<h2>AudioSource set_loop<a class="headerlink" href="#audiosource-set-loop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_loop__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_loop__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_loop__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-loop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-maxdistance">
+<h2>AudioSource set_maxDistance<a class="headerlink" href="#audiosource-set-maxdistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_maxDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_maxDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_maxDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-maxDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-mindistance">
+<h2>AudioSource set_minDistance<a class="headerlink" href="#audiosource-set-mindistance" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_minDistance__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_minDistance__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_minDistance__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-minDistance.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-mute">
+<h2>AudioSource set_mute<a class="headerlink" href="#audiosource-set-mute" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_mute__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_mute__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_mute__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-mute.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-name">
+<h2>AudioSource set_name<a class="headerlink" href="#audiosource-set-name" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_name__SystemString__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_name__SystemString__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.String value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_name__SystemString__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-name.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-panstereo">
+<h2>AudioSource set_panStereo<a class="headerlink" href="#audiosource-set-panstereo" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_panStereo__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_panStereo__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_panStereo__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-panStereo.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-pitch">
+<h2>AudioSource set_pitch<a class="headerlink" href="#audiosource-set-pitch" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_pitch__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_pitch__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_pitch__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-pitch.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-playonawake">
+<h2>AudioSource set_playOnAwake<a class="headerlink" href="#audiosource-set-playonawake" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_playOnAwake__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_playOnAwake__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_playOnAwake__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-playOnAwake.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-priority">
+<h2>AudioSource set_priority<a class="headerlink" href="#audiosource-set-priority" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_priority__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_priority__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_priority__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-priority.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-reverbzonemix">
+<h2>AudioSource set_reverbZoneMix<a class="headerlink" href="#audiosource-set-reverbzonemix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_reverbZoneMix__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_reverbZoneMix__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_reverbZoneMix__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-reverbZoneMix.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-rolloffmode">
+<h2>AudioSource set_rolloffMode<a class="headerlink" href="#audiosource-set-rolloffmode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_rolloffMode__UnityEngineAudioRolloffMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_rolloffMode__UnityEngineAudioRolloffMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceUnityEngine.AudioRolloffMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_rolloffMode__UnityEngineAudioRolloffMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-rolloffMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-spatialblend">
+<h2>AudioSource set_spatialBlend<a class="headerlink" href="#audiosource-set-spatialblend" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_spatialBlend__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_spatialBlend__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_spatialBlend__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spatialBlend.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-spatialize">
+<h2>AudioSource set_spatialize<a class="headerlink" href="#audiosource-set-spatialize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_spatialize__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_spatialize__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_spatialize__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spatialize.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-spatializeposteffects">
+<h2>AudioSource set_spatializePostEffects<a class="headerlink" href="#audiosource-set-spatializeposteffects" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_spatializePostEffects__SystemBoolean__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_spatializePostEffects__SystemBoolean__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Boolean value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_spatializePostEffects__SystemBoolean__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spatializePostEffects.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-spread">
+<h2>AudioSource set_spread<a class="headerlink" href="#audiosource-set-spread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_spread__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_spread__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_spread__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-spread.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-time">
+<h2>AudioSource set_time<a class="headerlink" href="#audiosource-set-time" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_time__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_time__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_time__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-time.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-timesamples">
+<h2>AudioSource set_timeSamples<a class="headerlink" href="#audiosource-set-timesamples" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_timeSamples__SystemInt32__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_timeSamples__SystemInt32__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Int32 value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_timeSamples__SystemInt32__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-timeSamples.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-velocityupdatemode">
+<h2>AudioSource set_velocityUpdateMode<a class="headerlink" href="#audiosource-set-velocityupdatemode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_velocityUpdateMode__UnityEngineAudioVelocityUpdateMode__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_velocityUpdateMode__UnityEngineAudioVelocityUpdateMode__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceUnityEngine.AudioVelocityUpdateMode value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_velocityUpdateMode__UnityEngineAudioVelocityUpdateMode__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-velocityUpdateMode.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-set-volume">
+<h2>AudioSource set_volume<a class="headerlink" href="#audiosource-set-volume" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__set_volume__SystemSingle__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__set_volume__SystemSingle__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__set_volume__SystemSingle__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource-volume.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-setambisonicdecoderfloat">
+<h2>AudioSource SetAmbisonicDecoderFloat<a class="headerlink" href="#audiosource-setambisonicdecoderfloat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__SetAmbisonicDecoderFloat__SystemInt32_SystemSingle__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__SetAmbisonicDecoderFloat__SystemInt32_SystemSingle__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Int32 indexSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__SetAmbisonicDecoderFloat__SystemInt32_SystemSingle__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.SetAmbisonicDecoderFloat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-setcustomcurve">
+<h2>AudioSource SetCustomCurve<a class="headerlink" href="#audiosource-setcustomcurve" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__SetCustomCurve__UnityEngineAudioSourceCurveType_UnityEngineAnimationCurve__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__SetCustomCurve__UnityEngineAudioSourceCurveType_UnityEngineAnimationCurve__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceUnityEngine.AudioSourceCurveType typeUnityEngine.AnimationCurve curve</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__SetCustomCurve__UnityEngineAudioSourceCurveType_UnityEngineAnimationCurve__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-setscheduledendtime">
+<h2>AudioSource SetScheduledEndTime<a class="headerlink" href="#audiosource-setscheduledendtime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__SetScheduledEndTime__SystemDouble__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__SetScheduledEndTime__SystemDouble__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Double time</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__SetScheduledEndTime__SystemDouble__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.SetScheduledEndTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-setscheduledstarttime">
+<h2>AudioSource SetScheduledStartTime<a class="headerlink" href="#audiosource-setscheduledstarttime" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__SetScheduledStartTime__SystemDouble__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__SetScheduledStartTime__SystemDouble__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Double time</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__SetScheduledStartTime__SystemDouble__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.SetScheduledStartTime.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-setspatializerfloat">
+<h2>AudioSource SetSpatializerFloat<a class="headerlink" href="#audiosource-setspatializerfloat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__SetSpatializerFloat__SystemInt32_SystemSingle__SystemBoolean">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__SetSpatializerFloat__SystemInt32_SystemSingle__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instanceSystem.Int32 indexSystem.Single value</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__SetSpatializerFloat__SystemInt32_SystemSingle__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.SetSpatializerFloat.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-stop">
+<h2>AudioSource Stop<a class="headerlink" href="#audiosource-stop" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__Stop__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__Stop__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__Stop__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.Stop.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-tostring">
+<h2>AudioSource ToString<a class="headerlink" href="#audiosource-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__ToString__SystemString">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.ToString.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="audiosource-unpause">
+<h2>AudioSource UnPause<a class="headerlink" href="#audiosource-unpause" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="UnityEngineAudioSource.__UnPause__SystemVoid">
+<code class="sig-prename descclassname">UnityEngineAudioSource.</code><code class="sig-name descname">__UnPause__SystemVoid</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource instance</em><span class="sig-paren">)</span><a class="headerlink" href="#UnityEngineAudioSource.__UnPause__SystemVoid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.UnPause.html">Unity Documentation</a></p>
+</div>
+<div class="section" id="id78">
+<h2>AudioSource<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_UnityEngineAudioSource">
+<code class="sig-name descname">Variable_UnityEngineAudioSource</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.AudioSource AudioSourceSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_UnityEngineAudioSource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.unity3d.com/2018.4/Documentation/ScriptReference/AudioSource.html">Unity Documentation</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Avatar/index.html" class="btn btn-neutral float-right" title="Avatar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../AudioReverbZone/index.html" class="btn btn-neutral" title="AudioReverbZone" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

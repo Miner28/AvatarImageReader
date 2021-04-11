@@ -1,0 +1,403 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ComponentsTrackingData &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="VRCSDK3" href="../index.html"/>
+        <link rel="next" title="ComponentsVRCAvatarPedestal" href="../ComponentsVRCAvatarPedestal/index.html"/>
+        <link rel="prev" title="VRCSDK3" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VRCSDK3</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ComponentsTrackingData</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata">TrackingData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">TrackingData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctor">ctor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-equals">TrackingData Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-get-position">TrackingData get_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-get-rotation">TrackingData get_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-gethashcode">TrackingData GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-gettype">TrackingData GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-set-position">TrackingData set_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-set-rotation">TrackingData set_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trackingdata-tostring">TrackingData ToString</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCAvatarPedestal/index.html">ComponentsVRCAvatarPedestal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCMirrorReflection/index.html">ComponentsVRCMirrorReflection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPickup/index.html">ComponentsVRCPickup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCPortalMarker/index.html">ComponentsVRCPortalMarker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ComponentsVRCStation/index.html">ComponentsVRCStation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseInputManager/index.html">VRCSDKBaseInputManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseNetworking/index.html">VRCSDKBaseNetworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VRCSDKBaseVRCPlayerApi/index.html">VRCSDKBaseVRCPlayerApi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../System/index.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VRCSDK3</a> &raquo;</li>
+        
+      <li>ComponentsTrackingData</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/VRCSDK3/ComponentsTrackingData/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../ComponentsVRCAvatarPedestal/index.html" class="btn btn-neutral float-right" title="ComponentsVRCAvatarPedestal" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="VRCSDK3" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="componentstrackingdata">
+<h1>ComponentsTrackingData<a class="headerlink" href="#componentstrackingdata" title="Permalink to this headline">¶</a></h1>
+<p>The ComponentsTrackingData module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="trackingdata">
+<h2>TrackingData<a class="headerlink" href="#trackingdata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_VRCSDKBaseVRCPlayerApiTrackingData">
+<code class="sig-name descname">Const_VRCSDKBaseVRCPlayerApiTrackingData</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData TrackingData</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_VRCSDKBaseVRCPlayerApiTrackingData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TrackingData</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="id1">
+<h2>TrackingData<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_VRCSDKBaseVRCPlayerApiTrackingData">
+<code class="sig-name descname">Variable_VRCSDKBaseVRCPlayerApiTrackingData</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData TrackingDataSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_VRCSDKBaseVRCPlayerApiTrackingData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="ctor">
+<h2>ctor<a class="headerlink" href="#ctor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__ctor__UnityEngineVector3_UnityEngineQuaternion__VRCSDKBaseVRCPlayerApiTrackingData">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__ctor__UnityEngineVector3_UnityEngineQuaternion__VRCSDKBaseVRCPlayerApiTrackingData</code><span class="sig-paren">(</span><em class="sig-param">UnityEngine.Vector3 UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__ctor__UnityEngineVector3_UnityEngineQuaternion__VRCSDKBaseVRCPlayerApiTrackingData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">TrackingData</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="trackingdata-equals">
+<h2>TrackingData Equals<a class="headerlink" href="#trackingdata-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="trackingdata-get-position">
+<h2>TrackingData get_position<a class="headerlink" href="#trackingdata-get-position" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__get_position__UnityEngineVector3">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__get_position__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__get_position__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Vector3</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="trackingdata-get-rotation">
+<h2>TrackingData get_rotation<a class="headerlink" href="#trackingdata-get-rotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__get_rotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__get_rotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__get_rotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Quaternion</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="trackingdata-gethashcode">
+<h2>TrackingData GetHashCode<a class="headerlink" href="#trackingdata-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="trackingdata-gettype">
+<h2>TrackingData GetType<a class="headerlink" href="#trackingdata-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__GetType__SystemType">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="trackingdata-set-position">
+<h2>TrackingData set_position<a class="headerlink" href="#trackingdata-set-position" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__set_position__UnityEngineVector3">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__set_position__UnityEngineVector3</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData UnityEngine.Vector3</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__set_position__UnityEngineVector3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="trackingdata-set-rotation">
+<h2>TrackingData set_rotation<a class="headerlink" href="#trackingdata-set-rotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__set_rotation__UnityEngineQuaternion">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__set_rotation__UnityEngineQuaternion</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData UnityEngine.Quaternion</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__set_rotation__UnityEngineQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+<div class="section" id="trackingdata-tostring">
+<h2>TrackingData ToString<a class="headerlink" href="#trackingdata-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="VRCSDKBaseVRCPlayerApiTrackingData.__ToString__SystemString">
+<code class="sig-prename descclassname">VRCSDKBaseVRCPlayerApiTrackingData.</code><code class="sig-name descname">__ToString__SystemString</code><span class="sig-paren">(</span><em class="sig-param">VRC.SDKBase.VRCPlayerApi+TrackingData instance</em><span class="sig-paren">)</span><a class="headerlink" href="#VRCSDKBaseVRCPlayerApiTrackingData.__ToString__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ComponentsVRCAvatarPedestal/index.html" class="btn btn-neutral float-right" title="ComponentsVRCAvatarPedestal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="VRCSDK3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>

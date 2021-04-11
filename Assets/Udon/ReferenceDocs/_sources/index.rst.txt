@@ -1,0 +1,28 @@
+.. Udon documentation master file, created by
+   sphinx-quickstart on Tue Mar 24 17:25:25 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Udon's documentation!
+================================
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   nodes/Events/index
+   nodes/Special/index
+   nodes/Types/index
+   nodes/UdonBehaviour/index
+   nodes/VRCSDK3/index
+   nodes/System/index
+   nodes/UnityEngine/index
+   nodes/VRC/index
+   
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

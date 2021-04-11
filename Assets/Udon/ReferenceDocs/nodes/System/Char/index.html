@@ -1,0 +1,871 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Char &mdash; Udon 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Udon 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="System" href="../index.html"/>
+        <link rel="next" title="Convert" href="../Convert/index.html"/>
+        <link rel="prev" title="Byte" href="../Byte/index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Udon
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Special/index.html">Special</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Types/index.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../UdonBehaviour/index.html">UdonBehaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRCSDK3/index.html">VRCSDK3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Boolean/index.html">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Byte/index.html">Byte</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Char</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#op-addition">op_Addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-compareto">char CompareTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-convertfromutf32">char ConvertFromUtf32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-converttoutf32">char ConvertToUtf32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-division">op_Division</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-equality">op_Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-equals">char Equals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-get-maxvalue">char get_MaxValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-get-minvalue">char get_MinValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-gethashcode">char GetHashCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-getnumericvalue">char GetNumericValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-gettype">char GetType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-getunicodecategory">char GetUnicodeCategory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthan">op_GreaterThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-greaterthanorequal">op_GreaterThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-inequality">op_Inequality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-iscontrol">char IsControl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-isdigit">char IsDigit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-ishighsurrogate">char IsHighSurrogate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-isletter">char IsLetter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-isletterordigit">char IsLetterOrDigit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-islower">char IsLower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-islowsurrogate">char IsLowSurrogate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-isnumber">char IsNumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-ispunctuation">char IsPunctuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-isseparator">char IsSeparator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-issurrogate">char IsSurrogate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-issurrogatepair">char IsSurrogatePair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-issymbol">char IsSymbol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-isupper">char IsUpper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-iswhitespace">char IsWhiteSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-leftshift">op_LeftShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthan">op_LessThan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-lessthanorequal">op_LessThanOrEqual</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicaland">op_LogicalAnd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicalor">op_LogicalOr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-logicalxor">op_LogicalXor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-multiplication">op_Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-parse">char Parse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-rightshift">op_RightShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-subtraction">op_Subtraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-tolower">char ToLower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-tolowerinvariant">char ToLowerInvariant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-tostring">char ToString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-toupper">char ToUpper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-toupperinvariant">char ToUpperInvariant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char-tryparse">char TryParse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#op-unaryminus">op_UnaryMinus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">char</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">char</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Convert/index.html">Convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DateTime/index.html">DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Double/index.html">Double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int16/index.html">Int16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int/index.html">Int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Int64/index.html">Int64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Object/index.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SByte/index.html">SByte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Float/index.html">Float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../String/index.html">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TimeZoneInfo/index.html">TimeZoneInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Type/index.html">Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt16/index.html">UInt16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Uint/index.html">Uint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UInt64/index.html">UInt64</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../UnityEngine/index.html">UnityEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VRC/index.html">VRC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Udon</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">System</a> &raquo;</li>
+        
+      <li>Char</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/nodes/System/Char/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../Convert/index.html" class="btn btn-neutral float-right" title="Convert" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Byte/index.html" class="btn btn-neutral" title="Byte" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="char">
+<h1>Char<a class="headerlink" href="#char" title="Permalink to this headline">¶</a></h1>
+<p>The Char module.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="op-addition">
+<h2>op_Addition<a class="headerlink" href="#op-addition" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_Addition__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_Addition__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_Addition__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="char-compareto">
+<h2>char CompareTo<a class="headerlink" href="#char-compareto" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__CompareTo__SystemObject__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__CompareTo__SystemObject__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char instanceSystem.Object value</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__CompareTo__SystemObject__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.CompareTo?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-convertfromutf32">
+<h2>char ConvertFromUtf32<a class="headerlink" href="#char-convertfromutf32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ConvertFromUtf32__SystemInt32__SystemString">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ConvertFromUtf32__SystemInt32__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Int32 utf32</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ConvertFromUtf32__SystemInt32__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ConvertFromUtf32?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-converttoutf32">
+<h2>char ConvertToUtf32<a class="headerlink" href="#char-converttoutf32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ConvertToUtf32__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ConvertToUtf32__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char highSurrogateSystem.Char lowSurrogate</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ConvertToUtf32__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ConvertToUtf32?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-division">
+<h2>op_Division<a class="headerlink" href="#op-division" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_Division__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_Division__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_Division__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-equality">
+<h2>op_Equality<a class="headerlink" href="#op-equality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_Equality__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_Equality__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_Equality__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="char-equals">
+<h2>char Equals<a class="headerlink" href="#char-equals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__Equals__SystemObject__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__Equals__SystemObject__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char instanceSystem.Object obj</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__Equals__SystemObject__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-get-maxvalue">
+<h2>char get_MaxValue<a class="headerlink" href="#char-get-maxvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__get_MaxValue__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__get_MaxValue__SystemChar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__get_MaxValue__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.MaxValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-get-minvalue">
+<h2>char get_MinValue<a class="headerlink" href="#char-get-minvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__get_MinValue__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__get_MinValue__SystemChar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__get_MinValue__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.MinValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-gethashcode">
+<h2>char GetHashCode<a class="headerlink" href="#char-gethashcode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__GetHashCode__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__GetHashCode__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__GetHashCode__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.GetHashCode?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-getnumericvalue">
+<h2>char GetNumericValue<a class="headerlink" href="#char-getnumericvalue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__GetNumericValue__SystemChar__SystemDouble">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__GetNumericValue__SystemChar__SystemDouble</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__GetNumericValue__SystemChar__SystemDouble" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Double</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.GetNumericValue?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-gettype">
+<h2>char GetType<a class="headerlink" href="#char-gettype" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__GetType__SystemType">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__GetType__SystemType</code><span class="sig-paren">(</span><em class="sig-param">System.Char instance</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__GetType__SystemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Type</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-getunicodecategory">
+<h2>char GetUnicodeCategory<a class="headerlink" href="#char-getunicodecategory" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__GetUnicodeCategory__SystemChar__SystemGlobalizationUnicodeCategory">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__GetUnicodeCategory__SystemChar__SystemGlobalizationUnicodeCategory</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__GetUnicodeCategory__SystemChar__SystemGlobalizationUnicodeCategory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">UnicodeCategory</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.GetUnicodeCategory?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-greaterthan">
+<h2>op_GreaterThan<a class="headerlink" href="#op-greaterthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_GreaterThan__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_GreaterThan__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_GreaterThan__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-greaterthanorequal">
+<h2>op_GreaterThanOrEqual<a class="headerlink" href="#op-greaterthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_GreaterThanOrEqual__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_GreaterThanOrEqual__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_GreaterThanOrEqual__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-inequality">
+<h2>op_Inequality<a class="headerlink" href="#op-inequality" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_Inequality__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_Inequality__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_Inequality__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="char-iscontrol">
+<h2>char IsControl<a class="headerlink" href="#char-iscontrol" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsControl__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsControl__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsControl__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsControl?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-isdigit">
+<h2>char IsDigit<a class="headerlink" href="#char-isdigit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsDigit__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsDigit__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsDigit__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsDigit?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-ishighsurrogate">
+<h2>char IsHighSurrogate<a class="headerlink" href="#char-ishighsurrogate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsHighSurrogate__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsHighSurrogate__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsHighSurrogate__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsHighSurrogate?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-isletter">
+<h2>char IsLetter<a class="headerlink" href="#char-isletter" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsLetter__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsLetter__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsLetter__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsLetter?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-isletterordigit">
+<h2>char IsLetterOrDigit<a class="headerlink" href="#char-isletterordigit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsLetterOrDigit__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsLetterOrDigit__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsLetterOrDigit__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsLetterOrDigit?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-islower">
+<h2>char IsLower<a class="headerlink" href="#char-islower" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsLower__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsLower__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsLower__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsLower?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-islowsurrogate">
+<h2>char IsLowSurrogate<a class="headerlink" href="#char-islowsurrogate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsLowSurrogate__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsLowSurrogate__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsLowSurrogate__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsLowSurrogate?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-isnumber">
+<h2>char IsNumber<a class="headerlink" href="#char-isnumber" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsNumber__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsNumber__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsNumber__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsNumber?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-ispunctuation">
+<h2>char IsPunctuation<a class="headerlink" href="#char-ispunctuation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsPunctuation__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsPunctuation__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsPunctuation__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsPunctuation?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-isseparator">
+<h2>char IsSeparator<a class="headerlink" href="#char-isseparator" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsSeparator__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsSeparator__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsSeparator__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsSeparator?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-issurrogate">
+<h2>char IsSurrogate<a class="headerlink" href="#char-issurrogate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsSurrogate__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsSurrogate__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsSurrogate__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsSurrogate?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-issurrogatepair">
+<h2>char IsSurrogatePair<a class="headerlink" href="#char-issurrogatepair" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsSurrogatePair__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsSurrogatePair__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char highSurrogateSystem.Char lowSurrogate</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsSurrogatePair__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsSurrogatePair?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-issymbol">
+<h2>char IsSymbol<a class="headerlink" href="#char-issymbol" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsSymbol__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsSymbol__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsSymbol__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsSymbol?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-isupper">
+<h2>char IsUpper<a class="headerlink" href="#char-isupper" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsUpper__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsUpper__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsUpper__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsUpper?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-iswhitespace">
+<h2>char IsWhiteSpace<a class="headerlink" href="#char-iswhitespace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__IsWhiteSpace__SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__IsWhiteSpace__SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__IsWhiteSpace__SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.IsWhiteSpace?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-leftshift">
+<h2>op_LeftShift<a class="headerlink" href="#op-leftshift" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_LeftShift__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_LeftShift__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_LeftShift__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthan">
+<h2>op_LessThan<a class="headerlink" href="#op-lessthan" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_LessThan__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_LessThan__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_LessThan__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-lessthanorequal">
+<h2>op_LessThanOrEqual<a class="headerlink" href="#op-lessthanorequal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_LessThanOrEqual__SystemChar_SystemChar__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_LessThanOrEqual__SystemChar_SystemChar__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_LessThanOrEqual__SystemChar_SystemChar__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicaland">
+<h2>op_LogicalAnd<a class="headerlink" href="#op-logicaland" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_LogicalAnd__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_LogicalAnd__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_LogicalAnd__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicalor">
+<h2>op_LogicalOr<a class="headerlink" href="#op-logicalor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_LogicalOr__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_LogicalOr__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_LogicalOr__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-logicalxor">
+<h2>op_LogicalXor<a class="headerlink" href="#op-logicalxor" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_LogicalXor__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_LogicalXor__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_LogicalXor__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-multiplication">
+<h2>op_Multiplication<a class="headerlink" href="#op-multiplication" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_Multiplication__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_Multiplication__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_Multiplication__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="char-parse">
+<h2>char Parse<a class="headerlink" href="#char-parse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__Parse__SystemString__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__Parse__SystemString__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__Parse__SystemString__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.Parse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-rightshift">
+<h2>op_RightShift<a class="headerlink" href="#op-rightshift" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_RightShift__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_RightShift__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_RightShift__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="op-subtraction">
+<h2>op_Subtraction<a class="headerlink" href="#op-subtraction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_Subtraction__SystemChar_SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_Subtraction__SystemChar_SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_Subtraction__SystemChar_SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="char-tolower">
+<h2>char ToLower<a class="headerlink" href="#char-tolower" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ToLower__SystemChar__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ToLower__SystemChar__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ToLower__SystemChar__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ToLower?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-tolowerinvariant">
+<h2>char ToLowerInvariant<a class="headerlink" href="#char-tolowerinvariant" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ToLowerInvariant__SystemChar__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ToLowerInvariant__SystemChar__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ToLowerInvariant__SystemChar__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ToLowerInvariant?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-tostring">
+<h2>char ToString<a class="headerlink" href="#char-tostring" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ToString__SystemChar__SystemString">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ToString__SystemChar__SystemString</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ToString__SystemChar__SystemString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ToString?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-toupper">
+<h2>char ToUpper<a class="headerlink" href="#char-toupper" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ToUpper__SystemChar__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ToUpper__SystemChar__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ToUpper__SystemChar__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ToUpper?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-toupperinvariant">
+<h2>char ToUpperInvariant<a class="headerlink" href="#char-toupperinvariant" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__ToUpperInvariant__SystemChar__SystemChar">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__ToUpperInvariant__SystemChar__SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Char c</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__ToUpperInvariant__SystemChar__SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.ToUpperInvariant?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="char-tryparse">
+<h2>char TryParse<a class="headerlink" href="#char-tryparse" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__TryParse__SystemString_SystemCharRef__SystemBoolean">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__TryParse__SystemString_SystemCharRef__SystemBoolean</code><span class="sig-paren">(</span><em class="sig-param">System.String s</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__TryParse__SystemString_SystemCharRef__SystemBoolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: result (<code class="docutils literal notranslate"><span class="pre">Char</span></code>), unnamed (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>)</p>
+<p>flow inputs: unnamed</p>
+<p>flow outputs: unnamed</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char.TryParse?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="op-unaryminus">
+<h2>op_UnaryMinus<a class="headerlink" href="#op-unaryminus" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SystemChar.__op_UnaryMinus__SystemChar__SystemInt32">
+<code class="sig-prename descclassname">SystemChar.</code><code class="sig-name descname">__op_UnaryMinus__SystemChar__SystemInt32</code><span class="sig-paren">(</span><em class="sig-param">System.Char</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemChar.__op_UnaryMinus__SystemChar__SystemInt32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Int32</span></code>)</p>
+<p>flow: none</p>
+</div>
+<div class="section" id="id32">
+<h2>char<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Const_SystemChar">
+<code class="sig-name descname">Const_SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Char Char</em><span class="sig-paren">)</span><a class="headerlink" href="#Const_SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: unnamed (<code class="docutils literal notranslate"><span class="pre">Char</span></code>)</p>
+<p>flow: none</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.Char?view=netframework-4.8">C# Documentation</a></p>
+</div>
+<div class="section" id="id34">
+<h2>char<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Variable_SystemChar">
+<code class="sig-name descname">Variable_SystemChar</code><span class="sig-paren">(</span><em class="sig-param">System.Char CharSystem.String nameSystem.Boolean publicSystem.Boolean syncedSystem.String syncMode</em><span class="sig-paren">)</span><a class="headerlink" href="#Variable_SystemChar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>outputs: none</p>
+<p>flow: none</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Convert/index.html" class="btn btn-neutral float-right" title="Convert" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Byte/index.html" class="btn btn-neutral" title="Byte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VRChat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>
