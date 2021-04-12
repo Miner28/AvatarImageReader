@@ -3,6 +3,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
+using UnityEngine.UI;
 
 public class ReadRenderTexture : UdonSharpBehaviour
 {
@@ -13,6 +14,7 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
     [SerializeField] RenderTexture renderTexture;
     [SerializeField] Texture2D texture2d;
+    [SerializeField] Text debugText;
 
     public bool isNotReady = true;
     public bool isCompleted = false;
@@ -34,7 +36,9 @@ public class ReadRenderTexture : UdonSharpBehaviour
                 texture2d.ReadPixels(new Rect(0, 0, 1200, 900), 0, 0);
                 Debug.Log("ReadRenderTexture: Writing Information");
             }
-            Debug.Log("ReadRenderTexture Output: " + ReadPicture(texture2d));
+            string output = ReadPicture(texture2d);
+            Debug.Log("ReadRenderTexture Output: " + output);
+            debugText.text = output;
         }
     }
 
