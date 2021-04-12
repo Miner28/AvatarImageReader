@@ -1,6 +1,7 @@
 # VRCAvatarImageUploader
 
 Only works with Linux, requires `openssl` and `base64` to be installed.
+
 Made by Natsumi-sama
 
 * Install Node
