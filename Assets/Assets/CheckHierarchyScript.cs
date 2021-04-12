@@ -61,6 +61,7 @@ public class CheckHierarchyScript : UdonSharpBehaviour
                             readRenderTexture.isNotReady = false;
                             // We mark once we have retrieved the texture so we never attempt it again
                             stop = true;
+                            Destroy(this);
                         }
                     }
                 }
