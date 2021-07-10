@@ -79,3 +79,6 @@ def encode_patreons(input):
         index += 1
 
     img.save("img.png")
+
+#encode_patreons("Your String")
+#Or to be used as extension of discord bot.
