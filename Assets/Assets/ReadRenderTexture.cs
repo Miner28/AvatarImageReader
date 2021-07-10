@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,21 +12,24 @@ public class ReadRenderTexture : UdonSharpBehaviour
     [SerializeField] private RenderTexture renderTexture;
 
     [SerializeField] private Texture2D texture2d;
-    [SerializeField] private Text debugText;
 
     [SerializeField] private bool debugLogging;
+    public KeypadNew keypad;
+#if UNITY_STANDALONE_WIN
+
     private Color32[] colors;
     private int currentByteStorageIndex;
     private int currentColorStorageIndex;
     private string currentOutputString;
     private bool hasRun;
 
-    private int index;
+    private int index = 0;
 
     public bool isNotReady = true;
     private System.Diagnostics.Stopwatch stopwatch;
     private byte[] temporaryByteStorage;
     private byte[] temporaryColorStorage;
+    
 
     public void OnPostRender()
     {
@@ -39,20 +42,20 @@ public class ReadRenderTexture : UdonSharpBehaviour
                 stopwatch.Start();
             }
 
-            Log("ReadRenderTexture: Starting");
+            Log("Starting");
             if (renderTexture != null)
             {
                 // Copy the texture over so it can be read
                 texture2d.ReadPixels(new Rect(0, 0, 1200, 900), 0, 0);
                 StartReadPicture(texture2d);
-                Log("ReadRenderTexture: Writing Information");
+                Log("Writing Information");
             }
         }
     }
 
     private void Log(string text)
     {
-        if (debugLogging) Log($"[<color=#00fff7>ReadRenderTexture</color>] |{text}");
+        if (debugLogging) Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] |{text}");
     }
 
     public void StartReadPicture(Texture2D picture)
@@ -74,19 +77,18 @@ public class ReadRenderTexture : UdonSharpBehaviour
     {
         if (debugLogging)
         {
-            debugText.text = currentOutputString;
             stopwatch.Stop();
-            Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
         }
-        Debug.Log("Reading Complete: " + currentOutputString);
 
-        //Stuff to do when Reading is complete
+        //Your stuff here
+        Destroy(this);
+        
     }
 
     public void ReadPictureStep()
     {
         Log($"ReadRenderTexture: Reading {index}");
-        for (var step = 0; index < colors.Length && step < 1000; step++, index++)
+        for (var step = 0; index < colors.Length && step < 500; step++, index++)
         {
             var c = colors[index];
             temporaryColorStorage[currentColorStorageIndex] = c.r;
@@ -100,6 +102,7 @@ public class ReadRenderTexture : UdonSharpBehaviour
             }
             else
             {
+                
                 //LogError((temporaryColorStorage[0] == 255) + " " + (temporaryColorStorage[1] == 255) + " " + (temporaryColorStorage[2] == 255) + " " + (temporaryColorStorage[3] == 255) + " " + (temporaryColorStorage[4] == 255) + " " + (temporaryColorStorage[5] == 255) + " " + (temporaryColorStorage[6] == 255) + " " + (temporaryColorStorage[7] == 255) + " " + (c.b == 255));
                 // Check if this is a terminator for the picture
                 if (temporaryColorStorage[0] == 255 && temporaryColorStorage[1] == 255 && temporaryColorStorage[2] == 255 && temporaryColorStorage[3] == 255 && temporaryColorStorage[4] == 255 && temporaryColorStorage[5] == 255 && temporaryColorStorage[6] == 255 && temporaryColorStorage[7] == 255 && c.b == 255)
@@ -149,4 +152,10 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
         return value;
     }
+    #else
+public void Start()
+{
+    Destroy(this);
+}
+#endif
 }
