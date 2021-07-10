@@ -1,4 +1,4 @@
-﻿using UdonSharp;
+using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
@@ -12,7 +12,7 @@ public class CheckHierarchyScript : UdonSharpBehaviour
     [SerializeField] private GameObject cameraRenderingPlane;
     [SerializeField] private GameObject textureComparisonPlane;
     [SerializeField] private ReadRenderTexture readRenderTexture;
-
+#if UNITY_STANDALONE_WIN
     private bool stop = false;
 
 
@@ -33,19 +33,9 @@ public class CheckHierarchyScript : UdonSharpBehaviour
                         if(texture != null)
                         {
                             Debug.Log("CheckHierarchyScript: Retrieving Avatar Pedestal Texture");
-                            Debug.Log(texture != null);
-                            if (texture.name != null)
-                            {
-                                Debug.LogError(texture.name);
-                            }
 
                             Texture2D texture2D = (Texture2D)texture;
-
-                            Debug.Log("CheckHierarchyScript: Texture Size: " + texture.width + " x " + texture.height);
-                            Debug.Log("CheckHierarchyScript: Texture 2D: " + texture2D != null);
-                            Debug.Log("CheckHierarchyScript: Texture: " + texture2D);
-                            Debug.Log("CheckHierarchyScript: Texture Filter: " + texture2D.filterMode);
-                            Debug.Log("CheckHierarchyScript: Texture Format: " + texture2D.format);
+                            
 
                             // Assign the Texture to the Render pane and the comparison pane
                             if (cameraRenderingPlane != null)
@@ -68,4 +58,10 @@ public class CheckHierarchyScript : UdonSharpBehaviour
             }
         }
     }
+#else
+public void Start()
+{
+    Destroy(this);
+}
+#endif
 }
