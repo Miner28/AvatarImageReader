@@ -14,7 +14,6 @@ public class ReadRenderTexture : UdonSharpBehaviour
     [SerializeField] private Texture2D texture2d;
 
     [SerializeField] private bool debugLogging;
-    public KeypadNew keypad;
 #if UNITY_STANDALONE_WIN
 
     private Color32[] colors;
