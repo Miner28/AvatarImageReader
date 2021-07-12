@@ -13,7 +13,7 @@ def read_bit(value, index):
 
 
 def encode_patreons(input):
-    fakebyte_list = input.encode('utf-32')
+    fakebyte_list = input.encode('utf-16')
     byte_list = []
     for x in fakebyte_list:
         byte_list.append(x)
