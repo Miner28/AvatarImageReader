@@ -47,7 +47,7 @@ for b in output:
     print(b)
 
 print("-----")
-output = output.decode('utf-32')
+output = output.decode('utf-16')
 
 print([output])
 print(len(output))
