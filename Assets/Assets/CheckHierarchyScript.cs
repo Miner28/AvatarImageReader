@@ -12,7 +12,9 @@ public class CheckHierarchyScript : UdonSharpBehaviour
     [SerializeField] private GameObject cameraRenderingPlane;
     [SerializeField] private GameObject textureComparisonPlane;
     [SerializeField] private ReadRenderTexture readRenderTexture;
-#if UNITY_STANDALONE_WIN
+    
+    
+#if UNITY_STANDALONE_WIN //If we are Windows we do ALL the work then Destroy
     private bool stop = false;
 
 
@@ -58,7 +60,7 @@ public class CheckHierarchyScript : UdonSharpBehaviour
             }
         }
     }
-#else
+#else // But if we are Android it is kinda useless to even try to read anything because we are going to get nonsense so we just Destroy
 public void Start()
 {
     Destroy(this);
