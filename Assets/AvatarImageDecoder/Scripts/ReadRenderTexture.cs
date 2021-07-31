@@ -36,7 +36,7 @@ public class ReadRenderTexture : UdonSharpBehaviour
     
     //internal
     private Color[] colors;
-    private string currentOutputString;
+    public string currentOutputString;
     private bool hasRun;
     [HideInInspector] public bool pedestalReady;
     private System.Diagnostics.Stopwatch stopwatch;

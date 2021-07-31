@@ -582,18 +582,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2488834282805225938, guid: cc5f61cef272bc14796048dc63212027,
-        type: 3}
-      propertyPath: serializedProgramAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: b7844f422776425479c51a8c49967447,
-        type: 2}
-    - target: {fileID: 5342614774777978875, guid: cc5f61cef272bc14796048dc63212027,
-        type: 3}
-      propertyPath: serializedProgramAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 81b5d30a36c4dbc44a00cd5c2000f594,
-        type: 2}
     - target: {fileID: 5521230744062136240, guid: cc5f61cef272bc14796048dc63212027,
         type: 3}
       propertyPath: m_Name

@@ -1,87 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/EmptyTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/EmptyTexture.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/FullScreenTexture.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/FullScreenTexture.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Fullscreen Texture.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Fullscreen Texture.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Render Texture.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Render Texture.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/TestingDecodeImage.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/TestingDecodeImage.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/AvatarImageUploader/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/AvatarImageUploader/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/AvatarImageUploader/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/AvatarImageUploader/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/gen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/gen.py.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/img.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/read.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Python Encoder/read.py.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Render Texture.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Render Texture.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/TestingDecodeImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/TestingDecodeImage.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DecodingAvatarBaseScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DecodingAvatarBaseScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DecodingAvatarBaseScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DecodingAvatarBaseScene.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/1ae7faadb3267f644a44626818abf82f.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/1ae7faadb3267f644a44626818abf82f.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/1bd78a31af35c604187e85a4840fccc4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/1bd78a31af35c604187e85a4840fccc4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/256407d71fba66244aec45c0bec00c90.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/256407d71fba66244aec45c0bec00c90.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/33324f447d661da40b534c9fa93c0ec2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/33324f447d661da40b534c9fa93c0ec2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5463afdb73b505649b857341d262468a.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5463afdb73b505649b857341d262468a.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/667c46fd2864a124ea921d98d4914fe5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/667c46fd2864a124ea921d98d4914fe5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/74029f62f2956a74791c0a2124e661d1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/74029f62f2956a74791c0a2124e661d1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/75f3b7bb830f4324a8b2f49814f3493a.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/75f3b7bb830f4324a8b2f49814f3493a.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/96ee11c7074d21e4f84d189ad35d45fc.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/96ee11c7074d21e4f84d189ad35d45fc.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/9aa45f6fdf6f90e4abc0fedc275a3ffd.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/9aa45f6fdf6f90e4abc0fedc275a3ffd.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/a08dbad4ab81a9d44934e4f3b7bd9e04.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/a08dbad4ab81a9d44934e4f3b7bd9e04.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/a3b924aa5d416d94c86ddd019ccb8441.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/a3b924aa5d416d94c86ddd019ccb8441.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/cb7bc03608d9c3441bc10cc69a53d578.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/cb7bc03608d9c3441bc10cc69a53d578.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/fa52d8b703fd906459112715b1ef1f3a.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/fa52d8b703fd906459112715b1ef1f3a.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_4_Signal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_4_Signal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_4_Spinner.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_4_Spinner.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_5_Dependent.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_5_Dependent.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_5_Master.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Tutorials/SpinningCubes/SpinningCubes_5_Master.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/BoneFollower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/BoneFollower.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/InteractToggle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/InteractToggle.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/PlayerModSetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/PlayerModSetter.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/Synced/GlobalToggleObject.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/Synced/GlobalToggleObject.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/Synced/MasterToggleObject.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/Synced/MasterToggleObject.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/TrackingDataFollower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/TrackingDataFollower.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/WorldAudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UdonSharp/Examples/Utilities/WorldAudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VRCSDK/Dependencies/VRChat/Resources/CL_Icons/CL_Lab_Icon_256.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VRCSDK/Dependencies/VRChat/Resources/CL_Icons/CL_Lab_Icon_256.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VRCSDK/Sample Assets/Materials/MirrorReflection.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VRCSDK/Sample Assets/Materials/MirrorReflection.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,8 +19,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageDecoder/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5AC29B9D-5193-4DD3-9A8D-CE946B9985A7/7d/11ca8a55/Color32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -167,7 +87,7 @@
       <workItem from="1627328266640" duration="6410000" />
       <workItem from="1627672983728" duration="16391000" />
       <workItem from="1627692109874" duration="335000" />
-      <workItem from="1627743127094" duration="7313000" />
+      <workItem from="1627743127094" duration="7909000" />
     </task>
     <servers />
   </component>
