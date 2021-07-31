@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DecodingAvatarBaseScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DecodingAvatarBaseScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,10 +10,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5AC29B9D-5193-4DD3-9A8D-CE946B9985A7/7d/11ca8a55/Color32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Assets/FullScreenTexture.shader" />
+      <option value="$PROJECT_DIR$/Assets/Assets/CreateTexture2DFloat.cs" />
       <option value="$PROJECT_DIR$/Assets/Assets/CheckHierarchyScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Assets/ReadRenderTexture.cs" />
+      <option value="$PROJECT_DIR$/Assets/AvatarImageDecoder/ReadRenderTexture.cs" />
+      <option value="$PROJECT_DIR$/Assets/AvatarImageDecoder/CheckHierarchyScript.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1r4qHyzSqXzswqLOoig1dRkIqxj" />
@@ -40,6 +44,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.environmentSetup" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -48,6 +56,7 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -57,6 +66,7 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -74,6 +84,10 @@
       <workItem from="1618245630668" duration="2417000" />
       <workItem from="1618248821258" duration="4197000" />
       <workItem from="1618253523014" duration="695000" />
+      <workItem from="1627328266640" duration="6410000" />
+      <workItem from="1627672983728" duration="16391000" />
+      <workItem from="1627692109874" duration="335000" />
+      <workItem from="1627743127094" duration="7909000" />
     </task>
     <servers />
   </component>
