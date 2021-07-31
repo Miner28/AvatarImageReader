@@ -1,6 +1,8 @@
 # AvatarImageReader
 Made by: @GlitchyDev and @Miner28
+
 Special help: @BucuD @lox9973 for Quest/3bytecolor support
+
 Special Thanks: @Merlin for making UdonSharp making any of this possible
 
 Allows you to encode text into image and then read it in VRChat. Uses Avatar Images to store and load images.
