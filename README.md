@@ -20,6 +20,7 @@ The prefab Decoder contains everything required to decode data from a pedestal. 
 
 ### Max Image Size by Platform
 PC: 1200x900 -> 3.24MB or 1,620,000 UTF16 characters
+
 Quest: 128x96 -> 36.8KB or 18,432 UTF16 characters
 
 Example use cases may include a dynamically updating event calendar that can be updated without updating the world, or a list of patrons in your world. 
