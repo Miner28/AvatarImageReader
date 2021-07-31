@@ -1,3 +1,5 @@
+Download: https://github.com/Miner28/AvatarImageReader/releases/
+
 # AvatarImageReader
 Allows you to encode text into image and then read it in VRChat. Uses Avatar Images to store and load images.
 Works on both PC and Quest
