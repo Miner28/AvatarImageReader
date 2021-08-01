@@ -67,7 +67,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         if (!ConfigManager.RemoteConfig.IsInitialized())
             ConfigManager.RemoteConfig.Init();
 
-        if (!APIUser.IsLoggedInWithCredentials)
+        if (!APIUser.IsLoggedIn)
             yield break;
 
         ApiCache.ClearResponseCache();
@@ -259,7 +259,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         if (!ConfigManager.RemoteConfig.IsInitialized())
             ConfigManager.RemoteConfig.Init();
 
-        if (APIUser.IsLoggedInWithCredentials && uploadedWorlds != null && uploadedAvatars != null && testAvatars != null)
+        if (APIUser.IsLoggedIn && uploadedWorlds != null && uploadedAvatars != null && testAvatars != null)
         {
 
             bool expandedLayout = false; // (position.width > MAX_ALL_INFORMATION_WIDTH);    // uncomment for future wide layouts

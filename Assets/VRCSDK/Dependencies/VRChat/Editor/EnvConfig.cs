@@ -377,7 +377,10 @@ public class EnvConfig
                 VRC.Core.Logger.Log("- " + s, VRC.Core.DebugLevel.All);
         }
 
-        PlayerSettings.SetVirtualRealitySDKs(buildTargetGroup, sdkNames);
+        if (!EditorApplication.isPlaying)
+        {
+            PlayerSettings.SetVirtualRealitySDKs(buildTargetGroup, sdkNames);
+        }
     }
 
     public static bool CheckForFirstInit()
@@ -633,7 +636,10 @@ public class EnvConfig
         #endif
 
         #if !VRC_CLIENT // In client rely on platform-switcher
-        PlayerSettings.SetVirtualRealitySupported(EditorUserBuildSettings.selectedBuildTargetGroup, true);
+        if (!EditorApplication.isPlaying)
+        {
+            PlayerSettings.SetVirtualRealitySupported(EditorUserBuildSettings.selectedBuildTargetGroup, true);
+        }
         #endif
 
         PlayerSettings.graphicsJobs = true;

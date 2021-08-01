@@ -1,7 +1,13 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+#else
 using UnityEngine.Experimental.UIElements;
 using UnityEditor.Experimental.UIElements;
+#endif
+using UnityEditor;
+using UnityEngine;
+
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
@@ -16,10 +22,14 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         {
             _detailsContainer = detailsContainer;
 
-            _label = new TextElement() { text = "-", name = "Content" };
+            _label = new TextElement() {text = "-", name = "Content"};
             _label.StretchToParentSize();
             Add(_label);
+#if UNITY_2019_3_OR_NEWER
+            this.RegisterValueChangedCallback(ShowGraphAssetDetails);
+#else
             OnValueChanged(ShowGraphAssetDetails);
+#endif
 
             _programSourceView = new UdonProgramSourceView();
         }
@@ -55,7 +65,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         public void OnAssemble(bool success, string assembly)
         {
-
             if (!enabledInHierarchy || _label == null) return;
 
             string newText;
@@ -63,7 +72,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             Color targetColor;
 
             // change visuals based on success
-            if(success)
+            if (success)
             {
                 newText = "OK";
                 flashColor = new Color(0, 1, 0);
@@ -105,7 +114,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 EditorApplication.update -= UpdateColor;
             }
 
-            if(_label != null)
+            if (_label != null)
             {
                 _label.style.backgroundColor = Color.Lerp(startColor, targetColor, lerpAmount);
             }
@@ -119,7 +128,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         ~UdonGraphStatus()
         {
             EditorApplication.update -= UpdateColor;
-            if(_graphAsset != null)
+            if (_graphAsset != null)
             {
                 _graphAsset.OnAssemble -= OnAssemble;
             }

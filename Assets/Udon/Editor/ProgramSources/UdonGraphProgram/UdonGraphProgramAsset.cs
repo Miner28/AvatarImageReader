@@ -4,11 +4,13 @@ using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using VRC.Udon.Common.Interfaces;
-using VRC.Udon.Editor.ProgramSources.UdonGraphProgram;
 using VRC.Udon.Editor.ProgramSources.Attributes;
+using VRC.Udon.Editor.ProgramSources.UdonGraphProgram;
+using VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView;
 using VRC.Udon.Graph;
 using VRC.Udon.Graph.Interfaces;
 using VRC.Udon.Serialization.OdinSerializer;
+using Object = UnityEngine.Object;
 
 [assembly: UdonProgramSourceNewMenu(typeof(UdonGraphProgramAsset), "Udon Graph Program Asset")]
 
@@ -21,10 +23,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram
         public UdonGraphData graphData = new UdonGraphData();
 
         [SerializeField]
-        public UdonGraphElementData[] graphElementData;
+        public UdonGraphElementData[] graphElementData = new UdonGraphElementData[0];
 
         [SerializeField]
-        public UI.GraphView.UdonGraph.ViewTransformData viewTransform = new UI.GraphView.UdonGraph.ViewTransformData();
+        public UdonGraph.ViewTransformData viewTransform = new UdonGraph.ViewTransformData();
 
         [SerializeField]
         public string version = "1.0.0";
@@ -39,7 +41,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram
         {
             if (GUILayout.Button("Open Udon Graph", "LargeButton"))
             {
-                var w = EditorWindow.GetWindow<UI.GraphView.UdonGraphWindow>("Udon Graph", true, typeof(SceneView));
+                var w = EditorWindow.GetWindow<UdonGraphWindow>("Udon Graph", true, typeof(SceneView));
                 w.InitializeGraph(this, udonBehaviour);
             }
 
@@ -106,7 +108,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram
 
                 uint symbolAddress = symbolTable.GetAddressFromSymbol(defaultValue.Key);
                 (object value, Type declaredType) = defaultValue.Value;
-                if(typeof(UnityEngine.Object).IsAssignableFrom(declaredType))
+                if(typeof(Object).IsAssignableFrom(declaredType))
                 {
                     if(value != null && !declaredType.IsInstanceOfType(value))
                     {
@@ -114,7 +116,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram
                         continue;
                     }
 
-                    if((UnityEngine.Object)value == null)
+                    if((Object)value == null)
                     {
                         heap.SetHeapVariable(symbolAddress, null, declaredType);
                         continue;
@@ -152,12 +154,12 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram
             }
 
             (object value, Type declaredType) = heapDefaultValues[symbol];
-            if(!typeof(UnityEngine.Object).IsAssignableFrom(declaredType))
+            if(!typeof(Object).IsAssignableFrom(declaredType))
             {
                 return value;
             }
 
-            return (UnityEngine.Object)value == null ? null : value;
+            return (Object)value == null ? null : value;
         }
 
         protected override object DrawPublicVariableField(string symbol, object variableValue, Type variableType, ref bool dirty,

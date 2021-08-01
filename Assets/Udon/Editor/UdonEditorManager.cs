@@ -165,6 +165,26 @@ namespace VRC.Udon.Editor
                 _programSourceRefreshQueue.Remove(programSource);
             }
         }
+        
+        [MenuItem("VRChat SDK/Utilities/Re-compile All Program Sources")]
+        public static void RecompileAllProgramSources()
+        {
+            string[] programSourceGUIDs = AssetDatabase.FindAssets("t:AbstractUdonProgramSource");
+            foreach(string guid in programSourceGUIDs)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                AbstractUdonProgramSource programSource = AssetDatabase.LoadAssetAtPath<AbstractUdonProgramSource>(assetPath);
+                if(programSource == null)
+                {
+                    continue;
+                }
+                programSource.RefreshProgram();
+            }
+
+            AssetDatabase.SaveAssets();
+
+            PopulateAllPrefabSerializedProgramAssetReferences();
+        }
 
         [PublicAPI]
         public static void PopulateAllPrefabSerializedProgramAssetReferences()
@@ -226,7 +246,7 @@ namespace VRC.Udon.Editor
         {
             foreach(GameObject sceneGameObject in scene.GetRootGameObjects())
             {
-                foreach(UdonBehaviour udonBehaviour in sceneGameObject.GetComponentsInChildren<UdonBehaviour>())
+                foreach(UdonBehaviour udonBehaviour in sceneGameObject.GetComponentsInChildren<UdonBehaviour>(true))
                 {
                     PopulateSerializedProgramAssetReference(udonBehaviour);
                 }

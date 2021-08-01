@@ -1,7 +1,11 @@
-using UnityEngine;
+#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
@@ -13,7 +17,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         override public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
         {
-            if (_fullRegistry != null) return _fullRegistry;
+            if (!skipCache && _fullRegistry != null) return _fullRegistry;
 
             _fullRegistry = new List<SearchTreeEntry>();
 

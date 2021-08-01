@@ -1,19 +1,23 @@
-﻿using System;
-
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView
+using UnityEngine.UIElements;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
+using UnityEngine.Experimental.UIElements;
+#endif
+using System;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
-
     public class UdonGroup : Group, IUdonGraphElementDataProvider
     {
-
-        public string uid;
+        public string uid { get => _uid; set => _uid = value; }
         private CustomData _customData = new CustomData();
         private UdonGraph _graph;
+        private string _uid;
 
         public static UdonGroup Create(string value, Rect position, UdonGraph graph)
         {
@@ -32,6 +36,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             return group;
         }
 
+        // Called in Reload > RestoreElementFromData
         public static UdonGroup Create(UdonGraphElementData elementData, UdonGraph graph)
         {
             return new UdonGroup(elementData.jsonData, graph);
@@ -53,12 +58,19 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             {
                 EditorJsonUtility.FromJsonOverwrite(jsonData, _customData);
             }
+            
+            // listen for changes on child elements
+            RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
         }
 
-        public override void OnPersistentDataReady()
+        private void OnGeometryChanged(GeometryChangedEvent evt)
         {
-            base.OnPersistentDataReady();
-            if(_customData != null)
+            _customData.layout = GraphElementExtension.GetSnappedRect(GetPosition());
+        }
+
+        public void Initialize()
+        {
+            if (_customData != null)
             {
                 // Propagate data to useful places
                 title = _customData.title;
@@ -67,34 +79,37 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 {
                     _customData.uid = Guid.NewGuid().ToString();
                 }
-                uid = _customData.uid;
 
-                SetPosition(_customData.layout);
+                uid = _customData.uid;
 
                 // Add all elements from graph to self
                 var childUIDs = _customData.containedElements;
-                if (childUIDs != null)
+                if (childUIDs.Count > 0)
                 {
                     foreach (var item in childUIDs)
                     {
-                        var childNode = _graph.GetElementByGuid(item);
-                        if (childNode != null)
+                        GraphElement element = _graph.GetElementByGuid(item);
+                        if (element != null)
                         {
-                            if (!ContainsElement(childNode))
+                            if (ContainsElement(element)) continue;
+                            AddElement(element);
+                            if (element is UdonComment c)
                             {
-                                AddElement(childNode);
-                                // nodes can wind up behind the group since they're added first
-                                childNode.BringToFront();
+                                c.group = this;
+                            }
+                            else if (element is UdonNode n)
+                            {
+                                n.group = this;
                             }
                         }
                     }
                 }
+                else
+                {
+                    // No children, so restore the saved position
+                    SetPosition(_customData.layout);
+                }
             }
-        }
-
-        public bool containsElement(string uid)
-        {
-            return _customData.containedElements.Contains(uid);
         }
 
         public override void SetPosition(Rect newPos)
@@ -103,12 +118,18 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             base.SetPosition(newPos);
         }
 
+        public void SaveNewData()
+        {
+            _graph.SaveGraphElementData(this);
+        }
+
         // Save data to asset after new position set
         public override void UpdatePresenterPosition()
         {
             base.UpdatePresenterPosition();
-            _customData.layout = GraphElementExtension.GetSnappedRect(GetPosition());
-            this.SaveNewData();
+            Rect layout = GraphElementExtension.GetSnappedRect(GetPosition());
+            base.SetPosition(layout);
+            SaveNewData();
         }
 
         // Save data to asset after rename
@@ -117,7 +138,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             // limit name to 100 characters
             title = newName.Substring(0, Mathf.Min(newName.Length, 100));
             _customData.title = title;
-            this.SaveNewData();
+            SaveNewData();
         }
 
         protected override void OnElementsAdded(IEnumerable<GraphElement> elements)
@@ -125,26 +146,24 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             base.OnElementsAdded(elements);
             foreach (var element in elements)
             {
-                if (!_customData.containedElements.Contains(element.persistenceKey))
+                if (!_customData.containedElements.Contains(element.GetUid()))
                 {
-                    // don't add StackNode children directly to group, messes up reload
-                    if(!(element.parent is UdonStackNode))
-                    {
-                        _customData.containedElements.Add(element.persistenceKey);
-                    }
+                    _customData.containedElements.Add(element.GetUid());
                 }
-
+            
                 // Set group variable on UdonNodes
                 if (element is UdonNode)
                 {
                     (element as UdonNode).group = this;
+                    element.BringToFront();
                 }
+                
                 if (element is UdonComment)
                 {
                     (element as UdonComment).group = this;
                 }
             }
-            this.SaveNewData();
+            SaveNewData();
         }
 
         protected override void OnElementsRemoved(IEnumerable<GraphElement> elements)
@@ -152,10 +171,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             base.OnElementsRemoved(elements);
             foreach (var element in elements)
             {
-                if (_customData.containedElements.Contains(element.persistenceKey))
+                if (_customData.containedElements.Contains(element.GetUid()))
                 {
-                    _customData.containedElements.Remove(element.persistenceKey);
-                    if(element is UdonNode)
+                    _customData.containedElements.Remove(element.GetUid());
+                    if (element is UdonNode)
                     {
                         (element as UdonNode).group = null;
                     }
@@ -165,7 +184,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                     }
                 }
             }
-            this.SaveNewData();
+
+            SaveNewData();
         }
 
         public override bool AcceptsElement(GraphElement element, ref string reasonWhyNotAccepted)

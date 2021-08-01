@@ -1,5 +1,5 @@
 .textElement {
-	text-color: rgb(255,255,255);
+	color: rgb(255,255,255);
 }
 
 Button {
@@ -16,21 +16,21 @@ Toolbar > ToolbarFlexSpacer.toolbarFlexSpacer {
 
 Toolbar > ToolbarButton.toolbarButton {
 	background-image: resource("ToolbarButtonBG");
-	text-color:rgb(255,255,255);
+	color:rgb(255,255,255);
 }
 
 Toolbar > UdonGraphStatus.toolbarButton {
 	background-image: resource("ToolbarButtonBG");
-	text-color:rgb(255,255,255);
+	color:rgb(255,255,255);
 }
 
 Toolbar .textElement {
-	text-color:rgb(255,255,255);
+	color:rgb(255,255,255);
 }
 
 Toolbar > ToolbarMenu.toolbarMenu {
 	background-image:resource("DropdownBG");
-	text-color:rgb(255,255,255);
+	color:rgb(255,255,255);
 }
 
 Toolbar > ToolbarMenu.toolbarMenu:hover:active {
@@ -38,15 +38,15 @@ Toolbar > ToolbarMenu.toolbarMenu:hover:active {
 }
 
 Toolbar #assetName {
-	margin-top:0;
-	margin-right:0;
-	margin-bottom:0;
-	margin-left:0;
-	padding-top:3;
-	padding-right:6;
-	padding-bottom:4;
-	padding-left:6;
-	text-color:rgb(170,255,255);
+	margin-top:0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	padding-top:3px;
+	padding-right:6px;
+	padding-bottom:4px;
+	padding-left:6px;
+	color:rgb(170,255,255);
 	background-image:resource("ToolbarBG");
 }
 
@@ -61,39 +61,38 @@ Toolbar #assetName {
 }
 
 #curtain Label {
-	font-size:26;
-	font-style:bold;
+	font-size:26px;
+	-unity-font-style:bold;
 	color:rgb(0,200,255);
-	text-alignment:middle-center;
+	-unity-text-align:middle-center;
 	align-self:center;
 }
 
 UdonWelcomeView {
-	margin-top:16;
+	margin-top:16px;
 	background-image: resource("UdonLogoAlpha");
 	background-color: #2D2D2D;
-	-unity-background-scale-mode: 2;
+	-unity-background-scale-mode: scale-to-fit;
 }
 
 UdonWelcomeView #intro {
-	margin-top:15;
-	margin-bottom:20;
+	margin-top:15px;
+	margin-bottom:20px;
 	align-self:center;
-	font-size:26;
+	font-size:26px;
 	color:rgb(255,255,255);
 }
 
 UdonWelcomeView #header-message {
-	margin-right:20;
-	margin-left:20;
-	margin-top:5;
-	margin-bottom:30;
-	text-alignment:middle-left;
+	margin-right:20px;
+	margin-left:20px;
+	margin-top:5px;
+	margin-bottom:30px;
+	-unity-text-align:middle-left;
 	align-self:center;
-	font-size:16;
-	-unity-word-wrap: true;
+	font-size:16px;
 	color:rgb(0,200,255);
-	font-style:bold;
+	-unity-font-style:bold;
 }
 
 UdonWelcomeView #main {
@@ -103,39 +102,36 @@ UdonWelcomeView #main {
 
 UdonWelcomeView #column-2 {
 	flex:0.5;
-	margin-right:10;
+	margin-right:10px;
 }
 
 #column-2 Button {
-	-unity-word-wrap:true;
+	white-space: normal;
 }
 
 UdonWelcomeView #tutorial {
 	flex:1;
 	background-color: #000;
-	margin-bottom:20;
+	margin-bottom:20px;
 	border-color:rgb(100,100,100);
-	border-radius:10;
-	border-top-width:1;
-	border-right-width:1;
-	border-bottom-width:1;
-	border-left-width:1;
+	border-radius:10px;
+	border-width:1px;
 }
 
 UdonWelcomeView #tutorial #header {
 	color:#a6a6a6;
-	margin-top:10;
-	text-alignment:middle-center;
-	font-size:24;
+	margin-top:10px;
+	-unity-text-align:middle-center;
+	font-size:24px;
 }
 
 UdonWelcomeView #tutorial Toolbar {
-	height:30;
+	height:30px;
 	justify-content:center;
 	border-top-right-radius:0;
 	border-top-left-radius:0;
-	border-bottom-right-radius:10;
-	border-bottom-left-radius:10;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
 }
 
 UdonWelcomeView #tutorial Toolbar #button-play{
@@ -148,24 +144,24 @@ UdonWelcomeView #tutorial Toolbar #button-pause{
 
 UdonWelcomeView #tutorial #video-proxy {
 	flex:1;
-	margin-right:2;
+	margin-right:2px;
 }
 
 #main #settings {
 	flex:1;
-	padding-left:10;
+	padding-left:10px;
 	color: rgb(255,255,255);
 }
 
 UdonWelcomeView #settings #header {
 	color:rgb(100,200,100);
-	font-size:18;
-	margin-top:20;
-	margin-bottom:20;
+	font-size:18px;
+	margin-top:20px;
+	margin-bottom:20px;
 }
 
 UdonWelcomeView #settings #section #header {
-	font-size:14;
+	font-size:14px;
 }
 
 #main #settings ScrollView {
@@ -173,7 +169,7 @@ UdonWelcomeView #settings #section #header {
 }
 
 UdonWelcomeView #settings Toggle {
-	margin-top:10;
+	margin-top:10px;
 }
 
 UdonWelcomeView #settings Button {
@@ -185,25 +181,25 @@ UdonWelcomeView #settings .settings-item-container {
 }
 
 UdonWelcomeView #settings IntegerField {
-	width:25;
+	width:25px;
 }
 
 UdonWelcomeView #settings .settings-label {
 	color:rgb(180,180,180);
-	-unity-word-wrap: true;
-	margin-bottom:10;
+	white-space: normal;
+	margin-bottom:10px;
 }
 
 #changelog {
 	color:rgb(255,255,255);
-	font-size:14;
+	font-size:14px;
 	flex:0.5;
 }
 
 #changelog ScrollView {
 	flex: 1;
-	margin-left:15;
-	margin-right:15;
+	margin-left:15px;
+	margin-right:15px;
 }
 
 #changelog #ContentView {
@@ -211,27 +207,27 @@ UdonWelcomeView #settings .settings-label {
 
 #changelog #header {
 	color:rgb(0,200,255);
-	font-size:18;
-	margin-left:-3;
-	margin-bottom:10;
+	font-size:18px;
+	margin-left:-3px;
+	margin-bottom:10px;
 }
 
 #changelog #section {
-	margin-bottom:20;
+	margin-bottom:20px;
 }
 
 #changelog #section TextElement {
 	color:rgb(255,255,255);
-	margin-bottom:5;
-	-unity-word-wrap: true;
+	margin-bottom:5px;
+	white-space: normal;
 }
 
-#bg {
-	line-color:rgba(25,25,25,1);
-	spacing: 15;
-	grid-background-color: rgba(0,0,0,0.1);
+GridBackground#bg {
 	background-image:resource("UdonLogoAlpha");
-	-unity-background-scale-mode: 1;
+	--grid-background-color: rgba(0,0,0,0.1);
+	-unity-background-scale-mode: scale-to-fit;
+	--line-color:rgba(25,25,25,1);
+	--spacing: 15;
 }
 
 UdonGraph {
@@ -239,41 +235,38 @@ UdonGraph {
 }
 
 #mouse-tip-container {
-	min-width:	128;
-	min-height:	128;
-	max-width:	128;
-	max-height:	128;
+	min-width:	128px;
+	min-height:	128px;
+	max-width:	128px;
+	max-height:	128px;
 }
 
 #mouse-tip {
-	-unity-word-wrap:true;
+	white-space: normal;
 	flex:1;
 }
 
 #stackNodeHeaderContainer Label {
-	text-alignment:middle-center;
-	font-size:16;
-	font-weight:bold;
+	-unity-text-align:middle-center;
+	font-size:16px;
+	-unity-font-style:bold;
 }
 
 Edge.edge {
-	edge-width:3;
+	--edge-width:3;
 }
 
 UdonPort.flow > #connector {
-	width:16;
-	height:16;
+	width:16px;
+	height:16px;
 	background-color: rgba(0,0,0,0);
 	background-image: resource("UdonFlowSlot");
-	border-left-width:0;
-	border-right-width:0;
-	border-top-width:0;
-	border-bottom-width:0;
+	border-width:0;
 	border-radius:0;
 }
 
 UdonPort.port {
-	port-color:rgb(150,150,150);
+	--port-color:rgb(150,150,150);
 }
 
 UdonPort.flow > #connector > #cap {
@@ -281,11 +274,11 @@ UdonPort.flow > #connector > #cap {
 }
 
 UdonPort.flow {
-	port-color: rgb(255,255,255);
+	--port-color: rgb(255,255,255);
 }
 
 UdonPort.port #type {
-	padding-left:1;
+	padding-left:1px;
 }
 
 UdonPort.typeSingle.port {
@@ -307,7 +300,35 @@ UdonPort.typeVRCPlayerApi.port {
 }
 
 UdonPort EnumField {
-	padding-right:20;
+	padding-right:20px;
+}
+
+UdonPort.port.send-change {
+	flex-direction: row-reverse;
+}
+
+UdonPort.port.send-change > #connector {
+	visibility: hidden;
+}
+
+UdonPort.connected > #VariablePopup {
+	visibility: hidden;
+	width: 0;
+}
+
+GetOrSetProgramVariableNode UdonPort.symbolName TextField {
+	visibility: hidden;
+	width: 0;
+}
+
+UdonPort.connected > #EventNamePopup {
+	visibility: hidden;
+	width: 0;
+}
+
+SendCustomEventNode UdonPort.eventName TextField {
+	visibility: hidden;
+	width: 0;
 }
 
 #resize-container {
@@ -315,56 +336,56 @@ UdonPort EnumField {
 }
 
 #resize-container IntegerField {
-	width:35;
+	width:35px;
 }
 
 #array-scroll {
-	min-height:150;
+	min-height:150px;
 }
 
 #array-scroll ColorField {
-	max-width:120;
+	max-width:120px;
 }
 
 #array-scroll TextField {
-	min-width:65;
+	min-width:65px;
 }
 
-UdonNode #title-container {
+.UdonNode #title-container {
 	flex:1;
 }
 
-UdonNode Label#title-label {
+.UdonNode Label#title-label {
 	flex:1;
-	margin-left:5;
-	margin-right:6;
-	margin-bottom: 3;
-	margin-top:0;
-	text-alignment:middle-left;
-	text-color:rgb(255,255,255);
-	font-size:16;
+	margin-left:5px;
+	margin-right:6px;
+	margin-bottom: 3px;
+	margin-top:0px;
+	-unity-text-align:middle-left;
+	color:rgb(255,255,255);
+	font-size:16px;
 }
 
-UdonNode #subtitle {
-	margin-left:5;
-	margin-right:6;
-	margin-top:2;
-	margin-bottom: 0;
-	text-color:rgb(150,150,150);
-	font-size:10;
+.UdonNode #subtitle {
+	margin-left:5px;
+	margin-right:6px;
+	margin-top:2px;
+	margin-bottom: 0px;
+	color:rgb(150,150,150);
+	font-size:10px;
 }
 
-UdonNode #title {
-	height:40;
+.UdonNode #title {
+	height:40px;
 	background-color:rgb(10,10,10);
 }
 
-UdonNode #input .popupField {
-	padding-right:20;
+.UdonNode #input .popupField {
+	padding-right:20px;
 }
 
-UdonNode #divider.horizontal {
-	border-bottom-width:3;
+.UdonNode #divider.horizontal {
+	border-bottom-width:3px;
 	border-color:rgb(77,157,255);
 }
 
@@ -373,83 +394,78 @@ UdonNode #divider.horizontal {
 }
 
 .input > TextField {
-	width:128;
+	width:128px;
+}
+
+BlackboardRow .unity-base-field {
+	flex-grow: 1;
 }
 
 .input > FloatField {
-	width:32;
+	width:32px;
 }
 
 .input > IntegerField {
-	width: 32;
+	width: 32px;
 }
 
 .input > ColorField {
-	width: 128;
+	width: 128px;
 }
 
 .input > GradientField {
-	width: 128;
+	width: 128px;
 }
 
-UdonNode #collapse-button {
-	width:20;
+.UdonNode #collapse-button {
+	width:20px;
 	padding-left:0;
 }
 
-UdonNode #help-button {
+.UdonNode #help-button {
 	background-image: none;
-	width:20;
+	background-color: rgb(10,10,10);
+	width:20px;
 	justify-content:center;
-	margin-top:0;
-	margin-right:0;
-	margin-bottom:0;
-	margin-left:0;
-	border-top:0;
-	border-right:0;
-	border-bottom:0;
-	border-left:0;
-	border:0;
+	margin:0;
+	border-width:0;
 }
 
-UdonNode #help-button > #icon {
-	width:12;
-	height:12;
+.UdonNode #help-button > #icon {
+	width:12px;
+	height:12px;
 	align-self:center;
 	opacity:0.5;
 	visibility:hidden;
-	font-style:bold;
-	text-alignment:middle-center;
-	text-color:rgb(255,255,255);
+	-unity-font-style:bold;
+	-unity-text-align:middle-center;
+	color:rgb(255,255,255);
 }
 
-UdonNode:hover #help-button > #icon {
+.UdonNode:hover #help-button > #icon {
 	visibility:visible;
 }
 
-UdonNode #help-button:hover > #icon {
+.UdonNode #help-button:hover > #icon {
 	opacity:1;
 }
 
 #comment {
-	min-width:128;
-	min-height:40;
+	min-width:128px;
+	min-height:40px;
 	background-color: #191919;
-	border-top-width:1;
-	border-right-width:1;
-	border-bottom-width:1;
-	border-left-width:1;
+	border-width:1px;
 	border-color: rgb(70,70,70);
 }
 
-#comment:selected {
+#comment:focus {
 	border-color: rgb(143,193,223);
 }
 
 #comment Label {
-	font-size:20;
-	text-alignment:upper-center;
-	-unity-word-wrap: true;
+	font-size:20px;
+	-unity-text-align:upper-center;
+	white-space: normal;
 }
 
 #comment .mainContainer {
@@ -457,9 +473,9 @@ UdonNode #help-button:hover > #icon {
 }
 
 #comment TextField {
-	font-size:20;
-	-unity-word-wrap: true;
-	text-alignment:upper-center;
+	font-size:20px;
+	white-space: normal;
+	-unity-text-align:upper-center;
 }
 
 #comment .resizer {
@@ -472,9 +488,9 @@ UdonNode #help-button:hover > #icon {
 	position-bottom:1;
 	background-image:none;
 	border-color:rgb(170,170,170);
-	border-bottom-width:1;
-	border-right-width:1;
-	border-bottom-right-radius:6;
+	border-bottom-width:1px;
+	border-right-width:1px;
+	border-bottom-right-radius:6px;
 	cursor: resize-up-left;
 	visibility:hidden;
 }
@@ -488,18 +504,19 @@ UdonParameterProperty {
 }
 
 UdonParameterProperty>Toggle, UdonParameterProperty>VisualElement {
-	padding-top:5;
-	padding-bottom:5;
+	padding-top:5px;
+	padding-bottom:5px;
 	background-color:#333;
-	margin-left:4;
-	padding-left:3;
-	margin-right:4;
-	padding-right:3;
+	margin-left:4px;
+	padding-left:3px;
+	margin-right:4px;
+	padding-right:3px;
+	flex-direction: row;
 }
 
 UdonParameterProperty PopupField {
-	min-width:70;
-	min-height:25;
+	min-width:70px;
+	min-height:25px;
 }
 
 #Parameters #contentContainer {
@@ -508,9 +525,9 @@ UdonParameterProperty PopupField {
 }
 
 #Parameters.blackboard > .mainContainer > #content > #header > #labelContainer > #titleLabel {
-	margin-left:10;
-	margin-top:5;
-	font-size:18;
+	margin-left:10px;
+	margin-top:5px;
+	font-size:18px;
 }
 
 #Parameters #header Button {
@@ -527,9 +544,9 @@ UdonParameterProperty PopupField {
 	position-bottom:1;
 	background-image:none;
 	border-color:rgb(170,170,170);
-	border-bottom-width:1;
-	border-right-width:1;
-	border-bottom-right-radius:6;
+	border-bottom-width:1px;
+	border-right-width:1px;
+	border-bottom-right-radius:6px;
 	cursor: resize-up-left;
 	visibility:hidden;
 }
@@ -557,23 +574,23 @@ UdonParameterField Image {
 
 UdonMinimap {
 	background-color:rgba(0,0,0,0.75);
-	border-radius:6;
+	border-radius:6px;
 }
 
 UdonGraphStatus {
-	width:36;
+	width:36px;
 }
 UdonGraphStatus #Content {
-	text-color:rgb(255,255,255);
-	text-alignment:middle-center;
-	padding-bottom:2;
+	color:rgb(255,255,255);
+	-unity-text-align:middle-center;
+	padding-bottom:2px;
 }
 
 UdonProgramSourceView {
 	background-color:rgba(0,0,0,0.5);
 	align-self:flex-end;
 	flex:1;
-	width:300;
+	width:300px;
 }
 
 UdonProgramSourceView #Container {
@@ -585,33 +602,32 @@ UdonProgramSourceView ScrollView {
 }
 
 UdonProgramSourceView #Header {
-	font-size:12;
-	text-alignment:middle-left;
+	font-size:12px;
+	-unity-text-align:middle-left;
 }
 
 UdonProgramSourceView #AssemblyField {
-width:300;
+	width:300px;
 	background-color:rgba(30,30,30, 1);
-	text-color:rgb(255,255,255);
-	padding-top:10;
-	padding-right:10;
-	padding-bottom:10;
-	padding-left:10;
-	-unity-word-wrap: true;
+	color:rgb(255,255,255);
+	padding-top:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	white-space: normal;
 }
 
 .UdonValueField {
-	min-height: 15;
-	margin-left: 4;
-	margin-top:2;
-	margin-right:4;
-	margin-bottom: 2;
-	padding-left:3;
-	padding-top:1;
-	padding-right:3;
-	padding-bottom: 2;
+	min-height: 15px;
+	margin-left: 4px;
+	margin-top:2px;
+	margin-right:4px;
+	margin-bottom: 2px;
+	padding-left:3px;
+	padding-top:1px;
+	padding-right:3px;
+	padding-bottom: 2px;
 	color: #B4B4B4;
-	selection-color: rgb(0.239, 0.502, 0.875);
 	cursor: text;
 	overflow: hidden;
 	background-image: resource("TextBoxBG");
@@ -619,6 +635,10 @@ width:300;
 	-unity-slice-right: 3;
 	-unity-slice-bottom: 3;
 	-unity-slice-left: 3;
+}
+
+.UdonValueField:focus {
+	color: rgb(0.239, 0.502, 0.875);
 }
 
 .UdonValueField:focus {

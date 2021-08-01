@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 using UnityEngine;
 using System.Reflection;
 
@@ -9,7 +11,7 @@ namespace VRC.SDKBase.Validation
     {
         public static void RemoveIllegalComponents(GameObject target, HashSet<Type> whitelist, bool retry = true, bool onlySceneObjects = false, bool logStripping = true)
         {
-            IEnumerable<Component> foundComponents = FindIllegalComponents(target, whitelist);
+            List<Component> foundComponents = FindIllegalComponents(target, whitelist);
             foreach(Component component in foundComponents)
             {
                 if(component == null)
@@ -17,21 +19,21 @@ namespace VRC.SDKBase.Validation
                     continue;
                 }
                 
-                if (onlySceneObjects && component.GetInstanceID() < 0)
+                if(onlySceneObjects && component.GetInstanceID() < 0)
                 {
                     continue;
                 }
 
-                if (logStripping)
+                if(logStripping)
                 {
-                    VRC.Core.Logger.LogWarning(string.Format("Removing {0} comp from {1}", component.GetType().Name, component.gameObject.name));
+                    Core.Logger.LogWarning($"Removing {component.GetType().Name} comp from {component.gameObject.name}");
                 }
 
                 RemoveComponent(component);
             }
         }
 
-        public static IEnumerable<Component> FindIllegalComponents(GameObject target, HashSet<Type> whitelist)
+        public static List<Component> FindIllegalComponents(GameObject target, HashSet<Type> whitelist)
         {
             List<Component> foundComponents = new List<Component>();
             Component[] allComponents = target.GetComponentsInChildren<Component>(true);
@@ -172,50 +174,65 @@ namespace VRC.SDKBase.Validation
             return null;
         }
 
-        private static void RemoveDependencies(Component component)
+        private static readonly Dictionary<Type, ImmutableArray<RequireComponent>> _requireComponentsCache = new Dictionary<Type, ImmutableArray<RequireComponent>>();
+        private static void RemoveDependencies(Component rootComponent)
         {
-            if (component == null)
-                return;
-
-            Component[] components = component.GetComponents<Component>();
-            if (components == null || components.Length == 0)
-                return;
-
-            System.Type compType = component.GetType();
-            foreach (var c in components)
+            if (rootComponent == null)
             {
-                if (c == null)
-                    continue;
+                return;
+            }
 
-                bool deleteMe = false;
-                object[] requires = c.GetType().GetCustomAttributes(typeof(RequireComponent), true);
-                if (requires == null || requires.Length == 0)
-                    continue;
+            Component[] components = rootComponent.GetComponents<Component>();
+            if (components == null || components.Length == 0)
+            {
+                return;
+            }
 
-                foreach (var r in requires)
+            Type compType = rootComponent.GetType();
+            foreach (var siblingComponent in components)
+            {
+                if (siblingComponent == null)
                 {
-                    RequireComponent rc = r as RequireComponent;
-                    if (rc == null)
-                        continue;
-
-                    if (rc.m_Type0 == compType ||
-                        rc.m_Type1 == compType ||
-                        rc.m_Type2 == compType)
-                    {
-                        deleteMe = true;
-                        break;
-                    }
+                    continue;
                 }
 
-                if (deleteMe)
-                    RemoveComponent(c);
+                Type siblingComponentType = siblingComponent.GetType();
+                if(!_requireComponentsCache.TryGetValue(siblingComponentType, out ImmutableArray<RequireComponent> requiredComponentAttributes))
+                {
+                    requiredComponentAttributes = siblingComponentType.GetCustomAttributes(typeof(RequireComponent), true).Cast<RequireComponent>().ToImmutableArray();
+                    _requireComponentsCache.Add(siblingComponentType, requiredComponentAttributes);
+                }
+
+                bool deleteMe = false;
+                foreach (RequireComponent requireComponent in requiredComponentAttributes)
+                {
+                    if (requireComponent == null)
+                    {
+                        continue;
+                    }
+
+                    if(requireComponent.m_Type0 != compType && requireComponent.m_Type1 != compType && requireComponent.m_Type2 != compType)
+                    {
+                        continue;
+                    }
+
+                    deleteMe = true;
+                    break;
+                }
+
+                if (deleteMe && siblingComponent != rootComponent)
+                {
+                    RemoveComponent(siblingComponent);
+                }
             }
         }
 
         public static void RemoveComponent(Component comp)
         {
             if (comp == null)
+            {
                 return;
+            }
 
             RemoveDependencies(comp);
 

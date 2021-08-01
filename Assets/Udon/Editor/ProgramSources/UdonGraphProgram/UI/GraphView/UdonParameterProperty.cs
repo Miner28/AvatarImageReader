@@ -1,25 +1,32 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+using EditorUI = UnityEditor.UIElements;
+using EngineUI = UnityEngine.UIElements;
+#else
+using UnityEngine.Experimental.UIElements;
+using EditorUI = UnityEditor.Experimental.UIElements;
+using EngineUI = UnityEngine.Experimental.UIElements;
+#endif
+using System.Collections.Generic;
 using UnityEngine;
 using VRC.Udon.Graph;
 using VRC.Udon.Serialization;
-using EditorUI = UnityEditor.Experimental.UIElements;
-using EngineUI = UnityEngine.Experimental.UIElements;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
-    public class UdonParameterProperty : EngineUI.VisualElement
-    {
-        protected UdonGraph graph;
-        protected UdonNodeData nodeData;
-        protected UdonNodeDefinition definition;
+    public class UdonParameterProperty : VisualElement
+	{
+		protected UdonGraph graph;
+		protected UdonNodeData nodeData;
+		protected UdonNodeDefinition definition;
 
         //public ExposedParameter parameter { get; private set; }
 
-        public EngineUI.Toggle isPublic { get; private set; }
-        public EngineUI.Toggle isSynced { get; private set; }
-        public EngineUI.VisualElement defaultValueContainer { get; private set; }
-        public EditorUI.PopupField<string> syncField { get; private set; }
-        private EngineUI.VisualElement _inputField;
+		public Toggle isPublic { get; private set; }
+		public Toggle isSynced { get; private set; }
+		public VisualElement defaultValueContainer { get; private set; }
+		public EditorUI.PopupField<string> syncField { get; private set; }
+		private VisualElement _inputField;
 
         public enum ValueIndices
         {
@@ -48,38 +55,38 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             this.graph = graphView;
             this.definition = definition;
             this.nodeData = nodeData;
-
-            // Make sure the incoming nodeData has the right number of nodeValues (super old graphs didn't have sync info)
-            if (this.nodeData.nodeValues.Length != 5)
-            {
-                this.nodeData.nodeValues = GetDefaultNodeValues();
-                for (int i = 0; i < nodeData.nodeValues.Length; i++)
-                {
-                    this.nodeData.nodeValues[i] = nodeData.nodeValues[i];
-                }
-            }
-
+            
             // Public Toggle
-            isPublic = new EngineUI.Toggle
+            isPublic = new Toggle
             {
                 text = "public",
                 value = (bool) GetValue(ValueIndices.isPublic)
             };
-            isPublic.OnValueChanged(e => { SetNewValue(e.newValue, ValueIndices.isPublic); });
+#if UNITY_2019_3_OR_NEWER
+            isPublic.RegisterValueChangedCallback(
+#else
+            isPublic.OnValueChanged(
+#endif
+                e => { SetNewValue(e.newValue, ValueIndices.isPublic); });
             Add(isPublic);
 
             // Is Synced Field
-            isSynced = new EngineUI.Toggle
+            isSynced = new Toggle
             {
                 text = "synced",
                 value = (bool) GetValue(ValueIndices.isSynced),
             };
 
-            isSynced.OnValueChanged(e =>
-            {
-                SetNewValue(e.newValue, ValueIndices.isSynced);
-                syncField.visible = e.newValue;
-            });
+#if UNITY_2019_3_OR_NEWER
+            isSynced.RegisterValueChangedCallback(
+#else
+            isSynced.OnValueChanged(
+#endif
+                e =>
+                {
+                    SetNewValue(e.newValue, ValueIndices.isSynced);
+                    syncField.visible = e.newValue;
+                });
             Add(isSynced);
 
             // Sync Field, add to isSynced
@@ -91,15 +98,19 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             {
                 visible = isSynced.value
             };
-            syncField.OnValueChanged(e => { SetNewValue(e.newValue, ValueIndices.syncType); });
+#if UNITY_2019_3_OR_NEWER
+            syncField.RegisterValueChangedCallback(
+#else
+            syncField.OnValueChanged(
+#endif
+                e => { SetNewValue(e.newValue, ValueIndices.syncType); });
             isSynced.Add(syncField);
 
             // Container to show/edit Default Value
             var friendlyName = UdonGraphExtensions.FriendlyTypeName(definition.type).FriendlyNameify();
-            defaultValueContainer = new EngineUI.VisualElement
-            {
-                new EngineUI.Label("default value") {name = "default-value-label"}
-            };
+            defaultValueContainer = new VisualElement();
+            defaultValueContainer.Add(
+                new Label("default value") {name = "default-value-label"});
 
             // Generate Default Value Field
             var value = TryGetValueObject(out object result);
@@ -148,29 +159,31 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         private void SetNewValue(object newValue, ValueIndices index)
         {
             nodeData.nodeValues[(int) index] = SerializableObjectContainer.Serialize(newValue);
-            graph.ReSerializeData();
-            graph.SaveGraphToDisk();
         }
 
         // Convenience wrapper for field types that don't need special initialization
-        private EngineUI.VisualElement SetupField<TField, TType>()
-            where TField : EngineUI.VisualElement, EngineUI.INotifyValueChanged<TType>, new()
+        private VisualElement SetupField<TField, TType>()
+            where TField : VisualElement, INotifyValueChanged<TType>, new()
         {
             var field = new TField();
             return SetupField<TField, TType>(field);
         }
 
         // Works for any TextValueField types, needs to know fieldType and object type
-        private EngineUI.VisualElement SetupField<TField, TType>(TField field)
-            where TField : EngineUI.VisualElement, EngineUI.INotifyValueChanged<TType>
+        private VisualElement SetupField<TField, TType>(TField field)
+            where TField : VisualElement, INotifyValueChanged<TType>
         {
             field.AddToClassList("portField");
             if (TryGetValueObject(out object result))
             {
                 field.value = (TType) result;
             }
-
-            field.OnValueChanged((e) => SetNewValue(e.newValue, ValueIndices.value));
+#if UNITY_2019_3_OR_NEWER
+            field.RegisterValueChangedCallback(
+#else
+			field.OnValueChanged(
+#endif
+                (e) => SetNewValue(e.newValue, ValueIndices.value));
             _inputField = field;
             return _inputField;
         }

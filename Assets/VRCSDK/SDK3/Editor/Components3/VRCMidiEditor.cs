@@ -2,7 +2,7 @@
 using UnityEngine;
 using VRC.SDK3.Midi;
 using VRC.SDKBase.Midi;
-
+#if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_ANDROID
 namespace VRC.SDK3.Editor
 {
     [CustomEditor(typeof(VRCMidiListener))]
@@ -22,3 +22,4 @@ namespace VRC.SDK3.Editor
 #endif
     }
 }
+#endif

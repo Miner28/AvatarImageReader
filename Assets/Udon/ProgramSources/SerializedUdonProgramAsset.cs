@@ -26,6 +26,8 @@ namespace VRC.Udon.ProgramSources
 
         public override void StoreProgram(IUdonProgram udonProgram)
         {
+            if (this == null) return;
+            
             byte[] serializedProgramBytes = SerializationUtility.SerializeValue(udonProgram, DEFAULT_SERIALIZATION_DATA_FORMAT, out programUnityEngineObjects);
             serializedProgramBytesString = Convert.ToBase64String(serializedProgramBytes);
             serializationDataFormat = DEFAULT_SERIALIZATION_DATA_FORMAT;

@@ -1,11 +1,15 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
-using System.Collections.Generic;
-using VRC.Udon.Graph.Interfaces;
-using System.Linq;
+#endif
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
 using VRC.Udon.Graph;
+using VRC.Udon.Graph.Interfaces;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
@@ -23,7 +27,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         private HashSet<string> _hiddenRegistries = new HashSet<string>()
         {
-            "Utilities",
         };
 
         public void Initialize(UdonGraphWindow editorWindow, UdonGraph graphView, UdonSearchManager manager)
@@ -36,7 +39,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         override public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
         {
-            if (_registryCache != null && _registryCache.Count > 0) return _registryCache;
+            if (!skipCache && (_registryCache != null && _registryCache.Count > 0)) return _registryCache;
 
             _registryCache = new List<SearchTreeEntry>();
 
@@ -130,29 +133,17 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             return _registryCache;
         }
 
-        override public bool OnSelectEntry(SearchTreeEntry entry, SearchWindowContext context)
+        public override bool OnSelectEntry(SearchTreeEntry entry, SearchWindowContext context)
         {
-            // should check for adding duplicate event nodes here, look at Legacy.UdonGraph.TryCreateNodeInstance
-            // Assuming that if we've made it to this point we're allowed to add the node
-
             // checking type so we can support selecting registries as well
             if (entry.userData is INodeRegistry)
             {
                 _searchManager.QueueOpenFocusedSearch(entry.userData as INodeRegistry, context.screenMousePosition);
                 return true;
             }
-            else if (entry.userData is UdonNodeDefinition && !_graphView.IsDuplicateEventNode((entry.userData as UdonNodeDefinition).fullName))
+            else if (entry.userData is UdonNodeDefinition definition && !_graphView.IsDuplicateEventNode(definition.fullName))
             {
-                UdonNode node = UdonNode.CreateNode(entry.userData as UdonNodeDefinition, _graphView);
-
-                _graphView.AddElement(node);
-
-                node.SetPosition(new Rect(GetGraphPositionFromContext(context), Vector2.zero));
-                node.Select(_graphView, false);
-
-                // Do we need to do this to reserialize, etc?
-                _graphView.ReSerializeData();
-
+                _graphView.AddNodeFromSearch(definition, GetGraphPositionFromContext(context));
                 return true;
             }
             else

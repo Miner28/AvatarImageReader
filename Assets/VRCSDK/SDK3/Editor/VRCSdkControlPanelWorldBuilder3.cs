@@ -45,6 +45,27 @@ namespace VRC.SDK3.Editor
             Debug.Log("SelectAllComponents");
         }
         
+        protected override void OnGUISceneCheck(VRC.SDKBase.VRC_SceneDescriptor scene)
+        {
+            base.OnGUISceneCheck(scene);
+            
+            var resyncNotEnabled = Object.FindObjectsOfType<VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer>().Where(vp => !vp.EnableAutomaticResync).ToArray();
+            if (resyncNotEnabled.Length > 0)
+            {
+                _builder.OnGUIWarning(null,
+                "Video Players do not have automatic resync enabled; audio may become desynchronized from video during low performance.", 
+                () =>
+                {
+                    Selection.objects = resyncNotEnabled.Select(s => s.gameObject).Cast<Object>().ToArray();
+                },
+                () =>
+                {
+                    foreach (var vp in resyncNotEnabled)
+                        vp.EnableAutomaticResync = true;
+                });
+            }
+        } 
+
         #endregion
 
         public override void OnGUIScene()

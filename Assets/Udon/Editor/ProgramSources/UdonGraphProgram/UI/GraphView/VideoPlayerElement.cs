@@ -1,16 +1,21 @@
-﻿using System.Collections.Generic;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine;
-using UnityEditor.Experimental.UIElements;
-using UnityEngine.Video;
+﻿
+using System.Collections.Generic;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+#else
+using UnityEngine.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements;
+#endif
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
-    public class VideoPlayerElement : VisualContainer
+    public class VideoPlayerElement : VisualElement
     {
-
         private VideoPlayer _player;
         private Scene _tempScene;
         private Toolbar _toolbar;
@@ -20,7 +25,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         public VideoPlayerElement()
         {
             // Constructing Items
-            _header = new TextElement() { 
+            _header = new TextElement()
+            {
                 text = "Using Focused Search",
                 name = "header",
             };
@@ -32,13 +38,9 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 scaleMode = ScaleMode.ScaleToFit,
             };
 
-            _toolbar = new Toolbar
-            {
-                // Add buttons by hand in order to set callbacks
-                new ToolbarButton(Play) { text = "Play", name = "button-play" },
-
-                new ToolbarButton(Pause) { text = "Pause", name = "button-pause" }
-            };
+            _toolbar = new Toolbar();
+            _toolbar.Add(new ToolbarButton(Play) {text = "Play", name = "button-play"});
+            _toolbar.Add(new ToolbarButton(Pause) {text = "Pause", name = "button-pause"});
 
             // Adding Items
             Add(_header);
@@ -101,10 +103,11 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         public void ShowFrame()
         {
             var player = GetCurrentPlayer();
-            if(player == null || string.IsNullOrEmpty(player.url))
+            if (player == null || string.IsNullOrEmpty(player.url))
             {
                 return;
             }
+
             player.frameReady += PauseOnNextFrame;
             player.Play();
         }
@@ -138,6 +141,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 var root = new GameObject("VideoPlayer");
                 EditorSceneManager.MoveGameObjectToScene(root, _tempScene);
             }
+
             return _tempScene;
         }
 
@@ -159,15 +163,23 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                     _player.Prepare();
                 }
             }
+
             return _player;
         }
 
 
-        public new class UxmlFactory : UxmlFactory<VideoPlayerElement, UxmlTraits> { }
-
-        public new class UxmlTraits : UnityEngine.Experimental.UIElements.UxmlTraits
+        public new class UxmlFactory : UxmlFactory<VideoPlayerElement, UxmlTraits>
         {
-            UxmlStringAttributeDescription m_Url = new UxmlStringAttributeDescription { name = "url-attr", defaultValue = "" };
+        }
+
+#if UNITY_2019_3_OR_NEWER
+        public new class UxmlTraits : UnityEngine.UIElements.UxmlTraits
+#else
+        public new class UxmlTraits : UnityEngine.Experimental.UIElements.UxmlTraits
+#endif
+        {
+            UxmlStringAttributeDescription m_Url = new UxmlStringAttributeDescription
+                {name = "url-attr", defaultValue = ""};
 
             public override IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription { get; }
 
@@ -184,6 +196,5 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         }
 
         public string urlAttr { get; set; }
-
     }
 }

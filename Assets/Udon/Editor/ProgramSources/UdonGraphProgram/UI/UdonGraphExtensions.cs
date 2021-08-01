@@ -1,16 +1,19 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Globalization;
-using Microsoft.CSharp;
 using System.CodeDom;
-using UnityEngine;
-using System.Security.Cryptography;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
+using Microsoft.CSharp;
+using UnityEngine;
+using VRC.Udon.Compiler.Compilers;
 using VRC.Udon.Graph;
 using VRC.Udon.Graph.Interfaces;
-using System.Text.RegularExpressions;
+using CompressionLevel = System.IO.Compression.CompressionLevel;
+using Object = UnityEngine.Object;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
 {
@@ -31,10 +34,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
             using (MemoryStream output = new MemoryStream())
             {
                 using (DeflateStream gzip =
-                    new DeflateStream(output, System.IO.Compression.CompressionLevel.Optimal)) //, CompressionMode.Compress
+                    new DeflateStream(output, CompressionLevel.Optimal)) //, CompressionMode.Compress
                 {
                     using (StreamWriter writer =
-                        new StreamWriter(gzip, System.Text.Encoding.UTF8))
+                        new StreamWriter(gzip, Encoding.UTF8))
                     {
                         writer.Write(str);
                     }
@@ -59,7 +62,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
                     new DeflateStream(inputStream, CompressionMode.Decompress))
                 {
                     using (StreamReader reader =
-                        new StreamReader(gzip, System.Text.Encoding.UTF8))
+                        new StreamReader(gzip, Encoding.UTF8))
                     {
                         return reader.ReadToEnd();
                     }
@@ -95,7 +98,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
                 return new Color(0.12f, 0.53f, 0.9f);
             }
 
-            if (typeof(UnityEngine.Object).IsAssignableFrom(type))
+            if (typeof(Object).IsAssignableFrom(type))
             {
                 return new Color(0.9f, 0.23f, 0.39f);
             }
@@ -111,8 +114,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
             }
 
             byte[] hashed = _md5Hasher.ComputeHash(type.ToString() == "T"
-                ? System.Text.Encoding.UTF8.GetBytes("T")
-                : System.Text.Encoding.UTF8.GetBytes(type.Name));
+                ? Encoding.UTF8.GetBytes("T")
+                : Encoding.UTF8.GetBytes(type.Name));
             int iValue = BitConverter.ToInt32(hashed, 0);
 
             //TODO: Make this provide more varied colors
@@ -137,6 +140,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
                 "Foreach",
                 "Get_Variable",
                 "Set_Variable",
+                "Set_ReturnValue",
                 "Event_Custom",
                 "Event_OnDataStorageAdded",
                 "Event_OnDataStorageChanged",
@@ -294,6 +298,11 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
 
         #endregion
 
+        public static string GetVariableChangeEventName(string variableName)
+        {
+            return UdonGraphCompiler.GetVariableChangeEventName(variableName);
+        }
+
         public static string FriendlyNameify(this string typeString)
         {
             if (typeString == null)
@@ -325,6 +334,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
             typeString = typeString.Replace("TMPro", "");
             typeString = typeString.Replace("VideoVideo", "Video");
             typeString = typeString.Replace("VRCUdonCommon", "");
+            typeString = typeString.Replace("Shuffle[]", "ShuffleArray");
             // ReSharper disable once StringLiteralTypo
             if (typeString.Replace("ector", "").Contains("ctor")) //Handle "Vector/vector"
             {
@@ -379,7 +389,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
                 return typeof(object);
             }
 
-            if (fullName.Contains("IUdonEventReceiver") && type == typeof(UnityEngine.Object))
+            if (fullName.Contains("IUdonEventReceiver") && type == typeof(Object))
             {
                 return typeof(UdonBehaviour);
             }
@@ -396,7 +406,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
 
             if (!t.IsPrimitive)
             {
-                if (t == typeof(UnityEngine.Object))
+                if (t == typeof(Object))
                 {
                     return "Unity Object";
                 }
@@ -484,7 +494,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
             return strOutput;
         }
 
-        public static string PrettyFullName(Graph.UdonNodeDefinition nodeDefinition, bool keepLong = false)
+        public static string PrettyFullName(UdonNodeDefinition nodeDefinition, bool keepLong = false)
         {
             string fullName = nodeDefinition.fullName;
             string result;
@@ -528,7 +538,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
             return result;
         }
 
-        public static string GetSimpleNameForRegistry(Graph.Interfaces.INodeRegistry registry)
+        public static string GetSimpleNameForRegistry(INodeRegistry registry)
         {
             string registryName = registry.ToString().Replace("NodeRegistry", "").FriendlyNameify();
             registryName = registryName.Substring(registryName.LastIndexOf(".") + 1);

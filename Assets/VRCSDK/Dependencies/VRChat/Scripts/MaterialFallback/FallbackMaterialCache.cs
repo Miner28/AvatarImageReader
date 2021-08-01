@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using VRC.Core;
 
 public class FallbackMaterialCache
 {
@@ -18,16 +16,6 @@ public class FallbackMaterialCache
         {
             Debug.LogError($"Attempted to add a duplicate fallback material '{fallbackMaterial.name}' for original material '{material.name}'.");
         }
-    }
-
-    public bool HasFallbackMaterial(Material material)
-    {
-        return _fallbackMaterialCache.ContainsKey(material);
-    }
-
-    public Material GetFallbackMaterial(Material material)
-    {
-        return _fallbackMaterialCache[material];
     }
 
     public bool TryGetFallbackMaterial(Material material, out Material fallbackMaterial)
@@ -46,7 +34,7 @@ public class FallbackMaterialCache
         Material[] cachedFallbackMaterials = _fallbackMaterialCache.Values.ToArray();
         for(int i = cachedFallbackMaterials.Length - 1; i >= 0; i--)
         {
-            UnityEngine.Object.Destroy(cachedFallbackMaterials[i]);
+            Object.Destroy(cachedFallbackMaterials[i]);
         }
 
         _fallbackMaterialCache.Clear();

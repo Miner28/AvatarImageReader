@@ -106,7 +106,10 @@ namespace VRC.Udon.Editor.ProgramSources
             RefreshProgramImpl();
 
             SerializedProgramAsset.StoreProgram(program);
-            EditorUtility.SetDirty(this);
+            if (this != null)
+            {
+                EditorUtility.SetDirty(this);
+            }
         }
 
         protected virtual void RefreshProgramImpl()

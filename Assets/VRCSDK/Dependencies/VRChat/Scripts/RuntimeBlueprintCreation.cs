@@ -65,7 +65,7 @@ namespace VRCSDK2
             if (!ApiCredentials.Load())
                 LoginErrorCallback("Not logged in");
             else
-                APIUser.FetchCurrentUser(
+                APIUser.InitialFetchCurrentUser(
                     delegate (ApiModelContainer<APIUser> c)
                     {
                         pipelineManager.user = c.Model as APIUser;

@@ -101,7 +101,7 @@ namespace VRCSDK2
             if (!ApiCredentials.Load())
                 onError("Not logged in");
             else
-                APIUser.FetchCurrentUser(
+                APIUser.InitialFetchCurrentUser(
                     delegate (ApiModelContainer<APIUser> c)
                     {
                         UserLoggedInCallback(c.Model as APIUser);
@@ -123,7 +123,7 @@ namespace VRCSDK2
 
             ApiWorld model = new ApiWorld();
             model.id = pipelineManager.blueprintId;
-            model.Fetch(null, null,
+            model.Fetch(null,
                 (c) =>
                 {
                     VRC.Core.Logger.Log("<color=magenta>Updating an existing world.</color>", DebugLevel.All);

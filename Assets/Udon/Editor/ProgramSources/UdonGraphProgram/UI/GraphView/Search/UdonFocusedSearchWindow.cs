@@ -1,9 +1,13 @@
+#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEditor.Experimental.UIElements.GraphView;
-using System.Collections.Generic;
-using VRC.Udon.Graph.Interfaces;
 using VRC.Udon.Graph;
+using VRC.Udon.Graph.Interfaces;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
@@ -16,7 +20,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         #region ISearchWindowProvider
 
-        override public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
+        public override List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
         {
 
             _fullRegistry = new List<SearchTreeEntry>();
@@ -32,22 +36,11 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             return _fullRegistry;
         }
 
-        override public bool OnSelectEntry(SearchTreeEntry entry, SearchWindowContext context)
+        public override bool OnSelectEntry(SearchTreeEntry entry, SearchWindowContext context)
         {
-            // should check for adding duplicate event nodes here, look at Legacy.UdonGraph.TryCreateNodeInstance
-            // Assuming that if we've made it to this point we're allowed to add the node
-
-            UdonNode node;
-            // checking type so we can support selecting registries as well
-            if (entry.userData is UdonNodeDefinition && !_graphView.IsDuplicateEventNode((entry.userData as UdonNodeDefinition).fullName))
+            if (entry.userData is UdonNodeDefinition definition && !_graphView.IsDuplicateEventNode(definition.fullName))
             {
-                node = UdonNode.CreateNode(entry.userData as UdonNodeDefinition, _graphView);
-                _graphView.AddElement(node);
-                node.SetPosition(new Rect(GetGraphPositionFromContext(context), Vector2.zero));
-                node.Select(_graphView, false);
-
-                // Do we need to do this to reserialize, etc?
-                _graphView.ReSerializeData();
+                _graphView.AddNodeFromSearch(definition, GetGraphPositionFromContext(context));
                 return true;
             }
             else

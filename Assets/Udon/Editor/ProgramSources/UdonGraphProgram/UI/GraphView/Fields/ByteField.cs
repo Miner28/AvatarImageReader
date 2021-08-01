@@ -1,52 +1,35 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+#else
 using UnityEngine.Experimental.UIElements;
+#endif
+using System;
+using UnityEngine;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
 {
-    public class ByteField : TextInputFieldBase<byte>
+    public class ByteField : BaseField<byte>
     {
-        public ByteField()
-            : base(3, char.MinValue)
+#if UNITY_2019_3_OR_NEWER
+        public ByteField():base(null,null)
+#else
+        public ByteField():base()
+#endif
         {
-            this.AddToClassList("UdonValueField");
-            this.isDelayed = true;
-        }
-
-        public override byte value
-        {
-            get
-            {
-                return base.value;
-            }
-            set
-            {
-                base.value = value;
-                this.text = value.ToString();
-            }
-        }
-
-        protected override void ExecuteDefaultAction(EventBase evt)
-        {
-            base.ExecuteDefaultAction(evt);
+            // Set up styling
+            AddToClassList("UdonValueField");
             
-            if (this.text.Length > 0)
-            {
-                try
-                {
-                    
-                    var byteValue = Convert.ToByte(this.text);
-                    this.value = byteValue;
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError(e.Message);
-                }
-            }
-            
-        }
+            // Create Char Editor and listen for changes
+            TextField field = new TextField();
+#if UNITY_2019_3_OR_NEWER
+            field.RegisterValueChangedCallback(
+#else
+            field.OnValueChanged(
+#endif
+                e =>
+                    value = Convert.ToByte(e.newValue));
 
+            Add(field);
+        }
     }
 }

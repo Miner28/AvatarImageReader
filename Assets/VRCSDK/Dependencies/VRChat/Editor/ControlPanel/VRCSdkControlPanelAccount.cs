@@ -13,7 +13,7 @@ public partial class VRCSdkControlPanel : EditorWindow
 
     public static bool FutureProofPublishEnabled { get { return UnityEditor.EditorPrefs.GetBool("futureProofPublish", DefaultFutureProofPublishEnabled); } }
     //public static bool DefaultFutureProofPublishEnabled { get { return !SDKClientUtilities.IsInternalSDK(); } }
-    public static bool DefaultFutureProofPublishEnabled { get { return true; } }
+    public static bool DefaultFutureProofPublishEnabled { get { return false; } }
 
     static string storedUsername
     {
@@ -85,8 +85,8 @@ public partial class VRCSdkControlPanel : EditorWindow
         if (isInitialized)
             return;
 
-        if (!APIUser.IsLoggedInWithCredentials && ApiCredentials.Load())
-            APIUser.FetchCurrentUser((c) => AnalyticsSDK.LoggedInUserChanged(c.Model as APIUser), null);
+        if (!APIUser.IsLoggedIn && ApiCredentials.Load())
+            APIUser.InitialFetchCurrentUser((c) => AnalyticsSDK.LoggedInUserChanged(c.Model as APIUser), null);
 
         clientInstallPath = SDKClientUtilities.GetSavedVRCInstallPath();
         if (string.IsNullOrEmpty(clientInstallPath))
@@ -106,14 +106,14 @@ public partial class VRCSdkControlPanel : EditorWindow
 
         EditorGUILayout.BeginVertical();
 
-        if (APIUser.IsLoggedInWithCredentials)
+        if (APIUser.IsLoggedIn)
         {
             OnCreatorStatusGUI();
         }
 
         EditorGUILayout.EndVertical();
 
-        return APIUser.IsLoggedInWithCredentials;
+        return APIUser.IsLoggedIn;
     }
 
     static bool OnAccountGUI()
@@ -134,7 +134,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         {
             EditorGUILayout.LabelField("Signing in as " + username + ".");
         }
-        else if (APIUser.IsLoggedInWithCredentials)
+        else if (APIUser.IsLoggedIn)
         {
             if (Status != "Connected")
                 EditorGUILayout.LabelField(Status);
@@ -171,7 +171,7 @@ public partial class VRCSdkControlPanel : EditorWindow
             if (GUILayout.Button("Sign In"))
                 SignIn(true);
             if (GUILayout.Button("Sign up"))
-                Application.OpenURL("http://vrchat.com/register");
+                Application.OpenURL("https://vrchat.com/register");
         }
 
         if (showTwoFactorAuthenticationEntry)
@@ -454,7 +454,7 @@ public partial class VRCSdkControlPanel : EditorWindow
     {
         get
         {
-            if (!APIUser.IsLoggedInWithCredentials)
+            if (!APIUser.IsLoggedIn)
                 return error == null ? "Please log in." : "Error in authenticating: " + error;
             if (signingIn)
                 return "Logging in.";
@@ -522,7 +522,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         lock (syncObject)
         {
             if (signingIn
-                || APIUser.IsLoggedInWithCredentials
+                || APIUser.IsLoggedIn
                 || (!explicitAttempt && string.IsNullOrEmpty(storedUsername)))
                 return;
 

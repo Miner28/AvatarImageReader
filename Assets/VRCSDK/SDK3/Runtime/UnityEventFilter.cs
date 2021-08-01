@@ -24,7 +24,7 @@ using UnityEngine.SceneManagement;
 
 namespace VRC.Core
 {
-    public class UnityEventFilter
+    public static class UnityEventFilter
     {
         // These types are will always be prohibited even if they are derived from an allowed type. 
         private static readonly HashSet<Type> _prohibitedUIEventTargetTypes = new HashSet<Type>
@@ -227,7 +227,7 @@ namespace VRC.Core
             foreach(KeyValuePair<Type, List<UIBehaviour>> uiBehavioursOfTypeKvp in uiBehavioursByType)
             {
                 Type uiBehaviourType = uiBehavioursOfTypeKvp.Key;
-                FieldInfo[] fieldInfos = uiBehaviourType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+                FieldInfo[] fieldInfos = uiBehaviourType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
                 List<FieldInfo> unityEventFieldInfos = new List<FieldInfo>();
                 foreach(FieldInfo fieldInfo in fieldInfos)
                 {

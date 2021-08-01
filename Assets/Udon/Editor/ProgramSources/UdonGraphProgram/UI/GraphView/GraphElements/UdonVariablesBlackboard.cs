@@ -1,7 +1,13 @@
-﻿using System;
-using UnityEditor.Experimental.UIElements.GraphView;
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEngine.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+using System.Collections.Generic;
+using UnityEngine;
+using VRC.Udon.Graph;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
@@ -9,6 +15,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
     {
         private CustomData _customData = new CustomData();
         private UdonGraph _graph;
+        private Dictionary<string, BlackboardRow> _idToRow;
 
         public UdonVariablesBlackboard(UdonGraph graph)
         {
@@ -35,32 +42,67 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             }
 
             SetPosition(_customData.layout);
+
+            _idToRow = new Dictionary<string, BlackboardRow>();
         }
 
+        public new void Clear()
+        {
+            _idToRow.Clear();
+            base.Clear();
+        }
+
+        public void AddFromData(UdonNodeData nodeData)
+        {
+            // don't add internal variables, which start with __
+            // Todo: handle all "__" variables instead, need to tell community first and let the word spread
+            string newVariableName = (string)nodeData.nodeValues[(int)UdonParameterProperty.ValueIndices.name].Deserialize();
+            if (newVariableName.StartsWithCached("__returnValue"))
+            {
+                return;
+            }
+            
+            UdonNodeDefinition definition = UdonEditorManager.Instance.GetNodeDefinition(nodeData.fullName);
+            if (definition != null)
+            {
+                BlackboardRow row = new BlackboardRow(new UdonParameterField(_graph, nodeData),
+                    new UdonParameterProperty(_graph, definition, nodeData));
+                contentContainer.Add(row);
+                _idToRow.Add(nodeData.uid, row);
+            }
+            this.Reload();
+        }
+
+        public void RemoveByID(string id)
+        {
+            if (_idToRow.TryGetValue(id, out BlackboardRow row))
+            {
+                Remove(row);
+                _idToRow.Remove(id);
+            }
+        }
+        
         public void SetVisible(bool value)
         {
             visible = value;
             _customData.visible = value;
-            SaveNewData();
+            SaveData();
         }
 
         public override void UpdatePresenterPosition()
         {
             _customData.layout = GetPosition();
-            SaveNewData();
+            SaveData();
         }
 
-        private void SaveNewData()
+        private void SaveData()
         {
-            if (!_graph.IsReloading)
-            {
-                _graph.SaveNewData();
-            }
+            _graph.SaveGraphElementData(this);
         }
 
         public UdonGraphElementData GetData()
         {
-            return new UdonGraphElementData(UdonGraphElementType.VariablesWindow, persistenceKey, JsonUtility.ToJson(_customData));
+            return new UdonGraphElementData(UdonGraphElementType.VariablesWindow, this.GetUid(), JsonUtility.ToJson(_customData));
         }
 
         public class CustomData {
@@ -70,6 +112,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         internal void LoadData(UdonGraphElementData data)
         {
+            _idToRow = new Dictionary<string, BlackboardRow>();
             JsonUtility.FromJsonOverwrite(data.jsonData, _customData);
             SetPosition(_customData.layout);
             this.visible = _customData.visible;

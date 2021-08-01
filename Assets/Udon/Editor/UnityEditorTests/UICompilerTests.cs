@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
-using UINew = VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView;
+using VRC.Udon.Editor;
 using VRC.Udon.Editor.ProgramSources.UdonGraphProgram;
 using VRC.Udon.Graph;
-using VRC.Udon.Editor;
+using UINew = VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView;
 
 namespace Tests
 {
@@ -24,14 +25,14 @@ namespace Tests
                 // Compile assembly from copy of existing asset
                 string path = AssetDatabase.GUIDToAssetPath(guid);
                 var legacyData = GetDataFromAssetAtPath(path);
-                var legacyAssembly = UdonEditorManager.Instance.CompileGraph(legacyData, null, out Dictionary<string, (string uid, string fullName, int index)> _, out Dictionary<string, (object value, System.Type type)> heapDefaultValues);
+                var legacyAssembly = UdonEditorManager.Instance.CompileGraph(legacyData, null, out Dictionary<string, (string uid, string fullName, int index)> _, out Dictionary<string, (object value, Type type)> heapDefaultValues);
 
                 // Compile assembly from copy of asset loaded into new graph
                 var newAsset = ScriptableObject.CreateInstance<UdonGraphProgramAsset>();
                 newAsset.graphData = new UdonGraphData(legacyData);
                 // This function loads the asset and reserializes it
                 var newData = graphViewWindow.GetGraphDataFromAsset(newAsset);
-                var newAssembly = UdonEditorManager.Instance.CompileGraph(newData, null, out Dictionary<string, (string uid, string fullName, int index)> _, out Dictionary<string, (object value, System.Type type)> heapDefaultValues1);
+                var newAssembly = UdonEditorManager.Instance.CompileGraph(newData, null, out Dictionary<string, (string uid, string fullName, int index)> _, out Dictionary<string, (object value, Type type)> heapDefaultValues1);
 
                 Assert.AreEqual(newAssembly, legacyAssembly);
             }

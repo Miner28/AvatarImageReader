@@ -1,14 +1,19 @@
-using System;
-
-using UnityEngine;
+#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements.StyleSheets;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Experimental.UIElements.StyleSheets;
+#endif
+using System;
 using UnityEditor;
+using UnityEngine;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
-
     public class UdonComment : UdonGraphElement, IUdonGraphElementDataProvider
     {
         private VisualElement _mainContainer;
@@ -18,7 +23,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         private UdonGraph _graph;
         public UdonGroup group;
 
-        // Called from Context menu
+        // Called from Context menu and Reload
         public static UdonComment Create(string value, Rect position, UdonGraph graph)
         {
             var comment = new UdonComment("", graph);
@@ -52,7 +57,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             name = "comment";
             _graph = graph;
 
-            capabilities |= Capabilities.Selectable | Capabilities.Movable | Capabilities.Deletable | Capabilities.Resizable;
+            capabilities |= Capabilities.Selectable | Capabilities.Movable | Capabilities.Deletable |
+                            Capabilities.Resizable;
             pickingMode = PickingMode.Ignore;
 
             type = UdonGraphElementType.UdonComment;
@@ -75,17 +81,27 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             _textField.isDelayed = true;
             // Support IME
             _textField.RegisterCallback<FocusInEvent>(evt =>{ Input.imeCompositionMode = IMECompositionMode.On;});
-            _textField.RegisterCallback<FocusOutEvent>(evt => {
+            _textField.RegisterCallback<FocusOutEvent>(evt =>
+            {
                 SetText(_textField.text);
                 Input.imeCompositionMode = IMECompositionMode.Auto;
                 SwitchToEditMode(false);
             });
 
+#if UNITY_2019_3_OR_NEWER
+            _textField.RegisterValueChangedCallback((evt) =>
+#else
             _textField.OnValueChanged((evt) =>
+#endif
             {
                 SetText(evt.newValue);
                 SwitchToEditMode(false);
             });
+        }
+        
+        private void SaveNewData()
+        {
+            _graph.SaveGraphElementData(this);
         }
 
         private void UpdateFromData()
@@ -97,16 +113,22 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 {
                     _customData.uid = Guid.NewGuid().ToString();
                 }
+
                 uid = _customData.uid;
 
                 SetPosition(_customData.layout);
                 SetText(_customData.title);
             }
         }
-
+#if UNITY_2019_3_OR_NEWER
+        protected override void OnCustomStyleResolved(ICustomStyle style)
+        {
+            base.OnCustomStyleResolved(style);
+#else
         protected override void OnStyleResolved(ICustomStyle style)
         {
             base.OnStyleResolved(style);
+#endif
             // Something is forcing style! Resetting a few things here, grrr.
 
             this.style.borderBottomWidth = 1;
@@ -129,7 +151,11 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         {
             base.UpdatePresenterPosition();
             _customData.layout = GraphElementExtension.GetSnappedRect(GetPosition());
-            this.SaveNewData();
+            SaveNewData();
+            if (group != null)
+            {
+                group.SaveNewData();
+            }
         }
 
         private double lastClickTime;
@@ -137,11 +163,12 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         private void OnLabelClick(MouseDownEvent evt)
         {
-            var newTime = UnityEditor.EditorApplication.timeSinceStartup;
+            var newTime = EditorApplication.timeSinceStartup;
             if(newTime - lastClickTime < doubleClickSpeed)
             {
                 SwitchToEditMode(true);
             }
+
             lastClickTime = newTime;
         }
 
@@ -161,6 +188,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 _mainContainer.Remove(_textField);
                 _mainContainer.Add(_label);
             }
+
             MarkDirtyRepaint();
         }
 
@@ -170,15 +198,14 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             value = value.TrimEnd();
             _customData.title = value;
             _label.text = value;
-            if (!_graph.IsReloading)
-            {
-                _graph.SaveNewData();
-            }
+            SaveNewData();
+            MarkDirtyRepaint();
         }
         
         public UdonGraphElementData GetData()
         {
-            return new UdonGraphElementData(UdonGraphElementType.UdonComment, uid, EditorJsonUtility.ToJson(_customData));
+            return new UdonGraphElementData(UdonGraphElementType.UdonComment, uid,
+                EditorJsonUtility.ToJson(_customData));
         }
 
         public class CustomData
@@ -189,6 +216,5 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             public int layer;
             public Color elementTypeColor;
         }
-        
     }
 }

@@ -1,7 +1,11 @@
-﻿using System;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+using System;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using VRC.Udon.Graph.Interfaces;
 
@@ -84,9 +88,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             SearchWindow.Open(new SearchWindowContext(screenMousePosition, 360, 360), _variableSearchWindow);
         }
 
-        public void OpenPortSearch(Type type, Vector2 screenMousePosition, Port port, Direction direction)
+        public void OpenPortSearch(Type type, Vector2 screenMousePosition, UdonPort port, Direction direction)
         {
             // offset search window to appear next to mouse
+            screenMousePosition = _portSearchWindow._editorWindow.position.position + screenMousePosition;
             screenMousePosition.x += 140;
             screenMousePosition.y += 0;
             _portSearchWindow.typeToSearch = type;

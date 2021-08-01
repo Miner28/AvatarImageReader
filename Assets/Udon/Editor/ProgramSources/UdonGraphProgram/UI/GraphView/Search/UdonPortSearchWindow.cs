@@ -1,9 +1,13 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using UnityEditor;
+using UnityEngine;
 using VRC.Udon.Graph;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
@@ -17,7 +21,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         #region ISearchWindowProvider
 
         public Type typeToSearch;
-        public Port startingPort;
+        public UdonPort startingPort;
         public Direction direction;
 
         public class VariableInfo
@@ -90,46 +94,22 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             return _fullRegistry;
         }
 
-        override public bool OnSelectEntry(SearchTreeEntry entry, SearchWindowContext context)
+        public override bool OnSelectEntry(SearchTreeEntry entry, SearchWindowContext context)
         {
-            UdonNode node;
+            var position = GetGraphPositionFromContext(context) - new Vector2(140, 0);
             // checking type so we can support selecting registries as well
-            if (entry.userData is UdonNodeDefinition && !_graphView.IsDuplicateEventNode((entry.userData as UdonNodeDefinition).fullName))
+            if (entry.userData is UdonNodeDefinition definition && !_graphView.IsDuplicateEventNode(definition.fullName))
             {
-                node = UdonNode.CreateNode(entry.userData as UdonNodeDefinition, _graphView);
-                _graphView.AddElement(node);
-                var position = GetGraphPositionFromContext(context);
-                position.x -= 140; // this offset is added for the search window, remove it for the node
-                node.SetPosition(new Rect(position, Vector2.zero));
-                node.Select(_graphView, false);
-                var collection = direction == Direction.Input ? node.portsIn : node.portsOut;
-                var port = collection.FirstOrDefault(p => p.Value.portType == typeToSearch).Value;
-                if(port != null)
-                {
-                    var e = startingPort.ConnectTo(port);
-                    _graphView.AddElement(e);
-                }
-
-                // Do we need to do this to reserialize, etc?
-                _graphView.ReSerializeData();
+                var node = _graphView.AddNodeFromSearch(definition, position);
+                _graphView.ConnectNodeTo(node, startingPort, direction, typeToSearch);
                 return true;
             }
-            else if(entry.userData is VariableInfo)
+            else if(entry.userData is VariableInfo data)
             {
-                var data = entry.userData as VariableInfo;
-                var position = GetGraphPositionFromContext(context);
-                position.x -= 140; // this offset is added for the search window, remove it for the node
-
-                UdonNode udonNode = _graphView.MakeVariableNode(data.uid, position, data.isGetter);
-                _graphView.AddElement(udonNode);
-                var collection = direction == Direction.Input ? udonNode.portsIn : udonNode.portsOut;
-                var port = collection.First().Value;
-                if (port != null)
-                {
-                    var e = startingPort.ConnectTo(port);
-                    _graphView.AddElement(e);
-                }
-                _graphView.ReSerializeData();
+                UdonNode node = _graphView.MakeVariableNode(data.uid, position, data.isGetter ? GraphView.UdonGraph.VariableNodeType.Getter : GraphView.UdonGraph.VariableNodeType.Setter );
+                _graphView.AddElement(node);
+                _graphView.ConnectNodeTo(node, startingPort, direction, typeToSearch);
+                _graphView.RefreshVariables(true);
                 return true;
             }
             else

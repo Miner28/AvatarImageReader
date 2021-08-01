@@ -191,7 +191,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
 
-        if (APIUser.IsLoggedInWithCredentials == false && showPanel != 3)
+        if (APIUser.IsLoggedIn == false && showPanel != 3)
             showPanel = 0;
 
         switch (showPanel)

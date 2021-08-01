@@ -1,11 +1,22 @@
+﻿#if UNITY_2019_3_OR_NEWER
+using EditorUI = UnityEditor.UIElements;
+using UnityEngine.UIElements;
+using UnityEditor.Experimental.GraphView;
+using MenuAction = UnityEngine.UIElements.DropdownMenuAction;
+#else
 using EditorUI = UnityEditor.Experimental.UIElements;
-
-using VRC.Udon.Graph;
 using UnityEngine.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements.GraphView;
+using MenuAction = UnityEngine.Experimental.UIElements.DropdownMenu.MenuAction;
+#endif
+using UnityEditor;
+using UnityEngine;
+using VRC.Udon.Graph;
+using VRC.Udon.Serialization;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
-    public class UdonParameterField : EditorUI.GraphView.BlackboardField
+    public class UdonParameterField : BlackboardField
     {
         private UdonGraph udonGraph;
         private UdonNodeData nodeData;
@@ -20,11 +31,11 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             UdonNodeDefinition definition = UdonEditorManager.Instance.GetNodeDefinition(nodeData.fullName);
             if (definition == null)
             {
-                UnityEngine.Debug.LogWarning($"Couldn't create Parameter Field for {nodeData.fullName}");
+                Debug.LogWarning($"Couldn't create Parameter Field for {nodeData.fullName}");
                 return;
             }
 
-            this.text = (string)nodeData.nodeValues[(int)UdonParameterProperty.ValueIndices.name].Deserialize();
+            this.text = (string) nodeData.nodeValues[(int) UdonParameterProperty.ValueIndices.name].Deserialize();
             this.typeText = UdonGraphExtensions.PrettyString(definition.name).FriendlyNameify();
 
             this.AddManipulator(new ContextualMenuManipulator(BuildContextualMenu));
@@ -32,18 +43,16 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             this.Q("icon").AddToClassList("parameter-" + definition.type);
             this.Q("icon").visible = true;
 
-            var textField = (TextField)this.Q("textField");
+            var textField = (TextField) this.Q("textField");
             textField.isDelayed = true;
         }
 
         void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
-            evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenu.MenuAction.AlwaysEnabled);
-            evt.menu.AppendAction("Delete", (a) => udonGraph.RemoveNodeData(nodeData), DropdownMenu.MenuAction.AlwaysEnabled);
+            evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), MenuAction.AlwaysEnabled);
+            evt.menu.AppendAction("Delete", (a) => udonGraph.RemoveNodeAndData(nodeData), MenuAction.AlwaysEnabled);
 
             evt.StopPropagation();
         }
-
-	}
-
+    }
 }

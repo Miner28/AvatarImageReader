@@ -1,11 +1,13 @@
-﻿using System;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
-    public class UdonMinimap : MiniMap
+    public class UdonMinimap : MiniMap, IUdonGraphElementDataProvider
     {
         private CustomData _customData = new CustomData();
         private UdonGraph _graph;
@@ -21,30 +23,22 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             SetPosition(_customData.layout);
         }
 
-        private void SaveNewData()
-        {
-            if (!_graph.IsReloading)
-            {
-                _graph.SaveNewData();
-            }
-        }
-
         public void SetVisible(bool value)
         {
             visible = value;
             _customData.visible = value;
-            SaveNewData();
+            _graph.SaveGraphElementData(this);
         }
 
         public override void UpdatePresenterPosition()
         {
             _customData.layout = GetPosition();
-            SaveNewData();
+            _graph.SaveGraphElementData(this);
         }
 
         public UdonGraphElementData GetData()
         {
-            return new UdonGraphElementData(UdonGraphElementType.Minimap, persistenceKey, JsonUtility.ToJson(_customData));
+            return new UdonGraphElementData(UdonGraphElementType.Minimap, this.GetUid(), JsonUtility.ToJson(_customData));
         }
 
         internal void LoadData(UdonGraphElementData data)

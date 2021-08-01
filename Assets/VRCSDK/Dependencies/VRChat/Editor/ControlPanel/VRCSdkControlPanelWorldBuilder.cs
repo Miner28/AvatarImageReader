@@ -433,13 +433,23 @@ namespace VRC.SDKBase.Editor
             }
 
 #if VRC_SDK_VRCSDK2
-        foreach (VRC_DataStorage ds in Object.FindObjectsOfType<VRC_DataStorage>())
-        {
-            VRCSDK2.VRC_ObjectSync os = ds.GetComponent<VRCSDK2.VRC_ObjectSync>();
-            if (os != null && os.SynchronizePhysics)
-                _builder.OnGUIWarning(scene, ds.name + " has a VRC_DataStorage and VRC_ObjectSync, with SynchronizePhysics enabled.",
-                    delegate { Selection.activeObject = os.gameObject; }, null);
-        }
+            foreach (VRC_DataStorage ds in Object.FindObjectsOfType<VRC_DataStorage>())
+            {
+                VRCSDK2.VRC_ObjectSync os = ds.GetComponent<VRCSDK2.VRC_ObjectSync>();
+                if (os != null && os.SynchronizePhysics)
+                    _builder.OnGUIWarning(scene, ds.name + " has a VRC_DataStorage and VRC_ObjectSync, with SynchronizePhysics enabled.",
+                        delegate { Selection.activeObject = os.gameObject; }, null);
+            }
+#elif VRC_SDK_VRCSDK3
+            foreach (VRC.SDK3.Components.VRCObjectSync os in Object.FindObjectsOfType<VRC.SDK3.Components.VRCObjectSync>())
+            {
+                if (os.GetComponents<VRC.Udon.UdonBehaviour>().Any((ub) => ub.Reliable))
+                    _builder.OnGUIError(scene, "Object Sync cannot share an object with a manually synchronized Udon Behaviour",
+                        delegate { Selection.activeObject = os.gameObject; }, null);
+                if (os.GetComponent<VRC.SDK3.Components.VRCObjectPool>() != null)
+                    _builder.OnGUIError(scene, "Object Sync cannot share an object with an object pool",
+                        delegate { Selection.activeObject = os.gameObject; }, null);
+            }
 #endif
 
             string vrcFilePath = UnityWebRequest.UnEscapeURL(EditorPrefs.GetString("lastVRCPath"));
@@ -599,7 +609,7 @@ namespace VRC.SDKBase.Editor
                     if (scene.apiWorld == null)
                     {
                         Core.ApiWorld world = Core.API.FromCacheOrNew<Core.ApiWorld>(pms[0].blueprintId);
-                        world.Fetch(null, null,
+                        world.Fetch(null,
                             (c) => scene.apiWorld = c.Model as Core.ApiWorld,
                             (c) =>
                             {

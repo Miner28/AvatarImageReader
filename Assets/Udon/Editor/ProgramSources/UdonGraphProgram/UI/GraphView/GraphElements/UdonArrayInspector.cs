@@ -1,20 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+#else
 using UnityEngine.Experimental.UIElements;
 using UnityEditor.Experimental.UIElements;
+#endif
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
     public class UdonArrayInspector<T> : VisualElement, IArrayProvider
     {
         private ScrollView _scroller;
-        private VisualContainer _container;
         private List<VisualElement> _fields = new List<VisualElement>();
         private IntegerField _sizeField;
-        private System.Action<object> _setValueCallback;
+        private Action<object> _setValueCallback;
 
-        public UdonArrayInspector(System.Action<object> valueChangedAction, object value)
+        public UdonArrayInspector(Action<object> valueChangedAction, object value)
         {
             _setValueCallback = valueChangedAction;
             
@@ -27,7 +32,11 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
             _sizeField = new IntegerField();
             _sizeField.isDelayed = true;
+            #if UNITY_2019_3_OR_NEWER
+            _sizeField.RegisterValueChangedCallback((evt) =>
+            #else
             _sizeField.OnValueChanged((evt) =>
+            #endif
             {
                 ResizeTo(evt.newValue);
             });
@@ -39,9 +48,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 name = "array-scroll",
             };
             Add(_scroller);
-
-            _container = new VisualContainer();
-            _scroller.SetContents(_container);
 
             if (value == null)
             {
@@ -65,7 +71,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                     var field = GetValueField(item);
                     _fields.Add(field);
 
-                    _container.Add(field);
+                    _scroller.contentContainer.Add(field);
                 }
 
                 _sizeField.value = values.Count();
@@ -86,7 +92,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 {
                     var field = GetValueField(null);
                     _fields.Add(field);
-                    _container.Add(field as VisualElement);
+                    _scroller.contentContainer.Add(field as VisualElement);
                 }
                 return;
             }
@@ -117,7 +123,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                     }
                     _fields.Add(field);
 
-                    _container.Add(field as VisualElement);
+                    _scroller.contentContainer.Add(field as VisualElement);
                 }
                 MarkDirtyRepaint();
                 return;

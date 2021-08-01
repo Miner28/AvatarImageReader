@@ -1,9 +1,15 @@
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
+#if UNITY_2019_3_OR_NEWER
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
+using UnityEngine.UIElements.StyleSheets;
+#else
 using UnityEditor.Experimental.UIElements;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Experimental.UIElements.StyleEnums;
+#endif
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
 using VRC.SDKBase.Midi;
 
 namespace VRC.SDK3.Midi
@@ -15,7 +21,7 @@ namespace VRC.SDK3.Midi
         private TextField _deviceNameField;
 
         public const string DEVICE_NAME_STRING = "VRC.SDK3.Midi.Device";
-
+#if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN) && !UNITY_ANDROID
         [MenuItem("VRChat SDK/Utilities/Midi")]
         private static void ShowWindow()
         {
@@ -28,10 +34,15 @@ namespace VRC.SDK3.Midi
 
         private void OnEnable()
         {
+#if UNITY_2019_3_OR_NEWER
+            _rootView = rootVisualElement;
+#else
             _rootView = this.GetRootVisualContainer();
+#endif
             _rootView.Add(new Label("Midi Settings")
             {
-                style = {
+                style =
+                {
                     fontSize = 18,
                     marginTop = 10,
                     marginBottom = 10,
@@ -39,7 +50,7 @@ namespace VRC.SDK3.Midi
             });
 
             // Container for Device Name label and field
-            VisualContainer deviceNameContainer = new VisualContainer() { style = {flexDirection = FlexDirection.Row} };
+            VisualElement deviceNameContainer = new VisualElement() {style = {flexDirection = FlexDirection.Row}};
             _rootView.Add(deviceNameContainer);
             
             // Label for Field
@@ -52,8 +63,12 @@ namespace VRC.SDK3.Midi
                 value = EditorPrefs.GetString(DEVICE_NAME_STRING),
                 style = { flexGrow = 1 },
             };
-            _deviceNameField.OnValueChanged(evt => EditorPrefs.SetString(DEVICE_NAME_STRING, evt.newValue));
-            //deviceNameContainer.Add(_deviceNameField);
+#if UNITY_2019_3_OR_NEWER
+            _deviceNameField.RegisterValueChangedCallback(
+#else
+             _deviceNameField.OnValueChanged(
+#endif
+                evt => EditorPrefs.SetString(DEVICE_NAME_STRING, evt.newValue));
 
             // Get available device names
             VRCPortMidiInput midi = new VRCPortMidiInput();
@@ -70,9 +85,15 @@ namespace VRC.SDK3.Midi
                 style = {flexGrow = 1},
                 name = "midiDevicePopUp",
             };
-            deviceNamePopupField.OnValueChanged(evt => EditorPrefs.SetString(DEVICE_NAME_STRING, evt.newValue));
+#if UNITY_2019_3_OR_NEWER
+            deviceNamePopupField.RegisterValueChangedCallback(
+#else
+             deviceNamePopupField.OnValueChanged(
+#endif
+                evt => EditorPrefs.SetString(DEVICE_NAME_STRING, evt.newValue));
             deviceNameContainer.Add(deviceNamePopupField);
         }
+#endif
     }
 #endif
 }

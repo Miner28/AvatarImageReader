@@ -1,28 +1,25 @@
-﻿using System;
-
-using UnityEngine;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+using System;
+using UnityEngine;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
     public class UdonGraphElement : GraphElement
     {
-        // Upgrade note - persistenceKey turns into viewDataKey in Unity 2019, this getter will make that transition easier
+#if UNITY_2019_3_OR_NEWER
+        public string uid { get => viewDataKey; set => viewDataKey = value; }
+#else
         public string uid { get => persistenceKey; set => persistenceKey = value; }
+#endif
         internal UdonGraphElementType type = UdonGraphElementType.GraphElement;
 
         internal UdonGraphElement()
         {
-
         }
-
-        // save this update to the asset
-        public override void UpdatePresenterPosition()
-        {
-            base.UpdatePresenterPosition();
-            this.Reserialize();
-        }
-
     }
 
     public interface IUdonGraphElementDataProvider

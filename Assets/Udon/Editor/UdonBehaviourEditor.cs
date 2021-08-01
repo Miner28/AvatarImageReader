@@ -33,37 +33,42 @@ namespace VRC.Udon.Editor
             UdonEditorManager.Instance.WantRepaint -= Repaint;
         }
 
+        enum SyncTypes
+        {
+            Continuous,
+            Manual
+        }
+
         public override void OnInspectorGUI()
         {
             UdonBehaviour udonTarget = (UdonBehaviour)target;
 
-            using(new EditorGUI.DisabledScope(Application.isPlaying))
+            using (new EditorGUI.DisabledScope(Application.isPlaying))
             {
-                EditorGUILayout.LabelField("Specialized Synchronization Behaviour");
+                bool dirty = false;
 
-                //if(udonTarget.GetComponent<Animator>() != null || udonTarget.GetComponent<Animation>() != null)
-                //    udonTarget.SynchronizeAnimation = EditorGUILayout.Toggle("Synchronize Animation", udonTarget.SynchronizeAnimation);
-                //else
-                //    udonTarget.SynchronizeAnimation = EditorGUILayout.Toggle("Synchronize Animation", false);
-                using(new EditorGUI.DisabledScope(true))
+                EditorGUILayout.BeginVertical(new GUIStyle(EditorStyles.helpBox));
                 {
-                    EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.Toggle("Synchronize Animation", false);
-                    EditorGUILayout.LabelField("Coming Soon!");
-                    EditorGUILayout.EndHorizontal();
-                }
+                    SyncTypes selected = (SyncTypes)EditorGUILayout.EnumPopup("Sync Method", udonTarget.Reliable ? SyncTypes.Manual : SyncTypes.Continuous);
+                    
+                    bool shouldBeReliable = selected == SyncTypes.Manual;
+                    if (udonTarget.Reliable != shouldBeReliable)
+                    {
+                        udonTarget.Reliable = shouldBeReliable;
+                        dirty = true;
+                    }
 
-                udonTarget.SynchronizePosition = EditorGUILayout.Toggle("Synchronize Position", udonTarget.SynchronizePosition);
-                if(udonTarget.GetComponent<Collider>() != null)
-                    udonTarget.AllowCollisionOwnershipTransfer = EditorGUILayout.Toggle("Allow Ownership Transfer on Collision", udonTarget.AllowCollisionOwnershipTransfer);
-                else
-                    udonTarget.AllowCollisionOwnershipTransfer = EditorGUILayout.Toggle("Allow Ownership Transfer on Collision", false);
+                    if (udonTarget.Reliable)
+                        EditorGUILayout.LabelField("Manual replication is intended for infrequently-updated variables of small or large size, and will not be tweened.", EditorStyles.wordWrappedMiniLabel);
+                    else
+                        EditorGUILayout.LabelField("Continuous replication is intended for frequently-updated variable of small size, and will be tweened.", EditorStyles.wordWrappedMiniLabel);
+                }
+                EditorGUILayout.EndVertical();
 
                 EditorGUILayout.Space();
 
                 EditorGUILayout.LabelField("Udon");
 
-                bool dirty = false;
                 EditorGUILayout.BeginHorizontal();
                 EditorGUI.BeginChangeCheck();
                 _programSourceProperty.objectReferenceValue = EditorGUILayout.ObjectField(
@@ -73,28 +78,28 @@ namespace VRC.Udon.Editor
                     false
                 );
 
-                if(EditorGUI.EndChangeCheck())
+                if (EditorGUI.EndChangeCheck())
                 {
                     dirty = true;
                     serializedObject.ApplyModifiedProperties();
                 }
 
-                if(_programSourceProperty.objectReferenceValue == null)
+                if (_programSourceProperty.objectReferenceValue == null)
                 {
-                    if(_serializedProgramAssetProperty.objectReferenceValue != null)
+                    if (_serializedProgramAssetProperty.objectReferenceValue != null)
                     {
                         _serializedProgramAssetProperty.objectReferenceValue = null;
                         serializedObject.ApplyModifiedPropertiesWithoutUndo();
                     }
 
                     List<(string displayName, Type newProgramType)> programSourceTypesForNewMenu = GetProgramSourceTypesForNewMenu();
-                    if(GUILayout.Button("New Program"))
+                    if (GUILayout.Button("New Program"))
                     {
                         (string displayName, Type newProgramType) = programSourceTypesForNewMenu.ElementAt(_newProgramType);
 
                         string udonBehaviourName = udonTarget.name;
                         Scene scene = udonTarget.gameObject.scene;
-                        if(string.IsNullOrEmpty(scene.path))
+                        if (string.IsNullOrEmpty(scene.path))
                         {
                             Debug.LogError("You need to save the scene before you can create new Udon program assets!");
                         }
@@ -119,7 +124,7 @@ namespace VRC.Udon.Editor
                         GUILayout.ExpandWidth(false)
                     );
 
-                    if(EditorGUI.EndChangeCheck())
+                    if (EditorGUI.EndChangeCheck())
                     {
                         EditorPrefs.SetInt(VRC_UDON_NEW_PROGRAM_TYPE_PREF_KEY, _newProgramType);
                     }
@@ -128,7 +133,7 @@ namespace VRC.Udon.Editor
                 {
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.BeginHorizontal();
-                    using(new EditorGUI.DisabledScope(true))
+                    using (new EditorGUI.DisabledScope(true))
                     {
                         EditorGUI.indentLevel++;
                         EditorGUILayout.ObjectField(
@@ -143,7 +148,7 @@ namespace VRC.Udon.Editor
 
                     AbstractUdonProgramSource programSource = (AbstractUdonProgramSource)_programSourceProperty.objectReferenceValue;
                     AbstractSerializedUdonProgramAsset serializedUdonProgramAsset = programSource.SerializedProgramAsset;
-                    if(_serializedProgramAssetProperty.objectReferenceValue != serializedUdonProgramAsset)
+                    if (_serializedProgramAssetProperty.objectReferenceValue != serializedUdonProgramAsset)
                     {
                         _serializedProgramAssetProperty.objectReferenceValue = serializedUdonProgramAsset;
                         serializedObject.ApplyModifiedPropertiesWithoutUndo();
@@ -153,7 +158,7 @@ namespace VRC.Udon.Editor
                 EditorGUILayout.EndHorizontal();
 
                 udonTarget.RunEditorUpdate(ref dirty);
-                if(dirty && !Application.isPlaying)
+                if (dirty && !Application.isPlaying)
                 {
                     EditorSceneManager.MarkSceneDirty(udonTarget.gameObject.scene);
                 }
@@ -167,7 +172,7 @@ namespace VRC.Udon.Editor
             string folderName = $"{scene.name}_UdonProgramSources";
             string folderPath = Path.Combine(scenePath, folderName);
 
-            if(!AssetDatabase.IsValidFolder(folderPath))
+            if (!AssetDatabase.IsValidFolder(folderPath))
             {
                 AssetDatabase.CreateFolder(scenePath, folderName);
             }
@@ -188,7 +193,7 @@ namespace VRC.Udon.Editor
             Type attributeNewMenuAttributeType = typeof(UdonProgramSourceNewMenuAttribute);
 
             List<(string displayName, Type newProgramType)> programSourceTypesForNewMenu = new List<(string displayName, Type newProgramType)>();
-            foreach(var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 UdonProgramSourceNewMenuAttribute[] udonProgramSourceNewMenuAttributes;
                 try
@@ -200,14 +205,14 @@ namespace VRC.Udon.Editor
                     udonProgramSourceNewMenuAttributes = new UdonProgramSourceNewMenuAttribute[0];
                 }
 
-                foreach(UdonProgramSourceNewMenuAttribute udonProgramSourceNewMenuAttribute in udonProgramSourceNewMenuAttributes)
+                foreach (UdonProgramSourceNewMenuAttribute udonProgramSourceNewMenuAttribute in udonProgramSourceNewMenuAttributes)
                 {
-                    if(udonProgramSourceNewMenuAttribute == null)
+                    if (udonProgramSourceNewMenuAttribute == null)
                     {
                         continue;
                     }
 
-                    if(!abstractProgramSourceType.IsAssignableFrom(udonProgramSourceNewMenuAttribute.Type))
+                    if (!abstractProgramSourceType.IsAssignableFrom(udonProgramSourceNewMenuAttribute.Type))
                     {
                         continue;
                     }

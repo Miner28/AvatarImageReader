@@ -1,4 +1,8 @@
-﻿using UnityEngine.Experimental.UIElements;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+#else
+using UnityEngine.Experimental.UIElements;
+#endif
 using System;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
@@ -7,12 +11,12 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
     {
         private IArrayProvider _inspector;
         private Button _editArrayButton;
-        private System.Action<object> _setValueCallback;
+        private Action<object> _setValueCallback;
         private Type _type;
         private object _value;
         private bool _inspectorOpen = false;
 
-        public UdonArrayEditor(Type t, System.Action<object> valueChangedAction, object value)
+        public UdonArrayEditor(Type t, Action<object> valueChangedAction, object value)
         {
             _setValueCallback = valueChangedAction;
             _value = value;
