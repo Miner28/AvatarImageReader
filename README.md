@@ -18,7 +18,7 @@ Special Thanks: @Merlin for making UdonSharp making any of this possible
 
 ## Documentation
 ### Encoding images
-The python script `gen.py` can be edited to encode any string by changing the last line (this currently contains the example string). It will generate an image file `img.png` which can then be uploaded as an avatar pedestal image to VRChat, for example with VRCX.
+The python script `gen.py` can be edited to encode any string by changing the last line (this currently contains the example string). It will generate an image file `img.png` which can then be uploaded as an avatar pedestal image to VRChat, for example with VRCX, or the following python script: https://gitlab.com/-/snippets/2183182.
 
 ### Decoding images at runtime
 The prefab Decoder contains everything required to decode data from a pedestal. The example pedestal that should be linked by default contains a simple test string `ABCDEFGHIJKLMNOPQRSTUVWXYZ`. The image source for this can be found inside `Python Encoder`. Replace the avatar id to load text from your own avatar source. The ReadRenderTexture udonbehaviour on RenderCamera can be setup to call a callback event on another udonbehaviour when reading completes. The public string `currentOutputString` will then contain the decoded string data.
