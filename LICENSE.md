@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Miner28
+Copyright (c) 2021 Miner28, GlitchyDev, BocuD
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
