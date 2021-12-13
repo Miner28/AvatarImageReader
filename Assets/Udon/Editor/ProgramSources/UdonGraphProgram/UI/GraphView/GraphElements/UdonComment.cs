@@ -79,6 +79,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
             _textField = new TextField(1000, true, false, '*');
             _textField.isDelayed = true;
+            
             // Support IME
             _textField.RegisterCallback<FocusInEvent>(evt =>{ Input.imeCompositionMode = IMECompositionMode.On;});
             _textField.RegisterCallback<FocusOutEvent>(evt =>
@@ -132,7 +133,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             // Something is forcing style! Resetting a few things here, grrr.
 
             this.style.borderBottomWidth = 1;
-
+            
             var resizer = this.Q(null, "resizer");
             if(resizer != null)
             {
@@ -177,11 +178,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             if (switchingToEdit)
             {
                 _mainContainer.Remove(_label);
-
                 _textField.value = _label.text;
                 _mainContainer.Add(_textField);
+                _textField.delegatesFocus = true;
                 _textField.Focus();
-                _textField.SelectAll();
             }
             else
             {

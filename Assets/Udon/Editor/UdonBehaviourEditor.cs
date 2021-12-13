@@ -33,12 +33,6 @@ namespace VRC.Udon.Editor
             UdonEditorManager.Instance.WantRepaint -= Repaint;
         }
 
-        enum SyncTypes
-        {
-            Continuous,
-            Manual
-        }
-
         public override void OnInspectorGUI()
         {
             UdonBehaviour udonTarget = (UdonBehaviour)target;
@@ -49,19 +43,30 @@ namespace VRC.Udon.Editor
 
                 EditorGUILayout.BeginVertical(new GUIStyle(EditorStyles.helpBox));
                 {
-                    SyncTypes selected = (SyncTypes)EditorGUILayout.EnumPopup("Sync Method", udonTarget.Reliable ? SyncTypes.Manual : SyncTypes.Continuous);
-                    
-                    bool shouldBeReliable = selected == SyncTypes.Manual;
-                    if (udonTarget.Reliable != shouldBeReliable)
+                    // We skip the first option, Unknown, as it's reserved for older scenes.
+                    VRC.SDKBase.Networking.SyncType method = (VRC.SDKBase.Networking.SyncType)(1 + EditorGUILayout.Popup("Synchronization", (int)udonTarget.SyncMethod - 1, Enum.GetNames(typeof(VRC.SDKBase.Networking.SyncType)).Skip(1).ToArray()));
+
+                    if (method != udonTarget.SyncMethod)
                     {
-                        udonTarget.Reliable = shouldBeReliable;
+                        udonTarget.SyncMethod = method;
                         dirty = true;
                     }
 
-                    if (udonTarget.Reliable)
-                        EditorGUILayout.LabelField("Manual replication is intended for infrequently-updated variables of small or large size, and will not be tweened.", EditorStyles.wordWrappedMiniLabel);
-                    else
-                        EditorGUILayout.LabelField("Continuous replication is intended for frequently-updated variable of small size, and will be tweened.", EditorStyles.wordWrappedMiniLabel);
+                    switch (method)
+                    {
+                        case VRC.SDKBase.Networking.SyncType.None:
+                            EditorGUILayout.LabelField("Replication will be disabled.", EditorStyles.wordWrappedLabel);
+                            break;
+                        case VRC.SDKBase.Networking.SyncType.Continuous:
+                            EditorGUILayout.LabelField("Continuous replication is intended for frequently-updated variables of small size, and will be tweened. Ideal for physics objects and objects that must be in sync with players.", EditorStyles.wordWrappedLabel);
+                            break;
+                        case VRC.SDKBase.Networking.SyncType.Manual:
+                            EditorGUILayout.LabelField("Manual replication is intended for infrequently-updated variables of small or large size, and will not be tweened. Ideal for infrequently modified abstract data.", EditorStyles.wordWrappedLabel);
+                            break;
+                        default:
+                            EditorGUILayout.LabelField("What have you done?!", EditorStyles.wordWrappedLabel);
+                            break;
+                    }
                 }
                 EditorGUILayout.EndVertical();
 
@@ -80,18 +85,17 @@ namespace VRC.Udon.Editor
 
                 if (EditorGUI.EndChangeCheck())
                 {
+                    if (_programSourceProperty.objectReferenceValue == null)
+                    {
+                        _serializedProgramAssetProperty.objectReferenceValue = null;
+                    }
+
                     dirty = true;
                     serializedObject.ApplyModifiedProperties();
                 }
 
                 if (_programSourceProperty.objectReferenceValue == null)
                 {
-                    if (_serializedProgramAssetProperty.objectReferenceValue != null)
-                    {
-                        _serializedProgramAssetProperty.objectReferenceValue = null;
-                        serializedObject.ApplyModifiedPropertiesWithoutUndo();
-                    }
-
                     List<(string displayName, Type newProgramType)> programSourceTypesForNewMenu = GetProgramSourceTypesForNewMenu();
                     if (GUILayout.Button("New Program"))
                     {

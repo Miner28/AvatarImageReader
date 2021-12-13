@@ -16,7 +16,13 @@ namespace VRC.Udon.Editor
                 return;
             
             // Function never run for this project - compile and link all prefab programs
-            UdonEditorManager.PopulateAllPrefabSerializedProgramAssetReferences();
+            foreach(string importedAsset in importedAssets)
+            {
+                UdonEditorManager.PopulateAssetDependenciesPrefabSerializedProgramAssetReferences(importedAsset);
+            }
+
+            UdonEditorManager.RecompileAllProgramSources();
+
             EditorPrefs.SetBool(key, true);
         }
     }

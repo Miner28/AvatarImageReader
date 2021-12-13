@@ -1,10 +1,7 @@
 ﻿#define COMMUNITY_LABS_SDK
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
 
 namespace VRCSDK2
 {
@@ -56,7 +53,11 @@ namespace VRCSDK2
         {
             titleContent = new GUIContent("VRChat SDK");
 
+#if UDON
+            maxSize = new Vector2(400, 360);
+#else
             maxSize = new Vector2(400, 600);
+#endif
             minSize = maxSize;
 
             vrcSdkHeader = new GUIStyle
@@ -104,14 +105,14 @@ namespace VRCSDK2
                 vrcHeaderLearnMoreButton.normal.background = texture;
                 vrcHeaderLearnMoreButton.active.background = texture;
 #if UDON
-            if (GUI.Button(new Rect(20, 160, 185, 25), "Get Started with Udon", vrcHeaderLearnMoreButton))
-                    Application.OpenURL("https://ask.vrchat.com/t/getting-started-with-udon/80");
+            if (GUI.Button(new Rect(20, 165, 185, 25), "Get Started with Udon", vrcHeaderLearnMoreButton))
+                    Application.OpenURL("https://docs.vrchat.com/docs/getting-started-with-udon");
 #elif COMMUNITY_LABS_SDK
             if (GUI.Button(new Rect(20, 140, 180, 40), "Please Read", vrcHeaderLearnMoreButton))
                     Application.OpenURL(CommunityLabsConstants.COMMUNITY_LABS_DOCUMENTATION_URL);
 #endif
 
-
+#if !UDON
             GUILayout.Space(4);
             GUILayout.BeginHorizontal();
             GUI.backgroundColor = Color.gray;
@@ -133,9 +134,18 @@ namespace VRCSDK2
             }
             GUI.backgroundColor = Color.white;
             GUILayout.EndHorizontal();
+#endif
             GUILayout.Space(4);
             GUILayout.BeginHorizontal();
+            
             GUI.backgroundColor = Color.gray;
+#if UDON
+
+            if(GUILayout.Button("Udon Examples"))
+            {
+                Application.OpenURL("https://docs.vrchat.com/docs/examples#udon--sdk3");
+            };
+#endif
             if (GUILayout.Button("Building VRChat Quest Content"))
             {
                 Application.OpenURL("https://docs.vrchat.com/docs/creating-content-for-the-oculus-quest");
@@ -143,11 +153,11 @@ namespace VRCSDK2
             GUI.backgroundColor = Color.white;
             GUILayout.EndHorizontal();
             GUILayout.Space(2);
-
+#if !UDON
             changeLogScroll = GUILayout.BeginScrollView(changeLogScroll, false, false, GUIStyle.none, GUI.skin.verticalScrollbar, GUILayout.Width(395));
 
             GUILayout.Label(
-    @"Changelog:
+                @"Changelog:
 2019.2.4-SDK1
 - Removed upload-preventing polygon limits for avatars in SDK.
 - This does not change behavior in the client. Although
@@ -217,7 +227,7 @@ we've moved the necessary shader into place
 the window and scales the contents appropriately"
             );
             GUILayout.EndScrollView();
-
+#endif
             GUILayout.Space(4);
 
             GUILayout.Box("", vrcSdkBottomHeader);
@@ -229,8 +239,8 @@ the window and scales the contents appropriately"
             vrcBottomHeaderLearnMoreButton.active.background = texture;
 
 #if UDON
-            if (GUI.Button(new Rect(110, 520, 200, 25), "More Info and Examples", vrcBottomHeaderLearnMoreButton))
-                Application.OpenURL("https://ask.vrchat.com/c/udon/5 ");
+            if (GUI.Button(new Rect(100, 270, 200, 60), "Join other Creators in our Discord", vrcBottomHeaderLearnMoreButton))
+                Application.OpenURL("https://discord.gg/vrchat");
 #else
             if (GUI.Button(new Rect(110, 525, 180, 42), "Click Here to see great\nassets for VRChat creation", vrcBottomHeaderLearnMoreButton))
                 Application.OpenURL("https://assetstore.unity.com/lists/vrchat-picks-125734?aid=1101l7yuQ");

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine.Rendering;
 using VRC.SDKBase.Validation.Performance.Stats;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// Setup up SDK env on editor launch
@@ -16,33 +17,34 @@ using VRC.SDKBase.Validation.Performance.Stats;
 [InitializeOnLoad]
 public class EnvConfig
 {
-    static BuildTarget[] relevantBuildTargets = new BuildTarget[] {
-        BuildTarget.Android, BuildTarget.iOS,
+    private static readonly BuildTarget[] relevantBuildTargets =
+    {
+        BuildTarget.Android,
+        BuildTarget.iOS,
         BuildTarget.StandaloneLinux64,
         BuildTarget.StandaloneWindows, BuildTarget.StandaloneWindows64,
         BuildTarget.StandaloneOSX
     };
 
-#if !VRC_CLIENT
-    static BuildTarget[] allowedBuildtargets = new BuildTarget[]
-    {
+    #if !VRC_CLIENT
+    private static readonly BuildTarget[] allowedBuildtargets = {
         BuildTarget.StandaloneWindows64,
         BuildTarget.Android
     };
-#endif
+    #endif
 
-    static System.Collections.Generic.Dictionary<BuildTarget, UnityEngine.Rendering.GraphicsDeviceType[]> allowedGraphicsAPIs = new System.Collections.Generic.Dictionary<BuildTarget, UnityEngine.Rendering.GraphicsDeviceType[]>()
+    private static readonly Dictionary<BuildTarget, GraphicsDeviceType[]> allowedGraphicsAPIs = new Dictionary<BuildTarget, GraphicsDeviceType[]>()
     {
-        { BuildTarget.Android, new [] { GraphicsDeviceType.OpenGLES3, /* GraphicsDeviceType.Vulkan */ }},
-        { BuildTarget.iOS, null },
-        { BuildTarget.StandaloneLinux64, null },
-        { BuildTarget.StandaloneWindows, new UnityEngine.Rendering.GraphicsDeviceType[] { UnityEngine.Rendering.GraphicsDeviceType.Direct3D11 } },
-        { BuildTarget.StandaloneWindows64, new UnityEngine.Rendering.GraphicsDeviceType[] { UnityEngine.Rendering.GraphicsDeviceType.Direct3D11 } },
-        { BuildTarget.StandaloneOSX, null }
+        {BuildTarget.Android, new[] {GraphicsDeviceType.OpenGLES3, /* GraphicsDeviceType.Vulkan */}},
+        {BuildTarget.iOS, null},
+        {BuildTarget.StandaloneLinux64, null},
+        {BuildTarget.StandaloneWindows, new[] {GraphicsDeviceType.Direct3D11}},
+        {BuildTarget.StandaloneWindows64, new[] {GraphicsDeviceType.Direct3D11}},
+        {BuildTarget.StandaloneOSX, null}
     };
 
-#if ENV_SET_INCLUDED_SHADERS && VRC_CLIENT
-    static string[] ensureTheseShadersAreAvailable = new string[]
+    #if ENV_SET_INCLUDED_SHADERS && VRC_CLIENT
+    private static readonly string[] ensureTheseShadersAreAvailable =
     {
         "Hidden/CubeBlend",
         "Hidden/CubeBlur",
@@ -91,6 +93,15 @@ public class EnvConfig
         "Legacy Shaders/Transparent/Specular",
         "Legacy Shaders/Transparent/VertexLit",
         "Legacy Shaders/VertexLit",
+        "Legacy Shaders/Particles/Additive",
+        "Legacy Shaders/Particles/~Additive-Multiply",
+        "Legacy Shaders/Particles/Additive (Soft)",
+        "Legacy Shaders/Particles/Alpha Blended",
+        "Legacy Shaders/Particles/Anim Alpha Blended",
+        "Legacy Shaders/Particles/Multiply",
+        "Legacy Shaders/Particles/Multiply (Double)",
+        "Legacy Shaders/Particles/Alpha Blended Premultiply",
+        "Legacy Shaders/Particles/VertexLit Blended",
         "Mobile/Particles/Additive",
         "Mobile/Particles/Alpha Blended",
         "Mobile/Particles/Multiply",
@@ -122,12 +133,6 @@ public class EnvConfig
         "Toon/Lit Outline",
         "VRChat/Mobile/Diffuse",
         "Video/RealtimeEmissiveGamma",
-        "VRChat/Mobile/Bumped Uniform Diffuse",
-        "VRChat/Mobile/Bumped Uniform Specular",
-        "VRChat/Mobile/Toon Lit",
-        "VRChat/Mobile/MatCap Lit",
-        "VRChat/Mobile/Skybox",
-        "VRChat/Mobile/Lightmapped",
         "VRChat/PC/Toon Lit",
         "VRChat/PC/Toon Lit (Double)",
         "VRChat/PC/Toon Lit Cutout",
@@ -137,8 +142,33 @@ public class EnvConfig
         "Unlit/Transparent Cutout",
         "Unlit/Texture",
         "MatCap/Vertex/Textured Lit",
+        "VRChat/Mobile/Bumped Uniform Diffuse",
+        "VRChat/Mobile/Bumped Uniform Specular",
+        "VRChat/Mobile/Toon Lit",
+        "VRChat/Mobile/MatCap Lit",
+        "VRChat/Mobile/Skybox",
+        "VRChat/Mobile/Lightmapped",
+        "VRChat/Mobile/Bumped Mapped Specular",
+        "VRChat/Mobile/Diffuse",
+        "VRChat/Mobile/Particles/Additive",
+        "VRChat/Mobile/Particles/Multiply",
+        "VRChat/Mobile/Standard Lite",
+        "TextMeshPro/Distance Field (Surface)",
+        "TextMeshPro/Mobile/Distance Field (No ZTest)",
+        "TextMeshPro/Distance Field Overlay",
+        "TextMeshPro/Sprite",
+        "TextMeshPro/Mobile/Distance Field - Masking",
+        "TextMeshPro/Mobile/Distance Field Overlay",
+        "TextMeshPro/Mobile/Distance Field (Surface)",
+        "TextMeshPro/Mobile/Distance Field",
+        "TextMeshPro/Distance Field",
+        "TextMeshPro/Bitmap Custom Atlas",
+        "VRChat/UI/TextMeshPro/Mobile/Distance Field",
+        "TextMeshPro/Mobile/Bitmap",
+        "TextMeshPro/Bitmap",
+        "TextMeshPro/Mobile/Distance Field - Masking (NoZTest)"
     };
-#endif
+    #endif
 
     private static bool _requestConfigureSettings = true;
 
@@ -147,14 +177,16 @@ public class EnvConfig
         EditorApplication.update += EditorUpdate;
     }
 
-    static void EditorUpdate()
+    private static void EditorUpdate()
     {
-        if (_requestConfigureSettings)
+        if(!_requestConfigureSettings)
         {
-            if (ConfigureSettings())
-            {
-                _requestConfigureSettings = false;
-            }
+            return;
+        }
+
+        if(ConfigureSettings())
+        {
+            _requestConfigureSettings = false;
         }
     }
 
@@ -164,7 +196,7 @@ public class EnvConfig
     }
 
     [UnityEditor.Callbacks.DidReloadScripts(int.MaxValue)]
-    static void DidReloadScripts()
+    private static void DidReloadScripts()
     {
         RequestConfigureSettings();
     }
@@ -173,84 +205,98 @@ public class EnvConfig
     {
         CheckForFirstInit();
 
-        if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isUpdating)
+        if(EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isUpdating)
+        {
             return false;
+        }
 
         ConfigurePlayerSettings();
 
-        if (!VRC.Core.ConfigManager.RemoteConfig.IsInitialized())
+        if(!VRC.Core.ConfigManager.RemoteConfig.IsInitialized())
         {
             VRC.Core.API.SetOnlineMode(true, "vrchat");
             VRC.Core.ConfigManager.RemoteConfig.Init();
         }
 
+        ConfigureAssets();
+        
         LoadEditorResources();
 
         return true;
     }
-
-    static void SetDLLPlatforms(string dllName, bool active)
+    
+    #if !VRC_CLIENT
+    private static void SetDLLPlatforms(string dllName, bool active)
     {
         string[] assetGuids = AssetDatabase.FindAssets(dllName);
 
-        foreach (string guid in assetGuids)
+        foreach(string guid in assetGuids)
         {
             string dllPath = AssetDatabase.GUIDToAssetPath(guid);
-            if (string.IsNullOrEmpty(dllPath) || dllPath.ToLower().EndsWith(".dll") == false)
+            if(string.IsNullOrEmpty(dllPath) || dllPath.ToLower().EndsWith(".dll") == false)
+            {
                 return;
+            }
 
             PluginImporter importer = AssetImporter.GetAtPath(dllPath) as PluginImporter;
+            if(importer == null)
+            {
+                return;
+            }
 
             bool allCorrect = true;
-            if (importer.GetCompatibleWithAnyPlatform() != active)
+            if(importer.GetCompatibleWithAnyPlatform() != active)
             {
                 allCorrect = false;
             }
             else
             {
-                if (importer.GetCompatibleWithAnyPlatform())
+                if(importer.GetCompatibleWithAnyPlatform())
                 {
-                    if (importer.GetExcludeEditorFromAnyPlatform() != !active ||
-                        importer.GetExcludeFromAnyPlatform(BuildTarget.StandaloneWindows) != !active)
+                    if(importer.GetExcludeEditorFromAnyPlatform() != !active ||
+                       importer.GetExcludeFromAnyPlatform(BuildTarget.StandaloneWindows) != !active)
                     {
                         allCorrect = false;
                     }
                 }
                 else
                 {
-                    if (importer.GetCompatibleWithEditor() != active ||
-                        importer.GetCompatibleWithPlatform(BuildTarget.StandaloneWindows) != active)
+                    if(importer.GetCompatibleWithEditor() != active ||
+                       importer.GetCompatibleWithPlatform(BuildTarget.StandaloneWindows) != active)
                     {
                         allCorrect = false;
                     }
-
                 }
             }
 
-            if (allCorrect == false)
+            if(allCorrect)
             {
-                if (active)
-                {
-                    importer.SetCompatibleWithAnyPlatform(true);
-                    importer.SetExcludeEditorFromAnyPlatform(false);
-                    importer.SetExcludeFromAnyPlatform(BuildTarget.Android, false);
-                    importer.SetExcludeFromAnyPlatform(BuildTarget.StandaloneWindows, false);
-                    importer.SetExcludeFromAnyPlatform(BuildTarget.StandaloneWindows64, false);
-                    importer.SetExcludeFromAnyPlatform(BuildTarget.StandaloneLinux64, false);
-                }
-                else
-                {
-                    importer.SetCompatibleWithAnyPlatform(false);
-                    importer.SetCompatibleWithEditor(false);
-                    importer.SetCompatibleWithPlatform(BuildTarget.Android, false);
-                    importer.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
-                    importer.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, false);
-                    importer.SetCompatibleWithPlatform(BuildTarget.StandaloneLinux64, false);
-                }
-                importer.SaveAndReimport();
+                continue;
             }
+
+            if(active)
+            {
+                importer.SetCompatibleWithAnyPlatform(true);
+                importer.SetExcludeEditorFromAnyPlatform(false);
+                importer.SetExcludeFromAnyPlatform(BuildTarget.Android, false);
+                importer.SetExcludeFromAnyPlatform(BuildTarget.StandaloneWindows, false);
+                importer.SetExcludeFromAnyPlatform(BuildTarget.StandaloneWindows64, false);
+                importer.SetExcludeFromAnyPlatform(BuildTarget.StandaloneLinux64, false);
+            }
+            else
+            {
+                importer.SetCompatibleWithAnyPlatform(false);
+                importer.SetCompatibleWithEditor(false);
+                importer.SetCompatibleWithPlatform(BuildTarget.Android, false);
+                importer.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
+                importer.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, false);
+                importer.SetCompatibleWithPlatform(BuildTarget.StandaloneLinux64, false);
+            }
+
+            importer.SaveAndReimport();
         }
     }
+    #endif
 
     [MenuItem("VRChat SDK/Utilities/Force Configure Player Settings")]
     public static void ConfigurePlayerSettings()
@@ -261,40 +307,45 @@ public class EnvConfig
 
         // Needed for Microsoft.CSharp namespace in DLLMaker
         // Doesn't seem to work though
-        if (PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup) != ApiCompatibilityLevel.NET_4_6)
+        if(PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup) != ApiCompatibilityLevel.NET_4_6)
+        {
             PlayerSettings.SetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup, ApiCompatibilityLevel.NET_4_6);
+        }
 
-        if (!PlayerSettings.runInBackground)
+        if(!PlayerSettings.runInBackground)
+        {
             PlayerSettings.runInBackground = true;
+        }
 
-#if !VRC_CLIENT
+        #if !VRC_CLIENT
         SetDLLPlatforms("VRCCore-Standalone", false);
         SetDLLPlatforms("VRCCore-Editor", true);
-#endif
+        #endif
 
         SetDefaultGraphicsAPIs();
         SetGraphicsSettings();
+        SetQualitySettings();
         SetAudioSettings();
         SetPlayerSettings();
 
-#if VRC_CLIENT
+        #if VRC_CLIENT
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
         PlatformSwitcher.RefreshRequiredPackages(EditorUserBuildSettings.selectedBuildTargetGroup);
-#else
+        #else
         // SDK
 
-		// default to steam runtime in sdk (shouldn't matter)
-		SetVRSDKs(EditorUserBuildSettings.selectedBuildTargetGroup, new string[] { "None", "OpenVR", "Oculus" });
+        // default to steam runtime in sdk (shouldn't matter)
+        SetVRSDKs(EditorUserBuildSettings.selectedBuildTargetGroup, new string[] { "None", "OpenVR", "Oculus" });
 
         VRC.Core.AnalyticsSDK.Initialize(VRC.Core.SDKClientUtilities.GetSDKVersionDate());
-#endif
+        #endif
 
         #if VRC_CLIENT
         // VRCLog should handle disk writing
         PlayerSettings.usePlayerLog = false;
-        foreach (LogType logType in Enum.GetValues(typeof(LogType)).Cast<LogType>())
+        foreach(LogType logType in Enum.GetValues(typeof(LogType)).Cast<LogType>())
         {
             switch(logType)
             {
@@ -308,7 +359,11 @@ public class EnvConfig
                 case LogType.Warning:
                 case LogType.Log:
                 {
+                    #if UNITY_EDITOR
+                    PlayerSettings.SetStackTraceLogType(logType, StackTraceLogType.ScriptOnly);
+                    #else
                     PlayerSettings.SetStackTraceLogType(logType, StackTraceLogType.None);
+                    #endif 
                     break;
                 }
                 default:
@@ -320,45 +375,50 @@ public class EnvConfig
         #endif
     }
 
-    static void EnableBatching(bool enable)
+    private static void EnableBatching(bool enable)
     {
         PlayerSettings[] playerSettings = Resources.FindObjectsOfTypeAll<PlayerSettings>();
-        if (playerSettings == null)
+        if(playerSettings == null)
+        {
             return;
+        }
 
-        SerializedObject playerSettingsSerializedObject = new SerializedObject(playerSettings);
+        SerializedObject playerSettingsSerializedObject = new SerializedObject(playerSettings.Cast<UnityEngine.Object>().ToArray());
         SerializedProperty batchingSettings = playerSettingsSerializedObject.FindProperty("m_BuildTargetBatching");
-        if (batchingSettings == null)
+        if(batchingSettings == null)
+        {
             return;
+        }
 
-        for (int i = 0; i < batchingSettings.arraySize; i++)
+        for(int i = 0; i < batchingSettings.arraySize; i++)
         {
             SerializedProperty batchingArrayValue = batchingSettings.GetArrayElementAtIndex(i);
-            if (batchingArrayValue == null)
-                continue;
 
-            IEnumerator batchingEnumerator = batchingArrayValue.GetEnumerator();
-            if (batchingEnumerator == null)
+            IEnumerator batchingEnumerator = batchingArrayValue?.GetEnumerator();
+            if(batchingEnumerator == null)
+            {
                 continue;
+            }
 
-            while (batchingEnumerator.MoveNext())
+            while(batchingEnumerator.MoveNext())
             {
                 SerializedProperty property = (SerializedProperty)batchingEnumerator.Current;
 
-                if (property != null && property.name == "m_BuildTarget")
+                if(property != null && property.name == "m_BuildTarget")
                 {
                     // only change setting on "Standalone" entry
-                    if (property.stringValue != "Standalone")
+                    if(property.stringValue != "Standalone")
+                    {
                         break;
+                    }
                 }
 
-
-                if (property != null && property.name == "m_StaticBatching")
+                if(property != null && property.name == "m_StaticBatching")
                 {
                     property.boolValue = enable;
                 }
 
-                if (property != null && property.name == "m_DynamicBatching")
+                if(property != null && property.name == "m_DynamicBatching")
                 {
                     property.boolValue = enable;
                 }
@@ -371,72 +431,263 @@ public class EnvConfig
     public static void SetVRSDKs(BuildTargetGroup buildTargetGroup, string[] sdkNames)
     {
         VRC.Core.Logger.Log("Setting virtual reality SDKs in PlayerSettings: ", VRC.Core.DebugLevel.All);
-        if (sdkNames != null)
+        if(sdkNames != null)
         {
-            foreach (string s in sdkNames)
+            foreach(string s in sdkNames)
+            {
                 VRC.Core.Logger.Log("- " + s, VRC.Core.DebugLevel.All);
+            }
         }
 
         if (!EditorApplication.isPlaying)
         {
+            #pragma warning disable 618
             PlayerSettings.SetVirtualRealitySDKs(buildTargetGroup, sdkNames);
+            #pragma warning restore 618
         }
     }
 
     public static bool CheckForFirstInit()
     {
-        bool firstLaunch = UnityEditor.SessionState.GetBool("EnvConfigFirstLaunch", true);
-        if (firstLaunch)
-            UnityEditor.SessionState.SetBool("EnvConfigFirstLaunch", false);
+        bool firstLaunch = SessionState.GetBool("EnvConfigFirstLaunch", true);
+        if(firstLaunch)
+        {
+            SessionState.SetBool("EnvConfigFirstLaunch", false);
+        }
 
         return firstLaunch;
     }
 
-    static void SetDefaultGraphicsAPIs()
+    private static void SetDefaultGraphicsAPIs()
     {
         VRC.Core.Logger.Log("Setting Graphics APIs", VRC.Core.DebugLevel.All);
-        foreach (BuildTarget target in relevantBuildTargets)
+        foreach(BuildTarget target in relevantBuildTargets)
         {
-            var apis = allowedGraphicsAPIs[target];
-            if (apis == null)
+            GraphicsDeviceType[] apis = allowedGraphicsAPIs[target];
+            if(apis == null)
+            {
                 SetGraphicsAPIs(target, true);
+            }
             else
+            {
                 SetGraphicsAPIs(target, false, apis);
+            }
         }
     }
 
-    static void SetGraphicsAPIs(BuildTarget platform, bool auto, UnityEngine.Rendering.GraphicsDeviceType[] allowedTypes = null)
+    private static void SetGraphicsAPIs(BuildTarget platform, bool auto, GraphicsDeviceType[] allowedTypes = null)
     {
         try
         {
-            if (auto != PlayerSettings.GetUseDefaultGraphicsAPIs(platform))
+            if(auto != PlayerSettings.GetUseDefaultGraphicsAPIs(platform))
+            {
                 PlayerSettings.SetUseDefaultGraphicsAPIs(platform, auto);
+            }
         }
-        catch { }
+        catch
+        {
+            // ignored
+        }
 
         try
         {
-            UnityEngine.Rendering.GraphicsDeviceType[] graphicsAPIs = PlayerSettings.GetGraphicsAPIs(platform);
-            if (((allowedTypes == null || allowedTypes.Length == 0) &&
-                 (graphicsAPIs != null || graphicsAPIs.Length != 0))
-                || !allowedTypes.SequenceEqual(graphicsAPIs))
+            if(allowedTypes == null || allowedTypes.Length == 0)
             {
-                if (allowedTypes == null)
-                {
-                    allowedTypes =  PlayerSettings.GetGraphicsAPIs(platform);
-                }
-                PlayerSettings.SetGraphicsAPIs(platform, allowedTypes);   
+                return;
             }
+
+            GraphicsDeviceType[] graphicsAPIs = PlayerSettings.GetGraphicsAPIs(platform);
+            if(graphicsAPIs == null || graphicsAPIs.Length == 0)
+            {
+                return;
+            }
+
+            if(allowedTypes.SequenceEqual(graphicsAPIs))
+            {
+                return;
+            }
+
+            PlayerSettings.SetGraphicsAPIs(platform, allowedTypes);
         }
-        catch { }
+        catch
+        {
+            // ignored
+        }
     }
 
-    static void SetGraphicsSettings()
+    private static void SetQualitySettings()
+    {
+        VRC.Core.Logger.Log("Setting Graphics Settings", VRC.Core.DebugLevel.All);
+        const string qualitySettingsAssetPath = "ProjectSettings/QualitySettings.asset";
+        SerializedObject qualitySettings = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath(qualitySettingsAssetPath)[0]);
+
+        SerializedProperty qualitySettingsPresets = qualitySettings.FindProperty("m_QualitySettings");
+            qualitySettingsPresets.arraySize = _graphicsPresets.Length;
+
+        bool changedProperty = false;
+        for(int index = 0; index < _graphicsPresets.Length; index++)
+        {
+            SerializedProperty currentQualityLevel = qualitySettingsPresets.GetArrayElementAtIndex(index);
+            Dictionary<string, object> graphicsPreset = _graphicsPresets[index];
+            foreach(KeyValuePair<string, object> setting in graphicsPreset)
+            {
+                SerializedProperty property = currentQualityLevel.FindPropertyRelative(setting.Key);
+                if(property == null)
+                {
+                    Debug.LogWarning($"Serialized property for quality setting '{setting.Key}' could not be found.");
+                    continue;
+                }
+
+                object settingValue = setting.Value;
+                #if !VRC_CLIENT
+                if(setting.Key == "name")
+                {
+                    settingValue = $"VRC {setting.Value}";
+                }
+                #endif
+
+                switch(settingValue)
+                {
+                    case null:
+                    {
+                        if(property.objectReferenceValue == setting.Value as Object)
+                        {
+                            continue;
+                        }
+
+                        property.objectReferenceValue = null;
+                        break;
+                    }
+                    case string settingAsString:
+                    {
+                        if(property.stringValue == settingAsString)
+                        {
+                            continue;
+                        }
+
+                        property.stringValue = settingAsString;
+                        break;
+                    }
+                    case bool settingAsBool:
+                    {
+                        if(property.boolValue == settingAsBool)
+                        {
+                            continue;
+                        }
+
+                        property.boolValue = settingAsBool;
+                        break;
+                    }
+                    case int settingAsInt:
+                    {
+                        if(property.intValue == settingAsInt)
+                        {
+                            continue;
+                        }
+
+                        property.intValue = settingAsInt;
+                        break;
+                    }
+                    case float settingAsFloat:
+                    {
+                        if(Mathf.Approximately(property.floatValue, settingAsFloat))
+                        {
+                            continue;
+                        }
+
+                        property.floatValue = settingAsFloat;
+                        break;
+                    }
+                    case double settingAsDouble:
+                    {
+                        if(Mathf.Approximately((float)property.doubleValue, (float)settingAsDouble))
+                        {
+                            continue;
+                        }
+
+                        property.doubleValue = settingAsDouble;
+                        break;
+                    }
+                    case Vector3 settingAsVector3:
+                    {
+                        if(property.vector3Value == settingAsVector3)
+                        {
+                            continue;
+                        }
+
+                        property.vector3Value = settingAsVector3;
+                        break;
+                    }
+                    case string[] settingAsStringArray:
+                    {
+                        property.arraySize = settingAsStringArray.Length;
+
+                        bool changedArrayEntry = false;
+                        for(int settingIndex = 0; settingIndex < settingAsStringArray.Length; settingIndex++)
+                        {
+                            SerializedProperty entry = property.GetArrayElementAtIndex(settingIndex);
+                            if(entry.stringValue == settingAsStringArray[settingIndex])
+                            {
+                                continue;
+                            }
+
+                            entry.stringValue = settingAsStringArray[settingIndex];
+                            changedArrayEntry = true;
+                        }
+
+                        if(!changedArrayEntry)
+                        {
+                            continue;
+                        }
+
+                        break;
+                    }
+                }
+
+                #if !VRC_CLIENT
+                string levelName = _graphicsPresets[index]["name"] as string;
+                if(Application.isMobilePlatform)
+                {
+                    if(levelName == "Mobile")
+                    {
+                        Debug.Log($"Set incorrect quality setting '{setting.Key}' in level '{levelName}' to value '{setting.Value}'.");
+                    }
+                }
+                else
+                {
+                    if(levelName != "Mobile")
+                    {
+                        Debug.Log($"Set incorrect quality setting '{setting.Key}' in level '{levelName}' to value '{setting.Value}'.");
+                    }
+                }
+
+                #endif
+                changedProperty = true;
+            }
+        }
+
+        if(!changedProperty)
+        {
+            return;
+        }
+
+        int defaultQuality = !Application.isMobilePlatform ? 3 : 4;
+        #if !VRC_CLIENT
+        Debug.Log($"A quality setting was changed resetting to the default quality: {_graphicsPresets[defaultQuality]["name"]}.");
+        #endif
+        SerializedProperty currentGraphicsQuality = qualitySettings.FindProperty("m_CurrentQuality");
+        currentGraphicsQuality.intValue = defaultQuality;
+
+        qualitySettings.ApplyModifiedPropertiesWithoutUndo();
+        AssetDatabase.SaveAssets();
+    }
+
+    private static void SetGraphicsSettings()
     {
         VRC.Core.Logger.Log("Setting Graphics Settings", VRC.Core.DebugLevel.All);
 
-        const string GraphicsSettingsAssetPath = "ProjectSettings/GraphicsSettings.asset";
-        SerializedObject graphicsManager = new SerializedObject(UnityEditor.AssetDatabase.LoadAllAssetsAtPath(GraphicsSettingsAssetPath)[0]);
+        const string graphicsSettingsAssetPath = "ProjectSettings/GraphicsSettings.asset";
+        SerializedObject graphicsManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath(graphicsSettingsAssetPath)[0]);
 
         SerializedProperty deferred = graphicsManager.FindProperty("m_Deferred.m_Mode");
         deferred.enumValueIndex = 1;
@@ -462,39 +713,49 @@ public class EnvConfig
         SerializedProperty lensFlare = graphicsManager.FindProperty("m_LensFlare.m_Mode");
         lensFlare.enumValueIndex = 1;
 
-#if ENV_SET_INCLUDED_SHADERS && VRC_CLIENT
+        #if ENV_SET_INCLUDED_SHADERS && VRC_CLIENT
+        // clear GraphicsSettings->Always Included Shaders - these cause a +5s app startup time increase on Quest.
+        // include Shader objects as resources instead
         SerializedProperty alwaysIncluded = graphicsManager.FindProperty("m_AlwaysIncludedShaders");
-        alwaysIncluded.arraySize = 0;   // clear GraphicsSettings->Always Included Shaders - these cause a +5s app startup time increase on Quest.
-                                        // include Shader objects as resources instead
+        alwaysIncluded.arraySize = 0;
 
-#if ENV_SEARCH_FOR_SHADERS
+        #if ENV_SEARCH_FOR_SHADERS
         Resources.LoadAll("", typeof(Shader));
         System.Collections.Generic.List<Shader> foundShaders = Resources.FindObjectsOfTypeAll<Shader>()
             .Where(s => { string name = s.name.ToLower(); return 0 == (s.hideFlags & HideFlags.DontSave); })
             .GroupBy(s => s.name)
             .Select(g => g.First())
             .ToList();
-#else
-        System.Collections.Generic.List<Shader> foundShaders = new System.Collections.Generic.List<Shader>();
-#endif
+        #else
+        List<Shader> foundShaders = new List<Shader>();
+        #endif
 
-        for (int shaderIdx = 0; shaderIdx < ensureTheseShadersAreAvailable.Length; ++shaderIdx)
+        foreach(string shader in ensureTheseShadersAreAvailable.OrderBy(s => s, StringComparer.Ordinal))
         {
-            if (foundShaders.Any(s => s.name == ensureTheseShadersAreAvailable[shaderIdx]))
+            if(foundShaders.Any(s => s.name == shader))
+            {
                 continue;
-            Shader namedShader = Shader.Find(ensureTheseShadersAreAvailable[shaderIdx]);
-            if (namedShader != null)
+            }
+
+            Shader namedShader = Shader.Find(shader);
+            if(namedShader != null)
+            {
                 foundShaders.Add(namedShader);
+            }
         }
 
-        foundShaders.Sort((s1, s2) => s1.name.CompareTo(s2.name));
+        foundShaders.Sort((s1, s2) => string.Compare(s1.name, s2.name, StringComparison.Ordinal));
 
         // populate Resources list of "always included shaders"
         ShaderAssetList alwaysIncludedShaders = AssetDatabase.LoadAssetAtPath<ShaderAssetList>("Assets/Resources/AlwaysIncludedShaders.asset");
         alwaysIncludedShaders.Shaders = new Shader[foundShaders.Count];
-        for (int shaderIdx = 0; shaderIdx < foundShaders.Count; ++shaderIdx)
+        for(int shaderIdx = 0; shaderIdx < foundShaders.Count; ++shaderIdx)
+        {
             alwaysIncludedShaders.Shaders[shaderIdx] = foundShaders[shaderIdx];
-#endif
+        }
+
+        EditorUtility.SetDirty(alwaysIncludedShaders);
+        #endif
 
         SerializedProperty preloaded = graphicsManager.FindProperty("m_PreloadedShaders");
         preloaded.ClearArray();
@@ -522,7 +783,7 @@ public class EnvConfig
         tierSettings.ClearArray();
         tierSettings.arraySize = 0;
 
-#if ENV_SET_LIGHTMAP
+        #if ENV_SET_LIGHTMAP
         SerializedProperty lightmapStripping = graphicsManager.FindProperty("m_LightmapStripping");
         lightmapStripping.enumValueIndex = 1;
 
@@ -546,7 +807,7 @@ public class EnvConfig
 
         SerializedProperty lightmapKeepSubtractive = graphicsManager.FindProperty("m_LightmapKeepSubtractive");
         lightmapKeepSubtractive.boolValue = true;
-#endif
+        #endif
 
         SerializedProperty albedoSwatchInfos = graphicsManager.FindProperty("m_AlbedoSwatchInfos");
         albedoSwatchInfos.ClearArray();
@@ -607,26 +868,39 @@ public class EnvConfig
         graphicsManager.ApplyModifiedProperties();
     }
 
-    static void SetAudioSettings()
+    private static void SetAudioSettings()
     {
-        var config = AudioSettings.GetConfiguration();
-        config.dspBufferSize = 0; // use default
-        config.speakerMode = AudioSpeakerMode.Stereo; // use default
-        config.sampleRate = 48000; // forcing 48k seems to avoid sample rate conversion problems
-        if (EditorUserBuildSettings.selectedBuildTargetGroup == BuildTargetGroup.Android)
+        Object audioManager = AssetDatabase.LoadMainAssetAtPath("ProjectSettings/AudioManager.asset");
+        SerializedObject audioManagerSerializedObject = new SerializedObject(audioManager);
+        audioManagerSerializedObject.Update();
+
+        SerializedProperty sampleRateSerializedProperty = audioManagerSerializedObject.FindProperty("m_SampleRate");
+        sampleRateSerializedProperty.intValue = 48000; // forcing 48k seems to avoid sample rate conversion problems
+
+        SerializedProperty dspBufferSizeSerializedProperty = audioManagerSerializedObject.FindProperty("m_RequestedDSPBufferSize");
+        dspBufferSizeSerializedProperty.intValue = 0;
+        
+        SerializedProperty defaultSpeakerModeSerializedProperty = audioManagerSerializedObject.FindProperty("Default Speaker Mode");
+        defaultSpeakerModeSerializedProperty.intValue = 2; // 2 = Stereo
+
+        SerializedProperty virtualVoiceCountSerializedProperty = audioManagerSerializedObject.FindProperty("m_VirtualVoiceCount");
+        SerializedProperty realVoiceCountSerializedProperty = audioManagerSerializedObject.FindProperty("m_RealVoiceCount");
+        if(EditorUserBuildSettings.selectedBuildTargetGroup == BuildTargetGroup.Android)
         {
-            config.numRealVoices = 24;
-            config.numVirtualVoices = 32;
+            virtualVoiceCountSerializedProperty.intValue = 32;
+            realVoiceCountSerializedProperty.intValue = 24;
         }
         else
         {
-            config.numRealVoices = 32;
-            config.numVirtualVoices = 64;
+            virtualVoiceCountSerializedProperty.intValue = 64;
+            realVoiceCountSerializedProperty.intValue = 32;
         }
-        AudioSettings.Reset(config);
+
+        audioManagerSerializedObject.ApplyModifiedPropertiesWithoutUndo();
+        AssetDatabase.SaveAssets();
     }
 
-    static void SetPlayerSettings()
+    private static void SetPlayerSettings()
     {
         // asset bundles MUST be built with settings that are compatible with VRC client
         #if VRC_OVERRIDE_COLORSPACE_GAMMA
@@ -638,21 +912,32 @@ public class EnvConfig
         #if !VRC_CLIENT // In client rely on platform-switcher
         if (!EditorApplication.isPlaying)
         {
+            #pragma warning disable 618
             PlayerSettings.SetVirtualRealitySupported(EditorUserBuildSettings.selectedBuildTargetGroup, true);
+            #pragma warning restore 618
         }
         #endif
 
         PlayerSettings.graphicsJobs = true;
 
         PlayerSettings.gpuSkinning = true;
-
-        PlayerSettings.stereoRenderingPath = StereoRenderingPath.SinglePass;
-
-        #if UNITY_2018_4_OR_NEWER
-        PlayerSettings.scriptingRuntimeVersion = ScriptingRuntimeVersion.Latest;
+        
+        #if UNITY_2019_3_OR_NEWER
+        PlayerSettings.gcIncremental = true;
         #endif
 
-        #if UNITY_ANDROID
+#if VRC_VR_WAVE
+        PlayerSettings.stereoRenderingPath = StereoRenderingPath.MultiPass;     // Need to use Multi-pass on Wave SDK otherwise mirrors break
+#else
+        PlayerSettings.stereoRenderingPath = StereoRenderingPath.SinglePass;
+#endif
+
+#if UNITY_2018_4_OR_NEWER && !UNITY_2019_3_OR_NEWER
+        PlayerSettings.scriptingRuntimeVersion = ScriptingRuntimeVersion.Latest;
+#endif
+
+#if UNITY_ANDROID
+        PlayerSettings.Android.forceSDCardPermission = true;    // Need access to SD card for saving images
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
 
         if(PlayerSettings.Android.targetArchitectures.HasFlag(AndroidArchitecture.ARM64))
@@ -665,9 +950,15 @@ public class EnvConfig
         {
             PlayerSettings.SetAdditionalIl2CppArgs("--linker-flags=\"-long-plt\"");
         }
+
+        #if UNITY_2019_3_OR_NEWER
+        PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel29;
         #else
-        PlayerSettings.SetAdditionalIl2CppArgs("");
+        PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel26;
         #endif
+#else
+        PlayerSettings.SetAdditionalIl2CppArgs("");
+#endif
 
         SetActiveSDKDefines();
 
@@ -681,46 +972,54 @@ public class EnvConfig
         List<string> defines = PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup).Split(';').ToList();
 
         Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        if (assemblies.Any(assembly => assembly.GetType("VRC.Udon.UdonBehaviour") != null))
+        if(assemblies.Any(assembly => assembly.GetType("VRC.Udon.UdonBehaviour") != null))
         {
-            if (!defines.Contains("UDON", StringComparer.OrdinalIgnoreCase))
+            if(!defines.Contains("UDON", StringComparer.OrdinalIgnoreCase))
             {
                 defines.Add("UDON");
                 definesChanged = true;
             }
         }
-        else if (defines.Contains("UDON"))
-            defines.Remove("UDON");
-
-        if (VRCSdk3Analysis.IsSdkDllActive(VRCSdk3Analysis.SdkVersion.VRCSDK2))
+        else if(defines.Contains("UDON"))
         {
-            if (!defines.Contains("VRC_SDK_VRCSDK2", StringComparer.OrdinalIgnoreCase))
+            defines.Remove("UDON");
+        }
+
+        if(VRCSdk3Analysis.IsSdkDllActive(VRCSdk3Analysis.SdkVersion.VRCSDK2))
+        {
+            if(!defines.Contains("VRC_SDK_VRCSDK2", StringComparer.OrdinalIgnoreCase))
             {
                 defines.Add("VRC_SDK_VRCSDK2");
                 definesChanged = true;
             }
         }
-        else if (defines.Contains("VRC_SDK_VRCSDK2"))
-            defines.Remove("VRC_SDK_VRCSDK2");
-
-        if (VRCSdk3Analysis.IsSdkDllActive(VRCSdk3Analysis.SdkVersion.VRCSDK3))
+        else if(defines.Contains("VRC_SDK_VRCSDK2"))
         {
-            if (!defines.Contains("VRC_SDK_VRCSDK3", StringComparer.OrdinalIgnoreCase))
+            defines.Remove("VRC_SDK_VRCSDK2");
+        }
+
+        if(VRCSdk3Analysis.IsSdkDllActive(VRCSdk3Analysis.SdkVersion.VRCSDK3))
+        {
+            if(!defines.Contains("VRC_SDK_VRCSDK3", StringComparer.OrdinalIgnoreCase))
             {
                 defines.Add("VRC_SDK_VRCSDK3");
                 definesChanged = true;
             }
         }
-        else if (defines.Contains("VRC_SDK_VRCSDK3"))
+        else if(defines.Contains("VRC_SDK_VRCSDK3"))
+        {
             defines.Remove("VRC_SDK_VRCSDK3");
+        }
 
-        if (definesChanged)
+        if(definesChanged)
+        {
             PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, string.Join(";", defines.ToArray()));
+        }
     }
 
-    static void SetBuildTarget()
+    private static void SetBuildTarget()
     {
-#if !VRC_CLIENT
+        #if !VRC_CLIENT
         VRC.Core.Logger.Log("Setting build target", VRC.Core.DebugLevel.All);
 
         BuildTarget target = UnityEditor.EditorUserBuildSettings.activeBuildTarget;
@@ -729,10 +1028,17 @@ public class EnvConfig
         {
             Debug.LogError("Target not supported, switching to one that is.");
             target = allowedBuildtargets[0];
-#pragma warning disable CS0618 // Type or member is obsolete
+            #pragma warning disable CS0618 // Type or member is obsolete
             EditorUserBuildSettings.SwitchActiveBuildTarget(target);
-#pragma warning restore CS0618 // Type or member is obsolete
+            #pragma warning restore CS0618 // Type or member is obsolete
         }
+        #endif
+    }
+
+    private static void ConfigureAssets()
+    {
+#if VRC_CLIENT
+        VRC.UI.Client.Editor.VRCUIManagerEditorHelpers.ConfigureNewUIAssets();
 #endif
     }
 
@@ -741,7 +1047,7 @@ public class EnvConfig
         AvatarPerformanceStats.Initialize();
     }
 
-    public struct FogSettings
+    public readonly struct FogSettings
     {
         public enum FogStrippingMode
         {
@@ -770,4 +1076,197 @@ public class EnvConfig
             this.keepExp2 = keepExp2;
         }
     }
+    
+    private static readonly Dictionary<string, object>[] _graphicsPresets = {
+        new Dictionary<string, object>
+        {
+            {"name", "Low"},
+            {"pixelLightCount", 4},
+            {"shadows", 2},
+            {"shadowResolution", 2},
+            {"shadowProjection", 1},
+            {"shadowCascades", 2},
+            {"shadowDistance", 75f},
+            {"shadowNearPlaneOffset", 2f},
+            {"shadowCascade2Split", 0.33333334},
+            {"shadowCascade4Split", new Vector3(0.06666667f, 0.19999999f, 0.46666664f)},
+            {"shadowmaskMode", 0},
+            {"skinWeights", 4},
+            {"textureQuality", 0},
+            {"anisotropicTextures", 2},
+            {"antiAliasing", 0},
+            {"softParticles", true},
+            {"softVegetation", true},
+            {"realtimeReflectionProbes", true},
+            {"billboardsFaceCameraPosition", true},
+            {"vSyncCount", 0},
+            {"lodBias", 1f},
+            {"maximumLODLevel", 0},
+            {"streamingMipmapsActive", false},
+            {"streamingMipmapsAddAllCameras", true},
+            {"streamingMipmapsMemoryBudget", 512f},
+            {"streamingMipmapsRenderersPerFrame", 512},
+            {"streamingMipmapsMaxLevelReduction", 2},
+            {"streamingMipmapsMaxFileIORequests", 1024},
+            {"particleRaycastBudget", 1024},
+            {"asyncUploadTimeSlice", 2},
+            {"asyncUploadBufferSize", 64},
+            {"asyncUploadPersistentBuffer", true},
+            {"resolutionScalingFixedDPIFactor", 1f},
+            {"customRenderPipeline", null},
+            {"excludedTargetPlatforms", new[] {"Android"}}
+        },
+        new Dictionary<string, object>
+        {
+            {"name", "Medium"},
+            {"pixelLightCount", 4},
+            {"shadows", 2},
+            {"shadowResolution", 2},
+            {"shadowProjection", 1},
+            {"shadowCascades", 2},
+            {"shadowDistance", 75f},
+            {"shadowNearPlaneOffset", 2f},
+            {"shadowCascade2Split", 0.33333334},
+            {"shadowCascade4Split", new Vector3(0.06666667f, 0.19999999f, 0.46666664f)},
+            {"shadowmaskMode", 0},
+            {"skinWeights", 4},
+            {"textureQuality", 0},
+            {"anisotropicTextures", 2},
+            {"antiAliasing", 4},
+            {"softParticles", true},
+            {"softVegetation", true},
+            {"realtimeReflectionProbes", true},
+            {"billboardsFaceCameraPosition", true},
+            {"vSyncCount", 0},
+            {"lodBias", 1.5f},
+            {"maximumLODLevel", 0},
+            {"streamingMipmapsActive", false},
+            {"streamingMipmapsAddAllCameras", true},
+            {"streamingMipmapsMemoryBudget", 512f},
+            {"streamingMipmapsRenderersPerFrame", 512},
+            {"streamingMipmapsMaxLevelReduction", 2},
+            {"streamingMipmapsMaxFileIORequests", 1024},
+            {"particleRaycastBudget", 2048},
+            {"asyncUploadTimeSlice", 2},
+            {"asyncUploadBufferSize", 64},
+            {"asyncUploadPersistentBuffer", true},
+            {"resolutionScalingFixedDPIFactor", 1f},
+            {"customRenderPipeline", null},
+            {"excludedTargetPlatforms", new[] {"Android"}}
+        },
+        new Dictionary<string, object>
+        {
+            {"name", "High"},
+            {"pixelLightCount", 8},
+            {"shadows", 2},
+            {"shadowResolution", 3},
+            {"shadowProjection", 1},
+            {"shadowCascades", 2},
+            {"shadowDistance", 75f},
+            {"shadowNearPlaneOffset", 2f},
+            {"shadowCascade2Split", 0.33333334},
+            {"shadowCascade4Split", new Vector3(0.06666667f, 0.19999999f, 0.46666664f)},
+            {"shadowmaskMode", 0},
+            {"skinWeights", 4},
+            {"textureQuality", 0},
+            {"anisotropicTextures", 2},
+            {"antiAliasing", 4},
+            {"softParticles", true},
+            {"softVegetation", true},
+            {"realtimeReflectionProbes", true},
+            {"billboardsFaceCameraPosition", true},
+            {"vSyncCount", 0},
+            {"lodBias", 2f},
+            {"maximumLODLevel", 0},
+            {"streamingMipmapsActive", false},
+            {"streamingMipmapsAddAllCameras", true},
+            {"streamingMipmapsMemoryBudget", 512f},
+            {"streamingMipmapsRenderersPerFrame", 512},
+            {"streamingMipmapsMaxLevelReduction", 2},
+            {"streamingMipmapsMaxFileIORequests", 1024},
+            {"particleRaycastBudget", 4096},
+            {"asyncUploadTimeSlice", 2},
+            {"asyncUploadBufferSize", 128},
+            {"asyncUploadPersistentBuffer", true},
+            {"resolutionScalingFixedDPIFactor", 1f},
+            {"customRenderPipeline", null},
+            {"excludedTargetPlatforms", new []{"Android"}}
+        },
+        new Dictionary<string, object>
+        {
+            {"name", "Ultra"},
+            {"pixelLightCount", 8},
+            {"shadows", 2},
+            {"shadowResolution", 3},
+            {"shadowProjection", 1},
+            {"shadowCascades", 4},
+            {"shadowDistance", 150f},
+            {"shadowNearPlaneOffset", 2f},
+            {"shadowCascade2Split", 0.33333334},
+            {"shadowCascade4Split", new Vector3(0.06666667f, 0.19999999f, 0.46666664f)},
+            {"shadowmaskMode", 0},
+            {"skinWeights", 4},
+            {"textureQuality", 0},
+            {"anisotropicTextures", 2},
+            {"antiAliasing", 4},
+            {"softParticles", true},
+            {"softVegetation", true},
+            {"realtimeReflectionProbes", true},
+            {"billboardsFaceCameraPosition", true},
+            {"vSyncCount", 0},
+            {"lodBias", 2f},
+            {"maximumLODLevel", 0},
+            {"streamingMipmapsActive", false},
+            {"streamingMipmapsAddAllCameras", true},
+            {"streamingMipmapsMemoryBudget", 512f},
+            {"streamingMipmapsRenderersPerFrame", 512},
+            {"streamingMipmapsMaxLevelReduction", 2},
+            {"streamingMipmapsMaxFileIORequests", 1024},
+            {"particleRaycastBudget", 4096},
+            {"asyncUploadTimeSlice", 2},
+            {"asyncUploadBufferSize", 128},
+            {"asyncUploadPersistentBuffer", true},
+            {"resolutionScalingFixedDPIFactor", 1f},
+            {"customRenderPipeline", null},
+            {"excludedTargetPlatforms", new[]{"Android"}}
+        },
+        new Dictionary<string, object>
+        {
+            {"name", "Mobile"},
+            {"pixelLightCount", 4},
+            {"shadows", 0},
+            {"shadowResolution", 1},
+            {"shadowProjection", 1},
+            {"shadowCascades", 1},
+            {"shadowDistance", 50f},
+            {"shadowNearPlaneOffset", 2f},
+            {"shadowCascade2Split", 0.33333334},
+            {"shadowCascade4Split", new Vector3(0.06666667f, 0.19999999f, 0.46666664f)},
+            {"shadowmaskMode", 0},
+            {"skinWeights", 4},
+            {"textureQuality", 0},
+            {"anisotropicTextures", 2},
+            {"antiAliasing", 2},
+            {"softParticles", false},
+            {"softVegetation", false},
+            {"realtimeReflectionProbes", false},
+            {"billboardsFaceCameraPosition", true},
+            {"vSyncCount", 0},
+            {"lodBias", 2f},
+            {"maximumLODLevel", 0},
+            {"streamingMipmapsActive", false},
+            {"streamingMipmapsAddAllCameras", true},
+            {"streamingMipmapsMemoryBudget", 512f},
+            {"streamingMipmapsRenderersPerFrame", 512},
+            {"streamingMipmapsMaxLevelReduction", 2},
+            {"streamingMipmapsMaxFileIORequests", 1024},
+            {"particleRaycastBudget", 1024},
+            {"asyncUploadTimeSlice", 1},
+            {"asyncUploadBufferSize", 32},
+            {"asyncUploadPersistentBuffer", true},
+            {"resolutionScalingFixedDPIFactor", 1f},
+            {"customRenderPipeline", null},
+            {"excludedTargetPlatforms", new []{"Standalone"}}
+        }
+    };
 }

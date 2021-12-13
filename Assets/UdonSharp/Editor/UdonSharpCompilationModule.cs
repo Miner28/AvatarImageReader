@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
@@ -85,24 +86,6 @@ namespace UdonSharp.Compiler
                 debugInfo = new ClassDebugInfo(sourceCode, settings == null || settings.includeInlineCode);
             }
 
-            UdonSharpFieldVisitor fieldVisitor = new UdonSharpFieldVisitor(fieldsWithInitializers, resolver, moduleSymbols, moduleLabels, classDefinitions, debugInfo);
-            
-            try
-            {
-                fieldVisitor.Visit(syntaxTree.GetRoot());
-            }
-            catch (System.Exception e)
-            {
-                LogException(result, e, fieldVisitor.visitorContext.currentNode, out string logMessage);
-
-                programAsset.compileErrors.Add(logMessage);
-
-                ErrorCount++;
-            }
-
-            if (ErrorCount > 0)
-                return result;
-
             MethodVisitor methodVisitor = new MethodVisitor(resolver, moduleSymbols, moduleLabels);
 
             try
@@ -121,7 +104,45 @@ namespace UdonSharp.Compiler
             if (ErrorCount > 0)
                 return result;
 
-            ASTVisitor visitor = new ASTVisitor(resolver, moduleSymbols, moduleLabels, methodVisitor.definedMethods, classDefinitions, debugInfo);
+            PropertyVisitor propertyVisitor = new PropertyVisitor(resolver, moduleSymbols, moduleLabels);
+
+            try
+            {
+                propertyVisitor.Visit(syntaxTree.GetRoot());
+            }
+            catch (System.Exception e)
+            {
+                LogException(result, e, propertyVisitor.visitorContext.currentNode, out string logMessage);
+
+                programAsset.compileErrors.Add(logMessage);
+
+                ErrorCount++;
+            }
+
+            if (ErrorCount > 0)
+                return result;
+
+            UdonSharpFieldVisitor fieldVisitor = new UdonSharpFieldVisitor(fieldsWithInitializers, resolver, moduleSymbols, moduleLabels, classDefinitions, debugInfo);
+            fieldVisitor.visitorContext.definedProperties = propertyVisitor.definedProperties;
+
+            try
+            {
+                fieldVisitor.Visit(syntaxTree.GetRoot());
+            }
+            catch (System.Exception e)
+            {
+                LogException(result, e, fieldVisitor.visitorContext.currentNode, out string logMessage);
+
+                programAsset.compileErrors.Add(logMessage);
+
+                ErrorCount++;
+            }
+
+            if (ErrorCount > 0)
+                return result;
+
+            ASTVisitor visitor = new ASTVisitor(resolver, moduleSymbols, moduleLabels, methodVisitor.definedMethods, propertyVisitor.definedProperties, classDefinitions, debugInfo);
+            visitor.visitorContext.onModifyCallbackFields = fieldVisitor.visitorContext.onModifyCallbackFields;
 
             try
             {
@@ -157,9 +178,7 @@ namespace UdonSharp.Compiler
                 programAsset.behaviourIDHeapVarName = visitor.GetIDHeapVarName();
 
                 programAsset.fieldDefinitions = fieldVisitor.visitorContext.localFieldDefinitions;
-#if UDON_BETA_SDK
                 programAsset.behaviourSyncMode = visitor.visitorContext.behaviourSyncMode;
-#endif
 
                 if (debugInfo != null)
                     debugInfo.FinalizeDebugInfo();

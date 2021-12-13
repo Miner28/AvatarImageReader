@@ -12,33 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: ToggleSync
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 63398d7e56fdc644a9e8ece40c62c996,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 0}
   udonAssembly: ".data_start\r\n\r\n    .export uiToggle\r\n    .sync toggleValue,
-    none\r\n    \r\n    __Boolean_0: %SystemBoolean, null\r\n    __Boolean_1: %SystemBoolean,
-    null\r\n    __Boolean_2: %SystemBoolean, null\r\n    __player_0: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __obj_0: %UnityEngineGameObject, this\r\n    __instance_0: %UnityEngineUIToggle,
-    null\r\n    __instance_1: %VRCUdonUdonBehaviour, this\r\n    _old_toggleValue:
-    %SystemBoolean, null\r\n    __instance_2: %VRCUdonUdonBehaviour, this\r\n    __instance_3:
-    %UnityEngineUIToggle, null\r\n    __value_0: %SystemBoolean, null\r\n    __name_0:
-    %SystemString, null\r\n    uiToggle: %UnityEngineUIToggle, null\r\n    toggleValue:
-    %SystemBoolean, null\r\n    __returnValue: %SystemObject, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
+    none\r\n    \r\n    Boolean_0: %SystemBoolean, null\r\n    Boolean_1: %SystemBoolean,
+    null\r\n    Boolean_2: %SystemBoolean, null\r\n    player_0: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    obj_0: %UnityEngineGameObject, this\r\n    instance_0: %UnityEngineUIToggle,
+    null\r\n    instance_1: %VRCUdonUdonBehaviour, this\r\n    _old_toggleValue: %SystemBoolean,
+    null\r\n    instance_2: %VRCUdonUdonBehaviour, this\r\n    instance_3: %UnityEngineUIToggle,
+    null\r\n    value_0: %SystemBoolean, null\r\n    name_0: %SystemString, null\r\n
+    \   uiToggle: %UnityEngineUIToggle, null\r\n    toggleValue: %SystemBoolean, null\r\n
+    \   __returnValue: %SystemObject, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
     \   .export OnValueChanged\r\n    \r\n    OnValueChanged:\r\n    \r\n        PUSH,
-    uiToggle\r\n        PUSH, __instance_0\r\n        COPY\r\n        PUSH, __instance_0\r\n
-    \       PUSH, __Boolean_1\r\n        EXTERN, \"UnityEngineUIToggle.__get_isOn__SystemBoolean\"\r\n
-    \       PUSH, __Boolean_1\r\n        PUSH, toggleValue\r\n        PUSH, __Boolean_0\r\n
+    uiToggle\r\n        PUSH, instance_0\r\n        COPY\r\n        PUSH, instance_0\r\n
+    \       PUSH, Boolean_1\r\n        EXTERN, \"UnityEngineUIToggle.__get_isOn__SystemBoolean\"\r\n
+    \       PUSH, Boolean_1\r\n        PUSH, toggleValue\r\n        PUSH, Boolean_0\r\n
     \       EXTERN, \"SystemBoolean.__op_Inequality__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __Boolean_0\r\n        JUMP_IF_FALSE, 0x000000F0\r\n        PUSH,
-    __player_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __player_0\r\n        PUSH, __obj_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
-    \       PUSH, uiToggle\r\n        PUSH, __instance_0\r\n        COPY\r\n        PUSH,
-    __Boolean_1\r\n        PUSH, toggleValue\r\n        COPY\r\n        PUSH, __instance_1\r\n
+    \       PUSH, Boolean_0\r\n        JUMP_IF_FALSE, 0x000000F0\r\n        PUSH,
+    player_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, player_0\r\n        PUSH, obj_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
+    \       PUSH, uiToggle\r\n        PUSH, instance_0\r\n        COPY\r\n        PUSH,
+    Boolean_1\r\n        PUSH, toggleValue\r\n        COPY\r\n        PUSH, instance_1\r\n
     \       PUSH, \"_onVarChange_toggleValue\"\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, toggleValue\r\n        PUSH, _old_toggleValue\r\n        COPY\r\n
-    \       PUSH, __instance_2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
+    \       PUSH, instance_2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
     \       JUMP, 0x000000F0\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onVarChange_toggleValue\r\n
     \   \r\n    _onVarChange_toggleValue:\r\n    \r\n        PUSH, uiToggle\r\n        PUSH,
-    __instance_3\r\n        COPY\r\n        PUSH, __instance_3\r\n        PUSH, toggleValue\r\n
+    instance_3\r\n        COPY\r\n        PUSH, instance_3\r\n        PUSH, toggleValue\r\n
     \       EXTERN, \"UnityEngineUIToggle.__set_isOn__SystemBoolean__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 

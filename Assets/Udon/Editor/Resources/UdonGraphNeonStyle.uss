@@ -1,10 +1,10 @@
-#bg {
-	line-color:rgba(0,0,0,0.2);
-	spacing: 20;
-	grid-background-color: rgba(20,20,20,1.0);
+GridBackground#bg {
+	--line-color:rgba(0,0,0,0.2);
+	--spacing: 25;
+	--grid-background-color: rgba(20,20,20,1.0);
 }
 
-.node #node-border {
+.UdonNode #node-border {
 	margin-top:0;
 	margin-right:0;
 	margin-bottom:0;
@@ -13,58 +13,71 @@
 	padding-right:0;
 	padding-bottom:0;
 	padding-left:0;
-	border-radius: 10;
+	border-radius: 10px;
 	border-color:rgba(150,150,150,1);
-	border-left-width:2;
-	border-right-width:2;
-	border-top-width:2;
-	border-bottom-width:2;
+	border-left-width:2px;
+	border-right-width:2px;
+	border-top-width:2px;
+	border-bottom-width:2px;
 }
 
-UdonNode #subtitle {
-	text-color:rgb(10,10,10);
-	font-size:12;
+.UdonNode #subtitle {
+	color:rgb(10,10,10);
+	font-size:12px;
 }
 
-UdonGameObjectNode.node #title-label {
-	text-color:#BC00BC;
+UdonNode.GameObject #title-label, UdonNode.GameObject #subtitle {
+	color:#BC00BC;
 }
 
-UdonTransformNode.node #title-label {
-	text-color:rgba(255,255,255,1);
+UdonNode.Transform #title-label {
+	color:rgba(255,255,255,1);
 }
 
-UdonTransformNode.node > #node-border {
+UdonNode.Transform > #node-border {
 	border-color:rgba(50,50,50,1);
 }
 
-.node > #node-border > #contents > #top > #input {
+.UdonNode > #node-border > #contents > #top > #input {
 	background-color: rgba(50,50,50,0.98);
 }
 
-.node > #node-border > #contents > #top > #output {
+.UdonNode > #node-border > #contents > #top > #output {
 	background-color: rgba(30,30,30,0.98);
 }
 
-.node #title {
+.UdonNode #title {
 	background-color: rgba(200,200,190,1);
 }
 
-.node #title-label {
-	text-color: rgba(0,0,0,1);
-	font-size: 18;
-	font-style: bold;
+.UdonNode Label#title-label {
+	color: black;
+	font-size: 18px;
+	-unity-font-style: bold;
 }
 
-.node #divider {
+.UdonNode #divider.horizontal {
 	border-color: rgba(0,0,0,1);
 }
 
+
+.UdonNode #help-button {
+	background-color: rgba(0,0,0,0);
+}
+
+.UdonNode:hover #help-button > #icon {
+	background-color: black;
+}
+
+.UdonNode:hover #collapse-button > #icon {
+	background-color: black;
+}
+
 Edge.edge {
-	edge-width:6;
-	edge-color:rgba(0,0,0,1);
-	selected-edge-color:rgba(255,255,255,0.5);
-	ghost-edge-color:rgba(255,0,0,1);
+	--edge-width:6;
+	--edge-color:rgba(0,0,0,1);
+	--selected-edge-color:rgba(255,255,255,0.5);
+	--ghost-edge-color:rgba(255,0,0,1);
 }
 
 .int #title {

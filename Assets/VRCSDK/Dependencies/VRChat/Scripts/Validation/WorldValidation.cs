@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+#if TextMeshPro
+using TMPro;
+#endif
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.UI;
 
 namespace VRC.SDKBase.Validation
 {
@@ -441,12 +445,15 @@ namespace VRC.SDKBase.Validation
             "VRC.SDK3.Components.VRCSceneDescriptor",
             "VRC.SDK3.Components.VRCStation",
             "VRC.SDK3.Components.VRCUiShape",
+            "VRC.SDK3.Components.VRCObjectSync",
+            "VRC.SDK3.Components.VRCObjectPool",
             "VRC.SDK3.Video.Components.VRCUnityVideoPlayer",
             "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoPlayer",
             "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoScreen",
             "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoSpeaker",
             "VRC.SDK3.Midi.VRCMidiListener",
             "VRC.Udon.UdonBehaviour",
+            "VRC.Udon.AbstractUdonBehaviourEventProxy",
             "UnityEngine.Animations.AimConstraint",
             "UnityEngine.Animations.LookAtConstraint",
             "UnityEngine.Animations.ParentConstraint",
@@ -534,13 +541,21 @@ namespace VRC.SDKBase.Validation
         }
 
         [PublicAPI]
-        public static void RemoveIllegalComponents(List<GameObject> targets, WhiteListConfiguration config, bool retry = true)
+        public static void RemoveIllegalComponents(List<GameObject> targets, WhiteListConfiguration config, bool retry = true, HashSet<Type> tagWhitelistedTypes = null)
         {
             ConfigureWhiteList(config);
-            HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world" + config, ComponentTypeWhiteList);
+            
+            HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes($"world{config}", ComponentTypeWhiteList);
+
+            // combine whitelist types from world tags with cached whitelist
+            if (tagWhitelistedTypes != null)
+            {
+                tagWhitelistedTypes.UnionWith(whitelist);
+            }
+
             foreach(GameObject target in targets)
             {
-                ValidationUtils.RemoveIllegalComponents(target, whitelist, retry, true);
+                ValidationUtils.RemoveIllegalComponents(target, (tagWhitelistedTypes == null) ? whitelist : tagWhitelistedTypes, retry, true, true);
                 SecurityScan(target);
                 AddScanned(target);
             }
@@ -575,8 +590,10 @@ namespace VRC.SDKBase.Validation
             HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world" + config, ComponentTypeWhiteList);
             ValidationUtils.RemoveIllegalComponents(target, whitelist);
             SecurityScan(target);
-
             AddScanned(target);
+
+            // Must be called after AddScanned to avoid infinite recursion.
+            ScanDropdownTemplates(target, config);
         }
 
         [PublicAPI]
@@ -593,9 +610,50 @@ namespace VRC.SDKBase.Validation
 
         private static void SecurityScan(GameObject target)
         {
-            PlayableDirector[] playabledirectors = target.GetComponentsInChildren<PlayableDirector>(true);
-            foreach(PlayableDirector playableDirector in playabledirectors)
+            PlayableDirector[] playableDirectors = target.GetComponentsInChildren<PlayableDirector>(true);
+            foreach(PlayableDirector playableDirector in playableDirectors)
+            {
                 StripPlayableDirectorWithPrefabs(playableDirector);
+            }
+        }
+
+        private static void ScanDropdownTemplates(GameObject target, WhiteListConfiguration config)
+        {
+            Dropdown[] dropdowns = target.GetComponentsInChildren<Dropdown>(true);
+            foreach(Dropdown dropdown in dropdowns)
+            {
+                if(dropdown == null)
+                {
+                    continue;
+                }
+
+                RectTransform dropdownTemplate = dropdown.template;
+                if(dropdownTemplate == null)
+                {
+                    continue;
+                }
+
+                ScanGameObject(dropdownTemplate.transform.root.gameObject, config);
+            }
+            
+            #if TextMeshPro
+            TMP_Dropdown[] tmpDropdowns = target.GetComponentsInChildren<TMP_Dropdown>(true);
+            foreach(TMP_Dropdown textMeshProDropdown in tmpDropdowns)
+            {
+                if(textMeshProDropdown == null)
+                {
+                    continue;
+                }
+
+                RectTransform dropdownTemplate = textMeshProDropdown.template;
+                if(dropdownTemplate == null)
+                {
+                    continue;
+                }
+
+                ScanGameObject(dropdownTemplate.transform.root.gameObject, config);
+            }
+            #endif
         }
 
         private static void StripPlayableDirectorWithPrefabs(PlayableDirector playableDirector)

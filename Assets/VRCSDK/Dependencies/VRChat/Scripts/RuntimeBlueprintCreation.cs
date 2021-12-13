@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using VRC.Core;
+using VRC.SDKBase;
 
 namespace VRCSDK2
 {
@@ -125,22 +125,24 @@ namespace VRCSDK2
                         sharePublic.isOn = apiAvatar.releaseStatus.Contains("public");
 
                         tagFallback.isOn = apiAvatar.tags.Contains("author_quest_fallback");
+                        tagFallback.transform.parent.gameObject.SetActive(true);
+
                         switch (pipelineManager.fallbackStatus)
                         {
                             case PipelineManager.FallbackStatus.Valid:
-                                tagFallback.transform.parent.gameObject.SetActive(true);
+#if UNITY_ANDROID
                                 tagFallback.interactable = true;
                                 tagFallback.GetComponentInChildren<Text>().text = "Use for Fallback";
+#else
+                                tagFallback.interactable = false;
+                                tagFallback.GetComponentInChildren<Text>().text = "Use for Fallback (change only with Android upload)";
+#endif
                                 break;
                             case PipelineManager.FallbackStatus.InvalidPerformance:
                             case PipelineManager.FallbackStatus.InvalidRig:
-                                tagFallback.transform.parent.gameObject.SetActive(true);
                                 tagFallback.isOn = false; // need to remove tag on this upload, the updated version is not up-to-spec
                                 tagFallback.interactable = false;
-                                tagFallback.GetComponentInChildren<Text>().text = "(Not valid for Fallback use)";
-                                break;
-                            default:
-                                tagFallback.transform.parent.gameObject.SetActive(false);
+                                tagFallback.GetComponentInChildren<Text>().text = "Use for Fallback (avatar not valid, tag will be cleared)";
                                 break;
                         }
 
@@ -167,22 +169,33 @@ namespace VRCSDK2
                     liveBpImage.enabled = true;
                     bpImage.enabled = false;
                     tagFallback.isOn = false;
+                    
+                    // Janky fix for an avatar's blueprint image not showing up the very first time you press publish in a project until you resize the window
+                    // can remove if we fix the underlying issue or move publishing out of Play Mode
+                    string firstTimeResize = $"{Application.identifier}-firstTimeResize";
+                    if (!PlayerPrefs.HasKey(firstTimeResize))
+                    {
+                        GameViewMethods.ResizeGameView();
+                        PlayerPrefs.SetInt(firstTimeResize, 1);
+                    }
 
+                    tagFallback.transform.parent.gameObject.SetActive(true);
                     switch (pipelineManager.fallbackStatus)
                     {
                         case PipelineManager.FallbackStatus.Valid:
-                            tagFallback.transform.parent.gameObject.SetActive(true);
+#if UNITY_ANDROID
                             tagFallback.interactable = true;
                             tagFallback.GetComponentInChildren<Text>().text = "Use for Fallback";
+#else
+                            tagFallback.interactable = false;
+                            tagFallback.GetComponentInChildren<Text>().text = "Use for Fallback (change only with Android upload)";
+#endif
                             break;
                         case PipelineManager.FallbackStatus.InvalidPerformance:
                         case PipelineManager.FallbackStatus.InvalidRig:
                             tagFallback.transform.parent.gameObject.SetActive(true);
                             tagFallback.interactable = false;
-                            tagFallback.GetComponentInChildren<Text>().text = "(Not valid for Fallback use)";
-                            break;
-                        default:
-                            tagFallback.transform.parent.gameObject.SetActive(false);
+                            tagFallback.GetComponentInChildren<Text>().text = "Use for Fallback (avatar not valid, tag will be cleared)";
                             break;
                     }
                 }

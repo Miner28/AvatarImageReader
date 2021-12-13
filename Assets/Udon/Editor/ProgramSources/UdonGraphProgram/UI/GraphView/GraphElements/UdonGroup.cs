@@ -1,5 +1,5 @@
 ﻿#if UNITY_2019_3_OR_NEWER
-using UnityEditor.Experimental.GraphView
+using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 #else
 using UnityEditor.Experimental.UIElements.GraphView;
@@ -18,6 +18,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         private CustomData _customData = new CustomData();
         private UdonGraph _graph;
         private string _uid;
+        private const int GROUP_LAYER = -1;
 
         public static UdonGroup Create(string value, Rect position, UdonGraph graph)
         {
@@ -53,6 +54,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         {
             title = "Group";
             _graph = graph;
+            layer = GROUP_LAYER;
 
             if (!string.IsNullOrEmpty(jsonData))
             {

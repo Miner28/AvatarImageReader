@@ -85,6 +85,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             {"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEventDelayedFrames__SystemString_SystemInt32_VRCUdonCommonEnumsEventTiming__SystemVoid", typeof(SendCustomEventNode)},
             {"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid", typeof(SendCustomEventNode)},
             {"Set_ReturnValue", typeof(SetReturnValueNode)},
+            {"Set_Variable", typeof(SetVariableNode)},
         };
 
 #if UNITY_2019_3_OR_NEWER
@@ -297,6 +298,12 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 if (definition.fullName.StartsWith("Event_"))
                 {
                     subtitle.text = "Event";
+                }
+                // make Constructor nodes readable
+                else if (definition.name == "ctor")
+                {
+                    subtitle.text = definition.type.Name;
+                    title = "Constructor";
                 }
                 else
                 {
@@ -825,7 +832,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 inputContainer.Insert(index, _variablePopupField);
             }
 #if UNITY_2019_3_OR_NEWER
-            _popupField.RegisterValueChangedCallback(
+            _variablePopupField.RegisterValueChangedCallback(
 #else
             _variablePopupField.OnValueChanged(
 #endif

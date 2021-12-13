@@ -3,10 +3,9 @@
     "references": [
         "VRC.Udon.Editor",
         "VRC.Udon",
-        "VRC.Udon.Tests"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
+        "VRC.Udon.Tests",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
     ],
     "includePlatforms": [
         "Editor"
@@ -18,5 +17,9 @@
         "nunit.framework.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

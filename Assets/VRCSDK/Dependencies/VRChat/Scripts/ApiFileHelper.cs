@@ -12,7 +12,7 @@ namespace VRC.Core
 {
     public class ApiFileHelper : MonoBehaviour
     {
-        private readonly int kMultipartUploadChunkSize = 10 * 1024 * 1024;
+        private readonly int kMultipartUploadChunkSize = 100 * 1024 * 1024; // 100 MB
         private readonly int SERVER_PROCESSING_WAIT_TIMEOUT_CHUNK_SIZE = 50 * 1024 * 1024;
         private readonly float SERVER_PROCESSING_WAIT_TIMEOUT_PER_CHUNK_SIZE = 120.0f;
         private readonly float SERVER_PROCESSING_MAX_WAIT_TIMEOUT = 600.0f;
@@ -46,44 +46,32 @@ namespace VRC.Core
         private static ApiFileHelper mInstance = null;
         const float kPostWriteDelay = 0.75f;
 
-        public bool DebugEnabled
-        {
-            get { return true; }
-        }
-
         public enum FileOpResult
         {
             Success,
             Unchanged
         }
 
-        public static void UploadFileAsync(string filename, string existingFileId, string friendlyName,
-            OnFileOpSuccess onSuccess, OnFileOpError onError, OnFileOpProgress onProgress, FileOpCancelQuery cancelQuery)
-        {
-            Instance.StartCoroutine(Instance.UploadFile(filename, existingFileId, friendlyName, onSuccess, onError,
-                onProgress, cancelQuery));
-        }
-
         public static string GetMimeTypeFromExtension(string extension)
         {
             if (extension == ".vrcw")
-                return "application/x-world";
+                    return "application/x-world";
             if (extension == ".vrca")
-                return "application/x-avatar";
+                    return "application/x-avatar";
             if (extension == ".dll")
-                return "application/x-msdownload";
+                    return "application/x-msdownload";
             if (extension == ".unitypackage")
                 return "application/gzip";
             if (extension == ".gz")
-                return "application/gzip";
+                    return "application/gzip";
             if (extension == ".jpg")
-                return "image/jpg";
+                    return "image/jpg";
             if (extension == ".png")
-                return "image/png";
+                    return "image/png";
             if (extension == ".sig")
-                return "application/x-rsync-signature";
+                    return "application/x-rsync-signature";
             if (extension == ".delta")
-                return "application/x-rsync-delta";
+                    return "application/x-rsync-delta";
 
             Debug.LogWarning("Unknown file extension for mime-type: " + extension);
             return "application/octet-stream";
@@ -98,7 +86,7 @@ namespace VRC.Core
             OnFileOpSuccess onSuccess, OnFileOpError onError, OnFileOpProgress onProgress, FileOpCancelQuery cancelQuery)
         {
             VRC.Core.Logger.Log("UploadFile: filename: " + filename + ", file id: " +
-                      (!string.IsNullOrEmpty(existingFileId) ? existingFileId : "<new>") + ", name: " + friendlyName, DebugLevel.All);
+                       (!string.IsNullOrEmpty(existingFileId) ? existingFileId : "<new>") + ", name: " + friendlyName, DebugLevel.All);
 
             // init remote config
             if (!ConfigManager.RemoteConfig.IsInitialized())
@@ -300,31 +288,6 @@ namespace VRC.Core
                 yield break;
             }
 
-            // prepare file for upload
-            Progress(onProgress, apiFile, "Preparing file for upload...", "Optimizing file");
-
-            string uploadFilename = VRC.Tools.GetTempFileName(Path.GetExtension(filename), out errorStr, apiFile.id);
-            if (string.IsNullOrEmpty(uploadFilename))
-            {
-                Error(onError, apiFile, "Failed to optimize file for upload.", "Failed to create temp file: \n" + errorStr);
-                yield break;
-            }
-
-            wasError = false;
-            yield return StartCoroutine(CreateOptimizedFileInternal(filename, uploadFilename,
-                delegate (FileOpResult res)
-                {
-                    if (res == FileOpResult.Unchanged)
-                        uploadFilename = filename;
-                },
-                delegate (string error)
-                {
-                    Error(onError, apiFile, "Failed to optimize file for upload.", error);
-                    CleanupTempFiles(apiFile.id);
-                    wasError = true;
-                })
-            );
-
             if (wasError)
                 yield break;
 
@@ -336,7 +299,7 @@ namespace VRC.Core
             string fileMD5Base64 = "";
             wait = true;
             errorStr = "";
-            VRC.Tools.FileMD5(uploadFilename,
+            VRC.Tools.FileMD5(filename,
                 delegate (byte[] md5Bytes)
                 {
                     fileMD5Base64 = Convert.ToBase64String(md5Bytes);
@@ -344,7 +307,7 @@ namespace VRC.Core
                 },
                 delegate (string error)
                 {
-                    errorStr = uploadFilename + "\n" + error;
+                    errorStr = filename + "\n" + error;
                     wait = false;
                 }
             );
@@ -452,7 +415,7 @@ namespace VRC.Core
             }
 
             wasError = false;
-            yield return StartCoroutine(CreateFileSignatureInternal(uploadFilename, signatureFilename,
+            yield return StartCoroutine(CreateFileSignatureInternal(filename, signatureFilename,
                 delegate ()
                 {
                     // success!
@@ -595,7 +558,7 @@ namespace VRC.Core
                 }
 
                 wasError = false;
-                yield return StartCoroutine(CreateFileDeltaInternal(uploadFilename, existingFileSignaturePath, deltaFilename,
+                yield return StartCoroutine(CreateFileDeltaInternal(filename, existingFileSignaturePath, deltaFilename,
                     delegate ()
                     {
                         // success!
@@ -613,9 +576,9 @@ namespace VRC.Core
             }
 
             // upload smaller of delta and new file
-            long fullFizeSize = 0;
+            long fullFileSize = 0;
             long deltaFileSize = 0;
-            if (!VRC.Tools.GetFileSize(uploadFilename, out fullFizeSize, out errorStr) ||
+            if (!VRC.Tools.GetFileSize(filename, out fullFileSize, out errorStr) ||
                 (!string.IsNullOrEmpty(deltaFilename) && !VRC.Tools.GetFileSize(deltaFilename, out deltaFileSize, out errorStr)))
             {
                 Error(onError, apiFile, "Failed to create file delta for upload.", "Couldn't get file size: " + errorStr);
@@ -623,11 +586,11 @@ namespace VRC.Core
                 yield break;
             }
 
-            bool uploadDeltaFile = EnableDeltaCompression && deltaFileSize > 0 && deltaFileSize < fullFizeSize;
+            bool uploadDeltaFile = EnableDeltaCompression && deltaFileSize > 0 && deltaFileSize < fullFileSize;
             if (EnableDeltaCompression)
-                VRC.Core.Logger.Log("Delta size " + deltaFileSize + " (" + ((float)deltaFileSize / (float)fullFizeSize) + " %), full file size " + fullFizeSize + ", uploading " + (uploadDeltaFile ? " DELTA" : " FULL FILE"), DebugLevel.All);
+                VRC.Core.Logger.Log("Delta size " + deltaFileSize + " (" + ((float)deltaFileSize / (float)fullFileSize) + " %), full file size " + fullFileSize + ", uploading " + (uploadDeltaFile ? " DELTA" : " FULL FILE"), DebugLevel.All);
             else
-                VRC.Core.Logger.Log("Delta compression disabled, uploading FULL FILE, size " + fullFizeSize, DebugLevel.All);
+                VRC.Core.Logger.Log("Delta compression disabled, uploading FULL FILE, size " + fullFileSize, DebugLevel.All);
 
             LogApiFileStatus(apiFile, uploadDeltaFile);
 
@@ -690,7 +653,7 @@ namespace VRC.Core
                     }
                     else
                     {
-                        isValid = fullFizeSize == v.file.sizeInBytes &&
+                        isValid = fullFileSize == v.file.sizeInBytes &&
                             fileMD5Base64.CompareTo(v.file.md5) == 0 &&
                             sigFileSize == v.signature.sizeInBytes &&
                             sigMD5Base64.CompareTo(v.signature.md5) == 0;
@@ -766,7 +729,7 @@ namespace VRC.Core
                         apiFile.CreateNewVersion(ApiFile.Version.FileType.Delta, deltaMD5Base64, deltaFileSize, sigMD5Base64, sigFileSize, fileSuccess, fileFailure);
                     else
                         // full file
-                        apiFile.CreateNewVersion(ApiFile.Version.FileType.Full, fileMD5Base64, fullFizeSize, sigMD5Base64, sigFileSize, fileSuccess, fileFailure);
+                        apiFile.CreateNewVersion(ApiFile.Version.FileType.Full, fileMD5Base64, fullFileSize, sigMD5Base64, sigFileSize, fileSuccess, fileFailure);
 
                     while (wait)
                     {
@@ -842,7 +805,7 @@ namespace VRC.Core
 
                     wasError = false;
                     yield return StartCoroutine(UploadFileComponentInternal(apiFile,
-                        ApiFile.Version.FileDescriptor.Type.file, uploadFilename, fileMD5Base64, fullFizeSize,
+                        ApiFile.Version.FileDescriptor.Type.file, filename, fileMD5Base64, fullFileSize,
                         delegate (ApiFile file)
                         {
                             VRC.Core.Logger.Log("Successfully uploaded file.", DebugLevel.All);
@@ -1018,10 +981,10 @@ namespace VRC.Core
             }
             else if (logSuccess)
                 VRC.Core.Logger.Log("< color = yellow > Processing { 3}: { 0}, { 1}, { 2}</ color > " +
-                    (apiFile.IsWaitingForUpload() ? "waiting for upload" : "upload complete") +
-                    (apiFile.HasExistingOrPendingVersion() ? "has existing or pending version" : "no previous version") +
-                    (apiFile.IsLatestVersionQueued(checkDelta) ? "latest version queued" : "latest version not queued") +
-                    apiFile.name, DebugLevel.All);
+                           (apiFile.IsWaitingForUpload() ? "waiting for upload" : "upload complete") +
+                           (apiFile.HasExistingOrPendingVersion() ? "has existing or pending version" : "no previous version") +
+                           (apiFile.IsLatestVersionQueued(checkDelta) ? "latest version queued" : "latest version not queued") +
+                           apiFile.name, DebugLevel.All);
 
             if (apiFile != null && apiFile.IsInitialized && logSuccess)
             {
@@ -1029,182 +992,6 @@ namespace VRC.Core
                 if (apiFields != null)
                     VRC.Core.Logger.Log("<color=yellow>{0}</color>" + VRC.Tools.JsonEncode(apiFields), DebugLevel.All);
             }
-        }
-
-        public IEnumerator CreateOptimizedFileInternal(string filename, string outputFilename, Action<FileOpResult> onSuccess, Action<string> onError)
-        {
-            VRC.Core.Logger.Log("CreateOptimizedFile: " + filename + " => " + outputFilename, DebugLevel.All);
-
-            // assume it's a .gz, or a .unitypackage
-            // else nothing to do
-
-#if !UNITY_ANDROID
-
-            if (!IsGZipCompressed(filename))
-            {
-                VRC.Core.Logger.Log("CreateOptimizedFile: (not gzip compressed, done)", DebugLevel.All);
-                // nothing to do
-                if (onSuccess != null)
-                    onSuccess(FileOpResult.Unchanged);
-                yield break;
-            }
-
-            bool isUnityPackage = string.Compare(Path.GetExtension(filename), ".unitypackage", true) == 0;
-
-            yield return null;
-
-            // open file
-            const int kGzipBufferSize = 256 * 1024;
-            Stream inStream = null;
-            try
-            {
-                inStream = new DotZLib.GZipStream(filename, kGzipBufferSize);
-            }
-            catch (Exception e)
-            {
-                if (onError != null)
-                    onError("Couldn't read file: " + filename + "\n" + e.Message);
-                yield break;
-            }
-
-            yield return null;
-
-            // create output
-            DotZLib.GZipStream outStream = null;
-            try
-            {
-                outStream = new DotZLib.GZipStream(outputFilename, DotZLib.CompressLevel.Best, true, kGzipBufferSize);    // this lib supports rsyncable output
-            }
-            catch (Exception e)
-            {
-                if (inStream != null)
-                    inStream.Close();
-                if (onError != null)
-                    onError("Couldn't create output file: " + outputFilename + "\n" + e.Message);
-                yield break;
-            }
-
-            yield return null;
-
-            // copy / filter file
-            if (isUnityPackage)
-            {
-                try
-                {
-                    // discard files in the package we don't need
-
-                    // scan package and make list of asset guids we don't want
-                    List<string> assetGuidsToStrip = new List<string>();
-                    {
-                        byte[] filenameBuf = new byte[4096];
-                        ICSharpCode.SharpZipLib.Tar.TarInputStream tarInputStream = new ICSharpCode.SharpZipLib.Tar.TarInputStream(inStream);
-                        ICSharpCode.SharpZipLib.Tar.TarEntry tarEntry = tarInputStream.GetNextEntry();
-                        while (tarEntry != null)
-                        {
-                            if (tarEntry.Size > 0 && tarEntry.Name.EndsWith("/pathname", StringComparison.OrdinalIgnoreCase))
-                            {
-                                int bytesRead = tarInputStream.Read(filenameBuf, 0, (int)tarEntry.Size);
-                                if (bytesRead > 0)
-                                {
-                                    string assetFilename = System.Text.ASCIIEncoding.ASCII.GetString(filenameBuf, 0, bytesRead);
-                                    if (kUnityPackageAssetNameFilters.Any(r => r.IsMatch(assetFilename)))
-                                    {
-                                        string assetGuid = assetFilename.Substring(0, assetFilename.IndexOf('/'));
-                                        // Debug.Log("-- stripped file from package: " + assetGuid + " - " + assetFilename);
-                                        assetGuidsToStrip.Add(assetGuid);
-                                    }
-                                }
-                            }
-
-                            tarEntry = tarInputStream.GetNextEntry();
-                        }
-
-                        tarInputStream.Close();
-                    }
-
-                    // rescan input .tar and copy only entries we want to the output
-                    {
-                        inStream.Close();
-                        inStream = new DotZLib.GZipStream(filename, kGzipBufferSize);
-
-                        ICSharpCode.SharpZipLib.Tar.TarOutputStream tarOutputStream = new ICSharpCode.SharpZipLib.Tar.TarOutputStream(outStream);
-
-                        ICSharpCode.SharpZipLib.Tar.TarInputStream tarInputStream = new ICSharpCode.SharpZipLib.Tar.TarInputStream(inStream);
-                        ICSharpCode.SharpZipLib.Tar.TarEntry tarEntry = tarInputStream.GetNextEntry();
-                        while (tarEntry != null)
-                        {
-                            string assetGuid = tarEntry.Name.Substring(0, tarEntry.Name.IndexOf('/'));
-                            bool strip = assetGuidsToStrip.Any(s => string.Compare(s, assetGuid) == 0);
-                            if (!strip)
-                            {
-                                tarOutputStream.PutNextEntry(tarEntry);
-                                tarInputStream.CopyEntryContents(tarOutputStream);
-                                tarOutputStream.CloseEntry();
-                            }
-
-                            tarEntry = tarInputStream.GetNextEntry();
-                        }
-
-                        tarInputStream.Close();
-                        tarOutputStream.Close();
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (inStream != null)
-                        inStream.Close();
-                    if (outStream != null)
-                        outStream.Close();
-                    if (onError != null)
-                        onError("Failed to strip and recompress file." + "\n" + e.Message);
-                    yield break;
-                }
-            }
-            else
-            {
-                // not a unitypackage
-
-                // straight stream copy
-                try
-                {
-                    const int bufSize = 256 * 1024;
-                    byte[] buf = new byte[bufSize];
-                    ICSharpCode.SharpZipLib.Core.StreamUtils.Copy(inStream, outStream, buf);
-                }
-                catch (Exception e)
-                {
-                    if (inStream != null)
-                        inStream.Close();
-                    if (outStream != null)
-                        outStream.Close();
-                    if (onError != null)
-                        onError("Failed to recompress file." + "\n" + e.Message);
-                    yield break;
-                }
-            }
-
-            yield return null;
-
-            if (inStream != null)
-                inStream.Close();
-            inStream = null;
-            if (outStream != null)
-                outStream.Close();
-            outStream = null;
-            yield return null;
-
-            if (onSuccess != null)
-                onSuccess(FileOpResult.Success);
-#else
-            yield return null;
-            //if (onError != null)
-            //    onError("Not supported on ANDROID platform.");
-
-            Debug.Log("CreateOptimizedFile: Android unsupported");
-            if (onSuccess != null)
-                onSuccess(FileOpResult.Unchanged);
-            yield break;
-#endif
         }
 
         public IEnumerator CreateFileSignatureInternal(string filename, string outputSignatureFilename, Action onSuccess, Action<string> onError)
@@ -1505,7 +1292,7 @@ namespace VRC.Core
             return Mathf.Clamp(timeoutMultiplier * SERVER_PROCESSING_WAIT_TIMEOUT_PER_CHUNK_SIZE, SERVER_PROCESSING_WAIT_TIMEOUT_PER_CHUNK_SIZE, SERVER_PROCESSING_MAX_WAIT_TIMEOUT);
         }
 
-        private bool uploadFileComponentValidateFileDesc(ApiFile apiFile, string filename, string md5Base64, long fileSize, ApiFile.Version.FileDescriptor fileDesc, Action<ApiFile> onSuccess, Action<string> onError)
+        private bool UploadFileComponentValidateFileDesc(ApiFile apiFile, string filename, string md5Base64, long fileSize, ApiFile.Version.FileDescriptor fileDesc, Action<ApiFile> onSuccess, Action<string> onError)
         {
             if (fileDesc.status != ApiFile.Status.Waiting)
             {
@@ -1548,7 +1335,15 @@ namespace VRC.Core
             return true;
         }
 
-        private IEnumerator uploadFileComponentDoSimpleUpload(ApiFile apiFile, ApiFile.Version.FileDescriptor.Type fileDescriptorType, string filename, string md5Base64, long fileSize, Action<ApiFile> onSuccess, Action<string> onError, Action<long, long> onProgess, FileOpCancelQuery cancelQuery)
+        private IEnumerator UploadFileComponentDoSimpleUpload(ApiFile apiFile,
+            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
+            string filename,
+            string md5Base64,
+            long fileSize,
+            Action<ApiFile> onSuccess,
+            Action<string> onError,
+            Action<long, long> onProgress,
+            FileOpCancelQuery cancelQuery)
         {
             OnFileOpError onCancelFunc = delegate (ApiFile file, string s)
             {
@@ -1606,7 +1401,7 @@ namespace VRC.Core
                 bool wait = true;
                 string errorStr = "";
 
-                VRC.HttpRequest req = ApiFile.PutSimpleFileToURL(uploadUrl, filename, GetMimeTypeFromExtension(Path.GetExtension(filename)), md5Base64,
+                VRC.HttpRequest req = ApiFile.PutSimpleFileToURL(uploadUrl, filename, GetMimeTypeFromExtension(Path.GetExtension(filename)), md5Base64, true,
                     delegate ()
                     {
                         wait = false;
@@ -1618,8 +1413,8 @@ namespace VRC.Core
                     },
                     delegate (long uploaded, long length)
                     {
-                        if (onProgess != null)
-                            onProgess(uploaded, length);
+                        if (onProgress != null)
+                            onProgress(uploaded, length);
                     }
                 );
 
@@ -1692,7 +1487,15 @@ namespace VRC.Core
 
         }
 
-        private IEnumerator uploadFileComponentDoMultipartUpload(ApiFile apiFile, ApiFile.Version.FileDescriptor.Type fileDescriptorType, string filename, string md5Base64, long fileSize, Action<ApiFile> onSuccess, Action<string> onError, Action<long, long> onProgess, FileOpCancelQuery cancelQuery)
+        private IEnumerator UploadFileComponentDoMultipartUpload(ApiFile apiFile,
+            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
+            string filename,
+            string md5Base64,
+            long fileSize,
+            Action<ApiFile> onSuccess,
+            Action<string> onError,
+            Action<long, long> onProgress,
+            FileOpCancelQuery cancelQuery)
         {
             FileStream fs = null;
             OnFileOpError onCancelFunc = delegate (ApiFile file, string s)
@@ -1855,7 +1658,7 @@ namespace VRC.Core
                     bool wait = true;
                     string errorStr = "";
 
-                    VRC.HttpRequest req = ApiFile.PutMultipartDataToURL(uploadUrl, buffer, bytesRead, GetMimeTypeFromExtension(Path.GetExtension(filename)),
+                    VRC.HttpRequest req = ApiFile.PutMultipartDataToURL(uploadUrl, buffer, bytesRead, GetMimeTypeFromExtension(Path.GetExtension(filename)), true,
                         delegate (string etag)
                         {
                             if (!string.IsNullOrEmpty(etag))
@@ -1870,8 +1673,8 @@ namespace VRC.Core
                         },
                         delegate (long uploaded, long length)
                         {
-                            if (onProgess != null)
-                                onProgess(totalBytesUploaded + uploaded, fileSize);
+                            if (onProgress != null)
+                                onProgress(totalBytesUploaded + uploaded, fileSize);
                         }
                     );
 
@@ -1948,7 +1751,16 @@ namespace VRC.Core
             fs.Close();
         }
 
-        private IEnumerator uploadFileComponentVerifyRecord(ApiFile apiFile, ApiFile.Version.FileDescriptor.Type fileDescriptorType, string filename, string md5Base64, long fileSize, ApiFile.Version.FileDescriptor fileDesc, Action<ApiFile> onSuccess, Action<string> onError, Action<long, long> onProgess, FileOpCancelQuery cancelQuery)
+        private IEnumerator UploadFileComponentVerifyRecord(ApiFile apiFile,
+            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
+            string filename,
+            string md5Base64,
+            long fileSize,
+            ApiFile.Version.FileDescriptor fileDesc,
+            Action<ApiFile> onSuccess,
+            Action<string> onError,
+            Action<long, long> onProgress,
+            FileOpCancelQuery cancelQuery)
         {
             OnFileOpError onCancelFunc = delegate (ApiFile file, string s)
             {
@@ -2053,21 +1865,29 @@ namespace VRC.Core
                 onSuccess(apiFile);
         }
 
-        private IEnumerator UploadFileComponentInternal(ApiFile apiFile, ApiFile.Version.FileDescriptor.Type fileDescriptorType, string filename, string md5Base64, long fileSize, Action<ApiFile> onSuccess, Action<string> onError, Action<long, long> onProgess, FileOpCancelQuery cancelQuery)
+        private IEnumerator UploadFileComponentInternal(ApiFile apiFile,
+            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
+            string filename,
+            string md5Base64,
+            long fileSize,
+            Action<ApiFile> onSuccess,
+            Action<string> onError,
+            Action<long, long> onProgress,
+            FileOpCancelQuery cancelQuery)
         {
             VRC.Core.Logger.Log("UploadFileComponent: " + fileDescriptorType + " (" + apiFile.id + "): " + filename, DebugLevel.All);
             ApiFile.Version.FileDescriptor fileDesc = apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), fileDescriptorType);
 
-            if (!uploadFileComponentValidateFileDesc(apiFile, filename, md5Base64, fileSize, fileDesc, onSuccess, onError))
+            if (!UploadFileComponentValidateFileDesc(apiFile, filename, md5Base64, fileSize, fileDesc, onSuccess, onError))
                 yield break;
 
             switch (fileDesc.category)
             {
                 case ApiFile.Category.Simple:
-                    yield return uploadFileComponentDoSimpleUpload(apiFile, fileDescriptorType, filename, md5Base64, fileSize, onSuccess, onError, onProgess, cancelQuery);
+                    yield return UploadFileComponentDoSimpleUpload(apiFile, fileDescriptorType, filename, md5Base64, fileSize, onSuccess, onError, onProgress, cancelQuery);
                     break;
                 case ApiFile.Category.Multipart:
-                    yield return uploadFileComponentDoMultipartUpload(apiFile, fileDescriptorType, filename, md5Base64, fileSize, onSuccess, onError, onProgess, cancelQuery);
+                    yield return UploadFileComponentDoMultipartUpload(apiFile, fileDescriptorType, filename, md5Base64, fileSize, onSuccess, onError, onProgress, cancelQuery);
                     break;
                 default:
                     if (onError != null)
@@ -2075,7 +1895,7 @@ namespace VRC.Core
                     yield break;
             }
 
-            yield return uploadFileComponentVerifyRecord(apiFile, fileDescriptorType, filename, md5Base64, fileSize, fileDesc, onSuccess, onError, onProgess, cancelQuery);
+            yield return UploadFileComponentVerifyRecord(apiFile, fileDescriptorType, filename, md5Base64, fileSize, fileDesc, onSuccess, onError, onProgress, cancelQuery);
         }
     }
 }

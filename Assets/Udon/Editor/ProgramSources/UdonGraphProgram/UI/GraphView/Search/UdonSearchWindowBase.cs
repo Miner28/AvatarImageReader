@@ -126,6 +126,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 {
                     nodeName = $"{nodeDefinitionsEntry.Value.type.Namespace}.{nodeName}";
                 }
+
                 if (nodeNamesGetComponentType.Contains(nodeName))
                 {
                     nodesOfGetComponentType.Add(new SearchTreeEntry(new GUIContent(nodeName, iconGetComponents)) { level = level+1, userData = nodeDefinitionsEntry.Value });

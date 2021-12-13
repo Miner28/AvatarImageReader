@@ -56,6 +56,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             this.definition = definition;
             this.nodeData = nodeData;
             
+            string friendlyName = UdonGraphExtensions.FriendlyTypeName(definition.type).FriendlyNameify();
+            
             // Public Toggle
             isPublic = new Toggle
             {
@@ -70,44 +72,75 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 e => { SetNewValue(e.newValue, ValueIndices.isPublic); });
             Add(isPublic);
 
-            // Is Synced Field
-            isSynced = new Toggle
+            if(UdonNetworkTypes.CanSync(definition.type))
             {
-                text = "synced",
-                value = (bool) GetValue(ValueIndices.isSynced),
-            };
-
-#if UNITY_2019_3_OR_NEWER
-            isSynced.RegisterValueChangedCallback(
-#else
-            isSynced.OnValueChanged(
-#endif
-                e =>
+                // Is Synced Field
+                isSynced = new Toggle
                 {
-                    SetNewValue(e.newValue, ValueIndices.isSynced);
-                    syncField.visible = e.newValue;
-                });
-            Add(isSynced);
-
-            // Sync Field, add to isSynced
-            List<string> choices = new List<string>()
-            {
-                "none", "linear", "smooth"
-            };
-            syncField = new EditorUI.PopupField<string>(choices, 0)
-            {
-                visible = isSynced.value
-            };
+                    text = "synced",
+                    value = (bool)GetValue(ValueIndices.isSynced),
+                    name = "syncToggle",
+                };
+                
 #if UNITY_2019_3_OR_NEWER
-            syncField.RegisterValueChangedCallback(
+                isSynced.RegisterValueChangedCallback(
 #else
-            syncField.OnValueChanged(
+                isSynced.OnValueChanged(
 #endif
-                e => { SetNewValue(e.newValue, ValueIndices.syncType); });
-            isSynced.Add(syncField);
+                    e =>
+                    {
+                        SetNewValue(e.newValue, ValueIndices.isSynced);
+                        syncField.visible = e.newValue;
+                    });
+                
+                // Sync Field, add to isSynced
+                List<string> choices = new List<string>()
+                {
+                    "none"
+                };
+
+                if(UdonNetworkTypes.CanSyncLinear(definition.type))
+                {
+                    choices.Add("linear");
+                }
+
+                if(UdonNetworkTypes.CanSyncSmooth(definition.type))
+                {
+                    choices.Add("smooth");
+                }
+
+                syncField = new EditorUI.PopupField<string>(choices, 0)
+                {
+                    visible = isSynced.value,
+                };
+                syncField.Insert(0, new Label("smooth:"));
+
+#if UNITY_2019_3_OR_NEWER
+                syncField.RegisterValueChangedCallback(
+#else
+                syncField.OnValueChanged(
+#endif
+                    e =>
+                    {
+                        SetNewValue(e.newValue, ValueIndices.syncType);
+                    });
+
+                // Only show sync smoothing dropdown if there are choices to be made
+                if (choices.Count > 1)
+                {
+                    isSynced.Add(syncField);
+                }
+                
+                Add(isSynced);
+            }
+            else
+            {
+                // Cannot Sync
+                SetNewValue(false, ValueIndices.isSynced);
+                Add(new Label($"{friendlyName} cannot be synced."));
+            }
 
             // Container to show/edit Default Value
-            var friendlyName = UdonGraphExtensions.FriendlyTypeName(definition.type).FriendlyNameify();
             defaultValueContainer = new VisualElement();
             defaultValueContainer.Add(
                 new Label("default value") {name = "default-value-label"});

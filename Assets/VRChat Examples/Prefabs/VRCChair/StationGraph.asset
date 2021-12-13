@@ -12,31 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: StationGraph
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 4455eeb5430d3b6469fe4c8421f58846,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d4e10a123f0c77f4da6015e930099a73,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    \r\n    __instance_0: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __message_0: %SystemObject, null\r\n    __format_0: %SystemString,
-    null\r\n    __arg0_0: %SystemObject, null\r\n    __VRCPlayerApi_0: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    onStationEnteredPlayer: %VRCSDKBaseVRCPlayerApi, null\r\n    __message_1:
-    %SystemObject, null\r\n    __format_1: %SystemString, null\r\n    __arg0_1: %SystemObject,
-    null\r\n    __VRCPlayerApi_1: %VRCSDKBaseVRCPlayerApi, null\r\n    onStationExitedPlayer:
+  udonAssembly: ".data_start\r\n\r\n    \r\n    instance_0: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    message_0: %SystemObject, null\r\n    format_0: %SystemString, null\r\n
+    \   arg0_0: %SystemObject, null\r\n    VRCPlayerApi_0: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    onStationEnteredPlayer: %VRCSDKBaseVRCPlayerApi, null\r\n    message_1:
+    %SystemObject, null\r\n    format_1: %SystemString, null\r\n    arg0_1: %SystemObject,
+    null\r\n    VRCPlayerApi_1: %VRCSDKBaseVRCPlayerApi, null\r\n    onStationExitedPlayer:
     %VRCSDKBaseVRCPlayerApi, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n    .export
-    _interact\r\n    \r\n    _interact:\r\n    \r\n        PUSH, __instance_0\r\n
-    \       EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __instance_0\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__UseAttachedStation__SystemVoid\"\r\n
+    _interact\r\n    \r\n    _interact:\r\n    \r\n        PUSH, instance_0\r\n        EXTERN,
+    \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n        PUSH,
+    instance_0\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__UseAttachedStation__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onStationEntered\r\n    \r\n
     \   _onStationEntered:\r\n    \r\n        PUSH, onStationEnteredPlayer\r\n        PUSH,
-    __VRCPlayerApi_0\r\n        COPY\r\n        PUSH, __VRCPlayerApi_0\r\n        PUSH,
-    __arg0_0\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
-    \       PUSH, __format_0\r\n        PUSH, __arg0_0\r\n        PUSH, __message_0\r\n
+    VRCPlayerApi_0\r\n        COPY\r\n        PUSH, VRCPlayerApi_0\r\n        PUSH,
+    arg0_0\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n
+    \       PUSH, format_0\r\n        PUSH, arg0_0\r\n        PUSH, message_0\r\n
     \       EXTERN, \"SystemString.__Format__SystemString_SystemObject__SystemString\"\r\n
-    \       PUSH, __message_0\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
+    \       PUSH, message_0\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onStationExited\r\n    \r\n    _onStationExited:\r\n
-    \   \r\n        PUSH, onStationExitedPlayer\r\n        PUSH, __VRCPlayerApi_1\r\n
-    \       COPY\r\n        PUSH, __VRCPlayerApi_1\r\n        PUSH, __arg0_1\r\n        EXTERN,
-    \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n        PUSH, __format_1\r\n
-    \       PUSH, __arg0_1\r\n        PUSH, __message_1\r\n        EXTERN, \"SystemString.__Format__SystemString_SystemObject__SystemString\"\r\n
-    \       PUSH, __message_1\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
+    \   \r\n        PUSH, onStationExitedPlayer\r\n        PUSH, VRCPlayerApi_1\r\n
+    \       COPY\r\n        PUSH, VRCPlayerApi_1\r\n        PUSH, arg0_1\r\n        EXTERN,
+    \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n        PUSH, format_1\r\n
+    \       PUSH, arg0_1\r\n        PUSH, message_1\r\n        EXTERN, \"SystemString.__Format__SystemString_SystemObject__SystemString\"\r\n
+    \       PUSH, message_1\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:

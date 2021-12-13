@@ -180,8 +180,14 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         private void DelayedRestoreViewFromData()
         {
             EditorApplication.update -= DelayedRestoreViewFromData;
+            //Todo: restore from saved data instead of FrameAll
+#if UNITY_2019_3_OR_NEWER
+             FrameAll();
+#else
             UpdateViewTransform(graphProgramAsset.viewTransform.position,
-                Vector3.one * graphProgramAsset.viewTransform.scale);
+                 Vector3.one * graphProgramAsset.viewTransform.scale);
+             contentViewContainer.MarkDirtyRepaint();
+#endif
         }
 
         public UdonNode AddNodeFromSearch(UdonNodeDefinition definition, Vector2 position)
@@ -348,12 +354,12 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         {
             if (mouseTipContainer.visible)
             {
-                var layout = mouseTipContainer.layout;
-                layout.position = position + mouseTipOffset;
+                var newLayout = mouseTipContainer.layout;
+                newLayout.position = position + mouseTipOffset;
 #if UNITY_2019_3_OR_NEWER
-                mouseTipContainer.layout.Set(layout.x, layout.y, layout.width, layout.height);
+                mouseTipContainer.transform.position = newLayout.position;
 #else
-                mouseTipContainer.layout = layout;
+                mouseTipContainer.layout = newLayout;
 #endif
             }
         }
@@ -1038,23 +1044,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         public void Compile()
             {
             UdonEditorManager.Instance.QueueAndRefreshProgram(graphProgramAsset);
-        }
-
-        // Copied from source code, this is what happens when you press 'a' on the keyboard
-        public void Recenter()
-        {
-            Rect rectToFit;
-            Vector3 frameTranslation = Vector3.zero;
-            Vector3 frameScaling = Vector3.one;
-
-            rectToFit = CalculateRectToFitAll(contentViewContainer);
-            CalculateFrameTransform(rectToFit, layout, 30, out frameTranslation, out frameScaling);
-
-            Matrix4x4.TRS(frameTranslation, Quaternion.identity, frameScaling);
-
-            UpdateViewTransform(frameTranslation, frameScaling);
-
-            contentViewContainer.MarkDirtyRepaint();
         }
 
         private bool ShouldUpdateAsset => !IsReloading && graphProgramAsset != null;

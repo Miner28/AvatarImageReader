@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: AvatarPedestal Program
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: d41ec7ab351902c4f9989e3b984c901f,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: ada7f5a268867474585f7c505fce9ce1,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    \r\n    __instance_0: %VRCSDK3ComponentsVRCAvatarPedestal,
-    null\r\n    __instigator_0: %VRCSDKBaseVRCPlayerApi, null\r\n    __instance_1:
-    %UnityEngineGameObject, this\r\n    __type_0: %SystemType, null\r\n    __Type_0:
-    %SystemType, null\r\n    pedestal: %VRCSDK3ComponentsVRCAvatarPedestal, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
-    \   .export _interact\r\n    \r\n    _interact:\r\n    \r\n        PUSH, __Type_0\r\n
-    \       PUSH, __type_0\r\n        COPY\r\n        PUSH, __instance_1\r\n        PUSH,
-    __type_0\r\n        PUSH, __instance_0\r\n        EXTERN, \"UnityEngineGameObject.__GetComponent__SystemType__UnityEngineComponent\"\r\n
-    \       PUSH, __instigator_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __instance_0\r\n        PUSH, __instigator_0\r\n        EXTERN,
-    \"VRCSDK3ComponentsVRCAvatarPedestal.__SetAvatarUse__VRCSDKBaseVRCPlayerApi__SystemVoid\"\r\n
+  udonAssembly: ".data_start\r\n\r\n    \r\n    instance_0: %VRCSDK3ComponentsVRCAvatarPedestal,
+    null\r\n    instigator_0: %VRCSDKBaseVRCPlayerApi, null\r\n    instance_1: %UnityEngineGameObject,
+    this\r\n    type_0: %SystemType, null\r\n    Type_0: %SystemType, null\r\n    pedestal:
+    %VRCSDK3ComponentsVRCAvatarPedestal, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
+    \   .export _interact\r\n    \r\n    _interact:\r\n    \r\n        PUSH, Type_0\r\n
+    \       PUSH, type_0\r\n        COPY\r\n        PUSH, instance_1\r\n        PUSH,
+    type_0\r\n        PUSH, instance_0\r\n        EXTERN, \"UnityEngineGameObject.__GetComponent__SystemType__UnityEngineComponent\"\r\n
+    \       PUSH, instigator_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, instance_0\r\n        PUSH, instigator_0\r\n        EXTERN, \"VRCSDK3ComponentsVRCAvatarPedestal.__SetAvatarUse__VRCSDKBaseVRCPlayerApi__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:

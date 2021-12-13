@@ -23,6 +23,8 @@ namespace UdonSharp.Compiler
         ExternUserField,
         ExternUserMethod,
         InternalUdonSharpMethod,
+        LocalProperty,
+        ExternUserProperty,
     }
 
     /// <summary>
@@ -53,8 +55,10 @@ namespace UdonSharp.Compiler
         public System.Type captureType { get; private set; } = null;
         public string captureEnum { get; private set; } = "";
         public MethodDefinition captureLocalMethod { get; private set; } = null;
+        public PropertyDefinition captureLocalProperty { get; private set; } = null;
         public FieldDefinition captureExternUserField { get; private set; } = null;
         public MethodDefinition captureExternUserMethod { get; private set; } = null;
+        public PropertyDefinition captureExternUserProperty { get; private set; } = null;
         public InternalMethodHandler InternalMethodHandler { get; private set; } = null;
 
         // In some cases, we know ahead of time that we want to store a particular value in a particular symbol.
@@ -251,8 +255,10 @@ namespace UdonSharp.Compiler
             captureEnum = childScope.captureEnum;
             arrayIndexerIndexValue = childScope.arrayIndexerIndexValue;
             captureLocalMethod = childScope.captureLocalMethod;
+            captureLocalProperty = childScope.captureLocalProperty;
             captureExternUserField = childScope.captureExternUserField;
             captureExternUserMethod = childScope.captureExternUserMethod;
+            captureExternUserProperty = childScope.captureExternUserProperty;
             unresolvedAccessChain = childScope.unresolvedAccessChain;
         }
 
@@ -386,6 +392,9 @@ namespace UdonSharp.Compiler
             {
                 PropertyInfo property = typeof(Component).GetProperty(captureProperty.Name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
                 if (property == null)
+                    property = typeof(VRC.Udon.UdonBehaviour).GetProperty(captureProperty.Name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
+
+                if (property == null)
                     return null;
 
                 return property.GetGetMethod();
@@ -402,10 +411,14 @@ namespace UdonSharp.Compiler
             if (captureProperty.ReflectedType == typeof(VRC.Udon.UdonBehaviour))
             {
                 PropertyInfo property = typeof(Component).GetProperty(captureProperty.Name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
+
+                if (property == null)
+                    property = typeof(VRC.Udon.UdonBehaviour).GetProperty(captureProperty.Name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
+
                 if (property == null)
                     return null;
 
-                return property.GetGetMethod();
+                return property.GetSetMethod();
             }
 
             return captureProperty.GetSetMethod();
@@ -454,6 +467,53 @@ namespace UdonSharp.Compiler
 
                 visitorContext.uasmBuilder.AddPush(outSymbol);
                 visitorContext.uasmBuilder.AddExternCall(methodUdonString);
+            }
+            else if (captureArchetype == ExpressionCaptureArchetype.LocalProperty)
+            {
+                PropertyDefinition definition = captureLocalProperty;
+
+                GetterDefinition getter = definition.getter;
+                if (getter.type == typeof(void))
+                    throw new System.TypeLoadException("Cannot return type of void from a get statement");
+
+                SymbolDefinition exitJumpLocation = visitorContext.topTable.CreateNamedSymbol("exitJumpLoc", typeof(uint), SymbolDeclTypeFlags.Internal | SymbolDeclTypeFlags.Constant);
+
+                visitorContext.uasmBuilder.AddPush(exitJumpLocation);
+                visitorContext.uasmBuilder.AddJump(getter.userCallStart);
+
+                JumpLabel exitLabel = visitorContext.labelTable.GetNewJumpLabel("returnLocation");
+
+                visitorContext.uasmBuilder.AddJumpLabel(exitLabel);
+                exitJumpLocation.symbolDefaultValue = exitLabel.resolvedAddress;
+
+                outSymbol = AllocateOutputSymbol(getter.returnSymbol.userCsType);
+                visitorContext.uasmBuilder.AddCopy(outSymbol, getter.returnSymbol);
+            }
+            else if (captureArchetype == ExpressionCaptureArchetype.ExternUserProperty)
+            {
+                PropertyDefinition definition = captureExternUserProperty;
+
+                GetterDefinition getter = definition.getter;
+                if (getter.type == typeof(void))
+                    throw new System.TypeLoadException("Cannot return type of void from a get statement");
+
+                outSymbol = AllocateOutputSymbol(getter.type);
+
+                using (ExpressionCaptureScope getPropertyMethodScope = new ExpressionCaptureScope(visitorContext, null, requestedDestination))
+                {
+                    getPropertyMethodScope.SetToLocalSymbol(accessSymbol);
+                    getPropertyMethodScope.ResolveAccessToken("SendCustomEvent");
+                    getPropertyMethodScope.Invoke(new SymbolDefinition[] { visitorContext.topTable.CreateConstSymbol(typeof(string), getter.accessorName) });
+                }
+
+                using (ExpressionCaptureScope getReturnScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    getReturnScope.SetToLocalSymbol(accessSymbol);
+                    getReturnScope.ResolveAccessToken("GetProgramVariable");
+
+                    SymbolDefinition externVarReturn = getReturnScope.Invoke(new SymbolDefinition[] { visitorContext.topTable.CreateConstSymbol(typeof(string), getter.returnSymbol.symbolUniqueName) });
+                    outSymbol = CastSymbolToType(externVarReturn, getter.type, true, true, outSymbol == requestedDestination ? requestedDestination : null);
+                }
             }
             else if (captureArchetype == ExpressionCaptureArchetype.Field)
             {
@@ -619,6 +679,56 @@ namespace UdonSharp.Compiler
 
                 visitorContext.uasmBuilder.AddPush(convertedValue);
                 visitorContext.uasmBuilder.AddExternCall(udonMethodString);
+
+                JumpLabel exitLabel = visitorContext.labelTable.GetNewJumpLabel("returnLocation");
+                visitorContext.uasmBuilder.AddJumpLabel(exitLabel);
+            
+            }
+            else if (captureArchetype == ExpressionCaptureArchetype.LocalProperty)
+            {
+                PropertyDefinition definition = captureLocalProperty;
+                SetterDefinition setter = definition.setter;
+
+                if (setter == null)
+                    throw new System.MemberAccessException($"Property or indexer '{definition.originalPropertyName}' cannot be assigned to -- it is read only or doesn't exist");
+
+                using (ExpressionCaptureScope argAssignmentScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    argAssignmentScope.SetToLocalSymbol(setter.paramSymbol);
+                    argAssignmentScope.ExecuteSet(convertedValue);
+                }
+
+                SymbolDefinition exitJumpLocation = visitorContext.topTable.CreateNamedSymbol("exitJumpLoc", typeof(uint), SymbolDeclTypeFlags.Internal | SymbolDeclTypeFlags.Constant);
+
+                visitorContext.uasmBuilder.AddPush(exitJumpLocation);
+                visitorContext.uasmBuilder.AddJump(setter.userCallStart);
+                JumpLabel exitLabel = visitorContext.labelTable.GetNewJumpLabel("returnLocation");
+
+                visitorContext.uasmBuilder.AddJumpLabel(exitLabel);
+                exitJumpLocation.symbolDefaultValue = exitLabel.resolvedAddress;
+            }
+            else if (captureArchetype == ExpressionCaptureArchetype.ExternUserProperty)
+            {
+                PropertyDefinition definition = captureExternUserProperty;
+                SetterDefinition setter = definition.setter;
+
+                if (setter == null || setter.declarationFlags == PropertyDeclFlags.Private)
+                    throw new System.MemberAccessException($"Property or indexer '{definition.originalPropertyName}' cannot be assigned to -- it is read only or doesn't exist");
+
+                using (ExpressionCaptureScope argAssignmentScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    argAssignmentScope.SetToLocalSymbol(accessSymbol);
+                    argAssignmentScope.ResolveAccessToken("SetProgramVariable");
+
+                    argAssignmentScope.Invoke(new SymbolDefinition[] { visitorContext.topTable.CreateConstSymbol(typeof(string), setter.paramSymbol.symbolUniqueName), convertedValue });
+                }
+
+                using (ExpressionCaptureScope setPropertyMethodScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    setPropertyMethodScope.SetToLocalSymbol(accessSymbol);
+                    setPropertyMethodScope.ResolveAccessToken("SendCustomEvent");
+                    setPropertyMethodScope.Invoke(new SymbolDefinition[] { visitorContext.topTable.CreateConstSymbol(typeof(string), setter.accessorName) });
+                }
             }
             else if (captureArchetype == ExpressionCaptureArchetype.Field)
             {
@@ -632,6 +742,9 @@ namespace UdonSharp.Compiler
             }
             else if (captureArchetype == ExpressionCaptureArchetype.ExternUserField)
             {
+                if (visitorContext.onModifyCallbackFields.Values.Any(e => e.fieldSymbol.symbolUniqueName == captureExternUserField.fieldSymbol.symbolUniqueName))
+                    throw new System.InvalidOperationException($"Cannot set field with {nameof(FieldChangeCallbackAttribute)}, use a property or SetProgramVariable");
+
                 using (ExpressionCaptureScope setVariableMethodScope = new ExpressionCaptureScope(visitorContext, null))
                 {
                     setVariableMethodScope.SetToLocalSymbol(accessSymbol);
@@ -1654,6 +1767,8 @@ namespace UdonSharp.Compiler
             typeof(VRC.SDK3.Video.Components.VRCUnityVideoPlayer),
             typeof(VRC.SDK3.Video.Components.AVPro.VRCAVProVideoPlayer),
             typeof(VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer),
+            typeof(VRC.SDK3.Components.VRCObjectPool),
+            typeof(VRC.SDK3.Components.VRCObjectSync),
         };
 
         private SymbolDefinition InvokeExtern(SymbolDefinition[] invokeParams)
@@ -2101,6 +2216,14 @@ namespace UdonSharp.Compiler
             {
                 return captureProperty.GetGetMethod().ReturnType;
             }
+            else if (captureArchetype == ExpressionCaptureArchetype.LocalProperty)
+            {
+                return captureLocalProperty.type;
+            }
+            else if (captureArchetype == ExpressionCaptureArchetype.ExternUserProperty)
+            {
+                return captureExternUserProperty.type;
+            }
             else if (captureArchetype == ExpressionCaptureArchetype.Field)
             {
                 return captureField.FieldType;
@@ -2190,6 +2313,7 @@ namespace UdonSharp.Compiler
             {
                 resolvedToken = HandleLocalSymbolLookup(accessToken) ||
                                 HandleLocalMethodLookup(accessToken) ||
+                                HandleLocalPropertyLookup(accessToken) ||
                                 HandleLocalUdonBehaviourMethodLookup(accessToken) ||
                                 HandleLocalUdonBehaviourPropertyLookup(accessToken) ||
                                 HandleUdonSharpInternalMethodLookup(accessToken);
@@ -2198,6 +2322,7 @@ namespace UdonSharp.Compiler
             {
                 resolvedToken = HandleLocalSymbolLookup(accessToken) ||
                                 HandleLocalMethodLookup(accessToken) ||
+                                HandleLocalPropertyLookup(accessToken) ||
                                 HandleLocalUdonBehaviourMethodLookup(accessToken) ||
                                 HandleLocalUdonBehaviourPropertyLookup(accessToken) ||
                                 HandleUdonSharpInternalMethodLookup(accessToken) ||
@@ -2225,13 +2350,16 @@ namespace UdonSharp.Compiler
             // This is where we need to start building intermediate variables to store the input for the next statement
             else if (captureArchetype == ExpressionCaptureArchetype.LocalSymbol || 
                      captureArchetype == ExpressionCaptureArchetype.Property || 
+                     captureArchetype == ExpressionCaptureArchetype.LocalProperty ||
                      captureArchetype == ExpressionCaptureArchetype.Field ||
                      captureArchetype == ExpressionCaptureArchetype.ExternUserField ||
+                     captureArchetype == ExpressionCaptureArchetype.ExternUserProperty ||
                      captureArchetype == ExpressionCaptureArchetype.ArrayIndexer ||
                      captureArchetype == ExpressionCaptureArchetype.Enum)
             {
                 resolvedToken = HandleExternUserFieldLookup(accessToken) ||
                                 HandleExternUserMethodLookup(accessToken) ||
+                                HandleExternUserPropertyLookup(accessToken) ||
                                 HandleUdonSharpInternalMethodLookup(accessToken) ||
                                 HandleMemberPropertyAccess(accessToken) ||
                                 HandleMemberFieldAccess(accessToken) ||
@@ -2301,7 +2429,33 @@ namespace UdonSharp.Compiler
 
             return true;
         }
-        
+
+        private bool HandleLocalPropertyLookup(string localPropertyName)
+        {
+            if (visitorContext.definedProperties == null)
+                return false;
+
+            PropertyDefinition foundProperty = null;
+
+            foreach (PropertyDefinition propertyDefinition in visitorContext.definedProperties)
+            {
+                if (propertyDefinition.originalPropertyName == localPropertyName)
+                {
+                    foundProperty = propertyDefinition;
+                    break;
+                }
+            }
+
+            if (foundProperty == null)
+                return false;
+
+            accessSymbol = visitorContext.topTable.CreateThisSymbol(visitorContext.behaviourUserType);
+            captureArchetype = ExpressionCaptureArchetype.LocalProperty;
+            captureLocalProperty = foundProperty;
+
+            return true;
+        }
+
         private MethodInfo[] GetTypeMethods(System.Type type, BindingFlags bindingFlags)
         {
             MethodInfo[] methods;
@@ -2347,7 +2501,7 @@ namespace UdonSharp.Compiler
         {
             PropertyInfo[] foundProperties = _componentProperties.Where(e => e.Name == localUdonPropertyName).ToArray();
             
-            if (localUdonPropertyName == "enabled")
+            if (localUdonPropertyName == "enabled" || localUdonPropertyName == "DisableInteractive")
                 foundProperties = _udonEventReceiverProperties.Where(e => e.Name == localUdonPropertyName).ToArray();
 
             if (foundProperties.Length == 0)
@@ -2521,6 +2675,7 @@ namespace UdonSharp.Compiler
 
             if (captureArchetype != ExpressionCaptureArchetype.LocalSymbol &&
                 captureArchetype != ExpressionCaptureArchetype.Property &&
+                captureArchetype != ExpressionCaptureArchetype.LocalProperty &&
                 captureArchetype != ExpressionCaptureArchetype.Field &&
                 captureArchetype != ExpressionCaptureArchetype.ArrayIndexer &&
                 captureArchetype != ExpressionCaptureArchetype.ExternUserField)
@@ -2564,6 +2719,7 @@ namespace UdonSharp.Compiler
 
             if (captureArchetype != ExpressionCaptureArchetype.LocalSymbol &&
                 captureArchetype != ExpressionCaptureArchetype.Property &&
+                captureArchetype != ExpressionCaptureArchetype.LocalProperty &&
                 captureArchetype != ExpressionCaptureArchetype.Field &&
                 captureArchetype != ExpressionCaptureArchetype.ArrayIndexer &&
                 captureArchetype != ExpressionCaptureArchetype.ExternUserField)
@@ -2599,6 +2755,7 @@ namespace UdonSharp.Compiler
         {
             if (captureArchetype != ExpressionCaptureArchetype.LocalSymbol &&
                 captureArchetype != ExpressionCaptureArchetype.Property &&
+                captureArchetype != ExpressionCaptureArchetype.LocalProperty &&
                 captureArchetype != ExpressionCaptureArchetype.Field && 
                 captureArchetype != ExpressionCaptureArchetype.ArrayIndexer &&
                 captureArchetype != ExpressionCaptureArchetype.Enum &&
@@ -2677,6 +2834,30 @@ namespace UdonSharp.Compiler
             return true;
         }
 
+        private bool HandleExternUserPropertyLookup(string propertyToken)
+        {
+            if (accessSymbol == null || !accessSymbol.IsUserDefinedBehaviour())
+                return false;
+
+            System.Type returnType = GetReturnType(true);
+            ClassDefinition externClass = visitorContext.externClassDefinitions.Find(e => e.userClassType == returnType);
+
+            if (externClass == null)
+                return false;
+
+            PropertyDefinition foundDefinition = externClass.propertyDefinitions.Find(e => e.originalPropertyName == propertyToken && e.declarationFlags.HasFlag(PropertyDeclFlags.Public));
+            if (foundDefinition == null)
+                return false;
+
+            SymbolDefinition newAccessSymbol = ExecuteGet();
+
+            accessSymbol = newAccessSymbol;
+            captureArchetype = ExpressionCaptureArchetype.ExternUserProperty;
+            captureExternUserProperty = foundDefinition;
+
+            return true;
+        }
+
         private bool HandleUdonSharpInternalMethodLookup(string methodToken)
         {
             bool isInternalMethod = InternalMethodHandler.ResolveAccessToken(methodToken);
@@ -2697,6 +2878,8 @@ namespace UdonSharp.Compiler
         {
             if (captureArchetype != ExpressionCaptureArchetype.LocalSymbol &&
                 captureArchetype != ExpressionCaptureArchetype.Property &&
+                captureArchetype != ExpressionCaptureArchetype.LocalProperty &&
+                captureArchetype != ExpressionCaptureArchetype.ExternUserProperty &&
                 !IsField() &&
                 captureArchetype != ExpressionCaptureArchetype.ArrayIndexer)
             {

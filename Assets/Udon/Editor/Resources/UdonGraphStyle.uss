@@ -254,6 +254,7 @@ UdonGraph {
 
 Edge.edge {
 	--edge-width:3;
+	--layer:0;
 }
 
 UdonPort.flow > #connector {
@@ -267,6 +268,10 @@ UdonPort.flow > #connector {
 
 UdonPort.port {
 	--port-color:rgb(150,150,150);
+}
+
+UdonPort.port > #connector {
+	flex-shrink: 0;
 }
 
 UdonPort.flow > #connector > #cap {
@@ -301,14 +306,6 @@ UdonPort.typeVRCPlayerApi.port {
 
 UdonPort EnumField {
 	padding-right:20px;
-}
-
-UdonPort.port.send-change {
-	flex-direction: row-reverse;
-}
-
-UdonPort.port.send-change > #connector {
-	visibility: hidden;
 }
 
 UdonPort.connected > #VariablePopup {
@@ -351,6 +348,10 @@ SendCustomEventNode UdonPort.eventName TextField {
 	min-width:65px;
 }
 
+.UdonNode {
+	--layer:1;
+}
+
 .UdonNode #title-container {
 	flex:1;
 }
@@ -380,8 +381,12 @@ SendCustomEventNode UdonPort.eventName TextField {
 	background-color:rgb(10,10,10);
 }
 
-.UdonNode #input .popupField {
-	padding-right:20px;
+.UdonNode #contents > #top > #input {
+	flex: 1 1 auto;
+}
+
+.UdonNode EnumField {
+	flex-shrink: 1;
 }
 
 .UdonNode #divider.horizontal {
@@ -422,6 +427,11 @@ BlackboardRow .unity-base-field {
 	padding-left:0;
 }
 
+.UdonNode FloatField, .UdonNode IntegerField {
+	width:50px;
+	margin-right:5px;
+}
+
 .UdonNode #help-button {
 	background-image: none;
 	background-color: rgb(10,10,10);
@@ -450,6 +460,19 @@ BlackboardRow .unity-base-field {
 	opacity:1;
 }
 
+.UdonNode #contents > #top > #input {
+	flex: 1 1 auto;
+}
+
+.UdonNode PopupField {
+	flex-shrink: 1;
+}
+
+.scope .group{
+	opacity: 0.5;
+	--layer: 0;
+}
+
 #comment {
 	min-width:128px;
 	min-height:40px;
@@ -470,6 +493,7 @@ BlackboardRow .unity-base-field {
 
 #comment .mainContainer {
 	justify-content:center;
+	overflow: hidden;
 }
 
 #comment TextField {
@@ -484,8 +508,8 @@ BlackboardRow .unity-base-field {
 }
 
 #comment .resizer-icon {
-	position-right:1;
-	position-bottom:1;
+	right:1px;
+	bottom:1px;
 	background-image:none;
 	border-color:rgb(170,170,170);
 	border-bottom-width:1px;
@@ -519,6 +543,10 @@ UdonParameterProperty PopupField {
 	min-height:25px;
 }
 
+#syncToggle PopupField Label {
+	align-self: center;
+}
+
 #Parameters #contentContainer {
 	padding-bottom: 12px;
 	padding-top: 2px;
@@ -540,8 +568,8 @@ UdonParameterProperty PopupField {
 }
 
 #Parameters .resizer-icon {
-	position-right:1;
-	position-bottom:1;
+	right:1px;
+	bottom:1px;
 	background-image:none;
 	border-color:rgb(170,170,170);
 	border-bottom-width:1px;
@@ -643,4 +671,8 @@ UdonProgramSourceView #AssemblyField {
 
 .UdonValueField:focus {
 	background-image: resource("TextBoxBGFocused");
+}
+
+UdonPort > .unity-base-field {
+	flex-direction: column;
 }

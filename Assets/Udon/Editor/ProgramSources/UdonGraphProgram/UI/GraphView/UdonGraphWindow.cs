@@ -1,7 +1,6 @@
 ﻿#if UNITY_2019_3_OR_NEWER
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
-using UnityEngine.UIElements.StyleEnums;
 #else
 using UnityEngine.Experimental.UIElements;
 using UnityEditor.Experimental.UIElements;
@@ -163,6 +162,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             }
 
             RemoveIfContaining(_welcomeView);
+            RemoveIfContaining(_graphView);
             _rootView.Insert(0, _graphView);
         }
 

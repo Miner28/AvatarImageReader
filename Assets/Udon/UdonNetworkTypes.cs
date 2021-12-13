@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace VRC.Udon
 {
     public static class UdonNetworkTypes
     {
-        public static bool CanSync(System.Type type) => SyncTypes.Contains(type);
-        public static bool CanSyncLinear(System.Type type) => LinearTypes.Contains(type);
-        public static bool CanSyncSmooth(System.Type type) => SmoothTypes.Contains(type);
+        public static bool CanSync(Type type) => _syncTypes.Contains(type);
+        public static bool CanSyncLinear(Type type) => _linearTypes.Contains(type);
+        public static bool CanSyncSmooth(Type type) => _smoothTypes.Contains(type);
 
-        private static Type[] SyncTypes = new Type[] {
+        private static readonly HashSet<Type> _syncTypes = new HashSet<Type>{
             typeof(bool),
             typeof(char),
             typeof(byte),
+            typeof(uint),
             typeof(int),
             typeof(long),
             typeof(sbyte),
@@ -26,6 +27,7 @@ namespace VRC.Udon
             typeof(bool[]),
             typeof(char[]),
             typeof(byte[]),
+            typeof(uint[]),
             typeof(int[]),
             typeof(long[]),
             typeof(sbyte[]),
@@ -34,6 +36,7 @@ namespace VRC.Udon
             typeof(double[]),
             typeof(short[]),
             typeof(ushort[]),
+            typeof(string[]),
             typeof(Color),
             typeof(Color32),
             typeof(Vector2),
@@ -50,7 +53,7 @@ namespace VRC.Udon
             typeof(SDKBase.VRCUrl[]),
         };
 
-        private static Type[] LinearTypes = new Type[] {
+        private static readonly HashSet<Type> _linearTypes = new HashSet<Type>{
             typeof(byte),
             typeof(sbyte),
             typeof(short),
@@ -68,7 +71,7 @@ namespace VRC.Udon
             typeof(Color32),
         };
 
-        private static Type[] SmoothTypes = new Type[] {
+        private static readonly HashSet<Type> _smoothTypes = new HashSet<Type> {
             typeof(byte),
             typeof(sbyte),
             typeof(short),

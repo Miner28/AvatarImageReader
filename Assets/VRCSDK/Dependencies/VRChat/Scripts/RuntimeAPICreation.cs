@@ -197,11 +197,6 @@ namespace VRCSDK2
             uploadProgress = progress;
         }
 
-        protected void OnUploadProgess(object obj, Amazon.Runtime.StreamTransferProgressArgs args)
-        {
-            uploadProgress = args.PercentDone / 100.0f;
-        }
-
         protected bool WasCancelRequested(ApiFile apiFile)
         {
             return cancelRequested;

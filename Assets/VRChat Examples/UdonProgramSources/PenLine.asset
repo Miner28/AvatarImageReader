@@ -12,50 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: PenLine
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: dce985b610a12434e992905468703212,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: be517991fe9d7be4b8b32a93610ac476,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export lineRenderer\r\n    .sync points,
-    none\r\n    \r\n    __instance_0: %UnityEngineLineRenderer, null\r\n    __tolerance_0:
-    %SystemSingle, null\r\n    __instance_1: %VRCUdonUdonBehaviour, this\r\n    __eventName_0:
-    %SystemString, null\r\n    __instance_2: %UnityEngineLineRenderer, null\r\n    __value_0:
-    %SystemInt32, null\r\n    __instance_3: %UnityEngineVector3Array, null\r\n    __instance_4:
-    %UnityEngineLineRenderer, null\r\n    __positions_0: %UnityEngineVector3Array,
-    null\r\n    __Boolean_0: %SystemBoolean, null\r\n    __Int32_3: %SystemInt32,
-    null\r\n    __instance_5: %UnityEngineLineRenderer, null\r\n    __positions_1:
-    %UnityEngineVector3Array, null\r\n    __Int32_0: %SystemInt32, null\r\n    __Int32_1:
-    %SystemInt32, null\r\n    __Int32_2: %SystemInt32, null\r\n    __instance_6: %UnityEngineLineRenderer,
-    null\r\n    __instance_7: %VRCUdonUdonBehaviour, this\r\n    isDown: %SystemBoolean,
-    null\r\n    points: %UnityEngineVector3Array, null\r\n    lineRenderer: %UnityEngineLineRenderer,
+    none\r\n    \r\n    instance_0: %UnityEngineLineRenderer, null\r\n    tolerance_0:
+    %SystemSingle, null\r\n    instance_1: %VRCUdonUdonBehaviour, this\r\n    eventName_0:
+    %SystemString, null\r\n    instance_2: %UnityEngineLineRenderer, null\r\n    value_0:
+    %SystemInt32, null\r\n    instance_3: %UnityEngineVector3Array, null\r\n    instance_4:
+    %UnityEngineLineRenderer, null\r\n    positions_0: %UnityEngineVector3Array, null\r\n
+    \   Boolean_0: %SystemBoolean, null\r\n    Int32_3: %SystemInt32, null\r\n    instance_5:
+    %UnityEngineLineRenderer, null\r\n    positions_1: %UnityEngineVector3Array, null\r\n
+    \   Int32_0: %SystemInt32, null\r\n    Int32_1: %SystemInt32, null\r\n    Int32_2:
+    %SystemInt32, null\r\n    instance_6: %UnityEngineLineRenderer, null\r\n    instance_7:
+    %VRCUdonUdonBehaviour, this\r\n    isDown: %SystemBoolean, null\r\n    points:
+    %UnityEngineVector3Array, null\r\n    lineRenderer: %UnityEngineLineRenderer,
     null\r\n    __returnValue: %SystemObject, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
     \   .export OnFinish\r\n    \r\n    OnFinish:\r\n    \r\n        PUSH, lineRenderer\r\n
-    \       PUSH, __instance_0\r\n        COPY\r\n        PUSH, __instance_0\r\n        PUSH,
-    __tolerance_0\r\n        EXTERN, \"UnityEngineLineRenderer.__Simplify__SystemSingle__SystemVoid\"\r\n
-    \       PUSH, __instance_1\r\n        PUSH, __eventName_0\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, instance_0\r\n        COPY\r\n        PUSH, instance_0\r\n        PUSH,
+    tolerance_0\r\n        EXTERN, \"UnityEngineLineRenderer.__Simplify__SystemSingle__SystemVoid\"\r\n
+    \       PUSH, instance_1\r\n        PUSH, eventName_0\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onDeserialization\r\n    \r\n
     \   _onDeserialization:\r\n    \r\n        PUSH, lineRenderer\r\n        PUSH,
-    __instance_2\r\n        COPY\r\n        PUSH, points\r\n        PUSH, __instance_3\r\n
-    \       COPY\r\n        PUSH, __instance_3\r\n        PUSH, __value_0\r\n        EXTERN,
-    \"UnityEngineVector3Array.__get_Length__SystemInt32\"\r\n        PUSH, __instance_2\r\n
-    \       PUSH, __value_0\r\n        EXTERN, \"UnityEngineLineRenderer.__set_positionCount__SystemInt32__SystemVoid\"\r\n
-    \       PUSH, lineRenderer\r\n        PUSH, __instance_4\r\n        COPY\r\n        PUSH,
-    points\r\n        PUSH, __positions_0\r\n        COPY\r\n        PUSH, __instance_4\r\n
-    \       PUSH, __positions_0\r\n        EXTERN, \"UnityEngineLineRenderer.__SetPositions__UnityEngineVector3Array__SystemVoid\"\r\n
+    instance_2\r\n        COPY\r\n        PUSH, points\r\n        PUSH, instance_3\r\n
+    \       COPY\r\n        PUSH, instance_3\r\n        PUSH, value_0\r\n        EXTERN,
+    \"UnityEngineVector3Array.__get_Length__SystemInt32\"\r\n        PUSH, instance_2\r\n
+    \       PUSH, value_0\r\n        EXTERN, \"UnityEngineLineRenderer.__set_positionCount__SystemInt32__SystemVoid\"\r\n
+    \       PUSH, lineRenderer\r\n        PUSH, instance_4\r\n        COPY\r\n        PUSH,
+    points\r\n        PUSH, positions_0\r\n        COPY\r\n        PUSH, instance_4\r\n
+    \       PUSH, positions_0\r\n        EXTERN, \"UnityEngineLineRenderer.__SetPositions__UnityEngineVector3Array__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onOwnershipRequest\r\n    \r\n
-    \   _onOwnershipRequest:\r\n    \r\n        PUSH, __Boolean_0\r\n        PUSH,
-    __returnValue\r\n        COPY\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export
-    OnUpdate\r\n    \r\n    OnUpdate:\r\n    \r\n        PUSH, lineRenderer\r\n        PUSH,
-    __instance_5\r\n        COPY\r\n        PUSH, lineRenderer\r\n        PUSH, __instance_6\r\n
-    \       COPY\r\n        PUSH, __instance_6\r\n        PUSH, __Int32_1\r\n        EXTERN,
-    \"UnityEngineLineRenderer.__get_positionCount__SystemInt32\"\r\n        PUSH,
-    __Int32_1\r\n        PUSH, __Int32_2\r\n        PUSH, __Int32_0\r\n        EXTERN,
+    \   _onOwnershipRequest:\r\n    \r\n        PUSH, Boolean_0\r\n        PUSH, __returnValue\r\n
+    \       COPY\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export OnUpdate\r\n    \r\n
+    \   OnUpdate:\r\n    \r\n        PUSH, lineRenderer\r\n        PUSH, instance_5\r\n
+    \       COPY\r\n        PUSH, lineRenderer\r\n        PUSH, instance_6\r\n        COPY\r\n
+    \       PUSH, instance_6\r\n        PUSH, Int32_1\r\n        EXTERN, \"UnityEngineLineRenderer.__get_positionCount__SystemInt32\"\r\n
+    \       PUSH, Int32_1\r\n        PUSH, Int32_2\r\n        PUSH, Int32_0\r\n        EXTERN,
     \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n        PUSH,
-    __Int32_0\r\n        PUSH, __positions_1\r\n        EXTERN, \"UnityEngineVector3Array.__ctor__SystemInt32__UnityEngineVector3Array\"\r\n
-    \       PUSH, __instance_5\r\n        PUSH, __positions_1\r\n        PUSH, __Int32_3\r\n
+    Int32_0\r\n        PUSH, positions_1\r\n        EXTERN, \"UnityEngineVector3Array.__ctor__SystemInt32__UnityEngineVector3Array\"\r\n
+    \       PUSH, instance_5\r\n        PUSH, positions_1\r\n        PUSH, Int32_3\r\n
     \       EXTERN, \"UnityEngineLineRenderer.__GetPositions__UnityEngineVector3Array__SystemInt32\"\r\n
-    \       PUSH, lineRenderer\r\n        PUSH, __instance_5\r\n        COPY\r\n        PUSH,
-    lineRenderer\r\n        PUSH, __instance_6\r\n        COPY\r\n        PUSH, __positions_1\r\n
-    \       PUSH, points\r\n        COPY\r\n        PUSH, __positions_1\r\n        PUSH,
-    points\r\n        COPY\r\n        PUSH, __instance_7\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
+    \       PUSH, lineRenderer\r\n        PUSH, instance_5\r\n        COPY\r\n        PUSH,
+    lineRenderer\r\n        PUSH, instance_6\r\n        COPY\r\n        PUSH, positions_1\r\n
+    \       PUSH, points\r\n        COPY\r\n        PUSH, instance_7\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:

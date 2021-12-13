@@ -12,33 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: DropdownSync
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 840298a3be48fd848a78139306ce45bc,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3fffd44ea20612a40b70c557487d328e,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export uiDropdown\r\n    .sync dropdownValue,
-    none\r\n    \r\n    __Boolean_0: %SystemBoolean, null\r\n    __Int32_0: %SystemInt32,
-    null\r\n    __Int32_1: %SystemInt32, null\r\n    __player_0: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __obj_0: %UnityEngineGameObject, this\r\n    __instance_0: %UnityEngineUIDropdown,
-    null\r\n    __instance_1: %VRCUdonUdonBehaviour, this\r\n    _old_dropdownValue:
-    %SystemInt32, null\r\n    __instance_2: %VRCUdonUdonBehaviour, this\r\n    __instance_3:
-    %UnityEngineUIDropdown, null\r\n    __value_0: %SystemInt32, null\r\n    __name_0:
+    none\r\n    \r\n    Boolean_0: %SystemBoolean, null\r\n    Int32_0: %SystemInt32,
+    null\r\n    Int32_1: %SystemInt32, null\r\n    player_0: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    obj_0: %UnityEngineGameObject, this\r\n    instance_0: %UnityEngineUIDropdown,
+    null\r\n    instance_1: %VRCUdonUdonBehaviour, this\r\n    _old_dropdownValue:
+    %SystemInt32, null\r\n    instance_2: %VRCUdonUdonBehaviour, this\r\n    instance_3:
+    %UnityEngineUIDropdown, null\r\n    value_0: %SystemInt32, null\r\n    name_0:
     %SystemString, null\r\n    uiDropdown: %UnityEngineUIDropdown, null\r\n    dropdownValue:
     %SystemInt32, null\r\n    __returnValue: %SystemObject, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
     \   .export OnValueChanged\r\n    \r\n    OnValueChanged:\r\n    \r\n        PUSH,
-    uiDropdown\r\n        PUSH, __instance_0\r\n        COPY\r\n        PUSH, __instance_0\r\n
-    \       PUSH, __Int32_0\r\n        EXTERN, \"UnityEngineUIDropdown.__get_value__SystemInt32\"\r\n
-    \       PUSH, __Int32_0\r\n        PUSH, dropdownValue\r\n        PUSH, __Boolean_0\r\n
+    uiDropdown\r\n        PUSH, instance_0\r\n        COPY\r\n        PUSH, instance_0\r\n
+    \       PUSH, Int32_0\r\n        EXTERN, \"UnityEngineUIDropdown.__get_value__SystemInt32\"\r\n
+    \       PUSH, Int32_0\r\n        PUSH, dropdownValue\r\n        PUSH, Boolean_0\r\n
     \       EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __Boolean_0\r\n        JUMP_IF_FALSE, 0x000000F0\r\n        PUSH,
-    __player_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __player_0\r\n        PUSH, __obj_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
-    \       PUSH, uiDropdown\r\n        PUSH, __instance_0\r\n        COPY\r\n        PUSH,
-    __Int32_0\r\n        PUSH, dropdownValue\r\n        COPY\r\n        PUSH, __instance_1\r\n
+    \       PUSH, Boolean_0\r\n        JUMP_IF_FALSE, 0x000000F0\r\n        PUSH,
+    player_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, player_0\r\n        PUSH, obj_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
+    \       PUSH, uiDropdown\r\n        PUSH, instance_0\r\n        COPY\r\n        PUSH,
+    Int32_0\r\n        PUSH, dropdownValue\r\n        COPY\r\n        PUSH, instance_1\r\n
     \       PUSH, \"_onVarChange_dropdownValue\"\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, dropdownValue\r\n        PUSH, _old_dropdownValue\r\n        COPY\r\n
-    \       PUSH, __instance_2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
+    \       PUSH, instance_2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
     \       JUMP, 0x000000F0\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onVarChange_dropdownValue\r\n
     \   \r\n    _onVarChange_dropdownValue:\r\n    \r\n        PUSH, uiDropdown\r\n
-    \       PUSH, __instance_3\r\n        COPY\r\n        PUSH, __instance_3\r\n        PUSH,
+    \       PUSH, instance_3\r\n        COPY\r\n        PUSH, instance_3\r\n        PUSH,
     dropdownValue\r\n        EXTERN, \"UnityEngineUIDropdown.__set_value__SystemInt32__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 

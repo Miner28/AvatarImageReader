@@ -165,7 +165,7 @@ public partial class VRCSdkControlPanel : EditorWindow
             if (serverEnvironment != newEnv)
                 serverEnvironment = newEnv;
 
-            username = EditorGUILayout.TextField("Username", username);
+            username = EditorGUILayout.TextField("Username/Email", username);
             password = EditorGUILayout.PasswordField("Password", password);
 
             if (GUILayout.Button("Sign In"))

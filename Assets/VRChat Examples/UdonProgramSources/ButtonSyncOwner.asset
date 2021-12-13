@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: ButtonSyncOwner
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 92a9b85360ed8bb478a9754b32791ddf,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d13a5655a82b9e54590033ed184c5353,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export uiText\r\n    .sync clickCount, none\r\n
-    \   \r\n    __Boolean_0: %SystemBoolean, null\r\n    __obj_0: %UnityEngineGameObject,
-    this\r\n    __Int32_0: %SystemInt32, null\r\n    __Int32_1: %SystemInt32, null\r\n
-    \   __instance_0: %VRCUdonUdonBehaviour, this\r\n    _old_clickCount: %SystemInt32,
-    null\r\n    __instance_1: %VRCUdonUdonBehaviour, this\r\n    __instance_2: %UnityEngineUIText,
-    null\r\n    __value_0: %SystemString, null\r\n    __instance_3: %SystemInt32,
-    null\r\n    __name_0: %SystemString, null\r\n    uiText: %UnityEngineUIText, null\r\n
-    \   clickCount: %SystemInt32, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
-    \   .export OnClick\r\n    \r\n    OnClick:\r\n    \r\n        PUSH, __obj_0\r\n
-    \       PUSH, __Boolean_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean\"\r\n
-    \       PUSH, __Boolean_0\r\n        JUMP_IF_FALSE, 0x0000008C\r\n        PUSH,
-    clickCount\r\n        PUSH, __Int32_1\r\n        PUSH, clickCount\r\n        EXTERN,
+    \   \r\n    Boolean_0: %SystemBoolean, null\r\n    obj_0: %UnityEngineGameObject,
+    this\r\n    Int32_0: %SystemInt32, null\r\n    Int32_1: %SystemInt32, null\r\n
+    \   instance_0: %VRCUdonUdonBehaviour, this\r\n    _old_clickCount: %SystemInt32,
+    null\r\n    instance_1: %VRCUdonUdonBehaviour, this\r\n    instance_2: %UnityEngineUIText,
+    null\r\n    value_0: %SystemString, null\r\n    instance_3: %SystemInt32, null\r\n
+    \   name_0: %SystemString, null\r\n    uiText: %UnityEngineUIText, null\r\n    clickCount:
+    %SystemInt32, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n    .export OnClick\r\n
+    \   \r\n    OnClick:\r\n    \r\n        PUSH, obj_0\r\n        PUSH, Boolean_0\r\n
+    \       EXTERN, \"VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean\"\r\n
+    \       PUSH, Boolean_0\r\n        JUMP_IF_FALSE, 0x0000008C\r\n        PUSH,
+    clickCount\r\n        PUSH, Int32_1\r\n        PUSH, clickCount\r\n        EXTERN,
     \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n        PUSH,
-    __instance_0\r\n        PUSH, \"_onVarChange_clickCount\"\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    instance_0\r\n        PUSH, \"_onVarChange_clickCount\"\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, clickCount\r\n        PUSH, _old_clickCount\r\n        COPY\r\n
-    \       PUSH, __instance_1\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
+    \       PUSH, instance_1\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
     \       JUMP, 0x0000008C\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onVarChange_clickCount\r\n
     \   \r\n    _onVarChange_clickCount:\r\n    \r\n        PUSH, uiText\r\n        PUSH,
-    __instance_2\r\n        COPY\r\n        PUSH, clickCount\r\n        PUSH, __value_0\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __instance_2\r\n
-    \       PUSH, __value_0\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
+    instance_2\r\n        COPY\r\n        PUSH, clickCount\r\n        PUSH, value_0\r\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, instance_2\r\n
+    \       PUSH, value_0\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:

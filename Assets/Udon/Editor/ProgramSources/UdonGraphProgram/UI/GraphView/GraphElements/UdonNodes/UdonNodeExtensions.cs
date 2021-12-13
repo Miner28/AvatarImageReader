@@ -30,7 +30,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView.UdonNodes
             "_onPlayerTriggerEnter", "_onTriggerEnter", "_onTriggerEnter2D", "_onPlayerTriggerExit", "_onTriggerExit", "_onTriggerExit2D", "_onPlayerTriggerStay", "_onTriggerStay", "_onTriggerStay2D", 
             "_onDestroy", "_onDisable", "_onDrawGizmos", "_onDrawGizmosSelected", "_onEnable", "_onJointBreak", "_onJointBreak2D", "_onMouseDown", "_onMouseDrag", "_onMouseEnter", "_onMouseExit", "_onMouseOver", "_onMouseUp", "_onMouseUpAsButton",
             "_onPlayerParticleCollision", "_onParticleCollision", "_onParticleTrigger", "_onPostRender", "_onPreCull", "_onPreRender", "_onRenderImage", "_onRenderObject", "_onTransformChildrenChanged", "_onTransformParentChanged", "_onValidate", "_onWillRenderObject",
-            "_interact", "_onDrop", "_onPickup", "_onPickupUseDown", "_onPickupUseUp", "_onPreSerialization", "_onPostSerialization", "_onDeserialization",
+            "_interact", "_onDrop", "_onPickup", "_onPickupUseDown", "_onPickupUseUp", "_onPreSerialization", "_onPostSerialization", "_onDeserialization", "_onVideoEnd", "_onVideoPause", "_onVideoPlay", "_onVideoStart", "_midiNoteOn", "_midiNoteOff", "_midiControlChange",
+            "_onOwnershipRequest", "_onNetworkReady", "_onOwnershipTransferred", "_onPlayerJoined", "_onPlayerLeft", "_onSpawn", "_onStationEntered", "_onStationExited",
         };
         
         public enum ProgramPopupType
@@ -69,7 +70,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView.UdonNodes
                 unavailable = _options.Count == 0;
                 _options.Insert(0, PLACEHOLDER);
             }
-            else if(data.InputNodeAtIndex(0).fullName == "Get_Variable")
+            else if(data.InputNodeAtIndex(0)?.fullName == "Get_Variable")
             {
                 // So much work to get the underlying node referenced by a variable. Would be nice to have a method for this.
                 var parts = data.nodeUIDs[0].Split('|');

@@ -8,25 +8,14 @@
     <engine:ScrollView stretch-content-width="true">
         <engine:VisualElement name="section">
           <engine:Label text="New Features" name="header" />
-          <engine:TextElement text="Zoom" />
-          <engine:TextElement text="Floating Parameters Window" />
-          <engine:TextElement text="Faster search" />
-          <engine:TextElement text="Drag and Drop from Variables to graph" />
-          <engine:TextElement text="Pasted nodes appear at cursor" />
-          <engine:TextElement text="New panning shortcut: alt + drag (middle-button + drag still works, too)" />
-          <engine:TextElement text="Stylesheet system (easily adapt the style of the graph)" />
-          <engine:TextElement text="Groups" />
-          <engine:TextElement text="New Comment Fields" />
-          <engine:TextElement text="Scroll the screen when dragging a noodle to the edge of the viewport" />
-          <engine:TextElement text="Drag and Drop from Inspector to graph" />
-          <engine:TextElement text="Open search when dropping noodle into empty space" />
-          <engine:TextElement text="Save last view position on graph" />
-          <engine:TextElement text="Keeps last used graph open when entering + exiting Play mode" />
+          <engine:TextElement text="OnVariableChange Events" />
+          <engine:TextElement text="Dropdowns for Nodes that interact with other UdonBehaviours like SetProgramVariable, GetProgramVariable, SendCustomEvent, etc." />
+          <engine:TextElement text="Build &amp; Reload for faster iteration" />
         </engine:VisualElement>
 
         <engine:VisualElement name="section">
           <engine:Label text="Coming Soon" name="header" />
-          <engine:TextElement text="Element colors system for map and minimap" />
+          <engine:TextElement text="Macro Programs" />
         </engine:VisualElement>
 
         <engine:VisualElement name="section">

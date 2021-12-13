@@ -26,7 +26,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         {
             // switch event to do some UI updates instead of initialization from here on out
             UnregisterCallback<AttachToPanelEvent>(Initialize);
-            //    this.RegisterCallback<AttachToPanelEvent>(OnAttach);
 
             // Add Header
             Add(new TextElement()
@@ -49,7 +48,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
             Add(mainContainer);
 
-            var template = EditorGUIUtility.Load("Assets/Udon/Editor/Resources/UdonChangelog.uxml") as VisualTreeAsset;
+            var template = Resources.Load<VisualTreeAsset>("UdonChangelog") as VisualTreeAsset;
             #if UNITY_2019_3_OR_NEWER
             var changelog = template.CloneTree((string) null);
             #else
@@ -101,7 +100,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             }
 
             var settingsTemplate =
-                EditorGUIUtility.Load("Assets/Udon/Editor/Resources/UdonSettings.uxml") as VisualTreeAsset;
+                Resources.Load<VisualTreeAsset>("UdonSettings") as VisualTreeAsset;
             #if UNITY_2019_3_OR_NEWER
             var settings = settingsTemplate.CloneTree((string)null);
             #else

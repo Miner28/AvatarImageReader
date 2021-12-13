@@ -12,34 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: InputFieldSync
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: fd8e2f142c0b17e40a2212dcf9046bbb,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d9db63acbbc1a1644bea525a10c75166,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export uiInputField\r\n    .sync fieldValue,
-    none\r\n    \r\n    __Boolean_0: %SystemBoolean, null\r\n    __String_0: %SystemString,
-    null\r\n    __String_1: %SystemString, null\r\n    __player_0: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __obj_0: %UnityEngineGameObject, this\r\n    __instance_0: %UnityEngineUIInputField,
-    null\r\n    __instance_1: %VRCUdonUdonBehaviour, this\r\n    _old_fieldValue:
-    %SystemString, null\r\n    __instance_2: %VRCUdonUdonBehaviour, this\r\n    __instance_3:
-    %UnityEngineUIInputField, null\r\n    __value_0: %SystemString, null\r\n    __name_0:
-    %SystemString, null\r\n    uiInputField: %UnityEngineUIInputField, null\r\n    fieldValue:
-    %SystemString, null\r\n    __returnValue: %SystemObject, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
+    none\r\n    \r\n    Boolean_0: %SystemBoolean, null\r\n    String_0: %SystemString,
+    null\r\n    String_1: %SystemString, null\r\n    player_0: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    obj_0: %UnityEngineGameObject, this\r\n    instance_0: %UnityEngineUIInputField,
+    null\r\n    instance_1: %VRCUdonUdonBehaviour, this\r\n    _old_fieldValue: %SystemString,
+    null\r\n    instance_2: %VRCUdonUdonBehaviour, this\r\n    instance_3: %UnityEngineUIInputField,
+    null\r\n    value_0: %SystemString, null\r\n    name_0: %SystemString, null\r\n
+    \   uiInputField: %UnityEngineUIInputField, null\r\n    fieldValue: %SystemString,
+    null\r\n    __returnValue: %SystemObject, null\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n
     \   .export OnEndEdit\r\n    \r\n    OnEndEdit:\r\n    \r\n        PUSH, uiInputField\r\n
-    \       PUSH, __instance_0\r\n        COPY\r\n        PUSH, __instance_0\r\n        PUSH,
-    __String_0\r\n        EXTERN, \"UnityEngineUIInputField.__get_text__SystemString\"\r\n
-    \       PUSH, fieldValue\r\n        PUSH, __String_1\r\n        COPY\r\n        PUSH,
-    __String_0\r\n        PUSH, __String_1\r\n        PUSH, __Boolean_0\r\n        EXTERN,
+    \       PUSH, instance_0\r\n        COPY\r\n        PUSH, instance_0\r\n        PUSH,
+    String_0\r\n        EXTERN, \"UnityEngineUIInputField.__get_text__SystemString\"\r\n
+    \       PUSH, fieldValue\r\n        PUSH, String_1\r\n        COPY\r\n        PUSH,
+    String_0\r\n        PUSH, String_1\r\n        PUSH, Boolean_0\r\n        EXTERN,
     \"SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __Boolean_0\r\n        JUMP_IF_FALSE, 0x00000104\r\n        PUSH,
-    __player_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __player_0\r\n        PUSH, __obj_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
-    \       PUSH, uiInputField\r\n        PUSH, __instance_0\r\n        COPY\r\n        PUSH,
-    __String_0\r\n        PUSH, fieldValue\r\n        COPY\r\n        PUSH, __instance_1\r\n
+    \       PUSH, Boolean_0\r\n        JUMP_IF_FALSE, 0x00000104\r\n        PUSH,
+    player_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, player_0\r\n        PUSH, obj_0\r\n        EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
+    \       PUSH, uiInputField\r\n        PUSH, instance_0\r\n        COPY\r\n        PUSH,
+    String_0\r\n        PUSH, fieldValue\r\n        COPY\r\n        PUSH, instance_1\r\n
     \       PUSH, \"_onVarChange_fieldValue\"\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, fieldValue\r\n        PUSH, _old_fieldValue\r\n        COPY\r\n
-    \       PUSH, __instance_2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
+    \       PUSH, instance_2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid\"\r\n
     \       JUMP, 0x00000104\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export _onVarChange_fieldValue\r\n
     \   \r\n    _onVarChange_fieldValue:\r\n    \r\n        PUSH, uiInputField\r\n
-    \       PUSH, __instance_3\r\n        COPY\r\n        PUSH, __instance_3\r\n        PUSH,
+    \       PUSH, instance_3\r\n        COPY\r\n        PUSH, instance_3\r\n        PUSH,
     fieldValue\r\n        EXTERN, \"UnityEngineUIInputField.__set_text__SystemString__SystemVoid\"\r\n
     \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 

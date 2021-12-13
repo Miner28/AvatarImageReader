@@ -1,7 +1,11 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEditor.Build;
@@ -36,7 +40,7 @@ namespace VRC.Udon.Editor
             public void OnProcessScene(Scene scene, BuildReport report)
             {
                 PopulateSceneSerializedProgramAssetReferences(scene);
-                PopulateAllPrefabSerializedProgramAssetReferences();
+                PopulateAssetDependenciesPrefabSerializedProgramAssetReferences(scene.path);
             }
         }
 
@@ -109,7 +113,7 @@ namespace VRC.Udon.Editor
                 }
                 catch(Exception e)
                 {
-                    Debug.LogError($"Failed to refresh program '{programSource.name}' due to exception '{e}'.");
+                    UnityEngine.Debug.LogError($"Failed to refresh program '{programSource.name}' due to exception '{e}'.");
                 }
             }
 
@@ -165,7 +169,7 @@ namespace VRC.Udon.Editor
                 _programSourceRefreshQueue.Remove(programSource);
             }
         }
-        
+
         [MenuItem("VRChat SDK/Utilities/Re-compile All Program Sources")]
         public static void RecompileAllProgramSources()
         {
@@ -195,6 +199,32 @@ namespace VRC.Udon.Editor
             }
         }
 
+        private static List<UdonBehaviour> prefabBehavioursTempList = new List<UdonBehaviour>();
+
+        [PublicAPI]
+        public static void PopulateAssetDependenciesPrefabSerializedProgramAssetReferences(string assetPath)
+        {
+            IEnumerable<string> prefabDependencyPaths = AssetDatabase.GetDependencies(assetPath, true)
+                .Where(path => path.EndsWith(".prefab"))
+                .Where(path => path.StartsWith("Assets"));
+
+            foreach(string prefabPath in prefabDependencyPaths)
+            {
+                if(!(AssetDatabase.LoadMainAssetAtPath(prefabPath) is GameObject prefab))
+                {
+                    return;
+                }
+
+                prefab.GetComponentsInChildren<UdonBehaviour>(prefabBehavioursTempList);
+                if(prefabBehavioursTempList.Count < 1)
+                {
+                    return;
+                }
+
+                PopulatePrefabSerializedProgramAssetReferences(prefabPath);
+            }
+        }
+
         private static void PopulatePrefabSerializedProgramAssetReferences(string prefabPath)
         {
             using(EditPrefabAssetScope editScope = new EditPrefabAssetScope(prefabPath))
@@ -203,15 +233,15 @@ namespace VRC.Udon.Editor
                 {
                     return;
                 }
-
-                UdonBehaviour[] udonBehaviours = editScope.PrefabRoot.GetComponentsInChildren<UdonBehaviour>();
-                if(udonBehaviours.Length <= 0)
+            
+                editScope.PrefabRoot.GetComponentsInChildren(prefabBehavioursTempList);
+                if(prefabBehavioursTempList.Count < 1)
                 {
                     return;
                 }
 
                 bool dirty = false;
-                foreach(UdonBehaviour udonBehaviour in udonBehaviours)
+                foreach(UdonBehaviour udonBehaviour in prefabBehavioursTempList)
                 {
                     if(PopulateSerializedProgramAssetReference(udonBehaviour))
                     {
@@ -241,9 +271,14 @@ namespace VRC.Udon.Editor
             RefreshQueuedProgramSources();
             PopulateSceneSerializedProgramAssetReferences(scene);
         }
-
+        
         private static void PopulateSceneSerializedProgramAssetReferences(Scene scene)
         {
+            if (!scene.IsValid())
+            {
+                return;
+            }
+            
             foreach(GameObject sceneGameObject in scene.GetRootGameObjects())
             {
                 foreach(UdonBehaviour udonBehaviour in sceneGameObject.GetComponentsInChildren<UdonBehaviour>(true))
@@ -415,7 +450,7 @@ namespace VRC.Udon.Editor
                 else
                 {
                     // Todo: note and handle these
-                    Debug.Log($"The Registry {nodeRegistry.Key} needs to be Added Somewhere");
+                    UnityEngine.Debug.Log($"The Registry {nodeRegistry.Key} needs to be Added Somewhere");
                 }
             }
 
@@ -513,7 +548,7 @@ namespace VRC.Udon.Editor
                     }
                     catch(Exception e)
                     {
-                        Debug.LogError($"Failed to save changes to prefab at '{_assetPath}' due to exception '{e}'.");
+                        UnityEngine.Debug.LogError($"Failed to save changes to prefab at '{_assetPath}' due to exception '{e}'.");
                     }
                 }
 
