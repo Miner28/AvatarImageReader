@@ -1,18 +1,19 @@
 using System;
-using System.Linq;
 using TMPro;
 using UdonSharp;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
-using UnityEngine.UI;
 using VRC.Udon;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class ReadRenderTexture : UdonSharpBehaviour
 {
     /*
      * This script is meant to be used as a One time "Read" for a specific render texture (Since they can't be reused)
      * Once "Primed" by the CheckHirarchyScript, it will decode the retrieved RenderTexture
      */
+    
+    [SerializeField] private bool outputToText;
+    [SerializeField] private TextMeshProUGUI outputText;
 
     [Header("Increasing step size decreases decode time but increases frametimes")]
     [SerializeField] private int stepLength = 200;
@@ -30,10 +31,9 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
     [Header("Debugging")]
     [SerializeField] private bool debugLogger;
+    [SerializeField] private bool debugTMP;
     [SerializeField] private TextMeshProUGUI loggerText;
-    [SerializeField] private bool outputToText;
-    [SerializeField] private TextMeshProUGUI outputText;
-    
+
     //internal
     private Color[] colors;
     public string currentOutputString;
@@ -45,13 +45,11 @@ public class ReadRenderTexture : UdonSharpBehaviour
     {
         if (pedestalReady && !hasRun)
         {
-            if (debugLogger)
-            {
-                stopwatch = new System.Diagnostics.Stopwatch();
-                stopwatch.Start();
-                Log("ReadRenderTexture: Starting");
-            }
-            
+            stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
+
+            Log("ReadRenderTexture: Starting");
+
             if (renderTexture != null)
             {
                 //copy the texture over so it can be read
@@ -63,7 +61,7 @@ public class ReadRenderTexture : UdonSharpBehaviour
                 renderCamera.enabled = false;
                 renderQuad.SetActive(false);
                 
-                if(debugLogger) Log("ReadRenderTexture: Writing Information");
+                Log("ReadRenderTexture: Writing Information");
             }
             
             hasRun = true;
@@ -72,19 +70,21 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
     private void Log(string text)
     {
-        Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] |{text}");
-        loggerText.text += $" | {text}";
-        //Comment above line if not using TMPLogger
+        if (!debugLogger) return;
+        
+        Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] {text}");
+        
+        if (debugTMP)
+        {
+            loggerText.text += $"{text}\n";
+        }
     }
 
     private void StartReadPicture(Texture2D picture)
     {
-        if(debugLogger)
-        {
-            Log("Starting Read");
-            Log($"Input: {picture.width} x {picture.height} [{picture.format}]");
-        }
-        
+        Log("Starting Read");
+        Log($"Input: {picture.width} x {picture.height} [{picture.format}]");
+
         currentOutputString = "";
 
         int w = picture.width;
@@ -97,7 +97,8 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
         Color firstColor = colors[0];
         dataLength = (byte) (firstColor.r * 255) << 16 | (byte) (firstColor.g * 255) << 8 | (byte) (firstColor.b * 255);
-        if(debugLogger) Log("Data length: " + dataLength);
+        
+        Log("Data length: " + dataLength);
 
         SendCustomEventDelayedFrames(nameof(ReadPictureStep), 2);
     }
@@ -112,7 +113,7 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
     public void ReadPictureStep()
     {
-        if(debugLogger) Log($"ReadRenderTexture: Reading {index}\n");
+        Log($"Reading {index}\n");
 
         for (int step = 0; step < stepLength; step++)
         {
@@ -139,7 +140,7 @@ public class ReadRenderTexture : UdonSharpBehaviour
                 byteIndex++;
                 if (byteIndex > dataLength)
                 {
-                    if(debugLogger) Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
+                    Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
                     ReadDone();
                     return;
                 }
@@ -153,15 +154,12 @@ public class ReadRenderTexture : UdonSharpBehaviour
 
     private void ReadDone()
     {
-        if (debugLogger)
-        {
-            stopwatch.Stop();
-            Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
-        }
-        
+        stopwatch.Stop();
+        Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
+
         if(outputToText) outputText.text = currentOutputString;
         
-        if(debugLogger) Log("Reading Complete: " + currentOutputString);
+        Log("Reading Complete: " + currentOutputString);
         if(callBackOnFinish) callbackBehaviour.SendCustomEvent(callbackEventName);
 
         gameObject.SetActive(false);

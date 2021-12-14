@@ -72,7 +72,7 @@ namespace AvatarImageDecoder
             var index = 0;
             foreach (var x in textbyteList)
             {
-                Debug.Log($"{index} : {x}");
+                //Debug.Log($"{index} : {x}");
                 index += 1;
             }
             var imageWidth = 128;
@@ -97,8 +97,8 @@ namespace AvatarImageDecoder
             // gen.py:25-27
             var oppositePosition = 0;
             img.SetPixel(img.width - 1, img.height - 1 - oppositePosition, new Color(BtF(totalBytes[0]), BtF(totalBytes[1]), BtF(totalBytes[2])));
-            Debug.Log($"A{textbyteList.Length} {PythonStr(totalBytes)}");
-            Debug.Log($"B{PythonStr(new[] {totalBytes[0], totalBytes[1], totalBytes[2]})}");
+            //Debug.Log($"A{textbyteList.Length} {PythonStr(totalBytes)}");
+            //Debug.Log($"B{PythonStr(new[] {totalBytes[0], totalBytes[1], totalBytes[2]})}");
 
             // gen.py:29
             var rangeLower = 1;
