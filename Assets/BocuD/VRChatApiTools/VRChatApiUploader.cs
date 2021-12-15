@@ -8,7 +8,7 @@ using UnityEngine;
 using VRC.Core;
 using Object = UnityEngine.Object;
 
-namespace AvatarImageDecoder
+namespace BocuD.VRChatApiTools
 {
     public class VRChatApiUploader : MonoBehaviour
     {
@@ -64,29 +64,23 @@ namespace AvatarImageDecoder
                 Destroy(gameObject);
             }
         }
-        
+
         private void Login()
         {
             if (!ApiCredentials.Load())
                 Debug.LogError("Not logged in - Please log in before trying to upload images");
             else
-                APIUser.InitialFetchCurrentUser(
-                    delegate (ApiModelContainer<APIUser> c)
-                    {
-                        ApiAvatar avater = new ApiAvatar() { id = avatarID };
-                        avater.Get(false,
-                            (c2) =>
-                            {
-                                Debug.Log("Succesfully Loaded ApiAvatar");
-                                apiAvatar = c2.Model as ApiAvatar;
-                            },
-                            (c2) =>
-                            {
-                                Debug.LogError("Error while trying to load ApiAvatar");
-                            });
-                    }, (c) => {
-                        Debug.LogError(c.Error);
-                    });
+                APIUser.InitialFetchCurrentUser(delegate
+                {
+                    ApiAvatar avater = new ApiAvatar() {id = avatarID};
+                    avater.Get(false,
+                        (c2) =>
+                        {
+                            Debug.Log("Succesfully Loaded ApiAvatar");
+                            apiAvatar = c2.Model as ApiAvatar;
+                        },
+                        (c2) => { Debug.LogError("Error while trying to load ApiAvatar"); });
+                }, (c) => { Debug.LogError(c.Error); });
         }
 
         private bool active = false;
@@ -243,7 +237,7 @@ namespace AvatarImageDecoder
         }
     }
     
-    [InitializeOnLoadAttribute]
+    [InitializeOnLoad]
     public static class ApiUploaderPlayModeStateWatcher
     {
         static ApiUploaderPlayModeStateWatcher()

@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +11,7 @@ using VRC.SDK3.Components;
 using Logger = VRC.Core.Logger;
 using Object = UnityEngine.Object;
 
-namespace AvatarImageDecoder.Editor
+namespace BocuD.VRChatApiTools.Editor
 {
     public static class VRChatApiTools
     {

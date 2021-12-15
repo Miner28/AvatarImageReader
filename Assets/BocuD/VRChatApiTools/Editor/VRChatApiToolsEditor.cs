@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AvatarImageDecoder.Editor;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 
-namespace AvatarImageReader.Editor
+namespace BocuD.VRChatApiTools.Editor
 {
     public static class VRChatApiToolsEditor
     {

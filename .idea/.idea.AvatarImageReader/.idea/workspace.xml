@@ -3,80 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/128x96_TestPattern.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/128x96_TestPattern.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/128x96_TestPattern.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/128x96_TestPattern.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/C# Encoder.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/C# Encoder/AvatarImageEncoder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder/AvatarImageEncoder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/C# Encoder/AvatarImageEncoder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder/AvatarImageEncoder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages/1200x900_DonorInput.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages/1200x900_DonorInput.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages/1200x900_DonorInput.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages/1200x900_DonorInput.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages/128x96_DonorInput.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages/128x96_DonorInput.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages/128x96_DonorInput.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages/128x96_DonorInput.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages/256x192_DonorInput.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages/256x192_DonorInput.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/DonorImages/256x192_DonorInput.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/DonorImages/256x192_DonorInput.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Editor/AvatarImageEncoderWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Editor/AvatarImageEncoderWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Example.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Example.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Example.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/Fullscreen Texture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/Fullscreen Texture.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/Fullscreen Texture.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/Fullscreen Texture.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/Render Texture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/Render Texture.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/Render Texture.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/Render Texture.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/TestingDecodeImage.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/TestingDecodeImage.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/TestingDecodeImage.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/TestingDecodeImage.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/TestingReadPixels in.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/TestingReadPixels in.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/TestingReadPixels in.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/TestingReadPixels in.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/TestingReadPixels.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/TestingReadPixels.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Materials/TestingReadPixels.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/TestingReadPixels.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Prefabs/Decoder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Prefabs/Decoder.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Prefabs/Decoder_Debug.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder_Debug.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Prefabs/Decoder_Debug.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder_Debug.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/.idea/.idea.Python Encoder.dir/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/README.md.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/README.md.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/index.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/index.js.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/package-lock.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package-lock.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/AvatarImageUploader/package.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/gen.py.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/gen.py.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/img.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/img.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Python Encoder/read.py.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/read.py.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Render Texture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Render Texture.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Render Texture.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Render Texture.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/CheckHierarchyScript.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/CheckHierarchyScript.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/CheckHierarchyScript.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/CheckHierarchyScript.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/CheckHierarchyScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/CheckHierarchyScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/CheckHierarchyScript.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/CheckHierarchyScript.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/ReadRenderTexture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/ReadRenderTexture.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/ReadRenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Scripts/ReadRenderTexture.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Shader/FullScreenTexture.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Shader/FullScreenTexture.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/Shader/FullScreenTexture.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Shader/FullScreenTexture.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/example pedestal contents.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/example pedestal contents.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageDecoder/example pedestal contents.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/example pedestal contents.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VRChat Examples/Prefabs/VRCWorld.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VRChat Examples/Prefabs/VRCWorld.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/VRChatApiTools.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/VRChatApiTools.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/VRChatApiToolsEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/VRChatApiToolsEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/VRChatApiUploader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/VRChatApiUploader.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,9 +29,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/VRChatApiUploader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D1EB443-9232-48B1-8289-94AABE8AE823/23/3f4d1f68/Action.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Editor/VRChatApiTools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/b9/2bf16933/CameraImageCapture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder/AvatarImageEncoder.cs" root0="FORCE_HIGHLIGHTING" />
@@ -139,8 +71,11 @@
       <option value="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" />
       <option value="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" />
       <option value="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/VRChatApiToolsEditor.cs" />
-      <option value="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" />
       <option value="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" />
+      <option value="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" />
+      <option value="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/Editor/VRChatApiTools.cs" />
+      <option value="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/Editor/VRChatApiToolsEditor.cs" />
+      <option value="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/VRChatApiUploader.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1r4qHyzSqXzswqLOoig1dRkIqxj" />

@@ -1,4 +1,4 @@
-using AvatarImageDecoder.Editor;
+using BocuD.VRChatApiTools.Editor;
 using TMPro;
 using UdonSharpEditor;
 using UnityEditor;
