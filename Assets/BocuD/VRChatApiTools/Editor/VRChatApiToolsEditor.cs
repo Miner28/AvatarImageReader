@@ -4,9 +4,10 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
+using VRC.SDKBase.Editor;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 
-namespace BocuD.VRChatApiTools.Editor
+namespace BocuD.VRChatApiTools
 {
     public static class VRChatApiToolsEditor
     {
@@ -17,6 +18,11 @@ namespace BocuD.VRChatApiTools.Editor
         public static void DrawAvatarInspector(string blueprintID)
         {
             if (blueprintID.IsNullOrWhitespace()) return;
+            if (!APIUser.IsLoggedIn)
+            {
+                VRChatApiToolsEditor.HandleLogin(null, false);
+                return;
+            }
             
             //already cached
             if (VRChatApiTools.avatarCache.TryGetValue(blueprintID, out ApiAvatar avatar))
@@ -88,6 +94,42 @@ namespace BocuD.VRChatApiTools.Editor
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
         }
+        
+        public static bool HandleLogin(EditorWindow repaintOnSucces = null, bool displayLoginStatus = true)
+        {
+            if (!APIUser.IsLoggedIn)
+            {
+                if(VRChatApiTools.autoLoginFailed)
+                {
+                    EditorGUILayout.HelpBox(
+                        "You need to be logged in to access VRChat data. Automatically logging in failed, probably because the SDK control panel isn't logged in. Try logging in in the SDK control panel.",
+                        MessageType.Error);
+
+                    if (GUILayout.Button("Open VRCSDK Control Panel"))
+                    {
+                        VRCSettings.ActiveWindowPanel = 0;
+                        VRCSdkControlPanel controlPanel = EditorWindow.GetWindow<VRCSdkControlPanel>();
+                    }
+                }
+                else
+                {
+                    if (repaintOnSucces != null) VRChatApiTools.TryAutoLogin(repaintOnSucces.Repaint);
+                    else VRChatApiTools.TryAutoLogin();
+
+                    EditorGUILayout.BeginVertical(GUI.skin.box);
+
+                    EditorGUILayout.LabelField("Logging in...");
+                    
+                    EditorGUILayout.EndVertical();
+                }
+            }
+            else if(displayLoginStatus)
+            {
+                EditorGUILayout.HelpBox($"Currently logged in as {APIUser.CurrentUser.displayName}", MessageType.Info);
+            }
+
+            return APIUser.IsLoggedIn;
+        }
     }
     
     public class AvatarPicker : EditorWindow
@@ -103,18 +145,7 @@ namespace BocuD.VRChatApiTools.Editor
 
         private void OnGUI()
         {
-            if (!APIUser.IsLoggedIn)
-            {
-                EditorGUILayout.HelpBox(
-                    "You need to be logged in to load the avatar list. Try opening and closing the VRChat SDK menu.",
-                    MessageType.Error);
-                if (GUILayout.Button("Open VRCSDK Control Panel"))
-                {
-                    VRChatApiTools.TryAutoLogin(this);
-                }
-
-                return;
-            }
+            if (!VRChatApiToolsEditor.HandleLogin(this)) return;
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("VRChat Avatar List", EditorStyles.boldLabel);
@@ -142,7 +173,7 @@ namespace BocuD.VRChatApiTools.Editor
                 
                 if (GUILayout.Button("Refresh", GUILayout.Width(120)))
                 {
-                    VRChatApiTools.RefreshData();
+                    VRChatApiTools.ClearCaches();
                 }
             }
 
@@ -281,18 +312,7 @@ namespace BocuD.VRChatApiTools.Editor
         
         private void OnGUI()
         {
-            if (!APIUser.IsLoggedIn)
-            {
-                EditorGUILayout.HelpBox(
-                    "You need to be logged in to load avatars. Try opening and closing the VRChat SDK menu.",
-                    MessageType.Error);
-                if (GUILayout.Button("Open VRCSDK Control Panel"))
-                {
-                    VRChatApiTools.TryAutoLogin(this);
-                }
-
-                return;
-            }
+            if (!VRChatApiToolsEditor.HandleLogin(this)) return;
 
             EditorGUILayout.BeginHorizontal();
             avatarID = EditorGUILayout.TextField("Avatar blueprint ID", avatarID);

@@ -3,6 +3,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.Udon;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.None)]
 public class AvatarImagePrefab : UdonSharpBehaviour
 {
     public string linkedAvatar;
@@ -12,29 +13,22 @@ public class AvatarImagePrefab : UdonSharpBehaviour
     public int imageMode = 0;
 
     [Header("General Options")]
+    [Tooltip("Increasing step size decreases decode time but increases frametimes")] 
+    public int stepLength = 200;
+    
     public bool outputToText;
     public TextMeshPro outputText;
+    
+    public bool callBackOnFinish = false;
+    public UdonBehaviour callbackBehaviour;
+    public string callbackEventName;
+    
+    [Header("Data Encoding")]
+    //0 UTF16 string, 1 ASCII string, 2 Binary
+    public int dataMode = 0;
     
     [Header("Debugging")] 
     public bool debugLogger;
     public bool debugTMP;
     public TextMeshPro loggerText;
-    
-    
-
-    [Header("Increasing step size decreases decode time but increases frametimes")] [SerializeField]
-    private int stepLength = 200;
-
-    [Header("Call event when finished reading")] [SerializeField]
-    private bool callBackOnFinish = false;
-
-    [SerializeField] private UdonBehaviour callbackBehaviour;
-    [SerializeField] private string callbackEventName;
-
-    [Header("Render references")] [SerializeField]
-    private GameObject renderQuad;
-
-    [SerializeField] private Camera renderCamera;
-    [SerializeField] private RenderTexture renderTexture;
-    [SerializeField] private Texture2D donorInput;
 }

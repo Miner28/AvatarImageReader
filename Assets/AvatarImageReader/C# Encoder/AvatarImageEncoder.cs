@@ -75,8 +75,6 @@ namespace AvatarImageDecoder
                 //Debug.Log($"{index} : {x}");
                 index += 1;
             }
-            var imageWidth = 128;
-            var imageHeight = 96;
 
             // gen.py:23
             Texture2D img;
@@ -89,6 +87,9 @@ namespace AvatarImageDecoder
             }
             else
             {
+                var imageWidth = 128;
+                var imageHeight = 96;
+                
                 img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGB24, false);
                 var initialPixels = Enumerable.Repeat(Color.white, imageWidth * imageHeight).ToArray();
                 img.SetPixels(initialPixels);

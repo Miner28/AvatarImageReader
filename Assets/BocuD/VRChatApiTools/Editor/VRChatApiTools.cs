@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VRC.Core;
 using VRC.SDK3.Components;
+using VRC.SDKBase.Editor;
 using Logger = VRC.Core.Logger;
 using Object = UnityEngine.Object;
 
-namespace BocuD.VRChatApiTools.Editor
+namespace BocuD.VRChatApiTools
 {
     public static class VRChatApiTools
     {
@@ -32,7 +34,48 @@ namespace BocuD.VRChatApiTools.Editor
         [NonSerialized] public static Dictionary<string, ApiWorld> worldCache = new Dictionary<string, ApiWorld>();
         [NonSerialized] public static Dictionary<string, ApiAvatar> avatarCache = new Dictionary<string, ApiAvatar>();
 
+        #region Editor Tools Menu
+
+        [MenuItem("Tools/VRChatApiTools/Refresh data")]
         public static void RefreshData()
+        {
+            ClearCaches();
+            EditorCoroutine.Start(FetchUploadedData());
+        }
+
+        [MenuItem("Tools/VRChatApiTools/Clear caches")]
+        public static void MIClearCaches()
+        {
+            ClearCaches();
+        }
+
+        [MenuItem("Tools/VRChatApiTools/Attempt login")]
+        public static void MILoginAttempt()
+        {
+            if (APIUser.IsLoggedIn)
+            {
+                Debug.Log("[<color=lime>VRChatApiTools</color>] You are already logged in.");
+                return;
+            }
+            
+            Debug.Log("[<color=lime>VRChatApiTools</color>] Attempting login...");
+            
+            VRCLogin.AttemptLogin(
+                (c) =>
+                {
+                    Debug.Log("[<color=lime>VRChatApiTools</color>] Succesfully logged in as user: " + ((APIUser) c.Model).displayName);
+                },
+                        
+                (c) =>
+                {
+                    Debug.LogError("[<color=lime>VRChatApiTools</color>] Automatic login failed");
+                    autoLoginFailed = true;
+                });
+        }
+        
+        #endregion
+        
+        public static void ClearCaches()
         {
             uploadedWorlds = null;
             uploadedAvatars = null;
@@ -51,6 +94,9 @@ namespace BocuD.VRChatApiTools.Editor
 
         public static IEnumerator FetchUploadedData()
         {
+            uploadedWorlds = new List<ApiWorld>();
+            uploadedAvatars = new List<ApiAvatar>();
+            
             if (!ConfigManager.RemoteConfig.IsInitialized())
                 ConfigManager.RemoteConfig.Init();
 
@@ -294,22 +340,31 @@ namespace BocuD.VRChatApiTools.Editor
             DownloadImage(blueprintID, avatar.thumbnailImageUrl);
         }
 
-        public static async void TryAutoLogin(EditorWindow repaintOnSucces = null)
+        public static bool autoLoginFailed = false;
+        public static void TryAutoLogin([CanBeNull]Action onSucces = null)
         {
-            VRCSdkControlPanel controlPanel = EditorWindow.GetWindow<VRCSdkControlPanel>();
-            for (int i = 0; i < 50; i++)
+            if (!APIUser.IsLoggedIn)
             {
-                if (APIUser.IsLoggedIn)
+                if (!autoLoginFailed)
                 {
-                    controlPanel.Close();
-                    if (repaintOnSucces != null) repaintOnSucces.Repaint();
-                    return;
+                    VRCLogin.AttemptLogin(
+                        (c) =>
+                        {
+                            Debug.Log("[<color=lime>VRChatApiTools</color>] Succesfully logged in as user: " + ((APIUser) c.Model).displayName);
+                            onSucces?.Invoke();
+                        },
+                        
+                        (c) =>
+                        {
+                            Debug.LogError("[<color=lime>VRChatApiTools</color>] Automatic login failed");
+                            autoLoginFailed = true;
+                        });
                 }
-
-                await Task.Delay(TimeSpan.FromSeconds(0.1f));
             }
-
-            Logger.Log("Timed out waiting for automatic login");
+            else
+            {
+                autoLoginFailed = false;
+            }
         }
     }
 }

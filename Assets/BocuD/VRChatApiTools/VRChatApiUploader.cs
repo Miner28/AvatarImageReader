@@ -68,7 +68,7 @@ namespace BocuD.VRChatApiTools
         private void Login()
         {
             if (!ApiCredentials.Load())
-                Debug.LogError("Not logged in - Please log in before trying to upload images");
+                Debug.LogError("[<color=lime>VRChatApiTools</color>] Not logged in - Please log in before trying to upload images");
             else
                 APIUser.InitialFetchCurrentUser(delegate
                 {
@@ -76,10 +76,9 @@ namespace BocuD.VRChatApiTools
                     avater.Get(false,
                         (c2) =>
                         {
-                            Debug.Log("Succesfully Loaded ApiAvatar");
                             apiAvatar = c2.Model as ApiAvatar;
                         },
-                        (c2) => { Debug.LogError("Error while trying to load ApiAvatar"); });
+                        (c2) => { Debug.LogError("[<color=lime>VRChatApiTools</color>] Error while trying to load ApiAvatar"); });
                 }, (c) => { Debug.LogError(c.Error); });
         }
 
@@ -109,8 +108,6 @@ namespace BocuD.VRChatApiTools
 
         public IEnumerator UpdateAvatarImage(ApiAvatar avatar, string newImagePath)
         {
-            Debug.Log("Starting Avatar image upload");
-            
             yield return UpdateImage(avatar.imageUrl, GetFriendlyAvatarFileName("Image", avatar.id), newImagePath);
             
             avatar.imageUrl = cloudFrontImageUrl;
@@ -154,8 +151,6 @@ namespace BocuD.VRChatApiTools
 
         public IEnumerator UpdateImage(string existingFileUrl, string friendlyFileName, string newImagePath)
         {
-            Debug.Log("Update Image");
-            
             if (!string.IsNullOrEmpty(newImagePath))
             {
                 yield return UploadFile(newImagePath, existingFileUrl, friendlyFileName, "Image",
@@ -169,15 +164,13 @@ namespace BocuD.VRChatApiTools
 
         public IEnumerator UploadFile(string filename, string existingFileUrl, string friendlyFileName, string fileType, Action<string> onSuccess)
         {
-            Debug.Log("Upload File");
-
             if (string.IsNullOrEmpty(filename))
             {
-                Debug.LogError("Null file passed to UploadFile");
+                Debug.LogError("[<color=lime>VRChatApiTools</color>] Null file passed to UploadFile");
                 yield break;
             }
 
-            Debug.Log("Uploading " + fileType + "(" + filename + ") ...");
+            Debug.Log("[<color=lime>VRChatApiTools</color>] Uploading " + fileType + "(" + filename + ") ...");
             
             SetUploadProgress("Uploading " + fileType + "...", "", 0.0f);
 
@@ -190,27 +183,23 @@ namespace BocuD.VRChatApiTools
                 delegate (ApiFile apiFile, string message)
                 {
                     newFileUrl = apiFile.GetFileURL();
-                    
-                    if (VRC.Core.Logger.DebugLevelIsEnabled(DebugLevel.API))
-                        Debug.Log($"{fileType} upload succeeded: {message} ({filename}) => {apiFile}");
-                    else
-                        Debug.Log($"{fileType} upload succeeded");
+                    Debug.Log($"[<color=lime>VRChatApiTools</color>] {fileType} upload succeeded");
                 },
                 delegate (ApiFile apiFile, string error)
                 {
                     errorStr = error;
-                    Debug.LogError(fileType + " upload failed: " + error + " (" + filename + ") => " + apiFile.ToString());
+                    Debug.LogError($"[<color=lime>VRChatApiTools</color>] {fileType} upload failed: {error} ({filename}) => {apiFile}");
                 },
                 delegate (ApiFile apiFile, string status, string subStatus, float progress)
                 {
-                    SetUploadProgress("Uploading " + fileType + "...", status + (!string.IsNullOrEmpty(subStatus) ? " (" + subStatus + ")" : ""), progress);
+                    SetUploadProgress($"Uploading {fileType}...", status + (!string.IsNullOrEmpty(subStatus) ? " (" + subStatus + ")" : ""), progress);
                 },
                 WasCancelRequested
             );
 
             if (!string.IsNullOrEmpty(errorStr))
             {
-                Debug.LogError(fileType + " upload failed.\n" + errorStr);
+                Debug.LogError($"[<color=lime>VRChatApiTools</color>] {fileType} upload failed.\n{errorStr}");
                 yield break;
             }
 
