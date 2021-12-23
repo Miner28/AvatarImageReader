@@ -1,34 +1,42 @@
 ﻿using TMPro;
 using UdonSharp;
 using UnityEngine;
+using VRC.SDK3.Components;
 using VRC.Udon;
 
-[UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-public class AvatarImagePrefab : UdonSharpBehaviour
+namespace AvatarImageReader
 {
-    public string linkedAvatar;
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
+    public class AvatarImagePrefab : UdonSharpBehaviour
+    {
+        public string linkedAvatar;
     
-    [Header("Image Options")]
-    //0 cross platform, 1 pc only
-    public int imageMode = 0;
+        [Header("Image Options")]
+        //0 cross platform, 1 pc only
+        public int imageMode = 0;
 
-    [Header("General Options")]
-    [Tooltip("Increasing step size decreases decode time but increases frametimes")] 
-    public int stepLength = 200;
+        [Header("General Options")]
+        [Tooltip("Increasing step size decreases decode time but increases frametimes")] 
+        public int stepLength = 200;
     
-    public bool outputToText;
-    public TextMeshPro outputText;
+        public bool outputToText;
+        public TextMeshPro outputText;
     
-    public bool callBackOnFinish = false;
-    public UdonBehaviour callbackBehaviour;
-    public string callbackEventName;
+        public bool callBackOnFinish = false;
+        public UdonBehaviour callbackBehaviour;
+        public string callbackEventName;
     
-    [Header("Data Encoding")]
-    //0 UTF16 string, 1 ASCII string, 2 Binary
-    public int dataMode = 0;
+        [Header("Data Encoding")]
+        //0 UTF16 string, 1 ASCII string, 2 Binary
+        public int dataMode = 0;
     
-    [Header("Debugging")] 
-    public bool debugLogger;
-    public bool debugTMP;
-    public TextMeshPro loggerText;
+        [Header("Debugging")] 
+        public bool debugLogger;
+        public bool debugTMP;
+        public TextMeshPro loggerText;
+
+        [Header("Internal")]
+        public ReadRenderTexture readRenderTexture;
+        public VRCAvatarPedestal avatarPedestal;
+    }
 }

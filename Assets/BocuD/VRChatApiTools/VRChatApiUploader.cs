@@ -91,8 +91,18 @@ namespace BocuD.VRChatApiTools
                 {
                     if (apiAvatar != null)
                     {
-                        StartCoroutine(UpdateAvatarImage(apiAvatar, imagePath));
-                        active = true;
+                        //this is just some fluff to make it look nicer to the user, not doing these checks would still prevent uploading
+                        if (apiAvatar.authorId == APIUser.CurrentUser.id)
+                        {
+                            StartCoroutine(UpdateAvatarImage(apiAvatar, imagePath));
+                            active = true;
+                        }
+                        else
+                        {
+                            Debug.LogError("[<color=lime>VRChatApiTools</color>] Error while updating avatar: Logged in user doesn't own the target avatar");
+                            EditorApplication.isPlaying = false;
+                            EditorUtility.ClearProgressBar();
+                        }
                     }
                 }
             }

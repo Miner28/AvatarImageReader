@@ -5,16 +5,17 @@ using VRC.Udon;
 
 namespace AvatarImageReader
 {
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class CheckHierarchy : UdonSharpBehaviour
     { 
     /*
      * This Script is meant to be attatched to the Pedestal it is intending to scan from 
      */
         [SerializeField] private GameObject renderQuad;
-
         [SerializeField] private ReadRenderTexture readRenderTexture;
 
-        [Header("Debug")] [SerializeField] private GameObject textureComparisonPlane;
+        [Header("Debug")]
+        [SerializeField] private GameObject textureComparisonPlane;
         [SerializeField] private bool overrideTextureEnabled = false;
         [SerializeField] private Texture2D overrideTexture;
 

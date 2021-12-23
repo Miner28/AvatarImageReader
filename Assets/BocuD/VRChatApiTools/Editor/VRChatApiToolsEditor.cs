@@ -76,6 +76,12 @@ namespace BocuD.VRChatApiTools
 
             EditorGUILayout.LabelField("Release Status: " + avatar.releaseStatus);
 
+            if (avatar.authorId != APIUser.CurrentUser.id)
+            {
+                GUIStyle labelStyle = new GUIStyle(EditorStyles.label) {richText = true, wordWrap = true};
+                EditorGUILayout.LabelField("<color=yellow>Warning: You don't own this avatar and won't be able to upload to it</color>", labelStyle);
+            }
+
             GUILayout.FlexibleSpace();
 
             EditorGUILayout.BeginHorizontal();

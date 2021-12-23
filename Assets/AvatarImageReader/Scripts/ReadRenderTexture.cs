@@ -15,7 +15,8 @@ namespace AvatarImageReader
          */
 
         [SerializeField] private AvatarImagePrefab prefab;
-
+        public string outputString;
+        
         [Header("Render references")]
         [SerializeField] private GameObject renderQuad;
 
@@ -25,7 +26,6 @@ namespace AvatarImageReader
 
         //internal
         private Color[] colors;
-        public string currentOutputString;
         private bool hasRun;
         [HideInInspector] public bool pedestalReady;
         private System.Diagnostics.Stopwatch stopwatch;
@@ -74,7 +74,7 @@ namespace AvatarImageReader
             Log("Starting Read");
             Log($"Input: {picture.width} x {picture.height} [{picture.format}]");
 
-            currentOutputString = "";
+            outputString = "";
 
             int w = picture.width;
             int h = picture.height;
@@ -88,7 +88,7 @@ namespace AvatarImageReader
             dataLength = (byte) (firstColor.r * 255) << 16 | (byte) (firstColor.g * 255) << 8 |
                          (byte) (firstColor.b * 255);
 
-            Log("Data length: " + dataLength);
+            Log($"Data length: {dataLength} bytes");
 
             SendCustomEventDelayedFrames(nameof(ReadPictureStep), 2);
         }
@@ -103,7 +103,7 @@ namespace AvatarImageReader
 
         public void ReadPictureStep()
         {
-            Log($"Reading {index}\n");
+            Log($"Reading step {index}\n");
 
             int stepLength = prefab.stepLength;
 
@@ -135,7 +135,7 @@ namespace AvatarImageReader
                     if (byteIndex > dataLength)
                     {
                         Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
-                        currentOutputString += tempString;
+                        outputString += tempString;
                         ReadDone();
                         return;
                     }
@@ -144,7 +144,7 @@ namespace AvatarImageReader
                 index++;
             }
 
-            currentOutputString += tempString;
+            outputString += tempString;
 
             SendCustomEventDelayedFrames(nameof(ReadPictureStep), 1);
         }
@@ -154,9 +154,9 @@ namespace AvatarImageReader
             stopwatch.Stop();
             Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
 
-            if (prefab.outputToText) prefab.outputText.text = currentOutputString;
+            if (prefab.outputToText) prefab.outputText.text = outputString;
 
-            Log("Reading Complete: " + currentOutputString);
+            Log("Reading Complete: " + outputString);
             if (prefab.callBackOnFinish && prefab.callbackBehaviour != null && prefab.callbackEventName != "")
                 prefab.callbackBehaviour.SendCustomEvent(prefab.callbackEventName);
 

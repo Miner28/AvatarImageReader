@@ -7,6 +7,7 @@ using UdonSharpEditor;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
+using VRC.SDK3.Components;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 
@@ -58,6 +59,10 @@ namespace AvatarImageReader.Editor
 
             EditorGUILayout.LabelField("<b>Avatar Image Reader</b>", bigHeaderStyle);
 
+
+            RunChecks();
+            
+            
             EditorGUILayout.LabelField("<b>Linked Avatar</b>", headerStyle);
 
             if (reader.linkedAvatar.IsNullOrWhitespace())
@@ -109,7 +114,10 @@ namespace AvatarImageReader.Editor
 
                     EditorGUILayout.BeginVertical();
                     scrollview = EditorGUILayout.BeginScrollView(scrollview);
-                    text = EditorGUILayout.TextArea(text);
+
+                    GUIStyle textArea = new GUIStyle(EditorStyles.textArea) {wordWrap = true};
+                    text = EditorGUILayout.TextArea(text, textArea);
+                    
                     EditorGUILayout.EndScrollView();
                     EditorGUILayout.EndVertical();
                     
@@ -259,6 +267,71 @@ namespace AvatarImageReader.Editor
             }
         }
 
+        private bool checksFailedReadRenderTexture = false;
+        private bool checksFailedPedestal = false;
+
+        private void RunChecks()
+        {
+            if (reader.readRenderTexture != null)
+            {
+                if (!reader.readRenderTexture.GetComponent<Camera>())
+                {
+                    EditorGUILayout.HelpBox(
+                        "The ReadRenderTexture child object of this AvatarImageReader doesn't have a camera attached. AvatarImageReader will not work. Please reference the provided prefab to find out what settings to use.",
+                        MessageType.Error);
+                }
+            }
+            else
+            {
+                EditorGUILayout.HelpBox(
+                    "AvatarImageReader needs a reference to a ReadRenderTexture UdonBehaviour in its children.",
+                    MessageType.Error);
+
+                if (GUILayout.Button("Auto fix"))
+                {
+                    if (reader.GetUdonSharpComponentInChildren<ReadRenderTexture>())
+                    {
+                        reader.UpdateProxy();
+                        reader.readRenderTexture = reader.GetUdonSharpComponentInChildren<ReadRenderTexture>();
+                        reader.ApplyProxyModifications();
+                    }
+                    else checksFailedReadRenderTexture = true;
+                }
+
+                if (checksFailedReadRenderTexture)
+                {
+                    EditorGUILayout.HelpBox(
+                        "Couldn't find an instance of ReadRenderTexture in the children of this AvatarImageReader. Please add one and try again, or use the provided prefab.",
+                        MessageType.Error);
+                }
+            }
+
+            if (reader.avatarPedestal == null)
+            {
+                EditorGUILayout.HelpBox(
+                    "AvatarImageReader needs a reference to an AvatarPedestal in its children.",
+                    MessageType.Error);
+
+                if (GUILayout.Button("Auto fix"))
+                {
+                    if (reader.GetComponentInChildren<VRCAvatarPedestal>())
+                    {
+                        reader.UpdateProxy();
+                        reader.avatarPedestal = reader.GetComponentInChildren<VRCAvatarPedestal>();
+                        reader.ApplyProxyModifications();
+                    }
+                    else checksFailedPedestal = true;
+                }
+
+                if (checksFailedPedestal)
+                {
+                    EditorGUILayout.HelpBox(
+                        "Couldn't find an AvatarPedestal in the children of this AvatarImageReader. Please add one and try again, or use the provided prefab.",
+                        MessageType.Error);
+                }
+            }
+        }
+
         private void AvatarSelected(ApiAvatar avatar)
         {
             if (reader == null)
@@ -267,6 +340,7 @@ namespace AvatarImageReader.Editor
             }
             reader.UpdateProxy();
             reader.linkedAvatar = avatar.id;
+            reader.avatarPedestal.blueprintId = avatar.id;
             reader.ApplyProxyModifications();
         }
     }
