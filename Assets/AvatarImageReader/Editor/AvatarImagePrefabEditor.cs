@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using AvatarImageDecoder;
@@ -18,6 +19,18 @@ namespace AvatarImageReader.Editor
     {
         private AvatarImagePrefab reader;
         private string text = "";
+
+        private const string root = "Assets/AvatarImageReader";
+        private const string pedestalSavePath = "Assets/AvatarImageReader/PedestalData";
+        
+        private const string quadMaterialPath = "Assets/AvatarImageReader/Materials/RenderQuad.mat";
+        
+        private const string pcDonorImagePath = "Assets/AvatarImageReader/DonorImages/PC.png";
+        private const string questDonorImagePath = "Assets/AvatarImageReader/DonorImages/Quest.png";
+        
+        private const string pcRTPath = "Assets/AvatarImageReader/DonorImages/PCRT.asset";
+        private const string questRTPath = "Assets/AvatarImageReader/DonorImages/QuestRT.asset";
+        
         private Texture2D output;
 
         private Vector2 scrollview;
@@ -30,12 +43,14 @@ namespace AvatarImageReader.Editor
         private bool init = true;
 
         private TextStorageObject textStorageObject;
+        private int lastImageMode;
 
         public override void OnInspectorGUI()
         {
             if (UdonSharpGUI.DrawDefaultUdonSharpBehaviourHeader(target)) return;
 
             reader = (AvatarImagePrefab) target;
+            reader.UpdateProxy();
             
             if (init)
             {
@@ -52,11 +67,13 @@ namespace AvatarImageReader.Editor
                     container.hideFlags = HideFlags.HideInHierarchy;
                     init = false;
                 }
+                UpdatePedestalAssets();
+                lastImageMode = reader.imageMode;
             }
 
             GUIStyle bigHeaderStyle = new GUIStyle(EditorStyles.label) {richText = true, fontSize = 15};
             GUIStyle headerStyle = new GUIStyle(EditorStyles.label) {richText = true};
-
+            
             EditorGUILayout.LabelField("<b>Avatar Image Reader</b>", bigHeaderStyle);
 
 
@@ -70,11 +87,35 @@ namespace AvatarImageReader.Editor
                 EditorGUILayout.HelpBox("No avatar is currently selected. AvatarImageReader will not work without linking an avatar.", MessageType.Info);
             }
             VRChatApiToolsEditor.DrawAvatarInspector(reader.linkedAvatar);
-            
-            if (GUILayout.Button("Change Avatar"))
+
+            EditorGUILayout.BeginHorizontal();
+            string changeAvatarString = reader.linkedAvatar.IsNullOrWhitespace() ? "Set avatar..." : "Change Avatar";
+            if (GUILayout.Button(changeAvatarString))
             {
                 AvatarPicker.ApiAvatarSelector(AvatarSelected);
             }
+
+            EditorGUI.BeginDisabledGroup(reader.linkedAvatar.IsNullOrWhitespace());
+            if (GUILayout.Button("Remove Avatar"))
+            {
+                reader.linkedAvatar = "";
+                
+                reader.UpdateProxy();
+                reader.linkedAvatar = "";
+                reader.avatarPedestal.blueprintId = "";
+
+                reader.ApplyProxyModifications();
+                EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+
+                if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
+                {
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+                }
+                
+                Selection.activeObject = reader.avatarPedestal.gameObject;
+            }
+            EditorGUI.EndDisabledGroup();
+            EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space(4);
 
             EditorGUI.BeginChangeCheck();
@@ -83,6 +124,11 @@ namespace AvatarImageReader.Editor
             int pixelCount = 0;
             
             reader.imageMode = EditorGUILayout.Popup("Image mode: ", reader.imageMode, new [] {"Cross Platform", "PC Only"});
+
+            if (reader.imageMode != lastImageMode)
+            {
+                UpdatePedestalAssets();
+            }
             
             switch (reader.imageMode)
             {
@@ -101,8 +147,18 @@ namespace AvatarImageReader.Editor
 
 
             EditorGUILayout.LabelField("<b>Data encoding</b>", headerStyle);
+
             reader.dataMode = EditorGUILayout.Popup("Data mode: ", reader.dataMode, new [] {"UTF16 Text", "ASCII Text (not available yet)", "Binary data (not available yet)"});
             reader.dataMode = 0;
+
+            reader.patronMode = EditorGUILayout.Toggle("Link with Patreon Decoder:", reader.patronMode);
+            if (reader.patronMode)
+            {
+                reader.dataMode = 0;
+                EditorGUILayout.HelpBox("Make sure to link this reader to a decoder, and to select this reader on the decoder object!", MessageType.Info);
+            }
+
+            EditorGUI.BeginDisabledGroup(reader.patronMode);
 
             //remove one pixel (header)
             int byteCount = (pixelCount - 1) * 3;
@@ -208,7 +264,7 @@ namespace AvatarImageReader.Editor
                     break;
             }
             EditorGUILayout.Space(4);
-            
+            EditorGUI.EndDisabledGroup();
             
             EditorGUILayout.LabelField("<b>General Options</b>", headerStyle);
             GUIContent tooltip = new GUIContent()
@@ -223,16 +279,48 @@ namespace AvatarImageReader.Editor
                 reader.outputText = (TextMeshPro) EditorGUILayout.ObjectField("Target TextMeshPro: ", reader.outputText,
                     typeof(TextMeshPro), true);
             }
-            reader.callBackOnFinish = EditorGUILayout.Toggle("Send Custom Event", reader.callBackOnFinish);
-            if (reader.callBackOnFinish)
+
+            if (reader.patronMode)
             {
-                reader.callbackBehaviour = (UdonBehaviour) EditorGUILayout.ObjectField("Target Behaviour: ",
+                EditorGUILayout.Space(4);
+                EditorGUILayout.LabelField("<b>Patreon Decoder</b>", headerStyle);
+                
+                reader.callBackOnFinish = true;
+                reader.callbackBehaviour = (UdonBehaviour)EditorGUILayout.ObjectField("Decoder Behaviour: ",
                     reader.callbackBehaviour, typeof(UdonBehaviour), true);
+
                 if (reader.callbackBehaviour != null)
                 {
-                    reader.callbackEventName = EditorGUILayout.TextField("Event name: ", reader.callbackEventName);
+                    if (UdonSharpEditorUtility.GetUdonSharpBehaviourType(reader.callbackBehaviour).ToString() ==
+                        "PatreonDecoder")
+                    {
+                        EditorGUILayout.HelpBox(
+                            "Valid Patreon Decoder detected! Make sure to open its inspector and link back to this reader.",
+                            MessageType.Info);
+                    }
+                    else
+                    {
+                        EditorGUILayout.HelpBox("Specified UdonBehaviour doesn't appear to be of the correct type.",
+                            MessageType.Error);
+                    }
+                }
+
+                reader.callbackEventName = "_StartDecode";
+            }
+            else
+            {
+                reader.callBackOnFinish = EditorGUILayout.Toggle("Send Custom Event", reader.callBackOnFinish);
+                if (reader.callBackOnFinish)
+                {
+                    reader.callbackBehaviour = (UdonBehaviour)EditorGUILayout.ObjectField("Target Behaviour: ",
+                        reader.callbackBehaviour, typeof(UdonBehaviour), true);
+                    if (reader.callbackBehaviour != null)
+                    {
+                        reader.callbackEventName = EditorGUILayout.TextField("Event name: ", reader.callbackEventName);
+                    }
                 }
             }
+
             EditorGUILayout.Space(4);
             
             
@@ -259,17 +347,21 @@ namespace AvatarImageReader.Editor
         {
             if (EditorGUI.EndChangeCheck())
             {
-                Undo.RecordObject(reader, "Modify Avatar Image Reader");
-                PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
-
                 textStorageObject.text = text;
-                PrefabUtility.RecordPrefabInstancePropertyModifications(textStorageObject);
+                reader.ApplyProxyModifications();
+                EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+
+                if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
+                {
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+                }
             }
         }
 
         private bool checksFailedReadRenderTexture = false;
         private bool checksFailedPedestal = false;
 
+        
         private void RunChecks()
         {
             if (reader.readRenderTexture != null)
@@ -332,6 +424,54 @@ namespace AvatarImageReader.Editor
             }
         }
 
+        private void UpdatePedestalAssets()
+        {
+            if (reader.uid.IsNullOrWhitespace())
+            {
+                reader.uid = GetUniqueID();
+            }
+
+            if (!AssetDatabase.IsValidFolder(pedestalSavePath))
+            {
+                AssetDatabase.CreateFolder(root, "PedestalData");
+            }
+            
+            if (!AssetDatabase.IsValidFolder($"{pedestalSavePath}/{reader.uid}"))
+            {
+                AssetDatabase.CreateFolder(pedestalSavePath, reader.uid);
+
+                AssetDatabase.CopyAsset(quadMaterialPath, $"{pedestalSavePath}/{reader.uid}/RenderQuad.mat");
+                AssetDatabase.CopyAsset(pcDonorImagePath, $"{pedestalSavePath}/{reader.uid}/PCDonor.png");
+                AssetDatabase.CopyAsset(questDonorImagePath, $"{pedestalSavePath}/{reader.uid}/QuestDonor.png");
+                AssetDatabase.CopyAsset(pcRTPath, $"{pedestalSavePath}/{reader.uid}/PCRT.asset");
+                AssetDatabase.CopyAsset(questRTPath, $"{pedestalSavePath}/{reader.uid}/QuestRT.asset");
+            }
+
+            Material renderQuatMat = AssetDatabase.LoadAssetAtPath<Material>($"{pedestalSavePath}/{reader.uid}/RenderQuad.mat");
+
+            Texture2D pcDonor = AssetDatabase.LoadAssetAtPath<Texture2D>($"{pedestalSavePath}/{reader.uid}/PCDonor.png");
+            Texture2D questDonor = AssetDatabase.LoadAssetAtPath<Texture2D>($"{pedestalSavePath}/{reader.uid}/QuestDonor.png");
+            
+            RenderTexture pcRT = AssetDatabase.LoadAssetAtPath<RenderTexture>($"{pedestalSavePath}/{reader.uid}/PCRT.asset");
+            RenderTexture questRT = AssetDatabase.LoadAssetAtPath<RenderTexture>($"{pedestalSavePath}/{reader.uid}/QuestRT.asset");
+
+            reader.readRenderTexture.UpdateProxy();
+            reader.readRenderTexture.renderTexture = reader.imageMode == 0 ? questRT : pcRT;
+            reader.readRenderTexture.donorInput = reader.imageMode == 0 ? questDonor : pcDonor;
+
+            reader.readRenderTexture.renderQuad.GetComponent<MeshRenderer>().material = renderQuatMat;
+            reader.readRenderTexture.renderCamera.targetTexture = reader.imageMode == 0 ? questRT : pcRT;
+            
+            reader.readRenderTexture.ApplyProxyModifications();
+            
+            EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader.readRenderTexture));
+
+            if (PrefabUtility.IsPartOfAnyPrefab(reader.readRenderTexture.gameObject))
+            {
+                PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader.readRenderTexture));
+            }
+        }
+
         private void AvatarSelected(ApiAvatar avatar)
         {
             if (reader == null)
@@ -341,7 +481,70 @@ namespace AvatarImageReader.Editor
             reader.UpdateProxy();
             reader.linkedAvatar = avatar.id;
             reader.avatarPedestal.blueprintId = avatar.id;
+            
             reader.ApplyProxyModifications();
+            EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+
+            if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
+            {
+                PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+            }
+
+            Selection.activeObject = reader.avatarPedestal.gameObject;
+        }
+        
+        public static string GetUniqueID()
+        {
+            string [] split = DateTime.Now.TimeOfDay.ToString().Split(new Char [] {':','.'});
+            string id = "";
+            for (int i = 0; i < split.Length; i++)
+            {
+                id += split[i];
+            }
+
+            id = long.Parse(id).ToString("X");
+            
+            return id;
+        }
+    }
+
+    public static class AvatarImageTools
+    {
+        private const string prefabNormal = "Assets/AvatarImageReader/Prefabs/Decoder.prefab";
+        private const string prefabText = "Assets/AvatarImageReader/Prefabs/DecoderWithText.prefab";
+        private const string prefabDebug = "Assets/AvatarImageReader/Prefabs/Decoder_Debug.prefab";
+
+        [MenuItem("Tools/AvatarImageReader/Create Image Reader")]
+        private static void CreateNormal()
+        {
+            GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabNormal);
+            GameObject instantiated = (GameObject)PrefabUtility.InstantiatePrefab(toInstantiate);
+            AvatarImagePrefab imagePrefab = instantiated.GetUdonSharpComponent<AvatarImagePrefab>();
+            imagePrefab.UpdateProxy();
+            imagePrefab.uid = "";
+            imagePrefab.ApplyProxyModifications();
+        }
+        
+        [MenuItem("Tools/AvatarImageReader/Create Image Reader (With TMP)")]
+        private static void CreateText()
+        {
+            GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabText);
+            GameObject instantiated = (GameObject)PrefabUtility.InstantiatePrefab(toInstantiate);
+            AvatarImagePrefab imagePrefab = instantiated.GetUdonSharpComponent<AvatarImagePrefab>();
+            imagePrefab.UpdateProxy();
+            imagePrefab.uid = "";
+            imagePrefab.ApplyProxyModifications();
+        }
+        
+        [MenuItem("Tools/AvatarImageReader/Create Image Reader (Debug)")]
+        private static void CreateDebug()
+        {
+            GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabDebug);
+            GameObject instantiated = (GameObject)PrefabUtility.InstantiatePrefab(toInstantiate);
+            AvatarImagePrefab imagePrefab = instantiated.GetUdonSharpComponent<AvatarImagePrefab>();
+            imagePrefab.UpdateProxy();
+            imagePrefab.uid = "";
+            imagePrefab.ApplyProxyModifications();
         }
     }
 }

@@ -1,12 +1,10 @@
 using System;
-using TMPro;
 using UdonSharp;
 using UnityEngine;
-using VRC.Udon;
 
 namespace AvatarImageReader
 {
-    [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class ReadRenderTexture : UdonSharpBehaviour
     {
         /*
@@ -18,11 +16,11 @@ namespace AvatarImageReader
         public string outputString;
         
         [Header("Render references")]
-        [SerializeField] private GameObject renderQuad;
+        public GameObject renderQuad;
 
-        [SerializeField] private Camera renderCamera;
-        [SerializeField] private RenderTexture renderTexture;
-        [SerializeField] private Texture2D donorInput;
+        public Camera renderCamera;
+        public RenderTexture renderTexture;
+        public Texture2D donorInput;
 
         //internal
         private Color[] colors;
@@ -155,6 +153,7 @@ namespace AvatarImageReader
             Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
 
             if (prefab.outputToText) prefab.outputText.text = outputString;
+            prefab.outputString = outputString;
 
             Log("Reading Complete: " + outputString);
             if (prefab.callBackOnFinish && prefab.callbackBehaviour != null && prefab.callbackEventName != "")

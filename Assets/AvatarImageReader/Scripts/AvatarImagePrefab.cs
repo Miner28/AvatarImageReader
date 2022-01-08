@@ -10,6 +10,7 @@ namespace AvatarImageReader
     public class AvatarImagePrefab : UdonSharpBehaviour
     {
         public string linkedAvatar;
+        public string uid = "";
     
         [Header("Image Options")]
         //0 cross platform, 1 pc only
@@ -29,11 +30,15 @@ namespace AvatarImageReader
         [Header("Data Encoding")]
         //0 UTF16 string, 1 ASCII string, 2 Binary
         public int dataMode = 0;
+        public bool patronMode;
     
         [Header("Debugging")] 
         public bool debugLogger;
         public bool debugTMP;
         public TextMeshPro loggerText;
+
+        [Header("Output")] 
+        public string outputString;
 
         [Header("Internal")]
         public ReadRenderTexture readRenderTexture;
