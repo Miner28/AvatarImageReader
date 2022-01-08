@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/Fullscreen Texture 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Materials/Fullscreen Texture 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PC.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PC.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder_Debug.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Prefabs/Decoder_Debug.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Quest.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Quest.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +148,7 @@
       <workItem from="1640901386692" duration="10070000" />
       <workItem from="1641077260697" duration="1656000" />
       <workItem from="1641236273352" duration="11033000" />
-      <workItem from="1641575660715" duration="10833000" />
+      <workItem from="1641575660715" duration="10849000" />
     </task>
     <servers />
   </component>
