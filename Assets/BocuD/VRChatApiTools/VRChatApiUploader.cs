@@ -48,13 +48,12 @@ namespace BocuD.VRChatApiTools
 
         private void Start()
         {
-            if (!ConfigManager.RemoteConfig.IsInitialized())
-            {
-                API.SetOnlineMode(true, "vrchat");
-                ConfigManager.RemoteConfig.Init(Start);
-                return;
-            }
-            
+            API.SetOnlineMode(true, "vrchat");
+            ConfigManager.RemoteConfig.Init(Setup);
+        }
+
+        private void Setup()
+        {
             if (ready)
             {
                 Login();
