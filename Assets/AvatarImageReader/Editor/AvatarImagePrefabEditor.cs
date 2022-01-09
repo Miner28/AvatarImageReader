@@ -349,6 +349,13 @@ namespace AvatarImageReader.Editor
             {
                 textStorageObject.text = text;
                 reader.ApplyProxyModifications();
+                if (reader.outputToText)
+                {
+                    if (reader.outputText != null)
+                    {
+                        reader.outputText.text = text;
+                    }
+                }
                 EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
 
                 if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
@@ -518,7 +525,7 @@ namespace AvatarImageReader.Editor
         private static void CreateNormal()
         {
             GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabNormal);
-            GameObject instantiated = (GameObject)PrefabUtility.InstantiatePrefab(toInstantiate);
+            GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             AvatarImagePrefab imagePrefab = instantiated.GetUdonSharpComponent<AvatarImagePrefab>();
             imagePrefab.UpdateProxy();
             imagePrefab.uid = "";
@@ -529,7 +536,7 @@ namespace AvatarImageReader.Editor
         private static void CreateText()
         {
             GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabText);
-            GameObject instantiated = (GameObject)PrefabUtility.InstantiatePrefab(toInstantiate);
+            GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             AvatarImagePrefab imagePrefab = instantiated.GetUdonSharpComponent<AvatarImagePrefab>();
             imagePrefab.UpdateProxy();
             imagePrefab.uid = "";
@@ -540,7 +547,7 @@ namespace AvatarImageReader.Editor
         private static void CreateDebug()
         {
             GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabDebug);
-            GameObject instantiated = (GameObject)PrefabUtility.InstantiatePrefab(toInstantiate);
+            GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             AvatarImagePrefab imagePrefab = instantiated.GetUdonSharpComponent<AvatarImagePrefab>();
             imagePrefab.UpdateProxy();
             imagePrefab.uid = "";
