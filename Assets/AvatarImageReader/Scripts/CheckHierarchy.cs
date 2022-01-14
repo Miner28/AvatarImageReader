@@ -11,6 +11,7 @@ namespace AvatarImageReader
     /*
      * This Script is meant to be attatched to the Pedestal it is intending to scan from 
      */
+    
         [SerializeField] private GameObject renderQuad;
         [SerializeField] private ReadRenderTexture readRenderTexture;
 
@@ -71,7 +72,10 @@ namespace AvatarImageReader
 
                             readRenderTexture.pedestalReady = true;
 
-                            Destroy(this);
+                            if (readRenderTexture.prefab.destroyPedestalOnComplete)
+                                Destroy(gameObject);
+                            else
+                                Destroy(this);
                         }
                     }
                 }

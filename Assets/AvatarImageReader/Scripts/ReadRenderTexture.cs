@@ -12,9 +12,9 @@ namespace AvatarImageReader
          * Once "Primed" by the CheckHirarchyScript, it will decode the retrieved RenderTexture
          */
 
-        [SerializeField] private AvatarImagePrefab prefab;
+        public AvatarImagePrefab prefab;
         public string outputString;
-        
+
         [Header("Render references")]
         public GameObject renderQuad;
 

@@ -19,9 +19,6 @@ namespace AvatarImageReader.Editor
     {
         private AvatarImagePrefab reader;
         private string text = "";
-
-        private const string root = "Assets/AvatarImageReader";
-        private const string pedestalSavePath = "Assets/AvatarImageReader/PedestalData";
         
         private const string quadMaterialPath = "Assets/AvatarImageReader/Materials/RenderQuad.mat";
         
@@ -280,6 +277,9 @@ namespace AvatarImageReader.Editor
             EditorGUILayout.Space(2);
             
             EditorGUILayout.LabelField("<i>On decode finish:</i>", headerStyle);
+            reader.destroyPedestalOnComplete =
+                EditorGUILayout.Toggle("Destroy pedestal on complete", reader.destroyPedestalOnComplete);
+            
             reader.outputToText = EditorGUILayout.Toggle("Output to TextMeshPro", reader.outputToText);
             if (reader.outputToText)
             {
@@ -450,40 +450,19 @@ namespace AvatarImageReader.Editor
 
         private void UpdatePedestalAssets()
         {
-            if (reader.uid.IsNullOrWhitespace())
-            {
-                reader.uid = GetUniqueID();
-            }
+            Material renderQuadMat = AssetDatabase.LoadAssetAtPath<Material>(quadMaterialPath);
 
-            if (!AssetDatabase.IsValidFolder(pedestalSavePath))
-            {
-                AssetDatabase.CreateFolder(root, "PedestalData");
-            }
+            Texture2D pcDonor = AssetDatabase.LoadAssetAtPath<Texture2D>(pcDonorImagePath);
+            Texture2D questDonor = AssetDatabase.LoadAssetAtPath<Texture2D>(questDonorImagePath);
             
-            if (!AssetDatabase.IsValidFolder($"{pedestalSavePath}/{reader.uid}"))
-            {
-                AssetDatabase.CreateFolder(pedestalSavePath, reader.uid);
-
-                AssetDatabase.CopyAsset(quadMaterialPath, $"{pedestalSavePath}/{reader.uid}/RenderQuad.mat");
-                AssetDatabase.CopyAsset(pcDonorImagePath, $"{pedestalSavePath}/{reader.uid}/PCDonor.png");
-                AssetDatabase.CopyAsset(questDonorImagePath, $"{pedestalSavePath}/{reader.uid}/QuestDonor.png");
-                AssetDatabase.CopyAsset(pcRTPath, $"{pedestalSavePath}/{reader.uid}/PCRT.asset");
-                AssetDatabase.CopyAsset(questRTPath, $"{pedestalSavePath}/{reader.uid}/QuestRT.asset");
-            }
-
-            Material renderQuatMat = AssetDatabase.LoadAssetAtPath<Material>($"{pedestalSavePath}/{reader.uid}/RenderQuad.mat");
-
-            Texture2D pcDonor = AssetDatabase.LoadAssetAtPath<Texture2D>($"{pedestalSavePath}/{reader.uid}/PCDonor.png");
-            Texture2D questDonor = AssetDatabase.LoadAssetAtPath<Texture2D>($"{pedestalSavePath}/{reader.uid}/QuestDonor.png");
-            
-            RenderTexture pcRT = AssetDatabase.LoadAssetAtPath<RenderTexture>($"{pedestalSavePath}/{reader.uid}/PCRT.asset");
-            RenderTexture questRT = AssetDatabase.LoadAssetAtPath<RenderTexture>($"{pedestalSavePath}/{reader.uid}/QuestRT.asset");
+            RenderTexture pcRT = AssetDatabase.LoadAssetAtPath<RenderTexture>(pcRTPath);
+            RenderTexture questRT = AssetDatabase.LoadAssetAtPath<RenderTexture>(questRTPath);
 
             reader.readRenderTexture.UpdateProxy();
             reader.readRenderTexture.renderTexture = reader.imageMode == 0 ? questRT : pcRT;
             reader.readRenderTexture.donorInput = reader.imageMode == 0 ? questDonor : pcDonor;
 
-            reader.readRenderTexture.renderQuad.GetComponent<MeshRenderer>().material = renderQuatMat;
+            reader.readRenderTexture.renderQuad.GetComponent<MeshRenderer>().material = renderQuadMat;
             reader.readRenderTexture.renderCamera.targetTexture = reader.imageMode == 0 ? questRT : pcRT;
             
             reader.readRenderTexture.ApplyProxyModifications();

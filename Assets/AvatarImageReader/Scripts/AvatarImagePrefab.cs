@@ -12,7 +12,8 @@ namespace AvatarImageReader
         public string linkedAvatar;
         public string uid = "";
         public bool pedestalAssetsReady;
-    
+        public bool destroyPedestalOnComplete = true;
+        
         [Header("Image Options")]
         //0 cross platform, 1 pc only
         public int imageMode = 0;
