@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/PCDonor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/PCDonor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/PCRT.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/PCRT.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/QuestDonor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/QuestDonor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/QuestRT.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/QuestRT.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/RenderQuad.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6C5454010/RenderQuad.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/PCDonor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/PCDonor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/PCRT.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/PCRT.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/QuestDonor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/QuestDonor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/QuestRT.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/QuestRT.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/RenderQuad.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/PedestalData/6D7E0066C/RenderQuad.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +166,7 @@
       <workItem from="1641077260697" duration="1656000" />
       <workItem from="1641236273352" duration="11033000" />
       <workItem from="1641575660715" duration="10849000" />
+      <workItem from="1642179484798" duration="3648000" />
     </task>
     <servers />
   </component>
