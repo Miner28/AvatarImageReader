@@ -23,6 +23,7 @@ namespace AvatarImageReader
         public int stepLength = 200;
     
         public bool outputToText;
+        public bool autoFillTMP;
         public TextMeshPro outputText;
     
         public bool callBackOnFinish = false;

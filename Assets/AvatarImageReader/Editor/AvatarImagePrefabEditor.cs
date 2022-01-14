@@ -283,6 +283,11 @@ namespace AvatarImageReader.Editor
             reader.outputToText = EditorGUILayout.Toggle("Output to TextMeshPro", reader.outputToText);
             if (reader.outputToText)
             {
+                reader.autoFillTMP =
+                    EditorGUILayout.Toggle(
+                        new GUIContent("Auto fill TMP",
+                            "Enabling this will automatically replace the text inside the output TMP so at least some data (albeit not necessarily up to date) will be shown if loading fails."),
+                        reader.autoFillTMP);
                 reader.outputText = (TextMeshPro) EditorGUILayout.ObjectField("Target TextMeshPro: ", reader.outputText,
                     typeof(TextMeshPro), true);
             }
@@ -367,7 +372,7 @@ namespace AvatarImageReader.Editor
             
             if (reader.outputToText)
             {
-                if (reader.outputText != null)
+                if (reader.outputText != null && reader.autoFillTMP)
                 {
                     reader.outputText.text = text;
                 }
