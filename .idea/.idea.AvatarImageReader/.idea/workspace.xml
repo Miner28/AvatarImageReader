@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/README.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/index.js.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package-lock.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package.json.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
