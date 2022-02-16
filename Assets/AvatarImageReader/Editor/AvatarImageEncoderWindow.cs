@@ -79,12 +79,8 @@ namespace AvatarImageReader.Editor
 
                     if (GUILayout.Button("Upload Image"))
                     {
-                        GameObject temp = new GameObject("ImageUploader");
-                        temp.tag = "EditorOnly";
-                        VRChatApiUploader uploader = temp.AddComponent<VRChatApiUploader>();
-
-                        uploader.SetupAvatarImageUpdate(selectedAvatar, output);
-                        //EditorCoroutine.Start(uploader.UpdateAvatarImage(selectedAvatar, output));
+                        VRChatApiUploaderAsync vrChatApiUploaderAsync = new VRChatApiUploaderAsync();
+                        vrChatApiUploaderAsync.SetupAvatarImageUpdate(selectedAvatar, output);
                     }
                 }
             }
