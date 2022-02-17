@@ -82,15 +82,46 @@ namespace AvatarImageReader
 
             Array.Reverse(colors);
 
-            Color firstColor = colors[0];
-            dataLength = (byte) (firstColor.r * 255) << 16 | (byte) (firstColor.g * 255) << 8 |
-                         (byte) (firstColor.b * 255);
+            Color color = colors[0];
+            dataLength = (byte) (color.r * 255) << 16 | (byte) (color.g * 255) << 8 |
+                         (byte) (color.b * 255);
 
             Log($"Data length: {dataLength} bytes");
+            
+            color = colors[1];
+            
+            nextAvi = "";
+            if ((byte)(color.r * 255) == 255 && (byte)(color.g * 255) == 255)
+            {
+                byte[] bytes = new byte[16];
+                bytes[0] = (byte)(color.b * 255);
+                for (int i = 2; i < 7; i++)
+                {
+                    color = colors[i];
+                    bytes[(i-1) * 3 - 2] = (byte)(color.r * 255);
+                    bytes[(i-1) * 3 - 1] = (byte)(color.g * 255);
+                    bytes[(i-1) * 3] = (byte)(color.b * 255);
+                    
+                }
+                
+                foreach (var b in bytes)
+                {
+                    nextAvi += ConvertByteToHEX(b);
+                }
+
+                nextAvi = $"avtr_{nextAvi.Substring(0, 8)}-{nextAvi.Substring(8, 4)}-{nextAvi.Substring(12, 4)}-{nextAvi.Substring(16,4)}-{nextAvi.Substring(20,12)}";
+                Log($"AVATAR FOUND - {nextAvi}");
+                index = 7;
+                byteIndex = 18;
+
+
+            }
+
 
             SendCustomEventDelayedFrames(nameof(ReadPictureStep), 2);
         }
 
+        private string nextAvi = "";
         private int index = 1;
         private int byteIndex = 0;
         private int dataLength;
@@ -130,7 +161,7 @@ namespace AvatarImageReader
                     }
 
                     byteIndex++;
-                    if (byteIndex > dataLength)
+                    if (byteIndex >= dataLength)
                     {
                         Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
                         outputString += tempString;
@@ -149,6 +180,14 @@ namespace AvatarImageReader
 
         private void ReadDone()
         {
+            Log($"{outputString}");
+            if (nextAvi != "")
+            {
+                
+                //TODO RESET, RELOAD, RETRY
+                return;
+            }
+            
             stopwatch.Stop();
             Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
 
@@ -168,5 +207,11 @@ namespace AvatarImageReader
         {
             return empty + (char) (bytes[0] | (bytes[1] << 8));
         }
+
+        private string ConvertByteToHEX(byte b)
+        {
+            return $"{b >> 4:x}{b & 0xF:x}";
+        }
+        
     }
 }
