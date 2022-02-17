@@ -14,8 +14,8 @@ def readInformation():
 
             if byte_length == 0:
                 byte_length = int.from_bytes(pixel, 'big')
-                # print(byte_length)
-                # print(pixel)
+                print(byte_length)
+                print(pixel)
             else:
                 byte_list.append(pixel[0])
                 index = index + 1

@@ -111,7 +111,9 @@ namespace AvatarImageReader
                 }
 
                 nextAvi = $"avtr_{nextAvi.Substring(0, 8)}-{nextAvi.Substring(8, 4)}-{nextAvi.Substring(12, 4)}-{nextAvi.Substring(16,4)}-{nextAvi.Substring(20,12)}";
-                Debug.Log($"AVATAR FOUND - {nextAvi}");
+
+                Log($"AVATAR FOUND - {nextAvi}");
+
                 index = 7;
                 byteIndex = 18;
 
@@ -181,7 +183,8 @@ namespace AvatarImageReader
 
         private void ReadDone()
         {
-            Debug.Log($"|{outputString}|");
+            Log($"{outputString}");
+
             if (nextAvi != "")
             {
                 
