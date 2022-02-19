@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/README.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/index.js.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package-lock.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/AvatarImageUploader/package.json.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
