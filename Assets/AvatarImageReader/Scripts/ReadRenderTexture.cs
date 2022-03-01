@@ -33,7 +33,7 @@ namespace AvatarImageReader
         {
             if (pedestalReady && !hasRun)
             {
-                stopwatch = new System.Diagnostics.Stopwatch();
+                stopwatch = new System.Diagnostics.Stopwatch();//TODO ONLY WHEN DEBUG
                 stopwatch.Start();
 
                 Log("ReadRenderTexture: Starting");
@@ -58,7 +58,7 @@ namespace AvatarImageReader
 
         private void Log(string text)
         {
-            Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] {text}");
+            Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] {text}"); //TODO Me == Lazy, Remove when done
             if (!prefab.debugLogger) return;
 
             Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] {text}");
@@ -79,10 +79,11 @@ namespace AvatarImageReader
             int w = picture.width;
             int h = picture.height;
 
-            colors = new Color[w * h];
+            colors = new Color[w * h]; //TODO Test if this is needed, I believe this is not required
             colors = picture.GetPixels();
 
             Array.Reverse(colors);
+            
             Color color = colors[0];
             dataLength = (byte) (color.r * 255) << 16 | (byte) (color.g * 255) << 8 |
                          (byte) (color.b * 255);
@@ -118,11 +119,11 @@ namespace AvatarImageReader
         {
             Log($"Reading step {index}\n");
 
-            int stepLength = prefab.stepLength;
+            int stepLength = prefab.stepLength; //TODO GONE
 
             string tempString = "";
 
-            for (int step = 0; step < stepLength; step++)
+            for (int step = 0; step < stepLength; step++) //TODO Stopwatch new performance and adjust DEFAULT speeds + MAX speed
             {
                 Color c = colors[index];
                 
@@ -134,6 +135,7 @@ namespace AvatarImageReader
                 if (byteIndex >= dataLength)
                 {
                     Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
+                    //TODO Needs checking if ended on % 4 == 0, So it doesn't append 1 non-sense char
                     
                     outputString += tempString;
                     ReadDone();
@@ -153,14 +155,14 @@ namespace AvatarImageReader
         {
             Log($"|{outputString}|");
 
-            if (nextAvi != "")
+            if (nextAvi != "")//TODO "" > "f*??" Needs replacing check with full F avatar.
             {
                 
                 //TODO RESET, RELOAD, RETRY
                 return;
             }
             
-            stopwatch.Stop();
+            stopwatch.Stop();//TODO This should only happen if DEBUG is enabled
             Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
 
             if (prefab.outputToText) prefab.outputText.text = outputString;
@@ -174,11 +176,9 @@ namespace AvatarImageReader
 
         }
 
-        private string empty = "";
-
         private char ConvertBytesToUTF16(byte byte1, byte byte2)
         {
-            Log(((char) (byte1 | (byte2 << 8))).ToString());
+            Log(((char) (byte1 | (byte2 << 8))).ToString()); //TODO Remove when debugging done
             return (char) (byte1 | (byte2 << 8));
         }
 
