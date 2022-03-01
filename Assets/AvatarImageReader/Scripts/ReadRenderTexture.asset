@@ -689,7 +689,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: nextAvi
+      Data: nextAvatar
     - Name: $v
       Entry: 7
       Data: 43|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
@@ -710,10 +710,10 @@ MonoBehaviour:
       Data: SystemString
     - Name: symbolOriginalName
       Entry: 1
-      Data: nextAvi
+      Data: nextAvatar
     - Name: symbolUniqueName
       Entry: 1
-      Data: nextAvi
+      Data: nextAvatar
     - Name: symbolDefaultValue
       Entry: 6
       Data: 
