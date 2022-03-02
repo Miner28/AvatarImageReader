@@ -15,8 +15,7 @@ namespace AvatarImageReader
         public AvatarImagePrefab prefab;
         public string outputString;
 
-        [Header("Render references")]
-        public GameObject renderQuad;
+        [Header("Render references")] public GameObject renderQuad;
 
         public Camera renderCamera;
         public RenderTexture renderTexture;
@@ -27,7 +26,7 @@ namespace AvatarImageReader
         private bool hasRun = false;
         [NonSerialized] public bool pedestalReady;
         private System.Diagnostics.Stopwatch stopwatch;
-        
+
         public void OnPostRender()
         {
             if (pedestalReady && !hasRun)
@@ -56,7 +55,8 @@ namespace AvatarImageReader
                 }
                 else
                 {
-                    Debug.LogError("[<color=#00fff7>ReadRenderTexture</color>] Target RenderTexture is null, aborting read");
+                    Debug.LogError(
+                        "[<color=#00fff7>ReadRenderTexture</color>] Target RenderTexture is null, aborting read");
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace AvatarImageReader
 
             if (prefab.debugTMP)
             {
-                prefab.loggerText.text += $"{text}\n";
+                prefab.loggerText.text += $"{text} | ";
             }
         }
 
@@ -80,34 +80,37 @@ namespace AvatarImageReader
 
             outputString = "";
 
+            stepLength = prefab.stepLength;
+
             colors = picture.GetPixels();
 
             Array.Reverse(colors);
-            
+
             Color color = colors[0];
             dataLength = (byte) (color.r * 255) << 16 | (byte) (color.g * 255) << 8 |
                          (byte) (color.b * 255);
 
             Log("Decoding header");
             Debug.Log($"Data length: {dataLength} bytes");
-            
+
             nextAvatar = "";
             for (int i = 1; i < 6; i++)
             {
                 color = colors[i];
-                nextAvatar += ((byte) (color.r * 255)).ToString("x");
-                nextAvatar += ((byte) (color.g * 255)).ToString("x");
-                nextAvatar += ((byte) (color.b * 255)).ToString("x");
-                nextAvatar += ((byte) (color.a * 255)).ToString("x");
+                nextAvatar += ConvertByteToHEX((byte) (color.r * 255));
+                nextAvatar += ConvertByteToHEX((byte) (color.g * 255));
+                nextAvatar += ConvertByteToHEX((byte) (color.b * 255));
+                nextAvatar += ConvertByteToHEX((byte) (color.a * 255));
             }
-            
-            nextAvatar = $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16,4)}-{nextAvatar.Substring(20,12)}";
+
+            nextAvatar =
+                $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
 
             Debug.Log($"AVATAR FOUND - {nextAvatar}");
 
             index = 5;
-            byteIndex = 18;
-            
+            byteIndex = 16;
+
             SendCustomEventDelayedFrames(nameof(ReadPictureStep), 2);
         }
 
@@ -115,33 +118,38 @@ namespace AvatarImageReader
         private int index = 1;
         private int byteIndex = 0;
         private int dataLength;
-        
+        private int stepLength = 1000;
+
         public void ReadPictureStep()
         {
             Log($"Reading step {index}\n");
 
-            int stepLength = prefab.stepLength; //TODO GONE
-
             string tempString = "";
 
-            for (int step = 0; step < stepLength; step++) //TODO Stopwatch new performance and adjust DEFAULT speeds + MAX speed
+            for (int step = 0;
+                 step < stepLength;
+                 step++)
             {
                 Color c = colors[index];
-                
+
                 tempString += ConvertBytesToUTF16((byte) (c.r * 255), (byte) (c.g * 255));
-                tempString += ConvertBytesToUTF16((byte) (c.b*255), (byte)(c.a*255));
+                tempString += ConvertBytesToUTF16((byte) (c.b * 255), (byte) (c.a * 255));
                 byteIndex += 4;
 
                 if (byteIndex >= dataLength)
                 {
                     Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
-                    //TODO Needs checking if ended on % 4 == 0, So it doesn't append 1 non-sense char
+                    if ((byteIndex - dataLength) % 4 == 2)
+                    {
+                        outputString += tempString.Substring(0, tempString.Length - 1);
+                    }
+                    else 
+                        outputString += tempString;
                     
-                    outputString += tempString;
                     ReadDone();
                     return;
                 }
-                
+
                 index++;
             }
 
@@ -152,11 +160,10 @@ namespace AvatarImageReader
 
         private void ReadDone()
         {
-            if (nextAvatar != "")//TODO "" > "f*??" Needs replacing check with full F avatar.
+            if (nextAvatar != "avtr_ffffffff-ffff-ffff-ffff-ffffffffffff")
             {
-                
                 //TODO RESET, RELOAD, RETRY
-                return;
+                
             }
 
             if (prefab.debugLogger)
@@ -166,9 +173,9 @@ namespace AvatarImageReader
                 Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
             }
 
-            if (prefab.outputToText) 
+            if (prefab.outputToText)
                 prefab.outputText.text = outputString;
-            
+
             prefab.outputString = outputString;
 
             if (prefab.callBackOnFinish && prefab.callbackBehaviour != null && prefab.callbackEventName != "")
@@ -184,7 +191,7 @@ namespace AvatarImageReader
 
         private string ConvertByteToHEX(byte b)
         {
-            return $"{b >> 4:x}{b & 0xF:x}";
+            return $"{b:xx}";
         }
     }
 }
