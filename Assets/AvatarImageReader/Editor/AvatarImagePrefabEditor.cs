@@ -238,10 +238,8 @@ namespace AvatarImageReader.Editor
                         EditorGUI.BeginDisabledGroup(!APIUser.IsLoggedIn || !VRChatApiTools.avatarCache.ContainsKey(reader.linkedAvatar));
                         if (GUILayout.Button("Upload Image to Avatar"))
                         {
-                            GameObject temp = new GameObject("ImageUploader") {tag = "EditorOnly"};
-                            VRChatApiUploader uploader = temp.AddComponent<VRChatApiUploader>();
-
-                            uploader.SetupAvatarImageUpdate(VRChatApiTools.avatarCache[reader.linkedAvatar], output);
+                            VRChatApiUploaderAsync vrChatApiUploaderAsync = new VRChatApiUploaderAsync();
+                            vrChatApiUploaderAsync.SetupAvatarImageUpdate(VRChatApiTools.avatarCache[reader.linkedAvatar], output);
                         }
                         EditorGUI.EndDisabledGroup();
                         
