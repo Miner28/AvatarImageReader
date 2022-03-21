@@ -14,12 +14,15 @@ Special help: @lox9973 for Quest support
 
 Special Thanks: @Merlin for making UdonSharp making any of this possible
 
-### Example use cases
-[Automatically updated Patron list](https://github.com/Paultje52/vrc-patreon-link)
+## Update 2.0
+- Now supports Alpha encoding which allows 33% increase in data storage
+- Allows multiple avatars to be queued up for decoding. Theoretical unlimited text storage!
+- Added public discord bot for linking and automatic uploading of users. [Invite to your server](https://discord.com/api/oauth2/authorize?client_id=938573401201721425&permissions=2147600448&scope=bot%20applications.commands)
 
+### Example use cases
 Dynamically updated calendar
 
-Any text in your world that you want to edit without reuploading
+Any text in your world that you want to edit without re-uploading
 
 ## Requirements
 - VRCSDK 3 2021.06.03 or later (earlier versions are untested but may work)
@@ -36,5 +39,6 @@ The easiest way to update the text contents is to just use the inspector for an 
 AvatarImagePrefab contains a public variable `outputString` that will contain the encoded text once it has been decoded. To be sure that decoding has been completed you should use the option `Send Custom Event` on finish and send an event to whatever UdonBehaviour you want to access the output string with.
 
 ### Max Image Size by Platform
-PC: 1200x900 -> 3.24MB or 1,620,000 UTF16 characters
-Quest: 128x96 -> 36.8KB or 18,432 UTF16 characters
+- PC: 1200x900 -> 4.1MB or 2,160,000 UTF16 characters
+- Quest: 128x96 -> 48KB or 24,576 UTF16 characters
+- Chained: Unlimited
