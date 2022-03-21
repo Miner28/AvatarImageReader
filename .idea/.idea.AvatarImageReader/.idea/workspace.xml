@@ -6,22 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/CheckHierarchy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/CheckHierarchy.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BocuD/Resources/Icons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeFilePicker/Android.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeFilePicker/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeFilePicker/iOS.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildHelper.meta" beforeDir="false" />
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,11 +30,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-<<<<<<< Updated upstream
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/09/7ebdbd22/ApiWorld.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D1EB443-9232-48B1-8289-94AABE8AE823/23/3f4d1f68/Action.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/e5/8da62de9/ApiModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder/AvatarImageEncoder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eae584ce26bc40229c1b1aa476bfa5893e2600/5f/9645e2e1/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A259D3C0-0402-4353-A2C2-17DA97495055/16/a289e4df/EditorUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eae584ce26bc40229c1b1aa476bfa5893e2600/d0/cfbce478/Environment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/b9/2bf16933/CameraImageCapture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -57,15 +47,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6e3e43032b0d4239bc6b91c2741b3903f000/b6/adba9e55/VRCAvatarPedestal.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/55/092d5299/AnalyticsSDK.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D87237C-EA37-43D0-93E2-2C5B98F74FBA/f3/06481fdd/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7e7f9daee41249428705963fc9098fdc1bc00/ed/7a85845b/VRC_AvatarPedestal.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/5b/18b8ada0/APIUser.cs" root0="SKIP_HIGHLIGHTING" />
-=======
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder/AvatarImageEncoder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" root0="FORCE_HIGHLIGHTING" />
->>>>>>> Stashed changes
+
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -173,12 +158,12 @@
       <workItem from="1641236273352" duration="11033000" />
       <workItem from="1641575660715" duration="10849000" />
       <workItem from="1642179484798" duration="7152000" />
-<<<<<<< Updated upstream
-      <workItem from="1646148235568" duration="2495000" />
-=======
+
       <workItem from="1645969442167" duration="2136000" />
       <workItem from="1646136176062" duration="5730000" />
->>>>>>> Stashed changes
+      <workItem from="1642343546371" duration="2687000" />
+      <workItem from="1642346962030" duration="9286000" />
+      <workItem from="1642386819449" duration="395000" />
     </task>
     <servers />
   </component>

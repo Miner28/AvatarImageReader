@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
@@ -93,7 +94,7 @@ namespace BocuD.VRChatApiTools
                         //this is just some fluff to make it look nicer to the user, not doing these checks would still prevent uploading
                         if (apiAvatar.authorId == APIUser.CurrentUser.id)
                         {
-                            StartCoroutine(UpdateAvatarImage(apiAvatar, imagePath));
+                            UpdateAvatarImage(apiAvatar, imagePath);
                             active = true;
                         }
                         else
@@ -115,19 +116,19 @@ namespace BocuD.VRChatApiTools
             }
         }
 
-        public IEnumerator UpdateAvatarImage(ApiAvatar avatar, string newImagePath)
+        public async void UpdateAvatarImage(ApiAvatar avatar, string newImagePath)
         {
-            yield return UpdateImage(avatar.imageUrl, GetFriendlyAvatarFileName("Image", avatar.id), newImagePath);
+            await UpdateImage(avatar.imageUrl, GetFriendlyAvatarFileName("Image", avatar.id), newImagePath);
             
             avatar.imageUrl = cloudFrontImageUrl;
             
-            yield return ApplyAvatarChanges(avatar);
+            await ApplyAvatarChanges(avatar);
             
             EditorApplication.isPlaying = false;
             EditorUtility.ClearProgressBar();
         }
 
-        public IEnumerator ApplyAvatarChanges(ApiAvatar avatar)
+        public async Task ApplyAvatarChanges(ApiAvatar avatar)
         {
             bool doneUploading = false;
 
@@ -141,7 +142,7 @@ namespace BocuD.VRChatApiTools
                 });
 
             while (!doneUploading)
-                yield return null;
+                await Task.Delay(33);
         }
 
         public static string SaveImageTemp(Texture2D input)
@@ -158,11 +159,11 @@ namespace BocuD.VRChatApiTools
         private static string ImageName(int width, int height, string name, string savePath) =>
             $"{savePath}/{name}_{width}x{height}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.png";
 
-        public IEnumerator UpdateImage(string existingFileUrl, string friendlyFileName, string newImagePath)
+        public async Task UpdateImage(string existingFileUrl, string friendlyFileName, string newImagePath)
         {
             if (!string.IsNullOrEmpty(newImagePath))
             {
-                yield return UploadFile(newImagePath, existingFileUrl, friendlyFileName, "Image",
+                await UploadFile(newImagePath, existingFileUrl, friendlyFileName, "Image",
                     delegate (string fileUrl)
                     {
                         cloudFrontImageUrl = fileUrl;
@@ -171,12 +172,12 @@ namespace BocuD.VRChatApiTools
             }
         }
 
-        public IEnumerator UploadFile(string filename, string existingFileUrl, string friendlyFileName, string fileType, Action<string> onSuccess)
+        public async Task UploadFile(string filename, string existingFileUrl, string friendlyFileName, string fileType, Action<string> onSuccess)
         {
             if (string.IsNullOrEmpty(filename))
             {
                 Debug.LogError("[<color=lime>VRChatApiTools</color>] Null file passed to UploadFile");
-                yield break;
+                return;
             }
 
             Debug.Log("[<color=lime>VRChatApiTools</color>] Uploading " + fileType + "(" + filename + ") ...");
@@ -188,7 +189,9 @@ namespace BocuD.VRChatApiTools
             string errorStr = "";
             string newFileUrl = "";
 
-            yield return ApiFileHelper.Instance.UploadFile(filename, fileId, friendlyFileName,
+            ApiFileHelperAsync fileHelperAsync = new ApiFileHelperAsync();
+            
+            await fileHelperAsync.UploadFile(filename, fileId, friendlyFileName,
                 delegate (ApiFile apiFile, string message)
                 {
                     newFileUrl = apiFile.GetFileURL();
@@ -209,7 +212,7 @@ namespace BocuD.VRChatApiTools
             if (!string.IsNullOrEmpty(errorStr))
             {
                 Debug.LogError($"[<color=lime>VRChatApiTools</color>] {fileType} upload failed.\n{errorStr}");
-                yield break;
+                return;
             }
 
             if (onSuccess != null)
@@ -224,6 +227,8 @@ namespace BocuD.VRChatApiTools
 
         private void SetUploadProgress(string title, string message, float progress)
         {
+            if(progress - uploadProgress > 0.05f) Debug.Log("stuffs happening aight");
+            
             uploadTitle = title;
             uploadMessage = message;
             uploadProgress = progress;
