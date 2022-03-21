@@ -19,6 +19,7 @@ namespace AvatarImageReader.Editor
     {
         private AvatarImagePrefab reader;
         private string text = "";
+        private string avatarText = "";
         
         private const string quadMaterialPath = "Assets/AvatarImageReader/Materials/RenderQuad.mat";
         
@@ -158,7 +159,7 @@ namespace AvatarImageReader.Editor
             EditorGUI.BeginDisabledGroup(reader.patronMode);
 
             //remove one pixel (header)
-            int byteCount = (pixelCount - 1) * 3;
+            int byteCount = (pixelCount - 1) * 4;
 
             switch (reader.dataMode)
             {
@@ -170,7 +171,9 @@ namespace AvatarImageReader.Editor
 
                     GUIStyle textArea = new GUIStyle(EditorStyles.textArea) {wordWrap = true};
                     text = EditorGUILayout.TextArea(text, textArea);
-                    
+                    GUIStyle textArea2 = new GUIStyle(EditorStyles.textArea) {wordWrap = true};
+                    avatarText = EditorGUILayout.TextArea(avatarText, textArea2);
+
                     EditorGUILayout.EndScrollView();
                     EditorGUILayout.EndVertical();
                     
@@ -184,12 +187,12 @@ namespace AvatarImageReader.Editor
                         imageWidth = reader.imageMode == 0 ? 128 : 1200;
                         imageHeight = reader.imageMode == 0 ? 96 : 900;
 
-                        Texture2D img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGB24, false);
+                        Texture2D img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGBA32, false);
                         Color[] initialPixels = Enumerable.Repeat(Color.white, imageWidth * imageHeight).ToArray();
                         img.SetPixels(initialPixels);
 
                         imageByteCount = text.Length * 2 + 1;
-                        output = AvatarImageEncoder.EncodeUTF16Text(text, img);
+                        output = AvatarImageEncoder.EncodeUTF16Text(text, avatarText, img);
                     }
 
                     if (output != null)
@@ -254,10 +257,10 @@ namespace AvatarImageReader.Editor
                     }
                     break;
                 case 1:
-                    EditorGUILayout.LabelField("Available characters: ", $"{pixelCount * 3:n0}");
+                    EditorGUILayout.LabelField("Available characters: ", $"{pixelCount * 4:n0}");
                     break;
                 case 2:
-                    EditorGUILayout.LabelField("Available data: ", $"{pixelCount * 3:n0} Bytes");
+                    EditorGUILayout.LabelField("Available data: ", $"{pixelCount * 4:n0} Bytes");
                     break;
             }
             EditorGUILayout.Space(4);

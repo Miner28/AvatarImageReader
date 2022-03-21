@@ -30,6 +30,8 @@
 using System;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Utilities.Encoders;
 using UnityEngine;
 
 namespace AvatarImageDecoder
@@ -39,38 +41,67 @@ namespace AvatarImageDecoder
         /// <summary>
         /// This is a C# implementation of "https://github.com/Miner28/AvatarImageReader/tree/main/Assets/AvatarImageDecoder/Python%20Encoder/gen.py".
         /// The Python script implementation is authoritative over this C# implementation.
-        ///
+        /// 
         /// For this reason, this implementation closely follows the conventions used by the Python script
         /// with only little alteration and no simplifications of the original algorithm,
         /// to allow for future maintenance of the Python script first, followed by porting the updated
         /// Python implementation back into this C# implementation.
         /// </summary>
         /// <param name="input">Input string</param>
+        /// <param name="avatar">Next-up Avatar to be encoded in header</param>
         /// <param name="inputTextureNullable">Optional 128x96 texture to use as an input. The pixels will not be reinitialized.</param>
         /// <returns>Encoded image</returns>
-        public static Texture2D EncodeUTF16Text(string input, Texture2D inputTextureNullable = null)
+        public static Texture2D EncodeUTF16Text(string input, string avatar="", Texture2D inputTextureNullable = null)
         {
             // gen.py:6
-            var textbyteList = Encoding.Unicode.GetBytes(input);
+            var textbyteArray = Encoding.Unicode.GetBytes(input);
+
+            if (avatar != "" && new Regex(@"avtr_[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}").Match(avatar).Length > 0)
+            {
+                avatar = avatar.Replace("avtr_", "").Replace("-", "");
+                var hex = StringToByteArray(avatar);
+                var textByteList = textbyteArray.ToList();
+                foreach (var b in hex.Reverse())
+                {
+                    textByteList.Prepend<byte>(b);
+                }
+
+                textbyteArray = textByteList.ToArray();
+            }
+            else
+            {
+                var textByteList = textbyteArray.ToList();
+                
+                foreach (var b in new byte[] {255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255})
+                {
+                    textByteList.Prepend<byte>(b);
+                }
+
+                textbyteArray = textByteList.ToArray();
+            }
 
             // gen.py:7
-            var lengthOfTextbyteListWith4Bytes = textbyteList.Length;
+            var lengthOfTextbyteListWith4Bytes = textbyteArray.Length;
             var totalBytesWith4Bytes = BitConverter.GetBytes(lengthOfTextbyteListWith4Bytes);
             var totalBytes = new[] {totalBytesWith4Bytes[2], totalBytesWith4Bytes[1], totalBytesWith4Bytes[0]};
 
             // gen.py:9-13
-            if (textbyteList.Length % 3 != 0)
+            if (textbyteArray.Length % 4 != 0)
             {
-                textbyteList = textbyteList.Append((byte) 16).ToArray();
+                textbyteArray = textbyteArray.Append((byte) 16).ToArray();
             }
-            if (textbyteList.Length % 3 != 0)
+            if (textbyteArray.Length % 4 != 0)
             {
-                textbyteList = textbyteList.Append((byte) 16).ToArray();
+                textbyteArray = textbyteArray.Append((byte) 16).ToArray();
+            }
+            if (textbyteArray.Length % 4 != 0)
+            {
+                textbyteArray = textbyteArray.Append((byte) 16).ToArray();
             }
 
             // gen.py:16-21
             var index = 0;
-            foreach (var x in textbyteList)
+            foreach (var x in textbyteArray)
             {
                 //Debug.Log($"{index} : {x}");
                 index += 1;
@@ -90,7 +121,7 @@ namespace AvatarImageDecoder
                 var imageWidth = 128;
                 var imageHeight = 96;
                 
-                img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGB24, false);
+                img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGBA32, false);
                 var initialPixels = Enumerable.Repeat(Color.white, imageWidth * imageHeight).ToArray();
                 img.SetPixels(initialPixels);
             }
@@ -103,7 +134,7 @@ namespace AvatarImageDecoder
 
             // gen.py:29
             var rangeLower = 1;
-            var rangeUpperExclusive = textbyteList.Length / 3 + 1;
+            var rangeUpperExclusive = textbyteArray.Length / 4 + 1;
             for (var x = rangeLower; x < rangeUpperExclusive; x++)
             {
                 // gen.py:30
@@ -111,7 +142,7 @@ namespace AvatarImageDecoder
                 var yOppositePosition = x / img.width;
                 img.SetPixel(xPosition, img.height - 1 - yOppositePosition,
                     // gen.py:31
-                    new Color(BtF(textbyteList[(x - 1) * 3]), BtF(textbyteList[(x - 1) * 3 + 1]), BtF(textbyteList[(x - 1) * 3 + 2])));
+                    new Color(BtF(textbyteArray[(x - 1) * 4]), BtF(textbyteArray[(x - 1) * 4 + 1]), BtF(textbyteArray[(x - 1) * 4 + 2]), BtF(textbyteArray[(x - 1) * 4 + 3])));
             }
 
             // gen.py:33
@@ -136,5 +167,12 @@ namespace AvatarImageDecoder
         {
             return $"[{string.Join(", ", byteArray)}]";
         }
+        public static byte[] StringToByteArray(string hex) {
+            return Enumerable.Range(0, hex.Length)
+                .Where(x => x % 2 == 0)
+                .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                .ToArray();
+        }
     }
+    
 }
