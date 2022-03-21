@@ -1,7 +1,7 @@
 using System;
 using UdonSharp;
 using UnityEngine;
-
+using VRC.SDK3.Components;
 namespace AvatarImageReader
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
@@ -13,33 +13,45 @@ namespace AvatarImageReader
          */
 
         public AvatarImagePrefab prefab;
+        public VRCAvatarPedestal pedestal;
+
         public string outputString;
 
-        [Header("Render references")]
-        public GameObject renderQuad;
+        [Header("Render references")] public GameObject renderQuad;
 
         public Camera renderCamera;
         public RenderTexture renderTexture;
         public Texture2D donorInput;
 
+        private Color[] lastInput;
+        private bool waitForNew;
+
         //internal
         private Color[] colors;
         private bool hasRun;
-        [HideInInspector] public bool pedestalReady;
+        [NonSerialized] public bool pedestalReady;
         private System.Diagnostics.Stopwatch stopwatch;
+
 
         public void OnPostRender()
         {
             if (pedestalReady && !hasRun)
             {
-                stopwatch = new System.Diagnostics.Stopwatch();
-                stopwatch.Start();
+                if (prefab.debugLogger)
+                {
+                    stopwatch = new System.Diagnostics.Stopwatch();
+                    stopwatch.Start();
+                }
 
                 Log("ReadRenderTexture: Starting");
 
-                if (renderTexture != null)
+                if (renderTexture != null) // All code inside should be called only ONCE (initialization)
                 {
-                    //copy the texture over so it can be read
+                    //SETUP
+                    outputString = "";
+                    stepLength = prefab.stepLength;
+
+                    //copy the first texture over so it can be read
                     donorInput.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
                     donorInput.Apply();
                     StartReadPicture(donorInput);
@@ -49,11 +61,45 @@ namespace AvatarImageReader
                     renderQuad.SetActive(false);
 
                     Log("ReadRenderTexture: Writing Information");
+                    hasRun = true;
                 }
+                else
+                {
+                    Debug.LogError(
+                        "[<color=#00fff7>ReadRenderTexture</color>] Target RenderTexture is null, aborting read");
+                }
+            }
 
-                hasRun = true;
+            if (waitForNew)
+            {
+                if (IsSame())
+                {
+                    if (currentTry * 0.1f > 7.5f)
+                    {
+                        Log($"Failed to load new Pedestal within 7.5 seconds. Ending loading. Load unsuccessful.");
+                        waitForNew = false;
+                        renderCamera.enabled = false;
+                        renderQuad.SetActive(false);
+                        return;
+                    }
+
+                    Log($"lastInput == donorInput - Will try loading again later - {currentTry}");
+                    currentTry++;
+
+                    waitForNew = false;
+                    SendCustomEventDelayedSeconds(nameof(_WaitForReload), 0.1f);
+                }
+                else
+                {
+                    waitForNew = false;
+                    renderCamera.enabled = false;
+                    renderQuad.SetActive(false);
+                    Log("donorInput updated - Avatar pedestal successfully reloaded. Loading ImageData");
+                    StartReadPicture(donorInput);
+                }
             }
         }
+
 
         private void Log(string text)
         {
@@ -63,7 +109,7 @@ namespace AvatarImageReader
 
             if (prefab.debugTMP)
             {
-                prefab.loggerText.text += $"{text}\n";
+                prefab.loggerText.text += $"{text} | ";
             }
         }
 
@@ -72,71 +118,77 @@ namespace AvatarImageReader
             Log("Starting Read");
             Log($"Input: {picture.width} x {picture.height} [{picture.format}]");
 
-            outputString = "";
 
-            int w = picture.width;
-            int h = picture.height;
-
-            colors = new Color[w * h];
             colors = picture.GetPixels();
+
+            lastInput = colors;
 
             Array.Reverse(colors);
 
-            Color firstColor = colors[0];
-            dataLength = (byte) (firstColor.r * 255) << 16 | (byte) (firstColor.g * 255) << 8 |
-                         (byte) (firstColor.b * 255);
+            Color color = colors[0];
+            dataLength = (byte) (color.r * 255) << 16 | (byte) (color.g * 255) << 8 |
+                         (byte) (color.b * 255);
 
-            Log($"Data length: {dataLength} bytes");
+            Log("Decoding header");
+            Debug.Log($"Data length: {dataLength} bytes");
 
-            SendCustomEventDelayedFrames(nameof(ReadPictureStep), 2);
+            nextAvatar = "";
+            for (int i = 1; i < 6; i++)
+            {
+                color = colors[i];
+                nextAvatar += $"{(byte) (color.r * 255):x2}";
+                nextAvatar += $"{(byte) (color.g * 255):x2}";
+                nextAvatar += $"{(byte) (color.b * 255):x2}";
+                nextAvatar += $"{(byte) (color.a * 255):x2}";
+            }
+
+            nextAvatar =
+                $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
+
+            Debug.Log($"AVATAR FOUND - {nextAvatar}");
+
+            index = 5;
+            byteIndex = 16;
+
+            SendCustomEventDelayedFrames(nameof(_ReadPictureStep), 2);
         }
 
+        private string nextAvatar = "";
         private int index = 1;
-        private int byteIndex = 0;
+        private int byteIndex;
         private int dataLength;
+        private int stepLength = 1000;
+        private int currentTry;
 
-        private byte[] colorBytes = new byte[3];
-        private byte[] byteCache = new byte[2];
-        private bool lastIndex = true;
-
-        public void ReadPictureStep()
+        public void _ReadPictureStep()
         {
             Log($"Reading step {index}\n");
 
-            int stepLength = prefab.stepLength;
-
             string tempString = "";
 
-            for (int step = 0; step < stepLength; step++)
+            for (int step = 0;
+                 step < stepLength;
+                 step++)
             {
                 Color c = colors[index];
 
-                colorBytes[0] = (byte) (c.r * 255);
-                colorBytes[1] = (byte) (c.g * 255);
-                colorBytes[2] = (byte) (c.b * 255);
+                tempString += ConvertBytesToUTF16((byte) (c.r * 255), (byte) (c.g * 255));
+                tempString += ConvertBytesToUTF16((byte) (c.b * 255), (byte) (c.a * 255));
+                
+                byteIndex += 4;
 
-                for (int b = 0; b < 3; b++)
+                if (byteIndex >= dataLength)
                 {
-                    if (lastIndex)
+                    Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
+                    if ((byteIndex - dataLength) % 4 == 2)
                     {
-                        byteCache[0] = colorBytes[b];
-                        lastIndex = false;
+                        outputString += tempString.Substring(0, tempString.Length - 1);
                     }
                     else
-                    {
-                        byteCache[1] = colorBytes[b];
-                        tempString += convertBytesToUTF16(byteCache);
-                        lastIndex = true;
-                    }
-
-                    byteIndex++;
-                    if (byteIndex > dataLength)
-                    {
-                        Log($"Reached data length: {dataLength}; byteIndex: {byteIndex}");
                         outputString += tempString;
-                        ReadDone();
-                        return;
-                    }
+
+                    ReadDone();
+                    return;
                 }
 
                 index++;
@@ -144,29 +196,77 @@ namespace AvatarImageReader
 
             outputString += tempString;
 
-            SendCustomEventDelayedFrames(nameof(ReadPictureStep), 1);
+            SendCustomEventDelayedFrames(nameof(_ReadPictureStep), 1);
         }
+
 
         private void ReadDone()
         {
-            stopwatch.Stop();
-            Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
+            if (nextAvatar != "avtr_ffffffff-ffff-ffff-ffff-ffffffffffff")
+            {
+                //TODO RESET, RELOAD, RETRY
+                pedestal.SwitchAvatar(nextAvatar);
+                Log($"Switched Avatar to - {nextAvatar} - Restarting loading");
 
-            if (prefab.outputToText) prefab.outputText.text = outputString;
+                currentTry = 0;
+                SendCustomEventDelayedSeconds(nameof(_WaitForReload), 0.5f);
+
+                if (prefab.debugLogger)
+                {
+                    Log($"Loading of current pedestal took: {stopwatch.ElapsedMilliseconds} ms");
+                }
+
+                return;
+            }
+
+            if (prefab.debugLogger)
+            {
+                Log($"Output string: {outputString}");
+                stopwatch.Stop();
+                Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
+            }
+
+            if (prefab.outputToText)
+                prefab.outputText.text = outputString;
+
             prefab.outputString = outputString;
 
-            Log("Reading Complete: " + outputString);
             if (prefab.callBackOnFinish && prefab.callbackBehaviour != null && prefab.callbackEventName != "")
                 prefab.callbackBehaviour.SendCustomEvent(prefab.callbackEventName);
 
             gameObject.SetActive(false);
         }
-
-        private string empty = "";
-
-        private string convertBytesToUTF16(byte[] bytes)
+        
+        public void _WaitForReload()
         {
-            return empty + (char) (bytes[0] | (bytes[1] << 8));
+            renderCamera.enabled = true;
+            renderQuad.SetActive(true);
+            waitForNew = true;
+        }
+
+        private char ConvertBytesToUTF16(byte byte1, byte byte2) => (char) (byte1 | (byte2 << 8));
+
+        private bool IsSame()
+        {
+            renderQuad.GetComponent<MeshRenderer>().material.SetTexture(1,
+                transform.parent.GetChild(0).GetChild(0).GetChild(1).GetComponent<MeshRenderer>().material
+                    .GetTexture("_WorldTex"));
+            donorInput.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
+            donorInput.Apply();
+
+            //Check first 10 pixels if they are same. (If all 10 are same we are assuming that the rest will be same too)
+            var compareColors = donorInput.GetPixels();
+            Array.Reverse(compareColors);
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (colors[i] == compareColors[i])
+                    continue;
+
+                return false;
+            }
+
+            return true;
         }
     }
 }
