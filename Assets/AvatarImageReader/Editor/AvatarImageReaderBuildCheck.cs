@@ -29,7 +29,7 @@ public class AvatarImageReaderBuildCheck : IVRCSDKBuildRequestedCallback
         foreach (AvatarImagePrefab prefab in prefabs)
         {
             prefab.UpdateProxy();
-            if (prefab.linkedAvatar.IsNullOrWhitespace())
+            if (prefab.linkedAvatars[0].IsNullOrWhitespace())
             {
                 Debug.LogWarning($"The AvatarImageReader system '{prefab.gameObject.name}' doesn't have a linked avatar set.", prefab.gameObject);
                 failCount++;

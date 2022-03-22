@@ -1,6 +1,7 @@
+#if UNITY_EDITOR && !COMPILER_UDONSHARP
+
 using System;
 using System.IO;
-using System.Linq;
 using AvatarImageDecoder;
 using BocuD.VRChatApiTools;
 using TMPro;
@@ -17,9 +18,8 @@ namespace AvatarImageReader.Editor
     [CustomEditor(typeof(AvatarImagePrefab))]
     public class AvatarImagePrefabEditor : UnityEditor.Editor
     {
-        private AvatarImagePrefab reader;
+        public AvatarImagePrefab reader;
         private string text = "";
-        private string avatarText = "";
         
         private const string quadMaterialPath = "Assets/AvatarImageReader/Materials/RenderQuad.mat";
         
@@ -29,51 +29,57 @@ namespace AvatarImageReader.Editor
         private const string pcRTPath = "Assets/AvatarImageReader/DonorImages/PCRT.asset";
         private const string questRTPath = "Assets/AvatarImageReader/DonorImages/QuestRT.asset";
         
-        private Texture2D output;
+        private Texture2D[] output;
+        private GUIContent[] texturePreview;
 
         private Vector2 scrollview;
 
         private int imageWidth;
         private int imageHeight;
-        private int imageByteCount;
         private int imageContent;
-
-        private bool init = true;
-
+        
         private TextStorageObject textStorageObject;
         private int lastImageMode;
+
+        private void OnEnable()
+        {
+            reader = (AvatarImagePrefab)target;
+            
+            //set up TextStorageObject monobehaviour
+            if (reader.GetComponentInChildren<TextStorageObject>())
+            {
+                textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
+                text = textStorageObject.text;
+            }
+            else
+            {
+                GameObject container = new GameObject("TextStorageObject") { tag = "EditorOnly" };
+                container.transform.SetParent(reader.transform);
+                container.AddComponent<TextStorageObject>();
+                container.hideFlags = HideFlags.HideInHierarchy;
+            }
+
+            if (!reader.pedestalAssetsReady)
+            {
+                UpdatePedestalAssets();
+                reader.pedestalAssetsReady = true;
+                MarkDirty();
+            }
+
+            lastImageMode = reader.imageMode;
+        }
 
         public override void OnInspectorGUI()
         {
             if (UdonSharpGUI.DrawDefaultUdonSharpBehaviourHeader(target)) return;
 
-            reader = (AvatarImagePrefab) target;
             reader.UpdateProxy();
             
-            if (init)
+            //make sure the first avatar is always initialised
+            if (reader.linkedAvatars == null || reader.linkedAvatars.Length == 0)
             {
-                if (reader.GetComponentInChildren<TextStorageObject>())
-                {
-                    textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
-                    text = textStorageObject.text;
-                }
-                else
-                {
-                    GameObject container = new GameObject("TextStorageObject") {tag = "EditorOnly"};
-                    container.transform.SetParent(reader.transform);
-                    container.AddComponent<TextStorageObject>();
-                    container.hideFlags = HideFlags.HideInHierarchy;
-                    init = false;
-                }
-
-                if (!reader.pedestalAssetsReady)
-                {
-                    UpdatePedestalAssets();
-                    reader.pedestalAssetsReady = true;
-                    MarkDirty();
-                }
-
-                lastImageMode = reader.imageMode;
+                reader.linkedAvatars = new string[1];
+                reader.linkedAvatars[0] = "";
             }
 
             GUIStyle bigHeaderStyle = new GUIStyle(EditorStyles.label) {richText = true, fontSize = 15};
@@ -82,33 +88,44 @@ namespace AvatarImageReader.Editor
             EditorGUILayout.LabelField("<b>Avatar Image Reader</b>", bigHeaderStyle);
             
             RunChecks();
-            
-            
-            EditorGUILayout.LabelField("<b>Linked Avatar</b>", headerStyle);
 
-            if (reader.linkedAvatar.IsNullOrWhitespace())
+
+            EditorGUILayout.LabelField("<b>Main Avatar</b>", headerStyle);
+            EditorGUILayout.LabelField($"Total linked avatar count: {reader.linkedAvatars.Length}", GUILayout.ExpandWidth(false));
+            
+            if (reader.linkedAvatars[0].IsNullOrWhitespace())
             {
                 EditorGUILayout.HelpBox("No avatar is currently selected. AvatarImageReader will not work without linking an avatar.", MessageType.Info);
             }
-            VRChatApiToolsEditor.DrawAvatarInspector(reader.linkedAvatar);
+            VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0]);
 
             EditorGUILayout.BeginHorizontal();
-            string changeAvatarString = reader.linkedAvatar.IsNullOrWhitespace() ? "Set avatar..." : "Change Avatar";
+            string changeAvatarString = reader.linkedAvatars[0].IsNullOrWhitespace() ? "Set avatar..." : "Change Avatar";
             if (GUILayout.Button(changeAvatarString))
             {
-                AvatarPicker.ApiAvatarSelector(AvatarSelected);
+                AvatarPicker.ApiAvatarSelector((avatar =>
+                {
+                    AvatarSelected(avatar, 0);
+                }));
             }
 
-            EditorGUI.BeginDisabledGroup(reader.linkedAvatar.IsNullOrWhitespace());
-            if (GUILayout.Button("Remove Avatar"))
+            EditorGUI.BeginDisabledGroup(reader.linkedAvatars[0].IsNullOrWhitespace());
+            if (GUILayout.Button("Manage Additional Avatars"))
             {
-                AvatarSelected(null);
+                MultiAvatarManager.SpawnEditor(this);
             }
+            Color temp = GUI.backgroundColor;
+            GUI.backgroundColor = Color.red;
+            if (GUILayout.Button("Unlink Avatars"))
+            {
+                reader.linkedAvatars = new string[1];
+                AvatarSelected(null, 0);
+            }
+            GUI.backgroundColor = temp;
             EditorGUI.EndDisabledGroup();
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space(4);
-
-
+            
             
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("<b>Image Options</b>", headerStyle);
@@ -126,13 +143,13 @@ namespace AvatarImageReader.Editor
             {
                 case 0:
                     EditorGUILayout.LabelField("Target resolution: ", "128x96");
-                    pixelCount = 128 * 96;
+                    pixelCount = 128 * 96 * reader.linkedAvatars.Length;
                     break;
                 
                 case 1:
                     EditorGUILayout.HelpBox("You should only use PC Only mode if you are absolutely sure you are going to use all of the space it allows you to use.", MessageType.Warning);
                     EditorGUILayout.LabelField("Target resolution: ", "1200x900");
-                    pixelCount = 1200 * 900;
+                    pixelCount = 1200 * 900 * reader.linkedAvatars.Length;
                     break;
             }
             EditorGUILayout.Space(4);
@@ -141,8 +158,7 @@ namespace AvatarImageReader.Editor
                 MarkDirty();
             }
             
-
-
+            
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("<b>Data encoding</b>", headerStyle);
 
@@ -158,100 +174,103 @@ namespace AvatarImageReader.Editor
 
             EditorGUI.BeginDisabledGroup(reader.patronMode);
 
-            //remove one pixel (header)
-            int byteCount = (pixelCount - 1) * 4;
+            //remove 5 pixels (header)
+            int byteCount = (pixelCount - 5) * 4;
 
             switch (reader.dataMode)
             {
                 case 0:
                     EditorGUILayout.LabelField("Remaining characters: ", $"{byteCount / 2 - text.Length:n0} / {byteCount / 2:n0} ({((float)byteCount / 2 - text.Length) / ((float)byteCount / 2) * 100:n0}%)");
 
-                    EditorGUILayout.BeginVertical();
-                    scrollview = EditorGUILayout.BeginScrollView(scrollview);
+                    scrollview = EditorGUILayout.BeginScrollView(scrollview, GUILayout.MaxHeight(300));
 
                     GUIStyle textArea = new GUIStyle(EditorStyles.textArea) {wordWrap = true};
                     text = EditorGUILayout.TextArea(text, textArea);
-                    GUIStyle textArea2 = new GUIStyle(EditorStyles.textArea) {wordWrap = true};
-                    avatarText = EditorGUILayout.TextArea(avatarText, textArea2);
-
+                    
                     EditorGUILayout.EndScrollView();
-                    EditorGUILayout.EndVertical();
+                    //EditorGUILayout.EndVertical();
                     
                     if (text.Length > byteCount / 2)
                     {
                         EditorGUILayout.HelpBox("You are using more characters than the image can fit. Excess characters will be trimmed off.", MessageType.Error);
                     }
 
-                    if (GUILayout.Button("Encode Image"))
+                    if (GUILayout.Button("Encode Image(s)"))
                     {
                         imageWidth = reader.imageMode == 0 ? 128 : 1200;
                         imageHeight = reader.imageMode == 0 ? 96 : 900;
 
-                        Texture2D img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGBA32, false);
-                        Color[] initialPixels = Enumerable.Repeat(Color.white, imageWidth * imageHeight).ToArray();
-                        img.SetPixels(initialPixels);
+                        output = AvatarImageEncoder.EncodeUTF16Text(text, reader.linkedAvatars, imageWidth, imageHeight);
 
-                        imageByteCount = text.Length * 2 + 1;
-                        output = AvatarImageEncoder.EncodeUTF16Text(text, avatarText, img);
+                        texturePreview = new GUIContent[output.Length];
+                        for (int i = 0; i < output.Length; i++)
+                        {
+                            texturePreview[i] = new GUIContent(output[i]);
+                        }
                     }
 
                     if (output != null)
                     {
-                        EditorGUILayout.BeginHorizontal();
-                        GUIContent texturePreview = new GUIContent(output) {};
-                        GUILayout.Box(texturePreview, GUILayout.Width(128), GUILayout.Height(96));
-                        
-                        EditorGUILayout.BeginVertical();
-                        EditorGUILayout.LabelField("Image dimensions: ", $"{imageWidth} x {imageHeight}");
-                        EditorGUILayout.LabelField("Image contents: ", $"{imageByteCount:n0} Bytes");
-                        EditorGUILayout.LabelField("Image data type: ", "UTF16 Characters");
-
-                        EditorGUILayout.BeginHorizontal();
-
-                        if (GUILayout.Button("Save Image"))
+                        for (int i = 0; i < texturePreview.Length; i++)
                         {
-                            string path = EditorUtility.SaveFilePanel(
-                                "Save texture as PNG",
-                                Application.dataPath,
-                                "output.png",
-                                "png");
+                            // EditorGUILayout.BeginHorizontal();
+                            // GUILayout.Box(texturePreview[i], GUILayout.Width(128), GUILayout.Height(96));
 
-                            if (path.Length != 0)
+                            EditorGUILayout.BeginVertical();
+                            EditorGUILayout.LabelField($"Image {i+1}/{texturePreview.Length}");
+                            EditorGUILayout.BeginHorizontal();
+                            EditorGUILayout.BeginVertical(GUILayout.MaxWidth(100));
+                            EditorGUILayout.LabelField("Image dimensions: ");
+                            EditorGUILayout.LabelField("Image data type: ");
+                            EditorGUILayout.LabelField("Target avatar id: ");
+                            
+                            EditorGUILayout.EndVertical();
+                            
+                            EditorGUILayout.BeginVertical();
+                            EditorGUILayout.LabelField($"{imageWidth} x {imageHeight}");
+                            EditorGUILayout.LabelField("UTF16 Characters");
+                            EditorGUILayout.LabelField(reader.linkedAvatars[i]);
+
+                            EditorGUILayout.EndVertical();
+                            EditorGUILayout.EndHorizontal();
+                            
+                            if (GUILayout.Button("Save Image"))
                             {
-                                byte[] pngData = output.EncodeToPNG();
-                                if (pngData != null)
-                                    File.WriteAllBytes(path, pngData);
+                                string path = EditorUtility.SaveFilePanel(
+                                    "Save texture as PNG",
+                                    Application.dataPath,
+                                    "output.png",
+                                    "png");
 
-                                path = "Assets" + path.Substring(Application.dataPath.Length);
+                                if (path.Length != 0)
+                                {
+                                    byte[] pngData = output[i].EncodeToPNG();
+                                    if (pngData != null)
+                                        File.WriteAllBytes(path, pngData);
 
-                                AssetDatabase.WriteImportSettingsIfDirty(path);
-                                AssetDatabase.ImportAsset(path);
+                                    path = "Assets" + path.Substring(Application.dataPath.Length);
 
-                                TextureImporter importer = (TextureImporter) AssetImporter.GetAtPath(path);
-                                importer.npotScale = TextureImporterNPOTScale.None;
-                                importer.textureCompression = TextureImporterCompression.Uncompressed;
-                                importer.maxTextureSize = 2048;
-                                EditorUtility.SetDirty(importer);
-                                AssetDatabase.WriteImportSettingsIfDirty(path);
+                                    AssetDatabase.WriteImportSettingsIfDirty(path);
+                                    AssetDatabase.ImportAsset(path);
 
-                                AssetDatabase.ImportAsset(path);
+                                    TextureImporter importer = (TextureImporter)AssetImporter.GetAtPath(path);
+                                    importer.npotScale = TextureImporterNPOTScale.None;
+                                    importer.textureCompression = TextureImporterCompression.Uncompressed;
+                                    importer.maxTextureSize = 2048;
+                                    EditorUtility.SetDirty(importer);
+                                    AssetDatabase.WriteImportSettingsIfDirty(path);
+
+                                    AssetDatabase.ImportAsset(path);
+                                }
                             }
+                            EditorGUILayout.EndVertical();
+                            //EditorGUILayout.EndHorizontal();
                         }
-                        
-                        EditorGUI.BeginDisabledGroup(!APIUser.IsLoggedIn || !VRChatApiTools.avatarCache.ContainsKey(reader.linkedAvatar));
-                        if (GUILayout.Button("Upload Image to Avatar"))
+
+                        if (GUILayout.Button("Upload Image(s) to Avatar(s)"))
                         {
-                            VRChatApiUploaderAsync vrChatApiUploaderAsync = new VRChatApiUploaderAsync();
-                            vrChatApiUploaderAsync.SetupAvatarImageUpdate(VRChatApiTools.avatarCache[reader.linkedAvatar], output);
+                            RunUploadTask(output, reader.linkedAvatars);
                         }
-                        EditorGUI.EndDisabledGroup();
-                        
-                        EditorGUILayout.EndHorizontal();
-                        
-                        EditorGUILayout.EndVertical();
-                        EditorGUILayout.EndHorizontal();
-                        
-                        EditorGUILayout.HelpBox($"This image will take {imageByteCount/3/reader.stepLength/72} seconds ({imageByteCount/3/reader.stepLength} frames) to decode with the current step length.", MessageType.Info);
                     }
                     break;
                 case 1:
@@ -267,7 +286,6 @@ namespace AvatarImageReader.Editor
             {
                 MarkDirty();
             }
-            
             
             
             EditorGUI.BeginChangeCheck();
@@ -341,7 +359,6 @@ namespace AvatarImageReader.Editor
             }
             
             
-            
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("<b>Debugging</b>", headerStyle);
             reader.debugLogger = EditorGUILayout.Toggle("Enable debug logging", reader.debugLogger);
@@ -388,10 +405,57 @@ namespace AvatarImageReader.Editor
             }
         }
 
+        private static async void RunUploadTask(Texture2D[] textures, string[] avatarIDs)
+        {
+            try
+            {
+                EditorApplication.LockReloadAssemblies();
+                for (int index = 0; index < textures.Length; index++)
+                {
+                    Texture2D texture = textures[index];
+                    ApiAvatar avatar = await VRChatApiTools.FetchApiAvatarAsync(avatarIDs[index]);
+                    if (avatar.authorId != APIUser.CurrentUser.id)
+                    {
+                        throw new Exception("Logged in user doesn't own the target avatar");
+                    }
+
+                    VRChatApiUploaderAsync uploader = new VRChatApiUploaderAsync();
+                    uploader.UseStatusWindow();
+                    uploader.uploadStatus.titleContent =
+                        new GUIContent($"Uploading Avatar Image {index + 1} / {textures.Length}");
+                    try
+                    {
+                        string imagePath = VRChatApiUploaderAsync.SaveImageTemp(texture);
+                        await uploader.UpdateAvatarImage(avatar, imagePath);
+                    }
+                    catch (Exception e)
+                    {
+                        if (e.Message.Contains("The file to upload matches the remote file already."))
+                        {
+                            //do nothing
+                        }
+                        else throw;
+                    }
+
+                    uploader.uploadStatus.Close();
+                }
+                
+                EditorUtility.DisplayDialog($"Avatar Image Reader", "Avatar Image Upload(s) successful!", "Close");
+            }
+            catch (Exception e)
+            {
+                EditorUtility.DisplayDialog($"Avatar Image Reader", $"Uploading avatars failed: An unhandled exception occured: {e.Message}", "Close");
+            }
+            finally
+            {
+                EditorApplication.UnlockReloadAssemblies();
+            }
+        }
+
         private bool checksFailedReadRenderTexture = false;
         private bool checksFailedPedestal = false;
 
-        
+
         private void RunChecks()
         {
             if (reader.readRenderTexture != null)
@@ -481,26 +545,44 @@ namespace AvatarImageReader.Editor
             }
         }
 
-        private void AvatarSelected(ApiAvatar avatar)
+        public void AvatarSelected(ApiAvatar avatar, int avatarIndex)
         {
+            //invalidate existing output
+            output = null;
+            texturePreview = null;
+            
             if (reader == null)
             {
                 Debug.LogError("[AvatarImagePrefabEditor] Avatar was selected but inspector target is null; inspector was likely closed.");
             }
 
             reader.UpdateProxy();
-            
+
+            //make sure there is room in the array
+            while (reader.linkedAvatars.Length <= avatarIndex)
+            {
+                ArrayUtility.Add(ref reader.linkedAvatars, "");
+            }
+
             if (avatar == null)
             {
-                reader.linkedAvatar = "";
-                reader.avatarPedestal.blueprintId = "";
+                reader.linkedAvatars[avatarIndex] = "";
+                
+                if (avatarIndex == 0)
+                {
+                    reader.avatarPedestal.blueprintId = "";
+                }
             }
             else
             {
-                reader.linkedAvatar = avatar.id;
-                reader.avatarPedestal.blueprintId = avatar.id;
+                reader.linkedAvatars[avatarIndex] = avatar.id;
+                
+                if (avatarIndex == 0)
+                {
+                    reader.avatarPedestal.blueprintId = avatar.id;
+                }
             }
-            
+
             EditorUtility.SetDirty(reader.avatarPedestal);
             
             if (PrefabUtility.IsPartOfAnyPrefab(reader.avatarPedestal))
@@ -529,6 +611,53 @@ namespace AvatarImageReader.Editor
             id = long.Parse(id).ToString("X");
             
             return id;
+        }
+    }
+
+    public class MultiAvatarManager : EditorWindow
+    {
+        public static void SpawnEditor(AvatarImagePrefabEditor prefabEditor)
+        {
+            MultiAvatarManager window = GetWindow<MultiAvatarManager>();
+            window.minSize = new Vector2(400, 400);
+            window.prefabEditor = prefabEditor;
+        }
+
+        public AvatarImagePrefabEditor prefabEditor;
+        private Vector2 scrollView;
+        
+        private void OnGUI()
+        {
+            EditorGUILayout.LabelField($"Multi Avatar Manager for {prefabEditor.reader.name}");
+            scrollView = EditorGUILayout.BeginScrollView(scrollView);
+            for (int a = 0; a < prefabEditor.reader.linkedAvatars.Length; a++)
+            {
+                VRChatApiToolsGUI.DrawBlueprintInspector(prefabEditor.reader.linkedAvatars[a], true, () =>
+                {
+                    if (GUILayout.Button("Change Avatar"))
+                    {
+                        AvatarPicker.ApiAvatarSelector((avatar =>
+                        {
+                            prefabEditor.AvatarSelected(avatar, a);
+                        }));
+                    }
+                    
+                    if (GUILayout.Button("Remove Avatar"))
+                    {
+                        ArrayUtility.RemoveAt(ref prefabEditor.reader.linkedAvatars, a);
+                        prefabEditor.reader.ApplyProxyModifications();
+                    }
+                });
+            }
+            EditorGUILayout.EndScrollView();
+            EditorGUILayout.LabelField("Current avatar count: ", prefabEditor.reader.linkedAvatars.Length.ToString());
+            if (GUILayout.Button("Add new Avatar"))
+            {
+                AvatarPicker.ApiAvatarSelector((avatar =>
+                {
+                    prefabEditor.AvatarSelected(avatar, prefabEditor.reader.linkedAvatars.Length);
+                }));
+            }
         }
     }
 
@@ -581,3 +710,5 @@ namespace AvatarImageReader.Editor
         }
     }
 }
+
+#endif

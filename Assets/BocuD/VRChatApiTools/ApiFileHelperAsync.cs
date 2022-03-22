@@ -1,949 +1,285 @@
+#if UNITY_EDITOR && !COMPILER_UDONSHARP
+
+using System;
+using System.IO;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
-using VRC;
+using librsync.net;
+using UnityEngine;
 using VRC.Core;
+using VRC.Udon.Serialization.OdinSerializer.Utilities;
+
+using static VRC.Core.ApiFileHelper;
+using Tools = VRC.Tools;
 
 namespace BocuD.VRChatApiTools
 {
-#if UNITY_EDITOR
-    using UnityEngine;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System;
-    using System.IO;
-    using Debug = UnityEngine.Debug;
-    using System.Text.RegularExpressions;
-
+    using static Constants;
+    
     public class ApiFileHelperAsync
     {
-        private readonly int kMultipartUploadChunkSize = 100 * 1024 * 1024; // 100 MB
-        private readonly int SERVER_PROCESSING_WAIT_TIMEOUT_CHUNK_SIZE = 50 * 1024 * 1024;
-        private readonly float SERVER_PROCESSING_WAIT_TIMEOUT_PER_CHUNK_SIZE = 120.0f;
-        private readonly float SERVER_PROCESSING_MAX_WAIT_TIMEOUT = 600.0f;
-        private readonly float SERVER_PROCESSING_INITIAL_RETRY_TIME = 2.0f;
-        private readonly float SERVER_PROCESSING_MAX_RETRY_TIME = 10.0f;
+        //status strings
+        private const string prepareFileMessage = "Preparing file for upload...";
+        private const string prepareRemoteMessage = "Preparing server for upload...";
+        private const string postUploadMessage = "Processing upload...";
+        
+        //global flow control
+        private ApiFile apiFile;
+        private static string errorStr;
 
-        private static bool EnableDeltaCompression = false;
+        public delegate void UploadStatus(string status, string subStatus);
+        public delegate void UploadProgress(long done, long total);
 
-        private readonly Regex[] kUnityPackageAssetNameFilters = new Regex[]
+        public async Task<string> UploadFile(string filepath, string existingFileId, string fileType, string friendlyName, UploadStatus onStatus, UploadProgress onProgress, Func<bool> cancelQuery)
         {
-            new Regex(@"/LightingData\.asset$"), // lightmap base asset
-            new Regex(@"/Lightmap-.*(\.png|\.exr)$"), // lightmaps
-            new Regex(@"/ReflectionProbe-.*(\.exr|\.png)$"), // reflection probes
-            new Regex(@"/Editor/Data/UnityExtensions/") // anything that looks like part of the Unity installation
-        };
+            //Init remote config
+            await InitRemoteConfig();
+            
+            bool deltaCompression = ConfigManager.RemoteConfig.GetBool("sdkEnableDeltaCompression");
 
-        public delegate void OnFileOpSuccess(ApiFile apiFile, string message);
+            //Check filename
+            CheckFile(filepath);
 
-        public delegate void OnFileOpError(ApiFile apiFile, string error);
-
-        public delegate void OnFileOpProgress(ApiFile apiFile, string status, string subStatus, float pct);
-
-        public delegate bool FileOpCancelQuery(ApiFile apiFile);
-
-        const float kPostWriteDelay = 0.75f;
-
-        public enum FileOpResult
-        {
-            Success,
-            Unchanged
-        }
-
-        public static string GetMimeTypeFromExtension(string extension)
-        {
-            if (extension == ".vrcw")
-                return "application/x-world";
-            if (extension == ".vrca")
-                return "application/x-avatar";
-            if (extension == ".dll")
-                return "application/x-msdownload";
-            if (extension == ".unitypackage")
-                return "application/gzip";
-            if (extension == ".gz")
-                return "application/gzip";
-            if (extension == ".jpg")
-                return "image/jpg";
-            if (extension == ".png")
-                return "image/png";
-            if (extension == ".sig")
-                return "application/x-rsync-signature";
-            if (extension == ".delta")
-                return "application/x-rsync-delta";
-
-            Debug.LogWarning("Unknown file extension for mime-type: " + extension);
-            return "application/octet-stream";
-        }
-
-        public static bool IsGZipCompressed(string filename)
-        {
-            return GetMimeTypeFromExtension(Path.GetExtension(filename)) == "application/gzip";
-        }
-
-        public async Task UploadFile(string filename, string existingFileId, string friendlyName,
-            OnFileOpSuccess onSuccess, OnFileOpError onError, OnFileOpProgress onProgress,
-            FileOpCancelQuery cancelQuery)
-        {
-            VRC.Core.Logger.Log("UploadFile: filename: " + filename + ", file id: " +
-                                (!string.IsNullOrEmpty(existingFileId) ? existingFileId : "<new>") + ", name: " +
-                                friendlyName, DebugLevel.All);
-
-            // init remote config
-            if (!ConfigManager.RemoteConfig.IsInitialized())
-            {
-                bool done = false;
-                ConfigManager.RemoteConfig.Init(
-                    delegate() { done = true; },
-                    delegate() { done = true; }
-                );
-
-                while (!done)
-                    await Task.Delay(33);
-
-                if (!ConfigManager.RemoteConfig.IsInitialized())
-                {
-                    Error(onError, null, "Failed to fetch configuration.");
-                    return;
-                }
-            }
-
-            // configure delta compression
-            {
-                EnableDeltaCompression = ConfigManager.RemoteConfig.GetBool("sdkEnableDeltaCompression", false);
-            }
-
-            // validate input file
-            Progress(onProgress, null, "Checking file...");
-
-            if (string.IsNullOrEmpty(filename))
-            {
-                Error(onError, null, "Upload filename is empty!");
-                return;
-            }
-
-            if (!System.IO.Path.HasExtension(filename))
-            {
-                Error(onError, null, "Upload filename must have an extension: " + filename);
-                return;
-            }
-
-            string whyNot;
-            if (!VRC.Tools.FileCanRead(filename, out whyNot))
-            {
-                Error(onError, null, "Could not read file to upload!", filename + "\n" + whyNot);
-                return;
-            }
-
-            // get or create ApiFile
-            Progress(onProgress, null,
-                string.IsNullOrEmpty(existingFileId) ? "Creating file record..." : "Getting file record...");
-
-            bool wait = true;
-            bool wasError = false;
-            bool worthRetry = false;
-            string errorStr = "";
-
-            if (string.IsNullOrEmpty(friendlyName))
-                friendlyName = filename;
-
-            string extension = System.IO.Path.GetExtension(filename);
-            string mimeType = GetMimeTypeFromExtension(extension);
-
-            ApiFile apiFile = null;
-
-            System.Action<ApiContainer> fileSuccess = (ApiContainer c) =>
-            {
-                apiFile = c.Model as ApiFile;
-                wait = false;
-            };
-
-            System.Action<ApiContainer> fileFailure = (ApiContainer c) =>
-            {
-                errorStr = c.Error;
-                wait = false;
-
-                if (c.Code == 400)
-                    worthRetry = true;
-            };
-
-            while (true)
-            {
-                apiFile = null;
-                wait = true;
-                worthRetry = false;
-                errorStr = "";
-
-                if (string.IsNullOrEmpty(existingFileId))
-                    ApiFile.Create(friendlyName, mimeType, extension, fileSuccess, fileFailure);
-                else
-                    API.Fetch<ApiFile>(existingFileId, fileSuccess, fileFailure);
-
-                while (wait)
-                {
-                    if (apiFile != null && CheckCancelled(cancelQuery, onError, apiFile))
-                        return;
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    if (errorStr.Contains("File not found"))
-                    {
-                        Debug.LogError("Couldn't find file record: " + existingFileId + ", creating new file record");
-
-                        existingFileId = "";
-                        continue;
-                    }
-
-                    string msg = string.IsNullOrEmpty(existingFileId)
-                        ? "Failed to create file record."
-                        : "Failed to get file record.";
-                    Error(onError, null, msg, errorStr);
-
-                    if (!worthRetry)
-                        return;
-                }
-
-                if (!worthRetry)
-                    break;
-                else
-                    await Task.Delay((int)kPostWriteDelay*1000);
-            }
-
+            //Fetch Api File Record
+            apiFile = await FetchRecord(filepath, existingFileId, friendlyName, onStatus, cancelQuery);
             if (apiFile == null)
-                return;
+                throw new Exception("Fetching or creating record failed");
 
-            LogApiFileStatus(apiFile, false, true);
+            Logger.Log($"Fetched record succesfully: {apiFile.name}");
 
-            while (apiFile.HasQueuedOperation(EnableDeltaCompression))
+            if (apiFile.HasQueuedOperation(deltaCompression))
             {
-                wait = true;
+                //delete last version
+                onStatus?.Invoke(prepareRemoteMessage, "Cleaning up previous version");
 
-                apiFile.DeleteLatestVersion((c) => wait = false, (c) => wait = false);
-
-                while (wait)
-                {
-                    if (apiFile != null && CheckCancelled(cancelQuery, onError, apiFile))
-                        return;
-
-                    await Task.Delay(33);
-                }
+                await ApiFileAsyncExtensions.DeleteLatestVersion(apiFile);
             }
-
-            // delay to let write get through servers
-            await Task.Delay((int)kPostWriteDelay*1000);
-
-            LogApiFileStatus(apiFile, false);
 
             // check for server side errors from last upload
-            if (apiFile.IsInErrorState())
-            {
-                Debug.LogWarning("ApiFile: " + apiFile.id +
-                                 ": server failed to process last uploaded, deleting failed version");
-
-                while (true)
-                {
-                    // delete previous failed version
-                    Progress(onProgress, apiFile, "Preparing file for upload...", "Cleaning up previous version");
-
-                    wait = true;
-                    errorStr = "";
-                    worthRetry = false;
-
-                    apiFile.DeleteLatestVersion(fileSuccess, fileFailure);
-
-                    while (wait)
-                    {
-                        if (CheckCancelled(cancelQuery, onError, null))
-                        {
-                            return;
-                        }
-
-                        await Task.Delay(33);
-                    }
-
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        Error(onError, apiFile, "Failed to delete previous failed version!", errorStr);
-                        if (!worthRetry)
-                        {
-                            CleanupTempFiles(apiFile.id);
-                            return;
-                        }
-                    }
-
-                    if (worthRetry)
-                        await Task.Delay((int)kPostWriteDelay*1000);
-                    else
-                        break;
-                }
-            }
-
-            // delay to let write get through servers
-            await Task.Delay((int)kPostWriteDelay*1000);
-
-            LogApiFileStatus(apiFile, false);
+            await HandleFileErrorState(onStatus);
 
             // verify previous file op is complete
-            if (apiFile.HasQueuedOperation(EnableDeltaCompression))
-            {
-                Error(onError, apiFile, "A previous upload is still being processed. Please try again later.");
-                return;
-            }
+            if (apiFile.HasQueuedOperation(deltaCompression))
+                throw new Exception("Can't initiate upload: A previous upload is still being processed. Please try again later.");
 
-            if (wasError)
-                return;
-
-            LogApiFileStatus(apiFile, false);
-
-            // generate md5 and check if file has changed
-            Progress(onProgress, apiFile, "Preparing file for upload...", "Generating file hash");
-
-            string fileMD5Base64 = "";
-            wait = true;
-            errorStr = "";
-            VRC.Tools.FileMD5(filename,
-                delegate(byte[] md5Bytes)
-                {
-                    fileMD5Base64 = Convert.ToBase64String(md5Bytes);
-                    wait = false;
-                },
-                delegate(string error)
-                {
-                    errorStr = filename + "\n" + error;
-                    wait = false;
-                }
-            );
-
-            while (wait)
-            {
-                if (CheckCancelled(cancelQuery, onError, apiFile))
-                {
-                    CleanupTempFiles(apiFile.id);
-                    return;
-                }
-
-                await Task.Delay(33);
-            }
-
-            if (!string.IsNullOrEmpty(errorStr))
-            {
-                Error(onError, apiFile, "Failed to generate MD5 hash for upload file.", errorStr);
-                CleanupTempFiles(apiFile.id);
-                return;
-            }
-
-            LogApiFileStatus(apiFile, false);
-
+            //gemerate file md5
+            string fileMD5 = await GenerateMD5Base64(filepath, onStatus);
+            
             // check if file has been changed
-            Progress(onProgress, apiFile, "Preparing file for upload...", "Checking for changes");
+            bool isPreviousUploadRetry = await CheckForExistingVersion(onStatus, fileMD5);
+            
+            //generate file signature
+            string signatureFilename = await GenerateSignatureFile(filepath, onStatus);
 
-            bool isPreviousUploadRetry = false;
-            if (apiFile.HasExistingOrPendingVersion())
+            //generate signature md5 and file size
+            string signatureMD5 = await GenerateMD5Base64(signatureFilename, onStatus);
+            
+            if (!Tools.GetFileSize(signatureFilename, out long sigFileSize, out errorStr))
             {
-                // uploading the same file?
-                if (string.Compare(fileMD5Base64, apiFile.GetFileMD5(apiFile.GetLatestVersionNumber())) == 0)
-                {
-                    // the previous operation completed successfully?
-                    if (!apiFile.IsWaitingForUpload())
-                    {
-                        Success(onSuccess, apiFile, "The file to upload is unchanged.");
-                        CleanupTempFiles(apiFile.id);
-                        return;
-                    }
-                    else
-                    {
-                        isPreviousUploadRetry = true;
-
-                        Debug.Log("Retrying previous upload");
-                    }
-                }
-                else
-                {
-                    // the file has been modified
-                    if (apiFile.IsWaitingForUpload())
-                    {
-                        // previous upload failed, and the file is changed
-                        while (true)
-                        {
-                            // delete previous failed version
-                            Progress(onProgress, apiFile, "Preparing file for upload...",
-                                "Cleaning up previous version");
-
-                            wait = true;
-                            worthRetry = false;
-                            errorStr = "";
-
-                            apiFile.DeleteLatestVersion(fileSuccess, fileFailure);
-
-                            while (wait)
-                            {
-                                if (CheckCancelled(cancelQuery, onError, apiFile))
-                                {
-                                    return;
-                                }
-
-                                await Task.Delay(33);
-                            }
-
-                            if (!string.IsNullOrEmpty(errorStr))
-                            {
-                                Error(onError, apiFile, "Failed to delete previous incomplete version!", errorStr);
-                                if (!worthRetry)
-                                {
-                                    CleanupTempFiles(apiFile.id);
-                                    return;
-                                }
-                            }
-
-                            // delay to let write get through servers
-                            await Task.Delay((int)kPostWriteDelay*1000);
-
-                            if (!worthRetry)
-                                break;
-                        }
-                    }
-                }
-            }
-
-            LogApiFileStatus(apiFile, false);
-
-            // generate signature for new file
-
-            Progress(onProgress, apiFile, "Preparing file for upload...", "Generating signature");
-
-            string signatureFilename = VRC.Tools.GetTempFileName(".sig", out errorStr, apiFile.id);
-            if (string.IsNullOrEmpty(signatureFilename))
-            {
-                Error(onError, apiFile, "Failed to generate file signature!",
-                    "Failed to create temp file: \n" + errorStr);
                 CleanupTempFiles(apiFile.id);
-                return;
+                throw new Exception($"Failed to generate file signature: Couldn't get filesize", new Exception(errorStr));
             }
-
-            wasError = false;
-            await CreateFileSignatureInternal(filename, signatureFilename,
-                delegate()
-                {
-                    // success!
-                },
-                delegate(string error)
-                {
-                    Error(onError, apiFile, "Failed to generate file signature!", error);
-                    CleanupTempFiles(apiFile.id);
-                    wasError = true;
-                });
-
-            if (wasError)
-                return;
-
-            LogApiFileStatus(apiFile, false);
-
-            // generate signature md5 and file size
-            Progress(onProgress, apiFile, "Preparing file for upload...", "Generating signature hash");
-
-            string sigMD5Base64 = "";
-            wait = true;
-            errorStr = "";
-            VRC.Tools.FileMD5(signatureFilename,
-                delegate(byte[] md5Bytes)
-                {
-                    sigMD5Base64 = Convert.ToBase64String(md5Bytes);
-                    wait = false;
-                },
-                delegate(string error)
-                {
-                    errorStr = signatureFilename + "\n" + error;
-                    wait = false;
-                }
-            );
-
-            while (wait)
-            {
-                if (CheckCancelled(cancelQuery, onError, apiFile))
-                {
-                    CleanupTempFiles(apiFile.id);
-                    return;
-                }
-
-                await Task.Delay(33);
-            }
-
-            if (!string.IsNullOrEmpty(errorStr))
-            {
-                Error(onError, apiFile, "Failed to generate MD5 hash for signature file.", errorStr);
-                CleanupTempFiles(apiFile.id);
-                return;
-            }
-
-            long sigFileSize = 0;
-            if (!VRC.Tools.GetFileSize(signatureFilename, out sigFileSize, out errorStr))
-            {
-                Error(onError, apiFile, "Failed to generate file signature!", "Couldn't get file size:\n" + errorStr);
-                CleanupTempFiles(apiFile.id);
-                return;
-            }
-
-            LogApiFileStatus(apiFile, false);
-
+            
             // download previous version signature (if exists)
-            string existingFileSignaturePath = null;
-            if (EnableDeltaCompression && apiFile.HasExistingVersion())
+            string existingFileSignaturePath = "";
+            if (deltaCompression && apiFile.HasExistingVersion())
             {
-                Progress(onProgress, apiFile, "Preparing file for upload...", "Downloading previous version signature");
-
-                wait = true;
-                errorStr = "";
-                apiFile.DownloadSignature(
-                    delegate(byte[] data)
-                    {
-                        // save to temp file
-                        existingFileSignaturePath = VRC.Tools.GetTempFileName(".sig", out errorStr, apiFile.id);
-                        if (string.IsNullOrEmpty(existingFileSignaturePath))
-                        {
-                            errorStr = "Failed to create temp file: \n" + errorStr;
-                            wait = false;
-                        }
-                        else
-                        {
-                            try
-                            {
-                                File.WriteAllBytes(existingFileSignaturePath, data);
-                            }
-                            catch (Exception e)
-                            {
-                                existingFileSignaturePath = null;
-                                errorStr = "Failed to write signature temp file:\n" + e.Message;
-                            }
-
-                            wait = false;
-                        }
-                    },
-                    delegate(string error)
-                    {
-                        errorStr = error;
-                        wait = false;
-                    },
-                    delegate(long downloaded, long length)
-                    {
-                        Progress(onProgress, apiFile, "Preparing file for upload...",
-                            "Downloading previous version signature", Tools.DivideSafe(downloaded, length));
-                    }
-                );
-
-                while (wait)
-                {
-                    if (CheckCancelled(cancelQuery, onError, apiFile))
-                    {
-                        CleanupTempFiles(apiFile.id);
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    Error(onError, apiFile, "Failed to download previous file version signature.", errorStr);
-                    CleanupTempFiles(apiFile.id);
-                    return;
-                }
+                existingFileSignaturePath = await GetExistingFileSignature(onStatus, onProgress, cancelQuery);
             }
-
-            LogApiFileStatus(apiFile, false);
-
+            
             // create delta if needed
-            string deltaFilename = null;
+            string deltaFilepath = "";
 
-            if (EnableDeltaCompression && !string.IsNullOrEmpty(existingFileSignaturePath))
+            if (deltaCompression && !string.IsNullOrEmpty(existingFileSignaturePath))
             {
-                Progress(onProgress, apiFile, "Preparing file for upload...", "Creating file delta");
-
-                deltaFilename = VRC.Tools.GetTempFileName(".delta", out errorStr, apiFile.id);
-                if (string.IsNullOrEmpty(deltaFilename))
-                {
-                    Error(onError, apiFile, "Failed to create file delta for upload.",
-                        "Failed to create temp file: \n" + errorStr);
-                    CleanupTempFiles(apiFile.id);
-                    return;
-                }
-
-                wasError = false;
-                await CreateFileDeltaInternal(filename, existingFileSignaturePath, deltaFilename,
-                    delegate()
-                    {
-                        // success!
-                    },
-                    delegate(string error)
-                    {
-                        Error(onError, apiFile, "Failed to create file delta for upload.", error);
-                        CleanupTempFiles(apiFile.id);
-                        wasError = true;
-                    });
-
-                if (wasError)
-                    return;
+                deltaFilepath = await CreateFileDelta(filepath, onStatus, existingFileSignaturePath);
             }
 
             // upload smaller of delta and new file
-            long fullFileSize = 0;
             long deltaFileSize = 0;
-            if (!VRC.Tools.GetFileSize(filename, out fullFileSize, out errorStr) ||
-                (!string.IsNullOrEmpty(deltaFilename) &&
-                 !VRC.Tools.GetFileSize(deltaFilename, out deltaFileSize, out errorStr)))
+            
+            //get filesize
+            if (!Tools.GetFileSize(filepath, out long fullFileSize, out errorStr) ||
+                !string.IsNullOrEmpty(deltaFilepath) && !Tools.GetFileSize(deltaFilepath, out deltaFileSize, out errorStr))
             {
-                Error(onError, apiFile, "Failed to create file delta for upload.",
-                    "Couldn't get file size: " + errorStr);
                 CleanupTempFiles(apiFile.id);
-                return;
+                throw new Exception("Failed to create file delta for upload", new Exception(errorStr));
             }
 
-            bool uploadDeltaFile = EnableDeltaCompression && deltaFileSize > 0 && deltaFileSize < fullFileSize;
-            if (EnableDeltaCompression)
-                VRC.Core.Logger.Log(
-                    "Delta size " + deltaFileSize + " (" + ((float)deltaFileSize / (float)fullFileSize) +
-                    " %), full file size " + fullFileSize + ", uploading " +
-                    (uploadDeltaFile ? " DELTA" : " FULL FILE"), DebugLevel.All);
-            else
-                VRC.Core.Logger.Log("Delta compression disabled, uploading FULL FILE, size " + fullFileSize,
-                    DebugLevel.All);
-
-            LogApiFileStatus(apiFile, uploadDeltaFile);
-
-            string deltaMD5Base64 = "";
+            bool uploadDeltaFile = deltaCompression && deltaFileSize > 0 && deltaFileSize < fullFileSize;
+            Logger.Log(deltaCompression
+                    ? $"Delta size {deltaFileSize} ({(deltaFileSize / (float)fullFileSize)} %), full file size {fullFileSize}, uploading {(uploadDeltaFile ? " DELTA" : " FULL FILE")}"
+                    : $"Delta compression disabled, uploading FULL FILE, size {fullFileSize}");
+            
+            //generate MD5 for delta file
+            string deltaMD5 = "";
             if (uploadDeltaFile)
             {
-                Progress(onProgress, apiFile, "Preparing file for upload...", "Generating file delta hash");
-
-                wait = true;
-                errorStr = "";
-                VRC.Tools.FileMD5(deltaFilename,
-                    delegate(byte[] md5Bytes)
-                    {
-                        deltaMD5Base64 = Convert.ToBase64String(md5Bytes);
-                        wait = false;
-                    },
-                    delegate(string error)
-                    {
-                        errorStr = error;
-                        wait = false;
-                    }
-                );
-
-                while (wait)
-                {
-                    if (CheckCancelled(cancelQuery, onError, apiFile))
-                    {
-                        CleanupTempFiles(apiFile.id);
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    Error(onError, apiFile, "Failed to generate file delta hash.", errorStr);
-                    CleanupTempFiles(apiFile.id);
-                    return;
-                }
+                deltaMD5 = await GenerateMD5Base64(deltaFilepath, onStatus);
             }
 
-            // validate existing pending version info, if this is a retry
             bool versionAlreadyExists = false;
-
-            LogApiFileStatus(apiFile, uploadDeltaFile);
-
+            
+            // validate existing pending version info, if we're retrying an older upload
             if (isPreviousUploadRetry)
             {
-                bool isValid = true;
+                bool isValid;
 
-                ApiFile.Version v = apiFile.GetVersion(apiFile.GetLatestVersionNumber());
-                if (v != null)
+                ApiFile.Version version = apiFile.GetVersion(apiFile.GetLatestVersionNumber());
+                if (version == null)
                 {
-                    if (uploadDeltaFile)
-                    {
-                        isValid = deltaFileSize == v.delta.sizeInBytes &&
-                                  deltaMD5Base64.CompareTo(v.delta.md5) == 0 &&
-                                  sigFileSize == v.signature.sizeInBytes &&
-                                  sigMD5Base64.CompareTo(v.signature.md5) == 0;
-                    }
-                    else
-                    {
-                        isValid = fullFileSize == v.file.sizeInBytes &&
-                                  fileMD5Base64.CompareTo(v.file.md5) == 0 &&
-                                  sigFileSize == v.signature.sizeInBytes &&
-                                  sigMD5Base64.CompareTo(v.signature.md5) == 0;
-                    }
+                    isValid = false;
                 }
                 else
                 {
-                    isValid = false;
+                    //make sure fileSize for file and signature need to match their respective remote versions
+                    //make sure MD5 for file and signature match their respective remote versions
+                    if (uploadDeltaFile)
+                    {
+                        isValid = deltaFileSize == version.delta.sizeInBytes &&
+                                  string.Compare(deltaMD5, version.delta.md5, StringComparison.Ordinal) == 0 &&
+                                  sigFileSize == version.signature.sizeInBytes &&
+                                  string.Compare(signatureMD5, version.signature.md5, StringComparison.Ordinal) == 0;
+                    }
+                    else
+                    {
+                        isValid = fullFileSize == version.file.sizeInBytes &&
+                                  string.Compare(fileMD5, version.file.md5, StringComparison.Ordinal) == 0 &&
+                                  sigFileSize == version.signature.sizeInBytes &&
+                                  string.Compare(signatureMD5, version.signature.md5, StringComparison.Ordinal) == 0;
+                    }
                 }
 
                 if (isValid)
                 {
                     versionAlreadyExists = true;
-
-                    Debug.Log("Using existing version record");
+                    Logger.Log("Using existing version record");
                 }
                 else
                 {
                     // delete previous invalid version
-                    Progress(onProgress, apiFile, "Preparing file for upload...", "Cleaning up previous version");
-
-                    while (true)
-                    {
-                        wait = true;
-                        errorStr = "";
-                        worthRetry = false;
-
-                        apiFile.DeleteLatestVersion(fileSuccess, fileFailure);
-
-                        while (wait)
-                        {
-                            if (CheckCancelled(cancelQuery, onError, null))
-                            {
-                                return;
-                            }
-
-                            await Task.Delay(33);
-                        }
-
-                        if (!string.IsNullOrEmpty(errorStr))
-                        {
-                            Error(onError, apiFile, "Failed to delete previous incomplete version!", errorStr);
-                            if (!worthRetry)
-                            {
-                                CleanupTempFiles(apiFile.id);
-                                return;
-                            }
-                        }
-
-                        // delay to let write get through servers
-                        await Task.Delay((int)kPostWriteDelay*1000);
-
-                        if (!worthRetry)
-                            break;
-                    }
+                    onStatus?.Invoke(prepareRemoteMessage, "Cleaning up previous version");
+                    await ApiFileAsyncExtensions.DeleteLatestVersion(apiFile);
                 }
             }
-
-            LogApiFileStatus(apiFile, uploadDeltaFile);
-
-            // create new version of file
+            
+            //create new file record
             if (!versionAlreadyExists)
             {
-                while (true)
+                if (uploadDeltaFile)
                 {
-                    Progress(onProgress, apiFile, "Creating file version record...");
-
-                    wait = true;
-                    errorStr = "";
-                    worthRetry = false;
-
-                    if (uploadDeltaFile)
-                        // delta file
-                        apiFile.CreateNewVersion(ApiFile.Version.FileType.Delta, deltaMD5Base64, deltaFileSize,
-                            sigMD5Base64, sigFileSize, fileSuccess, fileFailure);
-                    else
-                        // full file
-                        apiFile.CreateNewVersion(ApiFile.Version.FileType.Full, fileMD5Base64, fullFileSize,
-                            sigMD5Base64, sigFileSize, fileSuccess, fileFailure);
-
-                    while (wait)
-                    {
-                        if (CheckCancelled(cancelQuery, onError, apiFile))
-                        {
-                            CleanupTempFiles(apiFile.id);
-                            return;
-                        }
-
-                        await Task.Delay(33);
-                    }
-
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        Error(onError, apiFile, "Failed to create file version record.", errorStr);
-                        if (!worthRetry)
-                        {
-                            CleanupTempFiles(apiFile.id);
-                            return;
-                        }
-                    }
-
-                    // delay to let write get through servers
-                    await Task.Delay((int)kPostWriteDelay*1000);
-
-                    if (!worthRetry)
-                        break;
+                    await CreateFileRecord(deltaMD5, deltaFileSize, signatureMD5, sigFileSize, onStatus, cancelQuery);
+                }
+                else
+                {
+                    await CreateFileRecord(fileMD5, fullFileSize, signatureMD5, sigFileSize, onStatus, cancelQuery);
                 }
             }
 
             // upload components
+            string uploadFilepath = uploadDeltaFile ? deltaFilepath : filepath;
+            string uploadMD5 = uploadDeltaFile ? deltaMD5 : fileMD5;
+            long uploadFileSize = uploadDeltaFile ? deltaFileSize : fullFileSize;
+            
+            Logger.Log($"ApiFile name: {apiFile.name}");
 
-            LogApiFileStatus(apiFile, uploadDeltaFile);
-
-            // upload delta
-            if (uploadDeltaFile)
+            switch (uploadDeltaFile)
             {
-                if (apiFile.GetLatestVersion().delta.status == ApiFile.Status.Waiting)
-                {
-                    Progress(onProgress, apiFile, "Uploading file delta...");
+                case true when apiFile.GetLatestVersion().delta.status == ApiFile.Status.Waiting:
+                case false when apiFile.GetLatestVersion().status == ApiFile.Status.Waiting:
+                    onStatus?.Invoke(prepareFileMessage, $"Uploading file{(uploadDeltaFile ? " delta..." : "...")}");
+                    onStatus?.Invoke($"Uploading {fileType}...", $"Uploading file{(uploadDeltaFile ? " delta..." : "...")}");
 
-                    wasError = false;
-                    await UploadFileComponentInternal(apiFile,
-                        ApiFile.Version.FileDescriptor.Type.delta, deltaFilename, deltaMD5Base64, deltaFileSize,
-                        delegate(ApiFile file)
+                    await UploadFileComponentInternal(apiFile, uploadDeltaFile ? ApiFile.Version.FileDescriptor.Type.delta : ApiFile.Version.FileDescriptor.Type.file, 
+                        uploadFilepath, uploadMD5, uploadFileSize,
+                        file =>
                         {
-                            Debug.Log("Successfully uploaded file delta.");
+                            Logger.Log($"Successfully uploaded file{(uploadDeltaFile ? " delta" : "")}");
                             apiFile = file;
-                        },
-                        delegate(string error)
-                        {
-                            Error(onError, apiFile, "Failed to upload file delta.", error);
-                            CleanupTempFiles(apiFile.id);
-                            wasError = true;
-                        },
-                        delegate(long downloaded, long length)
-                        {
-                            Progress(onProgress, apiFile, "Uploading file delta...", "",
-                                Tools.DivideSafe(downloaded, length));
-                        },
-                        cancelQuery);
-
-                    if (wasError)
-                        return;
-                }
+                        }, (done, total) => onProgress?.Invoke(done, total), cancelQuery);
+                    break;
             }
-            // upload file
-            else
-            {
-                if (apiFile.GetLatestVersion().file.status == ApiFile.Status.Waiting)
-                {
-                    Progress(onProgress, apiFile, "Uploading file...");
-
-                    wasError = false;
-                    await UploadFileComponentInternal(apiFile,
-                        ApiFile.Version.FileDescriptor.Type.file, filename, fileMD5Base64, fullFileSize,
-                        delegate(ApiFile file)
-                        {
-                            VRC.Core.Logger.Log("Successfully uploaded file.", DebugLevel.All);
-                            apiFile = file;
-                        },
-                        delegate(string error)
-                        {
-                            Error(onError, apiFile, "Failed to upload file.", error);
-                            CleanupTempFiles(apiFile.id);
-                            wasError = true;
-                        },
-                        delegate(long downloaded, long length)
-                        {
-                            Progress(onProgress, apiFile, "Uploading file...", "",
-                                Tools.DivideSafe(downloaded, length));
-                        },
-                        cancelQuery);
-
-                    if (wasError)
-                        return;
-                }
-            }
-
-            LogApiFileStatus(apiFile, uploadDeltaFile);
-
+            
             // upload signature
             if (apiFile.GetLatestVersion().signature.status == ApiFile.Status.Waiting)
             {
-                Progress(onProgress, apiFile, "Uploading file signature...");
+                onStatus?.Invoke(prepareFileMessage, $"Uploading file signature...");
+                onStatus?.Invoke($"Uploading file signature...", "Uploading file signature...");
 
-                wasError = false;
                 await UploadFileComponentInternal(apiFile,
-                    ApiFile.Version.FileDescriptor.Type.signature, signatureFilename, sigMD5Base64, sigFileSize,
-                    delegate(ApiFile file)
+                    ApiFile.Version.FileDescriptor.Type.signature, signatureFilename, signatureMD5, sigFileSize,
+                    file =>
                     {
-                        VRC.Core.Logger.Log("Successfully uploaded file signature.", DebugLevel.All);
+                        Logger.Log("Successfully uploaded file signature.");
                         apiFile = file;
-                    },
-                    delegate(string error)
-                    {
-                        Error(onError, apiFile, "Failed to upload file signature.", error);
-                        CleanupTempFiles(apiFile.id);
-                        wasError = true;
-                    },
-                    delegate(long downloaded, long length)
-                    {
-                        Progress(onProgress, apiFile, "Uploading file signature...", "",
-                            Tools.DivideSafe(downloaded, length));
-                    },
-                    cancelQuery);
-
-                if (wasError)
-                    return;
+                    }, (done, total) => onProgress?.Invoke(done, total), cancelQuery);
             }
+            
+            ValidateRecord(fileType, onStatus, uploadDeltaFile);
 
-            LogApiFileStatus(apiFile, uploadDeltaFile);
+            await CheckFileStatus(onStatus, cancelQuery, uploadDeltaFile);
+            
+            // cleanup and wait for it to finish
+            await CleanupTempFilesInternal(apiFile.id);
 
+            return apiFile.GetFileURL();
+        }
+
+        private void ValidateRecord(string fileType, UploadStatus onStatus, bool uploadDeltaFile)
+        {
             // Validate file records queued or complete
-            Progress(onProgress, apiFile, "Validating upload...");
+            onStatus?.Invoke($"Uploading {fileType}...", "Validating upload...");
 
-            bool isUploadComplete = (uploadDeltaFile
+            bool isUploadComplete = uploadDeltaFile
                 ? apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), ApiFile.Version.FileDescriptor.Type.delta)
                     .status == ApiFile.Status.Complete
                 : apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), ApiFile.Version.FileDescriptor.Type.file)
-                    .status == ApiFile.Status.Complete);
-            isUploadComplete = isUploadComplete &&
-                               apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(),
-                                   ApiFile.Version.FileDescriptor.Type.signature).status == ApiFile.Status.Complete;
+                    .status == ApiFile.Status.Complete;
+            
+            isUploadComplete = isUploadComplete && apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(),
+                ApiFile.Version.FileDescriptor.Type.signature).status == ApiFile.Status.Complete;
 
             if (!isUploadComplete)
             {
-                Error(onError, apiFile, "Failed to upload file.", "Record status is not 'complete'");
                 CleanupTempFiles(apiFile.id);
-                return;
+                throw new Exception("Upload validation failed");
             }
 
-            bool isServerOpQueuedOrComplete = (uploadDeltaFile
+            bool isServerOpQueuedOrComplete = uploadDeltaFile
                 ? apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), ApiFile.Version.FileDescriptor.Type.file)
                     .status != ApiFile.Status.Waiting
                 : apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), ApiFile.Version.FileDescriptor.Type.delta)
-                    .status != ApiFile.Status.Waiting);
+                    .status != ApiFile.Status.Waiting;
 
             if (!isServerOpQueuedOrComplete)
             {
-                Error(onError, apiFile, "Failed to upload file.", "Record is still in 'waiting' status");
                 CleanupTempFiles(apiFile.id);
-                return;
+                throw new Exception("Failed to upload file", new Exception("Previous version is still in waiting status"));
             }
+        }
 
-            LogApiFileStatus(apiFile, uploadDeltaFile);
-
+        private async Task CheckFileStatus(UploadStatus onStatus, Func<bool> cancelQuery,
+            bool uploadDeltaFile)
+        {
             // wait for server processing to complete
-            Progress(onProgress, apiFile, "Processing upload...");
+            onStatus?.Invoke(postUploadMessage, "Checking file status");
+
             float checkDelay = SERVER_PROCESSING_INITIAL_RETRY_TIME;
-            float maxDelay = SERVER_PROCESSING_MAX_RETRY_TIME;
             float timeout = GetServerProcessingWaitTimeoutForDataSize(apiFile.GetLatestVersion().file.sizeInBytes);
             double initialStartTime = Time.realtimeSinceStartup;
             double startTime = initialStartTime;
+
             while (apiFile.HasQueuedOperation(uploadDeltaFile))
             {
                 // wait before polling again
-                Progress(onProgress, apiFile, "Processing upload...",
-                    "Checking status in " + Mathf.CeilToInt(checkDelay) + " seconds");
+                onStatus?.Invoke(postUploadMessage, $"Checking status in {Mathf.CeilToInt(checkDelay)} seconds");
 
                 while (Time.realtimeSinceStartup - startTime < checkDelay)
                 {
-                    if (CheckCancelled(cancelQuery, onError, apiFile))
-                    {
-                        CleanupTempFiles(apiFile.id);
-                        return;
-                    }
-
                     if (Time.realtimeSinceStartup - initialStartTime > timeout)
-                    {
-                        LogApiFileStatus(apiFile, uploadDeltaFile);
-
-                        Error(onError, apiFile, "Timed out waiting for upload processing to complete.");
+                    {                       
                         CleanupTempFiles(apiFile.id);
-                        return;
+                        throw new TimeoutException("Couldn't verify upload: Timed out waiting for upload processing to complete");
                     }
 
                     await Task.Delay(33);
@@ -952,983 +288,492 @@ namespace BocuD.VRChatApiTools
                 while (true)
                 {
                     // check status
-                    Progress(onProgress, apiFile, "Processing upload...", "Checking status...");
+                    onStatus?.Invoke(postUploadMessage, "Checking status...");
 
-                    wait = true;
-                    worthRetry = false;
+                    bool wait = true;
                     errorStr = "";
-                    API.Fetch<ApiFile>(apiFile.id, fileSuccess, fileFailure);
+                    API.Fetch<ApiFile>(apiFile.id, c =>
+                    {
+                        apiFile = c.Model as ApiFile;
+                        wait = false;
+                    }, c =>
+                    {
+                        CleanupTempFiles(apiFile.id);
+                        throw new Exception(c.Error);
+                    });
 
                     while (wait)
                     {
-                        if (CheckCancelled(cancelQuery, onError, apiFile))
+                        if (cancelQuery())
                         {
                             CleanupTempFiles(apiFile.id);
-                            return;
+                            throw new OperationCanceledException();
                         }
 
                         await Task.Delay(33);
                     }
 
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        Error(onError, apiFile, "Checking upload status failed.", errorStr);
-                        if (!worthRetry)
-                        {
-                            CleanupTempFiles(apiFile.id);
-                            return;
-                        }
-                    }
-
-                    if (!worthRetry)
-                        break;
+                    break;
                 }
 
-                checkDelay = Mathf.Min(checkDelay * 2, maxDelay);
+                checkDelay = Mathf.Min(checkDelay * 2, SERVER_PROCESSING_MAX_RETRY_TIME);
                 startTime = Time.realtimeSinceStartup;
             }
-
-            // cleanup and wait for it to finish
-            await CleanupTempFilesInternal(apiFile.id);
-
-            Success(onSuccess, apiFile, "Upload complete!");
         }
 
-        private static void LogApiFileStatus(ApiFile apiFile, bool checkDelta, bool logSuccess = false)
+        private async Task<string> CreateFileDelta(string filename, UploadStatus onStatus, string existingFileSignaturePath)
         {
-            if (apiFile == null || !apiFile.IsInitialized)
+            onStatus?.Invoke(prepareFileMessage, "Creating file delta");
+            
+            string deltaFilename = Tools.GetTempFileName(".delta", out errorStr, apiFile.id);
+            
+            if (string.IsNullOrEmpty(deltaFilename))
             {
-                Debug.LogFormat("<color=yellow>apiFile not initialized</color>");
+                CleanupTempFiles(apiFile.id);
+                throw new Exception("Failed to create file delta for upload", new Exception($"Failed to create temp file: {errorStr}"));
             }
-            else if (apiFile.IsInErrorState())
-            {
-                Debug.LogFormat("<color=yellow>ApiFile {0} is in an error state.</color>", apiFile.name);
-            }
-            else if (logSuccess)
-                VRC.Core.Logger.Log("< color = yellow > Processing { 3}: { 0}, { 1}, { 2}</ color > " +
-                                    (apiFile.IsWaitingForUpload() ? "waiting for upload" : "upload complete") +
-                                    (apiFile.HasExistingOrPendingVersion()
-                                        ? "has existing or pending version"
-                                        : "no previous version") +
-                                    (apiFile.IsLatestVersionQueued(checkDelta)
-                                        ? "latest version queued"
-                                        : "latest version not queued") +
-                                    apiFile.name, DebugLevel.All);
+            
+            await CreateFileDeltaInternal(filename, existingFileSignaturePath, deltaFilename);
 
-            if (apiFile != null && apiFile.IsInitialized && logSuccess)
-            {
-                var apiFields = apiFile.ExtractApiFields();
-                if (apiFields != null)
-                    VRC.Core.Logger.Log("<color=yellow>{0}</color>" + VRC.Tools.JsonEncode(apiFields), DebugLevel.All);
-            }
+            return deltaFilename;
         }
 
-        public async Task CreateFileSignatureInternal(string filename, string outputSignatureFilename,
-            Action onSuccess, Action<string> onError)
+        private async Task CreateFileRecord(string fileMD5Base64, long fileSize, string sigMD5Base64,
+            long sigFileSize, UploadStatus onStatus, Func<bool> cancelQuery)
         {
-            VRC.Core.Logger.Log("CreateFileSignature: " + filename + " => " + outputSignatureFilename, DebugLevel.All);
-
-            await Task.Delay(33);
-
-            Stream inStream = null;
-            FileStream outStream = null;
-            byte[] buf = new byte[64 * 1024];
-            IAsyncResult asyncRead = null;
-            IAsyncResult asyncWrite = null;
-
-            try
-            {
-                inStream = librsync.net.Librsync.ComputeSignature(File.OpenRead(filename));
-            }
-            catch (Exception e)
-            {
-                if (onError != null)
-                    onError("Couldn't open input file: " + e.Message);
-                return;
-            }
-
-            try
-            {
-                outStream = File.Open(outputSignatureFilename, FileMode.Create, FileAccess.Write);
-            }
-            catch (Exception e)
-            {
-                if (onError != null)
-                    onError("Couldn't create output file: " + e.Message);
-                return;
-            }
-
             while (true)
             {
-                try
-                {
-                    asyncRead = inStream.BeginRead(buf, 0, buf.Length, null, null);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't read file: " + e.Message);
-                    return;
-                }
+                onStatus?.Invoke(prepareRemoteMessage, "Creating file version record...");
 
-                while (!asyncRead.IsCompleted)
+                bool wait = true;
+
+                apiFile.CreateNewVersion(ApiFile.Version.FileType.Full, fileMD5Base64, fileSize,
+                    sigMD5Base64, sigFileSize, c =>
+                    {
+                        apiFile = c.Model as ApiFile;
+                        wait = false;
+                    }, c =>
+                    {
+                        CleanupTempFiles(apiFile.id);
+                        throw new Exception("Creating file version record failed", new Exception(c.Error));
+                    });
+
+                while (wait)
+                {
+                    if (cancelQuery())
+                    {
+                        CleanupTempFiles(apiFile.id);
+                        throw new OperationCanceledException();
+                    }
+
                     await Task.Delay(33);
-
-                int read = 0;
-                try
-                {
-                    read = inStream.EndRead(asyncRead);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't read file: " + e.Message);
-                    return;
                 }
 
-                if (read <= 0)
-                    break;
+                // delay to let write get through servers
+                await Task.Delay(postWriteDelay);
 
-                try
-                {
-                    asyncWrite = outStream.BeginWrite(buf, 0, read, null, null);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't write file: " + e.Message);
-                    return;
-                }
-
-                while (!asyncWrite.IsCompleted)
-                    await Task.Delay(33);
-
-                try
-                {
-                    outStream.EndWrite(asyncWrite);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't write file: " + e.Message);
-                    return;
-                }
+                break;
             }
-
-            inStream.Close();
-            outStream.Close();
-
-            await Task.Delay(33);
-
-            if (onSuccess != null)
-                onSuccess();
         }
 
-        public async Task CreateFileDeltaInternal(string newFilename, string existingFileSignaturePath,
-            string outputDeltaFilename, Action onSuccess, Action<string> onError)
+        private async Task<string> GetExistingFileSignature(UploadStatus onStatus, UploadProgress onProgress, Func<bool> cancelQuery)
         {
-            Debug.Log("CreateFileDelta: " + newFilename + " (delta) " + existingFileSignaturePath + " => " +
-                      outputDeltaFilename);
+            string existingFileSignaturePath = "";
+            onStatus?.Invoke(prepareRemoteMessage, "Downloading previous version signature");
 
-            await Task.Delay(33);
+            bool wait = true;
+            errorStr = "";
+            apiFile.DownloadSignature(
+                data =>
+                {
+                    // save to temp file
+                    existingFileSignaturePath = Tools.GetTempFileName(".sig", out errorStr, apiFile.id);
+                    if (string.IsNullOrEmpty(existingFileSignaturePath))
+                    {
+                        throw new Exception($"Couldn't create temp file: {errorStr}");
+                    }
+                    
+                    File.WriteAllBytes(existingFileSignaturePath, data);
 
-            Stream inStream = null;
-            FileStream outStream = null;
-            byte[] buf = new byte[64 * 1024];
-            IAsyncResult asyncRead = null;
-            IAsyncResult asyncWrite = null;
+                    wait = false;
+                },
+                error => throw new Exception(error),
+                (downloaded, length) => onProgress?.Invoke(downloaded, length)
+            );
 
+            while (wait)
+            {
+                if (cancelQuery())
+                {
+                    throw new OperationCanceledException();
+                }
+
+                await Task.Delay(33);
+            }
+
+            if (string.IsNullOrEmpty(errorStr)) return existingFileSignaturePath;
+
+            CleanupTempFiles(apiFile.id);
+            throw new Exception($"Failed to download previous file version signature: {errorStr}");
+        }
+
+        private async Task<string> GenerateMD5Base64(string filename, UploadStatus onStatus)
+        {
+            onStatus?.Invoke(prepareFileMessage, "Generating file hash");
+            
+            string result = await Task.Run(() =>
+            {
+                try
+                {
+                    return Convert.ToBase64String(MD5.Create().ComputeHash(File.OpenRead(filename)));
+                }
+                catch (Exception)
+                {
+                    CleanupTempFiles(apiFile.id);
+                    throw;
+                }
+            });
+
+            if (result.IsNullOrWhitespace()) throw new Exception("File MD5 generation failed");
+            
+            return result;
+        }
+
+        private static void CheckFile(string filename)
+        {
+            if (string.IsNullOrEmpty(filename))
+            {
+                throw new FileNotFoundException();
+            }
+
+            if (!Path.HasExtension(filename))
+            {
+                throw new Exception("Specified file doesn't have an extension");
+            }
+
+            FileStream fileStream = null;
             try
             {
-                inStream = librsync.net.Librsync.ComputeDelta(File.OpenRead(existingFileSignaturePath),
-                    File.OpenRead(newFilename));
+                fileStream = File.OpenRead(filename);
+                fileStream.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                if (onError != null)
-                    onError("Couldn't open input file: " + e.Message);
-                return;
+                fileStream?.Close();
+                throw;
             }
-
-            try
-            {
-                outStream = File.Open(outputDeltaFilename, FileMode.Create, FileAccess.Write);
-            }
-            catch (Exception e)
-            {
-                if (onError != null)
-                    onError("Couldn't create output file: " + e.Message);
-                return;
-            }
-
-            while (true)
-            {
-                try
-                {
-                    asyncRead = inStream.BeginRead(buf, 0, buf.Length, null, null);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't read file: " + e.Message);
-                    return;
-                }
-
-                while (!asyncRead.IsCompleted)
-                    await Task.Delay(33);
-
-                int read = 0;
-                try
-                {
-                    read = inStream.EndRead(asyncRead);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't read file: " + e.Message);
-                    return;
-                }
-
-                if (read <= 0)
-                    break;
-
-                try
-                {
-                    asyncWrite = outStream.BeginWrite(buf, 0, read, null, null);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't write file: " + e.Message);
-                    return;
-                }
-
-                while (!asyncWrite.IsCompleted)
-                    await Task.Delay(33);
-
-                try
-                {
-                    outStream.EndWrite(asyncWrite);
-                }
-                catch (Exception e)
-                {
-                    if (onError != null)
-                        onError("Couldn't write file: " + e.Message);
-                    return;
-                }
-            }
-
-            inStream.Close();
-            outStream.Close();
-
-            await Task.Delay(33);
-
-            if (onSuccess != null)
-                onSuccess();
         }
-
-        protected static void Success(OnFileOpSuccess onSuccess, ApiFile apiFile, string message)
+        
+        private async Task<bool> CheckForExistingVersion(UploadStatus onStatus, string fileMD5Base64)
         {
-            if (apiFile == null)
-                apiFile = new ApiFile();
+            onStatus?.Invoke(prepareFileMessage, "Checking for changes");
 
-            VRC.Core.Logger.Log("ApiFile " + apiFile.ToStringBrief() + ": Operation Succeeded!", DebugLevel.All);
-            if (onSuccess != null)
-                onSuccess(apiFile, message);
-        }
-
-        protected static void Error(OnFileOpError onError, ApiFile apiFile, string error, string moreInfo = "")
-        {
-            if (apiFile == null)
-                apiFile = new ApiFile();
-
-            Debug.LogError("ApiFile " + apiFile.ToStringBrief() + ": Error: " + error + "\n" + moreInfo);
-            if (onError != null)
-                onError(apiFile, error);
-        }
-
-        protected static void Progress(OnFileOpProgress onProgress, ApiFile apiFile, string status,
-            string subStatus = "", float pct = 0.0f)
-        {
-            if (apiFile == null)
-                apiFile = new ApiFile();
-
-            if (onProgress != null)
-                onProgress(apiFile, status, subStatus, pct);
-        }
-
-        protected static bool CheckCancelled(FileOpCancelQuery cancelQuery, OnFileOpError onError, ApiFile apiFile)
-        {
-            if (apiFile == null)
+            //if this is a new file, we can be sure that this is not a retry
+            if (!apiFile.HasExistingOrPendingVersion()) return false;
+            
+            //if the file we are about to upload matches the existing file on the remote server
+            if (string.CompareOrdinal(fileMD5Base64, apiFile.GetFileMD5(apiFile.GetLatestVersionNumber())) == 0)
             {
-                Debug.LogError("apiFile was null");
+                Logger.Log("New file hash matches remote file hash, aborting upload");
+                //the MD5 of the new file matches MD5 of existing file
+
+                //if the last upload was successful, we can terminate the upload process early
+                if (!apiFile.IsWaitingForUpload())
+                {
+                    CleanupTempFiles(apiFile.id);
+                    throw new Exception("The file to upload matches the remote file already.");
+                }
+
+                //the previous upload wasn't succesful
+                Logger.Log("Retrying previous upload");
                 return true;
             }
 
-            if (cancelQuery != null && cancelQuery(apiFile))
-            {
-                Debug.Log("ApiFile " + apiFile.ToStringBrief() + ": Operation cancelled");
-                if (onError != null)
-                    onError(apiFile, "Cancelled by user.");
-                return true;
-            }
+            //if the newest version doesn't have pending changes, return
+            if (!apiFile.IsWaitingForUpload()) return false;
+            
+            //if it does, clean up
+            Logger.Log("Latest version of remote file has pending changes, cleaning up...");
+            await ApiFileAsyncExtensions.DeleteLatestVersion(apiFile);
 
             return false;
         }
 
-        protected void CleanupTempFiles(string subFolderName)
+        private static async Task InitRemoteConfig()
         {
-            CleanupTempFilesInternal(subFolderName);
+            //If remoteconfig is already initialised, return true
+            if (ConfigManager.RemoteConfig.IsInitialized()) return;
+            
+            bool done = false;
+            ConfigManager.RemoteConfig.Init(() => done = true, () => done = true);
+
+            //god i hate these.. why can't vrc use proper async programming
+            while (!done)
+                await Task.Delay(33);
+
+            if (ConfigManager.RemoteConfig.IsInitialized()) return;
+
+            throw new Exception("Failed to fetch remote configuration");
         }
 
-        protected async Task CleanupTempFilesInternal(string subFolderName)
+        private async Task HandleFileErrorState(UploadStatus onStatus)
         {
-            if (!string.IsNullOrEmpty(subFolderName))
-            {
-                string folder = VRC.Tools.GetTempFolderPath(subFolderName);
+            if (!apiFile.IsInErrorState()) return;
 
-                while (Directory.Exists(folder))
+            Logger.LogWarning($"ApiFile: {apiFile.id}: server failed to process last uploaded, deleting failed version");
+
+            // delete previous failed version
+            onStatus?.Invoke(prepareRemoteMessage, "Cleaning up previous version");
+
+            await ApiFileAsyncExtensions.DeleteLatestVersion(apiFile);
+        }
+
+        public static async Task<ApiFile> FetchRecord(string filePath, string existingFileId, string friendlyName,
+            UploadStatus onStatus, Func<bool> cancelQuery)
+        {
+            ApiFile apiFile;
+            
+            Logger.Log(string.IsNullOrEmpty(existingFileId) ? "Creating new file record for asset bundle..." : "Fetching file record for asset bundle...");
+            
+            string extension = Path.GetExtension(filePath);
+            string mimeType = GetMimeTypeFromExtension(extension);
+
+            onStatus?.Invoke(prepareRemoteMessage, string.IsNullOrEmpty(existingFileId) ? "Creating file record..." : "Getting file record...");
+            
+            if (string.IsNullOrEmpty(friendlyName))
+                friendlyName = filePath;
+
+            //Get file record
+            while (true)
+            {
+                apiFile = null;
+                bool wait = true;
+                errorStr = "";
+
+                if (string.IsNullOrEmpty(existingFileId))
+                    ApiFile.Create(friendlyName, mimeType, extension, (c) =>
+                    {
+                        apiFile = c.Model as ApiFile;
+                        wait = false;
+                    }, (c) => throw new Exception(c.Error));
+                else
+                    API.Fetch<ApiFile>(existingFileId, (c) =>
+                    {
+                        apiFile = c.Model as ApiFile;
+                        wait = false;
+                    }, (c) => throw new Exception(c.Error), true);
+
+                while (wait)
                 {
-                    try
-                    {
-                        if (Directory.Exists(folder))
-                            Directory.Delete(folder, true);
-                    }
-                    catch (System.Exception)
-                    {
-                    }
+                    if (apiFile != null && cancelQuery())
+                        throw new OperationCanceledException();
 
                     await Task.Delay(33);
                 }
+
+                if (!string.IsNullOrEmpty(errorStr))
+                {
+                    if (errorStr.Contains("File not found"))
+                    {
+                        Logger.LogWarning($"Couldn't find file record: {existingFileId}, creating new file record");
+
+                        existingFileId = "";
+                        continue;
+                    }
+
+                    throw new Exception(string.IsNullOrEmpty(existingFileId)
+                        ? "Failed to create file record"
+                        : $"Failed to get file record: {errorStr}");
+                }
+
+                break;
+            }
+
+            return apiFile;
+        }
+
+        private async Task<string> GenerateSignatureFile(string filename, UploadStatus onStatus)
+        {
+            //generate signature file for new upload
+            onStatus?.Invoke(prepareFileMessage, "Generating signature file");
+
+            string signatureFilename = Tools.GetTempFileName(".sig", out errorStr, apiFile.id);
+
+            if (string.IsNullOrEmpty(signatureFilename))
+            {
+                CleanupTempFiles(apiFile.id);
+                throw new Exception($"Failed to generate file signature: Failed to create temp file", new Exception(errorStr));
+            }
+
+            // create file signature
+            try
+            {
+                Logger.Log($"Generating signature for {filename.GetFileName()}");
+
+                await Task.Delay(33);
+
+                byte[] buf = new byte[512 * 1024];
+            
+                Stream inStream = Librsync.ComputeSignature(File.OpenRead(filename));
+                FileStream outStream = File.Open(signatureFilename, FileMode.Create, FileAccess.Write);
+
+                while (true)
+                {
+                    IAsyncResult asyncRead = inStream.BeginRead(buf, 0, buf.Length, null, null);
+
+                    while (!asyncRead.IsCompleted)
+                    {
+                    
+                    }
+
+                    int read = inStream.EndRead(asyncRead);
+
+                    if (read <= 0)
+                    {
+                        break;
+                    }
+
+                    IAsyncResult asyncWrite = outStream.BeginWrite(buf, 0, read, null, null);
+
+                    while (!asyncWrite.IsCompleted)
+                    {
+                    
+                    }
+
+                    outStream.EndWrite(asyncWrite);
+                }
+
+                inStream.Close();
+                outStream.Close();
+            }
+            catch (Exception)
+            {
+                CleanupTempFiles(apiFile.id);
+                throw;
+            }
+
+            return signatureFilename;
+        }
+
+        private static async Task CreateFileDeltaInternal(string newFilename, string existingFileSignaturePath, string outputDeltaFilename)
+        {
+            Logger.Log($"CreateFileDelta: {newFilename} (delta) {existingFileSignaturePath} => {outputDeltaFilename}");
+
+            await Task.Delay(33);
+
+            byte[] buf = new byte[64 * 1024];
+            Stream inStream = Librsync.ComputeDelta(File.OpenRead(existingFileSignaturePath), File.OpenRead(newFilename));
+            FileStream outStream = File.Open(outputDeltaFilename, FileMode.Create, FileAccess.Write);
+
+            while (true)
+            {
+                IAsyncResult asyncRead = inStream.BeginRead(buf, 0, buf.Length, null, null);
+
+                while (!asyncRead.IsCompleted)
+                    await Task.Delay(33);
+
+                int read = inStream.EndRead(asyncRead);
+
+                if (read <= 0)
+                    break;
+
+                IAsyncResult asyncWrite = outStream.BeginWrite(buf, 0, read, null, null);
+
+                while (!asyncWrite.IsCompleted)
+                    await Task.Delay(33);
+                
+                outStream.EndWrite(asyncWrite);
+            }
+
+            inStream.Close();
+            outStream.Close();
+
+            await Task.Delay(33);
+        }
+
+        private static void CleanupTempFiles(string subFolderName)
+        {
+            Task unused = CleanupTempFilesInternal(subFolderName);
+        }
+
+        private static async Task CleanupTempFilesInternal(string subFolderName)
+        {
+            if (string.IsNullOrEmpty(subFolderName)) return;
+            
+            string folder = Tools.GetTempFolderPath(subFolderName);
+
+            while (Directory.Exists(folder))
+            {
+                try
+                {
+                    if (Directory.Exists(folder))
+                        Directory.Delete(folder, true);
+                }
+                catch (Exception)
+                {
+                    //ignored as removing temp files can be supressed
+                }
+
+                await Task.Delay(33);
             }
         }
 
-        private float GetServerProcessingWaitTimeoutForDataSize(int size)
+        private static async Task UploadFileComponentInternal(ApiFile apiFile,
+            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
+            string filepath, string md5Base64, long fileSize, Action<ApiFile> onSuccess, Action<long, long> onProgress,
+            Func<bool> cancelQuery)
         {
-            float timeoutMultiplier = Mathf.Ceil((float)size / (float)SERVER_PROCESSING_WAIT_TIMEOUT_CHUNK_SIZE);
-            return Mathf.Clamp(timeoutMultiplier * SERVER_PROCESSING_WAIT_TIMEOUT_PER_CHUNK_SIZE,
-                SERVER_PROCESSING_WAIT_TIMEOUT_PER_CHUNK_SIZE, SERVER_PROCESSING_MAX_WAIT_TIMEOUT);
-        }
+            Logger.Log($"UploadFileComponent: {fileDescriptorType} ({apiFile.id}): {filepath.GetFileName()}");
 
-        private bool UploadFileComponentValidateFileDesc(ApiFile apiFile, string filename, string md5Base64,
-            long fileSize, ApiFile.Version.FileDescriptor fileDesc, Action<ApiFile> onSuccess, Action<string> onError)
-        {
+            ApiFile.Version.FileDescriptor fileDesc =
+                apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), fileDescriptorType);
+
+            //validate file descriptor
             if (fileDesc.status != ApiFile.Status.Waiting)
             {
                 // nothing to do (might be a retry)
-                Debug.Log("UploadFileComponent: (file record not in waiting status, done)");
-                if (onSuccess != null)
-                    onSuccess(apiFile);
-                return false;
+                Logger.Log("UploadFileComponent: (file record not in waiting status, done)");
+                onSuccess?.Invoke(apiFile);
+                return;
             }
 
             if (fileSize != fileDesc.sizeInBytes)
             {
-                if (onError != null)
-                    onError("File size does not match version descriptor");
-                return false;
+                throw new Exception("File size does not match version descriptor");
             }
 
-            if (string.Compare(md5Base64, fileDesc.md5) != 0)
+            if (string.CompareOrdinal(md5Base64, fileDesc.md5) != 0)
             {
-                if (onError != null)
-                    onError("File MD5 does not match version descriptor");
-                return false;
+                throw new Exception("File MD5 does not match version descriptor");
             }
 
             // make sure file is right size
-            long tempSize = 0;
-            string errorStr = "";
-            if (!VRC.Tools.GetFileSize(filename, out tempSize, out errorStr))
+            if (!Tools.GetFileSize(filepath, out long tempSize, out string errorStr))
             {
-                if (onError != null)
-                    onError("Couldn't get file size");
-                return false;
+                throw new Exception($"Couldn't get file size : {errorStr}");
             }
 
             if (tempSize != fileSize)
             {
-                if (onError != null)
-                    onError("File size does not match input size");
-                return false;
+                throw new Exception("File size does not match input size");
             }
-
-            return true;
-        }
-
-        private async Task UploadFileComponentDoSimpleUpload(ApiFile apiFile,
-            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
-            string filename,
-            string md5Base64,
-            long fileSize,
-            Action<ApiFile> onSuccess,
-            Action<string> onError,
-            Action<long, long> onProgress,
-            FileOpCancelQuery cancelQuery)
-        {
-            OnFileOpError onCancelFunc = delegate(ApiFile file, string s)
-            {
-                if (onError != null)
-                    onError(s);
-            };
-
-            string uploadUrl = "";
-            while (true)
-            {
-                bool wait = true;
-                string errorStr = "";
-                bool worthRetry = false;
-
-                apiFile.StartSimpleUpload(fileDescriptorType,
-                    (c) =>
-                    {
-                        uploadUrl = (c as ApiDictContainer).ResponseDictionary["url"] as string;
-                        wait = false;
-                    },
-                    (c) =>
-                    {
-                        errorStr = "Failed to start upload: " + c.Error;
-                        wait = false;
-                        if (c.Code == 400)
-                            worthRetry = true;
-                    });
-
-                while (wait)
-                {
-                    if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                    {
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    if (onError != null)
-                        onError(errorStr);
-                    if (!worthRetry)
-                        return;
-                }
-
-                // delay to let write get through servers
-                await Task.Delay((int)(1000*kPostWriteDelay));
-
-                if (!worthRetry)
-                    break;
-            }
-
-            // PUT file
-            {
-                bool wait = true;
-                string errorStr = "";
-
-                VRC.HttpRequest req = ApiFile.PutSimpleFileToURL(uploadUrl, filename,
-                    GetMimeTypeFromExtension(Path.GetExtension(filename)), md5Base64, true,
-                    delegate() { wait = false; },
-                    delegate(string error)
-                    {
-                        errorStr = "Failed to upload file: " + error;
-                        wait = false;
-                    },
-                    delegate(long uploaded, long length)
-                    {
-                        if (onProgress != null)
-                            onProgress(uploaded, length);
-                    }
-                );
-
-                while (wait)
-                {
-                    if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                    {
-                        if (req != null)
-                            req.Abort();
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    if (onError != null)
-                        onError(errorStr);
-                    return;
-                }
-            }
-
-            // finish upload
-            while (true)
-            {
-                // delay to let write get through servers
-                await Task.Delay((int)(1000*kPostWriteDelay));
-
-                bool wait = true;
-                string errorStr = "";
-                bool worthRetry = false;
-
-                apiFile.FinishUpload(fileDescriptorType, null,
-                    (c) =>
-                    {
-                        apiFile = c.Model as ApiFile;
-                        wait = false;
-                    },
-                    (c) =>
-                    {
-                        errorStr = "Failed to finish upload: " + c.Error;
-                        wait = false;
-                        if (c.Code == 400)
-                            worthRetry = false;
-                    });
-
-                while (wait)
-                {
-                    if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                    {
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    if (onError != null)
-                        onError(errorStr);
-                    if (!worthRetry)
-                        return;
-                }
-
-                // delay to let write get through servers
-                await Task.Delay((int)(1000*kPostWriteDelay));
-
-                if (!worthRetry)
-                    break;
-            }
-        }
-
-        private async Task UploadFileComponentDoMultipartUpload(ApiFile apiFile,
-            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
-            string filename,
-            string md5Base64,
-            long fileSize,
-            Action<ApiFile> onSuccess,
-            Action<string> onError,
-            Action<long, long> onProgress,
-            FileOpCancelQuery cancelQuery)
-        {
-            FileStream fs = null;
-            OnFileOpError onCancelFunc = delegate(ApiFile file, string s)
-            {
-                if (fs != null)
-                    fs.Close();
-                if (onError != null)
-                    onError(s);
-            };
-
-            // query multipart upload status.
-            // we might be resuming a previous upload
-            ApiFile.UploadStatus uploadStatus = null;
-            {
-                while (true)
-                {
-                    bool wait = true;
-                    string errorStr = "";
-                    bool worthRetry = false;
-
-                    apiFile.GetUploadStatus(apiFile.GetLatestVersionNumber(), fileDescriptorType,
-                        (c) =>
-                        {
-                            uploadStatus = c.Model as ApiFile.UploadStatus;
-                            wait = false;
-
-                            VRC.Core.Logger.Log(
-                                "Found existing multipart upload status (next part = " + uploadStatus.nextPartNumber +
-                                ")", DebugLevel.All);
-                        },
-                        (c) =>
-                        {
-                            errorStr = "Failed to query multipart upload status: " + c.Error;
-                            wait = false;
-                            if (c.Code == 400)
-                                worthRetry = true;
-                        });
-
-                    while (wait)
-                    {
-                        if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                        {
-                            return;
-                        }
-
-                        await Task.Delay(33);
-                    }
-
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        if (onError != null)
-                            onError(errorStr);
-                        if (!worthRetry)
-                            return;
-                    }
-
-                    if (!worthRetry)
-                        break;
-                }
-            }
-
-            // split file into chunks
-            try
-            {
-                fs = File.OpenRead(filename);
-            }
-            catch (Exception e)
-            {
-                if (onError != null)
-                    onError("Couldn't open file: " + e.Message);
-                return;
-            }
-
-            byte[] buffer = new byte[kMultipartUploadChunkSize * 2];
-
-            long totalBytesUploaded = 0;
-            List<string> etags = new List<string>();
-            if (uploadStatus != null)
-                etags = uploadStatus.etags.ToList();
-
-            int numParts = Mathf.Max(1, Mathf.FloorToInt((float)fs.Length / (float)kMultipartUploadChunkSize));
-            for (int partNumber = 1; partNumber <= numParts; partNumber++)
-            {
-                // read chunk
-                int bytesToRead = partNumber < numParts ? kMultipartUploadChunkSize : (int)(fs.Length - fs.Position);
-                int bytesRead = 0;
-                try
-                {
-                    bytesRead = fs.Read(buffer, 0, bytesToRead);
-                }
-                catch (Exception e)
-                {
-                    fs.Close();
-                    if (onError != null)
-                        onError("Couldn't read file: " + e.Message);
-                    return;
-                }
-
-                if (bytesRead != bytesToRead)
-                {
-                    fs.Close();
-                    if (onError != null)
-                        onError("Couldn't read file: read incorrect number of bytes from stream");
-                    return;
-                }
-
-                // check if this part has been upload already
-                // NOTE: uploadStatus.nextPartNumber == number of parts already uploaded
-                if (uploadStatus != null && partNumber <= uploadStatus.nextPartNumber)
-                {
-                    totalBytesUploaded += bytesRead;
-                    continue;
-                }
-
-                // start upload
-                string uploadUrl = "";
-
-                while (true)
-                {
-                    bool wait = true;
-                    string errorStr = "";
-                    bool worthRetry = false;
-
-                    apiFile.StartMultipartUpload(fileDescriptorType, partNumber,
-                        (c) =>
-                        {
-                            uploadUrl = (c as ApiDictContainer).ResponseDictionary["url"] as string;
-                            wait = false;
-                        },
-                        (c) =>
-                        {
-                            errorStr = "Failed to start part upload: " + c.Error;
-                            wait = false;
-                        });
-
-                    while (wait)
-                    {
-                        if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                        {
-                            return;
-                        }
-
-                        await Task.Delay(33);
-                    }
-
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        fs.Close();
-                        if (onError != null)
-                            onError(errorStr);
-                        if (!worthRetry)
-                            return;
-                    }
-
-                    // delay to let write get through servers
-                    await Task.Delay((int)(1000*kPostWriteDelay));
-
-                    if (!worthRetry)
-                        break;
-                }
-
-                // PUT file part
-                {
-                    bool wait = true;
-                    string errorStr = "";
-
-                    VRC.HttpRequest req = ApiFile.PutMultipartDataToURL(uploadUrl, buffer, bytesRead,
-                        GetMimeTypeFromExtension(Path.GetExtension(filename)), true,
-                        delegate(string etag)
-                        {
-                            if (!string.IsNullOrEmpty(etag))
-                                etags.Add(etag);
-                            totalBytesUploaded += bytesRead;
-                            wait = false;
-                        },
-                        delegate(string error)
-                        {
-                            errorStr = "Failed to upload data: " + error;
-                            wait = false;
-                        },
-                        delegate(long uploaded, long length)
-                        {
-                            if (onProgress != null)
-                                onProgress(totalBytesUploaded + uploaded, fileSize);
-                        }
-                    );
-
-                    while (wait)
-                    {
-                        if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                        {
-                            if (req != null)
-                                req.Abort();
-                            return;
-                        }
-
-                        await Task.Delay(33);
-                    }
-
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        fs.Close();
-                        if (onError != null)
-                            onError(errorStr);
-                        return;
-                    }
-                }
-            }
-
-            // finish upload
-            while (true)
-            {
-                // delay to let write get through servers
-                await Task.Delay((int)(1000*kPostWriteDelay));
-
-                bool wait = true;
-                string errorStr = "";
-                bool worthRetry = false;
-
-                apiFile.FinishUpload(fileDescriptorType, etags,
-                    (c) =>
-                    {
-                        apiFile = c.Model as ApiFile;
-                        wait = false;
-                    },
-                    (c) =>
-                    {
-                        errorStr = "Failed to finish upload: " + c.Error;
-                        wait = false;
-                        if (c.Code == 400)
-                            worthRetry = true;
-                    });
-
-                while (wait)
-                {
-                    if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                    {
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-                if (!string.IsNullOrEmpty(errorStr))
-                {
-                    fs.Close();
-                    if (onError != null)
-                        onError(errorStr);
-                    if (!worthRetry)
-                        return;
-                }
-
-                // delay to let write get through servers
-                await Task.Delay((int)(1000*kPostWriteDelay));
-
-                if (!worthRetry)
-                    break;
-            }
-
-            fs.Close();
-        }
-
-        private async Task UploadFileComponentVerifyRecord(ApiFile apiFile,
-            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
-            string filename,
-            string md5Base64,
-            long fileSize,
-            ApiFile.Version.FileDescriptor fileDesc,
-            Action<ApiFile> onSuccess,
-            Action<string> onError,
-            Action<long, long> onProgress,
-            FileOpCancelQuery cancelQuery)
-        {
-            OnFileOpError onCancelFunc = delegate(ApiFile file, string s)
-            {
-                if (onError != null)
-                    onError(s);
-            };
-
-            float initialStartTime = Time.realtimeSinceStartup;
-            float startTime = initialStartTime;
-            float timeout = GetServerProcessingWaitTimeoutForDataSize(fileDesc.sizeInBytes);
-            float waitDelay = SERVER_PROCESSING_INITIAL_RETRY_TIME;
-            float maxDelay = SERVER_PROCESSING_MAX_RETRY_TIME;
-
-            while (true)
-            {
-                if (apiFile == null)
-                {
-                    if (onError != null)
-                        onError("ApiFile is null");
-                    return;
-                }
-
-                var desc = apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), fileDescriptorType);
-                if (desc == null)
-                {
-                    if (onError != null)
-                        onError("File descriptor is null ('" + fileDescriptorType + "')");
-                    return;
-                }
-
-                if (desc.status != ApiFile.Status.Waiting)
-                {
-                    // upload completed or is processing
-                    break;
-                }
-
-                // wait for next poll
-                while (Time.realtimeSinceStartup - startTime < waitDelay)
-                {
-                    if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                    {
-                        return;
-                    }
-
-                    if (Time.realtimeSinceStartup - initialStartTime > timeout)
-                    {
-                        if (onError != null)
-                            onError("Couldn't verify upload status: Timed out wait for server processing");
-                        return;
-                    }
-
-                    await Task.Delay(33);
-                }
-
-
-                while (true)
-                {
-                    bool wait = true;
-                    string errorStr = "";
-                    bool worthRetry = false;
-
-                    apiFile.Refresh(
-                        (c) => { wait = false; },
-                        (c) =>
-                        {
-                            errorStr = "Couldn't verify upload status: " + c.Error;
-                            wait = false;
-                            if (c.Code == 400)
-                                worthRetry = true;
-                        });
-
-                    while (wait)
-                    {
-                        if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))
-                        {
-                            return;
-                        }
-
-                        await Task.Delay(33);
-                    }
-
-                    if (!string.IsNullOrEmpty(errorStr))
-                    {
-                        if (onError != null)
-                            onError(errorStr);
-                        if (!worthRetry)
-                            return;
-                    }
-
-                    if (!worthRetry)
-                        break;
-                }
-
-                waitDelay = Mathf.Min(waitDelay * 2, maxDelay);
-                startTime = Time.realtimeSinceStartup;
-            }
-
-            if (onSuccess != null)
-                onSuccess(apiFile);
-        }
-
-        private async Task UploadFileComponentInternal(ApiFile apiFile,
-            ApiFile.Version.FileDescriptor.Type fileDescriptorType,
-            string filename,
-            string md5Base64,
-            long fileSize,
-            Action<ApiFile> onSuccess,
-            Action<string> onError,
-            Action<long, long> onProgress,
-            FileOpCancelQuery cancelQuery)
-        {
-            VRC.Core.Logger.Log("UploadFileComponent: " + fileDescriptorType + " (" + apiFile.id + "): " + filename,
-                DebugLevel.All);
-            ApiFile.Version.FileDescriptor fileDesc =
-                apiFile.GetFileDescriptor(apiFile.GetLatestVersionNumber(), fileDescriptorType);
-
-            if (!UploadFileComponentValidateFileDesc(apiFile, filename, md5Base64, fileSize, fileDesc, onSuccess,
-                    onError))
-                return;
 
             switch (fileDesc.category)
             {
                 case ApiFile.Category.Simple:
-                    await UploadFileComponentDoSimpleUpload(apiFile, fileDescriptorType, filename, md5Base64,
-                        fileSize, onSuccess, onError, onProgress, cancelQuery);
+                    await apiFile.UploadFileComponentDoSimpleUpload(fileDescriptorType, filepath, md5Base64,
+                        onProgress, cancelQuery);
                     break;
                 case ApiFile.Category.Multipart:
-                    await UploadFileComponentDoMultipartUpload(apiFile, fileDescriptorType, filename, md5Base64,
-                        fileSize, onSuccess, onError, onProgress, cancelQuery);
+                    await apiFile.UploadFileComponentDoMultipartUpload(fileDescriptorType, filepath,
+                        fileSize, onProgress, cancelQuery);
                     break;
                 default:
-                    if (onError != null)
-                        onError("Unknown file category type: " + fileDesc.category);
-                    return;
+                    throw new NotSupportedException($"Unsupported file category type: {fileDesc.category}");
             }
 
-            await UploadFileComponentVerifyRecord(apiFile, fileDescriptorType, filename, md5Base64, fileSize,
-                fileDesc, onSuccess, onError, onProgress, cancelQuery);
+            await apiFile.UploadFileComponentVerifyRecord(fileDescriptorType, fileDesc);
         }
     }
-
-#endif
 }
+#endif

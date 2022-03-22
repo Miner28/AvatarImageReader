@@ -28,7 +28,7 @@ namespace AvatarImageReader.Editor
 
             if (GUILayout.Button("Encode Image"))
             {
-                output = AvatarImageEncoder.EncodeUTF16Text(text, null);
+                output = AvatarImageEncoder.EncodeUTF16Text(text, "avtr_b36fc6a5-7b8f-4390-a6d1-b49485f4eef0");
             }
 
             if (output != null)

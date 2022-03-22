@@ -1,355 +1,178 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEditor;
-using UnityEngine;
 using VRC.Core;
-using VRC.SDKBase.Editor;
-using VRC.Udon.Serialization.OdinSerializer.Utilities;
 
 namespace BocuD.VRChatApiTools
 {
+    [InitializeOnLoad]
     public static class VRChatApiToolsEditor
     {
-        /// <summary>
-        /// Draws inspector for VRChat ApiAvatar from blueprint ID
-        /// </summary>
-        /// <param name="blueprintID">The blueprint ID for the avatar to be displayed</param>
-        public static void DrawAvatarInspector(string blueprintID)
+        public static EditorCoroutine fetchingWorlds;
+        public static EditorCoroutine fetchingAvatars;
+        
+        static VRChatApiToolsEditor()
         {
-            if (blueprintID.IsNullOrWhitespace()) return;
-            if (!APIUser.IsLoggedIn)
-            {
-                VRChatApiToolsEditor.HandleLogin(null, false);
-                return;
-            }
+            //gotta love this
+            VRChatApiTools.DownloadImage = DownloadImage;
             
-            //already cached
-            if (VRChatApiTools.avatarCache.TryGetValue(blueprintID, out ApiAvatar avatar))
-            {
-                DrawApiAvatarInspector(avatar);
-            }
-            else
-            {
-                //loading
-                if (VRChatApiTools.currentlyFetchingAvatars.Contains(blueprintID))
+            //get access to AsyncProgressBar methods through reflection https://answers.unity.com/questions/1104823/using-editors-built-in-progress-bar.html
+            Type type = typeof(Editor).Assembly.GetTypes().FirstOrDefault(t => t.Name == "AsyncProgressBar");
+            if (type == null) return;
+            
+            _display = type.GetMethod("Display");
+            _clear = type.GetMethod("Clear");
+        }
+        
+        private static MethodInfo _display = null;
+        private static MethodInfo _clear = null;
+
+        public static void ShowGIProgressBar(string aText, float aProgress)
+        {
+            _display?.Invoke(null, new object[] { aText, aProgress });
+        }
+        public static void ClearGIProgressBar()
+        {
+            _clear?.Invoke(null, null);
+        }
+        
+        [MenuItem("Tools/VRChatApiTools/Refresh data")]
+        public static void RefreshData()
+        {
+            Logger.Log("Refreshing data...");
+            VRChatApiTools.ClearCaches();
+            EditorCoroutine.Start(FetchUploadedData());
+        }
+        
+        #region Fetch worlds and avatars owned by user
+        //Almost 1:1 reimplementation of SDK methods
+        public static IEnumerator FetchUploadedData()
+        {
+            VRChatApiTools.uploadedWorlds = new List<ApiWorld>();
+            VRChatApiTools.uploadedAvatars = new List<ApiAvatar>();
+            
+            if (!ConfigManager.RemoteConfig.IsInitialized())
+                ConfigManager.RemoteConfig.Init();
+
+            if (!APIUser.IsLoggedIn)
+                yield break;
+
+            ApiCache.ClearResponseCache();
+            VRCCachedWebRequest.ClearOld();
+
+            if (fetchingAvatars == null)
+                fetchingAvatars = EditorCoroutine.Start(() => FetchAvatars());
+            
+            if (fetchingWorlds == null)
+                fetchingWorlds = EditorCoroutine.Start(() => FetchWorlds());
+        }
+        
+        public static void FetchWorlds(int offset = 0)
+        {
+            ApiWorld.FetchList(
+                delegate(IEnumerable<ApiWorld> worlds)
                 {
-                    EditorGUILayout.LabelField("Loading avatar information...");
-                }
-                else
-                {
-                    //its not invalidated yet, so try loading
-                    if (!VRChatApiTools.invalidAvatars.Contains(blueprintID))
-                    {
-                        VRChatApiTools.FetchApiAvatar(blueprintID);
-                    }
-                    //invalid avatar
+                    if (worlds.FirstOrDefault() != null)
+                        fetchingWorlds = EditorCoroutine.Start(() =>
+                        {
+                            List<ApiWorld> list = worlds.ToList();
+                            int count = list.Count;
+                            VRChatApiTools.SetupWorldData(list);
+                            FetchWorlds(offset + count);
+                        });
                     else
                     {
-                        EditorGUILayout.HelpBox("Couldn't load specified avatar.", MessageType.Error);
+                        fetchingWorlds = null;
+
+                        foreach (ApiWorld w in VRChatApiTools.uploadedWorlds)
+                            DownloadImage(w.id, w.thumbnailImageUrl);
                     }
-                }
-            }
+                },
+                delegate(string obj)
+                {
+                    Logger.LogError("Couldn't fetch world list:\n" + obj);
+                    fetchingWorlds = null;
+                },
+                ApiWorld.SortHeading.Updated,
+                ApiWorld.SortOwnership.Mine,
+                ApiWorld.SortOrder.Descending,
+                offset,
+                20,
+                "",
+                null,
+                null,
+                null,
+                null,
+                "",
+                ApiWorld.ReleaseStatus.All,
+                null,
+                null,
+                true,
+                false);
         }
 
-        /// <summary>
-        /// Draws inspector for VRChat ApiAvatar
-        /// </summary>
-        /// <param name="avatar">Valid ApiAvatar to be drawn</param>
-        public static void DrawApiAvatarInspector(ApiAvatar avatar)
+        public static void FetchAvatars(int offset = 0)
         {
-            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(108));
-            EditorGUILayout.BeginHorizontal();
-
-            if (VRChatApiTools.ImageCache.ContainsKey(avatar.id))
-            {
-                GUILayout.Box(VRChatApiTools.ImageCache[avatar.id], GUILayout.Width(128), GUILayout.Height(99));
-            }
-            else
-            {
-                GUILayout.Box("Loading image...", GUILayout.Width(128), GUILayout.Height(99));
-            }
-
-            EditorGUILayout.BeginVertical();
-            EditorGUILayout.LabelField(avatar.name, EditorStyles.boldLabel);
-            EditorGUILayout.LabelField(avatar.id);
-
-            EditorGUILayout.LabelField("Release Status: " + avatar.releaseStatus);
-
-            if (avatar.authorId != APIUser.CurrentUser.id)
-            {
-                GUIStyle labelStyle = new GUIStyle(EditorStyles.label) {richText = true, wordWrap = true};
-                EditorGUILayout.LabelField("<color=yellow>Warning: You don't own this avatar and won't be able to upload to it</color>", labelStyle);
-            }
-
-            GUILayout.FlexibleSpace();
-
-            EditorGUILayout.BeginHorizontal();
-
-            GUILayout.FlexibleSpace();
-
-            if (GUILayout.Button("Copy ID to clipboard", GUILayout.Width(160)))
-            {
-                GUIUtility.systemCopyBuffer = avatar.id;
-            }
-
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.EndVertical();
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.Space();
-        }
-        
-        public static bool HandleLogin(EditorWindow repaintOnSucces = null, bool displayLoginStatus = true)
-        {
-            if (!APIUser.IsLoggedIn)
-            {
-                if(VRChatApiTools.autoLoginFailed)
+            ApiAvatar.FetchList(
+                delegate(IEnumerable<ApiAvatar> avatars)
                 {
-                    EditorGUILayout.HelpBox(
-                        "You need to be logged in to access VRChat data. Automatically logging in failed, probably because the SDK control panel isn't logged in. Try logging in in the SDK control panel.",
-                        MessageType.Error);
-
-                    if (GUILayout.Button("Open VRCSDK Control Panel"))
-                    {
-                        VRCSettings.ActiveWindowPanel = 0;
-                        VRCSdkControlPanel controlPanel = EditorWindow.GetWindow<VRCSdkControlPanel>();
-                    }
-                }
-                else
-                {
-                    if (repaintOnSucces != null) VRChatApiTools.TryAutoLogin(repaintOnSucces.Repaint);
-                    else VRChatApiTools.TryAutoLogin();
-
-                    EditorGUILayout.BeginVertical(GUI.skin.box);
-
-                    EditorGUILayout.LabelField("Logging in...");
-                    
-                    EditorGUILayout.EndVertical();
-                }
-            }
-            else if(displayLoginStatus)
-            {
-                EditorGUILayout.HelpBox($"Currently logged in as {APIUser.CurrentUser.displayName}", MessageType.Info);
-            }
-
-            return APIUser.IsLoggedIn;
-        }
-    }
-    
-    public class AvatarPicker : EditorWindow
-    {
-        private string targetString;
-        private Action<ApiAvatar> onComplete;
-
-        public static void ApiAvatarSelector(Action<ApiAvatar> OnComplete)
-        {
-            AvatarPicker avatarPicker = GetWindow<AvatarPicker>();
-            avatarPicker.onComplete = OnComplete;
-        }
-
-        private void OnGUI()
-        {
-            if (!VRChatApiToolsEditor.HandleLogin(this)) return;
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("VRChat Avatar List", EditorStyles.boldLabel);
-
-            if (VRChatApiTools.uploadedAvatars == null)
-            {
-                VRChatApiTools.uploadedAvatars = new List<ApiAvatar>();
-
-                EditorCoroutine.Start(VRChatApiTools.FetchUploadedData());
-            }
-
-            if (VRChatApiTools.fetchingAvatars != null)
-            {
-                GUILayout.FlexibleSpace();
-                EditorGUILayout.LabelField("Fetching data from VRChat Api");
-            }
-            else
-            {
-                GUILayout.FlexibleSpace();
-                
-                if (GUILayout.Button("Enter ID", GUILayout.Width(120)))
-                {
-                    ManualAvatarSelector.AvatarSelector(ManuallySelected);
-                }
-                
-                if (GUILayout.Button("Refresh", GUILayout.Width(120)))
-                {
-                    VRChatApiTools.ClearCaches();
-                }
-            }
-
-            EditorGUILayout.EndHorizontal();
-
-            RenderListContents();
-        }
-
-        private Vector2 listScroll;
-        private string searchString = "";
-
-        private void RenderListContents()
-        {
-            if (VRChatApiTools.uploadedAvatars == null) return;
-
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            GUILayout.BeginHorizontal();
-
-            GUILayout.BeginVertical();
-
-            EditorGUILayout.BeginHorizontal();
-
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Uploaded Avatars", EditorStyles.boldLabel, GUILayout.Width(110));
-
-            float searchFieldShrinkOffset = searchString == "" ? 0 : 20f;
-
-            GUILayoutOption layoutOption = (GUILayout.Width(position.width - searchFieldShrinkOffset));
-            searchString = EditorGUILayout.TextField(searchString, GUI.skin.FindStyle("SearchTextField"), layoutOption);
-
-            GUIStyle searchButtonStyle = searchString == string.Empty
-                ? GUI.skin.FindStyle("SearchCancelButtonEmpty")
-                : GUI.skin.FindStyle("SearchCancelButton");
-
-            if (GUILayout.Button("", searchButtonStyle))
-            {
-                searchString = "";
-                GUI.FocusControl(null);
-            }
-
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.EndVertical();
-            EditorGUILayout.EndHorizontal();
-
-            GUILayout.FlexibleSpace();
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.Space();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-
-            listScroll = EditorGUILayout.BeginScrollView(listScroll, GUILayout.Width(position.width));
-
-            List<ApiAvatar> displayedAvatars =
-                VRChatApiTools.uploadedAvatars.OrderByDescending(x => x.updated_at).ToList();
-
-            if (displayedAvatars.Count > 0)
-            {
-                foreach (ApiAvatar avatar in displayedAvatars)
-                {
-                    if (!avatar.name.ToLowerInvariant().Contains(searchString.ToLowerInvariant()))
-                    {
-                        continue;
-                    }
-
-                    EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(108));
-                    EditorGUILayout.BeginHorizontal();
-
-                    if (VRChatApiTools.ImageCache.ContainsKey(avatar.id))
-                    {
-                        GUILayout.Box(VRChatApiTools.ImageCache[avatar.id], GUILayout.Width(128), GUILayout.Height(99));
-                    }
+                    if (avatars.FirstOrDefault() != null)
+                        fetchingAvatars = EditorCoroutine.Start(() =>
+                        {
+                            List<ApiAvatar> list = avatars.ToList();
+                            int count = list.Count;
+                            VRChatApiTools.SetupAvatarData(list);
+                            FetchAvatars(offset + count);
+                        });
                     else
                     {
-                        GUILayout.Box("Loading image...", GUILayout.Width(128), GUILayout.Height(99));
+                        fetchingAvatars = null;
+
+                        foreach (ApiAvatar a in VRChatApiTools.uploadedAvatars)
+                            DownloadImage(a.id, a.thumbnailImageUrl);
                     }
-
-                    EditorGUILayout.BeginVertical();
-                    EditorGUILayout.LabelField(avatar.name, EditorStyles.boldLabel);
-                    EditorGUILayout.LabelField(avatar.id);
-
-                    EditorGUILayout.LabelField("Release Status: " + avatar.releaseStatus);
-
-                    GUILayout.FlexibleSpace();
-
-                    EditorGUILayout.BeginHorizontal();
-
-                    GUILayout.FlexibleSpace();
-
-                    if (GUILayout.Button("Copy ID to clipboard", GUILayout.Width(160)))
-                    {
-                        GUIUtility.systemCopyBuffer = avatar.id;
-                    }
-
-                    if (GUILayout.Button("Select Avatar", GUILayout.Width(140)))
-                    {
-                        onComplete(avatar);
-                        Close();
-                    }
-
-                    EditorGUILayout.EndHorizontal();
-
-                    EditorGUILayout.EndVertical();
-                    EditorGUILayout.EndHorizontal();
-                    EditorGUILayout.EndHorizontal();
-                    EditorGUILayout.Space();
-                }
-            }
-
-            EditorGUILayout.EndScrollView();
-
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-        }
-
-        private void ManuallySelected(ApiAvatar avatar)
-        {
-            onComplete(avatar);
-            Close();
-        }
-    }
-
-    public class ManualAvatarSelector : EditorWindow
-    {
-        private Action<ApiAvatar> OnSelected;
-        
-        public static void AvatarSelector(Action<ApiAvatar> onSelected)
-        {
-            ManualAvatarSelector avatarPicker = GetWindow<ManualAvatarSelector>();
-            avatarPicker.OnSelected = onSelected;
-        }
-
-        private string avatarID = "";
-        
-        private void OnGUI()
-        {
-            if (!VRChatApiToolsEditor.HandleLogin(this)) return;
-
-            EditorGUILayout.BeginHorizontal();
-            avatarID = EditorGUILayout.TextField("Avatar blueprint ID", avatarID);
-            if (GUILayout.Button("Load Avatar"))
-            {
-                if (!VRChatApiTools.avatarCache.ContainsKey(avatarID))
-                    VRChatApiTools.FetchApiAvatar(avatarID);
-            }
-            
-            EditorGUILayout.EndHorizontal();
-
-            if (VRChatApiTools.avatarCache.TryGetValue(avatarID, out ApiAvatar avatar))
-            {
-                EditorGUILayout.BeginHorizontal();
-                if (VRChatApiTools.ImageCache.ContainsKey(avatarID))
+                },
+                delegate(string obj)
                 {
-                    GUILayout.Box(VRChatApiTools.ImageCache[avatarID]);
-                }
+                    Logger.LogError("Couldn't fetch avatar list:\n" + obj);
+                    fetchingAvatars = null;
+                },
+                ApiAvatar.Owner.Mine,
+                ApiAvatar.ReleaseStatus.All,
+                null,
+                20,
+                offset,
+                ApiAvatar.SortHeading.None,
+                ApiAvatar.SortOrder.Descending,
+                null,
+                null,
+                true,
+                false,
+                null,
+                false
+            );
+        }
+        #endregion
+        
+        public static void DownloadImage(string blueprintID, string url)
+        {
+            if (string.IsNullOrEmpty(url)) return;
+            if (VRChatApiTools.ImageCache.ContainsKey(blueprintID) && VRChatApiTools.ImageCache[blueprintID] != null) return;
 
-                EditorGUILayout.BeginVertical();
-                EditorGUILayout.LabelField("Name: ", avatar.name);
-                EditorGUILayout.LabelField("Status: ", avatar.releaseStatus);
-                EditorGUILayout.EndVertical();
-                EditorGUILayout.EndHorizontal();
-
-                if (GUILayout.Button("Select this avatar"))
+            EditorCoroutine.Start(VRCCachedWebRequest.Get(url, texture =>
+            {
+                if (texture != null)
                 {
-                    OnSelected(avatar);
-                    Close();
+                    VRChatApiTools.ImageCache[blueprintID] = texture;
                 }
-            }
+                else if (VRChatApiTools.ImageCache.ContainsKey(blueprintID))
+                {
+                    VRChatApiTools.ImageCache.Remove(blueprintID);
+                }
+            }));
         }
     }
 }

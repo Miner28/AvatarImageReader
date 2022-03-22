@@ -9,7 +9,7 @@ namespace AvatarImageReader
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class AvatarImagePrefab : UdonSharpBehaviour
     {
-        public string linkedAvatar;
+        public string[] linkedAvatars;
         public string uid = "";
         public bool pedestalAssetsReady;
         public bool destroyPedestalOnComplete = true;

@@ -27,17 +27,74 @@
 // released under the terms of the License used by "https://github.com/Miner28/AvatarImageReader" at the time of writing,
 // included in the header of this C# file.
 
+#if UNITY_EDITOR && !COMPILER_UDONSHARP
+
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Utilities.Encoders;
+using BocuD.VRChatApiTools;
 using UnityEngine;
 
 namespace AvatarImageDecoder
 {
     public static class AvatarImageEncoder
     {
+        private const int headerSize = 20;
+        private const int questBytes = (128 * 96 * 4) - headerSize;
+        private const int pcBytes = (1200 * 900 * 4) - headerSize;
+
+        /// <summary>
+        /// Multi Avatar Image Encoder. Internally calls the existing single image EncodeUTF16Text function, but handles multi avatar headers.
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <param name="availableAvatars">Array of blueprint IDs to use for encoding headers</param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static Texture2D[] EncodeUTF16Text(string input, string[] availableAvatars, int width, int height)
+        {
+            Debug.Log($"Starting Multi Avatar Image Encoder");
+            Debug.Log($"Input character count: {input.Length}");
+            
+            int imageByteCount = (width * height * 4) - headerSize;
+            Debug.Log($"Image byte count: {imageByteCount}");
+            int imageCharCount = imageByteCount / 2;
+            Debug.Log($"Image char count: {imageCharCount}");
+            int outputImageCount = (int)Math.Ceiling((float)input.Length / imageCharCount);
+            if (outputImageCount == 0) outputImageCount = 1;
+            Debug.Log($"Output Image count: {outputImageCount}");
+
+            if (outputImageCount - 1 <= availableAvatars.Length)
+            {
+                Texture2D[] outTex = new Texture2D[outputImageCount];
+                string[] outputStrings = new string[outputImageCount];
+
+                for (int i = 0; i < outputStrings.Length; i++)
+                {
+                    int startIndex = imageCharCount * i;
+                    int length = Mathf.Min(imageCharCount * i + imageCharCount, input.Length - startIndex);
+
+                    Texture2D inputTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+                    
+                    outputStrings[i] = input.Substring(startIndex, length);
+                    
+                    string snippet = outputStrings[i].Length > 30 ? "..." + outputStrings[i].Substring(0, 30) + "..." : "string too short to get snippet";
+                    Debug.Log($"Encoding Image {i+1} / {outputImageCount}: Offset {startIndex}; Length {length}; Header Avatar: {availableAvatars[i]}; String snippet: {snippet}");
+                    
+                    outTex[i] = EncodeUTF16Text(outputStrings[i], availableAvatars[i], inputTexture);
+                }
+
+                return outTex;
+            }
+            else
+            {
+                throw new Exception("Not enough avatar IDs were provided to encode the provided string");
+            }
+        }
+        
         /// <summary>
         /// This is a C# implementation of "https://github.com/Miner28/AvatarImageReader/tree/main/Assets/AvatarImageDecoder/Python%20Encoder/gen.py".
         /// The Python script implementation is authoritative over this C# implementation.
@@ -51,17 +108,17 @@ namespace AvatarImageDecoder
         /// <param name="avatar">Next-up Avatar to be encoded in header</param>
         /// <param name="inputTextureNullable">Optional 128x96 texture to use as an input. The pixels will not be reinitialized.</param>
         /// <returns>Encoded image</returns>
-        public static Texture2D EncodeUTF16Text(string input, string avatar="", Texture2D inputTextureNullable = null)
+        public static Texture2D EncodeUTF16Text(string input, string avatar = "", Texture2D inputTextureNullable = null)
         {
             // gen.py:6
-            var textbyteArray = Encoding.Unicode.GetBytes(input);
+            byte[] textbyteArray = Encoding.Unicode.GetBytes(input);
 
-            if (avatar != "" && new Regex(@"avtr_[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}").Match(avatar).Length > 0)
+            if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(VRChatApiTools.avatar_regex, avatar))
             {
                 avatar = avatar.Replace("avtr_", "").Replace("-", "");
-                var hex = StringToByteArray(avatar);
-                var textByteList = textbyteArray.ToList();
-                foreach (var b in hex.Reverse())
+                byte[] hex = StringToByteArray(avatar);
+                List<byte> textByteList = textbyteArray.ToList();
+                foreach (byte b in hex.Reverse())
                 {
                     textByteList.Prepend<byte>(b);
                 }
@@ -174,5 +231,6 @@ namespace AvatarImageDecoder
                 .ToArray();
         }
     }
-    
 }
+
+#endif
