@@ -41,9 +41,10 @@ namespace AvatarImageReader.Editor
         private TextStorageObject textStorageObject;
         private int lastImageMode;
 
-        private void OnEnable()
+        private void Init()
         {
-            reader = (AvatarImagePrefab)target;
+            if (reader == null)
+                return;
             
             //set up TextStorageObject monobehaviour
             if (reader.GetComponentInChildren<TextStorageObject>())
@@ -67,12 +68,20 @@ namespace AvatarImageReader.Editor
             }
 
             lastImageMode = reader.imageMode;
+
+            init = true;
         }
 
+        private bool init = false;
+        
         public override void OnInspectorGUI()
         {
             if (UdonSharpGUI.DrawDefaultUdonSharpBehaviourHeader(target)) return;
 
+            reader = (AvatarImagePrefab)target;
+
+            if(!init) Init();
+            
             reader.UpdateProxy();
             
             //make sure the first avatar is always initialised
