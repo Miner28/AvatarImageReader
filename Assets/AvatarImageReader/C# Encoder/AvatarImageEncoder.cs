@@ -117,24 +117,18 @@ namespace AvatarImageDecoder
             {
                 avatar = avatar.Replace("avtr_", "").Replace("-", "");
                 byte[] hex = StringToByteArray(avatar);
-                List<byte> textByteList = textbyteArray.ToList();
                 foreach (byte b in hex.Reverse())
                 {
-                    textByteList.Prepend<byte>(b);
+                    textbyteArray = textbyteArray.Prepend<byte>(b).ToArray();
                 }
 
-                textbyteArray = textByteList.ToArray();
             }
             else
             {
-                var textByteList = textbyteArray.ToList();
-                
                 foreach (var b in new byte[] {255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255})
                 {
-                    textByteList.Prepend<byte>(b);
+                    textbyteArray = textbyteArray.Prepend<byte>(b).ToArray();
                 }
-
-                textbyteArray = textByteList.ToArray();
             }
 
             // gen.py:7
