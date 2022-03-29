@@ -13,6 +13,6 @@
     "buffer": "^6.0.3",
     "minimist": "^1.2.5",
     "node-fetch": "^2.6.1",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.5"
   }
 }
