@@ -12,7 +12,7 @@
   "dependencies": {
     "buffer": "^6.0.3",
     "minimist": "^1.2.6",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "shelljs": "^0.8.5"
   }
 }
