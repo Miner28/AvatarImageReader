@@ -27,8 +27,6 @@ namespace BocuD.VRChatApiTools
         [NonSerialized] public static List<string> invalidBlueprints = new List<string>();
 
         [NonSerialized] public static Dictionary<string, ApiModel> blueprintCache = new Dictionary<string, ApiModel>();
-        [NonSerialized] public static Dictionary<string, ApiWorld> worldCache = new Dictionary<string, ApiWorld>();
-        [NonSerialized] public static Dictionary<string, ApiAvatar> avatarCache = new Dictionary<string, ApiAvatar>();
 
         public static Action<string, string> DownloadImage;
         
@@ -75,6 +73,7 @@ namespace BocuD.VRChatApiTools
         {
             uploadedWorlds = null;
             uploadedAvatars = null;
+                        
 
             ImageCache.Clear();
             currentlyFetching.Clear();
@@ -429,6 +428,7 @@ namespace BocuD.VRChatApiTools
             public string newImagePath = "";
         }
 
+        [Serializable]
         public class WorldInfo : BlueprintInfo
         {
             public List<string> tags = new List<string>();
@@ -469,6 +469,27 @@ namespace BocuD.VRChatApiTools
                     return "android";
                 default:
                     return "unknownplatform";
+            }
+        }
+
+        public static string ToPrettyString(this ApiModel.SupportedPlatforms platforms)
+        {
+            switch (platforms)
+            {
+                case ApiModel.SupportedPlatforms.None:
+                    return "None";
+                        
+                case ApiModel.SupportedPlatforms.StandaloneWindows:
+                    return "Windows";
+                        
+                case ApiModel.SupportedPlatforms.Android:
+                    return "Android";
+                        
+                case ApiModel.SupportedPlatforms.All:
+                    return "Cross Platform";
+                
+                default:
+                    return "Unknown";
             }
         }
 

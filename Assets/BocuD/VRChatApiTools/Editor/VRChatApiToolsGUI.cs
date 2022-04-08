@@ -98,27 +98,37 @@ namespace BocuD.VRChatApiTools
         /// <param name="secondaryButtons">Action params that can be implemented to add extra GUI functionality to inspector</param>
         public static void DrawBlueprintInspector(ApiModel model, bool small = true, params Action[] secondaryButtons)
         {
-            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(108));
-            EditorGUILayout.BeginHorizontal();
-
             string modelName = "";
+            string releaseStatus = "";
+            string authorName = "";
             bool isWorld = false;
             
             switch (model)
             {
                 case ApiWorld world:
                     modelName = world.name;
+                    releaseStatus = world.releaseStatus;
+                    authorName = world.authorName;
                     isWorld = true;
                     break;
                 
                 case ApiAvatar avatar:
                     modelName = avatar.name;
+                    releaseStatus = avatar.releaseStatus;
+                    authorName = avatar.authorName;
                     break;
                 
                 default:
-                    Logger.LogWarning("Non world or avatar ApiModel passed to DrawBlueprintInspector");
+                    if (model == null)
+                        EditorGUILayout.HelpBox("Null ApiModel passed to DrawBlueprintInspector", MessageType.Warning);
+                    else
+                        EditorGUILayout.HelpBox("Non world or avatar ApiModel passed to DrawBlueprintInspector", MessageType.Warning);
+                    
                     return;
             }
+            
+            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(108));
+            EditorGUILayout.BeginHorizontal();
 
             if (VRChatApiTools.ImageCache.ContainsKey(model.id))
             {
@@ -133,8 +143,8 @@ namespace BocuD.VRChatApiTools
             EditorGUILayout.LabelField(modelName, EditorStyles.boldLabel);
             EditorGUILayout.LabelField(model.id);
 
-            string releaseStatus = model is ApiWorld ? ((ApiWorld)model).releaseStatus : ((ApiAvatar)model).releaseStatus;
             EditorGUILayout.LabelField("Release Status: " + releaseStatus);
+            EditorGUILayout.LabelField("Author: " + authorName);
 
             GUILayout.FlexibleSpace();
 
@@ -167,7 +177,6 @@ namespace BocuD.VRChatApiTools
             EditorGUILayout.EndVertical();
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndHorizontal();
-            EditorGUILayout.Space();
         }
 
         public static bool HandleLogin(EditorWindow repaintOnSucces = null, bool displayLoginStatus = true)
@@ -207,23 +216,57 @@ namespace BocuD.VRChatApiTools
         }
     }
     
-    public class AvatarPicker : EditorWindow
+    public class BlueprintPicker : EditorWindow
     {
-        private string targetString;
-        private Action<ApiAvatar> onComplete;
+        private ApiModel selection;
+        private Action<ApiModel> onComplete;
+        private Type targetType;
+        private string targetName;
+        private bool confirm;
 
-        public static void ApiAvatarSelector(Action<ApiAvatar> OnComplete)
+        public static void BlueprintSelector<T>(Action<T> onComplete, bool confirm = false, string initialSelection = null) where T : ApiModel
         {
-            AvatarPicker avatarPicker = GetWindow<AvatarPicker>();
-            avatarPicker.onComplete = OnComplete;
+            Type type = typeof(T);
+            BlueprintPicker blueprintPicker;
+            
+            if (type == typeof(ApiWorld))
+            {
+                blueprintPicker = GetWindow<BlueprintPicker>();
+                blueprintPicker.titleContent = new GUIContent("World Picker");
+                blueprintPicker.targetName = "World";
+            } 
+            else if (type == typeof(ApiAvatar))
+            {
+                blueprintPicker = GetWindow<BlueprintPicker>();
+                blueprintPicker.titleContent = new GUIContent("Avatar Picker");
+                blueprintPicker.targetName = "Avatar";
+            }
+            else
+            {
+                throw new ArgumentException("The specified blueprint type is not supported");
+            }
+
+            blueprintPicker.onComplete = m => onComplete((T)m);
+            blueprintPicker.targetType = type;
+            blueprintPicker.minSize = new Vector2(640, 400);
+            blueprintPicker.confirm = confirm;
+            if (initialSelection != null &&
+                VRChatApiTools.blueprintCache.TryGetValue(initialSelection, out ApiModel model))
+            {
+                blueprintPicker.selection = model;
+            }
+            blueprintPicker.UpdateListContent();
         }
 
         private void OnGUI()
         {
-            if (!VRChatApiToolsGUI.HandleLogin(this)) return;
-
+            //close on domain reload as type is not serialized
+            if (targetType == null) Close();
+            
+            if (!VRChatApiToolsGUI.HandleLogin(this, false)) return;
+            
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("VRChat Avatar List", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"{APIUser.CurrentUser.displayName}'s Uploaded {targetName}s", EditorStyles.boldLabel);
 
             if (VRChatApiTools.uploadedAvatars == null)
             {
@@ -243,7 +286,14 @@ namespace BocuD.VRChatApiTools
                 
                 if (GUILayout.Button("Enter ID", GUILayout.Width(120)))
                 {
-                    ManualAvatarSelector.AvatarSelector(ManuallySelected);
+                    if (targetName == "Avatar")
+                    {
+                        ManualBlueprintSelector.BlueprintSelector<ApiAvatar>(OnSelected);
+                    } 
+                    else if (targetName == "World")
+                    {
+                        ManualBlueprintSelector.BlueprintSelector<ApiWorld>(OnSelected);
+                    }
                 }
                 
                 if (GUILayout.Button("Refresh", GUILayout.Width(120)))
@@ -255,168 +305,183 @@ namespace BocuD.VRChatApiTools
             EditorGUILayout.EndHorizontal();
 
             RenderListContents();
+            
+            if (confirm)
+            {
+                EditorGUILayout.LabelField("Current selection:");
+                if (selection == null)
+                {
+                    EditorGUILayout.HelpBox($"No {targetName} is currently selected", MessageType.Info);
+                }
+                else
+                {
+                    VRChatApiToolsGUI.DrawBlueprintInspector(selection, true, () =>
+                    {
+                        if (GUILayout.Button($"Select this {targetName}"))
+                        {
+                            onComplete(selection);
+                            Close();
+                        }
+                    });
+                }
+            }
         }
 
         private Vector2 listScroll;
         private string searchString = "";
+        private List<ApiModel> displayedBlueprints = new List<ApiModel>();
 
         private void RenderListContents()
         {
-            if (VRChatApiTools.uploadedAvatars == null) return;
+            if (VRChatApiTools.uploadedWorlds == null || VRChatApiTools.uploadedAvatars == null) return;
+            
+            GUILayout.BeginHorizontal(GUI.skin.FindStyle("Toolbar"));
+            EditorGUILayout.LabelField("Search ", GUILayout.Width(75));
 
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            GUILayout.BeginHorizontal();
+            searchString = GUILayout.TextField(searchString, GUI.skin.FindStyle("ToolbarSeachTextField"));
+            UpdateListContent();
 
-            GUILayout.BeginVertical();
-
-            EditorGUILayout.BeginHorizontal();
-
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Uploaded Avatars", EditorStyles.boldLabel, GUILayout.Width(110));
-
-            float searchFieldShrinkOffset = searchString == "" ? 0 : 20f;
-
-            GUILayoutOption layoutOption = (GUILayout.Width(position.width - searchFieldShrinkOffset));
-            searchString = EditorGUILayout.TextField(searchString, GUI.skin.FindStyle("SearchTextField"), layoutOption);
-
-            GUIStyle searchButtonStyle = searchString == string.Empty
-                ? GUI.skin.FindStyle("SearchCancelButtonEmpty")
-                : GUI.skin.FindStyle("SearchCancelButton");
-
-            if (GUILayout.Button("", searchButtonStyle))
+            if (GUILayout.Button("", GUI.skin.FindStyle("ToolbarSeachCancelButton")))
             {
+                // Remove focus if cleared
                 searchString = "";
                 GUI.FocusControl(null);
             }
 
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.EndVertical();
-            EditorGUILayout.EndHorizontal();
-
-            GUILayout.FlexibleSpace();
-            EditorGUILayout.EndHorizontal();
+            GUILayout.EndHorizontal();
 
             EditorGUILayout.Space();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
+            listScroll = EditorGUILayout.BeginScrollView(listScroll);
 
-            listScroll = EditorGUILayout.BeginScrollView(listScroll, GUILayout.Width(position.width));
-
-            List<ApiAvatar> displayedAvatars = VRChatApiTools.uploadedAvatars.OrderByDescending(x => x.updated_at).ToList();
-
-            if (displayedAvatars.Count > 0)
+            if (displayedBlueprints.Count > 0)
             {
-                foreach (ApiAvatar avatar in displayedAvatars)
+                foreach (ApiModel m in displayedBlueprints)
                 {
-                    if (!avatar.name.ToLowerInvariant().Contains(searchString.ToLowerInvariant()))
+                    VRChatApiToolsGUI.DrawBlueprintInspector(m, false, () =>
                     {
-                        continue;
-                    }
-
-                    EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(108));
-                    EditorGUILayout.BeginHorizontal();
-
-                    if (VRChatApiTools.ImageCache.ContainsKey(avatar.id))
-                    {
-                        GUILayout.Box(VRChatApiTools.ImageCache[avatar.id], GUILayout.Width(128), GUILayout.Height(99));
-                    }
-                    else
-                    {
-                        GUILayout.Box("Loading image...", GUILayout.Width(128), GUILayout.Height(99));
-                    }
-
-                    EditorGUILayout.BeginVertical();
-                    EditorGUILayout.LabelField(avatar.name, EditorStyles.boldLabel);
-                    EditorGUILayout.LabelField(avatar.id);
-
-                    EditorGUILayout.LabelField("Release Status: " + avatar.releaseStatus);
-
-                    GUILayout.FlexibleSpace();
-
-                    EditorGUILayout.BeginHorizontal();
-
-                    GUILayout.FlexibleSpace();
-
-                    if (GUILayout.Button("Copy ID to clipboard", GUILayout.Width(160)))
-                    {
-                        GUIUtility.systemCopyBuffer = avatar.id;
-                    }
-
-                    if (GUILayout.Button("Select Avatar", GUILayout.Width(140)))
-                    {
-                        onComplete(avatar);
-                        Close();
-                    }
-
-                    EditorGUILayout.EndHorizontal();
-
-                    EditorGUILayout.EndVertical();
-                    EditorGUILayout.EndHorizontal();
-                    EditorGUILayout.EndHorizontal();
-                    EditorGUILayout.Space();
+                        if (GUILayout.Button($"Select {targetName}", GUILayout.Width(140)))
+                        {
+                            OnSelected(m);
+                        }
+                    });
                 }
             }
 
             EditorGUILayout.EndScrollView();
-
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
         }
 
-        private void ManuallySelected(ApiAvatar avatar)
+        private void UpdateListContent()
         {
-            onComplete(avatar);
-            Close();
+            if (targetType == typeof(ApiWorld) && VRChatApiTools.uploadedWorlds != null)
+            {
+                displayedBlueprints = VRChatApiTools.uploadedWorlds.OrderByDescending(x => x.updated_at)
+                    .Where(w => w.name.IndexOf(searchString, StringComparison.InvariantCultureIgnoreCase) >= 0).Cast<ApiModel>().ToList();
+            }
+            else if (targetType == typeof(ApiAvatar) && VRChatApiTools.uploadedAvatars != null)
+            {
+                displayedBlueprints = VRChatApiTools.uploadedAvatars.OrderByDescending(x => x.updated_at)
+                    .Where(a => a.name.IndexOf(searchString, StringComparison.InvariantCultureIgnoreCase) >= 0).Cast<ApiModel>().ToList();
+            }
+            else
+            {
+                displayedBlueprints = new List<ApiModel>();
+            }
+        }
+
+        private void OnSelected(ApiModel model)
+        {
+            if (confirm)
+            {
+                selection = model;
+            }
+            else
+            {
+                onComplete(model);
+                Close();
+            }
         }
     }
 
-    public class ManualAvatarSelector : EditorWindow
+    public class ManualBlueprintSelector : EditorWindow
     {
-        private Action<ApiAvatar> OnSelected;
-        
-        public static void AvatarSelector(Action<ApiAvatar> onSelected)
+        private Action<ApiModel> OnSelected;
+        private Type type;
+        public static void BlueprintSelector<T>(Action<T> onSelected) where T : ApiModel
         {
-            ManualAvatarSelector avatarPicker = GetWindow<ManualAvatarSelector>();
-            avatarPicker.OnSelected = onSelected;
+            ManualBlueprintSelector blueprintPicker;
+            Type t = typeof(T);
+
+            if (t == typeof(ApiWorld))
+            {
+                blueprintPicker = GetWindow<ManualBlueprintSelector>();
+                blueprintPicker.titleContent = new GUIContent("Manual World Selector");
+            } 
+            else if (t == typeof(ApiAvatar))
+            {
+                blueprintPicker = GetWindow<ManualBlueprintSelector>();
+                blueprintPicker.titleContent = new GUIContent("Manual Avatar Selector");
+            }
+            else
+            {
+                throw new ArgumentException("The specified blueprint type is not supported");
+            }
+
+            blueprintPicker.type = t;
+            blueprintPicker.OnSelected = model => onSelected((T)model);
+            blueprintPicker.minSize = new Vector2(500, 150);
+            blueprintPicker.maxSize = blueprintPicker.minSize;
         }
 
-        private string avatarID = "";
+        private string blueprintID = "";
+        private bool ranFetch = false;
         
         private void OnGUI()
         {
-            if (!VRChatApiToolsGUI.HandleLogin(this)) return;
+            //close on domain reload as type is not serialized
+            if(type == null) Close();
+            
+            if (!VRChatApiToolsGUI.HandleLogin(this, false)) return;
 
             EditorGUILayout.BeginHorizontal();
-            avatarID = EditorGUILayout.TextField("Avatar blueprint ID", avatarID);
-            if (GUILayout.Button("Load Avatar"))
+            EditorGUILayout.LabelField("Blueprint ID", GUILayout.Width(100));
+            string oldID = blueprintID;
+            blueprintID = EditorGUILayout.TextField(blueprintID);
+            if (oldID != blueprintID) ranFetch = false;
+
+            bool valid = Regex.IsMatch(blueprintID, VRChatApiTools.world_regex) && type == typeof(ApiWorld) ||
+                         Regex.IsMatch(blueprintID, VRChatApiTools.avatar_regex) && type == typeof(ApiAvatar);
+
+            using (new EditorGUI.DisabledScope(!valid))
             {
-                if (!VRChatApiTools.blueprintCache.ContainsKey(avatarID))
-                    VRChatApiTools.FetchApiAvatar(avatarID);
+                if (GUILayout.Button("Load", GUILayout.Width(60)))
+                {
+                    if (!VRChatApiTools.blueprintCache.ContainsKey(blueprintID))
+                    {
+                        if (blueprintID.StartsWith("wrld"))
+                            VRChatApiTools.FetchApiWorld(blueprintID);
+                        else
+                            VRChatApiTools.FetchApiAvatar(blueprintID);
+                    }
+
+                    ranFetch = true;
+                }
             }
-            
+
             EditorGUILayout.EndHorizontal();
 
-            if (VRChatApiTools.blueprintCache.TryGetValue(avatarID, out ApiModel model))
+            if (ranFetch)
             {
-                ApiAvatar avatar = (ApiAvatar) model;
-                EditorGUILayout.BeginHorizontal();
-                if (VRChatApiTools.ImageCache.ContainsKey(avatarID))
+                if (VRChatApiTools.blueprintCache.TryGetValue(blueprintID, out ApiModel model))
                 {
-                    GUILayout.Box(VRChatApiTools.ImageCache[avatarID]);
-                }
-
-                EditorGUILayout.BeginVertical();
-                EditorGUILayout.LabelField("Name: ", avatar.name);
-                EditorGUILayout.LabelField("Status: ", avatar.releaseStatus);
-                EditorGUILayout.EndVertical();
-                EditorGUILayout.EndHorizontal();
-
-                if (GUILayout.Button("Select this avatar"))
-                {
-                    OnSelected(avatar);
-                    Close();
+                    VRChatApiToolsGUI.DrawBlueprintInspector(model, true, () =>
+                    {
+                        if (GUILayout.Button("Select this blueprint"))
+                        {
+                            OnSelected(model);
+                            Close();
+                        }
+                    });
                 }
             }
         }

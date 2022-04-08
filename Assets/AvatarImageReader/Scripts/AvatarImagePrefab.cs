@@ -19,7 +19,7 @@ namespace AvatarImageReader
         public int imageMode = 0;
 
         [Header("General Options")]
-        [Tooltip("Increasing step size decreases decode time but increases frametimes")] 
+        [Tooltip("Increasing step size decreases decode time but increases frametimes")]
         public int stepLength = 200;
     
         public bool outputToText;

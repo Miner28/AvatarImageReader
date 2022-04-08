@@ -15,7 +15,7 @@ using Debug = UnityEngine.Debug;
 namespace BocuD.VRChatApiTools
 {
     public class VRChatApiUploaderAsync
-    { 
+    {
         public delegate void SetStatusFunc(string header, string status = null, string subStatus = null);
         public delegate void SetUploadProgressFunc(long done, long total);
         public delegate void SetUploadStateFunc(VRChatApiToolsUploadStatus.UploadState state);
@@ -27,7 +27,7 @@ namespace BocuD.VRChatApiTools
         public SetStatusFunc OnStatus = (header, status, subStatus) => { };
         public SetUploadProgressFunc OnUploadProgress = (done, total) => { };
         public SetUploadStateFunc OnUploadState = state => { };
-        public SetErrorStateFunc OnError = (header, details) => { };
+        public SetErrorStateFunc OnError = (header, details) => { Debug.LogError($"{header}: {details}"); };
         public LoggerFunc Log = contents => Logger.Log(contents);
         public LoggerFunc LogWarning = contents => Logger.LogWarning(contents);
         public LoggerFunc LogError = contents => Logger.LogError(contents);
@@ -54,6 +54,12 @@ namespace BocuD.VRChatApiTools
 
         public async Task UpdateAvatarImage(ApiAvatar avatar, string newImagePath)
         {
+            if (avatar.authorId != APIUser.CurrentUser.id)
+            {
+                OnError("Can't modify specified avatar", "Logged in user doesn't match author");
+                return;
+            }
+            
             avatar.imageUrl = await UploadImage(avatar.imageUrl, VRChatApiTools.GetFriendlyAvatarFileName("Image", avatar.id, VRChatApiTools.CurrentPlatform()), newImagePath);
 
             await ApplyAvatarChanges(avatar);
@@ -63,6 +69,12 @@ namespace BocuD.VRChatApiTools
 
         public async Task ApplyAvatarChanges(ApiAvatar avatar)
         {
+            if (avatar.authorId != APIUser.CurrentUser.id)
+            {
+                OnError("Can't modify specified avatar", "Logged in user doesn't match author");
+                return;
+            }
+            
             bool doneUploading = false;
 
             OnStatus("Applying Avatar Changes");
@@ -127,6 +139,12 @@ namespace BocuD.VRChatApiTools
                 LogError("Couldn't get world record");
                 return;
             }
+            
+            if (isUpdate && apiWorld.authorId != APIUser.CurrentUser.id)
+            {
+                OnError("Can't modify specified world", "Logged in user doesn't match author");
+                return;
+            }
 
             //Prepare asset bundle
             string blueprintId = apiWorld.id;
@@ -150,6 +168,12 @@ namespace BocuD.VRChatApiTools
 
         public async Task UploadWorldData(ApiWorld apiWorld, string uploadUnityPackagePath, string uploadVrcPath, bool isUpdate, VRChatApiTools.Platform platform, VRChatApiTools.WorldInfo worldInfo = null)
         {
+            if (apiWorld.authorId != APIUser.CurrentUser.id)
+            {
+                OnError("Can't modify specified world", "Logged in user doesn't match author");
+                return;
+            }
+            
             string unityPackageUrl = "";
             string assetBundleUrl = "";
 
@@ -193,6 +217,12 @@ namespace BocuD.VRChatApiTools
 
         public async Task<bool> UpdateWorldBlueprint(ApiWorld apiWorld, string newAssetUrl, string newPackageUrl, VRChatApiTools.Platform platform, VRChatApiTools.WorldInfo worldInfo = null)
         {
+            if (apiWorld.authorId != APIUser.CurrentUser.id)
+            {
+                OnError("Can't modify specified world", "Logged in user doesn't match author");
+                return false;
+            }
+            
             bool applied = false;
 
             if (worldInfo != null)
@@ -377,8 +407,7 @@ namespace BocuD.VRChatApiTools
             return uploadUnityPackagePath;
         }
 
-        public static string PrepareVRCPathForS3(string assetBundlePath, string blueprintId, int version, VRChatApiTools.Platform platform,
-            AssetVersion assetVersion)
+        private static string PrepareVRCPathForS3(string assetBundlePath, string blueprintId, int version, VRChatApiTools.Platform platform, AssetVersion assetVersion)
         {
             string uploadVrcPath =
                 $"{Application.temporaryCachePath}/{blueprintId}_{version}_{Application.unityVersion}_{assetVersion.ApiVersion}_{platform.ToApiString()}_{API.GetServerEnvironmentForApiUrl()}{Path.GetExtension(assetBundlePath)}";

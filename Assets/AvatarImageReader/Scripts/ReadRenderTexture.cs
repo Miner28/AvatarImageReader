@@ -172,8 +172,8 @@ namespace AvatarImageReader
             {
                 Color c = colors[index];
 
-                tempString += ConvertBytesToUTF16((byte) (c.r * 255), (byte) (c.g * 255));
-                tempString += ConvertBytesToUTF16((byte) (c.b * 255), (byte) (c.a * 255));
+                tempString += (char) ((byte) (c.r * 255) | ((byte) (c.g * 255) << 8));
+                tempString += (char) ((byte) (c.b * 255) | ((byte) (c.a * 255) << 8));
                 
                 byteIndex += 4;
 

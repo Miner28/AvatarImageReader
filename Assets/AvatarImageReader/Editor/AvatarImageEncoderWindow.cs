@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using AvatarImageDecoder;
 using BocuD.VRChatApiTools;
 using UnityEditor;
@@ -68,7 +69,7 @@ namespace AvatarImageReader.Editor
             
                 if (GUILayout.Button("Select avatar"))
                 {
-                    AvatarPicker.ApiAvatarSelector(SetAvatarID);
+                    BlueprintPicker.BlueprintSelector<ApiAvatar>(avatar => selectedAvatar = avatar);
                 }
 
                 if (selectedAvatar != null)
@@ -84,11 +85,6 @@ namespace AvatarImageReader.Editor
                     }
                 }
             }
-        }
-
-        public void SetAvatarID(ApiAvatar avatar)
-        {
-            selectedAvatar = avatar;
         }
     }
 }

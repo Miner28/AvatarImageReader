@@ -1,0 +1,71 @@
+{
+    "currentBranch": 0,
+    "branches": [
+        {
+            "name": "new branch",
+            "hasOverrides": false,
+            "blueprintID": "",
+            "branchID": "21A3E05F60",
+            "remoteExists": false,
+            "cachedName": "Unpublished VRChat world",
+            "cachedDescription": "",
+            "cachedCap": 16,
+            "cachedRelease": "New world",
+            "cachedTags": [],
+            "editedName": "New VRChat World",
+            "editedDescription": "Fancy description for your world",
+            "editedCap": 16,
+            "editedTags": [],
+            "nameChanged": false,
+            "descriptionChanged": false,
+            "capacityChanged": false,
+            "tagsChanged": false,
+            "vrcImageHasChanges": false,
+            "overrideImagePath": "",
+            "vrcImageWarning": "",
+            "saveCamPos": true,
+            "uniqueCamPos": false,
+            "camPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "camRot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "buildData": {
+                "justUploaded": false,
+                "pcData": {
+                    "buildPath": "",
+                    "buildHash": "",
+                    "buildTime": "",
+                    "buildVersion": -1,
+                    "buildValid": false,
+                    "uploadTime": "",
+                    "uploadVersion": -1,
+                    "platform": 0
+                },
+                "androidData": {
+                    "buildPath": "",
+                    "buildHash": "",
+                    "buildTime": "",
+                    "buildVersion": -1,
+                    "buildValid": false,
+                    "uploadTime": "",
+                    "uploadVersion": -1,
+                    "platform": 1
+                }
+            },
+            "hasDeploymentData": false,
+            "deploymentData": {
+                "deploymentPath": "",
+                "initialBranchName": "unused",
+                "units": []
+            },
+            "hasUdonLink": false
+        }
+    ]
+}

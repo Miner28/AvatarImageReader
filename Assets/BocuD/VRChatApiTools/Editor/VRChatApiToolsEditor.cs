@@ -27,6 +27,7 @@ namespace BocuD.VRChatApiTools
             _clear = type.GetMethod("Clear");
         }
         
+        //todo: use gi progress bar for fetch status information display
         private static MethodInfo _display = null;
         private static MethodInfo _clear = null;
 
@@ -47,8 +48,8 @@ namespace BocuD.VRChatApiTools
             EditorCoroutine.Start(FetchUploadedData());
         }
         
-        #region Fetch worlds and avatars owned by user
         //Almost 1:1 reimplementation of SDK methods
+        #region Fetch worlds and avatars owned by user
         public static IEnumerator FetchUploadedData()
         {
             VRChatApiTools.uploadedWorlds = new List<ApiWorld>();

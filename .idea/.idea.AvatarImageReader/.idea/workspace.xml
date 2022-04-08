@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="" />
+    <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Example.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/Editor/VRChatApiToolsEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/Editor/VRChatApiToolsEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/Editor/VRChatApiToolsGUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/Editor/VRChatApiToolsGUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/VRChatApiTools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/VRChatApiTools.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/VRChatApiUploaderAsync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/VRChatApiTools/VRChatApiUploaderAsync.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/f2e36c30c5958fc4ab37325a2052906c.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +111,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.environmentSetup" />
+    <property name="settings.editor.selected.configurable" value="io.unthrottled.amii.config.ui.PluginSettingsUI" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -152,6 +164,8 @@
       <workItem from="1642346962030" duration="9286000" />
       <workItem from="1642386819449" duration="395000" />
       <workItem from="1647949596706" duration="12713000" />
+      <workItem from="1649249484130" duration="6578000" />
+      <workItem from="1649369352970" duration="18649000" />
     </task>
     <servers />
   </component>
@@ -174,5 +188,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
