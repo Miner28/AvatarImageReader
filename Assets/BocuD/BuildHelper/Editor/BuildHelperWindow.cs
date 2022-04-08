@@ -1304,7 +1304,7 @@ namespace BocuD.BuildHelper.Editor
                 VRChatApiUploaderAsync uploader = new VRChatApiUploaderAsync();
                 uploader.UseStatusWindow();
 
-                apiWorld.imageUrl = await uploader.UploadImage(apiWorld.imageUrl, GetFriendlyWorldFileName("Image", apiWorld, CurrentPlatform()), branch.overrideImagePath);
+                apiWorld.imageUrl = await uploader.UploadImage(apiWorld, branch.overrideImagePath);
                 branch.vrcImageHasChanges = false;
                 
                 uploader.OnUploadState(VRChatApiToolsUploadStatus.UploadState.finished);

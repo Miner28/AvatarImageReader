@@ -450,8 +450,7 @@ namespace AvatarImageReader.Editor
                         new GUIContent($"Uploading Avatar Image {index + 1} / {textures.Length}");
                     try
                     {
-                        string imagePath = VRChatApiUploaderAsync.SaveImageTemp(texture);
-                        await uploader.UpdateAvatarImage(avatar, imagePath);
+                        await uploader.UpdateBlueprintImage(avatar, texture);
                     }
                     catch (Exception e)
                     {

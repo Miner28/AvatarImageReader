@@ -45,49 +45,59 @@ namespace BocuD.VRChatApiTools
             cancelQuery = () => uploadStatus.cancelRequested;
         }
 
-        public async void SetupAvatarImageUpdate(ApiAvatar apiAvatar, Texture2D newImage)
+        public async Task<bool> UpdateBlueprintImage(ApiModel blueprint, Texture2D newImage)
         {
-            string imagePath = SaveImageTemp(newImage);
+            if (!(blueprint is ApiAvatar) && !(blueprint is ApiWorld))
+                return false;
             
-            await UpdateAvatarImage(apiAvatar, imagePath);
-        }
-
-        public async Task UpdateAvatarImage(ApiAvatar avatar, string newImagePath)
-        {
-            if (avatar.authorId != APIUser.CurrentUser.id)
+            string newImagePath = SaveImageTemp(newImage);
+            
+            if (blueprint is ApiWorld world)
             {
-                OnError("Can't modify specified avatar", "Logged in user doesn't match author");
-                return;
+                world.imageUrl = await UploadImage(world, newImagePath);
+            }
+            else if (blueprint is ApiAvatar avatar)
+            {
+                avatar.imageUrl = await UploadImage(avatar, newImagePath);
             }
             
-            avatar.imageUrl = await UploadImage(avatar.imageUrl, VRChatApiTools.GetFriendlyAvatarFileName("Image", avatar.id, VRChatApiTools.CurrentPlatform()), newImagePath);
+            bool success = await ApplyBlueprintChanges(blueprint);
 
-            await ApplyAvatarChanges(avatar);
+            if (success)
+                OnUploadState(VRChatApiToolsUploadStatus.UploadState.finished);
+            else OnUploadState(VRChatApiToolsUploadStatus.UploadState.failed);
 
-            OnUploadState(VRChatApiToolsUploadStatus.UploadState.finished);
+            return success;
         }
 
-        public async Task ApplyAvatarChanges(ApiAvatar avatar)
+        public async Task<bool> ApplyBlueprintChanges(ApiModel blueprint)
         {
-            if (avatar.authorId != APIUser.CurrentUser.id)
-            {
-                OnError("Can't modify specified avatar", "Logged in user doesn't match author");
-                return;
-            }
-            
+            if (!(blueprint is ApiAvatar) && !(blueprint is ApiWorld))
+                return false;
+
             bool doneUploading = false;
+            bool success = false;
 
-            OnStatus("Applying Avatar Changes");
+            OnStatus("Applying Blueprint Changes");
             
-            avatar.Save(
-                c => { AnalyticsSDK.AvatarUploaded(avatar, true); doneUploading = true; },
-                c => {
-                    LogError(c.Error);
+            blueprint.Save(
+                c =>
+                {
+                    if (blueprint is ApiAvatar) AnalyticsSDK.AvatarUploaded(blueprint, true);
+                    else AnalyticsSDK.WorldUploaded(blueprint, true);
+                    doneUploading = true;
+                    success = true;
+                },
+                c =>
+                {
+                    OnError("Applying blueprint changes failed", c.Error);
                     doneUploading = true;
                 });
 
             while (!doneUploading)
                 await Task.Delay(33);
+
+            return success;
         }
 
         public async Task UploadWorld(string assetbundlePath, string unityPackagePath, VRChatApiTools.WorldInfo worldInfo = null)
@@ -139,12 +149,6 @@ namespace BocuD.VRChatApiTools
                 LogError("Couldn't get world record");
                 return;
             }
-            
-            if (isUpdate && apiWorld.authorId != APIUser.CurrentUser.id)
-            {
-                OnError("Can't modify specified world", "Logged in user doesn't match author");
-                return;
-            }
 
             //Prepare asset bundle
             string blueprintId = apiWorld.id;
@@ -168,19 +172,13 @@ namespace BocuD.VRChatApiTools
 
         public async Task UploadWorldData(ApiWorld apiWorld, string uploadUnityPackagePath, string uploadVrcPath, bool isUpdate, VRChatApiTools.Platform platform, VRChatApiTools.WorldInfo worldInfo = null)
         {
-            if (apiWorld.authorId != APIUser.CurrentUser.id)
-            {
-                OnError("Can't modify specified world", "Logged in user doesn't match author");
-                return;
-            }
-            
             string unityPackageUrl = "";
             string assetBundleUrl = "";
 
             // upload unity package
             if (!string.IsNullOrEmpty(uploadUnityPackagePath))
             {
-                unityPackageUrl = await PrepareFileUpload(uploadUnityPackagePath,
+                unityPackageUrl = await UploadFile(uploadUnityPackagePath,
                     isUpdate ? apiWorld.unityPackageUrl : "",
                     VRChatApiTools.GetFriendlyWorldFileName("Unity package", apiWorld, platform), "Unity package");
             }
@@ -188,7 +186,7 @@ namespace BocuD.VRChatApiTools
             // upload asset bundle
             if (!string.IsNullOrEmpty(uploadVrcPath))
             {
-                assetBundleUrl = await PrepareFileUpload(uploadVrcPath, isUpdate ? apiWorld.assetUrl : "",
+                assetBundleUrl = await UploadFile(uploadVrcPath, isUpdate ? apiWorld.assetUrl : "",
                     VRChatApiTools.GetFriendlyWorldFileName("Asset bundle", apiWorld, platform), "Asset bundle");
             }
             
@@ -201,7 +199,7 @@ namespace BocuD.VRChatApiTools
             bool appliedSucces = false;
 
             if (isUpdate)
-                appliedSucces = await UpdateWorldBlueprint(apiWorld, assetBundleUrl, unityPackageUrl, platform, worldInfo);
+                appliedSucces = await UpdateWorldBlueprint(apiWorld, assetBundleUrl, unityPackageUrl, worldInfo);
             else
                 appliedSucces = await CreateWorldBlueprint(apiWorld, assetBundleUrl, unityPackageUrl, worldInfo);
 
@@ -215,14 +213,8 @@ namespace BocuD.VRChatApiTools
             }
         }
 
-        public async Task<bool> UpdateWorldBlueprint(ApiWorld apiWorld, string newAssetUrl, string newPackageUrl, VRChatApiTools.Platform platform, VRChatApiTools.WorldInfo worldInfo = null)
+        public async Task<bool> UpdateWorldBlueprint(ApiWorld apiWorld, string newAssetUrl, string newPackageUrl, VRChatApiTools.WorldInfo worldInfo = null)
         {
-            if (apiWorld.authorId != APIUser.CurrentUser.id)
-            {
-                OnError("Can't modify specified world", "Logged in user doesn't match author");
-                return false;
-            }
-            
             bool applied = false;
 
             if (worldInfo != null)
@@ -234,7 +226,7 @@ namespace BocuD.VRChatApiTools
 
                 if (worldInfo.newImagePath != "")
                 {
-                    string newImageUrl = await UploadImage(apiWorld.imageUrl, VRChatApiTools.GetFriendlyWorldFileName("Image", apiWorld, platform), worldInfo.newImagePath);
+                    string newImageUrl = await UploadImage(apiWorld, worldInfo.newImagePath);
                     apiWorld.imageUrl = newImageUrl;
                 }
             }
@@ -286,7 +278,7 @@ namespace BocuD.VRChatApiTools
                 unityPackageUrl = newPackageUrl,
                 description = "A description", //temp
                 tags = new List<string>(), //temp
-                releaseStatus = (false) ? ("public") : ("private"), //temp
+                releaseStatus = ("private"), //temp
                 capacity = Convert.ToInt16(16), //temp
                 occupants = 0,
                 shouldAddToAuthor = true,
@@ -302,14 +294,13 @@ namespace BocuD.VRChatApiTools
 
                 if (worldInfo.newImagePath != "")
                 {
-                    newWorld.imageUrl = await UploadImage(newWorld.imageUrl, VRChatApiTools.GetFriendlyWorldFileName("Image", newWorld, VRChatApiTools.CurrentPlatform()), worldInfo.newImagePath);;
+                    newWorld.imageUrl = await UploadImage(newWorld, worldInfo.newImagePath);;
                 }
             }
 
             if (newWorld.imageUrl.IsNullOrWhitespace())
             {
-                newWorld.imageUrl = await UploadImage("", VRChatApiTools.GetFriendlyWorldFileName("Image", newWorld, VRChatApiTools.CurrentPlatform()),
-                    SaveImageTemp(new Texture2D(1200, 900)));
+                newWorld.imageUrl = await UploadImage(newWorld, SaveImageTemp(new Texture2D(1200, 900)));
             }
 
             bool applied = false;
@@ -338,15 +329,32 @@ namespace BocuD.VRChatApiTools
             return success;
         }
         
-        public async Task<string> UploadImage(string existingFileUrl, string friendlyFileName, string newImagePath)
+        public async Task<string> UploadImage(ApiModel blueprint, string newImagePath)
         {
+            string friendlyFileName;
+            string existingFileUrl;
+
+            switch (blueprint)
+            {
+                case ApiWorld world:
+                    friendlyFileName = VRChatApiTools.GetFriendlyWorldFileName("Image", world, VRChatApiTools.CurrentPlatform());
+                    existingFileUrl = world.imageUrl;
+                    break;
+                case ApiAvatar avatar:
+                    friendlyFileName = VRChatApiTools.GetFriendlyAvatarFileName("Image", avatar.id, VRChatApiTools.CurrentPlatform());
+                    existingFileUrl = avatar.imageUrl;
+                    break;
+                default:
+                    throw new ArgumentException("Unsupported ApiModel passed");
+            }
+            
             Log($"Preparing image upload for {newImagePath}...");
             
             string newUrl = null;
 
             if (!string.IsNullOrEmpty(newImagePath))
             {
-                newUrl = await PrepareFileUpload(newImagePath, existingFileUrl, friendlyFileName, "Image");
+                newUrl = await UploadFile(newImagePath, existingFileUrl, friendlyFileName, "Image");
             }
             
             return newUrl;
@@ -363,8 +371,7 @@ namespace BocuD.VRChatApiTools
         private static string ImageName(int width, int height, string name, string savePath) =>
             $"{savePath}/{name}_{width}x{height}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.png";
 
-        public async Task<string> PrepareFileUpload(string filePath, string existingFileUrl, string friendlyFileName,
-            string fileType)
+        public async Task<string> UploadFile(string filePath, string existingFileUrl, string friendlyFileName, string fileType)
         {
             string newFileUrl = "";
 

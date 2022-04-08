@@ -311,13 +311,29 @@ namespace BocuD.VRChatApiTools
                 EditorGUILayout.LabelField("Current selection:");
                 if (selection == null)
                 {
-                    EditorGUILayout.HelpBox($"No {targetName} is currently selected", MessageType.Info);
+                    EditorGUILayout.BeginVertical("Helpbox");
+                    EditorGUILayout.LabelField($"No {targetName} is currently selected");
+
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.FlexibleSpace();
+                    if (GUILayout.Button($"Finish selection"))
+                    {
+                        onComplete(selection);
+                        Close();
+                    }
+                    EditorGUILayout.EndHorizontal();
+                    EditorGUILayout.EndVertical();
                 }
                 else
                 {
                     VRChatApiToolsGUI.DrawBlueprintInspector(selection, true, () =>
                     {
-                        if (GUILayout.Button($"Select this {targetName}"))
+                        if (GUILayout.Button($"Remove selection"))
+                        {
+                            selection = null;
+                        }
+                        
+                        if (GUILayout.Button($"Finish selection"))
                         {
                             onComplete(selection);
                             Close();

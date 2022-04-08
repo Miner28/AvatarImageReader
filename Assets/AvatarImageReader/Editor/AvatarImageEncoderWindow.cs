@@ -81,7 +81,7 @@ namespace AvatarImageReader.Editor
                     if (GUILayout.Button("Upload Image"))
                     {
                         VRChatApiUploaderAsync vrChatApiUploaderAsync = new VRChatApiUploaderAsync();
-                        vrChatApiUploaderAsync.SetupAvatarImageUpdate(selectedAvatar, output);
+                        vrChatApiUploaderAsync.UpdateBlueprintImage(selectedAvatar, output);
                     }
                 }
             }
