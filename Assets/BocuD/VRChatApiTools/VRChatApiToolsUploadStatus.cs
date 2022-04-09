@@ -189,6 +189,7 @@ namespace BocuD.VRChatApiTools
             {
                 userConfirm = false;
                 uploadState = UploadState.aborted;
+                uploadInProgress = false;
                 failAction?.Invoke();
             }
             EditorGUILayout.EndHorizontal();

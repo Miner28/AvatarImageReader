@@ -425,6 +425,7 @@ namespace BocuD.VRChatApiTools
             public string name = "";
             public string blueprintID = "";
             public string description = "";
+            public Texture2D newImage;
             public string newImagePath = "";
         }
 
