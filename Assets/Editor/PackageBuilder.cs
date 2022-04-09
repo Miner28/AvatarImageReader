@@ -1,11 +1,12 @@
 ﻿
-using UnityEngine;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Linq;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Nessie.Utilities.Package
 {
@@ -16,8 +17,12 @@ namespace Nessie.Utilities.Package
         public PackageData PackageData;
         private SerializedObject dataSO;
 
-        [SerializeField] private List<UnityEngine.Object> assetList;
+        [SerializeField] private List<Object> assetList;
         private ReorderableList assetRList;
+
+        private PackageData[] packageDatas;
+        private string[] packageDataNames;
+        private int selectedData = -1;
 
         [MenuItem("Nessie/Package Builder")]
         static void Init()
@@ -30,31 +35,38 @@ namespace Nessie.Utilities.Package
 
         private void OnEnable()
         {
+            Debug.Log("hello");
+            
             thisSO = new SerializedObject(this);
 
             assetRList = new ReorderableList(thisSO, thisSO.FindProperty(nameof(assetList)), true, false, true, true);
-            assetRList.drawHeaderCallback = (Rect rect) => { EditorGUI.LabelField(rect, new GUIContent("Asset References", "Assets packed into the Unity Package.")); };
-            assetRList.drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
+            assetRList.drawHeaderCallback = rect => { EditorGUI.LabelField(rect, new GUIContent("Asset References", "Assets packed into the Unity Package.")); };
+            assetRList.drawElementCallback = (rect, index, isActive, isFocused) =>
             {
                 Rect elementRect = new Rect(rect.x, rect.y + 2, rect.width, EditorGUIUtility.singleLineHeight);
 
                 SerializedProperty elementSP = assetRList.serializedProperty.GetArrayElementAtIndex(index);
 
-                UnityEngine.Object asset = EditorGUI.ObjectField(elementRect, elementSP.objectReferenceValue, typeof(UnityEngine.Object), false);
+                Object asset = EditorGUI.ObjectField(elementRect, elementSP.objectReferenceValue, typeof(Object), false);
 
                 elementSP.objectReferenceValue = asset;
 
                 //EditorGUI.PropertyField(testFieldRect, assetRList.serializedProperty.GetArrayElementAtIndex(index), label: new GUIContent());
             };
-        }
 
+            packageDatas = AssetDatabase.FindAssets("t:PackageData").Select(path => AssetDatabase.LoadAssetAtPath<PackageData>(AssetDatabase.GUIDToAssetPath(path))).ToArray();
+            packageDataNames = packageDatas.Select(d => d.name).ToArray();
+        }
+        
         private void OnGUI()
         {
             thisSO.Update();
 
             EditorGUI.BeginChangeCheck();
 
-            EditorGUILayout.PropertyField(thisSO.FindProperty(nameof(PackageData)));
+            selectedData = EditorGUILayout.Popup("PackageData", selectedData, packageDataNames);
+
+            if (selectedData != -1) PackageData = packageDatas[selectedData];
 
             if (EditorGUI.EndChangeCheck())
             {
@@ -107,12 +119,12 @@ namespace Nessie.Utilities.Package
             }
         }
 
-        private static List<UnityEngine.Object> FindAssets(PackageData Data)
+        private static List<Object> FindAssets(PackageData Data)
         {
-            List<UnityEngine.Object> assets = new List<UnityEngine.Object>();
+            List<Object> assets = new List<Object>();
             foreach (string path in Data.AssetPaths)
             {
-                var asset = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path);
+                var asset = AssetDatabase.LoadAssetAtPath<Object>(path);
                 if (asset != null) assets.Add(asset);
             }
             return assets;
@@ -132,10 +144,17 @@ namespace Nessie.Utilities.Package
             AssetDatabase.Refresh();
         }
 
-        private static void ReadyPath(string folderPath)
+        private static void ReadyPath(string filePath)
         {
-            if (!System.IO.Directory.Exists(folderPath))
-                System.IO.Directory.CreateDirectory(folderPath);
+            string folderPath = Path.GetDirectoryName(filePath);
+            
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Package_Builder
   m_EditorClassIdentifier: 
   Flags: 0
-  PackageName: Package_Builder_v0.1.0
+  PackageName: Package_Builder_v0.1.1
   PackagePath: Assets/Editor/Packages/
   AssetPaths:
   - Assets/Editor/PackageBuilder.cs
