@@ -115,7 +115,7 @@ namespace AvatarImageReader.Editor
             }
 
             EditorGUI.BeginDisabledGroup(reader.linkedAvatars[0].IsNullOrWhitespace());
-            if (GUILayout.Button("Manage Additional Avatars"))
+            if (GUILayout.Button("Manage Avatars"))
             {
                 MultiAvatarManager.SpawnEditor(this);
             }
@@ -131,6 +131,15 @@ namespace AvatarImageReader.Editor
             }
             GUI.backgroundColor = temp;
             EditorGUI.EndDisabledGroup();
+            
+            EditorGUI.BeginDisabledGroup(!APIUser.IsLoggedIn);
+            if (GUILayout.Button("Create Empty"))
+            {
+                //TODO Create Empty Avaatar
+            }
+            
+            EditorGUI.EndDisabledGroup();
+            
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space(4);
             
@@ -321,8 +330,8 @@ namespace AvatarImageReader.Editor
             EditorGUILayout.Space(2);
             
             EditorGUILayout.LabelField("<i>On decode finish:</i>", headerStyle);
-            reader.destroyPedestalOnComplete =
-                EditorGUILayout.Toggle("Destroy pedestal on complete", reader.destroyPedestalOnComplete);
+            reader.actionOnLoad = (int)(ActionOnLoad)
+                EditorGUILayout.EnumPopup("Action on Pedestal load", (ActionOnLoad)reader.actionOnLoad);
             
             reader.outputToText = EditorGUILayout.Toggle("Output to TextMeshPro", reader.outputToText);
             if (reader.outputToText)
@@ -754,6 +763,13 @@ namespace AvatarImageReader.Editor
             
             EditorUtility.SetDirty(instantiated);
         }
+    }
+
+    enum ActionOnLoad
+    {
+        DestroyPedestal,
+        DestroyScript,
+        DisablePedestal
     }
 }
 
