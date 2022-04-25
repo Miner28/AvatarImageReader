@@ -132,13 +132,15 @@ namespace AvatarImageReader.Editor
             GUI.backgroundColor = temp;
             EditorGUI.EndDisabledGroup();
             
+            /*
             EditorGUI.BeginDisabledGroup(!APIUser.IsLoggedIn);
             if (GUILayout.Button("Create Empty"))
             {
-                //TODO Create Empty Avaatar
+                //TODO Create Empty Avatar
             }
             
             EditorGUI.EndDisabledGroup();
+            */
             
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space(4);

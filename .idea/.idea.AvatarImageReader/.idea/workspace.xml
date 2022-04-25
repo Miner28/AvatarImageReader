@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/BuildHelperData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/BuildHelperData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/Editor/BuildHelperVRCCallback.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/Editor/BuildHelperVRCCallback.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/Editor/BuildHelperWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BocuD/BuildHelper/Editor/BuildHelperWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,22 +24,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eae584ce26bc40229c1b1aa476bfa5893e2600/5f/9645e2e1/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d1eb443923248b1828994aabe8ae823568780/1a/cb822464/Void.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/b9/2bf16933/CameraImageCapture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/C# Encoder/AvatarImageEncoder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6e3e43032b0d4239bc6b91c2741b3903f000/b6/adba9e55/VRCAvatarPedestal.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImageEncoderWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eae584ce26bc40229c1b1aa476bfa5893e2600/d0/cfbce478/Environment.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5AC29B9D-5193-4DD3-9A8D-CE946B9985A7/7d/11ca8a55/Color32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A259D3C0-0402-4353-A2C2-17DA97495055/16/a289e4df/EditorUtility.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D1EB443-9232-48B1-8289-94AABE8AE823/17/d558d2e1/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613efe2a9c04eceb57fb4460130a7de295a00/5b/227913b2/ApiModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613efe2a9c04eceb57fb4460130a7de295a00/bb/43f2ed74/ApiAvatar.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D87237C-EA37-43D0-93E2-2C5B98F74FBA/12/23f83724/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6e3e43032b0d4239bc6b91c2741b3903f000/b6/adba9e55/VRCAvatarPedestal.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1613EFE2-A9C0-4ECE-B57F-B4460130A7DE/55/092d5299/AnalyticsSDK.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D87237C-EA37-43D0-93E2-2C5B98F74FBA/f3/06481fdd/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/ReadRenderTexture.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -159,6 +144,7 @@
       <workItem from="1647949596706" duration="12713000" />
       <workItem from="1649249484130" duration="6578000" />
       <workItem from="1649369352970" duration="24365000" />
+      <workItem from="1650896668352" duration="660000" />
     </task>
     <servers />
   </component>
