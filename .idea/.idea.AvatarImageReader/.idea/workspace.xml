@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb377c1-d4de-4c46-9187-896feb205a9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvatarImageReader/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Editor/AvatarImagePrefabEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Example.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Python Encoder/img.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AvatarImageReader/Scripts/AvatarImagePrefab.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/30dfa2e0bff3bc34cb7a4804574b6f97.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SerializedUdonPrograms/5fefb84ec61ff6e40a1806dfad878ee7.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +151,7 @@
       <workItem from="1649249484130" duration="6578000" />
       <workItem from="1649369352970" duration="24365000" />
       <workItem from="1650896668352" duration="660000" />
+      <workItem from="1651006878772" duration="984000" />
     </task>
     <servers />
   </component>

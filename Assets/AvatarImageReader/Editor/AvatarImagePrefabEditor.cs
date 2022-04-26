@@ -242,10 +242,15 @@ namespace AvatarImageReader.Editor
                             EditorGUILayout.BeginVertical();
                             
                             EditorGUILayout.BeginHorizontal();
-                            EditorGUILayout.LabelField($"Image {i+1}/{texturePreview.Length}");
                             
-                            GUILayout.FlexibleSpace();
+                            EditorGUILayout.BeginVertical();
+                            EditorGUILayout.LabelField($"Image {i+1}/{texturePreview.Length}", GUILayout.Width(100));
+                            EditorGUILayout.LabelField("Image dimensions: ", GUILayout.Width(120));
+                            EditorGUILayout.LabelField("Image data type: ", GUILayout.Width(120));
+                            EditorGUILayout.LabelField("Target avatar id: ", GUILayout.Width(120));
+                            EditorGUILayout.EndVertical();
                             
+                            EditorGUILayout.BeginVertical();
                             if (GUILayout.Button("Save Image", GUILayout.Width(120)))
                             {
                                 string path = EditorUtility.SaveFilePanel(
@@ -275,16 +280,6 @@ namespace AvatarImageReader.Editor
                                     AssetDatabase.ImportAsset(path);
                                 }
                             }
-                            EditorGUILayout.EndHorizontal();
-                            
-                            EditorGUILayout.BeginHorizontal();
-                            EditorGUILayout.BeginVertical();
-                            EditorGUILayout.LabelField("Image dimensions: ", GUILayout.Width(120));
-                            EditorGUILayout.LabelField("Image data type: ", GUILayout.Width(120));
-                            EditorGUILayout.LabelField("Target avatar id: ", GUILayout.Width(120));
-                            EditorGUILayout.EndVertical();
-                            
-                            EditorGUILayout.BeginVertical();
                             EditorGUILayout.LabelField($"{imageWidth} x {imageHeight}");
                             EditorGUILayout.LabelField("UTF16 Characters");
                             EditorGUILayout.LabelField(reader.linkedAvatars[i]);
