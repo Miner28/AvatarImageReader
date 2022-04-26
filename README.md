@@ -2,11 +2,9 @@ Download: https://github.com/Miner28/AvatarImageReader/releases/
 
 Demo world: https://vrchat.com/home/launch?worldId=wrld_b906fef2-9c90-463a-bb7b-23d187ccdffe&instanceId=0
 
-# Warning: This documentation is for the (currently) unreleased new version of AvatarImageReader. For documentation to the current release, please look at the [old documentation](https://github.com/Miner28/AvatarImageReader/tree/96751f6b3ccd6fb95d401213f5a34c64a7a50de8).
-
 # AvatarImageReader
-Allows you to encode text into image and then read it in VRChat. Uses Avatar Images to store and load images.
-Works on both PC and Quest
+Allows you to encode text into images and then read it in VRChat. Uses Avatar Thumbnail Images to store and load images.
+Works on both PC and Quest.
 
 ![image](https://user-images.githubusercontent.com/24632962/149594640-bf687e49-7c29-40b2-82d1-1d378bf50477.png)
 
