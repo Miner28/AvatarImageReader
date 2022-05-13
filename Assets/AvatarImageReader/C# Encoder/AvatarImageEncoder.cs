@@ -56,6 +56,7 @@ namespace AvatarImageDecoder
         /// <exception cref="Exception"></exception>
         public static Texture2D[] EncodeUTF16Text(string input, string[] availableAvatars, int width, int height)
         {
+            availableAvatars = availableAvatars.Append("avtr_ffffffff_ffff_ffff_ffff_ffffffffffff").ToArray();
             Debug.Log($"Starting Multi Avatar Image Encoder");
             Debug.Log($"Input character count: {input.Length}");
             
@@ -67,7 +68,7 @@ namespace AvatarImageDecoder
             if (outputImageCount == 0) outputImageCount = 1;
             Debug.Log($"Output Image count: {outputImageCount}");
 
-            if (outputImageCount - 1 <= availableAvatars.Length)
+            if (outputImageCount - 1 <= availableAvatars.Length-1)
             {
                 Texture2D[] outTex = new Texture2D[outputImageCount];
                 string[] outputStrings = new string[outputImageCount];
@@ -82,9 +83,9 @@ namespace AvatarImageDecoder
                     outputStrings[i] = input.Substring(startIndex, length);
                     
                     string snippet = outputStrings[i].Length > 30 ? "..." + outputStrings[i].Substring(0, 30) + "..." : "string too short to get snippet";
-                    Debug.Log($"Encoding Image {i+1} / {outputImageCount}: Offset {startIndex}; Length {length}; Header Avatar: {availableAvatars[i]}; String snippet: {snippet}");
+                    Debug.Log($"Encoding Image {i+1} / {outputImageCount}: Offset {startIndex}; Length {length}; Header Avatar: {availableAvatars[i+1]}; String snippet: {snippet}");
                     
-                    outTex[i] = EncodeUTF16Text(outputStrings[i], availableAvatars[i], inputTexture);
+                    outTex[i] = EncodeUTF16Text(outputStrings[i], availableAvatars[i+1], inputTexture);
                 }
 
                 return outTex;
@@ -113,7 +114,7 @@ namespace AvatarImageDecoder
             // gen.py:6
             byte[] textbyteArray = Encoding.Unicode.GetBytes(input);
 
-            if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(VRChatApiTools.avatar_regex, avatar))
+            if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))
             {
                 avatar = avatar.Replace("avtr_", "").Replace("-", "");
                 byte[] hex = StringToByteArray(avatar);
