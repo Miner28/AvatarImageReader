@@ -17,7 +17,7 @@ def encodeUTF16Text(input:str, avatar:str = ""):
         f = [255] * 16
         textbyte_list = f + textbyte_list
 
-    totalBytes = len(textbyte_list).to_bytes(3, 'big')
+    totalBytes = len(textbyte_list).to_bytes(4, 'big')
 
     if len(textbyte_list) % 4 != 0:
         textbyte_list.append(16)

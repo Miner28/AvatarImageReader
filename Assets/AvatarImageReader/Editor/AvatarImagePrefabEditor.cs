@@ -27,8 +27,8 @@ namespace AvatarImageReader.Editor
         private const string pcDonorImagePath = "Assets/AvatarImageReader/DonorImages/PC.png";
         private const string questDonorImagePath = "Assets/AvatarImageReader/DonorImages/Quest.png";
         
-        private const string pcRTPath = "Assets/AvatarImageReader/DonorImages/PCRT.asset";
-        private const string questRTPath = "Assets/AvatarImageReader/DonorImages/QuestRT.asset";
+        private const string pcRTPath = "Assets/AvatarImageReader/DonorImages/PCCRT.asset";
+        private const string questRTPath = "Assets/AvatarImageReader/DonorImages/QuestCRT.asset";
         
         private Texture2D[] output;
         private GUIContent[] texturePreview;
@@ -321,15 +321,7 @@ namespace AvatarImageReader.Editor
             
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("<b>General Options</b>", headerStyle);
-            GUIContent tooltip = new GUIContent()
-                {text = "Decode step size", tooltip = "Increasing step size decreases decode time but increases frametimes"};
-            reader.stepLength = EditorGUILayout.IntSlider(tooltip, reader.stepLength, 100, 5000);
-            EditorGUILayout.Space(2);
-            
-            EditorGUILayout.LabelField("<i>On decode finish:</i>", headerStyle);
-            reader.actionOnLoad = (int)(ActionOnLoad)
-                EditorGUILayout.EnumPopup("Action on Pedestal load", (ActionOnLoad)reader.actionOnLoad);
-            
+
             reader.outputToText = EditorGUILayout.Toggle("Output to TextMeshPro", reader.outputToText);
             if (reader.outputToText)
             {
@@ -555,8 +547,8 @@ namespace AvatarImageReader.Editor
             Texture2D pcDonor = AssetDatabase.LoadAssetAtPath<Texture2D>(pcDonorImagePath);
             Texture2D questDonor = AssetDatabase.LoadAssetAtPath<Texture2D>(questDonorImagePath);
             
-            RenderTexture pcRT = AssetDatabase.LoadAssetAtPath<RenderTexture>(pcRTPath);
-            RenderTexture questRT = AssetDatabase.LoadAssetAtPath<RenderTexture>(questRTPath);
+            CustomRenderTexture pcRT = AssetDatabase.LoadAssetAtPath<CustomRenderTexture>(pcRTPath);
+            CustomRenderTexture questRT = AssetDatabase.LoadAssetAtPath<CustomRenderTexture>(questRTPath);
 
             reader.readRenderTexture.UpdateProxy();
             reader.readRenderTexture.renderTexture = reader.imageMode == 0 ? questRT : pcRT;
@@ -760,13 +752,6 @@ namespace AvatarImageReader.Editor
             
             EditorUtility.SetDirty(instantiated);
         }
-    }
-
-    enum ActionOnLoad
-    {
-        DestroyPedestal,
-        DestroyScript,
-        DisablePedestal
     }
 }
 

@@ -16,6 +16,14 @@
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 
+[Aa]ssets/Udon*
+[Aa]ssets/Bocu*
+[Aa]ssets/Ser*
+[Aa]ssets/VRC*
+[Aa]ssets/Plug*
+[Pp]rojectSettings/
+[Pp]ackages/
+
 # TextMesh Pro files
 [Aa]ssets/TextMesh*Pro/
 
@@ -61,5 +69,3 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-
-Assets/AvatarImageReader/Python Encoder/img.png
