@@ -76,7 +76,7 @@ namespace AvatarImageDecoder
                 for (int i = 0; i < outputStrings.Length; i++)
                 {
                     int startIndex = imageCharCount * i;
-                    int length = Mathf.Min(imageCharCount * i + imageCharCount, input.Length - startIndex);
+                    int length = Mathf.Min(imageCharCount, input.Length - startIndex);
 
                     Texture2D inputTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
                     
@@ -111,11 +111,11 @@ namespace AvatarImageDecoder
         /// <returns>Encoded image</returns>
         public static Texture2D EncodeUTF16Text(string input, string avatar = "", Texture2D inputTextureNullable = null)
         {
-            // gen.py:6
             byte[] textbyteArray = Encoding.Unicode.GetBytes(input);
 
             if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))
             {
+                
                 avatar = avatar.Replace("avtr_", "").Replace("-", "");
                 byte[] hex = StringToByteArray(avatar);
                 foreach (byte b in hex.Reverse())
@@ -131,13 +131,10 @@ namespace AvatarImageDecoder
                     textbyteArray = textbyteArray.Prepend<byte>(b).ToArray();
                 }
             }
-
-            // gen.py:7
+            
             var lengthOfTextbyteListWith4Bytes = textbyteArray.Length;
-            var totalBytesWith4Bytes = BitConverter.GetBytes(lengthOfTextbyteListWith4Bytes);
-            var totalBytes = new[] {totalBytesWith4Bytes[2], totalBytesWith4Bytes[1], totalBytesWith4Bytes[0]};
+            var totalBytesWith4Bytes = BitConverter.GetBytes(lengthOfTextbyteListWith4Bytes).Reverse().ToArray();
 
-            // gen.py:9-13
             if (textbyteArray.Length % 4 != 0)
             {
                 textbyteArray = textbyteArray.Append((byte) 16).ToArray();
@@ -151,21 +148,9 @@ namespace AvatarImageDecoder
                 textbyteArray = textbyteArray.Append((byte) 16).ToArray();
             }
 
-            // gen.py:16-21
-            var index = 0;
-            foreach (var x in textbyteArray)
-            {
-                //Debug.Log($"{index} : {x}");
-                index += 1;
-            }
-
-            // gen.py:23
             Texture2D img;
             if (inputTextureNullable != null)
             {
-                // Deviation from Python script:
-                // Instead of allocating a base image initialized with white pixels, accept an input texture.
-                // Its pixels will not be reinitialized.
                 img = inputTextureNullable;
             }
             else
@@ -174,51 +159,32 @@ namespace AvatarImageDecoder
                 var imageHeight = 96;
                 
                 img = new Texture2D(imageWidth, imageHeight, TextureFormat.RGBA32, false);
-                var initialPixels = Enumerable.Repeat(Color.white, imageWidth * imageHeight).ToArray();
-                img.SetPixels(initialPixels);
             }
+            
+            var pixels = Enumerable.Repeat(new Color32(255, 255, 255 ,255), img.width * img.height).ToArray();
+            
+            textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[3]).ToArray();
+            textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[2]).ToArray();
+            textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[1]).ToArray();
+            textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[0]).ToArray();
 
-            // gen.py:25-27
-            var oppositePosition = 0;
-            img.SetPixel(img.width - 1, img.height - 1 - oppositePosition, new Color(BtF(totalBytes[0]), BtF(totalBytes[1]), BtF(totalBytes[2])));
-            //Debug.Log($"A{textbyteList.Length} {PythonStr(totalBytes)}");
-            //Debug.Log($"B{PythonStr(new[] {totalBytes[0], totalBytes[1], totalBytes[2]})}");
 
-            // gen.py:29
-            var rangeLower = 1;
-            var rangeUpperExclusive = textbyteArray.Length / 4 + 1;
-            for (var x = rangeLower; x < rangeUpperExclusive; x++)
+            
+
+            for (int i = 0; i < pixels.Length ; i++)
             {
-                // gen.py:30
-                var xPosition = PythonModulus(((img.width - 1) - x), img.width);
-                var yOppositePosition = x / img.width;
-                img.SetPixel(xPosition, img.height - 1 - yOppositePosition,
-                    // gen.py:31
-                    new Color(BtF(textbyteArray[(x - 1) * 4]), BtF(textbyteArray[(x - 1) * 4 + 1]), BtF(textbyteArray[(x - 1) * 4 + 2]), BtF(textbyteArray[(x - 1) * 4 + 3])));
+                pixels[i] = new Color32(textbyteArray[i* 4], textbyteArray[i* 4 + 1], textbyteArray[i* 4 + 2], textbyteArray[i* 4 + 3]);
+                if (textbyteArray.Length < i* 4 +5)
+                {
+                    break;
+                }
             }
+            img.SetPixels32(pixels.Reverse().ToArray());
 
-            // gen.py:33
-            img.Apply();
+
             return img;
         }
-
-        private static int PythonModulus(int a, int n)
-        {
-            // The % (modulo) operator in C# is the remainder operator.
-            // The % (modulo) operator in Python is the modulus operator.
-            return (a % n + n) % n;
-        }
-
-        private static float BtF(byte byteComponent)
-        {
-            // Byte To Float
-            return byteComponent / 255f;
-        }
-
-        private static string PythonStr(byte[] byteArray)
-        {
-            return $"[{string.Join(", ", byteArray)}]";
-        }
+        
         public static byte[] StringToByteArray(string hex) {
             return Enumerable.Range(0, hex.Length)
                 .Where(x => x % 2 == 0)

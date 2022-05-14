@@ -72,20 +72,9 @@ namespace AvatarImageReader
 
                             readRenderTexture.pedestalReady = true;
                             
-                            gameObject.SetActive(false);
+                   
                             
-                            switch (readRenderTexture.prefab.actionOnLoad)
-                            {
-                                case 0:
-                                    Destroy(gameObject);
-                                    break;
-                                case 1:
-                                    Destroy(this);
-                                    break;
-                                case 2:
-                                    gameObject.SetActive(false);
-                                    break;
-                            }
+                            Destroy(this);
                         }
                     }
                 }

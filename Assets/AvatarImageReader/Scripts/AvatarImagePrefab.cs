@@ -20,8 +20,7 @@ namespace AvatarImageReader
 
         [Header("General Options")]
         [Tooltip("Increasing step size decreases decode time but increases frametimes")]
-        public int stepLength = 200;
-    
+
         public bool outputToText;
         public bool autoFillTMP;
         public TextMeshPro outputText;

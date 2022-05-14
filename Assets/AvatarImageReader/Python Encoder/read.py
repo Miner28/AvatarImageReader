@@ -2,7 +2,7 @@ from PIL import Image
 
 
 def readInformation():
-    img = Image.open("img.png")
+    img = Image.open("output.png")
 
     byte_list = bytearray([])
     index = 0
@@ -11,14 +11,12 @@ def readInformation():
     for y in range(img.height):
         for x in reversed(range(img.width)):
             pixel = img.getpixel((x, y))
-            print(pixel)
+
 
             if byte_length == 0:
                 pixel = list(pixel)
-                pixel.pop(3)
-                byte_length = int.from_bytes(pixel, 'big')
-                print(byte_length)
                 print(pixel)
+                byte_length = int.from_bytes(pixel, 'big')
             else:
                 byte_list.append(pixel[0])
                 index = index + 1
@@ -51,6 +49,7 @@ index = 0
 
 print("-----")
 avi = output[0:16]
+print(list(avi))
 avi = avi.hex()
 output = output[16:]
 print(f"Found avatar-id (ENCODED): {avi}")
