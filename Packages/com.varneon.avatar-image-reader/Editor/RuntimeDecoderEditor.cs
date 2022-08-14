@@ -13,6 +13,7 @@ using VRC.Core;
 using VRC.SDK3.Components;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
+using AvatarImageReader.Enums;
 
 namespace AvatarImageReader.Editor
 {
@@ -40,7 +41,7 @@ namespace AvatarImageReader.Editor
         private int imageContent;
         
         private TextStorageObject textStorageObject;
-        private int lastImageMode;
+        private Platform lastImageMode;
 
         private void Init()
         {
@@ -149,7 +150,7 @@ namespace AvatarImageReader.Editor
 
             int pixelCount = 0;
             
-            reader.imageMode = EditorGUILayout.Popup("Image mode: ", reader.imageMode, new [] {"Cross Platform", "PC Only"});
+            reader.imageMode = (Platform)EditorGUILayout.EnumPopup("Image mode: ", reader.imageMode);
 
             if (reader.imageMode != lastImageMode)
             {
@@ -158,12 +159,12 @@ namespace AvatarImageReader.Editor
             
             switch (reader.imageMode)
             {
-                case 0:
+                case Platform.Android:
                     EditorGUILayout.LabelField("Target resolution: ", "128x96");
                     pixelCount = 128 * 96 * reader.linkedAvatars.Length;
                     break;
                 
-                case 1:
+                case Platform.PC:
                     EditorGUILayout.HelpBox("You should only use PC Only mode if you are absolutely sure you are going to use all of the space it allows you to use.", MessageType.Warning);
                     EditorGUILayout.LabelField("Target resolution: ", "1200x900");
                     pixelCount = 1200 * 900 * reader.linkedAvatars.Length;
@@ -179,8 +180,10 @@ namespace AvatarImageReader.Editor
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("<b>Data encoding</b>", headerStyle);
 
-            reader.dataMode = EditorGUILayout.Popup("Data mode: ", reader.dataMode, new [] {"UTF16 Text", "ASCII Text (not available yet)", "Binary data (not available yet)"});
-            reader.dataMode = 0;
+            using (new EditorGUI.DisabledGroupScope(true))
+            {
+                reader.dataMode = (DataMode)EditorGUILayout.EnumPopup("Data mode: ", reader.dataMode);
+            }
 
             reader.patronMode = EditorGUILayout.Toggle("Link with Patreon Decoder:", reader.patronMode);
             if (reader.patronMode)
@@ -196,7 +199,7 @@ namespace AvatarImageReader.Editor
 
             switch (reader.dataMode)
             {
-                case 0:
+                case DataMode.UTF16:
                     EditorGUILayout.LabelField("Remaining characters: ", $"{byteCount / 2 - text.Length:n0} / {byteCount / 2:n0} ({((float)byteCount / 2 - text.Length) / ((float)byteCount / 2) * 100:n0}%)");
 
                     using (GUILayout.ScrollViewScope scroll = new GUILayout.ScrollViewScope(scrollview, GUILayout.MinHeight(EditorGUIUtility.singleLineHeight), GUILayout.ExpandHeight(true), GUILayout.MaxHeight(200))) //, GUILayout.MaxHeight(300)))
@@ -302,10 +305,10 @@ namespace AvatarImageReader.Editor
                         EditorGUI.EndDisabledGroup();
                     }
                     break;
-                case 1:
+                case DataMode.ASCII:
                     EditorGUILayout.LabelField("Available characters: ", $"{pixelCount * 4:n0}");
                     break;
-                case 2:
+                case DataMode.Binary:
                     EditorGUILayout.LabelField("Available data: ", $"{pixelCount * 4:n0} Bytes");
                     break;
             }

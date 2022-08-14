@@ -4,6 +4,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
 using VRC.Udon;
+using AvatarImageReader.Enums;
 
 namespace AvatarImageReader
 {
@@ -18,11 +19,10 @@ namespace AvatarImageReader
         public string[] linkedAvatars;
         public string uid = "";
         public bool pedestalAssetsReady;
-        public int actionOnLoad = 0;
         
         [Header("Image Options")]
         //0 cross platform, 1 pc only
-        public int imageMode = 0;
+        public Platform imageMode = Platform.Android;
 
         [Header("General Options")]
         [Tooltip("Increasing step size decreases decode time but increases frametimes")]
@@ -37,7 +37,7 @@ namespace AvatarImageReader
     
         [Header("Data Encoding")]
         //0 UTF16 string, 1 ASCII string, 2 Binary
-        public int dataMode = 0;
+        public DataMode dataMode = DataMode.UTF16;
         public bool patronMode;
     
         [Header("Debugging")] 
