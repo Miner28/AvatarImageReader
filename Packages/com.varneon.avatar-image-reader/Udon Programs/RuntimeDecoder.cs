@@ -79,11 +79,6 @@ namespace AvatarImageReader
         {
             Transform pedestalClone;
 
-            for(int i = 0; i < transform.childCount; i++)
-            {
-                Debug.Log(transform.GetChild(i).name);
-            }
-
             if (overrideTextureEnabled)
             {
                 // Assign the Texture to the Render pane and the comparison pane
@@ -110,8 +105,9 @@ namespace AvatarImageReader
                     // Find the Child used for the image component
                     if (child.name.Equals("Image"))
                     {
-                        pedestalTexture = child.GetComponent<MeshRenderer>().material
-                            .GetTexture("_WorldTex");
+                        pedestalMaterial = child.GetComponent<MeshRenderer>().material;
+
+                        pedestalTexture = pedestalMaterial.GetTexture("_WorldTex");
 
                         if (pedestalTexture != null)
                         {
