@@ -1,24 +1,155 @@
-using System;
+﻿using System;
+using TMPro;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Components;
+using VRC.Udon;
 
 namespace AvatarImageReader
 {
+    [RequireComponent(typeof(VRCAvatarPedestal))]
+    [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(MeshRenderer))]
+    [RequireComponent(typeof(Camera))]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    public class ReadRenderTexture : UdonSharpBehaviour
+    public class RuntimeDecoder : UdonSharpBehaviour
     {
-        /*
-         * This script is meant to be used as a One time "Read" for a specific render texture (Since they can't be reused)
-         * Once "Primed" by the CheckHirarchyScript, it will decode the retrieved RenderTexture
-         */
+        #region Prefab
+        public string[] linkedAvatars;
+        public string uid = "";
+        public bool pedestalAssetsReady;
+        public int actionOnLoad = 0;
+        
+        [Header("Image Options")]
+        //0 cross platform, 1 pc only
+        public int imageMode = 0;
 
-        public RuntimeDecoder prefab;
-        public VRCAvatarPedestal pedestal;
+        [Header("General Options")]
+        [Tooltip("Increasing step size decreases decode time but increases frametimes")]
 
+        public bool outputToText;
+        public bool autoFillTMP;
+        public TextMeshPro outputText;
+    
+        public bool callBackOnFinish = false;
+        public UdonBehaviour callbackBehaviour;
+        public string callbackEventName;
+    
+        [Header("Data Encoding")]
+        //0 UTF16 string, 1 ASCII string, 2 Binary
+        public int dataMode = 0;
+        public bool patronMode;
+    
+        [Header("Debugging")] 
+        public bool debugLogger;
+        public bool debugTMP;
+        public TextMeshPro loggerText;
+
+        [Header("Output")] 
         public string outputString;
 
+        [Header("Internal")]
+        //public ReadRenderTexture readRenderTexture;
+        public VRCAvatarPedestal avatarPedestal;
+        #endregion
+
+        #region Check Hierarchy
+        //[SerializeField] private GameObject renderQuad;
+        //[SerializeField] private ReadRenderTexture readRenderTexture;
+
+        [Header("Debug")]
+        [SerializeField] private GameObject textureComparisonPlane;
+        [SerializeField] private bool overrideTextureEnabled = false;
+        [SerializeField] private Texture2D overrideTexture;
+
+        private Texture pedestalTexture;
+
+        private const string AVATAR_PEDESTAL_CLONE_NAME = "AvatarPedestal(Clone)";
+
+        private void Start()
+        {
+            renderQuadRenderer = renderQuad.GetComponent<MeshRenderer>();
+
+            GetComponent<MeshRenderer>().enabled = true;
+
+            _CheckHierarchy();
+        }
+
+        public void _CheckHierarchy()
+        {
+            Transform pedestalClone;
+
+            for(int i = 0; i < transform.childCount; i++)
+            {
+                Debug.Log(transform.GetChild(i).name);
+            }
+
+            if (overrideTextureEnabled)
+            {
+                // Assign the Texture to the Render pane and the comparison pane
+                if (renderQuad != null)
+                {
+                    renderQuadRenderer.material.SetTexture(1, overrideTexture);
+                }
+
+                if (textureComparisonPlane != null)
+                {
+                    textureComparisonPlane.GetComponent<MeshRenderer>().material.SetTexture(1, overrideTexture);
+                }
+
+                pedestalReady = true;
+
+                return;
+            }
+            else if ((pedestalClone = transform.Find(AVATAR_PEDESTAL_CLONE_NAME)) != null)
+            {
+                for (int i = 0; i < pedestalClone.childCount; i++)
+                {
+                    Transform child = pedestalClone.GetChild(i);
+
+                    // Find the Child used for the image component
+                    if (child.name.Equals("Image"))
+                    {
+                        pedestalTexture = child.GetComponent<MeshRenderer>().material
+                            .GetTexture("_WorldTex");
+
+                        if (pedestalTexture != null)
+                        {
+                            Debug.Log("CheckHierarchyScript: Retrieving Avatar Pedestal Texture");
+
+                            // Assign the Texture to the Render pane and the comparison pane
+                            if (renderQuad != null)
+                            {
+                                renderQuadRenderer.material.SetTexture(1, pedestalTexture);
+                                renderQuadRenderer.enabled = true;
+                            }
+
+                            // Render the texture to a comparison plane if that is enabled for debugging purposes
+                            if (textureComparisonPlane != null)
+                            {
+                                textureComparisonPlane.GetComponent<MeshRenderer>().material.SetTexture(1, pedestalTexture);
+                            }
+
+                            pedestalReady = true;
+
+                            return;
+                        }
+                    }
+                }
+            }
+
+            SendCustomEventDelayedFrames(nameof(_CheckHierarchy), 0);
+        }
+        #endregion
+
+        #region Read RenderTexture
+        //public AvatarImagePrefab prefab;
+        public VRCAvatarPedestal pedestal;
+
+        //public string outputString;
+
         [Header("Render references")] public GameObject renderQuad;
+        private MeshRenderer renderQuadRenderer;
 
         public Camera renderCamera;
         public CustomRenderTexture renderTexture;
@@ -36,11 +167,20 @@ namespace AvatarImageReader
 
         private bool frameSkip = false;
 
+
+        private string nextAvatar = "";
+        private int index = 1;
+        private int byteIndex = 0;
+        private int dataLength;
+        private int currentTry;
+
+        private System.Diagnostics.Stopwatch frameTimer = new System.Diagnostics.Stopwatch();
+
         public void OnPostRender()
         {
             if (pedestalReady && !hasRun)
             {
-                if (prefab.debugLogger)
+                if (debugLogger)
                 {
                     stopwatch = new System.Diagnostics.Stopwatch();
                     stopwatch.Start();
@@ -51,10 +191,8 @@ namespace AvatarImageReader
                 if (renderTexture != null) // All code inside should be called only ONCE (initialization)
                 {
                     //SETUP
-                    pedestalMaterial = transform.parent.GetChild(0).GetChild(0).GetChild(1).GetComponent<MeshRenderer>().material;
-                    lastInput = pedestalMaterial.GetTexture("_WorldTex");
-                    
-                    
+                    lastInput = pedestalTexture;
+
                     outputString = "";
 
                     //copy the first texture over so it can be read
@@ -63,7 +201,7 @@ namespace AvatarImageReader
 
                     //disable the renderquad to prevent VR users from getting a seizure (disable the camera first so it only renders one frame)
                     renderCamera.enabled = false;
-                    renderQuad.SetActive(false);
+                    renderQuadRenderer.enabled = false;
 
                     Log("ReadRenderTexture: Writing Information");
                     hasRun = true;
@@ -84,9 +222,9 @@ namespace AvatarImageReader
                         Log("Failed to load new Pedestal within 2 seconds. Ending loading. Load unsuccessful.");
                         waitForNew = false;
                         renderCamera.enabled = false;
-                        renderQuad.SetActive(false);
+                        renderQuadRenderer.enabled = false;
                         return;
-                    } 
+                    }
                     Log($"lastInput == donorInput - Will try loading again later - {currentTry++}");
 
                     waitForNew = false;
@@ -100,12 +238,12 @@ namespace AvatarImageReader
                         return;
                     }
                     frameSkip = false;
-                    
+
                     donorInput.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
                     lastInput = pedestalMaterial.GetTexture("_WorldTex");
                     waitForNew = false;
                     renderCamera.enabled = false;
-                    renderQuad.SetActive(false);
+                    renderQuadRenderer.enabled = false;
                     Log("donorInput updated - Avatar pedestal successfully reloaded. Loading ImageData");
                     StartReadPicture(donorInput);
                 }
@@ -115,13 +253,13 @@ namespace AvatarImageReader
 
         private void Log(string text)
         {
-            if (!prefab.debugLogger) return;
+            if (!debugLogger) return;
 
             Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] {text}");
 
-            if (prefab.debugTMP)
+            if (debugTMP)
             {
-                prefab.loggerText.text += $"{text} | ";
+                loggerText.text += $"{text} | ";
             }
         }
 
@@ -163,14 +301,6 @@ namespace AvatarImageReader
             SendCustomEventDelayedFrames(nameof(_ReadPictureStep), 2);
         }
 
-        private string nextAvatar = "";
-        private int index = 1;
-        private int byteIndex = 0;
-        private int dataLength;
-        private int currentTry;
-
-        private System.Diagnostics.Stopwatch frameTimer = new System.Diagnostics.Stopwatch();
-
         public void _ReadPictureStep()
         {
             Log($"Reading step {index} - {frameTimer.ElapsedMilliseconds}");
@@ -190,8 +320,8 @@ namespace AvatarImageReader
                  step++)
             {
                 Color32 c = colors[index];
-                
-                tempString += $"{(char)(c.r | (c.g << 8))}{(char) (c.b | (c.a << 8))}";
+
+                tempString += $"{(char)(c.r | (c.g << 8))}{(char)(c.b | (c.a << 8))}";
 
                 byteIndex += 4;
 
@@ -232,14 +362,14 @@ namespace AvatarImageReader
             frameTimer.Stop();
             if (nextAvatar != "avtr_ffffffff-ffff-ffff-ffff-ffffffffffff")
             {
-                pedestal.gameObject.SetActive(true);
+                //pedestal.gameObject.SetActive(true);
                 pedestal.SwitchAvatar(nextAvatar);
                 Log($"Switched Avatar to - {nextAvatar} - Restarting loading");
 
                 currentTry = 0;
                 SendCustomEventDelayedSeconds(nameof(_WaitForReload), 0.5f);
 
-                if (prefab.debugLogger)
+                if (debugLogger)
                 {
                     Log($"Current time: {stopwatch.ElapsedMilliseconds} ms");
                 }
@@ -247,39 +377,40 @@ namespace AvatarImageReader
                 return;
             }
 
-            if (prefab.debugLogger)
+            if (debugLogger)
             {
                 Log($"Output string: {outputString}");
                 stopwatch.Stop();
                 Log($"Took: {stopwatch.ElapsedMilliseconds} ms");
             }
 
-            if (prefab.outputToText)
-                prefab.outputText.text = outputString;
+            if (outputToText)
+                outputText.text = outputString;
 
-            prefab.outputString = outputString;
+            if (callBackOnFinish && callbackBehaviour != null && callbackEventName != "")
+                callbackBehaviour.SendCustomEvent(callbackEventName);
 
-            if (prefab.callBackOnFinish && prefab.callbackBehaviour != null && prefab.callbackEventName != "")
-                prefab.callbackBehaviour.SendCustomEvent(prefab.callbackEventName);
-            
-            pedestal.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            // After image reading is complete, destroy all of the components except the decoder
+            Destroy(pedestal);
+            Destroy(renderQuadRenderer);
+            Destroy(GetComponent<MeshFilter>());
+            Destroy(renderCamera);
         }
-        
+
         public void _WaitForReload()
         {
             renderCamera.enabled = true;
-            renderQuad.SetActive(true);
+            renderQuadRenderer.enabled = true;
             waitForNew = true;
         }
 
-
         private bool IsSame()
         {
-            renderQuad.GetComponent<MeshRenderer>().material.SetTexture(1,
+            renderQuadRenderer.material.SetTexture(1,
                 pedestalMaterial
                     .GetTexture("_WorldTex"));
             return lastInput == pedestalMaterial.GetTexture("_WorldTex");
         }
+        #endregion
     }
 }

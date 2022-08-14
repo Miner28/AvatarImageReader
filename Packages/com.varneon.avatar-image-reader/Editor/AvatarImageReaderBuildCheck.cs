@@ -17,16 +17,16 @@ public class AvatarImageReaderBuildCheck : IVRCSDKBuildRequestedCallback
 
         GameObject[] rootGameObjects = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
 
-        List<AvatarImagePrefab> prefabs = new List<AvatarImagePrefab>();
+        List<RuntimeDecoder> prefabs = new List<RuntimeDecoder>();
 
         foreach (GameObject obj in rootGameObjects)
         {
-            prefabs.AddRange(obj.GetUdonSharpComponentsInChildren<AvatarImagePrefab>());
+            prefabs.AddRange(obj.GetUdonSharpComponentsInChildren<RuntimeDecoder>());
         }
 
         int failCount = 0;
         
-        foreach (AvatarImagePrefab prefab in prefabs)
+        foreach (RuntimeDecoder prefab in prefabs)
         {
             prefab.UpdateProxy();
             if (prefab.linkedAvatars[0].IsNullOrWhitespace())
