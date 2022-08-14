@@ -1,6 +1,16 @@
 {
     "name": "AvatarImageReader.Editor",
-    "references": [],
+    "references": [
+        "AvatarImageReader",
+        "BocuD.VRChatApiTools.Editor",
+        "Unity.TextMeshPro",
+        "UdonSharp.Editor",
+        "VRC.Udon.Serialization.OdinSerializer",
+        "VRC.SDKBase.Editor",
+        "AvatarImageReader.Runtime",
+        "UdonSharp.Runtime",
+        "VRC.Udon"
+    ],
     "includePlatforms": [
         "Editor"
     ],

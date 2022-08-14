@@ -141,7 +141,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &80500295
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &799773988
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3090,8 +3090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchedFromSDKPipeline: 0
-  completedSDKPipeline: 1
-  blueprintId: wrld_24f6d438-94a3-4448-bcc4-1ac8e1853d7f
+  completedSDKPipeline: 0
+  blueprintId: wrld_7bba2a6e-082c-48bc-b408-9234b2188d65
   contentType: 1
   assetBundleUnityVersion: 
   fallbackStatus: 0

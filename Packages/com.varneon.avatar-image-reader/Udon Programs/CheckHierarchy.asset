@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: CheckHierarchy
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 940fc5fe8ffeb154e80f4b38890bf6ff,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 41613a7eb9abe8d409c8f9df3da43abe,
     type: 2}
   udonAssembly: 
   assemblyError: 
@@ -122,7 +122,7 @@ MonoBehaviour:
       Data: 7|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: AvatarImageReader.ReadRenderTexture, Assembly-CSharp
+      Data: AvatarImageReader.ReadRenderTexture, AvatarImageReader
     - Name: 
       Entry: 8
       Data: 
