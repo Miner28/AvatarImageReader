@@ -22,13 +22,13 @@ namespace AvatarImageReader.Editor
         public AvatarImagePrefab reader;
         private string text = "";
         
-        private const string quadMaterialPath = "Assets/AvatarImageReader/Materials/RenderQuad.mat";
+        private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
         
-        private const string pcDonorImagePath = "Assets/AvatarImageReader/DonorImages/PC.png";
-        private const string questDonorImagePath = "Assets/AvatarImageReader/DonorImages/Quest.png";
+        private const string pcDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/PC.png";
+        private const string questDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/Quest.png";
         
-        private const string pcRTPath = "Assets/AvatarImageReader/DonorImages/PCCRT.asset";
-        private const string questRTPath = "Assets/AvatarImageReader/DonorImages/QuestCRT.asset";
+        private const string pcRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/PCCRT.asset";
+        private const string questRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/QuestCRT.asset";
         
         private Texture2D[] output;
         private GUIContent[] texturePreview;
