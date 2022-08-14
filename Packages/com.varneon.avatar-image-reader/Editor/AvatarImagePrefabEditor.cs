@@ -707,9 +707,9 @@ namespace AvatarImageReader.Editor
 
     public static class AvatarImageTools
     {
-        private const string prefabNormal = "Assets/AvatarImageReader/Prefabs/Decoder.prefab";
-        private const string prefabText = "Assets/AvatarImageReader/Prefabs/DecoderWithText.prefab";
-        private const string prefabDebug = "Assets/AvatarImageReader/Prefabs/Decoder_Debug.prefab";
+        private const string prefabNormal = "Packages/com.varneon.avatar-image-reader/Prefabs/Decoder.prefab";
+        private const string prefabText = "Packages/com.varneon.avatar-image-reader/Prefabs/DecoderWithText.prefab";
+        private const string prefabDebug = "Packages/com.varneon.avatar-image-reader/Prefabs/Decoder_Debug.prefab";
 
         [MenuItem("Tools/AvatarImageReader/Create Image Reader")]
         private static void CreateNormal()
