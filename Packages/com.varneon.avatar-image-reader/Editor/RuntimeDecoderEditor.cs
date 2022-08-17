@@ -47,6 +47,7 @@ namespace AvatarImageReader.Editor
 
         private int pixelCount;
         private int maxByteCount;
+        private int currentByteCount;
 
         private Texture2D[] output;
         private GUIContent[] texturePreview;
@@ -398,7 +399,7 @@ namespace AvatarImageReader.Editor
             imageWidth = reader.imageMode == 0 ? 128 : 1200;
             imageHeight = reader.imageMode == 0 ? 96 : 900;
 
-            output = AvatarImageEncoder.EncodeUTF16Text(text, reader.linkedAvatars, imageWidth, imageHeight);
+            output = AvatarImageEncoder.Encode(reader.dataMode, text, reader.linkedAvatars, imageWidth, imageHeight);
 
             texturePreview = new GUIContent[output.Length];
             for (int i = 0; i < output.Length; i++)

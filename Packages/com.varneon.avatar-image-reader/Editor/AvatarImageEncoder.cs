@@ -34,6 +34,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using BocuD.VRChatApiTools;
 using UnityEngine;
+using AvatarImageReader.Enums;
 
 namespace AvatarImageDecoder
 {
@@ -42,6 +43,19 @@ namespace AvatarImageDecoder
         private const int headerSize = 20;
         private const int questBytes = (128 * 96 * 4) - headerSize;
         private const int pcBytes = (1200 * 900 * 4) - headerSize;
+
+        public static Texture2D[] Encode(DataMode dataMode, string input, string[] availableAvatars, int width, int height)
+        {
+            switch (dataMode)
+            {
+                case DataMode.UTF16:
+                    return EncodeUTF16Text(input, availableAvatars, width, height);
+                case DataMode.UTF8:
+                    return EncodeUTF8Text(input, availableAvatars, width, height);
+                default:
+                    throw new NotImplementedException();
+            }
+        }
 
         /// <summary>
         /// Multi Avatar Image Encoder. Internally calls the existing single image EncodeUTF16Text function, but handles multi avatar headers.
