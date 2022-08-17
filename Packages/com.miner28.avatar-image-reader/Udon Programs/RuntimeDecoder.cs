@@ -38,7 +38,7 @@ namespace AvatarImageReader
         public string callbackEventName;
 
         [Header("Data Encoding")]
-        //0 UTF16 string, 1 UTF-8, 2 ASCII string, 3 Binary
+        //0 UTF16, 1 UTF8, 2 ASCII, 3 Binary
         public DataMode dataMode = DataMode.UTF8;
         public bool patronMode;
 
@@ -124,14 +124,10 @@ namespace AvatarImageReader
             SendCustomEventDelayedFrames(nameof(_CheckHierarchy), 0);
         }
         #endregion
-
-        #region Read RenderTexture
+        #region Detect and load image
         private VRCAvatarPedestal pedestal;
         private MeshRenderer renderQuadRenderer;
-
-        private int transferSpeed = 2500; //Amount of iteration steps that Color32[] to byte[] will perform per frame
-        private int decodeSpeed = 7500; //Amount of iteration steps byte[] to string decoder will perform per frame
-
+        
         [Header("Render references")] public GameObject renderQuad;
 
         public Camera renderCamera;
@@ -152,6 +148,8 @@ namespace AvatarImageReader
         private int avatarCounter = 0;
 
         private bool waitForNew;
+        
+        private int currentTry;
 
         public void OnPostRender()
         {
@@ -228,6 +226,49 @@ namespace AvatarImageReader
             }
         }
 
+        private void QueueNextAvatarLoad()
+        {
+            pedestalClone.gameObject.SetActive(true);
+            pedestal.SwitchAvatar(nextAvatar);
+            Log($"Switched Avatar to - {nextAvatar} - Restarting loading");
+
+            currentTry = 0;
+            SendCustomEventDelayedSeconds(nameof(_ReEnableCamera), 0.1f);
+        }
+        
+        public void _ReEnableCamera()
+        {
+            renderCamera.enabled = true;
+            renderQuadRenderer.enabled = true;
+            waitForNew = true;
+        }
+
+        public void _DisableCamera()
+        {
+            renderCamera.enabled = false;
+            renderQuadRenderer.enabled = false;
+            waitForNew = false;
+        }
+
+        private bool IsSame()
+        {
+            renderQuadRenderer.material.SetTexture(1, pedestalMaterial.GetTexture("_WorldTex"));
+            return lastInput == pedestalMaterial.GetTexture("_WorldTex");
+        }
+        
+        #endregion
+        #region Read RenderTexture
+        
+        private Color32 color;
+        private int byteIndex;
+        private byte[] avatarBytes;
+        private int pixelIndex;
+        private int maxIndex;
+
+        private string nextAvatar = "";
+        private int dataLength;
+        
+        private int transferSpeed = 2500; //Amount of iteration steps that Color32[] to byte[] will perform per frame
 
         private void InitializeRead(Texture2D picture)
         {
@@ -276,12 +317,6 @@ namespace AvatarImageReader
 
             SendCustomEventDelayedFrames(nameof(_ReadPictureStep), 0);
         }
-
-        private Color32 color;
-        private int byteIndex;
-        private byte[] avatarBytes;
-        private int pixelIndex;
-        private int maxIndex;
 
         public void _ReadPictureStep()
         {
@@ -332,56 +367,62 @@ namespace AvatarImageReader
             //load next avatar
             if (nextAvatar != "avtr_ffffffff-ffff-ffff-ffff-ffffffffffff")
             {
-                pedestalClone.gameObject.SetActive(true);
-                pedestal.SwitchAvatar(nextAvatar);
-                Log($"Switched Avatar to - {nextAvatar} - Restarting loading");
-
-                currentTry = 0;
-                SendCustomEventDelayedSeconds(nameof(_ReEnableCamera), 0.1f);
+                QueueNextAvatarLoad();
                 return;
             }
 
-            InitializeDecode();
+            switch (dataMode)
+            {
+                case DataMode.UTF16:
+                    InitializeDecodeUTF16();
+                    break;
+                
+                case DataMode.UTF8:
+                    InitializeDecodeUTF8();
+                    break;
+            }
         }
-
-        private string nextAvatar = "";
-        private int dataLength;
-        private int currentTry;
-
+        #endregion
+        
         private char[] chars;
-        private int charIndex;
-        private int character;
         private byte charCounter;
         private int bytesCount;
-        private int dIndex;
+        private int decodeIndex;
+        
+        #region UTF8 Decoder
 
-        private void InitializeDecode()
+        private int decodeSpeedUTF8 = 7500; //Amount of iteration steps UTF8 decoder will perform per frame
+
+        private int character;
+        private int charIndex;
+
+        private void InitializeDecodeUTF8()
         {
             bytesCount = outputBytes.Length;
             chars = new char[bytesCount];
             charIndex = 0;
             character = 0;
             charCounter = 0;
-            dIndex = 0;
+            decodeIndex = 0;
             frameCounter = 1;
 
-            Log($"Starting UTF8 decoder: decoding {bytesCount} bytes will take {bytesCount / decodeSpeed + 1} frames");
+            Log($"Starting UTF8 decoder: decoding {bytesCount} bytes will take {bytesCount / decodeSpeedUTF8 + 1} frames");
 
-            SendCustomEventDelayedFrames(nameof(_DecodeStep), 0);
+            SendCustomEventDelayedFrames(nameof(_DecodeStepUTF8), 0);
         }
 
         private const char InvalidChar = (char)0;
 
-        public void _DecodeStep()
+        public void _DecodeStepUTF8()
         {
-            int toIterate = Math.Min(dIndex + decodeSpeed, bytesCount);
+            int toIterate = Math.Min(decodeIndex + decodeSpeedUTF8, bytesCount);
 
-            Log($"Frame {frameCounter} of DecodeStep; current index: {dIndex}, will iterate to {toIterate}");
+            Log($"Frame {frameCounter} of DecodeStep; current index: {decodeIndex}, will iterate to {toIterate}");
             frameCounter++;
 
-            for (; dIndex < toIterate; dIndex++)
+            for (; decodeIndex < toIterate; decodeIndex++)
             {
-                byte value = outputBytes[dIndex];
+                byte value = outputBytes[decodeIndex];
                 if ((value & 0x80) == 0)
                 {
                     chars[charIndex++] = (char)value;
@@ -417,9 +458,9 @@ namespace AvatarImageReader
             }
 
             //if we are not done decoding yet continue next frame
-            if (dIndex != bytesCount)
+            if (decodeIndex != bytesCount)
             {
-                SendCustomEventDelayedFrames(nameof(_DecodeStep), 0);
+                SendCustomEventDelayedFrames(nameof(_DecodeStepUTF8), 0);
                 return;
             }
 
@@ -441,7 +482,47 @@ namespace AvatarImageReader
 
             ReadDone();
         }
+        #endregion
+        #region UTF16 Decoder
+        
+        private int decodeSpeedUTF16 = 10000; //Amount of iteration steps UTF16 decoder will perform per frame
 
+        private void InitializeDecodeUTF16()
+        {
+            bytesCount = outputBytes.Length;
+            chars = new char[bytesCount / 2];
+            decodeIndex = 0;
+            frameCounter = 1;
+
+            Log($"Starting UTF16 decoder: decoding {bytesCount} bytes will take {bytesCount / decodeSpeedUTF16/2 + 1} frames");
+
+            SendCustomEventDelayedFrames(nameof(_DecodeStepUTF16), 0);
+        }
+
+        public void _DecodeStepUTF16()
+        {
+            int toIterate = Math.Min(decodeIndex + decodeSpeedUTF16, bytesCount);
+
+            Log($"Frame {frameCounter} of DecodeStep; current index: {decodeIndex}, will iterate to {toIterate}");
+            frameCounter++;
+
+            for (; decodeIndex < toIterate; decodeIndex += 2)
+            {
+                chars[decodeIndex / 2] = (char)(outputBytes[decodeIndex] | outputBytes[decodeIndex + 1] << 8);
+            }
+
+            //if we are not done decoding yet continue next frame
+            if (decodeIndex != bytesCount)
+            {
+                SendCustomEventDelayedFrames(nameof(_DecodeStepUTF16), 0);
+                return;
+            }
+
+            outputString += new string(chars);
+            ReadDone();
+        }
+        #endregion
+        
         private void ReadDone()
         {
             Log("Read Finished");
@@ -458,26 +539,6 @@ namespace AvatarImageReader
 
             Destroy(pedestal);
             Destroy(pedestalClone.gameObject);
-        }
-
-        public void _ReEnableCamera()
-        {
-            renderCamera.enabled = true;
-            renderQuadRenderer.enabled = true;
-            waitForNew = true;
-        }
-
-        public void _DisableCamera()
-        {
-            renderCamera.enabled = false;
-            renderQuadRenderer.enabled = false;
-            waitForNew = false;
-        }
-
-        private bool IsSame()
-        {
-            renderQuadRenderer.material.SetTexture(1, pedestalMaterial.GetTexture("_WorldTex"));
-            return lastInput == pedestalMaterial.GetTexture("_WorldTex");
         }
 
         private void Log(string text)
@@ -503,6 +564,5 @@ namespace AvatarImageReader
                 loggerText.text += $"<color=red>{text}</color>\n";
             }
         }
-        #endregion
     }
 }

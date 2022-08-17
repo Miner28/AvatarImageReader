@@ -36,7 +36,29 @@ namespace AvatarImageReader.Editor
         private Vector2 currentResolution;
 
         public RuntimeDecoder reader;
-        private string text { get => textStorageObject.text; set => textStorageObject.text = value; }
+        private string text {
+            get
+            {
+                if (textStorageObject == null)
+                {
+                    //make sure TextStorageObject monobehaviour is set up
+                    if (reader.GetComponentInChildren<TextStorageObject>())
+                    {
+                        textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
+                    }
+                    else
+                    {
+                        GameObject container = new GameObject("TextStorageObject") { tag = "EditorOnly" };
+                        container.transform.SetParent(reader.transform);
+                        container.AddComponent<TextStorageObject>();
+                        container.hideFlags = HideFlags.HideInHierarchy;
+                    }
+                }
+
+                return textStorageObject.text;
+            }
+            set => textStorageObject.text = value;
+        }
 
         private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
 
@@ -257,20 +279,7 @@ namespace AvatarImageReader.Editor
                 return;
 
             SetPlatform(reader.imageMode);
-
-            //set up TextStorageObject monobehaviour
-            if (reader.GetComponentInChildren<TextStorageObject>())
-            {
-                textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
-            }
-            else
-            {
-                GameObject container = new GameObject("TextStorageObject") { tag = "EditorOnly" };
-                container.transform.SetParent(reader.transform);
-                container.AddComponent<TextStorageObject>();
-                container.hideFlags = HideFlags.HideInHierarchy;
-            }
-
+            
             if (!reader.pedestalAssetsReady)
             {
                 UpdatePedestalAssets();
@@ -782,8 +791,6 @@ namespace AvatarImageReader.Editor
         {
             //textStorageObject.text = text;
             
-            reader.ApplyProxyModifications();
-            
             if (reader.outputToText)
             {
                 if (reader.outputText != null && reader.autoFillTMP)
@@ -792,12 +799,11 @@ namespace AvatarImageReader.Editor
                 }
             }
             
-            EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+            EditorUtility.SetDirty(reader);
             
             if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
             {
-                PrefabUtility.RecordPrefabInstancePropertyModifications(
-                    UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+                PrefabUtility.RecordPrefabInstancePropertyModifications(reader);
             }
         }
 
@@ -860,20 +866,17 @@ namespace AvatarImageReader.Editor
             CustomRenderTexture pcRT = AssetDatabase.LoadAssetAtPath<CustomRenderTexture>(pcRTPath);
             CustomRenderTexture questRT = AssetDatabase.LoadAssetAtPath<CustomRenderTexture>(questRTPath);
 
-            reader.UpdateProxy();
             reader.renderTexture = reader.imageMode == 0 ? questRT : pcRT;
             reader.donorInput = reader.imageMode == 0 ? questDonor : pcDonor;
 
             reader.GetComponent<MeshRenderer>().material = renderQuadMat;
             reader.GetComponent<Camera>().targetTexture = reader.imageMode == 0 ? questRT : pcRT;
             
-            reader.ApplyProxyModifications();
-            
-            EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+            EditorUtility.SetDirty(reader);
 
-            if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
+            if (PrefabUtility.IsPartOfAnyPrefab(reader))
             {
-                PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+                PrefabUtility.RecordPrefabInstancePropertyModifications(reader);
             }
         }
 
@@ -887,9 +890,7 @@ namespace AvatarImageReader.Editor
             {
                 Debug.LogError("[AvatarImagePrefabEditor] Avatar was selected but inspector target is null; inspector was likely closed.");
             }
-
-            reader.UpdateProxy();
-
+            
             if (reader.linkedAvatars.Any(id => id == avatar.id))
             {
                 Debug.LogError("The selected avatar is already in the list");
@@ -928,12 +929,11 @@ namespace AvatarImageReader.Editor
                 PrefabUtility.RecordPrefabInstancePropertyModifications(reader.avatarPedestal);
             }
             
-            reader.ApplyProxyModifications();
-            EditorUtility.SetDirty(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+            EditorUtility.SetDirty(reader);
 
             if (PrefabUtility.IsPartOfAnyPrefab(reader.gameObject))
             {
-                PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
+                PrefabUtility.RecordPrefabInstancePropertyModifications(reader);
             }
 
             MarkFirstAvatarAsValid();
@@ -990,7 +990,6 @@ namespace AvatarImageReader.Editor
                     if (GUILayout.Button("Remove Avatar"))
                     {
                         ArrayUtility.RemoveAt(ref prefabEditor.reader.linkedAvatars, a);
-                        prefabEditor.reader.ApplyProxyModifications();
                         prefabEditor.OnLinkedAvatarsUpdated();
                     }
                 });
@@ -1035,9 +1034,7 @@ namespace AvatarImageReader.Editor
             GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             instantiated.name = "New avatar image reader";
             RuntimeDecoder imagePrefab = instantiated.GetUdonSharpComponent<RuntimeDecoder>();
-            imagePrefab.UpdateProxy();
             imagePrefab.uid = "";
-            imagePrefab.ApplyProxyModifications();
             
             EditorUtility.SetDirty(instantiated);
         }
@@ -1049,9 +1046,7 @@ namespace AvatarImageReader.Editor
             GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             instantiated.name = "New avatar image reader (TMP)";
             RuntimeDecoder imagePrefab = instantiated.GetUdonSharpComponent<RuntimeDecoder>();
-            imagePrefab.UpdateProxy();
             imagePrefab.uid = "";
-            imagePrefab.ApplyProxyModifications();
             
             EditorUtility.SetDirty(instantiated);
         }
@@ -1063,9 +1058,7 @@ namespace AvatarImageReader.Editor
             GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             instantiated.name = "New avatar image reader (debug)";
             RuntimeDecoder imagePrefab = instantiated.GetUdonSharpComponent<RuntimeDecoder>();
-            imagePrefab.UpdateProxy();
             imagePrefab.uid = "";
-            imagePrefab.ApplyProxyModifications();
             
             EditorUtility.SetDirty(instantiated);
         }
