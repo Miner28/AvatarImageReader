@@ -3,7 +3,8 @@
     "references": [
         "VRC.Udon",
         "UdonSharp.Runtime",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "BocuD.VRChatApiTools.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

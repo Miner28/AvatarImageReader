@@ -9,7 +9,8 @@
         "VRC.SDKBase.Editor",
         "AvatarImageReader.Runtime",
         "UdonSharp.Runtime",
-        "VRC.Udon"
+        "VRC.Udon",
+        "BocuD.VRChatApiTools.Runtime"
     ],
     "includePlatforms": [
         "Editor"
