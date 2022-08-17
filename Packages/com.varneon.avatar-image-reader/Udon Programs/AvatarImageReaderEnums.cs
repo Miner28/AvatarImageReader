@@ -10,7 +10,7 @@
     {
         UTF16,
         UTF8,
-        ASCII,
-        Binary
+        ASCII = 1,
+        Binary = 1
     }
 }

@@ -646,12 +646,6 @@ namespace AvatarImageReader.Editor
                         EditorGUI.EndDisabledGroup();
                     }
                     break;
-                case DataMode.ASCII:
-                    EditorGUILayout.LabelField("Available characters: ", $"{pixelCount * 4:n0}");
-                    break;
-                case DataMode.Binary:
-                    EditorGUILayout.LabelField("Available data: ", $"{pixelCount * 4:n0} Bytes");
-                    break;
             }
             EditorGUILayout.Space(4);
             EditorGUI.EndDisabledGroup();
