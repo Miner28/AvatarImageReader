@@ -52,6 +52,8 @@ namespace AvatarImageReader
 
         [Header("Internal")]
         public VRCAvatarPedestal avatarPedestal;
+
+        private const string LOG_PREFIX = "[<color=#00fff7>AvatarImageReader</color>]:";
         #endregion
 
         #region Check Hierarchy
@@ -482,7 +484,7 @@ namespace AvatarImageReader
         {
             if (!debugLogging) return;
 
-            Debug.Log($"[<color=#00fff7>ReadRenderTexture</color>] {text}");
+            Debug.Log($"{LOG_PREFIX} {text}");
 
             if (debugTMP)
             {
@@ -494,7 +496,7 @@ namespace AvatarImageReader
         {
             if (!debugLogging) return;
 
-            Debug.LogError($"[<color=#00fff7>ReadRenderTexture</color>] {text}");
+            Debug.LogError($"{LOG_PREFIX} {text}");
 
             if (debugTMP)
             {
