@@ -226,7 +226,7 @@ namespace AvatarImageReader.Editor
 
             // Debugging > Enable Debug Logging
             Toggle enableDebugToggle = root.Q<Toggle>("Toggle_EnableDebug");
-            enableDebugToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.debugLogger)));
+            enableDebugToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.debugLogging)));
             enableDebugToggle.RegisterValueChangedCallback(a => {
                 setDebugEnabledAction(a.newValue);
             });
@@ -726,9 +726,9 @@ namespace AvatarImageReader.Editor
             
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("<b>Debugging</b>", headerStyle);
-            reader.debugLogger = EditorGUILayout.Toggle("Enable debug logging", reader.debugLogger);
+            reader.debugLogging = EditorGUILayout.Toggle("Enable debug logging", reader.debugLogging);
             
-            if (reader.debugLogger)
+            if (reader.debugLogging)
             {
                 reader.debugTMP = EditorGUILayout.Toggle("Enable logging to TextMeshPro", reader.debugTMP);
                 if (reader.debugTMP)
