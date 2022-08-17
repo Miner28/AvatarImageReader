@@ -38,7 +38,7 @@
                 <ui:Label text="Make sure to link this reader to a decoder, and to select this reader on the decoder object!" style="white-space: normal; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;" />
             </ui:VisualElement>
             <ui:VisualElement name="Field_TargetResolutionPreview" class="margin-default field-margin-default unity-base-field" style="flex-direction: row; flex-shrink: 0;">
-                <ui:Label text="Remaining Characters:" class="field-label-width unity-base-field__label" />
+                <ui:Label text="Remaining Characters:" name="Label_RemainingDataCapacity" class="field-label-width unity-base-field__label" />
                 <ui:Label text="24,566 / 24,566 (100%)" name="Label_RemainingCharactersPreview" />
             </ui:VisualElement>
             <ui:ScrollView style="max-height: 256px; margin-right: 3px; overflow: hidden;">

@@ -19,6 +19,7 @@ using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text;
 
 namespace AvatarImageReader.Editor
 {
@@ -35,7 +36,7 @@ namespace AvatarImageReader.Editor
         private Vector2 currentResolution;
 
         public RuntimeDecoder reader;
-        private string text = "";
+        private string text { get => textStorageObject.text; set => textStorageObject.text = value; }
 
         private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
 
@@ -55,10 +56,18 @@ namespace AvatarImageReader.Editor
         private int imageWidth;
         private int imageHeight;
 
+        #region UIElements Inspector References
+        private VisualElement capacityExceededError;
+
         private Label totalLinkedAvatarCountLabel;
+        private Label remainingCapacityLabel;
 
         private Button setOrChangeAvatarButton;
         private Button unlinkAvatarsButton;
+        #endregion
+
+        private TextStorageObject textStorageObject;
+        private Platform lastImageMode;
 
         private bool init = false;
 
@@ -102,10 +111,22 @@ namespace AvatarImageReader.Editor
                 MarkFirstAvatarAsValid();
             };
 
-            // Disable the Data Mode enum field (not supported yet)
+            remainingCapacityLabel = root.Q<Label>("Label_RemainingCharactersPreview");
+            capacityExceededError = root.Q("ErrorBox_CharactersExceeded");
+
+            Action<DataMode> onDataModeChanged = (DataMode newDataMode) =>
+            {
+                root.Q<Label>("Label_RemainingDataCapacity").text = GetDataModeRemainingCapacityLabel(newDataMode);
+
+                UpdateRemainingCapacityLabel(newDataMode);
+            };
+
+            // Data Encoding > Data Mode
             EnumField dataModeField = root.Q<EnumField>("EnumField_DataMode");
-            dataModeField.SetEnabled(false);
             dataModeField.Init(reader.dataMode);
+            dataModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.dataMode)));
+            dataModeField.RegisterValueChangedCallback(a => onDataModeChanged((DataMode)a.newValue));
+            onDataModeChanged(reader.dataMode);
 
             // Create action for when the link Patreon decoder toggle state changes
             Action<bool> setPatreonDecoderLinkedState = (bool isLinked) =>
@@ -123,13 +144,6 @@ namespace AvatarImageReader.Editor
             linkPatreonDecoderToggle.RegisterValueChangedCallback(a => setPatreonDecoderLinkedState(a.newValue));
             setPatreonDecoderLinkedState(linkPatreonDecoderToggle.value);
 
-            // Create an action for updating the remaining characters label
-            Action<string> updateRemainingCharactersLabel = (string text) => {
-                bool exceedsCapacity = maxByteCount / 2 < text.Length;
-                root.Q<Label>("Label_RemainingCharactersPreview").text = $"{maxByteCount / 2 - text.Length:n0} / {maxByteCount / 2:n0} ({((float)maxByteCount / 2 - text.Length) / ((float)maxByteCount / 2) * 100:n0}%)";
-                SetElementsVisibleState(exceedsCapacity, root.Q("ErrorBox_CharactersExceeded"));
-            };
-
             // Workaround for error 'Generated text will be truncated because it exceeds 49152 vertices.'
             // Use the IMGUI TextArea instead of UIElements TextField
             IMGUIContainer dataInputIMGUIContainer = root.Q<IMGUIContainer>("IMGUIContainer_DataInput");
@@ -137,13 +151,13 @@ namespace AvatarImageReader.Editor
             {
                 using (var scope = new EditorGUI.ChangeCheckScope())
                 {
-                    string data = GUILayout.TextArea(textStorageObject.text, EditorStyles.textArea);
+                    string data = GUILayout.TextArea(text, EditorStyles.textArea);
 
                     if (scope.changed)
                     {
-                        textStorageObject.text = data;
+                        text = data;
 
-                        updateRemainingCharactersLabel(data);
+                        UpdateRemainingCapacityLabel(reader.dataMode);
                     }
                 }
             };
@@ -152,7 +166,7 @@ namespace AvatarImageReader.Editor
             Action<Platform> updateImageModeAction = (Platform platform) => {
                 root.Q<Label>("Label_ResolutionPreview").text = GetPlatformResolutionPreviewText(platform);
                 SetPlatform(platform);
-                updateRemainingCharactersLabel.Invoke(textStorageObject.text);
+                UpdateRemainingCapacityLabel(reader.dataMode);
             };
 
             // Image Options > Image Mode
@@ -241,11 +255,12 @@ namespace AvatarImageReader.Editor
             if (reader == null)
                 return;
 
+            SetPlatform(reader.imageMode);
+
             //set up TextStorageObject monobehaviour
             if (reader.GetComponentInChildren<TextStorageObject>())
             {
                 textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
-                text = textStorageObject.text;
             }
             else
             {
@@ -287,6 +302,39 @@ namespace AvatarImageReader.Editor
         private void UpdateTotalLinkedAvatarCountLabel()
         {
             totalLinkedAvatarCountLabel.text = string.Format("Total linked avatar count: {0}", reader.linkedAvatars.Length);
+        }
+
+        private void UpdateRemainingCapacityLabel(DataMode dataMode)
+        {
+            bool exceedsCapacity = false;
+
+            switch (dataMode)
+            {
+                case DataMode.UTF16:
+                    exceedsCapacity = maxByteCount / 2 < text.Length;
+                    remainingCapacityLabel.text = $"{maxByteCount / 2 - text.Length:n0} / {maxByteCount / 2:n0} ({((float)maxByteCount / 2 - text.Length) / ((float)maxByteCount / 2) * 100:n0}%)";
+                    break;
+                case DataMode.UTF8:
+                    currentByteCount = Encoding.UTF8.GetByteCount(text);
+                    exceedsCapacity = maxByteCount < currentByteCount;
+                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / (float)maxByteCount * 100:n0}%)";
+                    break;
+            }
+
+            SetElementsVisibleState(exceedsCapacity, capacityExceededError);
+        }
+
+        private string GetDataModeRemainingCapacityLabel(DataMode dataMode)
+        {
+            switch (dataMode)
+            {
+                case DataMode.UTF16:
+                    return "Remaining Characters:";
+                case DataMode.UTF8:
+                    return "Remaining Bytes:";
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         private void DisplayEncodedImages()
@@ -412,9 +460,7 @@ namespace AvatarImageReader.Editor
         
         private Vector2 scrollview;
         private int imageContent;
-        
-        private TextStorageObject textStorageObject;
-        private Platform lastImageMode;
+       
         
         public override void OnInspectorGUI()
         {
@@ -744,7 +790,7 @@ namespace AvatarImageReader.Editor
 
         private void MarkDirty()
         {
-            textStorageObject.text = text;
+            //textStorageObject.text = text;
             
             reader.ApplyProxyModifications();
             
