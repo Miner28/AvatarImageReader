@@ -1,0 +1,73 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="Banner" style="flex-direction: row;">
+        <Style src="RuntimeDecoderEditor.uss" />
+        <ui:Label text="Avatar Image Reader" class="header-large margin-default" />
+    </ui:VisualElement>
+    <ui:VisualElement name="AvatarPreview">
+        <Style src="RuntimeDecoderEditor.uss" />
+        <ui:VisualElement name="Header" style="flex-direction: row;">
+            <ui:Label text="Main Avatar" class="margin-default" style="-unity-font-style: bold;" />
+            <ui:Label text="Total linked avatar count: 0" name="Label_TotalLinkedAvatarCount" class="margin-default" style="right: 0; flex-grow: 1; -unity-text-align: upper-right;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="AvatarPanel" class="margin-default" style="background-color: rgba(255, 255, 255, 0.1); padding-left: 6px; padding-right: 6px; padding-top: 6px; padding-bottom: 6px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-left-color: rgb(48, 48, 48); border-right-color: rgb(48, 48, 48); border-top-color: rgb(48, 48, 48); border-bottom-color: rgb(48, 48, 48); display: none;">
+            <ui:VisualElement name="Image_AvatarThumbnail" style="width: 128px; height: 96px; background-color: rgb(0, 0, 0);" />
+        </ui:VisualElement>
+        <ui:IMGUIContainer name="IMGUIContainer_AvatarPreview" class="margin-default" />
+        <ui:VisualElement name="AvatarActionButtons" style="flex-direction: row;">
+            <ui:Button text="Set avatar..." name="Button_SetOrChangeAvatar" class="button-row" />
+            <ui:Button text="Manage Avatars" name="Button_ManageAvatars" class="button-row" />
+            <ui:Button text="Unlink Avatars" name="Button_UnlinkAvatars" class="button-row" style="background-color: rgb(88, 0, 0);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="ImageOptions" class="default-space-vertical">
+        <Style src="RuntimeDecoderEditor.uss" />
+        <ui:Foldout text="Image Options" name="Foldout_ImageOptions" class="foldout-margin">
+            <uie:EnumField label="Image Mode:" name="EnumField_ImageMode" class="field-margin-default" />
+            <ui:VisualElement name="Field_TargetResolutionPreview" class="margin-default field-margin-default unity-base-field" style="flex-direction: row;">
+                <ui:Label text="Target Resolution:" class="field-label-width unity-base-field__label" />
+                <ui:Label text="128x96" name="Label_ResolutionPreview" />
+            </ui:VisualElement>
+        </ui:Foldout>
+    </ui:VisualElement>
+    <ui:VisualElement name="DataEncoding" class="default-space-vertical">
+        <Style src="RuntimeDecoderEditor.uss" />
+        <ui:Foldout text="Data Encoding" name="Foldout_DataEncoding" class="foldout-margin">
+            <uie:EnumField label="Data Mode:" value="UTF16" name="EnumField_DataMode" class="field-margin-default" />
+            <ui:Toggle label="Link Patreon Decoder:" name="Toggle_LinkPatreonDecoder" class="field-margin-default" />
+            <ui:VisualElement name="HelpBox_PatreonDecoderInfo" class="field-margin-default" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; background-color: rgba(255, 255, 255, 0.1); border-left-color: rgb(41, 41, 41); border-right-color: rgb(41, 41, 41); border-top-color: rgb(41, 41, 41); border-bottom-color: rgb(41, 41, 41);">
+                <ui:Label text="Make sure to link this reader to a decoder, and to select this reader on the decoder object!" style="white-space: normal; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Field_TargetResolutionPreview" class="margin-default field-margin-default unity-base-field" style="flex-direction: row; flex-shrink: 0;">
+                <ui:Label text="Remaining Characters:" class="field-label-width unity-base-field__label" />
+                <ui:Label text="24,566 / 24,566 (100%)" name="Label_RemainingCharactersPreview" />
+            </ui:VisualElement>
+            <ui:ScrollView style="max-height: 256px; margin-right: 3px; overflow: hidden;">
+                <ui:IMGUIContainer name="IMGUIContainer_DataInput" class="field-margin-default" />
+            </ui:ScrollView>
+            <ui:VisualElement name="ErrorBox_CharactersExceeded" class="field-margin-default" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; background-color: rgba(127, 0, 0, 0.5); border-left-color: rgb(41, 41, 41); border-right-color: rgb(41, 41, 41); border-top-color: rgb(41, 41, 41); border-bottom-color: rgb(41, 41, 41);">
+                <ui:Label text="You are using more characters than the image can fit. Excess characters will be trimmed off." style="white-space: normal; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;" />
+            </ui:VisualElement>
+            <ui:Button text="Encode Image(s)" name="Button_EncodeImages" style="margin-top: 3px; margin-bottom: 3px;" />
+            <ui:IMGUIContainer name="IMGUIContainer_EncodedImages" class="field-margin-default" />
+        </ui:Foldout>
+    </ui:VisualElement>
+    <ui:VisualElement name="GeneralOptions" class="default-space-vertical">
+        <Style src="RuntimeDecoderEditor.uss" />
+        <ui:Foldout text="General Options" name="Foldout_GeneralOptions" class="foldout-margin" style="flex-shrink: 0;">
+            <ui:Toggle label="Output to TextMeshPro:" name="Toggle_OutputToTMP" value="true" class="field-margin-default" />
+            <ui:Toggle label="Auto Fill TextMeshPro:" name="Toggle_AutoFillTMP" class="field-margin-default" />
+            <uie:ObjectField label="Target TextMeshPro:" name="ObjectField_OutputTMP" class="field-margin-default" />
+            <ui:Toggle label="Send Custom Event:" name="Toggle_SendCustomEvent" value="true" class="field-margin-default" />
+            <uie:ObjectField label="Target UdonBehaviour:" name="ObjectField_CallbackUdonBehaviour" class="field-margin-default" />
+            <ui:TextField picking-mode="Ignore" label="Event Name:" name="TextField_CallbackEventName" />
+        </ui:Foldout>
+    </ui:VisualElement>
+    <ui:VisualElement name="Debugging" class="default-space-vertical">
+        <Style src="RuntimeDecoderEditor.uss" />
+        <ui:Foldout text="Debugging" name="Foldout_Debugging" class="foldout-margin" style="flex-shrink: 0;">
+            <ui:Toggle label="Enable Debug Logging:" name="Toggle_EnableDebug" value="true" class="field-margin-default" />
+            <ui:Toggle label="Log to TextMeshPro:" name="Toggle_EnableDebugTMP" value="true" class="field-margin-default" />
+            <uie:ObjectField label="Target TextMeshPro:" name="ObjectField_LogTMP" class="field-margin-default" />
+        </ui:Foldout>
+    </ui:VisualElement>
+</ui:UXML>

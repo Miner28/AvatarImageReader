@@ -15,39 +15,231 @@ using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 using AvatarImageReader.Enums;
 
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+using System.Collections.Generic;
+using System.Reflection;
+
 namespace AvatarImageReader.Editor
 {
     [CustomEditor(typeof(RuntimeDecoder))]
     public class RuntimeDecoderEditor : UnityEditor.Editor
     {
+        [SerializeField]
+        private VisualTreeAsset inspectorUXML;
+
+        private Dictionary<Platform, Vector2> platformResolutions = new Dictionary<Platform, Vector2>() { { Platform.Android, new Vector2(128, 96) }, { Platform.PC, new Vector2(1200, 900) } };
+
+        private Platform currentPlatform;
+
+        private Vector2 currentResolution;
+
         public RuntimeDecoder reader;
         private string text = "";
-        
+
         private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
-        
+
         private const string pcDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/PC.png";
         private const string questDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/Quest.png";
-        
+
         private const string pcRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/PCCRT.asset";
         private const string questRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/QuestCRT.asset";
-        
+
+        private int pixelCount;
+        private int byteCount;
+
         private Texture2D[] output;
         private GUIContent[] texturePreview;
 
-        private Vector2 scrollview;
-
         private int imageWidth;
         private int imageHeight;
-        private int imageContent;
-        
-        private TextStorageObject textStorageObject;
-        private Platform lastImageMode;
+
+        private Label totalLinkedAvatarCountLabel;
+
+        private Button setOrChangeAvatarButton;
+        private Button unlinkAvatarsButton;
+
+        private bool init = false;
+
+        private void OnEnable()
+        {
+            if (reader == null) { reader = (RuntimeDecoder)target; }
+
+            if (!init) Init();
+
+            // Make sure the first avatar is always initialized
+            if (reader.linkedAvatars == null || reader.linkedAvatars.Length == 0)
+            {
+                reader.linkedAvatars = new string[1];
+                reader.linkedAvatars[0] = "";
+            }
+        }
+
+        public override VisualElement CreateInspectorGUI()
+        {
+            if (reader == null) { reader = (RuntimeDecoder)target; }
+
+            SerializedObject decoderSO = new SerializedObject(reader);
+
+            VisualElement root = inspectorUXML.CloneTree();
+
+            root.Q<IMGUIContainer>("IMGUIContainer_AvatarPreview").onGUIHandler += () => VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0]);
+
+            totalLinkedAvatarCountLabel = root.Q<Label>("Label_TotalLinkedAvatarCount");
+
+            UpdateTotalLinkedAvatarCountLabel();
+
+            // Initialize the avatar action buttons
+            setOrChangeAvatarButton = root.Q<Button>("Button_SetOrChangeAvatar");
+            unlinkAvatarsButton = root.Q<Button>("Button_UnlinkAvatars");
+
+            setOrChangeAvatarButton.clicked += () => BlueprintPicker.BlueprintSelector<ApiAvatar>(avatar => AvatarSelected(avatar, 0));
+            root.Q<Button>("Button_ManageAvatars").clicked += () => MultiAvatarManager.SpawnEditor(this);
+            root.Q<Button>("Button_UnlinkAvatars").clicked += () => {
+                reader.linkedAvatars = new string[0];
+                AvatarSelected(null, 0);
+                MarkFirstAvatarAsValid();
+            };
+
+            // Disable the Data Mode enum field (not supported yet)
+            EnumField dataModeField = root.Q<EnumField>("EnumField_DataMode");
+            dataModeField.SetEnabled(false);
+            dataModeField.Init(reader.dataMode);
+
+            // Create action for when the link Patreon decoder toggle state changes
+            Action<bool> setPatreonDecoderLinkedState = (bool isLinked) =>
+            {
+                // Data Mode enum field should be disabled at all times since other data modes don't have support yet
+                //dataModeField.SetEnabled(!isLinked);
+                //if (isLinked) { dataModeField.value = DataMode.UTF16; }
+
+                SetElementsVisibleState(isLinked, root.Q("HelpBox_PatreonDecoderInfo"));
+            };
+
+            // Data Encoding > Link Patreon Decoder
+            Toggle linkPatreonDecoderToggle = root.Q<Toggle>("Toggle_LinkPatreonDecoder");
+            linkPatreonDecoderToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.patronMode)));
+            linkPatreonDecoderToggle.RegisterValueChangedCallback(a => setPatreonDecoderLinkedState(a.newValue));
+            setPatreonDecoderLinkedState(linkPatreonDecoderToggle.value);
+
+            // Create an action for updating the remaining characters label
+            Action<string> updateRemainingCharactersLabel = (string text) => {
+                bool exceedsCapacity = byteCount / 2 < text.Length;
+                root.Q<Label>("Label_RemainingCharactersPreview").text = $"{byteCount / 2 - text.Length:n0} / {byteCount / 2:n0} ({((float)byteCount / 2 - text.Length) / ((float)byteCount / 2) * 100:n0}%)";
+                SetElementsVisibleState(exceedsCapacity, root.Q("ErrorBox_CharactersExceeded"));
+            };
+
+            // Workaround for error 'Generated text will be truncated because it exceeds 49152 vertices.'
+            // Use the IMGUI TextArea instead of UIElements TextField
+            IMGUIContainer dataInputIMGUIContainer = root.Q<IMGUIContainer>("IMGUIContainer_DataInput");
+            dataInputIMGUIContainer.onGUIHandler = () =>
+            {
+                using (var scope = new EditorGUI.ChangeCheckScope())
+                {
+                    string data = GUILayout.TextArea(textStorageObject.text, EditorStyles.textArea);
+
+                    if (scope.changed)
+                    {
+                        textStorageObject.text = data;
+
+                        updateRemainingCharactersLabel(data);
+                    }
+                }
+            };
+
+            // Create action for changing the platform
+            Action<Platform> updateImageModeAction = (Platform platform) => {
+                root.Q<Label>("Label_ResolutionPreview").text = GetPlatformResolutionPreviewText(platform);
+                SetPlatform(platform);
+                updateRemainingCharactersLabel.Invoke(textStorageObject.text);
+            };
+
+            // Image Options > Image Mode
+            EnumField imageModeField = root.Q<EnumField>("EnumField_ImageMode");
+            imageModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.imageMode)));
+            imageModeField.RegisterValueChangedCallback(a => updateImageModeAction((Platform)a.newValue));
+            imageModeField.Init(reader.imageMode);
+            updateImageModeAction((Platform)imageModeField.value);
+
+            // Data Encoding > Encode Image(s)
+            root.Q<Button>("Button_EncodeImages").clicked += () => EncodeImages();
+
+            root.Q<IMGUIContainer>("IMGUIContainer_EncodedImages").onGUIHandler = () => DisplayEncodedImages();
+
+            // General > Event Name
+            TextField callbackEventNameField = root.Q<TextField>("TextField_CallbackEventName");
+            callbackEventNameField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.callbackEventName)));
+
+            // General > Target UdonBehaviour
+            ObjectField callbackUdonBehaviourField = root.Q<ObjectField>("ObjectField_CallbackUdonBehaviour");
+            callbackUdonBehaviourField.objectType = typeof(UdonBehaviour);
+            callbackUdonBehaviourField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.callbackBehaviour)));
+            callbackUdonBehaviourField.RegisterValueChangedCallback(a => { SetElementsVisibleState(a.newValue != null, callbackEventNameField); });
+            SetElementsVisibleState(callbackUdonBehaviourField.value != null, callbackEventNameField);
+
+            // Create action for setting UdonBehaviour callback enabled
+            Action<bool> enableSendCustomEventAction = (bool enabled) =>
+            {
+                SetElementsVisibleState(enabled, callbackUdonBehaviourField);
+                SetElementsVisibleState(enabled && callbackUdonBehaviourField.value != null, callbackEventNameField);
+            };
+
+            // General > Send Custom Event
+            Toggle sendCustomEventToggle = root.Q<Toggle>("Toggle_SendCustomEvent");
+            sendCustomEventToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.callBackOnFinish)));
+            sendCustomEventToggle.RegisterValueChangedCallback(a => {
+                enableSendCustomEventAction(a.newValue);
+            });
+            enableSendCustomEventAction(sendCustomEventToggle.value);
+
+            // General > Target TextMeshPro
+            ObjectField outputTMPField = root.Q<ObjectField>("ObjectField_OutputTMP");
+            outputTMPField.objectType = typeof(TextMeshPro);
+            outputTMPField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.outputText)));
+
+            // General > Auto Fill TextMeshPro
+            Toggle autoFillTMPToggle = root.Q<Toggle>("Toggle_AutoFillTMP");
+            autoFillTMPToggle.BindProperty(decoderSO.FindProperty("autoFillTMP"));
+
+            // General > Output to TextMeshPro
+            Toggle outputToTMPToggle = root.Q<Toggle>("Toggle_OutputToTMP");
+            outputToTMPToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.outputToText)));
+            outputToTMPToggle.RegisterValueChangedCallback(a => { SetElementsVisibleState(a.newValue, outputTMPField, autoFillTMPToggle); });
+            SetElementsVisibleState(outputToTMPToggle.value, outputTMPField, autoFillTMPToggle);
+
+            // Debugging > Target TextMeshPro
+            ObjectField logTMPField = root.Q<ObjectField>("ObjectField_LogTMP");
+            logTMPField.objectType = typeof(TextMeshPro);
+            logTMPField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.loggerText)));
+
+            // Debugging > Log to TextMeshPro
+            Toggle logToTMPToggle = root.Q<Toggle>("Toggle_EnableDebugTMP");
+            logToTMPToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.debugTMP)));
+            logToTMPToggle.RegisterValueChangedCallback(a => SetElementsVisibleState(a.newValue, logTMPField));
+            SetElementsVisibleState(logToTMPToggle.value, logTMPField);
+
+            Action<bool> setDebugEnabledAction = (bool debugEnabled) =>
+            {
+                SetElementsVisibleState(debugEnabled, logToTMPToggle);
+                SetElementsVisibleState(debugEnabled && logToTMPToggle.value, logTMPField);
+            };
+
+            // Debugging > Enable Debug Logging
+            Toggle enableDebugToggle = root.Q<Toggle>("Toggle_EnableDebug");
+            enableDebugToggle.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.debugLogger)));
+            enableDebugToggle.RegisterValueChangedCallback(a => {
+                setDebugEnabledAction(a.newValue);
+            });
+            setDebugEnabledAction(enableDebugToggle.value);
+
+            return root;
+        }
 
         private void Init()
         {
             if (reader == null)
                 return;
-            
+
             //set up TextStorageObject monobehaviour
             if (reader.GetComponentInChildren<TextStorageObject>())
             {
@@ -74,10 +266,159 @@ namespace AvatarImageReader.Editor
             init = true;
         }
 
-        private bool init = false;
+        private void MarkFirstAvatarAsValid()
+        {
+            bool isValid = !string.IsNullOrWhiteSpace(reader.linkedAvatars[0]);
+
+            setOrChangeAvatarButton.text = isValid ? "Change Avatar" : "Set avatar...";
+            unlinkAvatarsButton.SetEnabled(isValid);
+        }
+
+        internal void OnLinkedAvatarsUpdated()
+        {
+            MarkFirstAvatarAsValid();
+
+            UpdateTotalLinkedAvatarCountLabel();
+
+            UpdateDataCapacity();
+        }
+
+        private void UpdateTotalLinkedAvatarCountLabel()
+        {
+            totalLinkedAvatarCountLabel.text = string.Format("Total linked avatar count: {0}", reader.linkedAvatars.Length);
+        }
+
+        private void DisplayEncodedImages()
+        {
+            if (output != null)
+            {
+                for (int i = 0; i < texturePreview.Length && i < reader.linkedAvatars.Length; i++)
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.BeginVertical(GUILayout.Width(100));
+                    GUILayout.Box(texturePreview[i]);
+                    EditorGUILayout.EndVertical();
+
+                    EditorGUILayout.BeginVertical();
+
+                    EditorGUILayout.BeginHorizontal();
+
+                    EditorGUILayout.BeginVertical();
+                    EditorGUILayout.LabelField($"Image {i + 1}/{texturePreview.Length}", GUILayout.Width(100));
+                    EditorGUILayout.LabelField("Image dimensions: ", GUILayout.Width(120));
+                    EditorGUILayout.LabelField("Image data type: ", GUILayout.Width(120));
+                    EditorGUILayout.LabelField("Target avatar id: ", GUILayout.Width(120));
+                    EditorGUILayout.EndVertical();
+
+                    EditorGUILayout.BeginVertical();
+                    if (GUILayout.Button("Save Image", GUILayout.Width(120)))
+                    {
+                        string path = EditorUtility.SaveFilePanel(
+                            "Save texture as PNG",
+                            Application.dataPath,
+                            "output.png",
+                            "png");
+
+                        if (path.Length != 0)
+                        {
+                            byte[] pngData = output[i].EncodeToPNG();
+                            if (pngData != null)
+                                File.WriteAllBytes(path, pngData);
+
+                            path = "Assets" + path.Substring(Application.dataPath.Length);
+
+                            AssetDatabase.WriteImportSettingsIfDirty(path);
+                            AssetDatabase.ImportAsset(path);
+
+                            TextureImporter importer = (TextureImporter)AssetImporter.GetAtPath(path);
+                            importer.npotScale = TextureImporterNPOTScale.None;
+                            importer.textureCompression = TextureImporterCompression.Uncompressed;
+                            importer.maxTextureSize = 2048;
+                            EditorUtility.SetDirty(importer);
+                            AssetDatabase.WriteImportSettingsIfDirty(path);
+
+                            AssetDatabase.ImportAsset(path);
+                        }
+                    }
+                    EditorGUILayout.LabelField($"{imageWidth} x {imageHeight}");
+                    EditorGUILayout.LabelField("UTF16 Characters");
+                    EditorGUILayout.LabelField(reader.linkedAvatars[i]);
+                    EditorGUILayout.EndVertical();
+                    EditorGUILayout.EndHorizontal();
+
+                    EditorGUILayout.EndVertical();
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                bool uploadBlocked = string.IsNullOrEmpty(reader.linkedAvatars[0]) || reader.linkedAvatars.Length < texturePreview.Length;
+
+                EditorGUI.BeginDisabledGroup(uploadBlocked);
+                GUIContent uploadButton = uploadBlocked
+                        ? new GUIContent("Upload Image(s) to Avatar(s)",
+                            "You don't currently have enough linked avatars to upload this data")
+                        : new GUIContent("Upload Image(s) to Avatar(s)");
+                if (GUILayout.Button(uploadButton))
+                {
+                    RunUploadTask(output, reader.linkedAvatars);
+                }
+                EditorGUI.EndDisabledGroup();
+            }
+        }
+
+        private void SetPlatform(Platform platform)
+        {
+            currentPlatform = platform;
+            currentResolution = platformResolutions[platform];
+            UpdateDataCapacity();
+        }
+
+        private void UpdateDataCapacity()
+        {
+            pixelCount = (int)currentResolution.x * (int)currentResolution.y * reader.linkedAvatars.Length;
+            byteCount = (pixelCount - 5) * 4;
+        }
+
+        private void SetElementsVisibleState(bool visible, params VisualElement[] elements)
+        {
+            foreach(VisualElement element in elements)
+            {
+                element.EnableInClassList("hidden-element", !visible);
+            }
+        }
+
+        private string GetPlatformResolutionPreviewText(Platform platform)
+        {
+            Vector2 resolution = platformResolutions[platform];
+
+            return string.Format("{0}x{1}", resolution.x, resolution.y);
+        }
+
+        private void EncodeImages()
+        {
+            imageWidth = reader.imageMode == 0 ? 128 : 1200;
+            imageHeight = reader.imageMode == 0 ? 96 : 900;
+
+            output = AvatarImageEncoder.EncodeUTF16Text(text, reader.linkedAvatars, imageWidth, imageHeight);
+
+            texturePreview = new GUIContent[output.Length];
+            for (int i = 0; i < output.Length; i++)
+            {
+                texturePreview[i] = new GUIContent(output[i]);
+            }
+        }
+
+        #region LEGACY CODE
+        
+        private Vector2 scrollview;
+        private int imageContent;
+        
+        private TextStorageObject textStorageObject;
+        private Platform lastImageMode;
         
         public override void OnInspectorGUI()
         {
+            return;
+
             if (UdonSharpGUI.DrawDefaultUdonSharpBehaviourHeader(target)) return;
 
             reader = (RuntimeDecoder)target;
@@ -563,6 +904,12 @@ namespace AvatarImageReader.Editor
             {
                 PrefabUtility.RecordPrefabInstancePropertyModifications(UdonSharpEditorUtility.GetBackingUdonBehaviour(reader));
             }
+
+            MarkFirstAvatarAsValid();
+
+            UpdateTotalLinkedAvatarCountLabel();
+
+            UpdateDataCapacity();
         }
         
         public static string GetUniqueID()
@@ -613,6 +960,7 @@ namespace AvatarImageReader.Editor
                     {
                         ArrayUtility.RemoveAt(ref prefabEditor.reader.linkedAvatars, a);
                         prefabEditor.reader.ApplyProxyModifications();
+                        prefabEditor.OnLinkedAvatarsUpdated();
                     }
                 });
                 
@@ -690,6 +1038,8 @@ namespace AvatarImageReader.Editor
             
             EditorUtility.SetDirty(instantiated);
         }
+
+        #endregion
     }
 }
 
