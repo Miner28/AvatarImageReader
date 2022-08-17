@@ -4,7 +4,8 @@
         "VRC.Udon",
         "UdonSharp.Runtime",
         "Unity.TextMeshPro",
-        "BocuD.VRChatApiTools.Runtime"
+        "BocuD.VRChatApiTools.Runtime",
+        "AvatarImageReader.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

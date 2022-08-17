@@ -12,6 +12,7 @@ namespace AvatarImageReader
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
     [RequireComponent(typeof(Camera))]
+    [RequireComponent(typeof(TextStorageObject))]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class RuntimeDecoder : UdonSharpBehaviour
     {
