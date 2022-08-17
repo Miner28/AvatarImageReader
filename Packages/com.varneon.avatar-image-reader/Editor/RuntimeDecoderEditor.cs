@@ -46,7 +46,7 @@ namespace AvatarImageReader.Editor
         private const string questRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/QuestCRT.asset";
 
         private int pixelCount;
-        private int byteCount;
+        private int maxByteCount;
 
         private Texture2D[] output;
         private GUIContent[] texturePreview;
@@ -124,8 +124,8 @@ namespace AvatarImageReader.Editor
 
             // Create an action for updating the remaining characters label
             Action<string> updateRemainingCharactersLabel = (string text) => {
-                bool exceedsCapacity = byteCount / 2 < text.Length;
-                root.Q<Label>("Label_RemainingCharactersPreview").text = $"{byteCount / 2 - text.Length:n0} / {byteCount / 2:n0} ({((float)byteCount / 2 - text.Length) / ((float)byteCount / 2) * 100:n0}%)";
+                bool exceedsCapacity = maxByteCount / 2 < text.Length;
+                root.Q<Label>("Label_RemainingCharactersPreview").text = $"{maxByteCount / 2 - text.Length:n0} / {maxByteCount / 2:n0} ({((float)maxByteCount / 2 - text.Length) / ((float)maxByteCount / 2) * 100:n0}%)";
                 SetElementsVisibleState(exceedsCapacity, root.Q("ErrorBox_CharactersExceeded"));
             };
 
@@ -375,7 +375,7 @@ namespace AvatarImageReader.Editor
         private void UpdateDataCapacity()
         {
             pixelCount = (int)currentResolution.x * (int)currentResolution.y * reader.linkedAvatars.Length;
-            byteCount = (pixelCount - 5) * 4;
+            maxByteCount = (pixelCount - 5) * 4;
         }
 
         private void SetElementsVisibleState(bool visible, params VisualElement[] elements)
