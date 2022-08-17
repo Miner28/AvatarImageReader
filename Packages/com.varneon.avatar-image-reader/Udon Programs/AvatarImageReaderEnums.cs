@@ -9,6 +9,7 @@
     public enum DataMode
     {
         UTF16,
+        UTF8,
         ASCII,
         Binary
     }
