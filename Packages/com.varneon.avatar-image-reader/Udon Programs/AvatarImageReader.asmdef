@@ -1,0 +1,19 @@
+{
+    "name": "AvatarImageReader",
+    "references": [
+        "VRC.Udon",
+        "UdonSharp.Runtime",
+        "Unity.TextMeshPro",
+        "BocuD.VRChatApiTools.Runtime",
+        "AvatarImageReader.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,39 @@
+.header-large {
+    font-size: 15px;
+    -unity-font-style: bold;
+}
+
+.button-row {
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.margin-default {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.default-space-vertical {
+    margin-top: 8px;
+}
+
+.unity-base-field > .unity-base-field__label {
+    min-width: 160px;
+}
+
+.field-margin-default {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.hidden-element {
+    display: none;
+}
+
+.unity-foldout {
+    margin-left: 16px;
+}
