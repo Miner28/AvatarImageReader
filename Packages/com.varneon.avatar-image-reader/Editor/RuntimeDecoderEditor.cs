@@ -331,7 +331,7 @@ namespace AvatarImageReader.Editor
                 case DataMode.UTF16:
                     return "Remaining Characters:";
                 case DataMode.UTF8:
-                    return "Remaining Bytes:";
+                    return "Used Bytes:";
                 default:
                     throw new NotImplementedException();
             }

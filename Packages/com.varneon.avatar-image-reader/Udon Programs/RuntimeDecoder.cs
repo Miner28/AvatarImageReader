@@ -63,6 +63,8 @@ namespace AvatarImageReader
 
         private Texture pedestalTexture;
 
+        private Transform pedestalClone;
+
         private const string AVATAR_PEDESTAL_CLONE_NAME = "AvatarPedestal(Clone)";
 
         private void Start()
@@ -78,8 +80,6 @@ namespace AvatarImageReader
 
         public void _CheckHierarchy()
         {
-            Transform pedestalClone;
-
             if ((pedestalClone = transform.Find(AVATAR_PEDESTAL_CLONE_NAME)) != null)
             {
                 for (int i = 0; i < pedestalClone.childCount; i++)
@@ -161,8 +161,6 @@ namespace AvatarImageReader
 
                 if (renderTexture != null)
                 {
-                    //get material references
-                    pedestalMaterial = transform.parent.GetChild(0).GetChild(0).GetChild(1).GetComponent<MeshRenderer>().material;
                     lastInput = pedestalMaterial.GetTexture("_WorldTex");
 
                     outputString = "";
@@ -331,7 +329,7 @@ namespace AvatarImageReader
             //load next avatar
             if (nextAvatar != "avtr_ffffffff-ffff-ffff-ffff-ffffffffffff")
             {
-                pedestal.gameObject.SetActive(true);
+                pedestalClone.gameObject.SetActive(true);
                 pedestal.SwitchAvatar(nextAvatar);
                 Log($"Switched Avatar to - {nextAvatar} - Restarting loading");
 
@@ -455,27 +453,27 @@ namespace AvatarImageReader
             if (callBackOnFinish && callbackBehaviour != null && callbackEventName != "")
                 callbackBehaviour.SendCustomEvent(callbackEventName);
 
-            pedestal.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            Destroy(pedestal);
+            Destroy(pedestalClone.gameObject);
         }
 
         public void _ReEnableCamera()
         {
             renderCamera.enabled = true;
-            renderQuad.SetActive(true);
+            renderQuadRenderer.enabled = true;
             waitForNew = true;
         }
 
         public void _DisableCamera()
         {
             renderCamera.enabled = false;
-            renderQuad.SetActive(false);
+            renderQuadRenderer.enabled = false;
             waitForNew = false;
         }
 
         private bool IsSame()
         {
-            renderQuad.GetComponent<MeshRenderer>().material.SetTexture(1, pedestalMaterial.GetTexture("_WorldTex"));
+            renderQuadRenderer.material.SetTexture(1, pedestalMaterial.GetTexture("_WorldTex"));
             return lastInput == pedestalMaterial.GetTexture("_WorldTex");
         }
 

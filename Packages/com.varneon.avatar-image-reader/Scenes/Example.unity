@@ -936,6 +936,7 @@ MonoBehaviour:
   - avtr_f2d340b6-7dcd-3747-54a6-15ba7db1bc2f
   uid: 
   pedestalAssetsReady: 1
+  actionOnLoad: 0
   imageMode: 0
   outputToText: 1
   autoFillTMP: 0
@@ -945,19 +946,18 @@ MonoBehaviour:
   callbackEventName: 
   dataMode: 0
   patronMode: 0
-  debugLogger: 1
+  debugLogging: 0
   debugTMP: 0
   loggerText: {fileID: 0}
   outputString: 
   avatarPedestal: {fileID: 1605719730185174141}
   textureComparisonPlane: {fileID: 0}
-  overrideTextureEnabled: 0
   overrideTexture: {fileID: 0}
-  pedestal: {fileID: 1605719730185174141}
   renderQuad: {fileID: 7452802910760275716}
   renderCamera: {fileID: 2718811105292267009}
   renderTexture: {fileID: 8600000, guid: 930f19fa80715ca41ad6a9fd80e16a69, type: 2}
   donorInput: {fileID: 2800000, guid: a338e5508ab201e46a587e1bd3f04871, type: 3}
+  outputBytes: 
 --- !u!33 &4681854826276098711
 MeshFilter:
   m_ObjectHideFlags: 0
