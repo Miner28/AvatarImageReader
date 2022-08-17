@@ -120,12 +120,7 @@ namespace AvatarImageReader.Editor
             remainingCapacityLabel = root.Q<Label>("Label_RemainingCharactersPreview");
             capacityExceededError = root.Q("ErrorBox_CharactersExceeded");
 
-            Action<DataMode> onDataModeChanged = (DataMode newDataMode) =>
-            {
-                root.Q<Label>("Label_RemainingDataCapacity").text = GetDataModeRemainingCapacityLabel(newDataMode);
-
-                UpdateRemainingCapacityLabel(newDataMode);
-            };
+            Action<DataMode> onDataModeChanged = UpdateRemainingCapacityLabel;
 
             // Data Encoding > Data Mode
             EnumField dataModeField = root.Q<EnumField>("EnumField_DataMode");
@@ -317,30 +312,18 @@ namespace AvatarImageReader.Editor
             switch (dataMode)
             {
                 case DataMode.UTF16:
-                    exceedsCapacity = maxByteCount / 2 < text.Length;
-                    remainingCapacityLabel.text = $"{maxByteCount / 2 - text.Length:n0} / {maxByteCount / 2:n0} ({((float)maxByteCount / 2 - text.Length) / ((float)maxByteCount / 2) * 100:n0}%)";
+                    currentByteCount = Encoding.Unicode.GetByteCount(text);
+                    exceedsCapacity = currentByteCount > maxByteCount;
+                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / maxByteCount * 100:n0}%)";
                     break;
                 case DataMode.UTF8:
                     currentByteCount = Encoding.UTF8.GetByteCount(text);
-                    exceedsCapacity = maxByteCount < currentByteCount;
-                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / (float)maxByteCount * 100:n0}%)";
+                    exceedsCapacity = currentByteCount > maxByteCount;
+                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / maxByteCount * 100:n0}%)";
                     break;
             }
 
             SetElementsVisibleState(exceedsCapacity, capacityExceededError);
-        }
-
-        private string GetDataModeRemainingCapacityLabel(DataMode dataMode)
-        {
-            switch (dataMode)
-            {
-                case DataMode.UTF16:
-                    return "Remaining Characters:";
-                case DataMode.UTF8:
-                    return "Used Bytes:";
-                default:
-                    throw new NotImplementedException();
-            }
         }
 
         private void DisplayEncodedImages()
@@ -431,6 +414,7 @@ namespace AvatarImageReader.Editor
         {
             pixelCount = (int)currentResolution.x * (int)currentResolution.y * reader.linkedAvatars.Length;
             maxByteCount = (pixelCount - 5) * 4;
+            UpdateRemainingCapacityLabel(reader.dataMode);
         }
 
         private void SetElementsVisibleState(bool visible, params VisualElement[] elements)

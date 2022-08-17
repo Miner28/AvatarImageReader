@@ -9,5 +9,5 @@
 !/Assets/AvatarImageReader
 !/Packages
 /Packages/*
-!/Packages/com.varneon.avatar-image-reader
+!/Packages/com.miner28.avatar-image-reader
 /Packages/com.vrchat.core.vpm-resolver/*
