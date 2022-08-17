@@ -59,7 +59,6 @@ namespace AvatarImageReader
 
         [Header("Debug")]
         [SerializeField] private GameObject textureComparisonPlane;
-        [SerializeField] private bool overrideTextureEnabled = false;
         [SerializeField] private Texture2D overrideTexture;
 
         private Texture pedestalTexture;
@@ -79,24 +78,7 @@ namespace AvatarImageReader
         {
             Transform pedestalClone;
 
-            if (overrideTextureEnabled)
-            {
-                // Assign the Texture to the Render pane and the comparison pane
-                if (renderQuad != null)
-                {
-                    renderQuadRenderer.material.SetTexture(1, overrideTexture);
-                }
-
-                if (textureComparisonPlane != null)
-                {
-                    textureComparisonPlane.GetComponent<MeshRenderer>().material.SetTexture(1, overrideTexture);
-                }
-
-                pedestalReady = true;
-
-                return;
-            }
-            else if ((pedestalClone = transform.Find(AVATAR_PEDESTAL_CLONE_NAME)) != null)
+            if ((pedestalClone = transform.Find(AVATAR_PEDESTAL_CLONE_NAME)) != null)
             {
                 for (int i = 0; i < pedestalClone.childCount; i++)
                 {
