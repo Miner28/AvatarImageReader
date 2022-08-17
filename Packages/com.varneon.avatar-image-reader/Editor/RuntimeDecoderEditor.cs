@@ -75,6 +75,12 @@ namespace AvatarImageReader.Editor
         {
             if (reader == null) { reader = (RuntimeDecoder)target; }
 
+            foreach (Component c in reader.GetComponents<Component>())
+            {
+                if(c == reader || c.GetType() == typeof(Transform) || c == UdonSharpEditorUtility.GetBackingUdonBehaviour(reader)) { continue; }
+                c.hideFlags = HideFlags.HideInInspector;
+            }
+
             if (!init) Init();
 
             // Make sure the first avatar is always initialized
