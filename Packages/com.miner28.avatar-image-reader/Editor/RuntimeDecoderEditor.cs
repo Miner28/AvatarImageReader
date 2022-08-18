@@ -121,6 +121,11 @@ namespace AvatarImageReader.Editor
 
             VisualElement root = inspectorUXML.CloneTree();
 
+            remainingCapacityLabel = root.Q<Label>("Label_RemainingCharactersPreview");
+            capacityExceededError = root.Q("ErrorBox_CharactersExceeded");
+
+            SetPlatform(reader.imageMode);
+
             root.Q<IMGUIContainer>("IMGUIContainer_AvatarPreview").onGUIHandler += () => VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0]);
 
             totalLinkedAvatarCountLabel = root.Q<Label>("Label_TotalLinkedAvatarCount");
@@ -138,9 +143,6 @@ namespace AvatarImageReader.Editor
                 AvatarSelected(null, 0);
                 MarkFirstAvatarAsValid();
             };
-
-            remainingCapacityLabel = root.Q<Label>("Label_RemainingCharactersPreview");
-            capacityExceededError = root.Q("ErrorBox_CharactersExceeded");
 
             Action<DataMode> onDataModeChanged = UpdateRemainingCapacityLabel;
 
@@ -277,8 +279,6 @@ namespace AvatarImageReader.Editor
         {
             if (reader == null)
                 return;
-
-            SetPlatform(reader.imageMode);
             
             if (!reader.pedestalAssetsReady)
             {
