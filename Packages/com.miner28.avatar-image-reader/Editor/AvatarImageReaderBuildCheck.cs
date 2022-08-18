@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using AvatarImageReader;
 using System.Collections.Generic;
-using AvatarImageReader;
 using UdonSharpEditor;
 using UnityEditor;
 using UnityEngine;

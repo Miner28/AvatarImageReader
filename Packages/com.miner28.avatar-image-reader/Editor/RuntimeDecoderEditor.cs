@@ -1,25 +1,20 @@
-#if UNITY_EDITOR && !COMPILER_UDONSHARP
-
+using AvatarImageDecoder;
+using AvatarImageReader.Enums;
+using BocuD.VRChatApiTools;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AvatarImageDecoder;
-using BocuD.VRChatApiTools;
+using System.Text;
 using TMPro;
 using UdonSharpEditor;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 using VRC.Core;
-using VRC.SDK3.Components;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
-using AvatarImageReader.Enums;
-
-using UnityEngine.UIElements;
-using UnityEditor.UIElements;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
 
 namespace AvatarImageReader.Editor
 {
@@ -36,37 +31,22 @@ namespace AvatarImageReader.Editor
         private Vector2 currentResolution;
 
         public RuntimeDecoder reader;
-        private string text {
-            get
-            {
-                if (textStorageObject == null)
-                {
-                    //make sure TextStorageObject monobehaviour is set up
-                    if (reader.GetComponentInChildren<TextStorageObject>())
-                    {
-                        textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
-                    }
-                    else
-                    {
-                        GameObject container = new GameObject("TextStorageObject") { tag = "EditorOnly" };
-                        container.transform.SetParent(reader.transform);
-                        container.AddComponent<TextStorageObject>();
-                        container.hideFlags = HideFlags.HideInHierarchy;
-                    }
-                }
 
-                return textStorageObject.text;
-            }
-            set => textStorageObject.text = value;
-        }
+        /// <summary>
+        /// Text input stored on the decoder
+        /// </summary>
+        /// <remarks>
+        /// TextStorageObject is a required component on the decoder and guaranteed to always exist
+        /// </remarks>
+        private string text { get => textStorageObject.text; set => textStorageObject.text = value; }
 
-        private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
+        private const string quadMaterialPath = "Packages/com.miner28.avatar-image-reader/Materials/RenderQuad.mat";
 
-        private const string pcDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/PC.png";
-        private const string questDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/Quest.png";
+        private const string pcDonorImagePath = "Packages/com.miner28.avatar-image-reader/DonorImages/PC.png";
+        private const string questDonorImagePath = "Packages/com.miner28.avatar-image-reader/DonorImages/Quest.png";
 
-        private const string pcRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/PCCRT.asset";
-        private const string questRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/QuestCRT.asset";
+        private const string pcRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/PCCRT.asset";
+        private const string questRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/QuestCRT.asset";
 
         private int pixelCount;
         private int maxByteCount;
@@ -97,6 +77,9 @@ namespace AvatarImageReader.Editor
         {
             if (reader == null) { reader = (RuntimeDecoder)target; }
 
+            // Cache the TextStorageObject on the decoder
+            textStorageObject = reader.GetComponent<TextStorageObject>();
+
             foreach (Component c in reader.GetComponents<Component>())
             {
                 if(c == reader || c.GetType() == typeof(Transform) || c == UdonSharpEditorUtility.GetBackingUdonBehaviour(reader)) { continue; }
@@ -121,6 +104,11 @@ namespace AvatarImageReader.Editor
 
             VisualElement root = inspectorUXML.CloneTree();
 
+            remainingCapacityLabel = root.Q<Label>("Label_RemainingCharactersPreview");
+            capacityExceededError = root.Q("ErrorBox_CharactersExceeded");
+
+            SetPlatform(reader.imageMode);
+
             root.Q<IMGUIContainer>("IMGUIContainer_AvatarPreview").onGUIHandler += () => VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0]);
 
             totalLinkedAvatarCountLabel = root.Q<Label>("Label_TotalLinkedAvatarCount");
@@ -139,9 +127,6 @@ namespace AvatarImageReader.Editor
                 MarkFirstAvatarAsValid();
             };
 
-            remainingCapacityLabel = root.Q<Label>("Label_RemainingCharactersPreview");
-            capacityExceededError = root.Q("ErrorBox_CharactersExceeded");
-
             Action<DataMode> onDataModeChanged = UpdateRemainingCapacityLabel;
 
             // Data Encoding > Data Mode
@@ -154,8 +139,7 @@ namespace AvatarImageReader.Editor
             // Create action for when the link Patreon decoder toggle state changes
             Action<bool> setPatreonDecoderLinkedState = (bool isLinked) =>
             {
-                // Data Mode enum field should be disabled at all times since other data modes don't have support yet
-                //dataModeField.SetEnabled(!isLinked);
+                // Varneon: If Patreon decoder is linked, should the data mode be enforced to UTF16?
                 //if (isLinked) { dataModeField.value = DataMode.UTF16; }
 
                 SetElementsVisibleState(isLinked, root.Q("HelpBox_PatreonDecoderInfo"));
@@ -277,8 +261,6 @@ namespace AvatarImageReader.Editor
         {
             if (reader == null)
                 return;
-
-            SetPlatform(reader.imageMode);
             
             if (!reader.pedestalAssetsReady)
             {
@@ -1023,9 +1005,9 @@ namespace AvatarImageReader.Editor
 
     public static class AvatarImageTools
     {
-        private const string prefabNormal = "Packages/com.varneon.avatar-image-reader/Prefabs/Decoder.prefab";
-        private const string prefabText = "Packages/com.varneon.avatar-image-reader/Prefabs/DecoderWithText.prefab";
-        private const string prefabDebug = "Packages/com.varneon.avatar-image-reader/Prefabs/Decoder_Debug.prefab";
+        private const string prefabNormal = "Packages/com.miner28.avatar-image-reader/Prefabs/Decoder.prefab";
+        private const string prefabText = "Packages/com.miner28.avatar-image-reader/Prefabs/DecoderWithText.prefab";
+        private const string prefabDebug = "Packages/com.miner28.avatar-image-reader/Prefabs/Decoder_Debug.prefab";
 
         [MenuItem("Tools/AvatarImageReader/Create Image Reader")]
         private static void CreateNormal()
@@ -1066,5 +1048,3 @@ namespace AvatarImageReader.Editor
         #endregion
     }
 }
-
-#endif

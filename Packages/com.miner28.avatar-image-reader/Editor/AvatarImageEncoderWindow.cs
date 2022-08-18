@@ -1,7 +1,6 @@
-﻿using System;
-using System.IO;
-using AvatarImageDecoder;
+﻿using AvatarImageDecoder;
 using BocuD.VRChatApiTools;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
