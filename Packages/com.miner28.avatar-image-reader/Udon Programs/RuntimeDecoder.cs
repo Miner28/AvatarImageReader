@@ -110,7 +110,6 @@ namespace AvatarImageReader
         /// </summary>
         private const string LOG_PREFIX = "[<color=#00fff7>AvatarImageReader</color>]:";
         #endregion
-
         #region Check Hierarchy
         //[SerializeField] private GameObject renderQuad;
         //[SerializeField] private ReadRenderTexture readRenderTexture;
@@ -379,7 +378,7 @@ namespace AvatarImageReader
 
             nextAvatar = $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
 
-            Log($"<color=cyan>Starting Read for avatar {avatarCounter}</color>");
+            Log($"<color=#00AAFF>Starting Read for avatar {avatarCounter}</color>");
             Log($"Input: {picture.width} x {picture.height} [{picture.format}]");
 
             Log($"Data length: {dataLength} bytes");
@@ -628,7 +627,8 @@ namespace AvatarImageReader
 
             if (debugTMP)
             {
-                loggerText.text += $"{text}\n";
+                DateTime now = DateTime.Now;
+                loggerText.text += $"{now.ToLongTimeString()}: {text}\n";
             }
         }
 
