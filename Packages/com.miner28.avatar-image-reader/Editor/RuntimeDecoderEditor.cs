@@ -369,8 +369,9 @@ namespace AvatarImageReader.Editor
                             AssetDatabase.ImportAsset(path);
                         }
                     }
+
                     EditorGUILayout.LabelField($"{imageWidth} x {imageHeight}");
-                    EditorGUILayout.LabelField("UTF16 Characters");
+                    EditorGUILayout.LabelField(outputMode.ToString());
                     EditorGUILayout.LabelField(reader.linkedAvatars[i]);
                     EditorGUILayout.EndVertical();
                     EditorGUILayout.EndHorizontal();
@@ -379,7 +380,14 @@ namespace AvatarImageReader.Editor
                     EditorGUILayout.EndHorizontal();
                 }
 
-                bool uploadBlocked = string.IsNullOrEmpty(reader.linkedAvatars[0]) || reader.linkedAvatars.Length < texturePreview.Length;
+                bool uploadBlocked = string.IsNullOrEmpty(reader.linkedAvatars[0]) ||
+                                     reader.linkedAvatars.Length < texturePreview.Length;
+
+                if (reader.dataMode != outputMode)
+                {
+                    EditorGUILayout.HelpBox(
+                        $"These images contain data encoded in {outputMode} mode, but the pedestal data mode is {reader.dataMode}. You should re encode before uploading.", MessageType.Warning);
+                }
 
                 EditorGUI.BeginDisabledGroup(uploadBlocked);
                 GUIContent uploadButton = uploadBlocked
@@ -423,8 +431,12 @@ namespace AvatarImageReader.Editor
             return string.Format("{0}x{1}", resolution.x, resolution.y);
         }
 
+        private DataMode outputMode;
+        
         private void EncodeImages()
         {
+            outputMode = reader.dataMode;
+            
             imageWidth = reader.imageMode == 0 ? 128 : 1200;
             imageHeight = reader.imageMode == 0 ? 96 : 900;
 
