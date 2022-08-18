@@ -17,42 +17,97 @@ namespace AvatarImageReader
     public class RuntimeDecoder : UdonSharpBehaviour
     {
         #region Prefab
+        /// <summary>
+        /// All linked avatar IDs for decoding during runtime
+        /// </summary>
         public string[] linkedAvatars;
+
         public string uid = "";
+
+        /// <summary>
+        /// Flag for indicating whether the custom editor has initialized the required assets for decoding the pedestal image
+        /// </summary>
         public bool pedestalAssetsReady;
+
         public int actionOnLoad = 0;
 
-        [Header("Image Options")]
-        //0 cross platform, 1 pc only
+        /// <summary>
+        /// Which platform's shared maximum resolution is used for the decoder
+        /// </summary>
+        /// <remarks>
+        /// PC should only be used if the world isn't cross-compatible and the size of the data warrants it
+        /// </remarks>
         public Platform imageMode = Platform.Android;
 
-        [Header("General Options")]
-        [Tooltip("Increasing step size decreases decode time but increases frametimes")]
-
+        /// <summary>
+        /// Should the decoded text be displayed on TMP
+        /// </summary>
         public bool outputToText;
+
+        /// <summary>
+        /// In case the decoding fails, should the default data stored alongside with the world upload be used as a fallback
+        /// </summary>
         public bool autoFillTMP;
+
+        /// <summary>
+        /// Target TMP for displaying the decoded text
+        /// </summary>
         public TextMeshPro outputText;
 
+        /// <summary>
+        /// Should a callback method on an UdonBehaviour get invoked after decoding is finished
+        /// </summary>
         public bool callBackOnFinish = false;
+        
+        /// <summary>
+        /// UdonBehaviour for receiving a callback on finish
+        /// </summary>
         public UdonBehaviour callbackBehaviour;
+
+        /// <summary>
+        /// Name of the callback method for finishing decoding
+        /// </summary>
         public string callbackEventName;
 
-        [Header("Data Encoding")]
-        //0 UTF16, 1 UTF8, 2 ASCII, 3 Binary
+        /// <summary>
+        /// Data encoding mode
+        /// <para>0 = UTF16</para>
+        /// <para>1 = UTF8</para>
+        /// <para>2 = ASCII (Not supported yet)</para>
+        /// <para>3 = Binary (Not supported yet)</para>
+        /// </summary>
         public DataMode dataMode = DataMode.UTF8;
+
         public bool patronMode;
 
-        [Header("Debugging")]
+        /// <summary>
+        /// Should the decoder output debug logs
+        /// </summary>
         public bool debugLogging = false;
+
+        /// <summary>
+        /// Should the decoder output debug logs to TMP
+        /// </summary>
         public bool debugTMP;
+
+        /// <summary>
+        /// TMP for outputting debug logs
+        /// </summary>
         public TextMeshPro loggerText;
 
-        [Header("Output")]
+        /// <summary>
+        /// The final output of the decoder
+        /// </summary>
         public string outputString;
 
-        [Header("Internal")]
+        /// <summary>
+        /// Avatar pedestal for decoding the images
+        /// </summary>
         public VRCAvatarPedestal avatarPedestal;
 
+        /// <summary>
+        /// Log prefix for the decoder
+        /// </summary>
         private const string LOG_PREFIX = "[<color=#00fff7>AvatarImageReader</color>]:";
         #endregion
 
@@ -66,8 +121,17 @@ namespace AvatarImageReader
 
         private Texture pedestalTexture;
 
+        /// <summary>
+        /// Automatically generated avatar pedestal hierarchy
+        /// </summary>
+        /// <remarks>
+        /// Only this transform should be used to target objects on the pedestal
+        /// </remarks>
         private Transform pedestalClone;
 
+        /// <summary>
+        /// Name of the automatically generated avatar pedestal hierarchy root below the root decoder
+        /// </summary>
         private const string AVATAR_PEDESTAL_CLONE_NAME = "AvatarPedestal(Clone)";
 
         private void Start()
@@ -125,19 +189,34 @@ namespace AvatarImageReader
         }
         #endregion
         #region Detect and load image
+        /// <summary>
+        /// Avatar pedestal for decoding the images
+        /// </summary>
         private VRCAvatarPedestal pedestal;
+
+        /// <summary>
+        /// MeshRenderer for the fullscreen override
+        /// </summary>
         private MeshRenderer renderQuadRenderer;
         
-        [Header("Render references")] public GameObject renderQuad;
+        [Obsolete]
+        public GameObject renderQuad;
 
+        /// <summary>
+        /// Camera for rendering the fullscreen override
+        /// </summary>
         public Camera renderCamera;
+
         public CustomRenderTexture renderTexture;
+
         public Texture2D donorInput;
 
         public byte[] outputBytes;
 
-        //internal
-        [NonSerialized] public bool pedestalReady;
+        /// <summary>
+        /// Is the avatar pedestal ready for decoding
+        /// </summary>
+        private bool pedestalReady;
         private Color32[] colors;
         private int frameCounter;
         private bool frameSkip;
@@ -153,7 +232,7 @@ namespace AvatarImageReader
 
         public void OnPostRender()
         {
-            //set by CheckHierarchy.cs when the pedestal is ready
+            // Will be set true when decoder detects that VRChat has generated the avatar pedestal
             if (!pedestalReady) return;
 
             if (!hasRun)
