@@ -10,7 +10,6 @@ using UdonSharpEditor;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
-using VRC.SDK3.Components;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 using AvatarImageReader.Enums;
@@ -18,7 +17,6 @@ using AvatarImageReader.Enums;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 
 namespace AvatarImageReader.Editor
