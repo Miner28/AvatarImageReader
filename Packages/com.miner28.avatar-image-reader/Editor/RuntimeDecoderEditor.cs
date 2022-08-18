@@ -139,8 +139,7 @@ namespace AvatarImageReader.Editor
             // Create action for when the link Patreon decoder toggle state changes
             Action<bool> setPatreonDecoderLinkedState = (bool isLinked) =>
             {
-                // Data Mode enum field should be disabled at all times since other data modes don't have support yet
-                //dataModeField.SetEnabled(!isLinked);
+                // Varneon: If Patreon decoder is linked, should the data mode be enforced to UTF16?
                 //if (isLinked) { dataModeField.value = DataMode.UTF16; }
 
                 SetElementsVisibleState(isLinked, root.Q("HelpBox_PatreonDecoderInfo"));
