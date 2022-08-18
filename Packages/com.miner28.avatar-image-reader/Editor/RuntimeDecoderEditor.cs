@@ -40,13 +40,13 @@ namespace AvatarImageReader.Editor
         /// </remarks>
         private string text { get => textStorageObject.text; set => textStorageObject.text = value; }
 
-        private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
+        private const string quadMaterialPath = "Packages/com.miner28.avatar-image-reader/Materials/RenderQuad.mat";
 
-        private const string pcDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/PC.png";
-        private const string questDonorImagePath = "Packages/com.varneon.avatar-image-reader/DonorImages/Quest.png";
+        private const string pcDonorImagePath = "Packages/com.miner28.avatar-image-reader/DonorImages/PC.png";
+        private const string questDonorImagePath = "Packages/com.miner28.avatar-image-reader/DonorImages/Quest.png";
 
-        private const string pcRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/PCCRT.asset";
-        private const string questRTPath = "Packages/com.varneon.avatar-image-reader/DonorImages/QuestCRT.asset";
+        private const string pcRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/PCCRT.asset";
+        private const string questRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/QuestCRT.asset";
 
         private int pixelCount;
         private int maxByteCount;
@@ -1006,9 +1006,9 @@ namespace AvatarImageReader.Editor
 
     public static class AvatarImageTools
     {
-        private const string prefabNormal = "Packages/com.varneon.avatar-image-reader/Prefabs/Decoder.prefab";
-        private const string prefabText = "Packages/com.varneon.avatar-image-reader/Prefabs/DecoderWithText.prefab";
-        private const string prefabDebug = "Packages/com.varneon.avatar-image-reader/Prefabs/Decoder_Debug.prefab";
+        private const string prefabNormal = "Packages/com.miner28.avatar-image-reader/Prefabs/Decoder.prefab";
+        private const string prefabText = "Packages/com.miner28.avatar-image-reader/Prefabs/DecoderWithText.prefab";
+        private const string prefabDebug = "Packages/com.miner28.avatar-image-reader/Prefabs/Decoder_Debug.prefab";
 
         [MenuItem("Tools/AvatarImageReader/Create Image Reader")]
         private static void CreateNormal()
