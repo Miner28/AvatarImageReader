@@ -1,21 +1,20 @@
+using AvatarImageDecoder;
+using AvatarImageReader.Enums;
+using BocuD.VRChatApiTools;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AvatarImageDecoder;
-using BocuD.VRChatApiTools;
+using System.Text;
 using TMPro;
 using UdonSharpEditor;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 using VRC.Core;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
-using AvatarImageReader.Enums;
-
-using UnityEngine.UIElements;
-using UnityEditor.UIElements;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AvatarImageReader.Editor
 {
@@ -32,29 +31,14 @@ namespace AvatarImageReader.Editor
         private Vector2 currentResolution;
 
         public RuntimeDecoder reader;
-        private string text {
-            get
-            {
-                if (textStorageObject == null)
-                {
-                    //make sure TextStorageObject monobehaviour is set up
-                    if (reader.GetComponentInChildren<TextStorageObject>())
-                    {
-                        textStorageObject = reader.GetComponentInChildren<TextStorageObject>();
-                    }
-                    else
-                    {
-                        GameObject container = new GameObject("TextStorageObject") { tag = "EditorOnly" };
-                        container.transform.SetParent(reader.transform);
-                        container.AddComponent<TextStorageObject>();
-                        container.hideFlags = HideFlags.HideInHierarchy;
-                    }
-                }
 
-                return textStorageObject.text;
-            }
-            set => textStorageObject.text = value;
-        }
+        /// <summary>
+        /// Text input stored on the decoder
+        /// </summary>
+        /// <remarks>
+        /// TextStorageObject is a required component on the decoder and guaranteed to always exist
+        /// </remarks>
+        private string text { get => textStorageObject.text; set => textStorageObject.text = value; }
 
         private const string quadMaterialPath = "Packages/com.varneon.avatar-image-reader/Materials/RenderQuad.mat";
 
@@ -92,6 +76,9 @@ namespace AvatarImageReader.Editor
         private void OnEnable()
         {
             if (reader == null) { reader = (RuntimeDecoder)target; }
+
+            // Cache the TextStorageObject on the decoder
+            textStorageObject = reader.GetComponent<TextStorageObject>();
 
             foreach (Component c in reader.GetComponents<Component>())
             {
