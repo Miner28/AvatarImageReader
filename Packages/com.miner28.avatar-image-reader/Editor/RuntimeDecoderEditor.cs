@@ -1,5 +1,3 @@
-#if UNITY_EDITOR && !COMPILER_UDONSHARP
-
 using System;
 using System.IO;
 using System.Linq;
@@ -1064,5 +1062,3 @@ namespace AvatarImageReader.Editor
         #endregion
     }
 }
-
-#endif
