@@ -109,7 +109,7 @@ namespace AvatarImageReader.Editor
 
             SetPlatform(reader.imageMode);
 
-            root.Q<IMGUIContainer>("IMGUIContainer_AvatarPreview").onGUIHandler += () => VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0]);
+            root.Q<IMGUIContainer>("IMGUIContainer_AvatarPreview").onGUIHandler += () => VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0], false);
 
             totalLinkedAvatarCountLabel = root.Q<Label>("Label_TotalLinkedAvatarCount");
 
