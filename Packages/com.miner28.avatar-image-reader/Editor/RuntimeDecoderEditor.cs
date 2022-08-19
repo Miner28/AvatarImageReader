@@ -158,12 +158,11 @@ namespace AvatarImageReader.Editor
             {
                 using (var scope = new EditorGUI.ChangeCheckScope())
                 {
-                    string data = GUILayout.TextArea(text, EditorStyles.textArea);
+                    GUIStyle textArea = new GUIStyle(EditorStyles.textArea) { wordWrap = true };
+                    text = EditorGUILayout.TextArea(text, textArea, GUILayout.ExpandHeight(true));
 
                     if (scope.changed)
                     {
-                        text = data;
-
                         UpdateRemainingCapacityLabel(reader.dataMode);
                     }
                 }
