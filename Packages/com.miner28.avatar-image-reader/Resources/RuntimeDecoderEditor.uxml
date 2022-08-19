@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="Banner" style="flex-direction: row;">
+    <ui:VisualElement name="Banner" style="flex-direction: row; border-left-width: 13px;">
         <Style src="RuntimeDecoderEditor.uss" />
         <ui:Label text="Avatar Image Reader" class="header-large margin-default" style="left: auto;" />
     </ui:VisualElement>
-    <ui:VisualElement name="AvatarPreview">
+    <ui:VisualElement name="AvatarPreview" style="border-left-width: 13px;">
         <Style src="RuntimeDecoderEditor.uss" />
         <ui:VisualElement name="Header" style="flex-direction: row;">
             <ui:Label text="Main Avatar" class="margin-default" style="-unity-font-style: bold;" />
