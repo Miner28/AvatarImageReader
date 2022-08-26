@@ -475,6 +475,17 @@ namespace AvatarImageReader
         private int character;
         private int charIndex;
 
+        private const byte
+            _0x80 = 0x80,
+            _0xC0 = 0xC0,
+            _0x3F = 0x3F,
+            _0xF0 = 0xF0,
+            _0xF8 = 0xF8,
+            _0x07 = 0x07,
+            _0x1F = 0x1F,
+            _0x0F = 0x0F,
+            _0xE0 = 0xE0;
+
         private void InitializeDecodeUTF8()
         {
             bytesCount = outputBytes.Length;
@@ -500,38 +511,36 @@ namespace AvatarImageReader
             for (; decodeIndex < toIterate; decodeIndex++)
             {
                 byte value = outputBytes[decodeIndex];
-                if ((value & 0x80) == 0)
+                if ((value & _0x80) == 0)
                 {
                     _utf8Chars[charIndex++] = ((char)value).ToString();
                 }
-                else if ((value & 0xC0) == 0x80)
+                else if ((value & _0xC0) == _0x80)
                 {
                     if (charCounter > 0)
                     {
-                        character = character << 6 | (value & 0x3F);
+                        character = character << 6 | (value & _0x3F);
                         charCounter--;
                         if (charCounter == 0)
                         {
-                            var multiChar = char.ConvertFromUtf32(character);
-                            _utf8Chars[charIndex++] = multiChar[0].ToString();
-                            if (multiChar.Length == 2) _utf8Chars[charIndex++] = multiChar[1].ToString();
+                            _utf8Chars[charIndex++] = char.ConvertFromUtf32(character);
                         }
                     }
                 }
-                else if ((value & 0xE0) == 0xC0)
+                else if ((value & _0xE0) == _0xC0)
                 {
                     charCounter = 1;
-                    character = value & 0x1F;
+                    character = value & _0x1F;
                 }
-                else if ((value & 0xF0) == 0xE0)
+                else if ((value & _0xF0) == _0xE0)
                 {
                     charCounter = 2;
-                    character = value & 0x0F;
+                    character = value & _0x0F;
                 }
-                else if ((value & 0xF8) == 0xF0)
+                else if ((value & _0xF8) == _0xF0)
                 {
                     charCounter = 3;
-                    character = value & 0x07;
+                    character = value & _0x07;
                 }
             }
 
@@ -543,8 +552,7 @@ namespace AvatarImageReader
             }
 
             outputString += string.Concat(_utf8Chars);
-
-
+            
             ReadDone();
         }
         #endregion
