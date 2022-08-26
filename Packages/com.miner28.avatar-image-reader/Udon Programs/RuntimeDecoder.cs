@@ -462,7 +462,8 @@ namespace AvatarImageReader
         }
         #endregion
         
-        private char[] chars;
+        private string[] _utf8Chars;
+        private char[] _utf16Chars;
         private byte charCounter;
         private int bytesCount;
         private int decodeIndex;
@@ -477,7 +478,7 @@ namespace AvatarImageReader
         private void InitializeDecodeUTF8()
         {
             bytesCount = outputBytes.Length;
-            chars = new char[bytesCount];
+            _utf8Chars = new string[bytesCount];
             charIndex = 0;
             character = 0;
             charCounter = 0;
@@ -488,8 +489,6 @@ namespace AvatarImageReader
 
             SendCustomEventDelayedFrames(nameof(_DecodeStepUTF8), 0);
         }
-
-        private const char InvalidChar = (char)0;
 
         public void _DecodeStepUTF8()
         {
@@ -503,8 +502,7 @@ namespace AvatarImageReader
                 byte value = outputBytes[decodeIndex];
                 if ((value & 0x80) == 0)
                 {
-                    chars[charIndex++] = (char)value;
-                    charCounter = 0;
+                    _utf8Chars[charIndex++] = ((char)value).ToString();
                 }
                 else if ((value & 0xC0) == 0x80)
                 {
@@ -514,7 +512,9 @@ namespace AvatarImageReader
                         charCounter--;
                         if (charCounter == 0)
                         {
-                            chars[charIndex++] = char.ConvertFromUtf32(character)[0];
+                            var multiChar = char.ConvertFromUtf32(character);
+                            _utf8Chars[charIndex++] = multiChar[0].ToString();
+                            if (multiChar.Length == 2) _utf8Chars[charIndex++] = multiChar[1].ToString();
                         }
                     }
                 }
@@ -542,20 +542,7 @@ namespace AvatarImageReader
                 return;
             }
 
-            int toCopy = chars.Length;
-            for (int i = chars.Length - 1; i >= 0; i--)
-            {
-                if (chars[i] == InvalidChar)
-                {
-                    toCopy--;
-                }
-                else break;
-            }
-
-            object[] newChars = new object[toCopy]; //We have to use object[] due to fun Udon shit
-            Array.Copy(chars, newChars, toCopy);
-
-            outputString += string.Concat(newChars);
+            outputString += string.Concat(_utf8Chars);
 
 
             ReadDone();
@@ -568,7 +555,7 @@ namespace AvatarImageReader
         private void InitializeDecodeUTF16()
         {
             bytesCount = outputBytes.Length;
-            chars = new char[bytesCount / 2];
+            _utf16Chars = new char[bytesCount / 2];
             decodeIndex = 0;
             frameCounter = 1;
 
@@ -586,7 +573,7 @@ namespace AvatarImageReader
 
             for (; decodeIndex < toIterate; decodeIndex += 2)
             {
-                chars[decodeIndex / 2] = (char)(outputBytes[decodeIndex] | outputBytes[decodeIndex + 1] << 8);
+                _utf16Chars[decodeIndex / 2] = (char)(outputBytes[decodeIndex] | outputBytes[decodeIndex + 1] << 8);
             }
 
             //if we are not done decoding yet continue next frame
@@ -596,7 +583,7 @@ namespace AvatarImageReader
                 return;
             }
 
-            outputString += new string(chars);
+            outputString += new string(_utf16Chars);
             ReadDone();
         }
         #endregion
