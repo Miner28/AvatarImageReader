@@ -16,10 +16,6 @@
   ],
   "unity": "2019.4",
   "unityRelease": "29f1",
-  "dependencies": {
-    "com.vrchat.udonsharp": "1.0.1",
-    "com.bocud.vrcapitools": "0.2.1"
-  },
   "vpmDependencies": {
     "com.vrchat.udonsharp": "1.x.x",
     "com.bocud.vrcapitools": "0.2.1"
