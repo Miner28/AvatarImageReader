@@ -1,9 +1,9 @@
 {
     "name": "AvatarImageReader.Runtime",
     "references": [
+        "Unity.TextMeshPro",
         "VRC.Udon",
         "UdonSharp.Runtime",
-        "Unity.TextMeshPro",
         "BocuD.VRChatApiTools.Runtime"
     ],
     "includePlatforms": [],
@@ -12,7 +12,15 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
+    "defineConstraints": [
+        "VRCHAT_API_TOOLS_IMPORTED"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.bocud.vrcapitools",
+            "expression": "0.2.1",
+            "define": "VRCHAT_API_TOOLS_IMPORTED"
+        }
+    ],
     "noEngineReferences": false
 }
