@@ -278,7 +278,7 @@ MonoBehaviour:
       Data: 15|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: AvatarImageReader.Enums.Platform, AvatarImageReader
+      Data: AvatarImageReader.Enums.Platform, AvatarImageReader.Runtime
     - Name: 
       Entry: 8
       Data: 
@@ -632,7 +632,7 @@ MonoBehaviour:
       Data: 32|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: AvatarImageReader.Enums.DataMode, AvatarImageReader
+      Data: AvatarImageReader.Enums.DataMode, AvatarImageReader.Runtime
     - Name: 
       Entry: 8
       Data: 

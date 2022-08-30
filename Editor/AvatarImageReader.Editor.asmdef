@@ -1,7 +1,6 @@
 {
     "name": "AvatarImageReader.Editor",
     "references": [
-        "AvatarImageReader",
         "BocuD.VRChatApiTools.Editor",
         "Unity.TextMeshPro",
         "UdonSharp.Editor",
