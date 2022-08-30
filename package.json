@@ -9,5 +9,7 @@
       "description": "Example setup for reading multiple avatars",
       "path": "Samples~/Example"
     }
-  ]
+  ],
+  "unity": "2019.4",
+  "unityRelease": "29f1"
 }
