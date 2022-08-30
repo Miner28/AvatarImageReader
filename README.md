@@ -43,6 +43,9 @@ The easiest way to update the text contents is to just use the inspector for an 
 AvatarImagePrefab contains a public variable `outputString` that will contain the encoded text once it has been decoded. To be sure that decoding has been completed you should use the option `Send Custom Event` on finish and send an event to whatever UdonBehaviour you want to access the output string with.
 
 ### Max Image Size by Platform
-- PC: 1200x900 -> 4,320,000 Bytes (4.3MB) or 2,160,000 UTF16 characters
-- Quest: 128x96 -> 49,152 Bytes (49.2KB) or 24,576 UTF16 characters
-- Chained: Unlimited (Theoretical)
+| Platform | Resolution | Bytes | Size | Characters (UTF-8) |
+| - | - | - | - | - |
+| PC | 1200 x 900 | 4,320,000 | 4.3MB | 1,080,000 - 4,320,000 |
+| Android | 128 x 96 | 49,152 | 49.2KB | 12,288 - 49,152 |
+
+> Chaining avatars has theoretically unlimited capacity, but will lead to increased CPU load upon joining the world
