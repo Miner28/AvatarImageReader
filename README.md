@@ -28,9 +28,9 @@ Automated Supporter board
 
 
 ## Requirements
-- VRCSDK 3 2021.06.03 or later (earlier versions are untested but may work)
-- Udon Sharp v0.19.12 or later (earlier versions are untested but may work) https://github.com/MerlinVR/UdonSharp
-- VRChatApiTools v0.1 or later https://github.com/BocuD/VRChatApiTools/releases
+- VRCSDK 3.1.6 or later - [Download using VRChat's Creator Companion](https://vcc.docs.vrchat.com/guides/getting-started/)
+- UdonSharp 1.0 - [Download using VRChat's Creator Companion](https://vcc.docs.vrchat.com/guides/getting-started/)
+- [VRChatApiTools](https://github.com/BocuD/VRChatApiTools#installation-via-unity-package-manager-git-recommended)
 
 ## Documentation
 ### Setup
