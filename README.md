@@ -48,7 +48,7 @@ To set up a new AvatarImageReader, use the menu item `Tools/AvatarImageReader/Cr
 The easiest way to update the text contents is to just use the inspector for an existing pedestal. You can change the text in here, reencode and then reupload. The menu item `Tools/Avatar Image Encoder` can also be used. Alternatively you can also use a discord bot that will provide you with avatar-id and automatically update the avatar image periodically with latest data. To create your own custom encoder system, you can use AvatarImageReader/C# Encoder/AvatarImageEncoder.cs as reference. As an alternative a python encoder is also provided.
 
 ### Getting decoded text
-AvatarImagePrefab contains a public variable `outputString` that will contain the encoded text once it has been decoded. To be sure that decoding has been completed you should use the option `Send Custom Event` on finish and send an event to whatever UdonBehaviour you want to access the output string with.
+RuntimeDecoder contains a public variable `outputString` that will contain the encoded text once it has been decoded. To be sure that decoding has been completed you should use the option `Send Custom Event` on finish and send an event to whatever UdonBehaviour you want to access the output string with.
 
 ### Max Image Size by Platform
 | Platform | Resolution | Bytes | Size | Characters (UTF-8) |
