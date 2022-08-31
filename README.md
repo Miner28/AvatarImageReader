@@ -28,12 +28,10 @@ Special Thanks: @Merlin for making UdonSharp making any of this possible
 - Added public discord bot for linking and automatic uploading of users with specific roles. [Invite to your server](https://discord.com/api/oauth2/authorize?client_id=938573401201721425&permissions=2147600448&scope=bot%20applications.commands)
 
 ### Example use cases
-Dynamically updated calendar
-
-Any text in your world that you want to edit without re-uploading
-
-Automated Supporter board
-
+- Dynamically updated calendar/events
+- Any text in your world that you want to edit without re-uploading
+- Automated Supporter board/Supporter access
+- Persistant world settings (via custom discord bot)
 
 ## Requirements
 - VRCSDK 3.1.6 or later - [Download using VRChat's Creator Companion](https://vcc.docs.vrchat.com/guides/getting-started/)
