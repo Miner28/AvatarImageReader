@@ -15,6 +15,7 @@ using UnityEngine.UIElements;
 using VRC.Core;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
+using Platform = AvatarImageReader.Enums.Platform;
 
 namespace AvatarImageReader.Editor
 {

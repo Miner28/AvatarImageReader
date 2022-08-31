@@ -2,5 +2,22 @@
   "name": "com.miner28.avatar-image-reader",
   "version": "3.0.0",
   "displayName": "Avatar Image Reader",
-  "description": "Allows you to encode text into images and then read it in VRChat. Uses Avatar Thumbnail Images to store and load images. Works on both PC and Quest."
+  "description": "Allows you to encode text into images and then read it in VRChat. Uses Avatar Thumbnail Images to store and load images. Works on both PC and Quest.",
+  "author": {
+    "name": "Miner28",
+    "url": "https://github.com/Miner28"
+  },
+  "samples": [
+    {
+      "displayName": "Example",
+      "description": "Example setup for reading multiple avatars",
+      "path": "Samples~/Example"
+    }
+  ],
+  "unity": "2019.4",
+  "unityRelease": "29f1",
+  "vpmDependencies": {
+    "com.vrchat.udonsharp": "1.x.x",
+    "com.bocud.vrcapitools": "0.2.1"
+  }
 }
