@@ -1,18 +1,26 @@
-Download: https://github.com/Miner28/AvatarImageReader/releases/
-
 Demo world: https://vrchat.com/home/launch?worldId=wrld_b906fef2-9c90-463a-bb7b-23d187ccdffe&instanceId=0
 
 # AvatarImageReader
 Allows you to encode text into images and then read it in VRChat. Uses Avatar Thumbnail Images to store and load images.
 Works on both PC and Quest.
 
-![image](https://user-images.githubusercontent.com/24632962/149594640-bf687e49-7c29-40b2-82d1-1d378bf50477.png)
+![image](https://user-images.githubusercontent.com/1560327/187653313-d2637fe7-3f32-468f-8168-f8411f34843e.png)
+
+# Installation
+
+1. In the Unity toolbar, select `Window` > `Package Manager` > `[+]` > `Add package from git URL...` 
+2. Paste the following link: `https://github.com/Miner28/AvatarImageReader.git`
+
 
 Made by: @GlitchyDev, @Miner28 and @BocuD
 
 Special help: @lox9973 for Quest support
 
 Special Thanks: @Merlin for making UdonSharp making any of this possible
+
+## Update 3.0
+- UTF-8 Support (upto 2x increase in maximum byte storage)
+- Improvements to decoding process resulting in faster decoding
 
 ## Update 2.0
 - Now supports Alpha encoding which allows 33% increase in data storage
