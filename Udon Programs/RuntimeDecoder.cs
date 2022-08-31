@@ -376,6 +376,10 @@ namespace AvatarImageReader
                 nextAvatar += $"{(idColor.a):x2}";
             }
 
+            var headerInfo = colors[6];
+            dataMode = (DataMode) headerInfo.r;
+            Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b}.{headerInfo.a} DataMode: {dataMode}");
+            
             nextAvatar = $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
 
             Log($"<color=#00AAFF>Starting Read for avatar {avatarCounter}</color>");
@@ -390,8 +394,8 @@ namespace AvatarImageReader
             //initialize decoding intermediates
             byteIndex = 0; //index of next byte to read starting at 0
             avatarBytes = new byte[dataLength];
-            pixelIndex = 5; //start decoding at 5th pixel (skip the header)
-            maxIndex = dataLength / 4 + 5; //last pixel we should read, data length + header size
+            pixelIndex = 6; //start decoding at 6th pixel (skip the header)
+            maxIndex = dataLength / 4 + 6; //last pixel we should read, data length + header size
 
             SendCustomEventDelayedFrames(nameof(_ReadPictureStep), 0);
         }

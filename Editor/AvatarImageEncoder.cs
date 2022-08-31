@@ -44,6 +44,8 @@ namespace AvatarImageDecoder
         private const int questBytes = (128 * 96 * 4) - headerSize;
         private const int pcBytes = (1200 * 900 * 4) - headerSize;
 
+        private static readonly Version Version = new Version(3, 0, 0);
+
         public static Texture2D[] Encode(DataMode dataMode, string input, string[] availableAvatars, int width, int height)
         {
             switch (dataMode)
@@ -124,6 +126,12 @@ namespace AvatarImageDecoder
         public static Texture2D EncodeUTF16Text(string input, string avatar = "", Texture2D inputTextureNullable = null)
         {
             byte[] textbyteArray = Encoding.Unicode.GetBytes(input);
+
+            textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Build).ToArray();
+            textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Minor).ToArray();
+            textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Major).ToArray();
+            textbyteArray = textbyteArray.Prepend<byte>((byte) DataMode.UTF16).ToArray();
+
 
             if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))
             {
@@ -250,6 +258,12 @@ namespace AvatarImageDecoder
         {
             int lengthOfTextbyteListWith4Bytes = bytesToEncode.Length;
             byte[] totalBytesWith4Bytes = BitConverter.GetBytes(lengthOfTextbyteListWith4Bytes).Reverse().ToArray();
+            
+            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Build).ToArray();
+            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Minor).ToArray();
+            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Major).ToArray();
+            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) DataMode.UTF16).ToArray();
+
 
             if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))
             {
