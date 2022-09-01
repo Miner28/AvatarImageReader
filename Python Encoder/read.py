@@ -52,8 +52,11 @@ avi = output[0:16]
 print(list(avi))
 avi = avi.hex()
 output = output[16:]
+version_data = output[0:4]
+output = output[4:]
 print(f"Found avatar-id (ENCODED): {avi}")
+print(f"V{version_data[1]}.{version_data[2]} Encoder: {version_data[3]} Mode: {version_data[0]}")
 
-output = output.decode('utf-16')
+output = output.decode('utf-8')
 
 print(f"Decoded string {[output]} which contains {len(output)} chars")

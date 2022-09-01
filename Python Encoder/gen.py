@@ -2,16 +2,16 @@ from PIL import Image
 import codecs
 
 
-def encodeUTF16Text(input:str, avatar:str = ""):
-    textbyte_list = list(bytearray(input.encode('utf-16')))
-    textbyte_list.pop(0)
-    textbyte_list.pop(0)
+version = [3, 0]
+def encodeUTF8Text(input:str, avatar:str = ""):
+    textbyte_list = list(bytearray(input.encode('utf-8')))
+
+    textbyte_list = [1, 1] + version + textbyte_list
 
     if avatar != "":
         avatar = avatar.replace("avtr_", "")
         avatar = avatar.replace("-", "")
         f = list(bytes.fromhex(avatar))
-        print(f)
         textbyte_list = f + textbyte_list
     else:
         f = [255] * 16
@@ -33,17 +33,15 @@ def encodeUTF16Text(input:str, avatar:str = ""):
 
     img = Image.new("RGBA", (image_width, image_height), (255, 255, 255, 255))
 
-    img.putpixel((img.width - 1, 0), (totalBytes[0], totalBytes[1], totalBytes[2], 255))
-    print(f"A {len(textbyte_list)} {list(totalBytes)}")
-    print(f"B {(totalBytes[0], totalBytes[1], totalBytes[2])}")
+    img.putpixel((img.width - 1, 0), (totalBytes[0], totalBytes[1], totalBytes[2], totalBytes[3]))
 
     for x in range(1, len(textbyte_list) // 4 + 1):
         img.putpixel((((img.width - 1) - x) % img.width, x // img.width),
                      (textbyte_list[(x - 1) * 4], textbyte_list[(x - 1) * 4 + 1], textbyte_list[(x - 1) * 4 + 2], textbyte_list[(x - 1) * 4 + 3]))
-    print([textbyte_list])
     img.save("img.png")
 
 
-encodeUTF16Text("Test 123456789", "")
+
+encodeUTF8Text("Test 123456789", "")
 #encodeUTF16Text("Test TEst ")
 # Or to be used as extension of discord bot.
