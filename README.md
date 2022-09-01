@@ -2,7 +2,12 @@
 
 [**Optional Discord bot Invite**](https://discord.com/api/oauth2/authorize?client_id=938573401201721425&permissions=2147600448&scope=bot%20applications.commands)
 
-# AvatarImageReader
+<div>
+
+# AvatarImageReader [![GitHub](https://img.shields.io/github/license/Miner28/AvatarImageReader?color=blue&label=License&style=flat)](https://github.com/Miner28/AvatarImageReader/blob/main/LICENSE) [![GitHub Repo stars](https://img.shields.io/github/stars/Miner28/AvatarImageReader?style=flat&label=Stars)](https://github.com/Miner28/AvatarImageReader/stargazers) [![GitHub all releases](https://img.shields.io/github/downloads/Miner28/AvatarImageReader/total?color=blue&label=Downloads&style=flat)](https://github.com/Miner28/AvatarImageReader/releases) [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Miner28/AvatarImageReader?color=blue&label=Release&sort=semver&style=flat)](https://github.com/Miner28/AvatarImageReader/releases/latest)
+
+</div>
+
 Allows you to encode text into images and then read it in VRChat. Uses Avatar Thumbnail Images to store and load images.
 Works on both PC and Quest.
 
