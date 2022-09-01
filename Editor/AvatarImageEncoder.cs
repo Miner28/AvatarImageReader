@@ -127,7 +127,7 @@ namespace AvatarImageDecoder
         {
             byte[] textbyteArray = Encoding.Unicode.GetBytes(input);
 
-            textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Build).ToArray();
+            textbyteArray = textbyteArray.Prepend<byte>((byte) 0).ToArray(); // Signifies C# Encoder
             textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Minor).ToArray();
             textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Major).ToArray();
             textbyteArray = textbyteArray.Prepend<byte>((byte) DataMode.UTF16).ToArray();
@@ -187,10 +187,7 @@ namespace AvatarImageDecoder
             textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[2]).ToArray();
             textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[1]).ToArray();
             textbyteArray = textbyteArray.Prepend(totalBytesWith4Bytes[0]).ToArray();
-
-
-
-
+            
             for (int i = 0; i < pixels.Length; i++)
             {
                 pixels[i] = new Color32(textbyteArray[i * 4], textbyteArray[i * 4 + 1], textbyteArray[i * 4 + 2], textbyteArray[i * 4 + 3]);
@@ -259,10 +256,10 @@ namespace AvatarImageDecoder
             int lengthOfTextbyteListWith4Bytes = bytesToEncode.Length;
             byte[] totalBytesWith4Bytes = BitConverter.GetBytes(lengthOfTextbyteListWith4Bytes).Reverse().ToArray();
             
-            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Build).ToArray();
+            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) 0).ToArray(); // Signifies C# Encoder
             totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Minor).ToArray();
             totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Major).ToArray();
-            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) DataMode.UTF16).ToArray();
+            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) DataMode.UTF8).ToArray();
 
 
             if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))

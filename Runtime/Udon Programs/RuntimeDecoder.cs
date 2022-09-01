@@ -378,7 +378,7 @@ namespace AvatarImageReader
 
             var headerInfo = colors[6];
             dataMode = (DataMode) headerInfo.r;
-            Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b}.{headerInfo.a} DataMode: {dataMode}");
+            Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b} Encoder: {headerInfo.a} DataMode: {dataMode}");
             
             nextAvatar = $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
 
