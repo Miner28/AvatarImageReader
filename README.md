@@ -8,11 +8,11 @@ Works on both PC and Quest.
 
 ![image](https://user-images.githubusercontent.com/1560327/187653313-d2637fe7-3f32-468f-8168-f8411f34843e.png)
 
-Made by: @GlitchyDev, @Miner28, @BocuD @Varneon
+Made by: [@GlitchyDev](https://github.com/GlitchyDev), [@Miner28](https://github.com/Miner28), [@BocuD](https://github.com/BocuD) and [@Varneon](https://github.com/Varneon)
 
-Special help: @lox9973 for Quest support
+Special help: [@lox9973](https://github.com/lox9973) for Quest support
 
-Special Thanks: @Merlin for making UdonSharp making any of this possible
+Special Thanks: [@Merlin](https://github.com/MerlinVR) for making UdonSharp making any of this possible
 
 # Installation
 
