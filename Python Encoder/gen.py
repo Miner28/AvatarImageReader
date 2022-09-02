@@ -6,7 +6,7 @@ version = [3, 0]
 def encodeUTF8Text(input:str, avatar:str = ""):
     textbyte_list = list(bytearray(input.encode('utf-8')))
 
-    textbyte_list = [1, 1] + version + textbyte_list
+    textbyte_list = [0,0,0,0] + [0] + version + [1] + textbyte_list
 
     if avatar != "":
         avatar = avatar.replace("avtr_", "")
