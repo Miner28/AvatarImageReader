@@ -1,6 +1,6 @@
 [**Demo world**](https://vrchat.com/home/launch?worldId=wrld_b906fef2-9c90-463a-bb7b-23d187ccdffe&instanceId=0)
 
-[**Optional Discord bot Invite**](https://discord.com/api/oauth2/authorize?client_id=938573401201721425&permissions=2147600448&scope=bot%20applications.commands)
+**Want to upload automated membership lists from your Discord server?** [**Invite to your Server**](https://discord.com/api/oauth2/authorize?client_id=938573401201721425&permissions=2147600448&scope=bot%20applications.commands)
 
 <div>
 
