@@ -71,8 +71,8 @@ namespace AvatarImageReader
 
         /// <summary>
         /// Data encoding mode
-        /// <para>0 = UTF16</para>
-        /// <para>1 = UTF8</para>
+        /// <para>0 = UTF8</para>
+        /// <para>1 = UTF16</para>
         /// <para>2 = ASCII (Not supported yet)</para>
         /// <para>3 = Binary (Not supported yet)</para>
         /// </summary>
@@ -376,10 +376,23 @@ namespace AvatarImageReader
                 nextAvatar += $"{(idColor.a):x2}";
             }
 
-            var headerInfo = colors[6];
-            dataMode = (DataMode) headerInfo.r;
-            Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b} Encoder: {headerInfo.a} DataMode: {dataMode}");
-            
+            var isNew = colors[5];
+            if (isNew.r == 0 && isNew.g == 0 && isNew.b == 0 && isNew.a == 0)
+            {
+                var headerInfo = colors[6];
+                dataMode = (DataMode) headerInfo.r;
+                Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b} Encoder: {headerInfo.a} DataMode: {dataMode}");
+                pixelIndex = 6; //start decoding at 8th pixel (skip the header)
+                maxIndex = dataLength / 4 + 6; //last pixel we should read, data length + header size
+            }
+            else
+            {
+                Debug.LogError($"<color=#FF0000>ENCODED WITH OLD VERSION OF AIR</color>");
+
+                pixelIndex = 5; //start decoding at 6th pixel (skip the header)
+                maxIndex = dataLength / 4 + 5; //last pixel we should read, data length + header size
+                dataMode = DataMode.UTF16;
+            }
             nextAvatar = $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
 
             Log($"<color=#00AAFF>Starting Read for avatar {avatarCounter}</color>");
@@ -394,8 +407,6 @@ namespace AvatarImageReader
             //initialize decoding intermediates
             byteIndex = 0; //index of next byte to read starting at 0
             avatarBytes = new byte[dataLength];
-            pixelIndex = 6; //start decoding at 6th pixel (skip the header)
-            maxIndex = dataLength / 4 + 6; //last pixel we should read, data length + header size
 
             SendCustomEventDelayedFrames(nameof(_ReadPictureStep), 0);
         }

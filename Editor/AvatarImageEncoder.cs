@@ -32,9 +32,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using AvatarImageReader.Enums;
 using BocuD.VRChatApiTools;
 using UnityEngine;
-using AvatarImageReader.Enums;
 
 namespace AvatarImageDecoder
 {
@@ -71,7 +71,7 @@ namespace AvatarImageDecoder
         public static Texture2D[] EncodeUTF16Text(string input, string[] availableAvatars, int width, int height)
         {
             availableAvatars = availableAvatars.Append("avtr_ffffffff_ffff_ffff_ffff_ffffffffffff").ToArray();
-            Debug.Log($"Starting Multi Avatar Image Encoder");
+            Debug.Log("Starting Multi Avatar Image Encoder");
             Debug.Log($"Input character count: {input.Length}");
 
             int imageByteCount = (width * height * 4) - headerSize;
@@ -104,10 +104,8 @@ namespace AvatarImageDecoder
 
                 return outTex;
             }
-            else
-            {
-                throw new Exception("Not enough avatar IDs were provided to encode the provided string");
-            }
+
+            throw new Exception("Not enough avatar IDs were provided to encode the provided string");
         }
 
         /// <summary>
@@ -127,11 +125,17 @@ namespace AvatarImageDecoder
         {
             byte[] textbyteArray = Encoding.Unicode.GetBytes(input);
 
-            textbyteArray = textbyteArray.Prepend<byte>((byte) 0).ToArray(); // Signifies C# Encoder
-            textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Minor).ToArray();
-            textbyteArray = textbyteArray.Prepend<byte>((byte) Version.Major).ToArray();
-            textbyteArray = textbyteArray.Prepend<byte>((byte) DataMode.UTF16).ToArray();
 
+
+            textbyteArray = textbyteArray.Prepend((byte) 0).ToArray(); // Signifies C# Encoder
+            textbyteArray = textbyteArray.Prepend((byte) Version.Minor).ToArray();
+            textbyteArray = textbyteArray.Prepend((byte) Version.Major).ToArray();
+            textbyteArray = textbyteArray.Prepend((byte) DataMode.UTF16).ToArray();
+
+            for (int i = 0; i < 4; i++)
+            {
+                textbyteArray = textbyteArray.Prepend((byte) 0).ToArray(); // Puts an invalid characters in to give us indicator that we're using new encoding method
+            }
 
             if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))
             {
@@ -140,7 +144,7 @@ namespace AvatarImageDecoder
                 byte[] hex = StringToByteArray(avatar);
                 foreach (byte b in hex.Reverse())
                 {
-                    textbyteArray = textbyteArray.Prepend<byte>(b).ToArray();
+                    textbyteArray = textbyteArray.Prepend(b).ToArray();
                 }
 
             }
@@ -148,7 +152,7 @@ namespace AvatarImageDecoder
             {
                 foreach (byte b in new byte[] { 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 })
                 {
-                    textbyteArray = textbyteArray.Prepend<byte>(b).ToArray();
+                    textbyteArray = textbyteArray.Prepend(b).ToArray();
                 }
             }
 
@@ -256,10 +260,15 @@ namespace AvatarImageDecoder
             int lengthOfTextbyteListWith4Bytes = bytesToEncode.Length;
             byte[] totalBytesWith4Bytes = BitConverter.GetBytes(lengthOfTextbyteListWith4Bytes).Reverse().ToArray();
             
-            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) 0).ToArray(); // Signifies C# Encoder
-            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Minor).ToArray();
-            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) Version.Major).ToArray();
-            totalBytesWith4Bytes = totalBytesWith4Bytes.Prepend<byte>((byte) DataMode.UTF8).ToArray();
+            bytesToEncode = bytesToEncode.Prepend((byte) 0).ToArray(); // Signifies C# Encoder
+            bytesToEncode = bytesToEncode.Prepend((byte) Version.Minor).ToArray();
+            bytesToEncode = bytesToEncode.Prepend((byte) Version.Major).ToArray();
+            bytesToEncode = bytesToEncode.Prepend((byte) DataMode.UTF8).ToArray();
+
+            for (int i = 0; i < 4; i++)
+            {
+                bytesToEncode = bytesToEncode.Prepend((byte) 0).ToArray(); // Puts an invalid characters in to give us indicator that we're using new encoding method
+            }
 
 
             if (!string.IsNullOrEmpty(avatar) && Regex.IsMatch(avatar, VRChatApiTools.avatar_regex))
@@ -268,13 +277,13 @@ namespace AvatarImageDecoder
                 byte[] hex = StringToByteArray(avatar);
                 foreach (byte b in hex.Reverse())
                 {
-                    bytesToEncode = bytesToEncode.Prepend<byte>(b).ToArray();
+                    bytesToEncode = bytesToEncode.Prepend(b).ToArray();
                 }
             }
             else
             {
                 foreach (byte b in new byte[] { 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 })
-                    bytesToEncode = bytesToEncode.Prepend<byte>(b).ToArray();
+                    bytesToEncode = bytesToEncode.Prepend(b).ToArray();
             }
 
 
@@ -287,10 +296,10 @@ namespace AvatarImageDecoder
             {
                 bytesToEncode = bytesToEncode.Append((byte)16).ToArray();
             }
-
+            
             Color32[] pixels = Enumerable.Repeat(new Color32(255, 255, 255, 255), texture2D.width * texture2D.height).ToArray();
-
-
+            
+            
             for (int i = 0; i < pixels.Length; i++)
             {
                 pixels[i] = new Color32(bytesToEncode[i * 4], bytesToEncode[i * 4 + 1], bytesToEncode[i * 4 + 2], bytesToEncode[i * 4 + 3]);

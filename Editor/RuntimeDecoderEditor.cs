@@ -305,12 +305,12 @@ namespace AvatarImageReader.Editor
                 case DataMode.UTF16:
                     currentByteCount = Encoding.Unicode.GetByteCount(text);
                     exceedsCapacity = currentByteCount > maxByteCount;
-                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / maxByteCount * 100:n0}%)";
+                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / maxByteCount * 100:n0}%) (UTF-8 {Encoding.UTF8.GetByteCount(text)}/{maxByteCount})";
                     break;
                 case DataMode.UTF8:
                     currentByteCount = Encoding.UTF8.GetByteCount(text);
                     exceedsCapacity = currentByteCount > maxByteCount;
-                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / maxByteCount * 100:n0}%)";
+                    remainingCapacityLabel.text = $"{currentByteCount} / {maxByteCount} ({(float)currentByteCount / maxByteCount * 100:n0}%) (UTF-16 {Encoding.Unicode.GetByteCount(text)}/{maxByteCount})";
                     break;
             }
 

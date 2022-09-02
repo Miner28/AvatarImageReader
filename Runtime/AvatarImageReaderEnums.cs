@@ -10,11 +10,11 @@ namespace AvatarImageReader.Enums
 
     public enum DataMode
     {
-        UTF16,
         UTF8,
+        UTF16,
         [InspectorName("ASCII (Not supported yet)")]
-        ASCII = 1,
+        ASCII = 0,
         [InspectorName("Binary (Not supported yet)")]
-        Binary = 1
+        Binary = 0
     }
 }

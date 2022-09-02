@@ -1341,7 +1341,7 @@ PrefabInstance:
     - target: {fileID: 2842991490144601139, guid: cc5f61cef272bc14796048dc63212027,
         type: 3}
       propertyPath: dataMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2842991490144601139, guid: cc5f61cef272bc14796048dc63212027,
         type: 3}
@@ -1447,7 +1447,7 @@ PrefabInstance:
     - target: {fileID: 7822994204161606899, guid: cc5f61cef272bc14796048dc63212027,
         type: 3}
       propertyPath: m_Name
-      value: Decoder_Debug (1)
+      value: Decoder_Debug
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5f61cef272bc14796048dc63212027, type: 3}
