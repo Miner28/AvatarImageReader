@@ -40,7 +40,7 @@ namespace AvatarImageDecoder
 {
     public static class AvatarImageEncoder
     {
-        private const int headerSize = 20;
+        private const int headerSize = 28;
         private const int questBytes = (128 * 96 * 4) - headerSize;
         private const int pcBytes = (1200 * 900 * 4) - headerSize;
 

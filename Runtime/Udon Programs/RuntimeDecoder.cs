@@ -382,8 +382,8 @@ namespace AvatarImageReader
                 var headerInfo = colors[6];
                 dataMode = (DataMode) headerInfo.r;
                 Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b} Encoder: {headerInfo.a} DataMode: {dataMode}");
-                pixelIndex = 6; //start decoding at 8th pixel (skip the header)
-                maxIndex = dataLength / 4 + 6; //last pixel we should read, data length + header size
+                pixelIndex = 7; //start decoding at 7th pixel (skip the header)
+                maxIndex = dataLength / 4 + 7; //last pixel we should read, data length + header size
             }
             else
             {
