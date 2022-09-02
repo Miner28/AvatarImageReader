@@ -13,8 +13,8 @@ namespace AvatarImageReader.Enums
         UTF8,
         UTF16,
         [InspectorName("ASCII (Not supported yet)")]
-        ASCII = 0,
+        ASCII,
         [InspectorName("Binary (Not supported yet)")]
-        Binary = 0
+        Binary
     }
 }
