@@ -1027,8 +1027,6 @@ namespace AvatarImageReader.Editor
             GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabNormal);
             GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             instantiated.name = "New avatar image reader";
-            RuntimeDecoder imagePrefab = instantiated.GetUdonSharpComponent<RuntimeDecoder>();
-            imagePrefab.uid = "";
             
             EditorUtility.SetDirty(instantiated);
         }
@@ -1039,8 +1037,6 @@ namespace AvatarImageReader.Editor
             GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabText);
             GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             instantiated.name = "New avatar image reader (TMP)";
-            RuntimeDecoder imagePrefab = instantiated.GetUdonSharpComponent<RuntimeDecoder>();
-            imagePrefab.uid = "";
             
             EditorUtility.SetDirty(instantiated);
         }
@@ -1051,8 +1047,6 @@ namespace AvatarImageReader.Editor
             GameObject toInstantiate = AssetDatabase.LoadAssetAtPath<GameObject>(prefabDebug);
             GameObject instantiated = UnityEngine.Object.Instantiate(toInstantiate);
             instantiated.name = "New avatar image reader (debug)";
-            RuntimeDecoder imagePrefab = instantiated.GetUdonSharpComponent<RuntimeDecoder>();
-            imagePrefab.uid = "";
             
             EditorUtility.SetDirty(instantiated);
         }

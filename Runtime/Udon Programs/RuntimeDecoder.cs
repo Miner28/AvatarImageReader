@@ -22,14 +22,10 @@ namespace AvatarImageReader
         /// </summary>
         public string[] linkedAvatars;
 
-        public string uid = "";
-
         /// <summary>
         /// Flag for indicating whether the custom editor has initialized the required assets for decoding the pedestal image
         /// </summary>
         public bool pedestalAssetsReady;
-
-        public int actionOnLoad = 0;
 
         /// <summary>
         /// Which platform's shared maximum resolution is used for the decoder
@@ -111,12 +107,9 @@ namespace AvatarImageReader
         private const string LOG_PREFIX = "[<color=#00fff7>AvatarImageReader</color>]:";
         #endregion
         #region Check Hierarchy
-        //[SerializeField] private GameObject renderQuad;
-        //[SerializeField] private ReadRenderTexture readRenderTexture;
 
         [Header("Debug")]
         [SerializeField] private GameObject textureComparisonPlane;
-        [SerializeField] private Texture2D overrideTexture;
 
         private Texture pedestalTexture;
 
@@ -137,7 +130,7 @@ namespace AvatarImageReader
         {
             pedestal = GetComponent<VRCAvatarPedestal>();
 
-            renderQuadRenderer = renderQuad.GetComponent<MeshRenderer>();
+            renderQuadRenderer = GetComponent<MeshRenderer>();
 
             GetComponent<MeshRenderer>().enabled = true;
 
@@ -164,7 +157,7 @@ namespace AvatarImageReader
                             Debug.Log("CheckHierarchyScript: Retrieving Avatar Pedestal Texture");
 
                             // Assign the Texture to the Render pane and the comparison pane
-                            if (renderQuad != null)
+                            if (renderQuadRenderer != null)
                             {
                                 renderQuadRenderer.material.SetTexture(1, pedestalTexture);
                                 renderQuadRenderer.enabled = true;
@@ -197,9 +190,6 @@ namespace AvatarImageReader
         /// MeshRenderer for the fullscreen override
         /// </summary>
         private MeshRenderer renderQuadRenderer;
-        
-        [Obsolete]
-        public GameObject renderQuad;
 
         /// <summary>
         /// Camera for rendering the fullscreen override
