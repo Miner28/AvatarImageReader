@@ -49,6 +49,10 @@ namespace AvatarImageReader.Editor
         private const string pcRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/PCCRT.asset";
         private const string questRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/QuestCRT.asset";
 
+        private const string FOLDOUT_PERSISTENCE_KEY = "Miner28/AvatarImageReader/RuntimeDecoder/Editor/InspectorFoldouts";
+
+        private List<Foldout> foldouts;
+
         private int pixelCount;
         private int maxByteCount;
         private int currentByteCount;
@@ -254,7 +258,46 @@ namespace AvatarImageReader.Editor
             });
             setDebugEnabledAction(enableDebugToggle.value);
 
+            // Get all foldouts in the inspector
+            foldouts = root.Query<Foldout>().Build().ToList();
+
+            // If the editor preference key for foldout states exists, apply it
+            if (EditorPrefs.HasKey(FOLDOUT_PERSISTENCE_KEY))
+            {
+                int states = EditorPrefs.GetInt(FOLDOUT_PERSISTENCE_KEY);
+
+                for (int i = 0; i < foldouts.Count; i++)
+                {
+                    foldouts[i].value = (states & (1 << i)) != 0;
+                }
+            }
+
             return root;
+        }
+
+        private void OnDestroy()
+        {
+            ApplyInspectorFoldoutPersistenceState();
+        }
+
+        /// <summary>
+        /// Applies the current inspector foldout persistence state
+        /// </summary>
+        private void ApplyInspectorFoldoutPersistenceState()
+        {
+            if (foldouts == null) { return; }
+
+            int states = 0;
+
+            for (int i = 0; i < foldouts.Count; i++)
+            {
+                if (foldouts[i].value)
+                {
+                    states |= 1 << i;
+                }
+            }
+
+            EditorPrefs.SetInt(FOLDOUT_PERSISTENCE_KEY, states);
         }
 
         private void Init()
