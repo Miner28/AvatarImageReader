@@ -49,6 +49,10 @@ namespace AvatarImageReader.Editor
         private const string pcRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/PCCRT.asset";
         private const string questRTPath = "Packages/com.miner28.avatar-image-reader/DonorImages/QuestCRT.asset";
 
+        private const string FOLDOUT_PERSISTENCE_KEY = "Miner28/AvatarImageReader/RuntimeDecoder/Editor/InspectorFoldouts";
+
+        private List<Foldout> foldouts;
+
         private int pixelCount;
         private int maxByteCount;
         private int currentByteCount;
@@ -134,7 +138,7 @@ namespace AvatarImageReader.Editor
             EnumField dataModeField = root.Q<EnumField>("EnumField_DataMode");
             dataModeField.Init(reader.dataMode);
             dataModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.dataMode)));
-            dataModeField.RegisterValueChangedCallback(a => onDataModeChanged((DataMode)a.newValue));
+            dataModeField.RegisterValueChangedCallback(a => { if (a.newValue != null) { onDataModeChanged((DataMode)a.newValue); } });
             onDataModeChanged(reader.dataMode);
 
             // Create action for when the link Patreon decoder toggle state changes
@@ -178,9 +182,9 @@ namespace AvatarImageReader.Editor
 
             // Image Options > Image Mode
             EnumField imageModeField = root.Q<EnumField>("EnumField_ImageMode");
-            imageModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.imageMode)));
-            imageModeField.RegisterValueChangedCallback(a => updateImageModeAction((Platform)a.newValue));
             imageModeField.Init(reader.imageMode);
+            imageModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.imageMode)));
+            imageModeField.RegisterValueChangedCallback(a => { if (a.newValue != null) { updateImageModeAction((Platform)a.newValue); } });
             updateImageModeAction((Platform)imageModeField.value);
 
             // Data Encoding > Encode Image(s)
@@ -254,7 +258,46 @@ namespace AvatarImageReader.Editor
             });
             setDebugEnabledAction(enableDebugToggle.value);
 
+            // Get all foldouts in the inspector
+            foldouts = root.Query<Foldout>().Build().ToList();
+
+            // If the editor preference key for foldout states exists, apply it
+            if (EditorPrefs.HasKey(FOLDOUT_PERSISTENCE_KEY))
+            {
+                int states = EditorPrefs.GetInt(FOLDOUT_PERSISTENCE_KEY);
+
+                for (int i = 0; i < foldouts.Count; i++)
+                {
+                    foldouts[i].value = (states & (1 << i)) != 0;
+                }
+            }
+
             return root;
+        }
+
+        private void OnDestroy()
+        {
+            ApplyInspectorFoldoutPersistenceState();
+        }
+
+        /// <summary>
+        /// Applies the current inspector foldout persistence state
+        /// </summary>
+        private void ApplyInspectorFoldoutPersistenceState()
+        {
+            if (foldouts == null) { return; }
+
+            int states = 0;
+
+            for (int i = 0; i < foldouts.Count; i++)
+            {
+                if (foldouts[i].value)
+                {
+                    states |= 1 << i;
+                }
+            }
+
+            EditorPrefs.SetInt(FOLDOUT_PERSISTENCE_KEY, states);
         }
 
         private void Init()
@@ -450,336 +493,6 @@ namespace AvatarImageReader.Editor
         }
 
         #region LEGACY CODE
-        
-        private Vector2 scrollview;
-        private int imageContent;
-       
-        
-        public override void OnInspectorGUI()
-        {
-            return;
-
-            if (UdonSharpGUI.DrawDefaultUdonSharpBehaviourHeader(target)) return;
-
-            reader = (RuntimeDecoder)target;
-
-            if(!init) Init();
-            
-            reader.UpdateProxy();
-            
-            //make sure the first avatar is always initialised
-            if (reader.linkedAvatars == null || reader.linkedAvatars.Length == 0)
-            {
-                reader.linkedAvatars = new string[1];
-                reader.linkedAvatars[0] = "";
-            }
-
-            GUIStyle bigHeaderStyle = new GUIStyle(EditorStyles.label) {richText = true, fontSize = 15};
-            GUIStyle headerStyle = new GUIStyle(EditorStyles.label) {richText = true};
-            
-            EditorGUILayout.LabelField("<b>Avatar Image Reader</b>", bigHeaderStyle);
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("<b>Main Avatar</b>", headerStyle);
-            GUILayout.FlexibleSpace();
-            EditorGUILayout.LabelField($"Total linked avatar count: {reader.linkedAvatars.Length}", GUILayout.Width(180));
-            EditorGUILayout.EndHorizontal();
-            
-            VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0]);
-
-            EditorGUILayout.BeginHorizontal();
-            string changeAvatarString = reader.linkedAvatars[0].IsNullOrWhitespace() ? "Set avatar..." : "Change Avatar";
-            if (GUILayout.Button(changeAvatarString))
-            {
-                BlueprintPicker.BlueprintSelector<ApiAvatar>(avatar => AvatarSelected(avatar, 0));
-            }
-
-            EditorGUI.BeginDisabledGroup(reader.linkedAvatars[0].IsNullOrWhitespace());
-            if (GUILayout.Button("Manage Avatars"))
-            {
-                MultiAvatarManager.SpawnEditor(this);
-            }
-            Color temp = GUI.backgroundColor;
-            GUI.backgroundColor = Color.red;
-            if (GUILayout.Button("Unlink Avatars"))
-            {
-                reader.linkedAvatars = new string[0];
-                
-                reader.ApplyProxyModifications();
-                
-                AvatarSelected(null, 0);
-            }
-            GUI.backgroundColor = temp;
-            EditorGUI.EndDisabledGroup();
-            
-            /*
-            EditorGUI.BeginDisabledGroup(!APIUser.IsLoggedIn);
-            if (GUILayout.Button("Create Empty"))
-            {
-                //TODO Create Empty Avatar
-            }
-            
-            EditorGUI.EndDisabledGroup();
-            */
-            
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.Space(4);
-            
-            
-            EditorGUI.BeginChangeCheck();
-            EditorGUILayout.LabelField("<b>Image Options</b>", headerStyle);
-
-            int pixelCount = 0;
-            
-            reader.imageMode = (Platform)EditorGUILayout.EnumPopup("Image mode: ", reader.imageMode);
-
-            if (reader.imageMode != lastImageMode)
-            {
-                UpdatePedestalAssets();
-            }
-            
-            switch (reader.imageMode)
-            {
-                case Platform.Android:
-                    EditorGUILayout.LabelField("Target resolution: ", "128x96");
-                    pixelCount = 128 * 96 * reader.linkedAvatars.Length;
-                    break;
-                
-                case Platform.PC:
-                    EditorGUILayout.HelpBox("You should only use PC Only mode if you are absolutely sure you are going to use all of the space it allows you to use.", MessageType.Warning);
-                    EditorGUILayout.LabelField("Target resolution: ", "1200x900");
-                    pixelCount = 1200 * 900 * reader.linkedAvatars.Length;
-                    break;
-            }
-            EditorGUILayout.Space(4);
-            if (EditorGUI.EndChangeCheck())
-            {
-                MarkDirty();
-            }
-            
-            
-            EditorGUI.BeginChangeCheck();
-            EditorGUILayout.LabelField("<b>Data encoding</b>", headerStyle);
-
-            using (new EditorGUI.DisabledGroupScope(true))
-            {
-                reader.dataMode = (DataMode)EditorGUILayout.EnumPopup("Data mode: ", reader.dataMode);
-            }
-
-            reader.patronMode = EditorGUILayout.Toggle("Link with Patreon Decoder:", reader.patronMode);
-            if (reader.patronMode)
-            {
-                reader.dataMode = 0;
-                EditorGUILayout.HelpBox("Make sure to link this reader to a decoder, and to select this reader on the decoder object!", MessageType.Info);
-            }
-
-            EditorGUI.BeginDisabledGroup(reader.patronMode);
-
-            //remove 5 pixels (header)
-            int byteCount = (pixelCount - 5) * 4;
-
-            switch (reader.dataMode)
-            {
-                case DataMode.UTF16:
-                    EditorGUILayout.LabelField("Remaining characters: ", $"{byteCount / 2 - text.Length:n0} / {byteCount / 2:n0} ({((float)byteCount / 2 - text.Length) / ((float)byteCount / 2) * 100:n0}%)");
-
-                    using (GUILayout.ScrollViewScope scroll = new GUILayout.ScrollViewScope(scrollview, GUILayout.MinHeight(EditorGUIUtility.singleLineHeight), GUILayout.ExpandHeight(true), GUILayout.MaxHeight(200))) //, GUILayout.MaxHeight(300)))
-                    {
-                        scrollview = scroll.scrollPosition;
-                        GUIStyle textArea = new GUIStyle(EditorStyles.textArea) {wordWrap = true };
-                        text = EditorGUILayout.TextArea(text, textArea, GUILayout.ExpandHeight(true));
-                    }
-                    
-                    GUILayout.FlexibleSpace();
-                    
-                    
-                    if (text.Length > byteCount / 2)
-                    {
-                        EditorGUILayout.HelpBox("You are using more characters than the image can fit. Excess characters will be trimmed off.", MessageType.Error);
-                    }
-
-                    if (GUILayout.Button("Encode Image(s)"))
-                    {
-                        imageWidth = reader.imageMode == 0 ? 128 : 1200;
-                        imageHeight = reader.imageMode == 0 ? 96 : 900;
-
-                        output = AvatarImageEncoder.EncodeUTF16Text(text, reader.linkedAvatars, imageWidth, imageHeight);
-
-                        texturePreview = new GUIContent[output.Length];
-                        for (int i = 0; i < output.Length; i++)
-                        {
-                            texturePreview[i] = new GUIContent(output[i]);
-                        }
-                    }
-
-                    if (output != null)
-                    {
-                        for (int i = 0; i < texturePreview.Length && i < reader.linkedAvatars.Length; i++)
-                        {
-                            EditorGUILayout.BeginHorizontal();
-                            EditorGUILayout.BeginVertical(GUILayout.Width(100));
-                            GUILayout.Box(texturePreview[i]);
-                            EditorGUILayout.EndVertical();
-                            
-                            EditorGUILayout.BeginVertical();
-                            
-                            EditorGUILayout.BeginHorizontal();
-                            
-                            EditorGUILayout.BeginVertical();
-                            EditorGUILayout.LabelField($"Image {i+1}/{texturePreview.Length}", GUILayout.Width(100));
-                            EditorGUILayout.LabelField("Image dimensions: ", GUILayout.Width(120));
-                            EditorGUILayout.LabelField("Image data type: ", GUILayout.Width(120));
-                            EditorGUILayout.LabelField("Target avatar id: ", GUILayout.Width(120));
-                            EditorGUILayout.EndVertical();
-                            
-                            EditorGUILayout.BeginVertical();
-                            if (GUILayout.Button("Save Image", GUILayout.Width(120)))
-                            {
-                                string path = EditorUtility.SaveFilePanel(
-                                    "Save texture as PNG",
-                                    Application.dataPath,
-                                    "output.png",
-                                    "png");
-
-                                if (path.Length != 0)
-                                {
-                                    byte[] pngData = output[i].EncodeToPNG();
-                                    if (pngData != null)
-                                        File.WriteAllBytes(path, pngData);
-
-                                    path = "Assets" + path.Substring(Application.dataPath.Length);
-
-                                    AssetDatabase.WriteImportSettingsIfDirty(path);
-                                    AssetDatabase.ImportAsset(path);
-
-                                    TextureImporter importer = (TextureImporter)AssetImporter.GetAtPath(path);
-                                    importer.npotScale = TextureImporterNPOTScale.None;
-                                    importer.textureCompression = TextureImporterCompression.Uncompressed;
-                                    importer.maxTextureSize = 2048;
-                                    EditorUtility.SetDirty(importer);
-                                    AssetDatabase.WriteImportSettingsIfDirty(path);
-
-                                    AssetDatabase.ImportAsset(path);
-                                }
-                            }
-                            EditorGUILayout.LabelField($"{imageWidth} x {imageHeight}");
-                            EditorGUILayout.LabelField("UTF16 Characters");
-                            EditorGUILayout.LabelField(reader.linkedAvatars[i]);
-                            EditorGUILayout.EndVertical();
-                            EditorGUILayout.EndHorizontal();
-                            
-                            EditorGUILayout.EndVertical();
-                            EditorGUILayout.EndHorizontal();
-                        }
-                        
-                        bool uploadBlocked = string.IsNullOrEmpty(reader.linkedAvatars[0]) || reader.linkedAvatars.Length < texturePreview.Length;
-
-                        EditorGUI.BeginDisabledGroup(uploadBlocked);
-                        GUIContent uploadButton = uploadBlocked
-                                ? new GUIContent("Upload Image(s) to Avatar(s)",
-                                    "You don't currently have enough linked avatars to upload this data")
-                                : new GUIContent("Upload Image(s) to Avatar(s)");
-                        if (GUILayout.Button(uploadButton))
-                        {
-                            RunUploadTask(output, reader.linkedAvatars);
-                        }
-                        EditorGUI.EndDisabledGroup();
-                    }
-                    break;
-            }
-            EditorGUILayout.Space(4);
-            EditorGUI.EndDisabledGroup();
-            if (EditorGUI.EndChangeCheck())
-            {
-                MarkDirty();
-            }
-            
-            
-            EditorGUI.BeginChangeCheck();
-            EditorGUILayout.LabelField("<b>General Options</b>", headerStyle);
-
-            reader.outputToText = EditorGUILayout.Toggle("Output to TextMeshPro", reader.outputToText);
-            if (reader.outputToText)
-            {
-                reader.autoFillTMP =
-                    EditorGUILayout.Toggle(
-                        new GUIContent("Auto fill TMP",
-                            "Enabling this will automatically replace the text inside the output TMP so at least some data (albeit not necessarily up to date) will be shown if loading fails."),
-                        reader.autoFillTMP);
-                reader.outputText = (TextMeshPro) EditorGUILayout.ObjectField("Target TextMeshPro: ", reader.outputText,
-                    typeof(TextMeshPro), true);
-            }
-
-            if (reader.patronMode)
-            {
-                EditorGUILayout.Space(4);
-                EditorGUILayout.LabelField("<b>Patreon Decoder</b>", headerStyle);
-                
-                reader.callBackOnFinish = true;
-                reader.callbackBehaviour = (UdonBehaviour)EditorGUILayout.ObjectField("Decoder Behaviour: ",
-                    reader.callbackBehaviour, typeof(UdonBehaviour), true);
-
-                if (reader.callbackBehaviour != null)
-                {
-                    if (UdonSharpEditorUtility.GetUdonSharpBehaviourType(reader.callbackBehaviour).ToString() ==
-                        "PatreonDecoder")
-                    {
-                        EditorGUILayout.HelpBox(
-                            "Valid Patreon Decoder detected! Make sure to open its inspector and link back to this reader.",
-                            MessageType.Info);
-                    }
-                    else
-                    {
-                        EditorGUILayout.HelpBox("Specified UdonBehaviour doesn't appear to be of the correct type.",
-                            MessageType.Error);
-                    }
-                }
-
-                reader.callbackEventName = "_StartDecode";
-            }
-            else
-            {
-                reader.callBackOnFinish = EditorGUILayout.Toggle("Send Custom Event", reader.callBackOnFinish);
-                if (reader.callBackOnFinish)
-                {
-                    reader.callbackBehaviour = (UdonBehaviour)EditorGUILayout.ObjectField("Target Behaviour: ",
-                        reader.callbackBehaviour, typeof(UdonBehaviour), true);
-                    if (reader.callbackBehaviour != null)
-                    {
-                        reader.callbackEventName = EditorGUILayout.TextField("Event name: ", reader.callbackEventName);
-                    }
-                }
-            }
-
-            EditorGUILayout.Space(4);
-            if (EditorGUI.EndChangeCheck())
-            {
-                MarkDirty();
-            }
-            
-            
-            EditorGUI.BeginChangeCheck();
-            EditorGUILayout.LabelField("<b>Debugging</b>", headerStyle);
-            reader.debugLogging = EditorGUILayout.Toggle("Enable debug logging", reader.debugLogging);
-            
-            if (reader.debugLogging)
-            {
-                reader.debugTMP = EditorGUILayout.Toggle("Enable logging to TextMeshPro", reader.debugTMP);
-                if (reader.debugTMP)
-                {
-                    reader.loggerText = (TextMeshPro) EditorGUILayout.ObjectField("Target TextMeshPro: ",
-                        reader.loggerText, typeof(TextMeshPro), true);
-                }
-            }
-            else
-            {
-                reader.debugTMP = false;
-            }
-            if (EditorGUI.EndChangeCheck())
-            {
-                MarkDirty();
-            }
-        }
 
         private void MarkDirty()
         {
