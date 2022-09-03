@@ -138,7 +138,7 @@ namespace AvatarImageReader.Editor
             EnumField dataModeField = root.Q<EnumField>("EnumField_DataMode");
             dataModeField.Init(reader.dataMode);
             dataModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.dataMode)));
-            dataModeField.RegisterValueChangedCallback(a => onDataModeChanged((DataMode)a.newValue));
+            dataModeField.RegisterValueChangedCallback(a => { if (a.newValue != null) { onDataModeChanged((DataMode)a.newValue); } });
             onDataModeChanged(reader.dataMode);
 
             // Create action for when the link Patreon decoder toggle state changes
@@ -182,9 +182,9 @@ namespace AvatarImageReader.Editor
 
             // Image Options > Image Mode
             EnumField imageModeField = root.Q<EnumField>("EnumField_ImageMode");
-            imageModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.imageMode)));
-            imageModeField.RegisterValueChangedCallback(a => updateImageModeAction((Platform)a.newValue));
             imageModeField.Init(reader.imageMode);
+            imageModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.imageMode)));
+            imageModeField.RegisterValueChangedCallback(a => { if (a.newValue != null) { updateImageModeAction((Platform)a.newValue); } });
             updateImageModeAction((Platform)imageModeField.value);
 
             // Data Encoding > Encode Image(s)
