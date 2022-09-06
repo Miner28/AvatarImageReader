@@ -38,7 +38,7 @@ using AvatarImageReader.Enums;
 using BocuD.VRChatApiTools;
 using UnityEngine;
 
-namespace AvatarImageDecoder
+namespace AvatarImageReader.Editor
 {
     public static class AvatarImageEncoder
     {

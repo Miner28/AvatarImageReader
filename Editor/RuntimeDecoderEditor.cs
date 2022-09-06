@@ -16,7 +16,6 @@ using VRC.Udon.Serialization.OdinSerializer.Utilities;
 using Platform = AvatarImageReader.Enums.Platform;
 
 #if VRCHAT_API_TOOLS_IMPORTED
-using AvatarImageDecoder;
 using BocuD.VRChatApiTools;
 #endif
 

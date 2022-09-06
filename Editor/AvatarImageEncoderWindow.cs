@@ -1,6 +1,5 @@
 ﻿#if VRCHAT_API_TOOLS_IMPORTED
 
-using AvatarImageDecoder;
 using BocuD.VRChatApiTools;
 using System.IO;
 using UnityEditor;
