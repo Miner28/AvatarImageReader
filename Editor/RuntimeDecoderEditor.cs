@@ -1,6 +1,4 @@
-using AvatarImageDecoder;
 using AvatarImageReader.Enums;
-using BocuD.VRChatApiTools;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +14,11 @@ using VRC.Core;
 using VRC.Udon;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 using Platform = AvatarImageReader.Enums.Platform;
+
+#if VRCHAT_API_TOOLS_IMPORTED
+using AvatarImageDecoder;
+using BocuD.VRChatApiTools;
+#endif
 
 namespace AvatarImageReader.Editor
 {
@@ -114,6 +117,7 @@ namespace AvatarImageReader.Editor
 
             SetPlatform(reader.imageMode);
 
+#if VRCHAT_API_TOOLS_IMPORTED
             root.Q<IMGUIContainer>("IMGUIContainer_AvatarPreview").onGUIHandler += () => VRChatApiToolsGUI.DrawBlueprintInspector(reader.linkedAvatars[0], false);
 
             totalLinkedAvatarCountLabel = root.Q<Label>("Label_TotalLinkedAvatarCount");
@@ -131,6 +135,14 @@ namespace AvatarImageReader.Editor
                 AvatarSelected(null, 0);
                 MarkFirstAvatarAsValid();
             };
+#else
+            SetElementsVisibleState(true, root.Q("ErrorBox_VRChatApiToolsNotImported"));
+            root.Q<Button>("Button_VRChatApiToolsGitHub").clicked += () => Application.OpenURL("https://github.com/BocuD/VRChatApiTools");
+            SetElementsVisibleState(false, root.Q("AvatarPreview"));
+            PropertyField linkedAvatarsFallbackField = root.Q<PropertyField>("PropertyField_LinkedAvatarsFallback");
+            linkedAvatarsFallbackField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.linkedAvatars)));
+            SetElementsVisibleState(true, linkedAvatarsFallbackField);
+#endif
 
             Action<DataMode> onDataModeChanged = UpdateRemainingCapacityLabel;
 
@@ -156,6 +168,7 @@ namespace AvatarImageReader.Editor
             linkPatreonDecoderToggle.RegisterValueChangedCallback(a => setPatreonDecoderLinkedState(a.newValue));
             setPatreonDecoderLinkedState(linkPatreonDecoderToggle.value);
 
+#if VRCHAT_API_TOOLS_IMPORTED
             // Workaround for error 'Generated text will be truncated because it exceeds 49152 vertices.'
             // Use the IMGUI TextArea instead of UIElements TextField
             IMGUIContainer dataInputIMGUIContainer = root.Q<IMGUIContainer>("IMGUIContainer_DataInput");
@@ -173,6 +186,13 @@ namespace AvatarImageReader.Editor
                 }
             };
 
+            // Data Encoding > Encode Image(s)
+            root.Q<Button>("Button_EncodeImages").clicked += () => EncodeImages();
+#else
+            SetElementsVisibleState(false, root.Q("DataEncoding"));
+            SetElementsVisibleState(false, root.Q("ImageOptions"));
+#endif
+
             // Create action for changing the platform
             Action<Platform> updateImageModeAction = (Platform platform) => {
                 root.Q<Label>("Label_ResolutionPreview").text = GetPlatformResolutionPreviewText(platform);
@@ -186,9 +206,6 @@ namespace AvatarImageReader.Editor
             imageModeField.BindProperty(decoderSO.FindProperty(nameof(RuntimeDecoder.imageMode)));
             imageModeField.RegisterValueChangedCallback(a => { if (a.newValue != null) { updateImageModeAction((Platform)a.newValue); } });
             updateImageModeAction((Platform)imageModeField.value);
-
-            // Data Encoding > Encode Image(s)
-            root.Q<Button>("Button_EncodeImages").clicked += () => EncodeImages();
 
             root.Q<IMGUIContainer>("IMGUIContainer_EncodedImages").onGUIHandler = () => DisplayEncodedImages();
 
@@ -432,6 +449,7 @@ namespace AvatarImageReader.Editor
                         $"These images contain data encoded in {outputMode} mode, but the pedestal data mode is {reader.dataMode}. You should re encode before uploading.", MessageType.Warning);
                 }
 
+#if VRCHAT_API_TOOLS_IMPORTED
                 EditorGUI.BeginDisabledGroup(uploadBlocked);
                 GUIContent uploadButton = uploadBlocked
                         ? new GUIContent("Upload Image(s) to Avatar(s)",
@@ -442,6 +460,7 @@ namespace AvatarImageReader.Editor
                     RunUploadTask(output, reader.linkedAvatars);
                 }
                 EditorGUI.EndDisabledGroup();
+#endif
             }
         }
 
@@ -475,7 +494,8 @@ namespace AvatarImageReader.Editor
         }
 
         private DataMode outputMode;
-        
+
+#if VRCHAT_API_TOOLS_IMPORTED
         private void EncodeImages()
         {
             outputMode = reader.dataMode;
@@ -491,8 +511,9 @@ namespace AvatarImageReader.Editor
                 texturePreview[i] = new GUIContent(output[i]);
             }
         }
+#endif
 
-        #region LEGACY CODE
+#region LEGACY CODE
 
         private void MarkDirty()
         {
@@ -514,6 +535,7 @@ namespace AvatarImageReader.Editor
             }
         }
 
+#if VRCHAT_API_TOOLS_IMPORTED
         private static async void RunUploadTask(Texture2D[] textures, string[] avatarIDs)
         {
             try
@@ -559,6 +581,7 @@ namespace AvatarImageReader.Editor
                 EditorApplication.UnlockReloadAssemblies();
             }
         }
+#endif
 
         private bool checksFailedReadRenderTexture = false;
         private bool checksFailedPedestal = false;
@@ -677,7 +700,8 @@ namespace AvatarImageReader.Editor
 
         public RuntimeDecoderEditor prefabEditor;
         private Vector2 scrollView;
-        
+
+#if VRCHAT_API_TOOLS_IMPORTED
         private void OnGUI()
         {
             EditorGUILayout.LabelField($"Multi Avatar Manager for {prefabEditor.reader.name}");
@@ -726,6 +750,7 @@ namespace AvatarImageReader.Editor
             }
             EditorGUILayout.EndHorizontal();
         }
+#endif
     }
 
     public static class AvatarImageTools
@@ -764,6 +789,6 @@ namespace AvatarImageReader.Editor
             EditorUtility.SetDirty(instantiated);
         }
 
-        #endregion
+#endregion
     }
 }
