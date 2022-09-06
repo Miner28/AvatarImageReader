@@ -23,7 +23,7 @@
     "versionDefines": [
         {
             "name": "com.bocud.vrcapitools",
-            "expression": "0.2.2",
+            "expression": "0.2.1",
             "define": "VRCHAT_API_TOOLS_IMPORTED"
         }
     ],
