@@ -27,6 +27,8 @@
 // released under the terms of the License used by "https://github.com/Miner28/AvatarImageReader" at the time of writing,
 // included in the header of this C# file.
 
+#if VRCHAT_API_TOOLS_IMPORTED
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +38,7 @@ using AvatarImageReader.Enums;
 using BocuD.VRChatApiTools;
 using UnityEngine;
 
-namespace AvatarImageDecoder
+namespace AvatarImageReader.Editor
 {
     public static class AvatarImageEncoder
     {
@@ -335,3 +337,4 @@ public static class Extensions
         return slice;
     }
 }
+#endif

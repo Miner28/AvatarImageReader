@@ -1,4 +1,5 @@
-﻿using AvatarImageDecoder;
+﻿#if VRCHAT_API_TOOLS_IMPORTED
+
 using BocuD.VRChatApiTools;
 using System.IO;
 using UnityEditor;
@@ -87,3 +88,4 @@ namespace AvatarImageReader.Editor
         }
     }
 }
+#endif

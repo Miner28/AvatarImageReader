@@ -19,9 +19,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [
-        "VRCHAT_API_TOOLS_IMPORTED"
-    ],
+    "defineConstraints": [],
     "versionDefines": [
         {
             "name": "com.bocud.vrcapitools",

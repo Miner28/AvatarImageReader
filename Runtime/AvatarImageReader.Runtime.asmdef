@@ -3,8 +3,7 @@
     "references": [
         "Unity.TextMeshPro",
         "VRC.Udon",
-        "UdonSharp.Runtime",
-        "BocuD.VRChatApiTools.Runtime"
+        "UdonSharp.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -12,15 +11,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [
-        "VRCHAT_API_TOOLS_IMPORTED"
-    ],
-    "versionDefines": [
-        {
-            "name": "com.bocud.vrcapitools",
-            "expression": "0.2.1",
-            "define": "VRCHAT_API_TOOLS_IMPORTED"
-        }
-    ],
+    "defineConstraints": [],
+    "versionDefines": [],
     "noEngineReferences": false
 }
