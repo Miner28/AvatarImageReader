@@ -1,0 +1,31 @@
+{
+    "name": "AvatarImageReader.Editor",
+    "references": [
+        "AvatarImageReader.Runtime",
+        "Unity.TextMeshPro",
+        "VRC.SDKBase.Editor",
+        "VRC.Udon",
+        "VRC.Udon.Serialization.OdinSerializer",
+        "UdonSharp.Runtime",
+        "UdonSharp.Editor",
+        "BocuD.VRChatApiTools.Runtime",
+        "BocuD.VRChatApiTools.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.bocud.vrcapitools",
+            "expression": "0.2.1",
+            "define": "VRCHAT_API_TOOLS_IMPORTED"
+        }
+    ],
+    "noEngineReferences": false
+}
