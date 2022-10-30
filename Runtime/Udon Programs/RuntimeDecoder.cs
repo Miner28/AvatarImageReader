@@ -154,7 +154,7 @@ namespace AvatarImageReader
 
                         if (pedestalTexture != null)
                         {
-                            Debug.Log("CheckHierarchyScript: Retrieving Avatar Pedestal Texture");
+                            Log("Retrieving Avatar Pedestal Texture");
 
                             // Assign the Texture to the Render pane and the comparison pane
                             if (renderQuadRenderer != null)
@@ -347,12 +347,11 @@ namespace AvatarImageReader
             Array.Reverse(colors);
 
             Color32 idColor = colors[0];
-            dataLength = (idColor.r << 24) | (idColor.g << 16) |
-                         (idColor.b << 8) | (idColor.a);
+            dataLength = (idColor.r << 24) | (idColor.g << 16) | (idColor.b << 8) | (idColor.a);
 
             if (dataLength > maxDataLength)
             {
-                LogError($"WARNING: Encoded data length is {dataLength} bytes, only {maxDataLength} bytes will be read. Check your encoder.");
+                LogWarning($"Encoded data length is {dataLength} bytes, only {maxDataLength} bytes will be read. Check your encoder.");
                 dataLength = maxDataLength;
             }
 
@@ -371,13 +370,13 @@ namespace AvatarImageReader
             {
                 var headerInfo = colors[6];
                 dataMode = (DataMode) headerInfo.r;
-                Debug.LogError($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b} Encoder: {headerInfo.a} DataMode: {dataMode}");
+                Log($"<color=#00FFFF>Loading AvatarImageReader Image</color> V{headerInfo.g}.{headerInfo.b} Encoder: {headerInfo.a} DataMode: {dataMode}");
                 pixelIndex = 7; //start decoding at 7th pixel (skip the header)
                 maxIndex = dataLength / 4 + 7; //last pixel we should read, data length + header size
             }
             else
             {
-                Debug.LogError($"<color=#FF0000>ENCODED WITH OLD VERSION OF AIR</color>");
+                LogWarning($"<color=#FF0000>Detected image was encoded with old version of encoder</color>");
 
                 pixelIndex = 5; //start decoding at 6th pixel (skip the header)
                 maxIndex = dataLength / 4 + 5; //last pixel we should read, data length + header size
@@ -385,7 +384,7 @@ namespace AvatarImageReader
             }
             nextAvatar = $"avtr_{nextAvatar.Substring(0, 8)}-{nextAvatar.Substring(8, 4)}-{nextAvatar.Substring(12, 4)}-{nextAvatar.Substring(16, 4)}-{nextAvatar.Substring(20, 12)}";
 
-            Log($"<color=#00AAFF>Starting Read for avatar {avatarCounter}</color>");
+            Log($"Starting Read for avatar {avatarCounter}</color>");
             Log($"Input: {picture.width} x {picture.height} [{picture.format}]");
 
             Log($"Data length: {dataLength} bytes");
@@ -426,14 +425,14 @@ namespace AvatarImageReader
             }
 
             //if we are done, decode any possible remaining bytes one by one
-            pixelIndex++;
-
             if (byteIndex < dataLength) avatarBytes[byteIndex++] = colors[pixelIndex].r;
             if (byteIndex < dataLength) avatarBytes[byteIndex++] = colors[pixelIndex].g;
             if (byteIndex < dataLength) avatarBytes[byteIndex++] = colors[pixelIndex].b;
             if (byteIndex < dataLength) avatarBytes[byteIndex] = colors[pixelIndex].a;
 
             //resize the outputBytes array and copy over the newly read data
+
+            Log("Finished reading data, preparing decode");
 
             //create a temporary intermediate array
             byte[] temp = new byte[outputBytes.Length];
@@ -453,7 +452,7 @@ namespace AvatarImageReader
                 QueueNextAvatarLoad();
                 return;
             }
-
+            
             switch (dataMode)
             {
                 case DataMode.UTF16:
@@ -516,6 +515,7 @@ namespace AvatarImageReader
             for (; decodeIndex < toIterate; decodeIndex++)
             {
                 byte value = outputBytes[decodeIndex];
+                
                 if ((value & _0x80) == 0)
                 {
                     _utf8Chars[charIndex++] = ((char)value).ToString();
@@ -610,8 +610,6 @@ namespace AvatarImageReader
                 outputText.text = outputString.Substring(0, textLength);
             }
 
-            Debug.Log(outputString);
-
             if (callBackOnFinish && callbackBehaviour != null && callbackEventName != "")
                 callbackBehaviour.SendCustomEvent(callbackEventName);
 
@@ -624,6 +622,19 @@ namespace AvatarImageReader
             if (!debugLogging) return;
 
             Debug.Log($"{LOG_PREFIX} {text}");
+
+            if (debugTMP)
+            {
+                DateTime now = DateTime.Now;
+                loggerText.text += $"{now.ToLongTimeString()}: {text}\n";
+            }
+        }
+        
+        private void LogWarning(string text)
+        {
+            if (!debugLogging) return;
+
+            Debug.LogWarning($"{LOG_PREFIX} {text}");
 
             if (debugTMP)
             {
