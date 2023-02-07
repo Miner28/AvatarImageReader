@@ -2,6 +2,7 @@
 
 using BocuD.VRChatApiTools;
 using System.IO;
+using AvatarImageReader.Enums;
 using UnityEditor;
 using UnityEngine;
 using VRC.Core;
@@ -29,7 +30,8 @@ namespace AvatarImageReader.Editor
 
             if (GUILayout.Button("Encode Image"))
             {
-                output = AvatarImageEncoder.EncodeUTF16Text(text, "");
+                Texture2D[] outputImages = AvatarImageEncoder.EncodeText(text, new string[1] { selectedAvatar.id }, 128, 96, DataMode.UTF8);
+                output = outputImages[0];
             }
 
             if (output != null)

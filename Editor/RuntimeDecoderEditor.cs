@@ -502,7 +502,7 @@ namespace AvatarImageReader.Editor
             imageWidth = reader.imageMode == 0 ? 128 : 1200;
             imageHeight = reader.imageMode == 0 ? 96 : 900;
 
-            output = AvatarImageEncoder.Encode(reader.dataMode, text, reader.linkedAvatars, imageWidth, imageHeight);
+            output = AvatarImageEncoder.EncodeText(text, reader.linkedAvatars, imageWidth, imageHeight, reader.dataMode);
 
             texturePreview = new GUIContent[output.Length];
             for (int i = 0; i < output.Length; i++)
